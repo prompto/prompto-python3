@@ -23,14 +23,14 @@ class BaseParserTest(unittest.TestCase):
         self.context = Context.newGlobalContext()
 
     def getResourceAsString(self, resourceName, mode):
-        idx = __file__.index("/Python3/Core/")
-        file = __file__[0:idx] + "/Test/resources/" + resourceName
+        idx = __file__.index("/presto-python3/Python3-Core/")
+        file = __file__[0:idx] + "/presto-tests/Tests/resources/" + resourceName
         with open(file, mode) as input:
             return input.read()
 
     def getResourceAsStream(self, resourceName, mode):
-        idx = __file__.index("/Python3/Core/")
-        file = __file__[0:idx] + "/Test/resources/" + resourceName
+        idx = __file__.index("/presto-python3/Python3-Core/")
+        file = __file__[0:idx] + "/presto-tests/Tests/resources/" + resourceName
         return open(file, mode)
 
     def loadResource(self, resourceName):
