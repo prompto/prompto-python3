@@ -1,0 +1,3 @@
+class IAssignableInstance ( object ):
+
+	pass

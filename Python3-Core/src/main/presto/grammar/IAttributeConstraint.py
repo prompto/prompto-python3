@@ -1,0 +1,3 @@
+class IAttributeConstraint ( object ) :
+
+	pass

@@ -1,0 +1,3 @@
+class NativeCategoryMapping ( object ):
+
+    pass

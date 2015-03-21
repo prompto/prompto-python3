@@ -1,0 +1,3 @@
+class IContext(object):
+
+	pass

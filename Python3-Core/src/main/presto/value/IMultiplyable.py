@@ -1,0 +1,3 @@
+class IMultiplyable(object):
+    
+    pass

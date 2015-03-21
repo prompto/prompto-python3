@@ -1,0 +1,3 @@
+class IType(object):
+	pass
+	
