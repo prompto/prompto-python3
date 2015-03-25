@@ -1,4 +1,11 @@
 from presto.error.PrestoError import PrestoError
+from presto.expression.ConstructorExpression import ConstructorExpression
+from presto.grammar.ArgumentAssignment import ArgumentAssignment
+from presto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
+from presto.grammar.UnresolvedArgument import UnresolvedArgument
+from presto.literal.TextLiteral import TextLiteral
+from presto.type.CategoryType import CategoryType
+
 
 class ExecutionError(PrestoError):
 

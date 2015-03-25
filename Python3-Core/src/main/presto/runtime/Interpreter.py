@@ -6,10 +6,10 @@ from presto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
 from presto.grammar.ArgumentAssignment import ArgumentAssignment
 from presto.grammar.UnresolvedArgument import UnresolvedArgument
 from presto.utils.ArgsParser import ArgsParser
+from presto.value.ExpressionValue import ExpressionValue
 from presto.value.Text import Text
 from presto.value.Dictionary import Dictionary
 from presto.literal.DictLiteral import DictLiteral
-from presto.value.ExpressionValue import ExpressionValue
 from presto.runtime.Context import MethodDeclarationMap
 from presto.grammar.ITypedArgument import ITypedArgument
 from presto.error.SyntaxError import SyntaxError
@@ -57,7 +57,7 @@ class Interpreter(object):
             for key, value in args:
                 valueArgs[Text(key)] = Text(value)
             dict_ = Dictionary(valueArgs)
-            return ValueExpression(Interpreter.argsType, dict_)
+            return ExpressionValue(Interpreter.argsType, dict_)
         except:
             # TODO
             return DictLiteral()
@@ -81,9 +81,9 @@ class Interpreter(object):
 
     @staticmethod
     def locateMethodWithTypes(methodMap, argTypes=None):
-        # try exact match first
         if not argTypes:
             argTypes = []
+        # try exact match first
         for method in methodMap.values():
             if Interpreter.identicalArguments(method.getArguments(), argTypes):
                 return method

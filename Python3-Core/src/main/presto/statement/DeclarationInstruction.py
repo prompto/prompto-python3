@@ -8,6 +8,7 @@ from presto.value.ClosureValue import ClosureValue
 from presto.value.ExpressionValue import ExpressionValue
 from presto.error.SyntaxError import SyntaxError
 
+
 class DeclarationInstruction(BaseStatement):
 
     def __init__(self, declaration):

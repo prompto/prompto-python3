@@ -334,7 +334,7 @@ class MethodDeclarationMap(dict, IDeclaration):
     def register(self, declaration, context):
         proto = declaration.getProto(context)
         if self.get(proto, None) != None:
-            raise SyntaxError("Duplicate prototype for name: \"" + declaration.getName() + "\"")
+            raise SyntaxError("Duplicate prototype for name: \"" + declaration.name + "\"")
         self[proto] = declaration
 
     def registerIfMissing(self, declaration, context):
