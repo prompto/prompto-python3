@@ -229,6 +229,24 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#test_method_declaration.
+    def enterTest_method_declaration(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#test_method_declaration.
+    def exitTest_method_declaration(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#assertion.
+    def enterAssertion(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#assertion.
+    def exitAssertion(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#typed_argument.
     def enterTyped_argument(self, ctx):
         pass
@@ -1975,6 +1993,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#TestMethod.
+    def enterTestMethod(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#TestMethod.
+    def exitTestMethod(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#NativeStatementList.
     def enterNativeStatementList(self, ctx):
         pass
@@ -2071,6 +2098,24 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#StatementList.
     def exitStatementList(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#AssertionListItem.
+    def enterAssertionListItem(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#AssertionListItem.
+    def exitAssertionListItem(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#AssertionList.
+    def enterAssertionList(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#AssertionList.
+    def exitAssertionList(self, ctx):
         pass
 
 

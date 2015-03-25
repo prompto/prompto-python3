@@ -89,7 +89,7 @@ class TestCheck(BaseOParserTest):
 
 
     def testList(self):
-        stmts = self.parseString("method test (Text value) {" +
+        stmts = self.parseString("method testMethod (Text value) {" +
                                  "list = [ \"john\" , \"jim\" ];" +
                                  "elem = list[1]; }")
         stmts.register(self.context)
@@ -97,7 +97,7 @@ class TestCheck(BaseOParserTest):
 
 
     def testDict(self):
-        stmts = self.parseString("method test (Text value) {" +
+        stmts = self.parseString("method testMethod (Text value) {" +
                                  "dict = { \"john\":123, \"jim\":345 };" +
                                  "elem = dict[\"john\"]; }")
         stmts.register(self.context)

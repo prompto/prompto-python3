@@ -3,7 +3,7 @@ import os
 
 from presto.declaration.BaseDeclaration import *
 from presto.declaration.IMethodDeclaration import IMethodDeclaration
-from presto.error.SyntaxError import SyntaxError;
+from presto.error.SyntaxError import SyntaxError
 from presto.grammar.ArgumentAssignment import ArgumentAssignment
 
 
@@ -52,7 +52,7 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
         return self.returnType
 
     def register(self, context):
-        context.registerMethod(self)
+        context.registerMethodDeclaration(self)
 
     def registerArguments(self, context):
         self.arguments.register(context)

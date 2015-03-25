@@ -14,7 +14,10 @@ class EqOp (object):
         self.P = p
 
     def toDialect(self, writer):
-        writer.append(getattr(self, writer.dialect.name))
+        writer.append(self.toString(writer.dialect))
+
+    def toString(self, dialect):
+        return getattr(self, dialect.name)
 
 EqOp.IS = EqOp("is", "is", "is")
 EqOp.IS_NOT = EqOp("is not", "is not", "is not")

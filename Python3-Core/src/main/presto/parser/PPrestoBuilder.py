@@ -22,6 +22,7 @@ from presto.declaration.MemberMethodDeclaration import MemberMethodDeclaration
 from presto.declaration.OperatorMethodDeclaration import OperatorMethodDeclaration
 from presto.declaration.NativeCategoryDeclaration import NativeCategoryDeclaration
 from presto.declaration.NativeMethodDeclaration import NativeMethodDeclaration
+from presto.declaration.TestMethodDeclaration import TestMethodDeclaration
 from presto.declaration.NativeResourceDeclaration import NativeResourceDeclaration
 from presto.declaration.SetterMethodDeclaration import SetterMethodDeclaration
 from presto.declaration.SingletonCategoryDeclaration import SingletonCategoryDeclaration
@@ -126,6 +127,7 @@ from presto.literal.TupleLiteral import TupleLiteral
 from presto.parser.PParser import PParser
 from presto.parser.PParserListener import PParserListener
 from presto.parser.Section import Section
+from presto.parser.Dialect import Dialect
 from presto.python.PythonArgument import PythonNamedArgument, PythonArgumentList
 from presto.python.PythonBooleanLiteral import PythonBooleanLiteral
 from presto.python.PythonCharacterLiteral import PythonCharacterLiteral
@@ -192,7 +194,7 @@ class PPrestoBuilder(PParserListener):
     def buildSection(self, node:ParserRuleContext, section:Section):
         first = self.findFirstValidToken(node.start.tokenIndex)
         last = self.findLastValidToken(node.stop.tokenIndex)
-        section.setFrom(self.path, first, last)
+        section.setFrom(self.path, first, last, Dialect.P)
 
     def findFirstValidToken(self, idx:int):
         if idx == -1:  # happens because input.index() is called before any other read operation (bug?)
@@ -297,6 +299,23 @@ class PPrestoBuilder(PParserListener):
         items = self.getNodeValue(ctx.items)
         item = self.getNodeValue(ctx.item)
         items.append(item)
+        self.setNodeValue(ctx, items)
+
+    def exitAssertion(self, ctx:PParser.AssertionContext):
+        exp = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, exp)
+
+
+    def exitAssertionList(self, ctx:PParser.AssertionListContext):
+        item = self.getNodeValue(ctx.item)
+        items = [ item ]
+        self.setNodeValue(ctx, items)
+
+
+    def exitAssertionListItem(self, ctx:PParser.AssertionListItemContext):
+        item = self.getNodeValue(ctx.item)
+        items = self.getNodeValue(ctx.items)
+        items.push(item)
         self.setNodeValue(ctx, items)
 
 
@@ -1141,7 +1160,7 @@ class PPrestoBuilder(PParserListener):
 
     def exitJavascript_module(self, ctx:PParser.Javascript_moduleContext):
         ids = []
-        for ic in ctx.identifier():
+        for ic in ctx.javascript_identifier():
             ids.append(ic.getText())
         module = JavaScriptModule(ids)
         self.setNodeValue(ctx, module)
@@ -1980,6 +1999,18 @@ class PPrestoBuilder(PParserListener):
     def exitTextLiteral(self, ctx:PParser.TextLiteralContext):
         self.setNodeValue(ctx, TextLiteral(ctx.t.text))
 
+    def exitTest_method_declaration(self, ctx:PParser.Test_method_declarationContext):
+        name = ctx.name.text
+        stmts = self.getNodeValue(ctx.stmts)
+        exps = self.getNodeValue(ctx.exps)
+        errorName = self.getNodeValue(ctx.error)
+        error = None if errorName is None else SymbolExpression(errorName)
+        self.setNodeValue(ctx, TestMethodDeclaration(name, stmts, exps, error))
+
+
+    def exitTestMethod(self, ctx:PParser.TestMethodContext):
+        decl = self.getNodeValue(ctx.decl)
+        self.setNodeValue(ctx, decl)
 
     def exitTextType(self, ctx:PParser.TextTypeContext):
         self.setNodeValue(ctx, TextType.instance)

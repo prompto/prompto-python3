@@ -43,7 +43,10 @@ class BaseParserTest(unittest.TestCase):
 
     def runResource(self, resourceName):
         self.loadResource(resourceName)
-        Interpreter.interpretMainNoArgs(self.context)
+        if self.context.hasTests():
+            Interpreter.interpretTests(self.context)
+        else:
+            Interpreter.interpretMainNoArgs(self.context)
 
     def runResourceMethod(self, resourceName, methodName, cmdLineArgs):
         self.loadResource(resourceName)

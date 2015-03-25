@@ -22,6 +22,7 @@ from presto.declaration.MemberMethodDeclaration import MemberMethodDeclaration
 from presto.declaration.NativeCategoryDeclaration import NativeCategoryDeclaration
 from presto.declaration.NativeMethodDeclaration import NativeMethodDeclaration
 from presto.declaration.NativeResourceDeclaration import NativeResourceDeclaration
+from presto.declaration.TestMethodDeclaration import TestMethodDeclaration
 from presto.declaration.OperatorMethodDeclaration import OperatorMethodDeclaration
 from presto.declaration.SetterMethodDeclaration import SetterMethodDeclaration
 from presto.declaration.SingletonCategoryDeclaration import SingletonCategoryDeclaration
@@ -126,6 +127,7 @@ from presto.literal.TupleLiteral import TupleLiteral
 from presto.parser.EParser import EParser
 from presto.parser.EParserListener import EParserListener
 from presto.parser.Section import Section
+from presto.parser.Dialect import Dialect
 from presto.python.PythonArgument import PythonNamedArgument, PythonNamedArgumentList, PythonOrdinalArgumentList
 from presto.python.PythonBooleanLiteral import PythonBooleanLiteral
 from presto.python.PythonCharacterLiteral import PythonCharacterLiteral
@@ -195,7 +197,7 @@ class EPrestoBuilder(EParserListener):
     def buildSection(self, node:ParserRuleContext, section:Section):
         first = self.findFirstValidToken(node.start.tokenIndex)
         last = self.findLastValidToken(node.stop.tokenIndex)
-        section.setFrom(self.path, first, last)
+        section.setFrom(self.path, first, last, Dialect.E)
 
     def findFirstValidToken(self, idx:int):
         if idx==-1: # happens because input.index() is called before any other read operation (bug?)
@@ -334,12 +336,27 @@ class EPrestoBuilder(EParserListener):
         self.setNodeValue(ctx, DateTimeLiteral(ctx.t.text))
     
 
-    def exitTernaryExpression(self, ctx):
+    def exitTernaryExpression(self, ctx:EParser.TernaryExpressionContext):
         condition = self.getNodeValue(ctx.test)
         ifTrue = self.getNodeValue(ctx.ifTrue)
         ifFalse = self.getNodeValue(ctx.ifFalse)
         exp = TernaryExpression(condition, ifTrue, ifFalse)
         self.setNodeValue(ctx, exp)
+
+
+    def exitTest_method_declaration(self, ctx:EParser.Test_method_declarationContext):
+        name = ctx.name.text
+        stmts = self.getNodeValue(ctx.stmts)
+        exps = self.getNodeValue(ctx.exps)
+        errorName = self.getNodeValue(ctx.error)
+        error = None if errorName is None else SymbolExpression(errorName)
+        self.setNodeValue(ctx, TestMethodDeclaration(name, stmts, exps, error))
+
+
+    def exitTestMethod(self, ctx:EParser.TestMethodContext):
+        decl = self.getNodeValue(ctx.decl)
+        self.setNodeValue(ctx, decl)
+
 
     def exitTextLiteral(self, ctx:EParser.TextLiteralContext):
         self.setNodeValue(ctx, TextLiteral(ctx.t.text))
@@ -974,6 +991,23 @@ class EPrestoBuilder(EParserListener):
             args.append(arg)
         self.setNodeValue(ctx, ConstructorExpression(type, args))
     
+
+    def exitAssertion(self, ctx:EParser.AssertionContext):
+        exp = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, exp)
+
+
+    def exitAssertionList(self, ctx:EParser.AssertionListContext):
+        item = self.getNodeValue(ctx.item)
+        items = [ item ]
+        self.setNodeValue(ctx, items)
+
+
+    def exitAssertionListItem(self, ctx:EParser.AssertionListItemContext):
+        item = self.getNodeValue(ctx.item)
+        items = self.getNodeValue(ctx.items)
+        items.push(item)
+        self.setNodeValue(ctx, items)
 
     
     def exitAssign_instance_statement(self, ctx:EParser.Assign_instance_statementContext):
@@ -2336,7 +2370,7 @@ class EPrestoBuilder(EParserListener):
 
     def exitJavascript_module(self, ctx:EParser.Javascript_moduleContext):
         ids = []
-        for ic in ctx.identifier():
+        for ic in ctx.javascript_identifier():
             ids.append(ic.getText())
         module = JavaScriptModule(ids)
         self.setNodeValue(ctx, module)

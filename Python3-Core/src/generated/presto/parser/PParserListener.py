@@ -193,6 +193,24 @@ class PParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PParser#test_method_declaration.
+    def enterTest_method_declaration(self, ctx):
+        pass
+
+    # Exit a parse tree produced by PParser#test_method_declaration.
+    def exitTest_method_declaration(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by PParser#assertion.
+    def enterAssertion(self, ctx):
+        pass
+
+    # Exit a parse tree produced by PParser#assertion.
+    def exitAssertion(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by PParser#typed_argument.
     def enterTyped_argument(self, ctx):
         pass
@@ -1957,6 +1975,15 @@ class PParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PParser#TestMethod.
+    def enterTestMethod(self, ctx):
+        pass
+
+    # Exit a parse tree produced by PParser#TestMethod.
+    def exitTestMethod(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by PParser#NativeStatementList.
     def enterNativeStatementList(self, ctx):
         pass
@@ -2053,6 +2080,24 @@ class PParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by PParser#StatementList.
     def exitStatementList(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by PParser#AssertionListItem.
+    def enterAssertionListItem(self, ctx):
+        pass
+
+    # Exit a parse tree produced by PParser#AssertionListItem.
+    def exitAssertionListItem(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by PParser#AssertionList.
+    def enterAssertionList(self, ctx):
+        pass
+
+    # Exit a parse tree produced by PParser#AssertionList.
+    def exitAssertionList(self, ctx):
         pass
 
 

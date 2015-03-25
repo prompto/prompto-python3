@@ -18,6 +18,12 @@ class Interpreter(object):
     argsType = DictType(TextType.instance)
 
     @staticmethod
+    def interpretTests(context):
+        for test in context.tests.values():
+            local = context.newLocalContext()
+            test.interpret(local)
+
+    @staticmethod
     def interpretMainNoArgs(context):
         Interpreter.interpret(context, "main", "")
 
@@ -50,8 +56,8 @@ class Interpreter(object):
             valueArgs = dict()
             for key, value in args:
                 valueArgs[Text(key)] = Text(value)
-            dict = Dictionary(valueArgs)
-            return ValueExpression(Interpreter.argsType, dict)
+            dict_ = Dictionary(valueArgs)
+            return ValueExpression(Interpreter.argsType, dict_)
         except:
             # TODO
             return DictLiteral()
@@ -74,21 +80,23 @@ class Interpreter(object):
 
 
     @staticmethod
-    def locateMethodWithTypes(map, argTypes=[]):
+    def locateMethodWithTypes(methodMap, argTypes=None):
         # try exact match first
-        for method in map.values():
+        if not argTypes:
+            argTypes = []
+        for method in methodMap.values():
             if Interpreter.identicalArguments(method.getArguments(), argTypes):
                 return method
         # match Text{} argument, will pass None
         if len(argTypes) == 0:
-            for method in map.values():
+            for method in methodMap.values():
                 if Interpreter.isSingleTextDictArgument(method.getArguments()):
                     return method
         # match no argument, will ignore options
-        for method in map.values():
+        for method in methodMap.values():
             if len(method.getArguments()) == 0:
                 return method
-        raise SyntaxError("Could not find a compatible \"" + map.getName() + "\" method.")
+        raise SyntaxError("Could not find a compatible \"" + methodMap.getName() + "\" method.")
 
 
     @staticmethod

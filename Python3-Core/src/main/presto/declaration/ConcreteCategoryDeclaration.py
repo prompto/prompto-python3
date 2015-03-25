@@ -66,9 +66,9 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
             self.methodsMap = dict()
             if self.methods is not None:
                 for method in self.methods:
-                    self.registerMethod(method,context)
+                    self.registerMethodDeclaration(method,context)
 
-    def registerMethod(self, method, context):
+    def registerMethodDeclaration(self, method, context):
         actual = None
         if isinstance(method, SetterMethodDeclaration):
             actual = self.methodsMap.get("setter:"+method.getName())

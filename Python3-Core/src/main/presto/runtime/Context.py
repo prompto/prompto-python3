@@ -33,6 +33,7 @@ class Context(IContext):
         self.parent = None  # for inner methods
         self.debugger = None
         self.declarations = dict()
+        self.tests = dict()
         self.instances = dict()
         self.values = dict()
 
@@ -143,15 +144,23 @@ class Context(IContext):
             raise SyntaxError("Duplicate name: \"" + declaration.getName() + "\"")
         self.declarations[declaration.getName()] = declaration
 
-    def registerMethod(self, declaration):
+    def registerMethodDeclaration(self, declaration):
         actual = self.getRegistered(declaration.getName())
-        if actual != None and not isinstance(actual, MethodDeclarationMap):
-            raise SyntaxError("Duplicate name: \"" + declaration.getName() + "\"")
+        if actual is not None and not isinstance(actual, MethodDeclarationMap):
+            raise SyntaxError("Duplicate name: \"" + declaration.name + "\"")
         if actual == None:
             actual = MethodDeclarationMap(declaration.getName())
             self.declarations[declaration.getName()] = actual
         actual.register(declaration, self)
 
+    def registerTestDeclaration(self, declaration):
+        actual = self.tests.get(declaration.name, None)
+        if actual is not None:
+            raise SyntaxError("Duplicate test: \"" + declaration.name + "\"")
+        self.tests[declaration.name] = declaration
+
+    def hasTests(self):
+        return len(self.tests)>0
 
     def getRegisteredValue(self, klass, name):
         context = self.contextForValue(name)

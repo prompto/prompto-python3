@@ -57,4 +57,5 @@ class CategorySymbol(Symbol, IExpression):
             for assignment in self.assignments:
                 value = assignment.getExpression().interpret(context)
                 instance.set(context, assignment.getName(), value)
+        instance.set(context, "name", self.symbol)
         return instance

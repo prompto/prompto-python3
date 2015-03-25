@@ -64,8 +64,9 @@ class EnumeratedCategoryDeclaration ( ConcreteCategoryDeclaration, IEnumeratedDe
                 writer.append(" with attributes: ")
             self.attributes.toDialect(writer, True)
             if len(self.symbols)>0:
-                writer.append(",")
-        writer.append(" with symbols:\n")
+                writer.append(", and symbols:\n")
+        else:
+            writer.append(" with symbols:\n")
         writer.indent()
         for symbol in self.symbols:
             symbol.toDialect(writer)

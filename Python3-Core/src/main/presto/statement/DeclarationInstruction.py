@@ -6,9 +6,10 @@ from presto.type.MethodType import MethodType
 from presto.type.VoidType import VoidType
 from presto.value.ClosureValue import ClosureValue
 from presto.value.ExpressionValue import ExpressionValue
-
+from presto.error.SyntaxError import SyntaxError
 
 class DeclarationInstruction(BaseStatement):
+
     def __init__(self, declaration):
         super(DeclarationInstruction, self).__init__()
         self.declaration = declaration
@@ -42,7 +43,7 @@ class DeclarationInstruction(BaseStatement):
     def toDialect(self, writer):
         if isinstance(self.declaration, ConcreteMethodDeclaration):
             try:
-                writer.context.registerMethod(self.declaration)
+                writer.context.registerMethodDeclaration(self.declaration)
             except:
                 pass # ok
         self.declaration.toDialect(writer)

@@ -9,6 +9,7 @@ from presto.type.BooleanType import BooleanType
 from presto.value.Boolean import Boolean
 from presto.value.IValue import IValue
 from presto.value.TypeValue import TypeValue
+from presto.utils.CodeWriter import CodeWriter
 
 VOWELS = "AEIO" # sufficient here
 
@@ -42,6 +43,9 @@ class EqualsExpression ( IExpression ):
     def interpret(self, context):
         lval = self.left.interpret(context)
         rval = self.right.interpret(context)
+        return self.interpretValues(context, lval, rval)
+
+    def interpretValues(self, context, lval, rval):
         if self.operator is EqOp.IS:
             equal = id(lval)==id(rval)
         elif self.operator is EqOp.IS_NOT:
@@ -101,3 +105,16 @@ class EqualsExpression ( IExpression ):
             return self.left.name
         else:
             return None
+
+    def interpretAssert(self, context, test):
+        lval = self.left.interpret(context)
+        rval = self.right.interpret(context)
+        result = self.interpretValues(context, lval, rval)
+        if result is Boolean.TRUE:
+            return True
+        writer = CodeWriter(test.dialect, context)
+        self.toDialect(writer)
+        expected = str(writer)
+        actual = str(lval) + " " + self.operator.toString(test.dialect) + " " + str(rval)
+        test.printFailure(context, expected, actual)
+        return False

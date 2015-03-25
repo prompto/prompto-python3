@@ -82,14 +82,14 @@ class TestCheck(BaseEParserTest):
         stmts.check(self.context)
 
     def testList(self):
-        stmts = self.parseString("define test as: method receiving: Text value doing:\r\n" +
+        stmts = self.parseString("define testMethod as: method receiving: Text value doing:\r\n" +
                                  "\tlist = [ \"john\" , \"jim\" ]\r\n" +
                                  "\telem = list[1]\r\n")
         stmts.register(self.context)
         stmts.check(self.context)
 
     def testDict(self):
-        stmts = self.parseString("define test as: method receiving: Text value doing:\r\n" +
+        stmts = self.parseString("define testMethod as: method receiving: Text value doing:\r\n" +
                                  "\tdict = { \"john\":123, \"jim\":345 }\r\n" +
                                  "\telem = dict[\"john\"]\r\n")
         stmts.register(self.context)
