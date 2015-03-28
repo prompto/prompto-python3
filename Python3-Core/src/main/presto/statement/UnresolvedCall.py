@@ -12,6 +12,7 @@ from presto.statement.MethodCall import MethodCall
 from presto.statement.SimpleStatement import SimpleStatement
 from presto.type.CategoryType import CategoryType
 from presto.error.SyntaxError import SyntaxError
+from presto.utils.CodeWriter import CodeWriter
 
 class UnresolvedCall(SimpleStatement):
 
@@ -69,3 +70,12 @@ class UnresolvedCall(SimpleStatement):
         parent = self.caller.getParent()
         name = self.caller.getName()
         return MethodCall(MethodSelector(name, parent), self.assignments)
+
+    def interpretAssert(self, context, testMethodDeclaration):
+        self.resolve(context)
+        if getattr(self.resolved, "interpretAssert", None) is not None:
+            return self.resolved.interpretAssert(context, testMethodDeclaration)
+        else:
+            writer = CodeWriter(self.dialect, context)
+            self.resolved.toDialect(writer)
+            raise SyntaxError("Cannot test '" + str(writer) + "'")

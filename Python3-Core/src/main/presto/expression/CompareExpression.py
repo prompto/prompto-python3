@@ -47,3 +47,16 @@ class CompareExpression ( IExpression ):
             return Boolean.ValueOf(cmp <= 0)
         else:
             raise SyntaxError("Illegal compare operand: " + str(self.operator))
+
+    def interpretAssert(self, context, test):
+        lval = self.left.interpret(context)
+        rval = self.right.interpret(context)
+        result = self.compare(context, lval, rval)
+        if result is Boolean.TRUE:
+            return True
+        writer = CodeWriter(test.dialect, context)
+        self.toDialect(writer)
+        expected = str(writer)
+        actual = str(lval) + " " + self.operator.toDialect(test.dialect) + " " + str(rval)
+        test.printFailure(context, expected, actual)
+        return False

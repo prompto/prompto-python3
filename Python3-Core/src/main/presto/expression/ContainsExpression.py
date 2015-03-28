@@ -35,6 +35,9 @@ class ContainsExpression(IExpression):
     def interpret(self, context):
         lval = self.left.interpret(context)
         rval = self.right.interpret(context)
+        return self.interpretValue(context, lval, rval)
+
+    def interpretValue(self, context, lval, rval):
         if isinstance(lval, IValue) and isinstance(rval, IValue):
             result = None
             if self.operator in [ContOp.IN, ContOp.NOT_IN]:
@@ -82,4 +85,17 @@ class ContainsExpression(IExpression):
                     return True
             else:
                 raise SyntaxError("Illegal contain: Text + " + type(item).__name__)
+        return False
+
+    def interpretAssert(self, context, test):
+        lval = self.left.interpret(context)
+        rval = self.right.interpret(context)
+        result = self.interpretValue(context, lval, rval)
+        if result is Boolean.TRUE:
+            return True
+        writer = CodeWriter(test.dialect, context)
+        self.toDialect(writer)
+        expected = str(writer)
+        actual = str(lval) + self.operator.toDialect(test.dialect) + str(rval)
+        test.printFailure(context, expected, actual)
         return False

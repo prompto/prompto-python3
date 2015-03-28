@@ -949,15 +949,6 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#ConstructorExpression.
-    def enterConstructorExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#ConstructorExpression.
-    def exitConstructorExpression(self, ctx):
-        pass
-
-
     # Enter a parse tree produced by OParser#FetchExpression.
     def enterFetchExpression(self, ctx):
         pass
@@ -991,6 +982,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#MethodCallExpression.
     def exitMethodCallExpression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#ConstructorExpression.
+    def enterConstructorExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#ConstructorExpression.
+    def exitConstructorExpression(self, ctx):
         pass
 
 

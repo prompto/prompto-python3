@@ -151,6 +151,7 @@ from presto.statement.DoWhileStatement import DoWhileStatement
 from presto.statement.ForEachStatement import ForEachStatement
 from presto.statement.IfStatement import IfElement, IfStatement, IfElementList
 from presto.statement.MethodCall import MethodCall
+from presto.statement.UnresolvedCall import UnresolvedCall
 from presto.statement.RaiseStatement import RaiseStatement
 from presto.statement.ReturnStatement import ReturnStatement
 from presto.statement.StatementList import StatementList
@@ -759,7 +760,7 @@ class OPrestoBuilder(OParserListener):
     
     def exitMethodName(self, ctx:OParser.MethodNameContext):
         name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, MethodSelector(name))
+        self.setNodeValue(ctx, UnresolvedIdentifier(name))
 
     def exitMethodParent(self, ctx:OParser.MethodParentContext):
         name = self.getNodeValue(ctx.name)
@@ -792,7 +793,7 @@ class OPrestoBuilder(OParserListener):
     def exitMethod_call(self, ctx:OParser.Method_callContext):
         selector = self.getNodeValue(ctx.method)
         args = self.getNodeValue(ctx.args)
-        self.setNodeValue(ctx, MethodCall(selector, args))
+        self.setNodeValue(ctx, UnresolvedCall(selector, args))
     
     def exitArgument_assignment(self, ctx:OParser.Argument_assignmentContext):
         name = self.getNodeValue(ctx.name)

@@ -7,9 +7,10 @@ from presto.grammar.ArgumentAssignmentList import *
 from presto.runtime.MethodFinder import *
 from presto.declaration.ClosureDeclaration import ClosureDeclaration
 from presto.value.ClosureValue import ClosureValue
-
+from presto.value.Boolean import Boolean
 
 class MethodCall(SimpleStatement):
+
     def __init__(self, method, assignments=None):
         super(MethodCall, self).__init__()
         self.method = method
@@ -70,6 +71,15 @@ class MethodCall(SimpleStatement):
             value = assignment.getArgument().checkValue(context, expression)
             local.setValue(assignment.getName(), value)
         return declaration.interpret(local)
+
+    def interpretAssert(self, context, testMethodDeclaration):
+        value = self.interpret(context)
+        if isinstance(value, Boolean):
+            return value.value
+        else:
+            writer = CodeWriter(self.dialect, context)
+            self.toDialect(writer)
+            raise SyntaxError("Cannot test '" + str(writer) + "'")
 
     def findDeclaration(self, context):
         try:

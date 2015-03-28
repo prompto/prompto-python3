@@ -562,9 +562,9 @@ def serializedATN():
         buf.write("t\2\u03e3\u03e8\3\2\2\2\u03e4\u03e5\f\3\2\2\u03e5\u03e7")
         buf.write("\5j\66\2\u03e6\u03e4\3\2\2\2\u03e7\u03ea\3\2\2\2\u03e8")
         buf.write("\u03e6\3\2\2\2\u03e8\u03e9\3\2\2\2\u03e9]\3\2\2\2\u03ea")
-        buf.write("\u03e8\3\2\2\2\u03eb\u03f2\5`\61\2\u03ec\u03f2\5l\67\2")
-        buf.write("\u03ed\u03f2\5f\64\2\u03ee\u03f2\5b\62\2\u03ef\u03f2\5")
-        buf.write("h\65\2\u03f0\u03f2\5P)\2\u03f1\u03eb\3\2\2\2\u03f1\u03ec")
+        buf.write("\u03e8\3\2\2\2\u03eb\u03f2\5`\61\2\u03ec\u03f2\5f\64\2")
+        buf.write("\u03ed\u03f2\5b\62\2\u03ee\u03f2\5h\65\2\u03ef\u03f2\5")
+        buf.write("P)\2\u03f0\u03f2\5l\67\2\u03f1\u03eb\3\2\2\2\u03f1\u03ec")
         buf.write("\3\2\2\2\u03f1\u03ed\3\2\2\2\u03f1\u03ee\3\2\2\2\u03f1")
         buf.write("\u03ef\3\2\2\2\u03f1\u03f0\3\2\2\2\u03f2_\3\2\2\2\u03f3")
         buf.write("\u03f4\5\u009eP\2\u03f4\u03f5\7\21\2\2\u03f5\u03f6\7\22")
@@ -7403,26 +7403,6 @@ class OParser ( AbstractParser ):
                 listener.exitReadExpression(self)
 
 
-    class FetchExpressionContext(Method_expressionContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Method_expressionContext)
-            super().__init__(parser)
-            self.exp = None # Fetch_expressionContext
-            self.copyFrom(ctx)
-
-        def fetch_expression(self):
-            return self.getTypedRuleContext(OParser.Fetch_expressionContext,0)
-
-
-        def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
-                listener.enterFetchExpression(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
-                listener.exitFetchExpression(self)
-
-
     class ConstructorExpressionContext(Method_expressionContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Method_expressionContext)
@@ -7441,6 +7421,26 @@ class OParser ( AbstractParser ):
         def exitRule(self, listener:ParseTreeListener):
             if isinstance( listener, OParserListener ):
                 listener.exitConstructorExpression(self)
+
+
+    class FetchExpressionContext(Method_expressionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Method_expressionContext)
+            super().__init__(parser)
+            self.exp = None # Fetch_expressionContext
+            self.copyFrom(ctx)
+
+        def fetch_expression(self):
+            return self.getTypedRuleContext(OParser.Fetch_expressionContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if isinstance( listener, OParserListener ):
+                listener.enterFetchExpression(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if isinstance( listener, OParserListener ):
+                listener.exitFetchExpression(self)
 
 
     class DocumentExpressionContext(Method_expressionContext):
@@ -7479,38 +7479,38 @@ class OParser ( AbstractParser ):
                 pass
 
             elif la_ == 2:
-                localctx = OParser.ConstructorExpressionContext(self, localctx)
+                localctx = OParser.FetchExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1002
-                localctx.exp = self.constructor_expression()
-                pass
-
-            elif la_ == 3:
-                localctx = OParser.FetchExpressionContext(self, localctx)
-                self.enterOuterAlt(localctx, 3)
-                self.state = 1003
                 localctx.exp = self.fetch_expression()
                 pass
 
-            elif la_ == 4:
+            elif la_ == 3:
                 localctx = OParser.ReadExpressionContext(self, localctx)
-                self.enterOuterAlt(localctx, 4)
-                self.state = 1004
+                self.enterOuterAlt(localctx, 3)
+                self.state = 1003
                 localctx.exp = self.read_expression()
                 pass
 
-            elif la_ == 5:
+            elif la_ == 4:
                 localctx = OParser.SortedExpressionContext(self, localctx)
-                self.enterOuterAlt(localctx, 5)
-                self.state = 1005
+                self.enterOuterAlt(localctx, 4)
+                self.state = 1004
                 localctx.exp = self.sorted_expression()
                 pass
 
-            elif la_ == 6:
+            elif la_ == 5:
                 localctx = OParser.MethodCallExpressionContext(self, localctx)
+                self.enterOuterAlt(localctx, 5)
+                self.state = 1005
+                localctx.exp = self.method_call()
+                pass
+
+            elif la_ == 6:
+                localctx = OParser.ConstructorExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
                 self.state = 1006
-                localctx.exp = self.method_call()
+                localctx.exp = self.constructor_expression()
                 pass
 
 

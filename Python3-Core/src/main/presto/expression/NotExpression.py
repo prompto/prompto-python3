@@ -11,17 +11,15 @@ class NotExpression ( IUnaryExpression ):
     def __str__(self):
         return "not " + str(self.expression)
 
-    def toPDialect(self, writer):
-        writer.append("not ")
+    def toDialect(self, writer):
+        writer.append(self.operatorToDialect(writer.dialect))
         self.expression.toDialect(writer)
 
-    def toEDialect(self, writer):
-        writer.append("not ")
-        self.expression.toDialect(writer)
-
-    def toODialect(self, writer):
-        writer.append("!")
-        self.expression.toDialect(writer)
+    def operatorToDialect(self, dialect):
+        if dialect is Dialect.E or dialect is Dialect.P:
+            return "not "
+        else:
+            return "!"
 
     def check(self, context):
         type_ = self.expression.check(context)
@@ -31,7 +29,22 @@ class NotExpression ( IUnaryExpression ):
 
     def interpret(self, context):
         val = self.expression.interpret(context)
+        return self.interpretValue(context, val)
+
+    def interpretValue(self, context, val):
         if isinstance(val, Boolean):
             return val.getNot()
         else:
             raise SyntaxError("Illegal: not " + type(val).__name__)
+
+    def interpretAssert(self, context, test):
+        val = self.expression.interpret(context)
+        result = self.interpretValue(context, val)
+        if result is Boolean.TRUE:
+            return True
+        writer = CodeWriter(test.dialect, context)
+        self.toDialect(writer)
+        expected = str(writer)
+        actual = self.operatorToDialect(test.dialect) + str(val)
+        test.printFailure(context, expected, actual)
+        return False

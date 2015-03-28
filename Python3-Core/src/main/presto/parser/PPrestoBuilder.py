@@ -1384,7 +1384,7 @@ class PPrestoBuilder(PParserListener):
     def exitMethod_call(self, ctx:PParser.Method_callContext):
         method = self.getNodeValue(ctx.method)
         args = self.getNodeValue(ctx.args)
-        self.setNodeValue(ctx, MethodCall(method, args))
+        self.setNodeValue(ctx, UnresolvedCall(method, args))
 
 
     def exitMethodCallExpression(self, ctx:PParser.MethodCallExpressionContext):
@@ -1409,7 +1409,7 @@ class PPrestoBuilder(PParserListener):
 
     def exitMethodName(self, ctx:PParser.MethodNameContext):
         name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, MethodSelector(name))
+        self.setNodeValue(ctx, UnresolvedIdentifier(name))
 
 
     def exitMethodParent(self, ctx:PParser.MethodParentContext):

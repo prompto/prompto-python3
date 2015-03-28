@@ -19,6 +19,7 @@ from presto.literal.TimeLiteral import *
 from presto.parser.OCleverParser import *
 from presto.parser.Dialect import *
 from presto.statement.NativeCall import NativeCall
+from presto.statement.UnresolvedCall import UnresolvedCall
 from presto.type.CategoryType import *
 from presto.type.ListType import *
 
@@ -137,7 +138,7 @@ class TestParserAtoms(unittest.TestCase):
         statement = "print(value = \"person\" + p.name)"
         mc = self.parse(statement, OParser.method_call)
         self.assertIsNotNone(mc)
-        self.assertEquals("print", mc.getMethod().getName())
+        self.assertEquals("print", mc.caller.name)
         self.assertIsNotNone(mc.getAssignments())
         ass = mc.getAssignments()[0]
         self.assertEquals("value", ass.getName())
@@ -220,7 +221,7 @@ class TestParserAtoms(unittest.TestCase):
         statement = "c = Company ( id = 1, name = \"IBM\" );"
         a = self.parse(statement, OParser.assign_instance_statement)
         self.assertIsNotNone(a)
-        self.assertIsInstance(a.getExpression(), ConstructorExpression)
+        self.assertIsInstance(a.getExpression(), UnresolvedCall)
 
     def testNativeJava(self):
         statement = "Java: System.out.println(value);"

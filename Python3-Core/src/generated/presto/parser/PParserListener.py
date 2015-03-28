@@ -895,15 +895,6 @@ class PParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by PParser#ConstructorExpression.
-    def enterConstructorExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by PParser#ConstructorExpression.
-    def exitConstructorExpression(self, ctx):
-        pass
-
-
     # Enter a parse tree produced by PParser#FetchExpression.
     def enterFetchExpression(self, ctx):
         pass
@@ -937,6 +928,15 @@ class PParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by PParser#MethodCallExpression.
     def exitMethodCallExpression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by PParser#ConstructorExpression.
+    def enterConstructorExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by PParser#ConstructorExpression.
+    def exitConstructorExpression(self, ctx):
         pass
 
 
