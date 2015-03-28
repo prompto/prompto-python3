@@ -2,6 +2,7 @@ from presto.expression.IExpression import IExpression
 from presto.grammar.CmpOp import CmpOp
 from presto.value.Boolean import Boolean
 from presto.value.IValue import IValue
+from presto.utils.CodeWriter import CodeWriter
 from presto.error.SyntaxError import SyntaxError
 
 class CompareExpression ( IExpression ):

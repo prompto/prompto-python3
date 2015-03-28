@@ -2,6 +2,7 @@ from presto.expression.IExpression import IExpression
 from presto.grammar.ContOp import ContOp
 from presto.value.Boolean import Boolean
 from presto.value.IContainer import IContainer
+from presto.utils.CodeWriter import CodeWriter
 from presto.value.IValue import IValue
 
 

@@ -2,6 +2,8 @@ from presto.expression.IExpression import IExpression
 from presto.type.BooleanType import BooleanType
 from presto.value.Boolean import Boolean
 from presto.error.SyntaxError import SyntaxError
+from presto.utils.CodeWriter import CodeWriter
+from presto.parser.Dialect import Dialect
 
 class AndExpression ( IExpression ):
 

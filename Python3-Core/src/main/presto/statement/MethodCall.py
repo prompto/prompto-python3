@@ -1,13 +1,13 @@
 from presto.declaration.AbstractMethodDeclaration import AbstractMethodDeclaration
 from presto.statement.SimpleStatement import SimpleStatement
 from presto.declaration.ConcreteMethodDeclaration import *
-from presto.declaration.IMethodDeclaration import *
-from presto.error.PrestoError import *
 from presto.grammar.ArgumentAssignmentList import *
 from presto.runtime.MethodFinder import *
 from presto.declaration.ClosureDeclaration import ClosureDeclaration
 from presto.value.ClosureValue import ClosureValue
 from presto.value.Boolean import Boolean
+from presto.parser.Dialect import Dialect
+from presto.utils.CodeWriter import CodeWriter
 
 class MethodCall(SimpleStatement):
 
@@ -53,7 +53,7 @@ class MethodCall(SimpleStatement):
                 local.setValue(assignment.getName(), value)
             return declaration.check(local)
         except PrestoError as e:
-            raise SyntaxError(e.getMessage())
+            raise SyntaxError(e.message)
 
     def makeAssignments(self, context, declaration):
         if self.assignments == None:
@@ -101,7 +101,7 @@ class MethodCall(SimpleStatement):
             writer.append("()")
 
     def requiresInvoke(self, writer):
-        if writer.dialect  is not Dialect.E:
+        if writer.dialect is not Dialect.E:
             return False
         if self.assignments is not None and len(self.assignments) > 0:
             return False
