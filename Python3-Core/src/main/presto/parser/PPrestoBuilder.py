@@ -150,7 +150,7 @@ from presto.statement.DeclarationInstruction import DeclarationInstruction
 from presto.statement.DoWhileStatement import DoWhileStatement
 from presto.statement.ForEachStatement import ForEachStatement
 from presto.statement.IfStatement import IfElement, IfElementList, IfStatement
-from presto.statement.MethodCall import MethodCall
+from presto.statement.UnresolvedCall import UnresolvedCall
 from presto.statement.RaiseStatement import RaiseStatement
 from presto.statement.ReturnStatement import ReturnStatement
 from presto.statement.StatementList import StatementList
