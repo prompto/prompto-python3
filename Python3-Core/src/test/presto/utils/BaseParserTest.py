@@ -140,7 +140,7 @@ class BaseParserTest(unittest.TestCase):
         context = Context.newGlobalContext()
         dle.register(context)
         # rewrite as p
-        writer = CodeWriter(Dialect.P, context)
+        writer = CodeWriter(Dialect.S, context)
         dle.toDialect(writer)
         p = str(writer)
         # print(p)
@@ -188,7 +188,7 @@ class BaseParserTest(unittest.TestCase):
         context = Context.newGlobalContext()
         dlo.register(context)
         # rewrite as p
-        writer = CodeWriter(Dialect.P, context)
+        writer = CodeWriter(Dialect.S, context)
         dlo.toDialect(writer)
         p = str(writer)
         # print(p)

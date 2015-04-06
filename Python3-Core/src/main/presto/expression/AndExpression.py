@@ -20,7 +20,7 @@ class AndExpression ( IExpression ):
         self.right.toDialect(writer)
 
     def operatorToDialect(self, dialect):
-        if dialect is Dialect.E or dialect is Dialect.P:
+        if dialect is Dialect.E or dialect is Dialect.S:
             return " and "
         else:
             return " && "

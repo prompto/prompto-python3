@@ -194,7 +194,7 @@ class SPrestoBuilder(SParserListener):
     def buildSection(self, node:ParserRuleContext, section:Section):
         first = self.findFirstValidToken(node.start.tokenIndex)
         last = self.findLastValidToken(node.stop.tokenIndex)
-        section.setFrom(self.path, first, last, Dialect.P)
+        section.setFrom(self.path, first, last, Dialect.S)
 
     def findFirstValidToken(self, idx:int):
         if idx == -1:  # happens because input.index() is called before any other read operation (bug?)

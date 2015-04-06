@@ -18,7 +18,7 @@ class NotExpression ( IUnaryExpression ):
         self.expression.toDialect(writer)
 
     def operatorToDialect(self, dialect):
-        if dialect is Dialect.E or dialect is Dialect.P:
+        if dialect is Dialect.E or dialect is Dialect.S:
             return "not "
         else:
             return "!"

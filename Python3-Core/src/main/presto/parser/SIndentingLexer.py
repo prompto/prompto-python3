@@ -19,7 +19,7 @@ class SIndentingLexer(SLexer):
         self.addLF = True
 
     def getDialect(self):
-        return Dialect.P
+        return Dialect.S
 
     def nextToken(self):
         t = self.getNextToken()

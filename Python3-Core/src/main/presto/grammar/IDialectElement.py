@@ -7,7 +7,7 @@ class IDialectElement(object):
             self.toEDialect(writer)
         elif writer.dialect is Dialect.O:
             self.toODialect(writer)
-        elif writer.dialect is Dialect.P:
+        elif writer.dialect is Dialect.S:
             self.toPDialect(writer)
         else:
             raise Exception("Unsupported dialect:" + str(writer.dialect))
