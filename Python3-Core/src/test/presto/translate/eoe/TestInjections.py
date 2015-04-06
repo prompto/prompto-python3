@@ -6,6 +6,6 @@ class TestInjections(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testExpressionInjection(self):
-        self.compareResourceEOE("injections/expressionInjection.e")
+        self.compareResourceEOE("injections/expressionInjection.pec")
 
 

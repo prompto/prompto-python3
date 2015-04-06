@@ -6,12 +6,12 @@ class TestLogic(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testAndBoolean(self):
-        self.compareResourceEOE("logic/andBoolean.e")
+        self.compareResourceEOE("logic/andBoolean.pec")
 
     def testNotBoolean(self):
-        self.compareResourceEOE("logic/notBoolean.e")
+        self.compareResourceEOE("logic/notBoolean.pec")
 
     def testOrBoolean(self):
-        self.compareResourceEOE("logic/orBoolean.e")
+        self.compareResourceEOE("logic/orBoolean.pec")
 
 

@@ -6,9 +6,9 @@ class TestSetters(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testGetter(self):
-        self.compareResourceEOE("setters/getter.e")
+        self.compareResourceEOE("setters/getter.pec")
 
     def testSetter(self):
-        self.compareResourceEOE("setters/setter.e")
+        self.compareResourceEOE("setters/setter.pec")
 
 

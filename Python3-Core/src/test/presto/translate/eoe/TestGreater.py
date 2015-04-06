@@ -6,45 +6,45 @@ class TestGreater(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testGtCharacter(self):
-        self.compareResourceEOE("greater/gtCharacter.e")
+        self.compareResourceEOE("greater/gtCharacter.pec")
 
     def testGtDate(self):
-        self.compareResourceEOE("greater/gtDate.e")
+        self.compareResourceEOE("greater/gtDate.pec")
 
     def testGtDateTime(self):
-        self.compareResourceEOE("greater/gtDateTime.e")
+        self.compareResourceEOE("greater/gtDateTime.pec")
 
     def testGtDecimal(self):
-        self.compareResourceEOE("greater/gtDecimal.e")
+        self.compareResourceEOE("greater/gtDecimal.pec")
 
     def testGteCharacter(self):
-        self.compareResourceEOE("greater/gteCharacter.e")
+        self.compareResourceEOE("greater/gteCharacter.pec")
 
     def testGteDate(self):
-        self.compareResourceEOE("greater/gteDate.e")
+        self.compareResourceEOE("greater/gteDate.pec")
 
     def testGteDateTime(self):
-        self.compareResourceEOE("greater/gteDateTime.e")
+        self.compareResourceEOE("greater/gteDateTime.pec")
 
     def testGteDecimal(self):
-        self.compareResourceEOE("greater/gteDecimal.e")
+        self.compareResourceEOE("greater/gteDecimal.pec")
 
     def testGteInteger(self):
-        self.compareResourceEOE("greater/gteInteger.e")
+        self.compareResourceEOE("greater/gteInteger.pec")
 
     def testGteText(self):
-        self.compareResourceEOE("greater/gteText.e")
+        self.compareResourceEOE("greater/gteText.pec")
 
     def testGteTime(self):
-        self.compareResourceEOE("greater/gteTime.e")
+        self.compareResourceEOE("greater/gteTime.pec")
 
     def testGtInteger(self):
-        self.compareResourceEOE("greater/gtInteger.e")
+        self.compareResourceEOE("greater/gtInteger.pec")
 
     def testGtText(self):
-        self.compareResourceEOE("greater/gtText.e")
+        self.compareResourceEOE("greater/gtText.pec")
 
     def testGtTime(self):
-        self.compareResourceEOE("greater/gtTime.e")
+        self.compareResourceEOE("greater/gtTime.pec")
 
 

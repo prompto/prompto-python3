@@ -11,21 +11,21 @@ class TestMult(BaseOParserTest):
         Out.restore()
 
     def testMultCharacter(self):
-        self.checkOutput("mult/multCharacter.o")
+        self.checkOutput("mult/multCharacter.poc")
 
     def testMultDecimal(self):
-        self.checkOutput("mult/multDecimal.o")
+        self.checkOutput("mult/multDecimal.poc")
 
     def testMultInteger(self):
-        self.checkOutput("mult/multInteger.o")
+        self.checkOutput("mult/multInteger.poc")
 
     def testMultList(self):
-        self.checkOutput("mult/multList.o")
+        self.checkOutput("mult/multList.poc")
 
     def testMultPeriod(self):
-        self.checkOutput("mult/multPeriod.o")
+        self.checkOutput("mult/multPeriod.poc")
 
     def testMultText(self):
-        self.checkOutput("mult/multText.o")
+        self.checkOutput("mult/multText.poc")
 
 

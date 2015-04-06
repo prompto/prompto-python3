@@ -11,6 +11,6 @@ class TestForward(BaseOParserTest):
         Out.restore()
 
     def testForward(self):
-        self.checkOutput("forward/forward.o")
+        self.checkOutput("forward/forward.poc")
 
 

@@ -6,15 +6,15 @@ class TestDocuments(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testDeepItem(self):
-        self.compareResourceEOE("documents/deepItem.e")
+        self.compareResourceEOE("documents/deepItem.pec")
 
     def testDeepVariable(self):
-        self.compareResourceEOE("documents/deepVariable.e")
+        self.compareResourceEOE("documents/deepVariable.pec")
 
     def testItem(self):
-        self.compareResourceEOE("documents/item.e")
+        self.compareResourceEOE("documents/item.pec")
 
     def testVariable(self):
-        self.compareResourceEOE("documents/variable.e")
+        self.compareResourceEOE("documents/variable.pec")
 
 

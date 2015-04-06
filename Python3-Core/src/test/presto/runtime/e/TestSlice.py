@@ -11,12 +11,12 @@ class TestSlice(BaseEParserTest):
         Out.restore()
 
     def testSliceList(self):
-        self.checkOutput("slice/sliceList.e")
+        self.checkOutput("slice/sliceList.pec")
 
     def testSliceRange(self):
-        self.checkOutput("slice/sliceRange.e")
+        self.checkOutput("slice/sliceRange.pec")
 
     def testSliceText(self):
-        self.checkOutput("slice/sliceText.e")
+        self.checkOutput("slice/sliceText.pec")
 
 

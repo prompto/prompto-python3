@@ -6,12 +6,12 @@ class TestSlice(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testSliceList(self):
-        self.compareResourceOEO("slice/sliceList.o")
+        self.compareResourceOEO("slice/sliceList.poc")
 
     def testSliceRange(self):
-        self.compareResourceOEO("slice/sliceRange.o")
+        self.compareResourceOEO("slice/sliceRange.poc")
 
     def testSliceText(self):
-        self.compareResourceOEO("slice/sliceText.o")
+        self.compareResourceOEO("slice/sliceText.poc")
 
 

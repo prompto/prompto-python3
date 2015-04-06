@@ -11,12 +11,12 @@ class TestMinus(BaseEParserTest):
         Out.restore()
 
     def testMinusDecimal(self):
-        self.checkOutput("minus/minusDecimal.e")
+        self.checkOutput("minus/minusDecimal.pec")
 
     def testMinusInteger(self):
-        self.checkOutput("minus/minusInteger.e")
+        self.checkOutput("minus/minusInteger.pec")
 
     def testMinusPeriod(self):
-        self.checkOutput("minus/minusPeriod.e")
+        self.checkOutput("minus/minusPeriod.pec")
 
 

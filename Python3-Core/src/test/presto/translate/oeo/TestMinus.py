@@ -6,12 +6,12 @@ class TestMinus(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testMinusDecimal(self):
-        self.compareResourceOEO("minus/minusDecimal.o")
+        self.compareResourceOEO("minus/minusDecimal.poc")
 
     def testMinusInteger(self):
-        self.compareResourceOEO("minus/minusInteger.o")
+        self.compareResourceOEO("minus/minusInteger.poc")
 
     def testMinusPeriod(self):
-        self.compareResourceOEO("minus/minusPeriod.o")
+        self.compareResourceOEO("minus/minusPeriod.poc")
 
 

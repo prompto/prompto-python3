@@ -6,21 +6,21 @@ class TestSub(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testSubDate(self):
-        self.compareResourceOEO("sub/subDate.o")
+        self.compareResourceOEO("sub/subDate.poc")
 
     def testSubDateTime(self):
-        self.compareResourceOEO("sub/subDateTime.o")
+        self.compareResourceOEO("sub/subDateTime.poc")
 
     def testSubDecimal(self):
-        self.compareResourceOEO("sub/subDecimal.o")
+        self.compareResourceOEO("sub/subDecimal.poc")
 
     def testSubInteger(self):
-        self.compareResourceOEO("sub/subInteger.o")
+        self.compareResourceOEO("sub/subInteger.poc")
 
     def testSubPeriod(self):
-        self.compareResourceOEO("sub/subPeriod.o")
+        self.compareResourceOEO("sub/subPeriod.poc")
 
     def testSubTime(self):
-        self.compareResourceOEO("sub/subTime.o")
+        self.compareResourceOEO("sub/subTime.poc")
 
 

@@ -6,15 +6,15 @@ class TestCast(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testAutoDowncast(self):
-        self.compareResourceOEO("cast/autoDowncast.o")
+        self.compareResourceOEO("cast/autoDowncast.poc")
 
     def testCastChild(self):
-        self.compareResourceOEO("cast/castChild.o")
+        self.compareResourceOEO("cast/castChild.poc")
 
     def testIsAChild(self):
-        self.compareResourceOEO("cast/isAChild.o")
+        self.compareResourceOEO("cast/isAChild.poc")
 
     def testIsAText(self):
-        self.compareResourceOEO("cast/isAText.o")
+        self.compareResourceOEO("cast/isAText.poc")
 
 

@@ -11,15 +11,15 @@ class TestCategories(BaseEParserTest):
         Out.restore()
 
     def testCopyFromAscendant(self):
-        self.checkOutput("categories/copyFromAscendant.e")
+        self.checkOutput("categories/copyFromAscendant.pec")
 
     def testCopyFromAscendantWithOverride(self):
-        self.checkOutput("categories/copyFromAscendantWithOverride.e")
+        self.checkOutput("categories/copyFromAscendantWithOverride.pec")
 
     def testCopyFromDescendant(self):
-        self.checkOutput("categories/copyFromDescendant.e")
+        self.checkOutput("categories/copyFromDescendant.pec")
 
     def testCopyFromDescendantWithOverride(self):
-        self.checkOutput("categories/copyFromDescendantWithOverride.e")
+        self.checkOutput("categories/copyFromDescendantWithOverride.pec")
 
 

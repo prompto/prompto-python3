@@ -11,18 +11,18 @@ class TestItem(BaseEParserTest):
         Out.restore()
 
     def testItemDict(self):
-        self.checkOutput("item/itemDict.e")
+        self.checkOutput("item/itemDict.pec")
 
     def testItemList(self):
-        self.checkOutput("item/itemList.e")
+        self.checkOutput("item/itemList.pec")
 
     def testItemRange(self):
-        self.checkOutput("item/itemRange.e")
+        self.checkOutput("item/itemRange.pec")
 
     def testItemSet(self):
-        self.checkOutput("item/itemSet.e")
+        self.checkOutput("item/itemSet.pec")
 
     def testItemText(self):
-        self.checkOutput("item/itemText.e")
+        self.checkOutput("item/itemText.pec")
 
 

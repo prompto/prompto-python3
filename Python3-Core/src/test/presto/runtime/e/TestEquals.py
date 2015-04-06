@@ -11,96 +11,96 @@ class TestEquals(BaseEParserTest):
         Out.restore()
 
     def testEqBoolean(self):
-        self.checkOutput("equals/eqBoolean.e")
+        self.checkOutput("equals/eqBoolean.pec")
 
     def testEqCharacter(self):
-        self.checkOutput("equals/eqCharacter.e")
+        self.checkOutput("equals/eqCharacter.pec")
 
     def testEqDate(self):
-        self.checkOutput("equals/eqDate.e")
+        self.checkOutput("equals/eqDate.pec")
 
     def testEqDateTime(self):
-        self.checkOutput("equals/eqDateTime.e")
+        self.checkOutput("equals/eqDateTime.pec")
 
     def testEqDecimal(self):
-        self.checkOutput("equals/eqDecimal.e")
+        self.checkOutput("equals/eqDecimal.pec")
 
     def testEqDict(self):
-        self.checkOutput("equals/eqDict.e")
+        self.checkOutput("equals/eqDict.pec")
 
     def testEqInteger(self):
-        self.checkOutput("equals/eqInteger.e")
+        self.checkOutput("equals/eqInteger.pec")
 
     def testEqList(self):
-        self.checkOutput("equals/eqList.e")
+        self.checkOutput("equals/eqList.pec")
 
     def testEqPeriod(self):
-        self.checkOutput("equals/eqPeriod.e")
+        self.checkOutput("equals/eqPeriod.pec")
 
     def testEqRange(self):
-        self.checkOutput("equals/eqRange.e")
+        self.checkOutput("equals/eqRange.pec")
 
     def testEqSet(self):
-        self.checkOutput("equals/eqSet.e")
+        self.checkOutput("equals/eqSet.pec")
 
     def testEqText(self):
-        self.checkOutput("equals/eqText.e")
+        self.checkOutput("equals/eqText.pec")
 
     def testEqTime(self):
-        self.checkOutput("equals/eqTime.e")
+        self.checkOutput("equals/eqTime.pec")
 
     def testIsBoolean(self):
-        self.checkOutput("equals/isBoolean.e")
+        self.checkOutput("equals/isBoolean.pec")
 
     def testIsInstance(self):
-        self.checkOutput("equals/isInstance.e")
+        self.checkOutput("equals/isInstance.pec")
 
     def testIsNotBoolean(self):
-        self.checkOutput("equals/isNotBoolean.e")
+        self.checkOutput("equals/isNotBoolean.pec")
 
     def testIsNotInstance(self):
-        self.checkOutput("equals/isNotInstance.e")
+        self.checkOutput("equals/isNotInstance.pec")
 
     def testNeqBoolean(self):
-        self.checkOutput("equals/neqBoolean.e")
+        self.checkOutput("equals/neqBoolean.pec")
 
     def testNeqCharacter(self):
-        self.checkOutput("equals/neqCharacter.e")
+        self.checkOutput("equals/neqCharacter.pec")
 
     def testNeqDate(self):
-        self.checkOutput("equals/neqDate.e")
+        self.checkOutput("equals/neqDate.pec")
 
     def testNeqDateTime(self):
-        self.checkOutput("equals/neqDateTime.e")
+        self.checkOutput("equals/neqDateTime.pec")
 
     def testNeqDecimal(self):
-        self.checkOutput("equals/neqDecimal.e")
+        self.checkOutput("equals/neqDecimal.pec")
 
     def testNeqDict(self):
-        self.checkOutput("equals/neqDict.e")
+        self.checkOutput("equals/neqDict.pec")
 
     def testNeqInteger(self):
-        self.checkOutput("equals/neqInteger.e")
+        self.checkOutput("equals/neqInteger.pec")
 
     def testNeqList(self):
-        self.checkOutput("equals/neqList.e")
+        self.checkOutput("equals/neqList.pec")
 
     def testNeqPeriod(self):
-        self.checkOutput("equals/neqPeriod.e")
+        self.checkOutput("equals/neqPeriod.pec")
 
     def testNeqRange(self):
-        self.checkOutput("equals/neqRange.e")
+        self.checkOutput("equals/neqRange.pec")
 
     def testNeqSet(self):
-        self.checkOutput("equals/neqSet.e")
+        self.checkOutput("equals/neqSet.pec")
 
     def testNeqText(self):
-        self.checkOutput("equals/neqText.e")
+        self.checkOutput("equals/neqText.pec")
 
     def testNeqTime(self):
-        self.checkOutput("equals/neqTime.e")
+        self.checkOutput("equals/neqTime.pec")
 
     def testReqText(self):
-        self.checkOutput("equals/reqText.e")
+        self.checkOutput("equals/reqText.pec")
 
 

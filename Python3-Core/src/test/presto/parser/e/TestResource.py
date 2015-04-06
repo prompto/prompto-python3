@@ -15,32 +15,32 @@ class TestResource(BaseEParserTest):
 
     def testBadRead(self):
         try:
-            self.runResource("resource/badRead.e")
+            self.runResource("resource/badRead.pec")
             self.fail("Should raise SyntaxError")
         except SyntaxError:
             pass
 
     def testBadWrite(self):
         try:
-            self.runResource("resource/badWrite.e")
+            self.runResource("resource/badWrite.pec")
             self.fail("Should raise SyntaxError")
         except SyntaxError:
             pass
 
     def testBadResource(self):
         try:
-            self.runResource("resource/badResource.e")
+            self.runResource("resource/badResource.pec")
         except SyntaxError:
             pass
 
     def testReadResource(self):
-        self.checkOutput("resource/readResource.e")
+        self.checkOutput("resource/readResource.pec")
 
     def testWriteResource(self):
-        self.checkOutput("resource/writeResource.e")
+        self.checkOutput("resource/writeResource.pec")
 
     def testReadWithResource(self):
-        self.checkOutput("resource/readWithResource.e")
+        self.checkOutput("resource/readWithResource.pec")
 
     def testWriteWithResource(self):
-        self.checkOutput("resource/writeWithResource.e")
+        self.checkOutput("resource/writeWithResource.pec")

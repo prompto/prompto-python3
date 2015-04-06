@@ -6,87 +6,87 @@ class TestLoops(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testDoWhile(self):
-        self.compareResourceOEO("loops/doWhile.o")
+        self.compareResourceOEO("loops/doWhile.poc")
 
     def testForEachCharacterRange(self):
-        self.compareResourceOEO("loops/forEachCharacterRange.o")
+        self.compareResourceOEO("loops/forEachCharacterRange.poc")
 
     def testForEachCharacterRangeWithIndex(self):
-        self.compareResourceOEO("loops/forEachCharacterRangeWithIndex.o")
+        self.compareResourceOEO("loops/forEachCharacterRangeWithIndex.poc")
 
     def testForEachDateRange(self):
-        self.compareResourceOEO("loops/forEachDateRange.o")
+        self.compareResourceOEO("loops/forEachDateRange.poc")
 
     def testForEachDateRangeWithIndex(self):
-        self.compareResourceOEO("loops/forEachDateRangeWithIndex.o")
+        self.compareResourceOEO("loops/forEachDateRangeWithIndex.poc")
 
     def testForEachDictionaryItem(self):
-        self.compareResourceOEO("loops/forEachDictionaryItem.o")
+        self.compareResourceOEO("loops/forEachDictionaryItem.poc")
 
     def testForEachDictionaryItemWithIndex(self):
-        self.compareResourceOEO("loops/forEachDictionaryItemWithIndex.o")
+        self.compareResourceOEO("loops/forEachDictionaryItemWithIndex.poc")
 
     def testForEachDictionaryKey(self):
-        self.compareResourceOEO("loops/forEachDictionaryKey.o")
+        self.compareResourceOEO("loops/forEachDictionaryKey.poc")
 
     def testForEachDictionaryKeyWithIndex(self):
-        self.compareResourceOEO("loops/forEachDictionaryKeyWithIndex.o")
+        self.compareResourceOEO("loops/forEachDictionaryKeyWithIndex.poc")
 
     def testForEachDictionaryValue(self):
-        self.compareResourceOEO("loops/forEachDictionaryValue.o")
+        self.compareResourceOEO("loops/forEachDictionaryValue.poc")
 
     def testForEachDictionaryValueWithIndex(self):
-        self.compareResourceOEO("loops/forEachDictionaryValueWithIndex.o")
+        self.compareResourceOEO("loops/forEachDictionaryValueWithIndex.poc")
 
     def testForEachInstanceList(self):
-        self.compareResourceOEO("loops/forEachInstanceList.o")
+        self.compareResourceOEO("loops/forEachInstanceList.poc")
 
     def testForEachInstanceListWithIndex(self):
-        self.compareResourceOEO("loops/forEachInstanceListWithIndex.o")
+        self.compareResourceOEO("loops/forEachInstanceListWithIndex.poc")
 
     def testForEachInstanceSet(self):
-        self.compareResourceOEO("loops/forEachInstanceSet.o")
+        self.compareResourceOEO("loops/forEachInstanceSet.poc")
 
     def testForEachInstanceSetWithIndex(self):
-        self.compareResourceOEO("loops/forEachInstanceSetWithIndex.o")
+        self.compareResourceOEO("loops/forEachInstanceSetWithIndex.poc")
 
     def testForEachIntegerList(self):
-        self.compareResourceOEO("loops/forEachIntegerList.o")
+        self.compareResourceOEO("loops/forEachIntegerList.poc")
 
     def testForEachIntegerListWithIndex(self):
-        self.compareResourceOEO("loops/forEachIntegerListWithIndex.o")
+        self.compareResourceOEO("loops/forEachIntegerListWithIndex.poc")
 
     def testForEachIntegerRange(self):
-        self.compareResourceOEO("loops/forEachIntegerRange.o")
+        self.compareResourceOEO("loops/forEachIntegerRange.poc")
 
     def testForEachIntegerRangeWithIndex(self):
-        self.compareResourceOEO("loops/forEachIntegerRangeWithIndex.o")
+        self.compareResourceOEO("loops/forEachIntegerRangeWithIndex.poc")
 
     def testForEachIntegerSet(self):
-        self.compareResourceOEO("loops/forEachIntegerSet.o")
+        self.compareResourceOEO("loops/forEachIntegerSet.poc")
 
     def testForEachIntegerSetWithIndex(self):
-        self.compareResourceOEO("loops/forEachIntegerSetWithIndex.o")
+        self.compareResourceOEO("loops/forEachIntegerSetWithIndex.poc")
 
     def testForEachTimeRange(self):
-        self.compareResourceOEO("loops/forEachTimeRange.o")
+        self.compareResourceOEO("loops/forEachTimeRange.poc")
 
     def testForEachTimeRangeWithIndex(self):
-        self.compareResourceOEO("loops/forEachTimeRangeWithIndex.o")
+        self.compareResourceOEO("loops/forEachTimeRangeWithIndex.poc")
 
     def testForEachTupleList(self):
-        self.compareResourceOEO("loops/forEachTupleList.o")
+        self.compareResourceOEO("loops/forEachTupleList.poc")
 
     def testForEachTupleListWithIndex(self):
-        self.compareResourceOEO("loops/forEachTupleListWithIndex.o")
+        self.compareResourceOEO("loops/forEachTupleListWithIndex.poc")
 
     def testForEachTupleSet(self):
-        self.compareResourceOEO("loops/forEachTupleSet.o")
+        self.compareResourceOEO("loops/forEachTupleSet.poc")
 
     def testForEachTupleSetWithIndex(self):
-        self.compareResourceOEO("loops/forEachTupleSetWithIndex.o")
+        self.compareResourceOEO("loops/forEachTupleSetWithIndex.poc")
 
     def testWhile(self):
-        self.compareResourceOEO("loops/while.o")
+        self.compareResourceOEO("loops/while.poc")
 
 

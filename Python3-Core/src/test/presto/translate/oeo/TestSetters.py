@@ -6,9 +6,9 @@ class TestSetters(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testGetter(self):
-        self.compareResourceOEO("setters/getter.o")
+        self.compareResourceOEO("setters/getter.poc")
 
     def testSetter(self):
-        self.compareResourceOEO("setters/setter.o")
+        self.compareResourceOEO("setters/setter.poc")
 
 

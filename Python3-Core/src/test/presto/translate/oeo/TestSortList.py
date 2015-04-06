@@ -6,36 +6,36 @@ class TestSortList(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testSortBooleans(self):
-        self.compareResourceOEO("sortList/sortBooleans.o")
+        self.compareResourceOEO("sortList/sortBooleans.poc")
 
     def testSortDates(self):
-        self.compareResourceOEO("sortList/sortDates.o")
+        self.compareResourceOEO("sortList/sortDates.poc")
 
     def testSortDateTimes(self):
-        self.compareResourceOEO("sortList/sortDateTimes.o")
+        self.compareResourceOEO("sortList/sortDateTimes.poc")
 
     def testSortDecimals(self):
-        self.compareResourceOEO("sortList/sortDecimals.o")
+        self.compareResourceOEO("sortList/sortDecimals.poc")
 
     def testSortExpressions(self):
-        self.compareResourceOEO("sortList/sortExpressions.o")
+        self.compareResourceOEO("sortList/sortExpressions.poc")
 
     def testSortIntegers(self):
-        self.compareResourceOEO("sortList/sortIntegers.o")
+        self.compareResourceOEO("sortList/sortIntegers.poc")
 
     def testSortKeys(self):
-        self.compareResourceOEO("sortList/sortKeys.o")
+        self.compareResourceOEO("sortList/sortKeys.poc")
 
     def testSortMethods(self):
-        self.compareResourceOEO("sortList/sortMethods.o")
+        self.compareResourceOEO("sortList/sortMethods.poc")
 
     def testSortNames(self):
-        self.compareResourceOEO("sortList/sortNames.o")
+        self.compareResourceOEO("sortList/sortNames.poc")
 
     def testSortTexts(self):
-        self.compareResourceOEO("sortList/sortTexts.o")
+        self.compareResourceOEO("sortList/sortTexts.poc")
 
     def testSortTimes(self):
-        self.compareResourceOEO("sortList/sortTimes.o")
+        self.compareResourceOEO("sortList/sortTimes.poc")
 
 

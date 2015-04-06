@@ -11,9 +11,9 @@ class TestFetch(BaseEParserTest):
         Out.restore()
 
     def testFetchFromList(self):
-        self.checkOutput("fetch/fetchFromList.e")
+        self.checkOutput("fetch/fetchFromList.pec")
 
     def testFetchFromSet(self):
-        self.checkOutput("fetch/fetchFromSet.e")
+        self.checkOutput("fetch/fetchFromSet.pec")
 
 

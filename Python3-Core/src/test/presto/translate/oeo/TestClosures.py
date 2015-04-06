@@ -6,12 +6,12 @@ class TestClosures(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testGlobalClosureNoArg(self):
-        self.compareResourceOEO("closures/globalClosureNoArg.o")
+        self.compareResourceOEO("closures/globalClosureNoArg.poc")
 
     def testGlobalClosureWithArg(self):
-        self.compareResourceOEO("closures/globalClosureWithArg.o")
+        self.compareResourceOEO("closures/globalClosureWithArg.poc")
 
     def testInstanceClosureNoArg(self):
-        self.compareResourceOEO("closures/instanceClosureNoArg.o")
+        self.compareResourceOEO("closures/instanceClosureNoArg.poc")
 
 

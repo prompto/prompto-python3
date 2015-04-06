@@ -11,36 +11,36 @@ class TestSortList(BaseEParserTest):
         Out.restore()
 
     def testSortBooleans(self):
-        self.checkOutput("sortList/sortBooleans.e")
+        self.checkOutput("sortList/sortBooleans.pec")
 
     def testSortDates(self):
-        self.checkOutput("sortList/sortDates.e")
+        self.checkOutput("sortList/sortDates.pec")
 
     def testSortDateTimes(self):
-        self.checkOutput("sortList/sortDateTimes.e")
+        self.checkOutput("sortList/sortDateTimes.pec")
 
     def testSortDecimals(self):
-        self.checkOutput("sortList/sortDecimals.e")
+        self.checkOutput("sortList/sortDecimals.pec")
 
     def testSortExpressions(self):
-        self.checkOutput("sortList/sortExpressions.e")
+        self.checkOutput("sortList/sortExpressions.pec")
 
     def testSortIntegers(self):
-        self.checkOutput("sortList/sortIntegers.e")
+        self.checkOutput("sortList/sortIntegers.pec")
 
     def testSortKeys(self):
-        self.checkOutput("sortList/sortKeys.e")
+        self.checkOutput("sortList/sortKeys.pec")
 
     def testSortMethods(self):
-        self.checkOutput("sortList/sortMethods.e")
+        self.checkOutput("sortList/sortMethods.pec")
 
     def testSortNames(self):
-        self.checkOutput("sortList/sortNames.e")
+        self.checkOutput("sortList/sortNames.pec")
 
     def testSortTexts(self):
-        self.checkOutput("sortList/sortTexts.e")
+        self.checkOutput("sortList/sortTexts.pec")
 
     def testSortTimes(self):
-        self.checkOutput("sortList/sortTimes.e")
+        self.checkOutput("sortList/sortTimes.pec")
 
 

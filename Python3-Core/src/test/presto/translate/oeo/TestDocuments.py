@@ -6,15 +6,15 @@ class TestDocuments(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testDeepItem(self):
-        self.compareResourceOEO("documents/deepItem.o")
+        self.compareResourceOEO("documents/deepItem.poc")
 
     def testDeepVariable(self):
-        self.compareResourceOEO("documents/deepVariable.o")
+        self.compareResourceOEO("documents/deepVariable.poc")
 
     def testItem(self):
-        self.compareResourceOEO("documents/item.o")
+        self.compareResourceOEO("documents/item.poc")
 
     def testVariable(self):
-        self.compareResourceOEO("documents/variable.o")
+        self.compareResourceOEO("documents/variable.poc")
 
 

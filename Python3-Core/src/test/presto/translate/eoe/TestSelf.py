@@ -6,9 +6,9 @@ class TestSelf(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testSelfAsParameter(self):
-        self.compareResourceEOE("self/selfAsParameter.e")
+        self.compareResourceEOE("self/selfAsParameter.pec")
 
     def testSelfMember(self):
-        self.compareResourceEOE("self/selfMember.e")
+        self.compareResourceEOE("self/selfMember.pec")
 
 

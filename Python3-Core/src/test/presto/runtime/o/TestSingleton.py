@@ -11,9 +11,9 @@ class TestSingleton(BaseOParserTest):
         Out.restore()
 
     def testAttribute(self):
-        self.checkOutput("singleton/attribute.o")
+        self.checkOutput("singleton/attribute.poc")
 
     def testMember(self):
-        self.checkOutput("singleton/member.o")
+        self.checkOutput("singleton/member.poc")
 
 

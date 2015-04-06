@@ -11,15 +11,15 @@ class TestDocuments(BaseOParserTest):
         Out.restore()
 
     def testDeepItem(self):
-        self.checkOutput("documents/deepItem.o")
+        self.checkOutput("documents/deepItem.poc")
 
     def testDeepVariable(self):
-        self.checkOutput("documents/deepVariable.o")
+        self.checkOutput("documents/deepVariable.poc")
 
     def testItem(self):
-        self.checkOutput("documents/item.o")
+        self.checkOutput("documents/item.poc")
 
     def testVariable(self):
-        self.checkOutput("documents/variable.o")
+        self.checkOutput("documents/variable.poc")
 
 

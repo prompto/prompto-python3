@@ -6,12 +6,12 @@ class TestTuples(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testMultiAssignment(self):
-        self.compareResourceEOE("tuples/multiAssignment.e")
+        self.compareResourceEOE("tuples/multiAssignment.pec")
 
     def testSingleAssignment(self):
-        self.compareResourceEOE("tuples/singleAssignment.e")
+        self.compareResourceEOE("tuples/singleAssignment.pec")
 
     def testTupleElement(self):
-        self.compareResourceEOE("tuples/tupleElement.e")
+        self.compareResourceEOE("tuples/tupleElement.pec")
 
 

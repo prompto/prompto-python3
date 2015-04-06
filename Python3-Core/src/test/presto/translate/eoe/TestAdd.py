@@ -6,39 +6,39 @@ class TestAdd(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testAddCharacter(self):
-        self.compareResourceEOE("add/addCharacter.e")
+        self.compareResourceEOE("add/addCharacter.pec")
 
     def testAddDate(self):
-        self.compareResourceEOE("add/addDate.e")
+        self.compareResourceEOE("add/addDate.pec")
 
     def testAddDateTime(self):
-        self.compareResourceEOE("add/addDateTime.e")
+        self.compareResourceEOE("add/addDateTime.pec")
 
     def testAddDecimal(self):
-        self.compareResourceEOE("add/addDecimal.e")
+        self.compareResourceEOE("add/addDecimal.pec")
 
     def testAddDict(self):
-        self.compareResourceEOE("add/addDict.e")
+        self.compareResourceEOE("add/addDict.pec")
 
     def testAddInteger(self):
-        self.compareResourceEOE("add/addInteger.e")
+        self.compareResourceEOE("add/addInteger.pec")
 
     def testAddList(self):
-        self.compareResourceEOE("add/addList.e")
+        self.compareResourceEOE("add/addList.pec")
 
     def testAddPeriod(self):
-        self.compareResourceEOE("add/addPeriod.e")
+        self.compareResourceEOE("add/addPeriod.pec")
 
     def testAddSet(self):
-        self.compareResourceEOE("add/addSet.e")
+        self.compareResourceEOE("add/addSet.pec")
 
     def testAddText(self):
-        self.compareResourceEOE("add/addText.e")
+        self.compareResourceEOE("add/addText.pec")
 
     def testAddTime(self):
-        self.compareResourceEOE("add/addTime.e")
+        self.compareResourceEOE("add/addTime.pec")
 
     def testAddTuple(self):
-        self.compareResourceEOE("add/addTuple.e")
+        self.compareResourceEOE("add/addTuple.pec")
 
 

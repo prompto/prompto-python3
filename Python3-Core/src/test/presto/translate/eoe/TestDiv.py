@@ -6,15 +6,15 @@ class TestDiv(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testDivDecimal(self):
-        self.compareResourceEOE("div/divDecimal.e")
+        self.compareResourceEOE("div/divDecimal.pec")
 
     def testDivInteger(self):
-        self.compareResourceEOE("div/divInteger.e")
+        self.compareResourceEOE("div/divInteger.pec")
 
     def testIdivInteger(self):
-        self.compareResourceEOE("div/idivInteger.e")
+        self.compareResourceEOE("div/idivInteger.pec")
 
     def testModInteger(self):
-        self.compareResourceEOE("div/modInteger.e")
+        self.compareResourceEOE("div/modInteger.pec")
 
 

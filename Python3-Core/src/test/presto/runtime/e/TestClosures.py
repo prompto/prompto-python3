@@ -11,12 +11,12 @@ class TestClosures(BaseEParserTest):
         Out.restore()
 
     def testGlobalClosureNoArg(self):
-        self.checkOutput("closures/globalClosureNoArg.e")
+        self.checkOutput("closures/globalClosureNoArg.pec")
 
     def testGlobalClosureWithArg(self):
-        self.checkOutput("closures/globalClosureWithArg.e")
+        self.checkOutput("closures/globalClosureWithArg.pec")
 
     def testInstanceClosureNoArg(self):
-        self.checkOutput("closures/instanceClosureNoArg.e")
+        self.checkOutput("closures/instanceClosureNoArg.pec")
 
 

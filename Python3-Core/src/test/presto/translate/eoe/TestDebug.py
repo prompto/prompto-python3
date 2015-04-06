@@ -6,6 +6,6 @@ class TestDebug(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testStack(self):
-        self.compareResourceEOE("debug/stack.e")
+        self.compareResourceEOE("debug/stack.pec")
 
 

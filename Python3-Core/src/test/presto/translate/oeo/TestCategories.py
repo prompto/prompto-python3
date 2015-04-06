@@ -6,15 +6,15 @@ class TestCategories(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testCopyFromAscendant(self):
-        self.compareResourceOEO("categories/copyFromAscendant.o")
+        self.compareResourceOEO("categories/copyFromAscendant.poc")
 
     def testCopyFromAscendantWithOverride(self):
-        self.compareResourceOEO("categories/copyFromAscendantWithOverride.o")
+        self.compareResourceOEO("categories/copyFromAscendantWithOverride.poc")
 
     def testCopyFromDescendant(self):
-        self.compareResourceOEO("categories/copyFromDescendant.o")
+        self.compareResourceOEO("categories/copyFromDescendant.poc")
 
     def testCopyFromDescendantWithOverride(self):
-        self.compareResourceOEO("categories/copyFromDescendantWithOverride.o")
+        self.compareResourceOEO("categories/copyFromDescendantWithOverride.poc")
 
 

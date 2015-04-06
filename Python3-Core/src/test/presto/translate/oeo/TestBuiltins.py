@@ -6,75 +6,75 @@ class TestBuiltins(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testDateDayOfMonth(self):
-        self.compareResourceOEO("builtins/dateDayOfMonth.o")
+        self.compareResourceOEO("builtins/dateDayOfMonth.poc")
 
     def testDateDayOfYear(self):
-        self.compareResourceOEO("builtins/dateDayOfYear.o")
+        self.compareResourceOEO("builtins/dateDayOfYear.poc")
 
     def testDateMonth(self):
-        self.compareResourceOEO("builtins/dateMonth.o")
+        self.compareResourceOEO("builtins/dateMonth.poc")
 
     def testDateTimeDayOfMonth(self):
-        self.compareResourceOEO("builtins/dateTimeDayOfMonth.o")
+        self.compareResourceOEO("builtins/dateTimeDayOfMonth.poc")
 
     def testDateTimeDayOfYear(self):
-        self.compareResourceOEO("builtins/dateTimeDayOfYear.o")
+        self.compareResourceOEO("builtins/dateTimeDayOfYear.poc")
 
     def testDateTimeHour(self):
-        self.compareResourceOEO("builtins/dateTimeHour.o")
+        self.compareResourceOEO("builtins/dateTimeHour.poc")
 
     def testDateTimeMinute(self):
-        self.compareResourceOEO("builtins/dateTimeMinute.o")
+        self.compareResourceOEO("builtins/dateTimeMinute.poc")
 
     def testDateTimeMonth(self):
-        self.compareResourceOEO("builtins/dateTimeMonth.o")
+        self.compareResourceOEO("builtins/dateTimeMonth.poc")
 
     def testDateTimeSecond(self):
-        self.compareResourceOEO("builtins/dateTimeSecond.o")
+        self.compareResourceOEO("builtins/dateTimeSecond.poc")
 
     def testDateTimeTZName(self):
-        self.compareResourceOEO("builtins/dateTimeTZName.o")
+        self.compareResourceOEO("builtins/dateTimeTZName.poc")
 
     def testDateTimeTZOffset(self):
-        self.compareResourceOEO("builtins/dateTimeTZOffset.o")
+        self.compareResourceOEO("builtins/dateTimeTZOffset.poc")
 
     def testDateTimeYear(self):
-        self.compareResourceOEO("builtins/dateTimeYear.o")
+        self.compareResourceOEO("builtins/dateTimeYear.poc")
 
     def testDateYear(self):
-        self.compareResourceOEO("builtins/dateYear.o")
+        self.compareResourceOEO("builtins/dateYear.poc")
 
     def testDictLength(self):
-        self.compareResourceOEO("builtins/dictLength.o")
+        self.compareResourceOEO("builtins/dictLength.poc")
 
     def testEnumName(self):
-        self.compareResourceOEO("builtins/enumName.o")
+        self.compareResourceOEO("builtins/enumName.poc")
 
     def testEnumSymbols(self):
-        self.compareResourceOEO("builtins/enumSymbols.o")
+        self.compareResourceOEO("builtins/enumSymbols.poc")
 
     def testEnumValue(self):
-        self.compareResourceOEO("builtins/enumValue.o")
+        self.compareResourceOEO("builtins/enumValue.poc")
 
     def testListLength(self):
-        self.compareResourceOEO("builtins/listLength.o")
+        self.compareResourceOEO("builtins/listLength.poc")
 
     def testSetLength(self):
-        self.compareResourceOEO("builtins/setLength.o")
+        self.compareResourceOEO("builtins/setLength.poc")
 
     def testTextLength(self):
-        self.compareResourceOEO("builtins/textLength.o")
+        self.compareResourceOEO("builtins/textLength.poc")
 
     def testTimeHour(self):
-        self.compareResourceOEO("builtins/timeHour.o")
+        self.compareResourceOEO("builtins/timeHour.poc")
 
     def testTimeMinute(self):
-        self.compareResourceOEO("builtins/timeMinute.o")
+        self.compareResourceOEO("builtins/timeMinute.poc")
 
     def testTimeSecond(self):
-        self.compareResourceOEO("builtins/timeSecond.o")
+        self.compareResourceOEO("builtins/timeSecond.poc")
 
     def testTupleLength(self):
-        self.compareResourceOEO("builtins/tupleLength.o")
+        self.compareResourceOEO("builtins/tupleLength.poc")
 
 

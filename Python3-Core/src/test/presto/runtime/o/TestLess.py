@@ -11,45 +11,45 @@ class TestLess(BaseOParserTest):
         Out.restore()
 
     def testLtCharacter(self):
-        self.checkOutput("less/ltCharacter.o")
+        self.checkOutput("less/ltCharacter.poc")
 
     def testLtDate(self):
-        self.checkOutput("less/ltDate.o")
+        self.checkOutput("less/ltDate.poc")
 
     def testLtDateTime(self):
-        self.checkOutput("less/ltDateTime.o")
+        self.checkOutput("less/ltDateTime.poc")
 
     def testLtDecimal(self):
-        self.checkOutput("less/ltDecimal.o")
+        self.checkOutput("less/ltDecimal.poc")
 
     def testLteCharacter(self):
-        self.checkOutput("less/lteCharacter.o")
+        self.checkOutput("less/lteCharacter.poc")
 
     def testLteDate(self):
-        self.checkOutput("less/lteDate.o")
+        self.checkOutput("less/lteDate.poc")
 
     def testLteDateTime(self):
-        self.checkOutput("less/lteDateTime.o")
+        self.checkOutput("less/lteDateTime.poc")
 
     def testLteDecimal(self):
-        self.checkOutput("less/lteDecimal.o")
+        self.checkOutput("less/lteDecimal.poc")
 
     def testLteInteger(self):
-        self.checkOutput("less/lteInteger.o")
+        self.checkOutput("less/lteInteger.poc")
 
     def testLteText(self):
-        self.checkOutput("less/lteText.o")
+        self.checkOutput("less/lteText.poc")
 
     def testLteTime(self):
-        self.checkOutput("less/lteTime.o")
+        self.checkOutput("less/lteTime.poc")
 
     def testLtInteger(self):
-        self.checkOutput("less/ltInteger.o")
+        self.checkOutput("less/ltInteger.poc")
 
     def testLtText(self):
-        self.checkOutput("less/ltText.o")
+        self.checkOutput("less/ltText.poc")
 
     def testLtTime(self):
-        self.checkOutput("less/ltTime.o")
+        self.checkOutput("less/ltTime.poc")
 
 

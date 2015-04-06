@@ -6,18 +6,18 @@ class TestItem(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testItemDict(self):
-        self.compareResourceOEO("item/itemDict.o")
+        self.compareResourceOEO("item/itemDict.poc")
 
     def testItemList(self):
-        self.compareResourceOEO("item/itemList.o")
+        self.compareResourceOEO("item/itemList.poc")
 
     def testItemRange(self):
-        self.compareResourceOEO("item/itemRange.o")
+        self.compareResourceOEO("item/itemRange.poc")
 
     def testItemSet(self):
-        self.compareResourceOEO("item/itemSet.o")
+        self.compareResourceOEO("item/itemSet.poc")
 
     def testItemText(self):
-        self.compareResourceOEO("item/itemText.o")
+        self.compareResourceOEO("item/itemText.poc")
 
 

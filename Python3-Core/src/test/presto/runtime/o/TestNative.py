@@ -11,48 +11,48 @@ class TestNative(BaseOParserTest):
         Out.restore()
 
     def testCategory(self):
-        self.checkOutput("native/category.o")
+        self.checkOutput("native/category.poc")
 
     def testMethod(self):
-        self.checkOutput("native/method.o")
+        self.checkOutput("native/method.poc")
 
     def testReturnBooleanLiteral(self):
-        self.checkOutput("native/returnBooleanLiteral.o")
+        self.checkOutput("native/returnBooleanLiteral.poc")
 
     def testReturnBooleanObject(self):
-        self.checkOutput("native/returnBooleanObject.o")
+        self.checkOutput("native/returnBooleanObject.poc")
 
     def testReturnBooleanValue(self):
-        self.checkOutput("native/returnBooleanValue.o")
+        self.checkOutput("native/returnBooleanValue.poc")
 
     def testReturnCharacterLiteral(self):
-        self.checkOutput("native/returnCharacterLiteral.o")
+        self.checkOutput("native/returnCharacterLiteral.poc")
 
     def testReturnCharacterObject(self):
-        self.checkOutput("native/returnCharacterObject.o")
+        self.checkOutput("native/returnCharacterObject.poc")
 
     def testReturnCharacterValue(self):
-        self.checkOutput("native/returnCharacterValue.o")
+        self.checkOutput("native/returnCharacterValue.poc")
 
     def testReturnDecimalLiteral(self):
-        self.checkOutput("native/returnDecimalLiteral.o")
+        self.checkOutput("native/returnDecimalLiteral.poc")
 
     def testReturnIntegerLiteral(self):
-        self.checkOutput("native/returnIntegerLiteral.o")
+        self.checkOutput("native/returnIntegerLiteral.poc")
 
     def testReturnIntegerObject(self):
-        self.checkOutput("native/returnIntegerObject.o")
+        self.checkOutput("native/returnIntegerObject.poc")
 
     def testReturnIntegerValue(self):
-        self.checkOutput("native/returnIntegerValue.o")
+        self.checkOutput("native/returnIntegerValue.poc")
 
     def testReturnLongObject(self):
-        self.checkOutput("native/returnLongObject.o")
+        self.checkOutput("native/returnLongObject.poc")
 
     def testReturnLongValue(self):
-        self.checkOutput("native/returnLongValue.o")
+        self.checkOutput("native/returnLongValue.poc")
 
     def testReturnStringLiteral(self):
-        self.checkOutput("native/returnStringLiteral.o")
+        self.checkOutput("native/returnStringLiteral.poc")
 
 

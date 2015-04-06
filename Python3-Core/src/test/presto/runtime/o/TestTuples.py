@@ -11,12 +11,12 @@ class TestTuples(BaseOParserTest):
         Out.restore()
 
     def testMultiAssignment(self):
-        self.checkOutput("tuples/multiAssignment.o")
+        self.checkOutput("tuples/multiAssignment.poc")
 
     def testSingleAssignment(self):
-        self.checkOutput("tuples/singleAssignment.o")
+        self.checkOutput("tuples/singleAssignment.poc")
 
     def testTupleElement(self):
-        self.checkOutput("tuples/tupleElement.o")
+        self.checkOutput("tuples/tupleElement.poc")
 
 

@@ -11,9 +11,9 @@ class TestFetch(BaseOParserTest):
         Out.restore()
 
     def testFetchFromList(self):
-        self.checkOutput("fetch/fetchFromList.o")
+        self.checkOutput("fetch/fetchFromList.poc")
 
     def testFetchFromSet(self):
-        self.checkOutput("fetch/fetchFromSet.o")
+        self.checkOutput("fetch/fetchFromSet.poc")
 
 

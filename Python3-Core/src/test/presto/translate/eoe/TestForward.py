@@ -6,6 +6,6 @@ class TestForward(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testForward(self):
-        self.compareResourceEOE("forward/forward.e")
+        self.compareResourceEOE("forward/forward.pec")
 
 

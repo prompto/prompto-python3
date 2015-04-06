@@ -6,18 +6,18 @@ class TestLazy(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testCyclic(self):
-        self.compareResourceOEO("lazy/cyclic.o")
+        self.compareResourceOEO("lazy/cyclic.poc")
 
     def testDict(self):
-        self.compareResourceOEO("lazy/dict.o")
+        self.compareResourceOEO("lazy/dict.poc")
 
     def testList(self):
-        self.compareResourceOEO("lazy/list.o")
+        self.compareResourceOEO("lazy/list.poc")
 
     def testSet(self):
-        self.compareResourceOEO("lazy/set.o")
+        self.compareResourceOEO("lazy/set.poc")
 
     def testTransient(self):
-        self.compareResourceOEO("lazy/transient.o")
+        self.compareResourceOEO("lazy/transient.poc")
 
 

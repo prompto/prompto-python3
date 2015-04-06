@@ -11,39 +11,39 @@ class TestAdd(BaseEParserTest):
         Out.restore()
 
     def testAddCharacter(self):
-        self.checkOutput("add/addCharacter.e")
+        self.checkOutput("add/addCharacter.pec")
 
     def testAddDate(self):
-        self.checkOutput("add/addDate.e")
+        self.checkOutput("add/addDate.pec")
 
     def testAddDateTime(self):
-        self.checkOutput("add/addDateTime.e")
+        self.checkOutput("add/addDateTime.pec")
 
     def testAddDecimal(self):
-        self.checkOutput("add/addDecimal.e")
+        self.checkOutput("add/addDecimal.pec")
 
     def testAddDict(self):
-        self.checkOutput("add/addDict.e")
+        self.checkOutput("add/addDict.pec")
 
     def testAddInteger(self):
-        self.checkOutput("add/addInteger.e")
+        self.checkOutput("add/addInteger.pec")
 
     def testAddList(self):
-        self.checkOutput("add/addList.e")
+        self.checkOutput("add/addList.pec")
 
     def testAddPeriod(self):
-        self.checkOutput("add/addPeriod.e")
+        self.checkOutput("add/addPeriod.pec")
 
     def testAddSet(self):
-        self.checkOutput("add/addSet.e")
+        self.checkOutput("add/addSet.pec")
 
     def testAddText(self):
-        self.checkOutput("add/addText.e")
+        self.checkOutput("add/addText.pec")
 
     def testAddTime(self):
-        self.checkOutput("add/addTime.e")
+        self.checkOutput("add/addTime.pec")
 
     def testAddTuple(self):
-        self.checkOutput("add/addTuple.e")
+        self.checkOutput("add/addTuple.pec")
 
 

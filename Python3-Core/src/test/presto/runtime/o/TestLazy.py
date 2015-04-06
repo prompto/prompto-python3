@@ -11,18 +11,18 @@ class TestLazy(BaseOParserTest):
         Out.restore()
 
     def testCyclic(self):
-        self.checkOutput("lazy/cyclic.o")
+        self.checkOutput("lazy/cyclic.poc")
 
     def testDict(self):
-        self.checkOutput("lazy/dict.o")
+        self.checkOutput("lazy/dict.poc")
 
     def testList(self):
-        self.checkOutput("lazy/list.o")
+        self.checkOutput("lazy/list.poc")
 
     def testSet(self):
-        self.checkOutput("lazy/set.o")
+        self.checkOutput("lazy/set.poc")
 
     def testTransient(self):
-        self.checkOutput("lazy/transient.o")
+        self.checkOutput("lazy/transient.poc")
 
 

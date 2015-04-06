@@ -6,6 +6,6 @@ class TestIssues(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testMinimal(self):
-        self.compareResourceEOE("issues/minimal.e")
+        self.compareResourceEOE("issues/minimal.pec")
 
 

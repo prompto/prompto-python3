@@ -6,12 +6,12 @@ class TestEnums(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testCategoryEnum(self):
-        self.compareResourceEOE("enums/categoryEnum.e")
+        self.compareResourceEOE("enums/categoryEnum.pec")
 
     def testIntegerEnum(self):
-        self.compareResourceEOE("enums/integerEnum.e")
+        self.compareResourceEOE("enums/integerEnum.pec")
 
     def testTextEnum(self):
-        self.compareResourceEOE("enums/textEnum.e")
+        self.compareResourceEOE("enums/textEnum.pec")
 
 

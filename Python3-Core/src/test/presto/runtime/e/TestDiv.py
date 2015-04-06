@@ -11,15 +11,15 @@ class TestDiv(BaseEParserTest):
         Out.restore()
 
     def testDivDecimal(self):
-        self.checkOutput("div/divDecimal.e")
+        self.checkOutput("div/divDecimal.pec")
 
     def testDivInteger(self):
-        self.checkOutput("div/divInteger.e")
+        self.checkOutput("div/divInteger.pec")
 
     def testIdivInteger(self):
-        self.checkOutput("div/idivInteger.e")
+        self.checkOutput("div/idivInteger.pec")
 
     def testModInteger(self):
-        self.checkOutput("div/modInteger.e")
+        self.checkOutput("div/modInteger.pec")
 
 

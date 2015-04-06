@@ -6,21 +6,21 @@ class TestOperators(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testAddAmount(self):
-        self.compareResourceEOE("operators/addAmount.e")
+        self.compareResourceEOE("operators/addAmount.pec")
 
     def testDivAmount(self):
-        self.compareResourceEOE("operators/divAmount.e")
+        self.compareResourceEOE("operators/divAmount.pec")
 
     def testIdivAmount(self):
-        self.compareResourceEOE("operators/idivAmount.e")
+        self.compareResourceEOE("operators/idivAmount.pec")
 
     def testModAmount(self):
-        self.compareResourceEOE("operators/modAmount.e")
+        self.compareResourceEOE("operators/modAmount.pec")
 
     def testMultAmount(self):
-        self.compareResourceEOE("operators/multAmount.e")
+        self.compareResourceEOE("operators/multAmount.pec")
 
     def testSubAmount(self):
-        self.compareResourceEOE("operators/subAmount.e")
+        self.compareResourceEOE("operators/subAmount.pec")
 
 

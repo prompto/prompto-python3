@@ -6,36 +6,36 @@ class TestErrors(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testDivideByZero(self):
-        self.compareResourceOEO("errors/divideByZero.o")
+        self.compareResourceOEO("errors/divideByZero.poc")
 
     def testIndexOutOfRange_listItem(self):
-        self.compareResourceOEO("errors/indexOutOfRange-listItem.o")
+        self.compareResourceOEO("errors/indexOutOfRange-listItem.poc")
 
     def testIndexOutOfRange_sliceList(self):
-        self.compareResourceOEO("errors/indexOutOfRange-sliceList.o")
+        self.compareResourceOEO("errors/indexOutOfRange-sliceList.poc")
 
     def testIndexOutOfRange_sliceRange(self):
-        self.compareResourceOEO("errors/indexOutOfRange-sliceRange.o")
+        self.compareResourceOEO("errors/indexOutOfRange-sliceRange.poc")
 
     def testIndexOutOfRange_sliceText(self):
-        self.compareResourceOEO("errors/indexOutOfRange-sliceText.o")
+        self.compareResourceOEO("errors/indexOutOfRange-sliceText.poc")
 
     def testNullDict(self):
-        self.compareResourceOEO("errors/nullDict.o")
+        self.compareResourceOEO("errors/nullDict.poc")
 
     def testNullItem(self):
-        self.compareResourceOEO("errors/nullItem.o")
+        self.compareResourceOEO("errors/nullItem.poc")
 
     def testNullKey(self):
-        self.compareResourceOEO("errors/nullKey.o")
+        self.compareResourceOEO("errors/nullKey.poc")
 
     def testNullMember(self):
-        self.compareResourceOEO("errors/nullMember.o")
+        self.compareResourceOEO("errors/nullMember.poc")
 
     def testNullMethod(self):
-        self.compareResourceOEO("errors/nullMethod.o")
+        self.compareResourceOEO("errors/nullMethod.poc")
 
     def testUserException(self):
-        self.compareResourceOEO("errors/userException.o")
+        self.compareResourceOEO("errors/userException.poc")
 
 

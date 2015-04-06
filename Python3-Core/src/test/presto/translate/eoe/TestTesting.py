@@ -6,33 +6,33 @@ class TestTesting(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testAnd(self):
-        self.compareResourceEOE("testing/and.e")
+        self.compareResourceEOE("testing/and.pec")
 
     def testContains(self):
-        self.compareResourceEOE("testing/contains.e")
+        self.compareResourceEOE("testing/contains.pec")
 
     def testGreater(self):
-        self.compareResourceEOE("testing/greater.e")
+        self.compareResourceEOE("testing/greater.pec")
 
     def testMethod(self):
-        self.compareResourceEOE("testing/method.e")
+        self.compareResourceEOE("testing/method.pec")
 
     def testNegative(self):
-        self.compareResourceEOE("testing/negative.e")
+        self.compareResourceEOE("testing/negative.pec")
 
     def testNegativeError(self):
-        self.compareResourceEOE("testing/negativeError.e")
+        self.compareResourceEOE("testing/negativeError.pec")
 
     def testNot(self):
-        self.compareResourceEOE("testing/not.e")
+        self.compareResourceEOE("testing/not.pec")
 
     def testOr(self):
-        self.compareResourceEOE("testing/or.e")
+        self.compareResourceEOE("testing/or.pec")
 
     def testPositive(self):
-        self.compareResourceEOE("testing/positive.e")
+        self.compareResourceEOE("testing/positive.pec")
 
     def testPositiveError(self):
-        self.compareResourceEOE("testing/positiveError.e")
+        self.compareResourceEOE("testing/positiveError.pec")
 
 

@@ -11,12 +11,12 @@ class TestLogic(BaseOParserTest):
         Out.restore()
 
     def testAndBoolean(self):
-        self.checkOutput("logic/andBoolean.o")
+        self.checkOutput("logic/andBoolean.poc")
 
     def testNotBoolean(self):
-        self.checkOutput("logic/notBoolean.o")
+        self.checkOutput("logic/notBoolean.poc")
 
     def testOrBoolean(self):
-        self.checkOutput("logic/orBoolean.o")
+        self.checkOutput("logic/orBoolean.poc")
 
 

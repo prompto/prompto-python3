@@ -16,37 +16,37 @@ class TestResource(BaseOParserTest):
 
     def testBadRead(self):
         try:
-            self.runResource("resource/badRead.o")
+            self.runResource("resource/badRead.poc")
             self.fail()
         except SyntaxError:
             pass
 
     def testBadWrite(self):
         try:
-            self.runResource("resource/badWrite.o")
+            self.runResource("resource/badWrite.poc")
             self.fail()
         except SyntaxError:
             pass
 
     def testBadResource(self):
         try:
-            self.runResource("resource/badResource.o")
+            self.runResource("resource/badResource.poc")
             self.fail()
         except SyntaxError:
             pass
 
 
     def testReadResource(self):
-        self.checkOutput("resource/readResource.o")
+        self.checkOutput("resource/readResource.poc")
 
 
     def testWriteResource(self):
-        self.checkOutput("resource/writeResource.o")
+        self.checkOutput("resource/writeResource.poc")
 
 
     def testReadWithResource(self):
-        self.checkOutput("resource/readWithResource.o")
+        self.checkOutput("resource/readWithResource.poc")
 
 
     def testWriteWithResource(self):
-        self.checkOutput("resource/writeWithResource.o")
+        self.checkOutput("resource/writeWithResource.poc")

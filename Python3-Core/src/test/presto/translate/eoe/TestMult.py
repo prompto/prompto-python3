@@ -6,21 +6,21 @@ class TestMult(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testMultCharacter(self):
-        self.compareResourceEOE("mult/multCharacter.e")
+        self.compareResourceEOE("mult/multCharacter.pec")
 
     def testMultDecimal(self):
-        self.compareResourceEOE("mult/multDecimal.e")
+        self.compareResourceEOE("mult/multDecimal.pec")
 
     def testMultInteger(self):
-        self.compareResourceEOE("mult/multInteger.e")
+        self.compareResourceEOE("mult/multInteger.pec")
 
     def testMultList(self):
-        self.compareResourceEOE("mult/multList.e")
+        self.compareResourceEOE("mult/multList.pec")
 
     def testMultPeriod(self):
-        self.compareResourceEOE("mult/multPeriod.e")
+        self.compareResourceEOE("mult/multPeriod.pec")
 
     def testMultText(self):
-        self.compareResourceEOE("mult/multText.e")
+        self.compareResourceEOE("mult/multText.pec")
 
 

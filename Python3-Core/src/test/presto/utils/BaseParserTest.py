@@ -4,8 +4,8 @@ from presto.parser.ECleverParser import ECleverParser
 from presto.parser.EPrestoBuilder import EPrestoBuilder
 from presto.parser.OCleverParser import OCleverParser
 from presto.parser.OPrestoBuilder import OPrestoBuilder
-from presto.parser.PCleverParser import PCleverParser
-from presto.parser.PPrestoBuilder import PPrestoBuilder
+from presto.parser.SCleverParser import SCleverParser
+from presto.parser.SPrestoBuilder import SPrestoBuilder
 from presto.runtime.Context import Context
 from presto.runtime.Interpreter import Interpreter
 from presto.runtime.utils.Out import Out
@@ -98,9 +98,9 @@ class BaseParserTest(unittest.TestCase):
         parser = OCleverParser(text=code)
         return self.parse(OPrestoBuilder, parser)
 
-    def parsePString(self, code):
-        parser = PCleverParser(text=code)
-        return self.parse(PPrestoBuilder, parser)
+    def parseSString(self, code):
+        parser = SCleverParser(text=code)
+        return self.parse(SPrestoBuilder, parser)
 
     def parseOResource(self, resourceName):
         stream = self.getResourceAsStream(resourceName, 'rb')
@@ -132,7 +132,7 @@ class BaseParserTest(unittest.TestCase):
         # ensure equivalent
         self.assertEquivalent(expected, actual)
 
-    def compareResourceEPE(self, resourceName):
+    def compareResourceESE(self, resourceName):
         expected = self.getResourceAsString(resourceName, 'r')
         # print(expected)
         # parse e source code
@@ -145,7 +145,7 @@ class BaseParserTest(unittest.TestCase):
         p = str(writer)
         # print(p)
         # parse p source code
-        dlp = self.parsePString(p)
+        dlp = self.parseSString(p)
         context = Context.newGlobalContext()
         dlp.register(context)
         # rewrite as e
@@ -180,7 +180,7 @@ class BaseParserTest(unittest.TestCase):
         # ensure equivalent
         self.assertEquivalent(expected, actual)
 
-    def compareResourceOPO(self, resourceName):
+    def compareResourceOSO(self, resourceName):
         expected = self.getResourceAsString(resourceName, 'r')
         # print(expected)
         # parse o source code
@@ -193,7 +193,7 @@ class BaseParserTest(unittest.TestCase):
         p = str(writer)
         # print(p)
         # parse p source code
-        dlp = self.parsePString(p)
+        dlp = self.parseSString(p)
         context = Context.newGlobalContext()
         dlp.register(context)
         # rewrite as o

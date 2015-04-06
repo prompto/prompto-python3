@@ -6,9 +6,9 @@ class TestSingleton(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testAttribute(self):
-        self.compareResourceOEO("singleton/attribute.o")
+        self.compareResourceOEO("singleton/attribute.poc")
 
     def testMember(self):
-        self.compareResourceOEO("singleton/member.o")
+        self.compareResourceOEO("singleton/member.poc")
 
 

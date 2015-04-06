@@ -12,5 +12,5 @@ class TestIssues(BaseEParserTest):
         Out.restore()
 
     def testMinimal(self):
-        self.runResourceMethod("issues/minimal.e", "mainNoCmdLine", None)
-        self.checkExpected("issues/minimal.e")
+        self.runResourceMethod("issues/minimal.pec", "mainNoCmdLine", None)
+        self.checkExpected("issues/minimal.pec")

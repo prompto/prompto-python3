@@ -11,21 +11,21 @@ class TestOperators(BaseOParserTest):
         Out.restore()
 
     def testAddAmount(self):
-        self.checkOutput("operators/addAmount.o")
+        self.checkOutput("operators/addAmount.poc")
 
     def testDivAmount(self):
-        self.checkOutput("operators/divAmount.o")
+        self.checkOutput("operators/divAmount.poc")
 
     def testIdivAmount(self):
-        self.checkOutput("operators/idivAmount.o")
+        self.checkOutput("operators/idivAmount.poc")
 
     def testModAmount(self):
-        self.checkOutput("operators/modAmount.o")
+        self.checkOutput("operators/modAmount.poc")
 
     def testMultAmount(self):
-        self.checkOutput("operators/multAmount.o")
+        self.checkOutput("operators/multAmount.poc")
 
     def testSubAmount(self):
-        self.checkOutput("operators/subAmount.o")
+        self.checkOutput("operators/subAmount.poc")
 
 

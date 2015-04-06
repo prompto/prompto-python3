@@ -11,9 +11,9 @@ class TestSingleton(BaseEParserTest):
         Out.restore()
 
     def testAttribute(self):
-        self.checkOutput("singleton/attribute.e")
+        self.checkOutput("singleton/attribute.pec")
 
     def testMember(self):
-        self.checkOutput("singleton/member.e")
+        self.checkOutput("singleton/member.pec")
 
 

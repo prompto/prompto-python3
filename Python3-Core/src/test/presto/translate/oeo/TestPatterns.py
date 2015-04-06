@@ -6,21 +6,21 @@ class TestPatterns(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testIntegerEnumeration(self):
-        self.compareResourceOEO("patterns/integerEnumeration.o")
+        self.compareResourceOEO("patterns/integerEnumeration.poc")
 
     def testIntegerPattern(self):
-        self.compareResourceOEO("patterns/integerPattern.o")
+        self.compareResourceOEO("patterns/integerPattern.poc")
 
     def testNegativeIntegerRange(self):
-        self.compareResourceOEO("patterns/negativeIntegerRange.o")
+        self.compareResourceOEO("patterns/negativeIntegerRange.poc")
 
     def testPositiveIntegerRange(self):
-        self.compareResourceOEO("patterns/positiveIntegerRange.o")
+        self.compareResourceOEO("patterns/positiveIntegerRange.poc")
 
     def testTextEnumeration(self):
-        self.compareResourceOEO("patterns/textEnumeration.o")
+        self.compareResourceOEO("patterns/textEnumeration.poc")
 
     def testTextPattern(self):
-        self.compareResourceOEO("patterns/textPattern.o")
+        self.compareResourceOEO("patterns/textPattern.poc")
 
 

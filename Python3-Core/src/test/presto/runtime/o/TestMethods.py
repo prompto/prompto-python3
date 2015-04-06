@@ -11,39 +11,39 @@ class TestMethods(BaseOParserTest):
         Out.restore()
 
     def testAnonymous(self):
-        self.checkOutput("methods/anonymous.o")
+        self.checkOutput("methods/anonymous.poc")
 
     def testAttribute(self):
-        self.checkOutput("methods/attribute.o")
+        self.checkOutput("methods/attribute.poc")
 
     def testDefault(self):
-        self.checkOutput("methods/default.o")
+        self.checkOutput("methods/default.poc")
 
     def testE_as_e_bug(self):
-        self.checkOutput("methods/e_as_e_bug.o")
+        self.checkOutput("methods/e_as_e_bug.poc")
 
     def testExpressionWith(self):
-        self.checkOutput("methods/expressionWith.o")
+        self.checkOutput("methods/expressionWith.poc")
 
     def testImplicit(self):
-        self.checkOutput("methods/implicit.o")
+        self.checkOutput("methods/implicit.poc")
 
     def testMember(self):
-        self.checkOutput("methods/member.o")
+        self.checkOutput("methods/member.poc")
 
     def testPolymorphic_abstract(self):
-        self.checkOutput("methods/polymorphic_abstract.o")
+        self.checkOutput("methods/polymorphic_abstract.poc")
 
     def testPolymorphic_implicit(self):
-        self.checkOutput("methods/polymorphic_implicit.o")
+        self.checkOutput("methods/polymorphic_implicit.poc")
 
     def testPolymorphic_named(self):
-        self.checkOutput("methods/polymorphic_named.o")
+        self.checkOutput("methods/polymorphic_named.poc")
 
     def testPolymorphic_runtime(self):
-        self.checkOutput("methods/polymorphic_runtime.o")
+        self.checkOutput("methods/polymorphic_runtime.poc")
 
     def testSpecified(self):
-        self.checkOutput("methods/specified.o")
+        self.checkOutput("methods/specified.poc")
 
 

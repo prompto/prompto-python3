@@ -11,12 +11,12 @@ class TestMinus(BaseOParserTest):
         Out.restore()
 
     def testMinusDecimal(self):
-        self.checkOutput("minus/minusDecimal.o")
+        self.checkOutput("minus/minusDecimal.poc")
 
     def testMinusInteger(self):
-        self.checkOutput("minus/minusInteger.o")
+        self.checkOutput("minus/minusInteger.poc")
 
     def testMinusPeriod(self):
-        self.checkOutput("minus/minusPeriod.o")
+        self.checkOutput("minus/minusPeriod.poc")
 
 

@@ -11,15 +11,15 @@ class TestCast(BaseOParserTest):
         Out.restore()
 
     def testAutoDowncast(self):
-        self.checkOutput("cast/autoDowncast.o")
+        self.checkOutput("cast/autoDowncast.poc")
 
     def testCastChild(self):
-        self.checkOutput("cast/castChild.o")
+        self.checkOutput("cast/castChild.poc")
 
     def testIsAChild(self):
-        self.checkOutput("cast/isAChild.o")
+        self.checkOutput("cast/isAChild.poc")
 
     def testIsAText(self):
-        self.checkOutput("cast/isAText.o")
+        self.checkOutput("cast/isAText.poc")
 
 

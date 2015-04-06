@@ -11,9 +11,9 @@ class TestSelf(BaseEParserTest):
         Out.restore()
 
     def testSelfAsParameter(self):
-        self.checkOutput("self/selfAsParameter.e")
+        self.checkOutput("self/selfAsParameter.pec")
 
     def testSelfMember(self):
-        self.checkOutput("self/selfMember.e")
+        self.checkOutput("self/selfMember.pec")
 
 

@@ -6,9 +6,9 @@ class TestFetch(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testFetchFromList(self):
-        self.compareResourceEOE("fetch/fetchFromList.e")
+        self.compareResourceEOE("fetch/fetchFromList.pec")
 
     def testFetchFromSet(self):
-        self.compareResourceEOE("fetch/fetchFromSet.e")
+        self.compareResourceEOE("fetch/fetchFromSet.pec")
 
 

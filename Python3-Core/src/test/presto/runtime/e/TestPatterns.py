@@ -11,21 +11,21 @@ class TestPatterns(BaseEParserTest):
         Out.restore()
 
     def testIntegerEnumeration(self):
-        self.checkOutput("patterns/integerEnumeration.e")
+        self.checkOutput("patterns/integerEnumeration.pec")
 
     def testIntegerPattern(self):
-        self.checkOutput("patterns/integerPattern.e")
+        self.checkOutput("patterns/integerPattern.pec")
 
     def testNegativeIntegerRange(self):
-        self.checkOutput("patterns/negativeIntegerRange.e")
+        self.checkOutput("patterns/negativeIntegerRange.pec")
 
     def testPositiveIntegerRange(self):
-        self.checkOutput("patterns/positiveIntegerRange.e")
+        self.checkOutput("patterns/positiveIntegerRange.pec")
 
     def testTextEnumeration(self):
-        self.checkOutput("patterns/textEnumeration.e")
+        self.checkOutput("patterns/textEnumeration.pec")
 
     def testTextPattern(self):
-        self.checkOutput("patterns/textPattern.e")
+        self.checkOutput("patterns/textPattern.pec")
 
 

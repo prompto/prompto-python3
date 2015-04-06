@@ -6,42 +6,42 @@ class TestMethods(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testAnonymous(self):
-        self.compareResourceOEO("methods/anonymous.o")
+        self.compareResourceOEO("methods/anonymous.poc")
 
     def testAttribute(self):
-        self.compareResourceOEO("methods/attribute.o")
+        self.compareResourceOEO("methods/attribute.poc")
 
     def testDefault(self):
-        self.compareResourceOEO("methods/default.o")
+        self.compareResourceOEO("methods/default.poc")
 
     def testE_as_e_bug(self):
-        self.compareResourceOEO("methods/e_as_e_bug.o")
+        self.compareResourceOEO("methods/e_as_e_bug.poc")
 
     def testExpressionWith(self):
-        self.compareResourceOEO("methods/expressionWith.o")
+        self.compareResourceOEO("methods/expressionWith.poc")
 
     def testImplicit(self):
-        self.compareResourceOEO("methods/implicit.o")
+        self.compareResourceOEO("methods/implicit.poc")
 
     def testMember(self):
-        self.compareResourceOEO("methods/member.o")
+        self.compareResourceOEO("methods/member.poc")
 
     def testPolymorphic_abstract(self):
-        self.compareResourceOEO("methods/polymorphic_abstract.o")
+        self.compareResourceOEO("methods/polymorphic_abstract.poc")
 
     def testPolymorphic_implicit(self):
-        self.compareResourceOEO("methods/polymorphic_implicit.o")
+        self.compareResourceOEO("methods/polymorphic_implicit.poc")
 
     def testPolymorphic_named(self):
-        self.compareResourceOEO("methods/polymorphic_named.o")
+        self.compareResourceOEO("methods/polymorphic_named.poc")
 
     def testPolymorphic_runtime(self):
-        self.compareResourceOEO("methods/polymorphic_runtime.o")
+        self.compareResourceOEO("methods/polymorphic_runtime.poc")
 
     def testReturn(self):
-        self.compareResourceOEO("methods/return.o")
+        self.compareResourceOEO("methods/return.poc")
 
     def testSpecified(self):
-        self.compareResourceOEO("methods/specified.o")
+        self.compareResourceOEO("methods/specified.poc")
 
 

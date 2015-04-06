@@ -11,36 +11,36 @@ class TestErrors(BaseEParserTest):
         Out.restore()
 
     def testDivideByZero(self):
-        self.checkOutput("errors/divideByZero.e")
+        self.checkOutput("errors/divideByZero.pec")
 
     def testIndexOutOfRange_listItem(self):
-        self.checkOutput("errors/indexOutOfRange-listItem.e")
+        self.checkOutput("errors/indexOutOfRange-listItem.pec")
 
     def testIndexOutOfRange_sliceList(self):
-        self.checkOutput("errors/indexOutOfRange-sliceList.e")
+        self.checkOutput("errors/indexOutOfRange-sliceList.pec")
 
     def testIndexOutOfRange_sliceRange(self):
-        self.checkOutput("errors/indexOutOfRange-sliceRange.e")
+        self.checkOutput("errors/indexOutOfRange-sliceRange.pec")
 
     def testIndexOutOfRange_sliceText(self):
-        self.checkOutput("errors/indexOutOfRange-sliceText.e")
+        self.checkOutput("errors/indexOutOfRange-sliceText.pec")
 
     def testNullDict(self):
-        self.checkOutput("errors/nullDict.e")
+        self.checkOutput("errors/nullDict.pec")
 
     def testNullItem(self):
-        self.checkOutput("errors/nullItem.e")
+        self.checkOutput("errors/nullItem.pec")
 
     def testNullKey(self):
-        self.checkOutput("errors/nullKey.e")
+        self.checkOutput("errors/nullKey.pec")
 
     def testNullMember(self):
-        self.checkOutput("errors/nullMember.e")
+        self.checkOutput("errors/nullMember.pec")
 
     def testNullMethod(self):
-        self.checkOutput("errors/nullMethod.e")
+        self.checkOutput("errors/nullMethod.pec")
 
     def testUserException(self):
-        self.checkOutput("errors/userException.e")
+        self.checkOutput("errors/userException.pec")
 
 

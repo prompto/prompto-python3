@@ -11,12 +11,12 @@ class TestEnums(BaseEParserTest):
         Out.restore()
 
     def testCategoryEnum(self):
-        self.checkOutput("enums/categoryEnum.e")
+        self.checkOutput("enums/categoryEnum.pec")
 
     def testIntegerEnum(self):
-        self.checkOutput("enums/integerEnum.e")
+        self.checkOutput("enums/integerEnum.pec")
 
     def testTextEnum(self):
-        self.checkOutput("enums/textEnum.e")
+        self.checkOutput("enums/textEnum.pec")
 
 

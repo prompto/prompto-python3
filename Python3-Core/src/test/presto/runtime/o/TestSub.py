@@ -11,21 +11,21 @@ class TestSub(BaseOParserTest):
         Out.restore()
 
     def testSubDate(self):
-        self.checkOutput("sub/subDate.o")
+        self.checkOutput("sub/subDate.poc")
 
     def testSubDateTime(self):
-        self.checkOutput("sub/subDateTime.o")
+        self.checkOutput("sub/subDateTime.poc")
 
     def testSubDecimal(self):
-        self.checkOutput("sub/subDecimal.o")
+        self.checkOutput("sub/subDecimal.poc")
 
     def testSubInteger(self):
-        self.checkOutput("sub/subInteger.o")
+        self.checkOutput("sub/subInteger.poc")
 
     def testSubPeriod(self):
-        self.checkOutput("sub/subPeriod.o")
+        self.checkOutput("sub/subPeriod.poc")
 
     def testSubTime(self):
-        self.checkOutput("sub/subTime.o")
+        self.checkOutput("sub/subTime.poc")
 
 

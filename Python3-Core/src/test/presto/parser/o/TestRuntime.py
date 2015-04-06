@@ -34,11 +34,11 @@ class TestNative(BaseOParserTest):
         self.assertEquals("test", Out.read())
 
     def testReturnText(self):
-        self.runResource("native/return.o")
+        self.runResource("native/return.poc")
         self.assertEquals(sys.platform, Out.read())
 
     def testDateTimeTZName(self):
-        self.runResource("builtins/dateTimeTZName.o")
+        self.runResource("builtins/dateTimeTZName.poc")
         # String tzName = TimeZone.getTimeZone("UTC").getDisplayName(Locale.ENGLISH)
         # self.assertEquals("tzName=" + tzName, Out.read())
 

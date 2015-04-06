@@ -11,36 +11,36 @@ class TestSortList(BaseOParserTest):
         Out.restore()
 
     def testSortBooleans(self):
-        self.checkOutput("sortList/sortBooleans.o")
+        self.checkOutput("sortList/sortBooleans.poc")
 
     def testSortDates(self):
-        self.checkOutput("sortList/sortDates.o")
+        self.checkOutput("sortList/sortDates.poc")
 
     def testSortDateTimes(self):
-        self.checkOutput("sortList/sortDateTimes.o")
+        self.checkOutput("sortList/sortDateTimes.poc")
 
     def testSortDecimals(self):
-        self.checkOutput("sortList/sortDecimals.o")
+        self.checkOutput("sortList/sortDecimals.poc")
 
     def testSortExpressions(self):
-        self.checkOutput("sortList/sortExpressions.o")
+        self.checkOutput("sortList/sortExpressions.poc")
 
     def testSortIntegers(self):
-        self.checkOutput("sortList/sortIntegers.o")
+        self.checkOutput("sortList/sortIntegers.poc")
 
     def testSortKeys(self):
-        self.checkOutput("sortList/sortKeys.o")
+        self.checkOutput("sortList/sortKeys.poc")
 
     def testSortMethods(self):
-        self.checkOutput("sortList/sortMethods.o")
+        self.checkOutput("sortList/sortMethods.poc")
 
     def testSortNames(self):
-        self.checkOutput("sortList/sortNames.o")
+        self.checkOutput("sortList/sortNames.poc")
 
     def testSortTexts(self):
-        self.checkOutput("sortList/sortTexts.o")
+        self.checkOutput("sortList/sortTexts.poc")
 
     def testSortTimes(self):
-        self.checkOutput("sortList/sortTimes.o")
+        self.checkOutput("sortList/sortTimes.poc")
 
 

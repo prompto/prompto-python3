@@ -11,9 +11,9 @@ class TestSetters(BaseEParserTest):
         Out.restore()
 
     def testGetter(self):
-        self.checkOutput("setters/getter.e")
+        self.checkOutput("setters/getter.pec")
 
     def testSetter(self):
-        self.checkOutput("setters/setter.e")
+        self.checkOutput("setters/setter.pec")
 
 

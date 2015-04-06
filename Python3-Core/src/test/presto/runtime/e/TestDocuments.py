@@ -11,15 +11,15 @@ class TestDocuments(BaseEParserTest):
         Out.restore()
 
     def testDeepItem(self):
-        self.checkOutput("documents/deepItem.e")
+        self.checkOutput("documents/deepItem.pec")
 
     def testDeepVariable(self):
-        self.checkOutput("documents/deepVariable.e")
+        self.checkOutput("documents/deepVariable.pec")
 
     def testItem(self):
-        self.checkOutput("documents/item.e")
+        self.checkOutput("documents/item.pec")
 
     def testVariable(self):
-        self.checkOutput("documents/variable.e")
+        self.checkOutput("documents/variable.pec")
 
 

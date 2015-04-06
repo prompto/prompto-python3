@@ -6,12 +6,12 @@ class TestNative(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testCategory(self):
-        self.compareResourceEOE("native/category.e")
+        self.compareResourceEOE("native/category.pec")
 
     def testMethod(self):
-        self.compareResourceEOE("native/method.e")
+        self.compareResourceEOE("native/method.pec")
 
     def testReturn(self):
-        self.compareResourceEOE("native/return.e")
+        self.compareResourceEOE("native/return.pec")
 
 

@@ -11,6 +11,6 @@ class TestInjections(BaseOParserTest):
         Out.restore()
 
     def testExpressionInjection(self):
-        self.checkOutput("injections/expressionInjection.o")
+        self.checkOutput("injections/expressionInjection.poc")
 
 

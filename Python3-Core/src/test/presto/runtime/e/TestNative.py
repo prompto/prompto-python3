@@ -11,9 +11,9 @@ class TestNative(BaseEParserTest):
         Out.restore()
 
     def testCategory(self):
-        self.checkOutput("native/category.e")
+        self.checkOutput("native/category.pec")
 
     def testMethod(self):
-        self.checkOutput("native/method.e")
+        self.checkOutput("native/method.pec")
 
 

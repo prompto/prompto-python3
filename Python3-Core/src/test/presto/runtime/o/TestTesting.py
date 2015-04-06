@@ -11,33 +11,33 @@ class TestTesting(BaseOParserTest):
         Out.restore()
 
     def testAnd(self):
-        self.checkOutput("testing/and.o")
+        self.checkOutput("testing/and.poc")
 
     def testContains(self):
-        self.checkOutput("testing/contains.o")
+        self.checkOutput("testing/contains.poc")
 
     def testGreater(self):
-        self.checkOutput("testing/greater.o")
+        self.checkOutput("testing/greater.poc")
 
     def testMethod(self):
-        self.checkOutput("testing/method.o")
+        self.checkOutput("testing/method.poc")
 
     def testNegative(self):
-        self.checkOutput("testing/negative.o")
+        self.checkOutput("testing/negative.poc")
 
     def testNegativeError(self):
-        self.checkOutput("testing/negativeError.o")
+        self.checkOutput("testing/negativeError.poc")
 
     def testNot(self):
-        self.checkOutput("testing/not.o")
+        self.checkOutput("testing/not.poc")
 
     def testOr(self):
-        self.checkOutput("testing/or.o")
+        self.checkOutput("testing/or.poc")
 
     def testPositive(self):
-        self.checkOutput("testing/positive.o")
+        self.checkOutput("testing/positive.poc")
 
     def testPositiveError(self):
-        self.checkOutput("testing/positiveError.o")
+        self.checkOutput("testing/positiveError.poc")
 
 

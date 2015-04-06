@@ -11,6 +11,6 @@ class TestForward(BaseEParserTest):
         Out.restore()
 
     def testForward(self):
-        self.checkOutput("forward/forward.e")
+        self.checkOutput("forward/forward.pec")
 
 

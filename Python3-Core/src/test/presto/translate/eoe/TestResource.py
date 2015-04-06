@@ -6,24 +6,24 @@ class TestResource(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testBadRead(self):
-        self.compareResourceEOE("resource/badRead.e")
+        self.compareResourceEOE("resource/badRead.pec")
 
     def testBadResource(self):
-        self.compareResourceEOE("resource/badResource.e")
+        self.compareResourceEOE("resource/badResource.pec")
 
     def testBadWrite(self):
-        self.compareResourceEOE("resource/badWrite.e")
+        self.compareResourceEOE("resource/badWrite.pec")
 
     def testReadResource(self):
-        self.compareResourceEOE("resource/readResource.e")
+        self.compareResourceEOE("resource/readResource.pec")
 
     def testReadWithResource(self):
-        self.compareResourceEOE("resource/readWithResource.e")
+        self.compareResourceEOE("resource/readWithResource.pec")
 
     def testWriteResource(self):
-        self.compareResourceEOE("resource/writeResource.e")
+        self.compareResourceEOE("resource/writeResource.pec")
 
     def testWriteWithResource(self):
-        self.compareResourceEOE("resource/writeWithResource.e")
+        self.compareResourceEOE("resource/writeWithResource.pec")
 
 

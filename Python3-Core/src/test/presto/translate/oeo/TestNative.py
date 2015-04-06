@@ -6,51 +6,51 @@ class TestNative(BaseOParserTest):
         super(type(self), self).setUp()
     
     def testCategory(self):
-        self.compareResourceOEO("native/category.o")
+        self.compareResourceOEO("native/category.poc")
 
     def testMethod(self):
-        self.compareResourceOEO("native/method.o")
+        self.compareResourceOEO("native/method.poc")
 
     def testReturn(self):
-        self.compareResourceOEO("native/return.o")
+        self.compareResourceOEO("native/return.poc")
 
     def testReturnBooleanLiteral(self):
-        self.compareResourceOEO("native/returnBooleanLiteral.o")
+        self.compareResourceOEO("native/returnBooleanLiteral.poc")
 
     def testReturnBooleanObject(self):
-        self.compareResourceOEO("native/returnBooleanObject.o")
+        self.compareResourceOEO("native/returnBooleanObject.poc")
 
     def testReturnBooleanValue(self):
-        self.compareResourceOEO("native/returnBooleanValue.o")
+        self.compareResourceOEO("native/returnBooleanValue.poc")
 
     def testReturnCharacterLiteral(self):
-        self.compareResourceOEO("native/returnCharacterLiteral.o")
+        self.compareResourceOEO("native/returnCharacterLiteral.poc")
 
     def testReturnCharacterObject(self):
-        self.compareResourceOEO("native/returnCharacterObject.o")
+        self.compareResourceOEO("native/returnCharacterObject.poc")
 
     def testReturnCharacterValue(self):
-        self.compareResourceOEO("native/returnCharacterValue.o")
+        self.compareResourceOEO("native/returnCharacterValue.poc")
 
     def testReturnDecimalLiteral(self):
-        self.compareResourceOEO("native/returnDecimalLiteral.o")
+        self.compareResourceOEO("native/returnDecimalLiteral.poc")
 
     def testReturnIntegerLiteral(self):
-        self.compareResourceOEO("native/returnIntegerLiteral.o")
+        self.compareResourceOEO("native/returnIntegerLiteral.poc")
 
     def testReturnIntegerObject(self):
-        self.compareResourceOEO("native/returnIntegerObject.o")
+        self.compareResourceOEO("native/returnIntegerObject.poc")
 
     def testReturnIntegerValue(self):
-        self.compareResourceOEO("native/returnIntegerValue.o")
+        self.compareResourceOEO("native/returnIntegerValue.poc")
 
     def testReturnLongObject(self):
-        self.compareResourceOEO("native/returnLongObject.o")
+        self.compareResourceOEO("native/returnLongObject.poc")
 
     def testReturnLongValue(self):
-        self.compareResourceOEO("native/returnLongValue.o")
+        self.compareResourceOEO("native/returnLongValue.poc")
 
     def testReturnStringLiteral(self):
-        self.compareResourceOEO("native/returnStringLiteral.o")
+        self.compareResourceOEO("native/returnStringLiteral.poc")
 
 

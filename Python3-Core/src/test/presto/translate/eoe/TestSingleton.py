@@ -6,9 +6,9 @@ class TestSingleton(BaseEParserTest):
         super(type(self), self).setUp()
     
     def testAttribute(self):
-        self.compareResourceEOE("singleton/attribute.e")
+        self.compareResourceEOE("singleton/attribute.pec")
 
     def testMember(self):
-        self.compareResourceEOE("singleton/member.e")
+        self.compareResourceEOE("singleton/member.pec")
 
 

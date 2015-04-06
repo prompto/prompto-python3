@@ -11,21 +11,21 @@ class TestCondition(BaseEParserTest):
         Out.restore()
 
     def testComplexIf(self):
-        self.checkOutput("condition/complexIf.e")
+        self.checkOutput("condition/complexIf.pec")
 
     def testElseIf(self):
-        self.checkOutput("condition/elseIf.e")
+        self.checkOutput("condition/elseIf.pec")
 
     def testReturnIf(self):
-        self.checkOutput("condition/returnIf.e")
+        self.checkOutput("condition/returnIf.pec")
 
     def testSimpleIf(self):
-        self.checkOutput("condition/simpleIf.e")
+        self.checkOutput("condition/simpleIf.pec")
 
     def testSwitch(self):
-        self.checkOutput("condition/switch.e")
+        self.checkOutput("condition/switch.pec")
 
     def testTernary(self):
-        self.checkOutput("condition/ternary.e")
+        self.checkOutput("condition/ternary.pec")
 
 

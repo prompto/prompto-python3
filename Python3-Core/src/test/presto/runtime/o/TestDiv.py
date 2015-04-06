@@ -11,15 +11,15 @@ class TestDiv(BaseOParserTest):
         Out.restore()
 
     def testDivDecimal(self):
-        self.checkOutput("div/divDecimal.o")
+        self.checkOutput("div/divDecimal.poc")
 
     def testDivInteger(self):
-        self.checkOutput("div/divInteger.o")
+        self.checkOutput("div/divInteger.poc")
 
     def testIdivInteger(self):
-        self.checkOutput("div/idivInteger.o")
+        self.checkOutput("div/idivInteger.poc")
 
     def testModInteger(self):
-        self.checkOutput("div/modInteger.o")
+        self.checkOutput("div/modInteger.poc")
 
 
