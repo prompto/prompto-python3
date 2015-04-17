@@ -2,7 +2,7 @@ from io import StringIO
 
 from presto.expression.IExpression import IExpression
 from presto.grammar.Symbol import Symbol
-
+from presto.error.SyntaxError import SyntaxError
 
 class CategorySymbol(Symbol, IExpression):
 
@@ -57,7 +57,7 @@ class CategorySymbol(Symbol, IExpression):
         if self.assignments != None:
             for assignment in self.assignments:
                 value = assignment.getExpression().interpret(context)
-                instance.set(context, assignment.getName(), value)
-        instance.set(context, "name", self.symbol)
+                instance.SetMember(context, assignment.getName(), value)
+        instance.SetMember(context, "name", self.symbol)
         instance.mutable = False
         return instance

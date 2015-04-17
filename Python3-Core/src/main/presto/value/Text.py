@@ -64,12 +64,12 @@ class Text(BaseValue, ISliceable, IMultiplyable):
         if isinstance(value, Character):
             return self.value.find(value.value) >= 0
         elif isinstance(value, Text):
-            return self.value.find(value.value) >= 0;
+            return self.value.find(value.value) >= 0
         else:
             raise SyntaxError("Illegal contain: Text + " + type(value).__name__)
 
 
-    def getMember(self, context, name):
+    def GetMember(self, context, name):
         if "length" == name:
             return Integer(len(self.value))
         else:

@@ -221,7 +221,7 @@ class CategoryType(BaseType):
     def sortByAttribute(self, context, source, name):
 
         def keyGetter(o):
-            return o.getMember(context, name)
+            return o.GetMember(context, name)
 
         return sorted(source, key=keyGetter)
 

@@ -47,7 +47,7 @@ class DateTime(BaseValue):
             raise SyntaxError("Illegal comparison: DateTime + " + type(value).__name__)
 
 
-    def getMember(self, context, name):
+    def GetMember(self, context, name):
         from presto.value.Integer import Integer
         if "year" == name:
             return Integer(self.value.year)

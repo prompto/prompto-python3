@@ -8,10 +8,10 @@ class EqOp (object):
     NOT_EQUALS = None
     ROUGHLY = None
 
-    def __init__(self, e, o, p):
+    def __init__(self, e, o, s):
         self.E = e
         self.O = o
-        self.P = p
+        self.S = s
 
     def toDialect(self, writer):
         writer.append(self.toString(writer.dialect))

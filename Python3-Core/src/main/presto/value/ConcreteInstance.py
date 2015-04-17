@@ -39,7 +39,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
     def getAttributeNames(self):
         return self.values.keys()
 
-    def getMember(self, context, attrName):
+    def GetMember(self, context, attrName):
         stacked = activeGetters.__dict__.get(attrName, None)
         try:
             return self.get(context, attrName, stacked == None)
@@ -56,7 +56,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         else:
             return self.values.get(attrName, None)
 
-    def set(self, context, attrName, value):
+    def SetMember(self, context, attrName, value):
         if not self.mutable:
             raise NotMutableError()
         stacked = activeSetters.__dict__.get(attrName, None)

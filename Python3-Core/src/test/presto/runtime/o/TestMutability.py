@@ -13,7 +13,13 @@ class TestMutability(BaseOParserTest):
     def testImmutable(self):
         self.checkOutput("mutability/immutable.poc")
 
+    def testImmutableMember(self):
+        self.checkOutput("mutability/immutableMember.poc")
+
     def testMutable(self):
         self.checkOutput("mutability/mutable.poc")
+
+    def testMutableMember(self):
+        self.checkOutput("mutability/mutableMember.poc")
 
 

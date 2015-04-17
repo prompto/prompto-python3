@@ -13,7 +13,13 @@ class TestMutability(BaseEParserTest):
     def testImmutable(self):
         self.checkOutput("mutability/immutable.pec")
 
+    def testImmutableMember(self):
+        self.checkOutput("mutability/immutableMember.pec")
+
     def testMutable(self):
         self.checkOutput("mutability/mutable.pec")
+
+    def testMutableMember(self):
+        self.checkOutput("mutability/mutableMember.pec")
 
 

@@ -2,7 +2,7 @@ from presto.expression.EqualsExpression import EqualsExpression
 from presto.statement.BaseStatement import BaseStatement
 from presto.type.BooleanType import BooleanType
 from presto.value.Boolean import Boolean
-
+from presto.error.SyntaxError import SyntaxError
 
 class IfStatement ( BaseStatement ):
 
@@ -93,7 +93,6 @@ class IfElement ( BaseStatement ):
             context = self.condition.downCast(context, setValue)
         context = context if id(parent)!=id(context) else context.newChildContext()
         return context
-
 
     def toPDialect(self, writer):
         self.toEDialect(writer)

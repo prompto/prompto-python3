@@ -1,6 +1,5 @@
-from presto.error.InvalidDataError import InvalidDataError
+from presto.error.NotMutableError import NotMutableError
 from presto.grammar.IAssignableInstance import IAssignableInstance
-from presto.value.Document import Document
 
 
 class MemberInstance ( IAssignableInstance ):
@@ -34,16 +33,12 @@ class MemberInstance ( IAssignableInstance ):
         pass
 
     def assign(self, context, expression):
+        root = self.parent.interpret(context)
+        if not root.mutable:
+            raise NotMutableError()
         value = expression.interpret(context)
-        doc = self.parent.interpret(context)
-        if isinstance(doc, Document):
-            doc.setMember(self.name,value)
-        else:
-            raise InvalidDataError("Expecting a document, got:" + type(doc).__name__)
+        root.SetMember(context, self.name, value)
 
     def interpret(self, context):
-        doc = self.parent.interpret(context)
-        if isinstance(doc, Document) :
-            return doc.getMember(context, self.name)
-        else:
-            raise InvalidDataError("Expecting a document, got:" + type(doc).__name__)
+        root = self.parent.interpret(context)
+        return root.GetMember(context, self.name)

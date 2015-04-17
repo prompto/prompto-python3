@@ -61,7 +61,7 @@ class Time(BaseValue):
             raise SyntaxError("Illegal comparison: Time + " + type(value).__name__)
 
 
-    def getMember(self, context, name):
+    def GetMember(self, context, name):
         if "hour" == name:
             return Integer(self.value.hour)
         elif "minute" == name:

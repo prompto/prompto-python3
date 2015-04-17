@@ -23,12 +23,12 @@ class NativeInstance(BaseValue, IInstance):
     def getType(self):
         return self.type
 
-    def getMember(self, context, attrName):
+    def GetMember(self, context, attrName):
         value = getattr(self.instance, attrName)
         ct = PythonClassType(type(value))
         return ct.convertPythonValueToPrestoValue(value, None) # TODO use attribute declaration type
 
-    def set(self, context, attrName, value):
+    def SetMember(self, context, attrName, value):
         setattr(self.instance, attrName, value.convertToPython())
 
     def __getattr__(self, item):

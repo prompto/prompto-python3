@@ -1,7 +1,6 @@
 from presto.grammar.IAssignableInstance import IAssignableInstance
 from presto.grammar.INamedValue import INamedValue
 from presto.runtime.Variable import Variable
-from presto.type.DocumentType import DocumentType
 from presto.error.SyntaxError import SyntaxError
 
 
@@ -34,8 +33,6 @@ class VariableInstance(IAssignableInstance):
         actual = context.getRegisteredValue(INamedValue, self.name)
         if actual == None:
             raise SyntaxError("Unknown variable:" + self.name)
-        if actual.getType(context) != DocumentType.instance:
-            raise SyntaxError(self.name + " is not a document. Cannot assign member!")
 
     def assign(self, context, expression):
         value = expression.interpret(context)

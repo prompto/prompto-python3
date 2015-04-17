@@ -67,7 +67,7 @@ class TestMethodDeclaration(BaseDeclaration):
         if expected == actual:
             self.printSuccess (context)
         else:
-            actualName = str(actual.getMember (context, "name"))
+            actualName = str(actual.GetMember (context, "name"))
             self.printFailure (context, self.error.name, actualName)
     
     def toDialect(self, writer):
