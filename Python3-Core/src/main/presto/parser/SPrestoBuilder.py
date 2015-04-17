@@ -127,7 +127,7 @@ from presto.parser.SParser import SParser
 from presto.parser.SParserListener import SParserListener
 from presto.parser.Section import Section
 from presto.parser.Dialect import Dialect
-from presto.python.PythonArgument import PythonNamedArgument, PythonArgumentList
+from presto.python.PythonArgument import PythonNamedArgument, PythonOrdinalArgumentList, PythonArgumentList
 from presto.python.PythonBooleanLiteral import PythonBooleanLiteral
 from presto.python.PythonCharacterLiteral import PythonCharacterLiteral
 from presto.python.PythonDecimalLiteral import PythonDecimalLiteral
@@ -1781,6 +1781,20 @@ class SPrestoBuilder(SParserListener):
         named = self.getNodeValue(ctx.named)
         self.setNodeValue(ctx, named)
 
+
+    def exitPythonOrdinalArgumentList(self, ctx:SParser.PythonOrdinalArgumentListContext):
+        item = self.getNodeValue(ctx.item)
+        self.setNodeValue(ctx, PythonOrdinalArgumentList(item))
+
+    def exitPythonOrdinalArgumentListItem(self, ctx:SParser.PythonOrdinalArgumentListItemContext):
+        items = self.getNodeValue(ctx.items)
+        item = self.getNodeValue(ctx.item)
+        items.append(item)
+        self.setNodeValue(ctx, items)
+
+    def exitPythonOrdinalOnlyArgumentList(self, ctx:SParser.PythonOrdinalOnlyArgumentListContext):
+        ordinal = self.getNodeValue(ctx.ordinal)
+        self.setNodeValue(ctx, ordinal)
 
     def exitPythonPrimaryExpression(self, ctx:SParser.PythonPrimaryExpressionContext):
         exp = self.getNodeValue(ctx.exp)
