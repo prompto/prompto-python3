@@ -18,7 +18,6 @@ from presto.declaration.ConcreteMethodDeclaration import ConcreteMethodDeclarati
 from presto.declaration.EnumeratedCategoryDeclaration import EnumeratedCategoryDeclaration
 from presto.declaration.EnumeratedNativeDeclaration import EnumeratedNativeDeclaration
 from presto.declaration.GetterMethodDeclaration import GetterMethodDeclaration
-from presto.declaration.MemberMethodDeclaration import MemberMethodDeclaration
 from presto.declaration.OperatorMethodDeclaration import OperatorMethodDeclaration
 from presto.declaration.NativeCategoryDeclaration import NativeCategoryDeclaration
 from presto.declaration.NativeMethodDeclaration import NativeMethodDeclaration
@@ -874,19 +873,23 @@ class OPrestoBuilder(OParserListener):
     
 
     
-    def exitMemberMethod(self, ctx:OParser.MemberMethodContext):
+    def exitConcreteMemberMethod(self, ctx:OParser.ConcreteMemberMethodContext):
+        decl = self.getNodeValue(ctx.decl)
+        self.setNodeValue(ctx, decl)
+    
+
+    def exitAbstractMemberMethod(self, ctx:OParser.AbstractMemberMethodContext):
+        decl = self.getNodeValue(ctx.decl)
+        self.setNodeValue(ctx, decl)
+
+
+    def exitSetterMemberMethod(self, ctx:OParser.SetterMemberMethodContext):
         decl = self.getNodeValue(ctx.decl)
         self.setNodeValue(ctx, decl)
     
 
     
-    def exitSetterMethod(self, ctx:OParser.SetterMethodContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-    
-
-    
-    def exitGetterMethod(self, ctx:OParser.GetterMethodContext):
+    def exitGetterMemberMethod(self, ctx:OParser.GetterMemberMethodContext):
         decl = self.getNodeValue(ctx.decl)
         self.setNodeValue(ctx, decl)
     
@@ -931,11 +934,12 @@ class OPrestoBuilder(OParserListener):
     
 
     def exitConstructor_expression(self, ctx:OParser.Constructor_expressionContext):
+        mutable = ctx.MUTABLE() is not None
         type = self.getNodeValue(ctx.typ)
         args = self.getNodeValue(ctx.args)
         if args is None:
             args = ArgumentAssignmentList()
-        self.setNodeValue(ctx, ConstructorExpression(type, args))
+        self.setNodeValue(ctx, ConstructorExpression(type, mutable, args))
     
 
     def exitAssertion(self, ctx:OParser.AssertionContext):
@@ -1974,7 +1978,7 @@ class OPrestoBuilder(OParserListener):
         self.setNodeValue(ctx, decl)
 
 
-    def exitOperatorMethod(self, ctx:OParser.OperatorMethodContext):
+    def exitOperatorMemberMethod(self, ctx:OParser.OperatorMemberMethodContext):
         decl = self.getNodeValue(ctx.decl)
         self.setNodeValue(ctx, decl)
 

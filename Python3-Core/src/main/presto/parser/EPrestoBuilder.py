@@ -18,7 +18,6 @@ from presto.declaration.ConcreteMethodDeclaration import ConcreteMethodDeclarati
 from presto.declaration.EnumeratedCategoryDeclaration import EnumeratedCategoryDeclaration
 from presto.declaration.EnumeratedNativeDeclaration import EnumeratedNativeDeclaration
 from presto.declaration.GetterMethodDeclaration import GetterMethodDeclaration
-from presto.declaration.MemberMethodDeclaration import MemberMethodDeclaration
 from presto.declaration.NativeCategoryDeclaration import NativeCategoryDeclaration
 from presto.declaration.NativeMethodDeclaration import NativeMethodDeclaration
 from presto.declaration.NativeResourceDeclaration import NativeResourceDeclaration
@@ -912,19 +911,23 @@ class EPrestoBuilder(EParserListener):
     
 
     
-    def exitMemberMethod(self, ctx:EParser.MemberMethodContext):
+    def exitAbstractMemberMethod(self, ctx:EParser.AbstractMemberMethodContext):
+        decl = self.getNodeValue(ctx.decl)
+        self.setNodeValue(ctx, decl)
+    
+
+    def exitConcreteMemberMethod(self, ctx:EParser.ConcreteMemberMethodContext):
+        decl = self.getNodeValue(ctx.decl)
+        self.setNodeValue(ctx, decl)
+
+
+    def exitSetterMemberMethod(self, ctx:EParser.SetterMemberMethodContext):
         decl = self.getNodeValue(ctx.decl)
         self.setNodeValue(ctx, decl)
     
 
     
-    def exitSetterMethod(self, ctx:EParser.SetterMethodContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-    
-
-    
-    def exitGetterMethod(self, ctx:EParser.GetterMethodContext):
+    def exitGetterMemberMethod(self, ctx:EParser.GetterMemberMethodContext):
         decl = self.getNodeValue(ctx.decl)
         self.setNodeValue(ctx, decl)
     
@@ -968,6 +971,7 @@ class EPrestoBuilder(EParserListener):
 
     
     def exitConstructorFrom(self, ctx:EParser.ConstructorFromContext):
+        mutable = ctx.MUTABLE() is not None
         typ = self.getNodeValue(ctx.typ)
         args = self.getNodeValue(ctx.args)
         if args is None:
@@ -977,11 +981,12 @@ class EPrestoBuilder(EParserListener):
         arg = self.getNodeValue(ctx.arg)
         if arg is not None:
             args.append(arg)
-        self.setNodeValue(ctx, ConstructorExpression(typ, args))
+        self.setNodeValue(ctx, ConstructorExpression(typ, mutable, args))
     
 
     
     def exitConstructorNoFrom(self, ctx:EParser.ConstructorNoFromContext):
+        mutable = ctx.MUTABLE() is not None
         type = self.getNodeValue(ctx.typ)
         args = self.getNodeValue(ctx.args)
         if args is None:
@@ -989,7 +994,7 @@ class EPrestoBuilder(EParserListener):
         arg = self.getNodeValue(ctx.arg)
         if arg is not None:
             args.append(arg)
-        self.setNodeValue(ctx, ConstructorExpression(type, args))
+        self.setNodeValue(ctx, ConstructorExpression(type, mutable, args))
     
 
     def exitAssertion(self, ctx:EParser.AssertionContext):
@@ -2009,7 +2014,7 @@ class EPrestoBuilder(EParserListener):
         self.setNodeValue(ctx, decl)
 
 
-    def exitOperatorMethod(self, ctx:EParser.OperatorMethodContext):
+    def exitOperatorMemberMethod(self, ctx:EParser.OperatorMemberMethodContext):
         decl = self.getNodeValue(ctx.decl)
         self.setNodeValue(ctx, decl)
 

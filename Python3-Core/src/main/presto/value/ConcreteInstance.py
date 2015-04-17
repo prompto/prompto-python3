@@ -12,6 +12,7 @@ from presto.value.ExpressionValue import *
 from presto.value.Dictionary import Dictionary
 from presto.runtime.Variable import Variable
 from presto.error.SyntaxError import SyntaxError
+from presto.error.NotMutableError import NotMutableError
 
 # don't call getters from getters, so register them
 activeGetters = threading.local()
@@ -25,6 +26,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         from presto.type.CategoryType import CategoryType
         super(ConcreteInstance, self).__init__(CategoryType(declaration.name))
         self.declaration = declaration
+        self.mutable = False
         self.values = dict()
 
     def getDeclaration(self):
@@ -55,6 +57,8 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
             return self.values.get(attrName, None)
 
     def set(self, context, attrName, value):
+        if not self.mutable:
+            raise NotMutableError()
         stacked = activeSetters.__dict__.get(attrName, None)
         try:
             self.doSet(context, attrName, value, stacked == None)

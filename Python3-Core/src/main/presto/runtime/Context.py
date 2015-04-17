@@ -239,6 +239,7 @@ class Context(IContext):
                 if not isinstance(decl, ConcreteCategoryDeclaration):
                     raise InternalError("No such singleton:" + type.getName())
                 value = ConcreteInstance(decl)
+                value.mutable = True # a singleton is protected by "with x do", so always mutable in that context
                 self.values[type.getName()] = value
             if isinstance(value, ConcreteInstance):
                 return value

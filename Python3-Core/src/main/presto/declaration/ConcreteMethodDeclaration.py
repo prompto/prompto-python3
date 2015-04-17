@@ -1,4 +1,4 @@
-from presto.declaration.BaseMethodDeclaration import *
+from presto.declaration.BaseMethodDeclaration import BaseMethodDeclaration
 from presto.grammar.CategoryArgument import *
 from presto.grammar.CodeArgument import *
 from presto.type.DictType import *
@@ -14,6 +14,10 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
 
     def getStatements(self):
         return self.statements
+
+
+    def checkMember(self, category, context):
+        pass  # TODO
 
     def check(self, context, nativeOnly = False):
         if self.canBeChecked(context):

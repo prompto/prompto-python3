@@ -103,15 +103,6 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#member_method_declaration.
-    def enterMember_method_declaration(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#member_method_declaration.
-    def exitMember_method_declaration(self, ctx):
-        pass
-
-
     # Enter a parse tree produced by OParser#operator_method_declaration.
     def enterOperator_method_declaration(self, ctx):
         pass
@@ -1822,39 +1813,48 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#SetterMethod.
-    def enterSetterMethod(self, ctx):
+    # Enter a parse tree produced by OParser#SetterMemberMethod.
+    def enterSetterMemberMethod(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#SetterMethod.
-    def exitSetterMethod(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#GetterMethod.
-    def enterGetterMethod(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#GetterMethod.
-    def exitGetterMethod(self, ctx):
+    # Exit a parse tree produced by OParser#SetterMemberMethod.
+    def exitSetterMemberMethod(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by OParser#MemberMethod.
-    def enterMemberMethod(self, ctx):
+    # Enter a parse tree produced by OParser#GetterMemberMethod.
+    def enterGetterMemberMethod(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#MemberMethod.
-    def exitMemberMethod(self, ctx):
+    # Exit a parse tree produced by OParser#GetterMemberMethod.
+    def exitGetterMemberMethod(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by OParser#OperatorMethod.
-    def enterOperatorMethod(self, ctx):
+    # Enter a parse tree produced by OParser#ConcreteMemberMethod.
+    def enterConcreteMemberMethod(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#OperatorMethod.
-    def exitOperatorMethod(self, ctx):
+    # Exit a parse tree produced by OParser#ConcreteMemberMethod.
+    def exitConcreteMemberMethod(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#AbstractMemberMethod.
+    def enterAbstractMemberMethod(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#AbstractMemberMethod.
+    def exitAbstractMemberMethod(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#OperatorMemberMethod.
+    def enterOperatorMemberMethod(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#OperatorMemberMethod.
+    def exitOperatorMemberMethod(self, ctx):
         pass
 
 

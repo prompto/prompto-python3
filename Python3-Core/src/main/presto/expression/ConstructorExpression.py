@@ -10,9 +10,10 @@ from presto.error.SyntaxError import SyntaxError
 
 class ConstructorExpression(IExpression):
 
-    def __init__(self, type:IType, assignments:ArgumentAssignmentList):
+    def __init__(self, type:IType, mutable:bool, assignments:ArgumentAssignmentList):
         self.copyFrom = None
         self.type = type
+        self.mutable = mutable
         self.setAssignments(assignments)
 
     def getType(self):
@@ -36,6 +37,8 @@ class ConstructorExpression(IExpression):
 
     def __str__(self):
         with StringIO() as sb:
+            if self.mutable:
+                sb.write("mutable ")
             sb.write(self.type.getName())
             sb.write(' ')
             if self.copyFrom is not None:
@@ -48,6 +51,8 @@ class ConstructorExpression(IExpression):
             return sb.getvalue()
 
     def toEDialect(self, writer):
+        if self.mutable:
+            writer.append("mutable ")
         writer.append(self.type.getName())
         if self.copyFrom is not None:
             writer.append(" from ")
@@ -58,6 +63,8 @@ class ConstructorExpression(IExpression):
             self.assignments.toDialect(writer)
 
     def toODialect(self, writer):
+        if self.mutable:
+            writer.append("mutable ")
         writer.append(self.type.getName())
         assignments = ArgumentAssignmentList()
         if self.copyFrom is not None:
@@ -91,6 +98,7 @@ class ConstructorExpression(IExpression):
 
     def interpret(self, context:Context):
         instance = self.type.newInstance(context)
+        instance.mutable = True
         if self.copyFrom is not None:
             copyObj = self.copyFrom.interpret(context)
             if isinstance(copyObj, IInstance):
@@ -103,4 +111,5 @@ class ConstructorExpression(IExpression):
             for assignment in self.assignments:
                 value = assignment.getExpression().interpret(context)
                 instance.set(context, assignment.getName(), value)
+        instance.mutable = self.mutable
         return instance

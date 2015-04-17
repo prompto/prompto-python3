@@ -53,9 +53,11 @@ class CategorySymbol(Symbol, IExpression):
 
     def interpret(self, context):
         instance = self.type.newInstance(context)
+        instance.mutable = True
         if self.assignments != None:
             for assignment in self.assignments:
                 value = assignment.getExpression().interpret(context)
                 instance.set(context, assignment.getName(), value)
         instance.set(context, "name", self.symbol)
+        instance.mutable = False
         return instance

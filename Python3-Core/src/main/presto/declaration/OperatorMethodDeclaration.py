@@ -1,10 +1,9 @@
-from presto.declaration.ICategoryMethodDeclaration import ICategoryMethodDeclaration
 from presto.declaration.ConcreteMethodDeclaration import ConcreteMethodDeclaration
 from presto.grammar.ArgumentList import ArgumentList
 from presto.expression.IExpression import IExpression
 from presto.type.VoidType import VoidType
 
-class OperatorMethodDeclaration(ConcreteMethodDeclaration, IExpression, ICategoryMethodDeclaration):
+class OperatorMethodDeclaration(ConcreteMethodDeclaration, IExpression):
 
     def __init__(self, operator, arg, returnType, stmts):
         super().__init__("operator_" + operator.name, ArgumentList(arg), returnType, stmts)

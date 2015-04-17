@@ -83,7 +83,7 @@ class UnresolvedIdentifier(IExpression):
     def resolveConstructor(self, context):
         from presto.type.CategoryType import CategoryType
         try:
-            ctor = ConstructorExpression(CategoryType(self.name), None)
+            ctor = ConstructorExpression(CategoryType(self.name), False, None)
             ctor.check(context)
             return ctor
         except SyntaxError as e:

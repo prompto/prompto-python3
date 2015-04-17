@@ -1,4 +1,4 @@
-from presto.declaration.BaseMethodDeclaration import *
+from presto.declaration.BaseMethodDeclaration import BaseMethodDeclaration
 from presto.type.VoidType import VoidType
 
 
@@ -7,6 +7,9 @@ class AbstractMethodDeclaration(BaseMethodDeclaration):
     def __init__(self, name, arguments, returnType):
         super(AbstractMethodDeclaration, self).__init__(name, arguments)
         self.returnType = returnType if returnType != None else VoidType.instance
+
+    def checkMember(self, category, context):
+        pass  # TODO
 
     def check(self, context):
         if self.arguments != None:
