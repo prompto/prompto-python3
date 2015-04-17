@@ -23,19 +23,36 @@ class StatementList(list):
                 types[type_.getName()] = type_
         return types.inferType(context)
 
-    def interpret(self, context, nativeOnly=False):
+    def interpret(self, context):
         try:
-            return self.doInterpret(context, nativeOnly)
+            return self.doInterpret(context)
         except ReferenceError:
             raise NullReferenceError()
 
-    def doInterpret(self, context, nativeOnly):
+    def interpretNative(self, context, returnType):
+        try:
+            return self.doInterpretNative(context, returnType)
+        except ReferenceError:
+            raise NullReferenceError()
+
+    def doInterpret(self, context):
         for statement in self:
-            if nativeOnly and not isinstance(statement, Python3NativeCall):
-                continue
             context.enterStatement(statement)
             try:
                 result = statement.interpret(context)
+                if result is not None:
+                    return result
+            finally:
+                context.leaveStatement(statement)
+        return None
+
+    def doInterpretNative(self, context, returnType):
+        for statement in self:
+            if not isinstance(statement, Python3NativeCall):
+                continue
+            context.enterStatement(statement)
+            try:
+                result = statement.interpret(context, returnType)
                 if result is not None:
                     return result
             finally:

@@ -9,7 +9,7 @@ class NativeMethodDeclaration(ConcreteMethodDeclaration):
     def interpret(self, context):
         context.enterMethod(self)
         try:
-            result = self.statements.interpret(context, True)
+            result = self.statements.interpretNative(context, self.returnType)
             return self.castToReturnType(context, result)
         finally:
             context.leaveMethod(self)

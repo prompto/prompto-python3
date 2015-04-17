@@ -29,7 +29,7 @@ class TestNative(BaseOParserTest):
         arg = CategoryArgument(TextType.instance, "value")
         arg.register(context)
         context.setValue("value", TextLiteral("\"test\"")) # StringLiteral trims enclosing quotes
-        result = statement.interpret(context, None)
+        result = statement.interpret(context, None, None)
         self.assertIsNone(result)
         self.assertEquals("test", Out.read())
 

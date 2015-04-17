@@ -5,10 +5,13 @@ from presto.python.PythonClassType import PythonClassType
 
 class NativeInstance(BaseValue, IInstance):
 
-    def __init__(self, declaration):
+    def __init__(self, declaration, instance=None):
         super(NativeInstance, self).__init__(CategoryType(declaration.name))
         self.declaration = declaration
-        self.instance = self.makeInstance()
+        self.instance = self.makeInstance() if instance is None else instance
+
+    def convertToPython(self):
+        return self.instance
 
     def getInstance(self):
         return self.instance
@@ -23,7 +26,7 @@ class NativeInstance(BaseValue, IInstance):
     def getMember(self, context, attrName):
         value = getattr(self.instance, attrName)
         ct = PythonClassType(type(value))
-        return ct.convertPythonValueToPrestoValue(value)
+        return ct.convertPythonValueToPrestoValue(value, None) # TODO use attribute declaration type
 
     def set(self, context, attrName, value):
         setattr(self.instance, attrName, value.convertToPython())

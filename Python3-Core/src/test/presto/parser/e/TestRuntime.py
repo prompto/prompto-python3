@@ -34,7 +34,7 @@ class TestNative(BaseEParserTest):
         arg = CategoryArgument(TextType.instance, "value")
         arg.register(context)
         context.setValue("value", TextLiteral('"test"'))  # StringLiteral trims enclosing quotes
-        result = statement.interpret(context, None) # no module
+        result = statement.interpret(context, None, None) # no module
         self.assertIsNone(result)
         self.assertEquals("test", Out.read())
 

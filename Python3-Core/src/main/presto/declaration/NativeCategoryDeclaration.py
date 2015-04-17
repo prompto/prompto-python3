@@ -1,7 +1,5 @@
 from presto.declaration.CategoryDeclaration import CategoryDeclaration
-from presto.value.NativeInstance import NativeInstance
 from presto.error.SyntaxError import SyntaxError
-from presto.python.PythonNativeCategoryMapping import Python3NativeCategoryMapping
 
 class NativeCategoryDeclaration ( CategoryDeclaration ):
 
@@ -15,6 +13,7 @@ class NativeCategoryDeclaration ( CategoryDeclaration ):
         return self.getName() + (":" + str(self.attributes)) if self.attributes is not None else ""
 
     def newInstance(self):
+        from presto.value.NativeInstance import NativeInstance
         return NativeInstance(self)
 
     def getMappedClass(self):
@@ -27,6 +26,7 @@ class NativeCategoryDeclaration ( CategoryDeclaration ):
 
     def getMapping(self):
         for mapping in self.categoryMappings:
+            from presto.python.PythonNativeCategoryMapping import Python3NativeCategoryMapping
             if isinstance(mapping, Python3NativeCategoryMapping):
                 return mapping
         raise SyntaxError("Missing PYTHON3 mapping !")

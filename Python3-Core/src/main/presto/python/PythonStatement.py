@@ -14,12 +14,12 @@ class PythonStatement(object):
     def check(self, context):
         return AnyType.instance if self.isReturn else VoidType.instance
 
-    def interpret(self, context, module):
+    def interpret(self, context, module, returnType):
         o = self.expression.interpret(context, module)
         if self.isReturn:
             if o is not None:
                 ct = PythonClassType(type(o))
-                o = ct.convertPythonValueToPrestoValue(o)
+                o = ct.convertPythonValueToPrestoValue(o, returnType)
             return o
         else:
             return None

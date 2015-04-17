@@ -13,8 +13,8 @@ class PythonNativeCall(NativeCall):
     def check(self, context):
         return self.statement.check(context)
 
-    def interpret(self, context):
-        return self.statement.interpret(context, self.module)
+    def interpret(self, context, returnType):
+        return self.statement.interpret(context, self.module, returnType)
 
     def toDialect(self, writer):
         self.statement.toDialect(writer)
