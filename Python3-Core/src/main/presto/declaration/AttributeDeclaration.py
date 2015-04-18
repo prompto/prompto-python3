@@ -62,12 +62,9 @@ class AttributeDeclaration ( BaseDeclaration ):
         self.constraint = constraint
 
     def checkValue(self, context, value):
-        if self.constraint is None:
-            return value
         if isinstance(value, IExpression):
             value = value.interpret(context)
-        if isinstance(value, IValue):
-            self.constraint.checkValue(context, value)
-        else:
-            raise InternalError("Not a value:" + type(value).__name__)
+        if self.constraint is None:
+            return value
+        self.constraint.checkValue(context, value)
         return value
