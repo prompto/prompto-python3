@@ -35,6 +35,9 @@ class TestErrors(BaseEParserTest):
     def testNullMethod(self):
         self.compareResourceESE("errors/nullMethod.pec")
 
+    def testUnexpected(self):
+        self.compareResourceESE("errors/unexpected.pec")
+
     def testUserException(self):
         self.compareResourceESE("errors/userException.pec")
 

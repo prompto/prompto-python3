@@ -62,13 +62,14 @@ class TestMethodDeclaration(BaseDeclaration):
             context.leaveMethod (self)
     
     def interpretError(self, context, ex):
-        expected = self.error.interpret (context)
         actual = ex.interpret (context, "__test_error__")
-        if expected == actual:
+        expectedError = None if self.error is None else self.error.interpret (context)
+        if expectedError == actual:
             self.printSuccess (context)
         else:
             actualName = str(actual.GetMember (context, "name"))
-            self.printFailure (context, self.error.name, actualName)
+            expectedName = "SUCCESS" if self.error is None else self.error.name
+            self.printFailure (context, expectedName, actualName)
     
     def toDialect(self, writer):
         if writer.isGlobalContext ():
