@@ -5,6 +5,7 @@ class BaseArgument ( IArgument ) :
 
     def __init__(self, name):
         self.name = name
+        self.mutable = False
         self.defaultExpression = None
 
     def getName(self):

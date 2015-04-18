@@ -74,6 +74,8 @@ class CategoryArgument(BaseArgument, ITypedArgument):
             return context.getRegisteredDeclaration(IDeclaration, self.name).getType(context)
 
     def toDialect(self, writer):
+        if self.mutable:
+            writer.append("mutable ")
         super(CategoryArgument, self).toDialect(writer)
         if self.defaultExpression is not None:
             writer.append(" = ")

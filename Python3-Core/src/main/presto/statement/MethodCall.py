@@ -68,7 +68,10 @@ class MethodCall(SimpleStatement):
         assignments = self.makeAssignments(context, declaration)
         for assignment in assignments:
             expression = assignment.resolve(local, declaration, True)
-            value = assignment.getArgument().checkValue(context, expression)
+            argument = assignment.getArgument()
+            value = argument.checkValue(context, expression)
+            if value is not None and value.mutable and not argument.mutable:
+                raise NotMutableError()
             local.setValue(assignment.getName(), value)
         return declaration.interpret(local)
 
