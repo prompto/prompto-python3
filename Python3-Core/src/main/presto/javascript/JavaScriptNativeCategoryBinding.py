@@ -1,10 +1,10 @@
-from presto.grammar.NativeCategoryMapping import NativeCategoryMapping
+from presto.grammar.NativeCategoryBinding import NativeCategoryBinding
 
 
-class JavaScriptNativeCategoryMapping(NativeCategoryMapping):
+class JavaScriptNativeCategoryBinding(NativeCategoryBinding):
 
     def __init__(self, identifier, module):
-        super(JavaScriptNativeCategoryMapping, self).__init__()
+        super(JavaScriptNativeCategoryBinding, self).__init__()
         self.identifier = identifier
         self.module = module
 

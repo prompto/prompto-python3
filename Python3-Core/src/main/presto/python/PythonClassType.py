@@ -47,7 +47,7 @@ class PythonClassType(CategoryType):
         typ = PythonClassType.pythonToPrestoMap.get(self.klass.__name__, None)
         if typ is not None:
             return typ.convertPythonValueToPrestoValue(context, value, returnType)
-        decl = context.getNativeMapping(self.klass)
+        decl = context.getNativeBinding(self.klass)
         if decl is not None:
             return NativeInstance(decl, value)
         elif returnType is AnyType.instance:

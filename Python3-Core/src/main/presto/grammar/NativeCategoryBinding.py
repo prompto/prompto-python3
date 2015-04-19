@@ -1,0 +1,3 @@
+class NativeCategoryBinding ( object ):
+
+    pass

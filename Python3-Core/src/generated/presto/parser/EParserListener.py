@@ -130,30 +130,30 @@ class EParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EParser#native_category_mappings.
-    def enterNative_category_mappings(self, ctx):
+    # Enter a parse tree produced by EParser#native_category_bindings.
+    def enterNative_category_bindings(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#native_category_mappings.
-    def exitNative_category_mappings(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by EParser#NativeCategoryMappingList.
-    def enterNativeCategoryMappingList(self, ctx):
-        pass
-
-    # Exit a parse tree produced by EParser#NativeCategoryMappingList.
-    def exitNativeCategoryMappingList(self, ctx):
+    # Exit a parse tree produced by EParser#native_category_bindings.
+    def exitNative_category_bindings(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by EParser#NativeCategoryMappingListItem.
-    def enterNativeCategoryMappingListItem(self, ctx):
+    # Enter a parse tree produced by EParser#NativeCategoryBindingListItem.
+    def enterNativeCategoryBindingListItem(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#NativeCategoryMappingListItem.
-    def exitNativeCategoryMappingListItem(self, ctx):
+    # Exit a parse tree produced by EParser#NativeCategoryBindingListItem.
+    def exitNativeCategoryBindingListItem(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#NativeCategoryBindingList.
+    def enterNativeCategoryBindingList(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#NativeCategoryBindingList.
+    def exitNativeCategoryBindingList(self, ctx):
         pass
 
 
@@ -1903,57 +1903,57 @@ class EParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EParser#JavaCategoryMapping.
-    def enterJavaCategoryMapping(self, ctx):
+    # Enter a parse tree produced by EParser#JavaCategoryBinding.
+    def enterJavaCategoryBinding(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#JavaCategoryMapping.
-    def exitJavaCategoryMapping(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by EParser#CSharpCategoryMapping.
-    def enterCSharpCategoryMapping(self, ctx):
-        pass
-
-    # Exit a parse tree produced by EParser#CSharpCategoryMapping.
-    def exitCSharpCategoryMapping(self, ctx):
+    # Exit a parse tree produced by EParser#JavaCategoryBinding.
+    def exitJavaCategoryBinding(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by EParser#Python2CategoryMapping.
-    def enterPython2CategoryMapping(self, ctx):
+    # Enter a parse tree produced by EParser#CSharpCategoryBinding.
+    def enterCSharpCategoryBinding(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#Python2CategoryMapping.
-    def exitPython2CategoryMapping(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by EParser#Python3CategoryMapping.
-    def enterPython3CategoryMapping(self, ctx):
-        pass
-
-    # Exit a parse tree produced by EParser#Python3CategoryMapping.
-    def exitPython3CategoryMapping(self, ctx):
+    # Exit a parse tree produced by EParser#CSharpCategoryBinding.
+    def exitCSharpCategoryBinding(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by EParser#JavaScriptCategoryMapping.
-    def enterJavaScriptCategoryMapping(self, ctx):
+    # Enter a parse tree produced by EParser#Python2CategoryBinding.
+    def enterPython2CategoryBinding(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#JavaScriptCategoryMapping.
-    def exitJavaScriptCategoryMapping(self, ctx):
+    # Exit a parse tree produced by EParser#Python2CategoryBinding.
+    def exitPython2CategoryBinding(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by EParser#python_category_mapping.
-    def enterPython_category_mapping(self, ctx):
+    # Enter a parse tree produced by EParser#Python3CategoryBinding.
+    def enterPython3CategoryBinding(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#python_category_mapping.
-    def exitPython_category_mapping(self, ctx):
+    # Exit a parse tree produced by EParser#Python3CategoryBinding.
+    def exitPython3CategoryBinding(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#JavaScriptCategoryBinding.
+    def enterJavaScriptCategoryBinding(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#JavaScriptCategoryBinding.
+    def exitJavaScriptCategoryBinding(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#python_category_binding.
+    def enterPython_category_binding(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#python_category_binding.
+    def exitPython_category_binding(self, ctx):
         pass
 
 
@@ -1975,12 +1975,12 @@ class EParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EParser#javascript_category_mapping.
-    def enterJavascript_category_mapping(self, ctx):
+    # Enter a parse tree produced by EParser#javascript_category_binding.
+    def enterJavascript_category_binding(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#javascript_category_mapping.
-    def exitJavascript_category_mapping(self, ctx):
+    # Exit a parse tree produced by EParser#javascript_category_binding.
+    def exitJavascript_category_binding(self, ctx):
         pass
 
 

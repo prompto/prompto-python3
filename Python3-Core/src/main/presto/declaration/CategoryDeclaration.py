@@ -52,7 +52,7 @@ class CategoryDeclaration(BaseDeclaration):
         # nothing to do
         pass
 
-    def protoToEDialect(self, writer, hasMethods, hasMappings):
+    def protoToEDialect(self, writer, hasMethods, hasBindings):
         hasAttributes = self.attributes is not None and len(self.attributes)>0
         writer.append("define ")
         writer.append(self.name)
@@ -69,11 +69,11 @@ class CategoryDeclaration(BaseDeclaration):
                 writer.append(", and methods:")
             else:
                 writer.append(" with methods:")
-        elif hasMappings:
+        elif hasBindings:
             if hasAttributes:
-                writer.append(", and mappings:")
+                writer.append(", and bindings:")
             else:
-                writer.append(" with mappings:")
+                writer.append(" with bindings:")
         writer.newLine()
 
     def methodsToEDialect(self, writer, methods):

@@ -1,10 +1,10 @@
-from presto.grammar.NativeCategoryMapping import NativeCategoryMapping
+from presto.grammar.NativeCategoryBinding import NativeCategoryBinding
 
 
-class JavaNativeCategoryMapping ( NativeCategoryMapping ):
+class JavaNativeCategoryBinding ( NativeCategoryBinding ):
 
     def __init__(self, expression):
-        super(JavaNativeCategoryMapping, self).__init__()
+        super(JavaNativeCategoryBinding, self).__init__()
         self.expression = expression
 
     def getExpression(self):

@@ -36,7 +36,7 @@ class Context(IContext):
         self.tests = dict()
         self.instances = dict()
         self.values = dict()
-        self.nativeMappings = dict()
+        self.nativeBindings = dict()
 
     def isGlobalContext(self):
         return id(self) == id(self.globals)
@@ -187,19 +187,19 @@ class Context(IContext):
                 raise SyntaxError("Duplicate name: \"" + value.getName() + "\"")
         self.instances[value.getName()] = value
 
-    def registerNativeMapping(self, klass, decl):
+    def registerNativeBinding(self, klass, decl):
         if self is self.globals:
             # use id since klass may change between register and get
-            self.nativeMappings[id(klass)] = decl
+            self.nativeBindings[id(klass)] = decl
         else:
-            self.globals.registerNativeMapping(klass, decl)
+            self.globals.registerNativeBinding(klass, decl)
 
-    def getNativeMapping(self, klass):
+    def getNativeBinding(self, klass):
         if self is self.globals:
             # use id since klass may change between register and get
-            return self.nativeMappings.get(id(klass), None)
+            return self.nativeBindings.get(id(klass), None)
         else:
-            return self.globals.getNativeMapping(klass)
+            return self.globals.getNativeBinding(klass)
 
     def getValue(self, name):
         context = self.contextForValue(name)

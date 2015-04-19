@@ -198,7 +198,7 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
 
     def toEDialect(self, writer):
         hasMethods = self.methods is not None and len(self.methods)>0
-        self.protoToEDialect(writer, hasMethods, False) # no mappings
+        self.protoToEDialect(writer, hasMethods, False) # no bindings
         if hasMethods:
             self.methodsToEDialect(writer, self.methods)
 

@@ -1,10 +1,10 @@
-from presto.grammar.NativeCategoryMapping import NativeCategoryMapping
+from presto.grammar.NativeCategoryBinding import NativeCategoryBinding
 
 
-class PythonNativeCategoryMapping(NativeCategoryMapping):
+class PythonNativeCategoryBinding(NativeCategoryBinding):
 
     def __init__(self, identifier, module):
-        super(PythonNativeCategoryMapping, self).__init__()
+        super(PythonNativeCategoryBinding, self).__init__()
         self.identifier = identifier
         self.module = module
 
@@ -26,20 +26,20 @@ class PythonNativeCategoryMapping(NativeCategoryMapping):
         if self.module is not None:
             self.module.toDialect(writer)
 
-class Python2NativeCategoryMapping(PythonNativeCategoryMapping):
+class Python2NativeCategoryBinding(PythonNativeCategoryBinding):
 
     def __init__(self, identifier, module):
-        super(Python2NativeCategoryMapping, self).__init__(identifier, module)
+        super(Python2NativeCategoryBinding, self).__init__(identifier, module)
 
     def toDialect(self, writer):
         writer.append("Python2: ")
-        super(Python2NativeCategoryMapping, self).toDialect(writer)
+        super(Python2NativeCategoryBinding, self).toDialect(writer)
 
-class Python3NativeCategoryMapping(PythonNativeCategoryMapping):
+class Python3NativeCategoryBinding(PythonNativeCategoryBinding):
 
     def __init__(self, identifier, module):
-        super(Python3NativeCategoryMapping, self).__init__(identifier, module)
+        super(Python3NativeCategoryBinding, self).__init__(identifier, module)
 
     def toDialect(self, writer):
         writer.append("Python3: ")
-        super(Python3NativeCategoryMapping, self).toDialect(writer)
+        super(Python3NativeCategoryBinding, self).toDialect(writer)

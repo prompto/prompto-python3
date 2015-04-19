@@ -7,7 +7,7 @@ from presto.csharp.CSharpExpressionList import CSharpExpressionList
 from presto.csharp.CSharpIdentifierExpression import CSharpIdentifierExpression
 from presto.csharp.CSharpIntegerLiteral import CSharpIntegerLiteral
 from presto.csharp.CSharpMethodExpression import CSharpMethodExpression
-from presto.csharp.CSharpNativeCategoryMapping import CSharpNativeCategoryMapping
+from presto.csharp.CSharpNativeCategoryBinding import CSharpNativeCategoryBinding
 from presto.csharp.CSharpNativeCall import CSharpNativeCall
 from presto.csharp.CSharpStatement import CSharpStatement
 from presto.csharp.CSharpTextLiteral import CSharpTextLiteral
@@ -74,7 +74,7 @@ from presto.grammar.MatchingCollectionConstraint import MatchingCollectionConstr
 from presto.grammar.MatchingExpressionConstraint import MatchingExpressionConstraint
 from presto.grammar.MatchingPatternConstraint import MatchingPatternConstraint
 from presto.grammar.MemberInstance import MemberInstance
-from presto.grammar.NativeCategoryMappingList import NativeCategoryMappingList
+from presto.grammar.NativeCategoryBindingList import NativeCategoryBindingList
 from presto.grammar.NativeSymbol import NativeSymbol
 from presto.grammar.NativeSymbolList import NativeSymbolList
 from presto.grammar.Operator import Operator
@@ -89,7 +89,7 @@ from presto.java.JavaIdentifierExpression import JavaIdentifierExpression
 from presto.java.JavaIntegerLiteral import JavaIntegerLiteral
 from presto.java.JavaItemExpression import JavaItemExpression
 from presto.java.JavaMethodExpression import JavaMethodExpression
-from presto.java.JavaNativeCategoryMapping import JavaNativeCategoryMapping
+from presto.java.JavaNativeCategoryBinding import JavaNativeCategoryBinding
 from presto.java.JavaNativeCall import JavaNativeCall
 from presto.java.JavaStatement import JavaStatement
 from presto.java.JavaTextLiteral import JavaTextLiteral
@@ -102,7 +102,7 @@ from presto.javascript.JavaScriptIntegerLiteral import JavaScriptIntegerLiteral
 from presto.javascript.JavaScriptMethodExpression import JavaScriptMethodExpression
 from presto.javascript.JavaScriptModule import JavaScriptModule
 from presto.javascript.JavaScriptNativeCall import JavaScriptNativeCall
-from presto.javascript.JavaScriptNativeCategoryMapping import JavaScriptNativeCategoryMapping
+from presto.javascript.JavaScriptNativeCategoryBinding import JavaScriptNativeCategoryBinding
 from presto.javascript.JavaScriptStatement import JavaScriptStatement
 from presto.javascript.JavaScriptTextLiteral import JavaScriptTextLiteral
 from presto.literal.BooleanLiteral import BooleanLiteral
@@ -134,7 +134,7 @@ from presto.python.PythonDecimalLiteral import PythonDecimalLiteral
 from presto.python.PythonIdentifierExpression import PythonIdentifierExpression
 from presto.python.PythonIntegerLiteral import PythonIntegerLiteral
 from presto.python.PythonMethodExpression import PythonMethodExpression
-from presto.python.PythonNativeCategoryMapping import PythonNativeCategoryMapping, Python2NativeCategoryMapping, Python3NativeCategoryMapping
+from presto.python.PythonNativeCategoryBinding import PythonNativeCategoryBinding, Python2NativeCategoryBinding, Python3NativeCategoryBinding
 from presto.python.PythonNativeCall import PythonNativeCall, Python2NativeCall, Python3NativeCall
 from presto.python.PythonStatement import PythonStatement
 from presto.python.PythonTextLiteral import PythonTextLiteral
@@ -1477,42 +1477,42 @@ class EPrestoBuilder(EParserListener):
     
 
     
-    def exitJavaCategoryMapping(self, ctx:EParser.JavaCategoryMappingContext):
-        map = self.getNodeValue(ctx.mapping)
-        self.setNodeValue(ctx, JavaNativeCategoryMapping(map))
+    def exitJavaCategoryBinding(self, ctx:EParser.JavaCategoryBindingContext):
+        map = self.getNodeValue(ctx.binding)
+        self.setNodeValue(ctx, JavaNativeCategoryBinding(map))
     
 
     
-    def exitCSharpCategoryMapping(self, ctx:EParser.CSharpCategoryMappingContext):
-        map = self.getNodeValue(ctx.mapping)
-        self.setNodeValue(ctx, CSharpNativeCategoryMapping(map))
+    def exitCSharpCategoryBinding(self, ctx:EParser.CSharpCategoryBindingContext):
+        map = self.getNodeValue(ctx.binding)
+        self.setNodeValue(ctx, CSharpNativeCategoryBinding(map))
     
-    def exitPython_category_mapping(self, ctx:EParser.Python_category_mappingContext):
+    def exitPython_category_binding(self, ctx:EParser.Python_category_bindingContext):
         id_ = ctx.id_.getText()
         module = self.getNodeValue(ctx.module)
-        self.setNodeValue(ctx, PythonNativeCategoryMapping(id_, module))
+        self.setNodeValue(ctx, PythonNativeCategoryBinding(id_, module))
 
     
-    def exitPython2CategoryMapping(self, ctx:EParser.Python2CategoryMappingContext):
-        map = self.getNodeValue(ctx.mapping)
-        self.setNodeValue(ctx, Python2NativeCategoryMapping(map.identifier, map.module))
-    
-
-    
-    def exitPython3CategoryMapping(self, ctx:EParser.Python3CategoryMappingContext):
-        map = self.getNodeValue(ctx.mapping)
-        self.setNodeValue(ctx, Python3NativeCategoryMapping(map.identifier, map.module))
+    def exitPython2CategoryBinding(self, ctx:EParser.Python2CategoryBindingContext):
+        map = self.getNodeValue(ctx.binding)
+        self.setNodeValue(ctx, Python2NativeCategoryBinding(map.identifier, map.module))
     
 
     
-    def exitNativeCategoryMappingList(self, ctx:EParser.NativeCategoryMappingListContext):
+    def exitPython3CategoryBinding(self, ctx:EParser.Python3CategoryBindingContext):
+        map = self.getNodeValue(ctx.binding)
+        self.setNodeValue(ctx, Python3NativeCategoryBinding(map.identifier, map.module))
+    
+
+    
+    def exitNativeCategoryBindingList(self, ctx:EParser.NativeCategoryBindingListContext):
         item = self.getNodeValue(ctx.item)
-        items = NativeCategoryMappingList(item)
+        items = NativeCategoryBindingList(item)
         self.setNodeValue(ctx, items)
     
 
     
-    def exitNativeCategoryMappingListItem(self, ctx:EParser.NativeCategoryMappingListItemContext):
+    def exitNativeCategoryBindingListItem(self, ctx:EParser.NativeCategoryBindingListItemContext):
         item = self.getNodeValue(ctx.item)
         items = self.getNodeValue(ctx.items)
         items.append(item)
@@ -1520,7 +1520,7 @@ class EPrestoBuilder(EParserListener):
     
 
     
-    def exitNative_category_mappings(self, ctx:EParser.Native_category_mappingsContext):
+    def exitNative_category_bindings(self, ctx:EParser.Native_category_bindingsContext):
         items = self.getNodeValue(ctx.items)
         self.setNodeValue(ctx, items)
     
@@ -1529,8 +1529,8 @@ class EPrestoBuilder(EParserListener):
     def exitNative_category_declaration(self, ctx:EParser.Native_category_declarationContext):
         name = self.getNodeValue(ctx.name)
         attrs = self.getNodeValue(ctx.attrs)
-        mappings = self.getNodeValue(ctx.mappings)
-        self.setNodeValue(ctx, NativeCategoryDeclaration(name, attrs, mappings, None))
+        bindings = self.getNodeValue(ctx.bindings)
+        self.setNodeValue(ctx, NativeCategoryDeclaration(name, attrs, bindings, None))
     
 
     
@@ -1543,8 +1543,8 @@ class EPrestoBuilder(EParserListener):
     def exitNative_resource_declaration(self, ctx:EParser.Native_resource_declarationContext):
         name = self.getNodeValue(ctx.name)
         attrs = self.getNodeValue(ctx.attrs)
-        mappings = self.getNodeValue(ctx.mappings)
-        self.setNodeValue(ctx, NativeResourceDeclaration(name, attrs, mappings, None))
+        bindings = self.getNodeValue(ctx.bindings)
+        self.setNodeValue(ctx, NativeResourceDeclaration(name, attrs, bindings, None))
     
 
     
@@ -2341,10 +2341,10 @@ class EPrestoBuilder(EParserListener):
         self.setNodeValue(ctx, JavaScriptBooleanLiteral(text))
 
 
-    def exitJavascript_category_mapping(self, ctx:EParser.Javascript_category_mappingContext):
+    def exitJavascript_category_binding(self, ctx:EParser.Javascript_category_bindingContext):
         identifier = ctx.identifier().getText()
         module = self.getNodeValue(ctx.javascript_module())
-        map = JavaScriptNativeCategoryMapping(identifier, module)
+        map = JavaScriptNativeCategoryBinding(identifier, module)
         self.setNodeValue(ctx, map)
 
     def exitJavascriptCharacterLiteral(self, ctx:EParser.JavascriptCharacterLiteralContext):
@@ -2391,8 +2391,8 @@ class EPrestoBuilder(EParserListener):
         list.append(exp)
         self.setNodeValue(ctx, list)
 
-    def exitJavaScriptCategoryMapping(self, ctx:EParser.JavaScriptCategoryMappingContext):
-        self.setNodeValue(ctx, self.getNodeValue(ctx.mapping))
+    def exitJavaScriptCategoryBinding(self, ctx:EParser.JavaScriptCategoryBindingContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.binding))
 
     def exitJavascriptChildIdentifier(self, ctx:EParser.JavascriptChildIdentifierContext):
         parent = self.getNodeValue(ctx.parent)

@@ -17,7 +17,7 @@ class NativeInstance(BaseValue, IInstance):
         return self.instance
 
     def makeInstance(self):
-        mapped = self.declaration.getMappedClass()
+        mapped = self.declaration.getBoundedClass(True)
         return mapped()
 
     def getType(self):

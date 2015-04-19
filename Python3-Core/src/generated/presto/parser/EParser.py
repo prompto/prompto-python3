@@ -307,8 +307,8 @@ def serializedATN():
         buf.write("\u0814\3\2\2\2\u0168\u0816\3\2\2\2\u016a\u081d\3\2\2\2")
         buf.write("\u016c\u0828\3\2\2\2\u016e\u082c\3\2\2\2\u0170\u0833\3")
         buf.write("\2\2\2\u0172\u0842\3\2\2\2\u0174\u0844\3\2\2\2\u0176\u0177")
-        buf.write("\7P\2\2\u0177\u0178\5\u00b0Y\2\u0178\u0179\7D\2\2\u0179")
-        buf.write("\u017a\7\20\2\2\u017a\u017d\7V\2\2\u017b\u017e\7J\2\2")
+        buf.write("\7Q\2\2\u0177\u0178\5\u00b0Y\2\u0178\u0179\7D\2\2\u0179")
+        buf.write("\u017a\7\20\2\2\u017a\u017d\7W\2\2\u017b\u017e\7K\2\2")
         buf.write("\u017c\u017e\5\u00b0Y\2\u017d\u017b\3\2\2\2\u017d\u017c")
         buf.write("\3\2\2\2\u017e\u0184\3\2\2\2\u017f\u0180\5 \21\2\u0180")
         buf.write("\u0181\7\22\2\2\u0181\u0182\7B\2\2\u0182\u0185\3\2\2\2")
@@ -316,8 +316,8 @@ def serializedATN():
         buf.write("\3\2\2\2\u0185\u0186\3\2\2\2\u0186\u0187\5\u010e\u0088")
         buf.write("\2\u0187\u0188\7\20\2\2\u0188\u0189\5z>\2\u0189\u018a")
         buf.write("\5\u008cG\2\u018a\u018b\5|?\2\u018b\3\3\2\2\2\u018c\u018d")
-        buf.write("\7P\2\2\u018d\u018e\5\u00b0Y\2\u018e\u018f\7D\2\2\u018f")
-        buf.write("\u0190\7\20\2\2\u0190\u0191\7V\2\2\u0191\u0192\5\u009e")
+        buf.write("\7Q\2\2\u018d\u018e\5\u00b0Y\2\u018e\u018f\7D\2\2\u018f")
+        buf.write("\u0190\7\20\2\2\u0190\u0191\7W\2\2\u0191\u0192\5\u009e")
         buf.write("P\2\u0192\u0193\7\u0085\2\2\u0193\u0194\5\u010e\u0088")
         buf.write("\2\u0194\u0195\7\20\2\2\u0195\u0196\5z>\2\u0196\u0197")
         buf.write("\5\u008aF\2\u0197\u0198\5|?\2\u0198\5\3\2\2\2\u0199\u019a")
@@ -326,12 +326,12 @@ def serializedATN():
         buf.write("\7\3\2\2\2\u019f\u01a0\5\u00b2Z\2\u01a0\u01a3\5l\67\2")
         buf.write("\u01a1\u01a2\7B\2\2\u01a2\u01a4\5n8\2\u01a3\u01a1\3\2")
         buf.write("\2\2\u01a3\u01a4\3\2\2\2\u01a4\t\3\2\2\2\u01a5\u01a6\7")
-        buf.write("P\2\2\u01a6\u01a7\5\u00aeX\2\u01a7\u01a8\7D\2\2\u01a8")
+        buf.write("Q\2\2\u01a6\u01a7\5\u00aeX\2\u01a7\u01a8\7D\2\2\u01a8")
         buf.write("\u01a9\7\20\2\2\u01a9\u01aa\5\u009aN\2\u01aa\u01ac\7F")
         buf.write("\2\2\u01ab\u01ad\5\u0090I\2\u01ac\u01ab\3\2\2\2\u01ac")
-        buf.write("\u01ad\3\2\2\2\u01ad\13\3\2\2\2\u01ae\u01af\7P\2\2\u01af")
+        buf.write("\u01ad\3\2\2\2\u01ad\13\3\2\2\2\u01ae\u01af\7Q\2\2\u01af")
         buf.write("\u01b0\5\u00b0Y\2\u01b0\u01b1\7D\2\2\u01b1\u01b4\7\20")
-        buf.write("\2\2\u01b2\u01b5\7J\2\2\u01b3\u01b5\5\20\t\2\u01b4\u01b2")
+        buf.write("\2\2\u01b2\u01b5\7K\2\2\u01b3\u01b5\5\20\t\2\u01b4\u01b2")
         buf.write("\3\2\2\2\u01b4\u01b3\3\2\2\2\u01b5\u01c8\3\2\2\2\u01b6")
         buf.write("\u01bf\5 \21\2\u01b7\u01b8\7\22\2\2\u01b8\u01b9\7B\2\2")
         buf.write("\u01b9\u01ba\7g\2\2\u01ba\u01bb\7\20\2\2\u01bb\u01bc\5")
@@ -341,7 +341,7 @@ def serializedATN():
         buf.write("\2\2\u01c3\u01c4\7\20\2\2\u01c4\u01c5\5z>\2\u01c5\u01c6")
         buf.write("\5\u00c2b\2\u01c6\u01c7\5|?\2\u01c7\u01c9\3\2\2\2\u01c8")
         buf.write("\u01b6\3\2\2\2\u01c8\u01c1\3\2\2\2\u01c8\u01c9\3\2\2\2")
-        buf.write("\u01c9\r\3\2\2\2\u01ca\u01cb\7P\2\2\u01cb\u01cc\5\u00b0")
+        buf.write("\u01c9\r\3\2\2\2\u01ca\u01cb\7Q\2\2\u01cb\u01cc\5\u00b0")
         buf.write("Y\2\u01cc\u01cd\7D\2\2\u01cd\u01ce\7\20\2\2\u01ce\u01e1")
         buf.write("\7}\2\2\u01cf\u01d8\5 \21\2\u01d0\u01d1\7\22\2\2\u01d1")
         buf.write("\u01d2\7B\2\2\u01d2\u01d3\7g\2\2\u01d3\u01d4\7\20\2\2")
@@ -354,37 +354,37 @@ def serializedATN():
         buf.write("\3\2\2\2\u01e2\17\3\2\2\2\u01e3\u01e9\5\u00a8U\2\u01e4")
         buf.write("\u01e5\5\u00a8U\2\u01e5\u01e6\7B\2\2\u01e6\u01e7\5\u00b0")
         buf.write("Y\2\u01e7\u01e9\3\2\2\2\u01e8\u01e3\3\2\2\2\u01e8\u01e4")
-        buf.write("\3\2\2\2\u01e9\21\3\2\2\2\u01ea\u01eb\7P\2\2\u01eb\u01ec")
+        buf.write("\3\2\2\2\u01e9\21\3\2\2\2\u01ea\u01eb\7Q\2\2\u01eb\u01ec")
         buf.write("\5\u0108\u0085\2\u01ec\u01ed\7D\2\2\u01ed\u01ee\7\20\2")
         buf.write("\2\u01ee\u01ef\7q\2\2\u01ef\u01f0\7w\2\2\u01f0\u01f1\7")
         buf.write("\20\2\2\u01f1\u01f5\5\u00b8]\2\u01f2\u01f3\7z\2\2\u01f3")
         buf.write("\u01f4\7\20\2\2\u01f4\u01f6\5\u009aN\2\u01f5\u01f2\3\2")
         buf.write("\2\2\u01f5\u01f6\3\2\2\2\u01f6\u01f7\3\2\2\2\u01f7\u01f8")
-        buf.write("\7R\2\2\u01f8\u01f9\7\20\2\2\u01f9\u01fa\5z>\2\u01fa\u01fb")
+        buf.write("\7S\2\2\u01f8\u01f9\7\20\2\2\u01f9\u01fa\5z>\2\u01fa\u01fb")
         buf.write("\5\u00dep\2\u01fb\u01fc\5|?\2\u01fc\23\3\2\2\2\u01fd\u01fe")
-        buf.write("\7P\2\2\u01fe\u01ff\5\u00aeX\2\u01ff\u0200\7|\2\2\u0200")
-        buf.write("\u0201\7R\2\2\u0201\u0202\7\20\2\2\u0202\u0203\5z>\2\u0203")
+        buf.write("\7Q\2\2\u01fe\u01ff\5\u00aeX\2\u01ff\u0200\7|\2\2\u0200")
+        buf.write("\u0201\7S\2\2\u0201\u0202\7\20\2\2\u0202\u0203\5z>\2\u0203")
         buf.write("\u0204\5\u00dep\2\u0204\u0205\5|?\2\u0205\25\3\2\2\2\u0206")
-        buf.write("\u0207\7P\2\2\u0207\u0208\5\u00aeX\2\u0208\u0209\7_\2")
-        buf.write("\2\u0209\u020a\7R\2\2\u020a\u020b\7\20\2\2\u020b\u020c")
+        buf.write("\u0207\7Q\2\2\u0207\u0208\5\u00aeX\2\u0208\u0209\7`\2")
+        buf.write("\2\u0209\u020a\7S\2\2\u020a\u020b\7\20\2\2\u020b\u020c")
         buf.write("\5z>\2\u020c\u020d\5\u00dep\2\u020d\u020e\5|?\2\u020e")
-        buf.write("\27\3\2\2\2\u020f\u0210\7P\2\2\u0210\u0211\5\u00b0Y\2")
+        buf.write("\27\3\2\2\2\u020f\u0210\7Q\2\2\u0210\u0211\5\u00b0Y\2")
         buf.write("\u0211\u0212\7D\2\2\u0212\u0213\7\20\2\2\u0213\u0214\7")
-        buf.write("j\2\2\u0214\u021c\7J\2\2\u0215\u0216\5 \21\2\u0216\u0217")
-        buf.write("\7\22\2\2\u0217\u0218\7B\2\2\u0218\u0219\7d\2\2\u0219")
-        buf.write("\u021d\3\2\2\2\u021a\u021b\7\u0085\2\2\u021b\u021d\7d")
+        buf.write("j\2\2\u0214\u021c\7K\2\2\u0215\u0216\5 \21\2\u0216\u0217")
+        buf.write("\7\22\2\2\u0217\u0218\7B\2\2\u0218\u0219\7H\2\2\u0219")
+        buf.write("\u021d\3\2\2\2\u021a\u021b\7\u0085\2\2\u021b\u021d\7H")
         buf.write("\2\2\u021c\u0215\3\2\2\2\u021c\u021a\3\2\2\2\u021d\u021e")
         buf.write("\3\2\2\2\u021e\u021f\7\20\2\2\u021f\u0220\5z>\2\u0220")
         buf.write("\u0221\5\34\17\2\u0221\u0222\5|?\2\u0222\31\3\2\2\2\u0223")
-        buf.write("\u0224\7P\2\2\u0224\u0225\5\u00b0Y\2\u0225\u0226\7D\2")
+        buf.write("\u0224\7Q\2\2\u0224\u0225\5\u00b0Y\2\u0225\u0226\7D\2")
         buf.write("\2\u0226\u0227\7\20\2\2\u0227\u0228\7j\2\2\u0228\u0230")
         buf.write("\7x\2\2\u0229\u022a\5 \21\2\u022a\u022b\7\22\2\2\u022b")
-        buf.write("\u022c\7B\2\2\u022c\u022d\7d\2\2\u022d\u0231\3\2\2\2\u022e")
-        buf.write("\u022f\7\u0085\2\2\u022f\u0231\7d\2\2\u0230\u0229\3\2")
+        buf.write("\u022c\7B\2\2\u022c\u022d\7H\2\2\u022d\u0231\3\2\2\2\u022e")
+        buf.write("\u022f\7\u0085\2\2\u022f\u0231\7H\2\2\u0230\u0229\3\2")
         buf.write("\2\2\u0230\u022e\3\2\2\2\u0231\u0232\3\2\2\2\u0232\u0233")
         buf.write("\7\20\2\2\u0233\u0234\5z>\2\u0234\u0235\5\34\17\2\u0235")
-        buf.write("\u0236\5|?\2\u0236\33\3\2\2\2\u0237\u0238\7P\2\2\u0238")
-        buf.write("\u0239\7J\2\2\u0239\u023a\7d\2\2\u023a\u023b\7D\2\2\u023b")
+        buf.write("\u0236\5|?\2\u0236\33\3\2\2\2\u0237\u0238\7Q\2\2\u0238")
+        buf.write("\u0239\7K\2\2\u0239\u023a\7H\2\2\u023a\u023b\7D\2\2\u023b")
         buf.write("\u023c\7\20\2\2\u023c\u023d\5z>\2\u023d\u023e\5\36\20")
         buf.write("\2\u023e\u023f\5|?\2\u023f\35\3\2\2\2\u0240\u0241\b\20")
         buf.write("\1\2\u0241\u0242\5\u00c6d\2\u0242\u0249\3\2\2\2\u0243")
@@ -397,36 +397,36 @@ def serializedATN():
         buf.write("\u0252\u0253\7\20\2\2\u0253\u0256\5\u00d2j\2\u0254\u0255")
         buf.write("\7B\2\2\u0255\u0257\5\u00aeX\2\u0256\u0254\3\2\2\2\u0256")
         buf.write("\u0257\3\2\2\2\u0257\u0259\3\2\2\2\u0258\u024c\3\2\2\2")
-        buf.write("\u0258\u0250\3\2\2\2\u0259!\3\2\2\2\u025a\u025b\7P\2\2")
+        buf.write("\u0258\u0250\3\2\2\2\u0259!\3\2\2\2\u025a\u025b\7Q\2\2")
         buf.write("\u025b\u025c\5\u00aaV\2\u025c\u025d\7D\2\2\u025d\u025e")
         buf.write("\7\20\2\2\u025e\u025f\7?\2\2\u025f\u0263\7f\2\2\u0260")
         buf.write("\u0261\7w\2\2\u0261\u0262\7\20\2\2\u0262\u0264\5,\27\2")
         buf.write("\u0263\u0260\3\2\2\2\u0263\u0264\3\2\2\2\u0264\u0268\3")
         buf.write("\2\2\2\u0265\u0266\7z\2\2\u0266\u0267\7\20\2\2\u0267\u0269")
         buf.write("\5\u009aN\2\u0268\u0265\3\2\2\2\u0268\u0269\3\2\2\2\u0269")
-        buf.write("#\3\2\2\2\u026a\u026b\7P\2\2\u026b\u026c\5\u00aaV\2\u026c")
+        buf.write("#\3\2\2\2\u026a\u026b\7Q\2\2\u026b\u026c\5\u00aaV\2\u026c")
         buf.write("\u026d\7D\2\2\u026d\u026e\7\20\2\2\u026e\u0272\7f\2\2")
         buf.write("\u026f\u0270\7w\2\2\u0270\u0271\7\20\2\2\u0271\u0273\5")
         buf.write(",\27\2\u0272\u026f\3\2\2\2\u0272\u0273\3\2\2\2\u0273\u0277")
         buf.write("\3\2\2\2\u0274\u0275\7z\2\2\u0275\u0276\7\20\2\2\u0276")
         buf.write("\u0278\5\u009aN\2\u0277\u0274\3\2\2\2\u0277\u0278\3\2")
-        buf.write("\2\2\u0278\u0279\3\2\2\2\u0279\u027a\7R\2\2\u027a\u027b")
+        buf.write("\2\2\u0278\u0279\3\2\2\2\u0279\u027a\7S\2\2\u027a\u027b")
         buf.write("\7\20\2\2\u027b\u027c\5z>\2\u027c\u027d\5\u00dep\2\u027d")
-        buf.write("\u027e\5|?\2\u027e%\3\2\2\2\u027f\u0280\7P\2\2\u0280\u0281")
+        buf.write("\u027e\5|?\2\u027e%\3\2\2\2\u027f\u0280\7Q\2\2\u0280\u0281")
         buf.write("\5\u00aaV\2\u0281\u0282\7D\2\2\u0282\u0283\7\20\2\2\u0283")
         buf.write("\u0284\7j\2\2\u0284\u0288\7f\2\2\u0285\u0286\7w\2\2\u0286")
         buf.write("\u0287\7\20\2\2\u0287\u0289\5,\27\2\u0288\u0285\3\2\2")
         buf.write("\2\u0288\u0289\3\2\2\2\u0289\u028d\3\2\2\2\u028a\u028b")
         buf.write("\7z\2\2\u028b\u028c\7\20\2\2\u028c\u028e\5\u00be`\2\u028d")
         buf.write("\u028a\3\2\2\2\u028d\u028e\3\2\2\2\u028e\u028f\3\2\2\2")
-        buf.write("\u028f\u0290\7R\2\2\u0290\u0291\7\20\2\2\u0291\u0292\5")
+        buf.write("\u028f\u0290\7S\2\2\u0290\u0291\7\20\2\2\u0291\u0292\5")
         buf.write("z>\2\u0292\u0293\5\u00d6l\2\u0293\u0294\5|?\2\u0294\'")
-        buf.write("\3\2\2\2\u0295\u0296\7P\2\2\u0296\u0297\7\u0093\2\2\u0297")
+        buf.write("\3\2\2\2\u0295\u0296\7Q\2\2\u0296\u0297\7\u0093\2\2\u0297")
         buf.write("\u0298\7D\2\2\u0298\u0299\7\20\2\2\u0299\u029a\7\u0080")
-        buf.write("\2\2\u029a\u029b\7f\2\2\u029b\u029c\7R\2\2\u029c\u029d")
+        buf.write("\2\2\u029a\u029b\7f\2\2\u029b\u029c\7S\2\2\u029c\u029d")
         buf.write("\7\20\2\2\u029d\u029e\5z>\2\u029e\u029f\5\u00dep\2\u029f")
         buf.write("\u02a0\5|?\2\u02a0\u02a1\5x=\2\u02a1\u02a2\7B\2\2\u02a2")
-        buf.write("\u02a3\7Y\2\2\u02a3\u02a9\7\20\2\2\u02a4\u02a5\5z>\2\u02a5")
+        buf.write("\u02a3\7Z\2\2\u02a3\u02a9\7\20\2\2\u02a4\u02a5\5z>\2\u02a5")
         buf.write("\u02a6\5\u00e0q\2\u02a6\u02a7\5|?\2\u02a7\u02aa\3\2\2")
         buf.write("\2\u02a8\u02aa\5\u00b2Z\2\u02a9\u02a4\3\2\2\2\u02a9\u02a8")
         buf.write("\3\2\2\2\u02aa)\3\2\2\2\u02ab\u02ac\5N(\2\u02ac+\3\2\2")
@@ -452,10 +452,10 @@ def serializedATN():
         buf.write("\u02cf\u02d2\3\2\2\2\u02d0\u02d2\5T+\2\u02d1\u02cc\3\2")
         buf.write("\2\2\u02d1\u02d0\3\2\2\2\u02d2\63\3\2\2\2\u02d3\u02d4")
         buf.write("\7\u0085\2\2\u02d4\u02d5\5\u0102\u0082\2\u02d5\u02d6\7")
-        buf.write("\22\2\2\u02d6\u02d7\7Q\2\2\u02d7\u02d8\7\20\2\2\u02d8")
+        buf.write("\22\2\2\u02d6\u02d7\7R\2\2\u02d7\u02d8\7\20\2\2\u02d8")
         buf.write("\u02d9\5z>\2\u02d9\u02da\5\u00dep\2\u02da\u02db\5|?\2")
         buf.write("\u02db\65\3\2\2\2\u02dc\u02dd\7\u0085\2\2\u02dd\u02de")
-        buf.write("\5\u00b0Y\2\u02de\u02df\7\22\2\2\u02df\u02e0\7Q\2\2\u02e0")
+        buf.write("\5\u00b0Y\2\u02de\u02df\7\22\2\2\u02df\u02e0\7R\2\2\u02e0")
         buf.write("\u02e1\7\20\2\2\u02e1\u02e2\5z>\2\u02e2\u02e3\5\u00de")
         buf.write("p\2\u02e3\u02e4\5|?\2\u02e4\67\3\2\2\2\u02e5\u02e6\7\177")
         buf.write("\2\2\u02e6\u02e7\7o\2\2\u02e7\u02e8\5N(\2\u02e8\u02e9")
@@ -467,40 +467,40 @@ def serializedATN():
         buf.write("\2\2\2\u02f6\u02f7\7\u0086\2\2\u02f7\u02f8\5\u00e8u\2")
         buf.write("\u02f8\u02f9\7\20\2\2\u02f9\u02fa\5z>\2\u02fa\u02fb\5")
         buf.write("\u00dep\2\u02fb\u02fc\5|?\2\u02fc\u0306\3\2\2\2\u02fd")
-        buf.write("\u02fe\7\u0086\2\2\u02fe\u02ff\7a\2\2\u02ff\u0300\5\u00e6")
+        buf.write("\u02fe\7\u0086\2\2\u02fe\u02ff\7b\2\2\u02ff\u0300\5\u00e6")
         buf.write("t\2\u0300\u0301\7\20\2\2\u0301\u0302\5z>\2\u0302\u0303")
         buf.write("\5\u00dep\2\u0303\u0304\5|?\2\u0304\u0306\3\2\2\2\u0305")
         buf.write("\u02f6\3\2\2\2\u0305\u02fd\3\2\2\2\u0306;\3\2\2\2\u0307")
-        buf.write("\u0308\7]\2\2\u0308\u0309\7S\2\2\u0309\u030c\5\u00aeX")
+        buf.write("\u0308\7^\2\2\u0308\u0309\7T\2\2\u0309\u030c\5\u00aeX")
         buf.write("\2\u030a\u030b\7\22\2\2\u030b\u030d\5\u00aeX\2\u030c\u030a")
         buf.write("\3\2\2\2\u030c\u030d\3\2\2\2\u030d\u030e\3\2\2\2\u030e")
-        buf.write("\u030f\7a\2\2\u030f\u0310\5N(\2\u0310\u0311\7\20\2\2\u0311")
+        buf.write("\u030f\7b\2\2\u030f\u0310\5N(\2\u0310\u0311\7\20\2\2\u0311")
         buf.write("\u0312\5z>\2\u0312\u0313\5\u00dep\2\u0313\u0314\5|?\2")
-        buf.write("\u0314=\3\2\2\2\u0315\u0316\7Q\2\2\u0316\u0317\7\20\2")
+        buf.write("\u0314=\3\2\2\2\u0315\u0316\7R\2\2\u0316\u0317\7\20\2")
         buf.write("\2\u0317\u0318\5z>\2\u0318\u0319\5\u00dep\2\u0319\u031a")
         buf.write("\5|?\2\u031a\u031b\5x=\2\u031b\u031c\7\u0088\2\2\u031c")
         buf.write("\u031d\5N(\2\u031d?\3\2\2\2\u031e\u031f\7\u0088\2\2\u031f")
         buf.write("\u0320\5N(\2\u0320\u0321\7\20\2\2\u0321\u0322\5z>\2\u0322")
         buf.write("\u0323\5\u00dep\2\u0323\u0324\5|?\2\u0324A\3\2\2\2\u0325")
-        buf.write("\u0326\7`\2\2\u0326\u0327\5N(\2\u0327\u0328\7\20\2\2\u0328")
+        buf.write("\u0326\7a\2\2\u0326\u0327\5N(\2\u0327\u0328\7\20\2\2\u0328")
         buf.write("\u0329\5z>\2\u0329\u032a\5\u00dep\2\u032a\u032e\5|?\2")
         buf.write("\u032b\u032c\5x=\2\u032c\u032d\5D#\2\u032d\u032f\3\2\2")
         buf.write("\2\u032e\u032b\3\2\2\2\u032e\u032f\3\2\2\2\u032f\u0337")
-        buf.write("\3\2\2\2\u0330\u0331\5x=\2\u0331\u0332\7T\2\2\u0332\u0333")
+        buf.write("\3\2\2\2\u0330\u0331\5x=\2\u0331\u0332\7U\2\2\u0332\u0333")
         buf.write("\7\20\2\2\u0333\u0334\5z>\2\u0334\u0335\5\u00dep\2\u0335")
         buf.write("\u0336\5|?\2\u0336\u0338\3\2\2\2\u0337\u0330\3\2\2\2\u0337")
         buf.write("\u0338\3\2\2\2\u0338C\3\2\2\2\u0339\u033a\b#\1\2\u033a")
-        buf.write("\u033b\7T\2\2\u033b\u033c\7`\2\2\u033c\u033d\5N(\2\u033d")
+        buf.write("\u033b\7U\2\2\u033b\u033c\7a\2\2\u033c\u033d\5N(\2\u033d")
         buf.write("\u033e\7\20\2\2\u033e\u033f\5z>\2\u033f\u0340\5\u00de")
         buf.write("p\2\u0340\u0341\5|?\2\u0341\u034e\3\2\2\2\u0342\u0343")
-        buf.write("\f\3\2\2\u0343\u0344\5x=\2\u0344\u0345\7T\2\2\u0345\u0346")
-        buf.write("\7`\2\2\u0346\u0347\5N(\2\u0347\u0348\7\20\2\2\u0348\u0349")
+        buf.write("\f\3\2\2\u0343\u0344\5x=\2\u0344\u0345\7U\2\2\u0345\u0346")
+        buf.write("\7a\2\2\u0346\u0347\5N(\2\u0347\u0348\7\20\2\2\u0348\u0349")
         buf.write("\5z>\2\u0349\u034a\5\u00dep\2\u034a\u034b\5|?\2\u034b")
         buf.write("\u034d\3\2\2\2\u034c\u0342\3\2\2\2\u034d\u0350\3\2\2\2")
         buf.write("\u034e\u034c\3\2\2\2\u034e\u034f\3\2\2\2\u034fE\3\2\2")
         buf.write("\2\u0350\u034e\3\2\2\2\u0351\u0352\7u\2\2\u0352\u0353")
         buf.write("\5N(\2\u0353G\3\2\2\2\u0354\u0355\7\177\2\2\u0355\u0356")
-        buf.write("\7o\2\2\u0356\u0357\5\u00aeX\2\u0357\u0358\7R\2\2\u0358")
+        buf.write("\7o\2\2\u0356\u0357\5\u00aeX\2\u0357\u0358\7S\2\2\u0358")
         buf.write("\u0359\7\20\2\2\u0359\u035a\5z>\2\u035a\u035b\5\u00de")
         buf.write("p\2\u035b\u035c\5|?\2\u035c\u035e\5v<\2\u035d\u035f\5")
         buf.write("\u00e4s\2\u035e\u035d\3\2\2\2\u035e\u035f\3\2\2\2\u035f")
@@ -517,7 +517,7 @@ def serializedATN():
         buf.write("\u0378\u0379\7\u0086\2\2\u0379\u037a\5\u00b2Z\2\u037a")
         buf.write("\u037b\7\20\2\2\u037b\u037c\5z>\2\u037c\u037d\5\u00de")
         buf.write("p\2\u037d\u037e\5|?\2\u037e\u037f\5v<\2\u037f\u038c\3")
-        buf.write("\2\2\2\u0380\u0381\7\u0086\2\2\u0381\u0382\7a\2\2\u0382")
+        buf.write("\2\2\2\u0380\u0381\7\u0086\2\2\u0381\u0382\7b\2\2\u0382")
         buf.write("\u0383\7\27\2\2\u0383\u0384\5\u008eH\2\u0384\u0385\7\30")
         buf.write("\2\2\u0385\u0386\7\20\2\2\u0386\u0387\5z>\2\u0387\u0388")
         buf.write("\5\u00dep\2\u0388\u0389\5|?\2\u0389\u038a\5v<\2\u038a")
@@ -528,7 +528,7 @@ def serializedATN():
         buf.write("\u0395\7l\2\2\u0395\u03ac\5N(\'\u0396\u0397\7=\2\2\u0397")
         buf.write("\u0398\7\20\2\2\u0398\u03ac\5N(\f\u0399\u03ac\5X-\2\u039a")
         buf.write("\u03ac\5P)\2\u039b\u039c\5P)\2\u039c\u039d\5j\66\2\u039d")
-        buf.write("\u03ac\3\2\2\2\u039e\u039f\7X\2\2\u039f\u03a0\7\20\2\2")
+        buf.write("\u03ac\3\2\2\2\u039e\u039f\7Y\2\2\u039f\u03a0\7\20\2\2")
         buf.write("\u03a0\u03ac\5\u00aeX\2\u03a1\u03a2\7<\2\2\u03a2\u03a3")
         buf.write("\7\20\2\2\u03a3\u03ac\5\u00aaV\2\u03a4\u03ac\5\\/\2\u03a5")
         buf.write("\u03ac\5^\60\2\u03a6\u03ac\5f\64\2\u03a7\u03ac\5`\61\2")
@@ -556,22 +556,22 @@ def serializedATN():
         buf.write("\60\2\2\u03d4\u040c\5N(\32\u03d5\u03d6\f\30\2\2\u03d6")
         buf.write("\u03d7\7r\2\2\u03d7\u040c\5N(\31\u03d8\u03d9\f\27\2\2")
         buf.write("\u03d9\u03da\7B\2\2\u03da\u040c\5N(\30\u03db\u03dc\f\26")
-        buf.write("\2\2\u03dc\u03dd\7`\2\2\u03dd\u03de\5N(\2\u03de\u03df")
-        buf.write("\7T\2\2\u03df\u03e0\5N(\27\u03e0\u040c\3\2\2\2\u03e1\u03e2")
-        buf.write("\f\24\2\2\u03e2\u03e3\7a\2\2\u03e3\u040c\5N(\25\u03e4")
-        buf.write("\u03e5\f\23\2\2\u03e5\u03e6\7M\2\2\u03e6\u040c\5N(\24")
-        buf.write("\u03e7\u03e8\f\22\2\2\u03e8\u03e9\7M\2\2\u03e9\u03ea\7")
+        buf.write("\2\2\u03dc\u03dd\7a\2\2\u03dd\u03de\5N(\2\u03de\u03df")
+        buf.write("\7U\2\2\u03df\u03e0\5N(\27\u03e0\u040c\3\2\2\2\u03e1\u03e2")
+        buf.write("\f\24\2\2\u03e2\u03e3\7b\2\2\u03e3\u040c\5N(\25\u03e4")
+        buf.write("\u03e5\f\23\2\2\u03e5\u03e6\7N\2\2\u03e6\u040c\5N(\24")
+        buf.write("\u03e7\u03e8\f\22\2\2\u03e8\u03e9\7N\2\2\u03e9\u03ea\7")
         buf.write("@\2\2\u03ea\u040c\5N(\23\u03eb\u03ec\f\21\2\2\u03ec\u03ed")
-        buf.write("\7M\2\2\u03ed\u03ee\7C\2\2\u03ee\u040c\5N(\22\u03ef\u03f0")
-        buf.write("\f\20\2\2\u03f0\u03f1\7l\2\2\u03f1\u03f2\7a\2\2\u03f2")
+        buf.write("\7N\2\2\u03ed\u03ee\7C\2\2\u03ee\u040c\5N(\22\u03ef\u03f0")
+        buf.write("\f\20\2\2\u03f0\u03f1\7l\2\2\u03f1\u03f2\7b\2\2\u03f2")
         buf.write("\u040c\5N(\21\u03f3\u03f4\f\17\2\2\u03f4\u03f5\7l\2\2")
-        buf.write("\u03f5\u03f6\7M\2\2\u03f6\u040c\5N(\20\u03f7\u03f8\f\16")
-        buf.write("\2\2\u03f8\u03f9\7l\2\2\u03f9\u03fa\7M\2\2\u03fa\u03fb")
+        buf.write("\u03f5\u03f6\7N\2\2\u03f6\u040c\5N(\20\u03f7\u03f8\f\16")
+        buf.write("\2\2\u03f8\u03f9\7l\2\2\u03f9\u03fa\7N\2\2\u03fa\u03fb")
         buf.write("\7@\2\2\u03fb\u040c\5N(\17\u03fc\u03fd\f\r\2\2\u03fd\u03fe")
-        buf.write("\7l\2\2\u03fe\u03ff\7M\2\2\u03ff\u0400\7C\2\2\u0400\u040c")
-        buf.write("\5N(\16\u0401\u0402\f\35\2\2\u0402\u0403\7c\2\2\u0403")
+        buf.write("\7l\2\2\u03fe\u03ff\7N\2\2\u03ff\u0400\7C\2\2\u0400\u040c")
+        buf.write("\5N(\16\u0401\u0402\f\35\2\2\u0402\u0403\7d\2\2\u0403")
         buf.write("\u0404\7l\2\2\u0404\u040c\5\u0106\u0084\2\u0405\u0406")
-        buf.write("\f\34\2\2\u0406\u0407\7c\2\2\u0407\u040c\5\u0106\u0084")
+        buf.write("\f\34\2\2\u0406\u0407\7d\2\2\u0407\u040c\5\u0106\u0084")
         buf.write("\2\u0408\u0409\f\25\2\2\u0409\u040a\7D\2\2\u040a\u040c")
         buf.write("\5\u00be`\2\u040b\u03ad\3\2\2\2\u040b\u03b1\3\2\2\2\u040b")
         buf.write("\u03b5\3\2\2\2\u040b\u03b9\3\2\2\2\u040b\u03bd\3\2\2\2")
@@ -590,7 +590,7 @@ def serializedATN():
         buf.write("\u0415\3\2\2\2\u0417\u0418\3\2\2\2\u0418Q\3\2\2\2\u0419")
         buf.write("\u0417\3\2\2\2\u041a\u041b\6*\37\3\u041b\u041c\7\24\2")
         buf.write("\2\u041c\u041d\5\u00acW\2\u041dS\3\2\2\2\u041e\u041f\7")
-        buf.write("b\2\2\u041f\u0420\7\20\2\2\u0420\u0421\5\u00aeX\2\u0421")
+        buf.write("c\2\2\u041f\u0420\7\20\2\2\u0420\u0421\5\u00aeX\2\u0421")
         buf.write("\u0422\5V,\2\u0422U\3\2\2\2\u0423\u0424\6, \3\u0424W\3")
         buf.write("\2\2\2\u0425\u0426\b-\1\2\u0426\u0427\5\u00ecw\2\u0427")
         buf.write("\u042c\3\2\2\2\u0428\u0429\f\3\2\2\u0429\u042b\5Z.\2\u042a")
@@ -605,7 +605,7 @@ def serializedATN():
         buf.write("\2\2\2\u043d[\3\2\2\2\u043e\u043f\5\u00a4S\2\u043f]\3")
         buf.write("\2\2\2\u0440\u0442\7i\2\2\u0441\u0440\3\2\2\2\u0441\u0442")
         buf.write("\3\2\2\2\u0442\u0443\3\2\2\2\u0443\u0444\5\u00a0Q\2\u0444")
-        buf.write("\u0445\7^\2\2\u0445\u044e\5N(\2\u0446\u0448\7\22\2\2\u0447")
+        buf.write("\u0445\7_\2\2\u0445\u044e\5N(\2\u0446\u0448\7\22\2\2\u0447")
         buf.write("\u0446\3\2\2\2\u0447\u0448\3\2\2\2\u0448\u0449\3\2\2\2")
         buf.write("\u0449\u044c\5l\67\2\u044a\u044b\7B\2\2\u044b\u044d\5")
         buf.write("n8\2\u044c\u044a\3\2\2\2\u044c\u044d\3\2\2\2\u044d\u044f")
@@ -617,12 +617,12 @@ def serializedATN():
         buf.write("\u045a\3\2\2\2\u0459\u0454\3\2\2\2\u0459\u045a\3\2\2\2")
         buf.write("\u045a\u045c\3\2\2\2\u045b\u0441\3\2\2\2\u045b\u0451\3")
         buf.write("\2\2\2\u045c_\3\2\2\2\u045d\u045e\7v\2\2\u045e\u045f\7")
-        buf.write("^\2\2\u045f\u0460\5N(\2\u0460a\3\2\2\2\u0461\u0462\7\u0089")
+        buf.write("_\2\2\u045f\u0460\5N(\2\u0460a\3\2\2\2\u0461\u0462\7\u0089")
         buf.write("\2\2\u0462\u0463\5N(\2\u0463\u0464\7\u0083\2\2\u0464\u0465")
         buf.write("\5N(\2\u0465c\3\2\2\2\u0466\u0467\5P)\2\u0467\u0468\7")
         buf.write("\"\2\2\u0468\u0469\5N(\2\u0469e\3\2\2\2\u046a\u046b\7")
-        buf.write("[\2\2\u046b\u046c\7C\2\2\u046c\u046d\5\u00aeX\2\u046d")
-        buf.write("\u046e\7^\2\2\u046e\u046f\5N(\2\u046f\u0470\7\u0087\2")
+        buf.write("\\\2\2\u046b\u046c\7C\2\2\u046c\u046d\5\u00aeX\2\u046d")
+        buf.write("\u046e\7_\2\2\u046e\u046f\5N(\2\u046f\u0470\7\u0087\2")
         buf.write("\2\u0470\u0471\5N(\2\u0471g\3\2\2\2\u0472\u0473\7~\2\2")
         buf.write("\u0473\u0479\5X-\2\u0474\u0475\7\u0085\2\2\u0475\u0476")
         buf.write("\5X-\2\u0476\u0477\7D\2\2\u0477\u0478\5\u010a\u0086\2")
@@ -687,9 +687,9 @@ def serializedATN():
         buf.write("\u0504\f\3\2\2\u0504\u0505\7\22\2\2\u0505\u0507\5\u00b2")
         buf.write("Z\2\u0506\u0503\3\2\2\2\u0507\u050a\3\2\2\2\u0508\u0506")
         buf.write("\3\2\2\2\u0508\u0509\3\2\2\2\u0509\u008f\3\2\2\2\u050a")
-        buf.write("\u0508\3\2\2\2\u050b\u050c\7a\2\2\u050c\u0516\5\u0092")
-        buf.write("J\2\u050d\u050e\7a\2\2\u050e\u0516\5\u0094K\2\u050f\u0510")
-        buf.write("\7a\2\2\u0510\u0516\5\u0098M\2\u0511\u0512\7e\2\2\u0512")
+        buf.write("\u0508\3\2\2\2\u050b\u050c\7b\2\2\u050c\u0516\5\u0092")
+        buf.write("J\2\u050d\u050e\7b\2\2\u050e\u0516\5\u0094K\2\u050f\u0510")
+        buf.write("\7b\2\2\u0510\u0516\5\u0098M\2\u0511\u0512\7e\2\2\u0512")
         buf.write("\u0516\7\u0093\2\2\u0513\u0514\7e\2\2\u0514\u0516\5N(")
         buf.write("\2\u0515\u050b\3\2\2\2\u0515\u050d\3\2\2\2\u0515\u050f")
         buf.write("\3\2\2\2\u0515\u0511\3\2\2\2\u0515\u0513\3\2\2\2\u0516")
@@ -776,7 +776,7 @@ def serializedATN():
         buf.write("\3\2\2\2\u05c6\u05c2\3\2\2\2\u05c6\u05c4\3\2\2\2\u05c7")
         buf.write("\u00c7\3\2\2\2\u05c8\u05ca\5\u00acW\2\u05c9\u05cb\5\u00ca")
         buf.write("f\2\u05ca\u05c9\3\2\2\2\u05ca\u05cb\3\2\2\2\u05cb\u00c9")
-        buf.write("\3\2\2\2\u05cc\u05cd\7^\2\2\u05cd\u05ce\5\u00ccg\2\u05ce")
+        buf.write("\3\2\2\2\u05cc\u05cd\7_\2\2\u05cd\u05ce\5\u00ccg\2\u05ce")
         buf.write("\u05cf\7\20\2\2\u05cf\u05d4\5\u00acW\2\u05d0\u05d1\7\24")
         buf.write("\2\2\u05d1\u05d3\5\u00acW\2\u05d2\u05d0\3\2\2\2\u05d3")
         buf.write("\u05d6\3\2\2\2\u05d4\u05d2\3\2\2\2\u05d4\u05d5\3\2\2\2")
@@ -784,7 +784,7 @@ def serializedATN():
         buf.write("\u0090\2\2\u05d8\u05d9\6g\66\3\u05d9\u00cd\3\2\2\2\u05da")
         buf.write("\u05dc\5\u00acW\2\u05db\u05dd\5\u00d0i\2\u05dc\u05db\3")
         buf.write("\2\2\2\u05dc\u05dd\3\2\2\2\u05dd\u00cf\3\2\2\2\u05de\u05df")
-        buf.write("\7^\2\2\u05df\u05e0\5\u00ccg\2\u05e0\u05e2\7\20\2\2\u05e1")
+        buf.write("\7_\2\2\u05df\u05e0\5\u00ccg\2\u05e0\u05e2\7\20\2\2\u05e1")
         buf.write("\u05e3\7$\2\2\u05e2\u05e1\3\2\2\2\u05e2\u05e3\3\2\2\2")
         buf.write("\u05e3\u05e4\3\2\2\2\u05e4\u05e9\5\u012e\u0098\2\u05e5")
         buf.write("\u05e6\7$\2\2\u05e6\u05e8\5\u012e\u0098\2\u05e7\u05e5")
@@ -1114,16 +1114,16 @@ class EParser ( AbstractParser ):
                      u"'DateTime'", u"'Period'", u"'Method'", u"'Code'", 
                      u"'Document'", u"'abstract'", u"'all'", u"'always'", 
                      u"'and'", u"'any'", u"'as'", u"'attr'", u"'attribute'", 
-                     u"'attributes'", u"'case'", u"'catch'", u"'category'", 
-                     u"'class'", u"'close'", u"'contains'", u"'def'", u"'default'", 
-                     u"'define'", u"'do'", u"'doing'", u"'each'", u"'else'", 
-                     u"'enum'", u"'enumerated'", u"'except'", u"'execute'", 
-                     u"'expecting'", u"'extends'", u"'fetch'", u"'finally'", 
-                     u"'for'", u"'from'", u"'getter'", u"'if'", u"'in'", 
-                     u"'invoke'", u"'is'", u"'mappings'", u"'matching'", 
-                     u"'method'", u"'methods'", u"'modulo'", u"'mutable'", 
-                     u"'native'", u"'None'", u"'not'", u"<INVALID>", u"'null'", 
-                     u"'on'", u"'open'", u"'operator'", u"'or'", u"'otherwise'", 
+                     u"'attributes'", u"'bindings'", u"'case'", u"'catch'", 
+                     u"'category'", u"'class'", u"'close'", u"'contains'", 
+                     u"'def'", u"'default'", u"'define'", u"'do'", u"'doing'", 
+                     u"'each'", u"'else'", u"'enum'", u"'enumerated'", u"'except'", 
+                     u"'execute'", u"'expecting'", u"'extends'", u"'fetch'", 
+                     u"'finally'", u"'for'", u"'from'", u"'getter'", u"'if'", 
+                     u"'in'", u"'invoke'", u"'is'", u"'matching'", u"'method'", 
+                     u"'methods'", u"'modulo'", u"'mutable'", u"'native'", 
+                     u"'None'", u"'not'", u"<INVALID>", u"'null'", u"'on'", 
+                     u"'open'", u"'operator'", u"'or'", u"'otherwise'", 
                      u"'pass'", u"'raise'", u"'read'", u"'receiving'", u"'resource'", 
                      u"'return'", u"'returning'", u"'self'", u"'setter'", 
                      u"'singleton'", u"'sorted'", u"'switch'", u"'test'", 
@@ -1143,20 +1143,21 @@ class EParser ( AbstractParser ):
                       u"TEXT", u"INTEGER", u"DECIMAL", u"DATE", u"TIME", 
                       u"DATETIME", u"PERIOD", u"METHOD_T", u"CODE", u"DOCUMENT", 
                       u"ABSTRACT", u"ALL", u"ALWAYS", u"AND", u"ANY", u"AS", 
-                      u"ATTR", u"ATTRIBUTE", u"ATTRIBUTES", u"CASE", u"CATCH", 
-                      u"CATEGORY", u"CLASS", u"CLOSE", u"CONTAINS", u"DEF", 
-                      u"DEFAULT", u"DEFINE", u"DO", u"DOING", u"EACH", u"ELSE", 
-                      u"ENUM", u"ENUMERATED", u"EXCEPT", u"EXECUTE", u"EXPECTING", 
-                      u"EXTENDS", u"FETCH", u"FINALLY", u"FOR", u"FROM", 
-                      u"GETTER", u"IF", u"IN", u"INVOKE", u"IS", u"MAPPINGS", 
-                      u"MATCHING", u"METHOD", u"METHODS", u"MODULO", u"MUTABLE", 
-                      u"NATIVE", u"NONE", u"NOT", u"NOTHING", u"NULL", u"ON", 
-                      u"OPEN", u"OPERATOR", u"OR", u"OTHERWISE", u"PASS", 
-                      u"RAISE", u"READ", u"RECEIVING", u"RESOURCE", u"RETURN", 
-                      u"RETURNING", u"SELF", u"SETTER", u"SINGLETON", u"SORTED", 
-                      u"SWITCH", u"TEST", u"THIS", u"THROW", u"TO", u"TRY", 
-                      u"WITH", u"WHEN", u"WHERE", u"WHILE", u"WRITE", u"BOOLEAN_LITERAL", 
-                      u"CHAR_LITERAL", u"MIN_INTEGER", u"MAX_INTEGER", u"SYMBOL_IDENTIFIER", 
+                      u"ATTR", u"ATTRIBUTE", u"ATTRIBUTES", u"BINDINGS", 
+                      u"CASE", u"CATCH", u"CATEGORY", u"CLASS", u"CLOSE", 
+                      u"CONTAINS", u"DEF", u"DEFAULT", u"DEFINE", u"DO", 
+                      u"DOING", u"EACH", u"ELSE", u"ENUM", u"ENUMERATED", 
+                      u"EXCEPT", u"EXECUTE", u"EXPECTING", u"EXTENDS", u"FETCH", 
+                      u"FINALLY", u"FOR", u"FROM", u"GETTER", u"IF", u"IN", 
+                      u"INVOKE", u"IS", u"MATCHING", u"METHOD", u"METHODS", 
+                      u"MODULO", u"MUTABLE", u"NATIVE", u"NONE", u"NOT", 
+                      u"NOTHING", u"NULL", u"ON", u"OPEN", u"OPERATOR", 
+                      u"OR", u"OTHERWISE", u"PASS", u"RAISE", u"READ", u"RECEIVING", 
+                      u"RESOURCE", u"RETURN", u"RETURNING", u"SELF", u"SETTER", 
+                      u"SINGLETON", u"SORTED", u"SWITCH", u"TEST", u"THIS", 
+                      u"THROW", u"TO", u"TRY", u"WITH", u"WHEN", u"WHERE", 
+                      u"WHILE", u"WRITE", u"BOOLEAN_LITERAL", u"CHAR_LITERAL", 
+                      u"MIN_INTEGER", u"MAX_INTEGER", u"SYMBOL_IDENTIFIER", 
                       u"TYPE_IDENTIFIER", u"VARIABLE_IDENTIFIER", u"NATIVE_IDENTIFIER", 
                       u"DOLLAR_IDENTIFIER", u"TEXT_LITERAL", u"INTEGER_LITERAL", 
                       u"HEXA_LITERAL", u"DECIMAL_LITERAL", u"DATETIME_LITERAL", 
@@ -1176,8 +1177,8 @@ class EParser ( AbstractParser ):
     RULE_getter_method_declaration = 10
     RULE_native_category_declaration = 11
     RULE_native_resource_declaration = 12
-    RULE_native_category_mappings = 13
-    RULE_native_category_mapping_list = 14
+    RULE_native_category_bindings = 13
+    RULE_native_category_binding_list = 14
     RULE_attribute_list = 15
     RULE_abstract_method_declaration = 16
     RULE_concrete_method_declaration = 17
@@ -1261,11 +1262,11 @@ class EParser ( AbstractParser ):
     RULE_any_type = 95
     RULE_member_method_declaration_list = 96
     RULE_member_method_declaration = 97
-    RULE_native_category_mapping = 98
-    RULE_python_category_mapping = 99
+    RULE_native_category_binding = 98
+    RULE_python_category_binding = 99
     RULE_python_module = 100
     RULE_module_token = 101
-    RULE_javascript_category_mapping = 102
+    RULE_javascript_category_binding = 102
     RULE_javascript_module = 103
     RULE_variable_identifier_list = 104
     RULE_method_declaration = 105
@@ -1355,8 +1356,8 @@ class EParser ( AbstractParser ):
                    "concrete_category_declaration", "singleton_category_declaration", 
                    "derived_list", "operator_method_declaration", "setter_method_declaration", 
                    "getter_method_declaration", "native_category_declaration", 
-                   "native_resource_declaration", "native_category_mappings", 
-                   "native_category_mapping_list", "attribute_list", "abstract_method_declaration", 
+                   "native_resource_declaration", "native_category_bindings", 
+                   "native_category_binding_list", "attribute_list", "abstract_method_declaration", 
                    "concrete_method_declaration", "native_method_declaration", 
                    "test_method_declaration", "assertion", "full_argument_list", 
                    "typed_argument", "statement", "method_call_statement", 
@@ -1383,8 +1384,8 @@ class EParser ( AbstractParser ):
                    "argument_list", "argument", "operator_argument", "named_argument", 
                    "code_argument", "category_or_any_type", "any_type", 
                    "member_method_declaration_list", "member_method_declaration", 
-                   "native_category_mapping", "python_category_mapping", 
-                   "python_module", "module_token", "javascript_category_mapping", 
+                   "native_category_binding", "python_category_binding", 
+                   "python_module", "module_token", "javascript_category_binding", 
                    "javascript_module", "variable_identifier_list", "method_declaration", 
                    "native_statement_list", "native_statement", "python_native_statement", 
                    "javascript_native_statement", "statement_list", "assertion_list", 
@@ -1488,35 +1489,35 @@ class EParser ( AbstractParser ):
     ATTR=67
     ATTRIBUTE=68
     ATTRIBUTES=69
-    CASE=70
-    CATCH=71
-    CATEGORY=72
-    CLASS=73
-    CLOSE=74
-    CONTAINS=75
-    DEF=76
-    DEFAULT=77
-    DEFINE=78
-    DO=79
-    DOING=80
-    EACH=81
-    ELSE=82
-    ENUM=83
-    ENUMERATED=84
-    EXCEPT=85
-    EXECUTE=86
-    EXPECTING=87
-    EXTENDS=88
-    FETCH=89
-    FINALLY=90
-    FOR=91
-    FROM=92
-    GETTER=93
-    IF=94
-    IN=95
-    INVOKE=96
-    IS=97
-    MAPPINGS=98
+    BINDINGS=70
+    CASE=71
+    CATCH=72
+    CATEGORY=73
+    CLASS=74
+    CLOSE=75
+    CONTAINS=76
+    DEF=77
+    DEFAULT=78
+    DEFINE=79
+    DO=80
+    DOING=81
+    EACH=82
+    ELSE=83
+    ENUM=84
+    ENUMERATED=85
+    EXCEPT=86
+    EXECUTE=87
+    EXPECTING=88
+    EXTENDS=89
+    FETCH=90
+    FINALLY=91
+    FOR=92
+    FROM=93
+    GETTER=94
+    IF=95
+    IN=96
+    INVOKE=97
+    IS=98
     MATCHING=99
     METHOD=100
     METHODS=101
@@ -2707,7 +2708,7 @@ class EParser ( AbstractParser ):
             self.parser = parser
             self.name = None # Type_identifierContext
             self.attrs = None # Attribute_listContext
-            self.mappings = None # Native_category_mappingsContext
+            self.bindings = None # Native_category_bindingsContext
 
         def DEFINE(self):
             return self.getToken(EParser.DEFINE, 0)
@@ -2739,15 +2740,15 @@ class EParser ( AbstractParser ):
             return self.getTypedRuleContext(EParser.Type_identifierContext,0)
 
 
-        def native_category_mappings(self):
-            return self.getTypedRuleContext(EParser.Native_category_mappingsContext,0)
+        def native_category_bindings(self):
+            return self.getTypedRuleContext(EParser.Native_category_bindingsContext,0)
 
 
         def WITH(self):
             return self.getToken(EParser.WITH, 0)
 
-        def MAPPINGS(self):
-            return self.getToken(EParser.MAPPINGS, 0)
+        def BINDINGS(self):
+            return self.getToken(EParser.BINDINGS, 0)
 
         def COMMA(self):
             return self.getToken(EParser.COMMA, 0)
@@ -2801,14 +2802,14 @@ class EParser ( AbstractParser ):
                 self.state = 533
                 self.match(EParser.AND)
                 self.state = 534
-                self.match(EParser.MAPPINGS)
+                self.match(EParser.BINDINGS)
                 pass
 
             elif la_ == 2:
                 self.state = 536
                 self.match(EParser.WITH)
                 self.state = 537
-                self.match(EParser.MAPPINGS)
+                self.match(EParser.BINDINGS)
                 pass
 
 
@@ -2817,7 +2818,7 @@ class EParser ( AbstractParser ):
             self.state = 541
             self.indent()
             self.state = 542
-            localctx.mappings = self.native_category_mappings()
+            localctx.bindings = self.native_category_bindings()
             self.state = 543
             self.dedent()
         except RecognitionException as re:
@@ -2835,7 +2836,7 @@ class EParser ( AbstractParser ):
             self.parser = parser
             self.name = None # Type_identifierContext
             self.attrs = None # Attribute_listContext
-            self.mappings = None # Native_category_mappingsContext
+            self.bindings = None # Native_category_bindingsContext
 
         def DEFINE(self):
             return self.getToken(EParser.DEFINE, 0)
@@ -2867,15 +2868,15 @@ class EParser ( AbstractParser ):
             return self.getTypedRuleContext(EParser.Type_identifierContext,0)
 
 
-        def native_category_mappings(self):
-            return self.getTypedRuleContext(EParser.Native_category_mappingsContext,0)
+        def native_category_bindings(self):
+            return self.getTypedRuleContext(EParser.Native_category_bindingsContext,0)
 
 
         def WITH(self):
             return self.getToken(EParser.WITH, 0)
 
-        def MAPPINGS(self):
-            return self.getToken(EParser.MAPPINGS, 0)
+        def BINDINGS(self):
+            return self.getToken(EParser.BINDINGS, 0)
 
         def COMMA(self):
             return self.getToken(EParser.COMMA, 0)
@@ -2929,14 +2930,14 @@ class EParser ( AbstractParser ):
                 self.state = 553
                 self.match(EParser.AND)
                 self.state = 554
-                self.match(EParser.MAPPINGS)
+                self.match(EParser.BINDINGS)
                 pass
 
             elif la_ == 2:
                 self.state = 556
                 self.match(EParser.WITH)
                 self.state = 557
-                self.match(EParser.MAPPINGS)
+                self.match(EParser.BINDINGS)
                 pass
 
 
@@ -2945,7 +2946,7 @@ class EParser ( AbstractParser ):
             self.state = 561
             self.indent()
             self.state = 562
-            localctx.mappings = self.native_category_mappings()
+            localctx.bindings = self.native_category_bindings()
             self.state = 563
             self.dedent()
         except RecognitionException as re:
@@ -2956,12 +2957,12 @@ class EParser ( AbstractParser ):
             self.exitRule()
         return localctx
 
-    class Native_category_mappingsContext(ParserRuleContext):
+    class Native_category_bindingsContext(ParserRuleContext):
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
-            self.items = None # Native_category_mapping_listContext
+            self.items = None # Native_category_binding_listContext
 
         def DEFINE(self):
             return self.getToken(EParser.DEFINE, 0)
@@ -2969,8 +2970,8 @@ class EParser ( AbstractParser ):
         def CATEGORY(self):
             return self.getToken(EParser.CATEGORY, 0)
 
-        def MAPPINGS(self):
-            return self.getToken(EParser.MAPPINGS, 0)
+        def BINDINGS(self):
+            return self.getToken(EParser.BINDINGS, 0)
 
         def AS(self):
             return self.getToken(EParser.AS, 0)
@@ -2986,28 +2987,28 @@ class EParser ( AbstractParser ):
             return self.getTypedRuleContext(EParser.DedentContext,0)
 
 
-        def native_category_mapping_list(self):
-            return self.getTypedRuleContext(EParser.Native_category_mapping_listContext,0)
+        def native_category_binding_list(self):
+            return self.getTypedRuleContext(EParser.Native_category_binding_listContext,0)
 
 
         def getRuleIndex(self):
-            return EParser.RULE_native_category_mappings
+            return EParser.RULE_native_category_bindings
 
         def enterRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.enterNative_category_mappings(self)
+                listener.enterNative_category_bindings(self)
 
         def exitRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.exitNative_category_mappings(self)
+                listener.exitNative_category_bindings(self)
 
 
 
 
-    def native_category_mappings(self):
+    def native_category_bindings(self):
 
-        localctx = EParser.Native_category_mappingsContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 26, self.RULE_native_category_mappings)
+        localctx = EParser.Native_category_bindingsContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 26, self.RULE_native_category_bindings)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 565
@@ -3015,7 +3016,7 @@ class EParser ( AbstractParser ):
             self.state = 566
             self.match(EParser.CATEGORY)
             self.state = 567
-            self.match(EParser.MAPPINGS)
+            self.match(EParser.BINDINGS)
             self.state = 568
             self.match(EParser.AS)
             self.state = 569
@@ -3023,7 +3024,7 @@ class EParser ( AbstractParser ):
             self.state = 570
             self.indent()
             self.state = 571
-            localctx.items = self.native_category_mapping_list(0)
+            localctx.items = self.native_category_binding_list(0)
             self.state = 572
             self.dedent()
         except RecognitionException as re:
@@ -3034,7 +3035,7 @@ class EParser ( AbstractParser ):
             self.exitRule()
         return localctx
 
-    class Native_category_mapping_listContext(ParserRuleContext):
+    class Native_category_binding_listContext(ParserRuleContext):
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3042,76 +3043,76 @@ class EParser ( AbstractParser ):
 
 
         def getRuleIndex(self):
-            return EParser.RULE_native_category_mapping_list
+            return EParser.RULE_native_category_binding_list
 
      
         def copyFrom(self, ctx:ParserRuleContext):
             super().copyFrom(ctx)
 
 
-    class NativeCategoryMappingListContext(Native_category_mapping_listContext):
+    class NativeCategoryBindingListContext(Native_category_binding_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.Native_category_mapping_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.Native_category_binding_listContext)
             super().__init__(parser)
-            self.item = None # Native_category_mappingContext
+            self.item = None # Native_category_bindingContext
             self.copyFrom(ctx)
 
-        def native_category_mapping(self):
-            return self.getTypedRuleContext(EParser.Native_category_mappingContext,0)
+        def native_category_binding(self):
+            return self.getTypedRuleContext(EParser.Native_category_bindingContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.enterNativeCategoryMappingList(self)
+                listener.enterNativeCategoryBindingList(self)
 
         def exitRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.exitNativeCategoryMappingList(self)
+                listener.exitNativeCategoryBindingList(self)
 
 
-    class NativeCategoryMappingListItemContext(Native_category_mapping_listContext):
+    class NativeCategoryBindingListItemContext(Native_category_binding_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.Native_category_mapping_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.Native_category_binding_listContext)
             super().__init__(parser)
-            self.items = None # Native_category_mapping_listContext
-            self.item = None # Native_category_mappingContext
+            self.items = None # Native_category_binding_listContext
+            self.item = None # Native_category_bindingContext
             self.copyFrom(ctx)
 
         def lfp(self):
             return self.getTypedRuleContext(EParser.LfpContext,0)
 
-        def native_category_mapping_list(self):
-            return self.getTypedRuleContext(EParser.Native_category_mapping_listContext,0)
+        def native_category_binding_list(self):
+            return self.getTypedRuleContext(EParser.Native_category_binding_listContext,0)
 
-        def native_category_mapping(self):
-            return self.getTypedRuleContext(EParser.Native_category_mappingContext,0)
+        def native_category_binding(self):
+            return self.getTypedRuleContext(EParser.Native_category_bindingContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.enterNativeCategoryMappingListItem(self)
+                listener.enterNativeCategoryBindingListItem(self)
 
         def exitRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.exitNativeCategoryMappingListItem(self)
+                listener.exitNativeCategoryBindingListItem(self)
 
 
 
-    def native_category_mapping_list(self, _p:int=0):
+    def native_category_binding_list(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = EParser.Native_category_mapping_listContext(self, self._ctx, _parentState)
+        localctx = EParser.Native_category_binding_listContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 28
-        self.enterRecursionRule(localctx, 28, self.RULE_native_category_mapping_list, _p)
+        self.enterRecursionRule(localctx, 28, self.RULE_native_category_binding_list, _p)
         try:
             self.enterOuterAlt(localctx, 1)
-            localctx = EParser.NativeCategoryMappingListContext(self, localctx)
+            localctx = EParser.NativeCategoryBindingListContext(self, localctx)
             self._ctx = localctx
             _prevctx = localctx
 
             self.state = 575
-            localctx.item = self.native_category_mapping()
+            localctx.item = self.native_category_binding()
             self._ctx.stop = self._input.LT(-1)
             self.state = 583
             self._errHandler.sync(self)
@@ -3121,9 +3122,9 @@ class EParser ( AbstractParser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    localctx = EParser.NativeCategoryMappingListItemContext(self, EParser.Native_category_mapping_listContext(self, _parentctx, _parentState))
+                    localctx = EParser.NativeCategoryBindingListItemContext(self, EParser.Native_category_binding_listContext(self, _parentctx, _parentState))
                     localctx.items = _prevctx
-                    self.pushNewRecursionContext(localctx, _startState, self.RULE_native_category_mapping_list)
+                    self.pushNewRecursionContext(localctx, _startState, self.RULE_native_category_binding_list)
                     self.state = 577
                     if not self.precpred(self._ctx, 1):
                         from antlr4.error.Errors import FailedPredicateException
@@ -3131,7 +3132,7 @@ class EParser ( AbstractParser ):
                     self.state = 578
                     self.lfp()
                     self.state = 579
-                    localctx.item = self.native_category_mapping() 
+                    localctx.item = self.native_category_binding() 
                 self.state = 585
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,13,self._ctx)
@@ -10320,7 +10321,7 @@ class EParser ( AbstractParser ):
             self.match(EParser.LBRAK)
             self.state = 1303
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.METHOD_T) | (1 << EParser.CODE) | (1 << EParser.DOCUMENT))) != 0) or ((((_la - 86)) & ~0x3f) == 0 and ((1 << (_la - 86)) & ((1 << (EParser.EXECUTE - 86)) | (1 << (EParser.FETCH - 86)) | (1 << (EParser.INVOKE - 86)) | (1 << (EParser.MUTABLE - 86)) | (1 << (EParser.NOT - 86)) | (1 << (EParser.NOTHING - 86)) | (1 << (EParser.READ - 86)) | (1 << (EParser.SELF - 86)) | (1 << (EParser.SORTED - 86)) | (1 << (EParser.THIS - 86)) | (1 << (EParser.BOOLEAN_LITERAL - 86)) | (1 << (EParser.CHAR_LITERAL - 86)) | (1 << (EParser.MIN_INTEGER - 86)) | (1 << (EParser.MAX_INTEGER - 86)) | (1 << (EParser.SYMBOL_IDENTIFIER - 86)) | (1 << (EParser.TYPE_IDENTIFIER - 86)) | (1 << (EParser.VARIABLE_IDENTIFIER - 86)) | (1 << (EParser.TEXT_LITERAL - 86)) | (1 << (EParser.INTEGER_LITERAL - 86)) | (1 << (EParser.HEXA_LITERAL - 86)) | (1 << (EParser.DECIMAL_LITERAL - 86)) | (1 << (EParser.DATETIME_LITERAL - 86)))) != 0) or ((((_la - 150)) & ~0x3f) == 0 and ((1 << (_la - 150)) & ((1 << (EParser.TIME_LITERAL - 150)) | (1 << (EParser.DATE_LITERAL - 150)) | (1 << (EParser.PERIOD_LITERAL - 150)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.METHOD_T) | (1 << EParser.CODE) | (1 << EParser.DOCUMENT))) != 0) or ((((_la - 87)) & ~0x3f) == 0 and ((1 << (_la - 87)) & ((1 << (EParser.EXECUTE - 87)) | (1 << (EParser.FETCH - 87)) | (1 << (EParser.INVOKE - 87)) | (1 << (EParser.MUTABLE - 87)) | (1 << (EParser.NOT - 87)) | (1 << (EParser.NOTHING - 87)) | (1 << (EParser.READ - 87)) | (1 << (EParser.SELF - 87)) | (1 << (EParser.SORTED - 87)) | (1 << (EParser.THIS - 87)) | (1 << (EParser.BOOLEAN_LITERAL - 87)) | (1 << (EParser.CHAR_LITERAL - 87)) | (1 << (EParser.MIN_INTEGER - 87)) | (1 << (EParser.MAX_INTEGER - 87)) | (1 << (EParser.SYMBOL_IDENTIFIER - 87)) | (1 << (EParser.TYPE_IDENTIFIER - 87)) | (1 << (EParser.VARIABLE_IDENTIFIER - 87)) | (1 << (EParser.TEXT_LITERAL - 87)) | (1 << (EParser.INTEGER_LITERAL - 87)) | (1 << (EParser.HEXA_LITERAL - 87)) | (1 << (EParser.DECIMAL_LITERAL - 87)) | (1 << (EParser.DATETIME_LITERAL - 87)) | (1 << (EParser.TIME_LITERAL - 87)))) != 0) or _la==EParser.DATE_LITERAL or _la==EParser.PERIOD_LITERAL:
                 self.state = 1302
                 localctx.items = self.expression_list(0)
 
@@ -10377,7 +10378,7 @@ class EParser ( AbstractParser ):
             self.match(EParser.LT)
             self.state = 1309
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.METHOD_T) | (1 << EParser.CODE) | (1 << EParser.DOCUMENT))) != 0) or ((((_la - 86)) & ~0x3f) == 0 and ((1 << (_la - 86)) & ((1 << (EParser.EXECUTE - 86)) | (1 << (EParser.FETCH - 86)) | (1 << (EParser.INVOKE - 86)) | (1 << (EParser.MUTABLE - 86)) | (1 << (EParser.NOT - 86)) | (1 << (EParser.NOTHING - 86)) | (1 << (EParser.READ - 86)) | (1 << (EParser.SELF - 86)) | (1 << (EParser.SORTED - 86)) | (1 << (EParser.THIS - 86)) | (1 << (EParser.BOOLEAN_LITERAL - 86)) | (1 << (EParser.CHAR_LITERAL - 86)) | (1 << (EParser.MIN_INTEGER - 86)) | (1 << (EParser.MAX_INTEGER - 86)) | (1 << (EParser.SYMBOL_IDENTIFIER - 86)) | (1 << (EParser.TYPE_IDENTIFIER - 86)) | (1 << (EParser.VARIABLE_IDENTIFIER - 86)) | (1 << (EParser.TEXT_LITERAL - 86)) | (1 << (EParser.INTEGER_LITERAL - 86)) | (1 << (EParser.HEXA_LITERAL - 86)) | (1 << (EParser.DECIMAL_LITERAL - 86)) | (1 << (EParser.DATETIME_LITERAL - 86)))) != 0) or ((((_la - 150)) & ~0x3f) == 0 and ((1 << (_la - 150)) & ((1 << (EParser.TIME_LITERAL - 150)) | (1 << (EParser.DATE_LITERAL - 150)) | (1 << (EParser.PERIOD_LITERAL - 150)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.METHOD_T) | (1 << EParser.CODE) | (1 << EParser.DOCUMENT))) != 0) or ((((_la - 87)) & ~0x3f) == 0 and ((1 << (_la - 87)) & ((1 << (EParser.EXECUTE - 87)) | (1 << (EParser.FETCH - 87)) | (1 << (EParser.INVOKE - 87)) | (1 << (EParser.MUTABLE - 87)) | (1 << (EParser.NOT - 87)) | (1 << (EParser.NOTHING - 87)) | (1 << (EParser.READ - 87)) | (1 << (EParser.SELF - 87)) | (1 << (EParser.SORTED - 87)) | (1 << (EParser.THIS - 87)) | (1 << (EParser.BOOLEAN_LITERAL - 87)) | (1 << (EParser.CHAR_LITERAL - 87)) | (1 << (EParser.MIN_INTEGER - 87)) | (1 << (EParser.MAX_INTEGER - 87)) | (1 << (EParser.SYMBOL_IDENTIFIER - 87)) | (1 << (EParser.TYPE_IDENTIFIER - 87)) | (1 << (EParser.VARIABLE_IDENTIFIER - 87)) | (1 << (EParser.TEXT_LITERAL - 87)) | (1 << (EParser.INTEGER_LITERAL - 87)) | (1 << (EParser.HEXA_LITERAL - 87)) | (1 << (EParser.DECIMAL_LITERAL - 87)) | (1 << (EParser.DATETIME_LITERAL - 87)) | (1 << (EParser.TIME_LITERAL - 87)))) != 0) or _la==EParser.DATE_LITERAL or _la==EParser.PERIOD_LITERAL:
                 self.state = 1308
                 localctx.items = self.expression_list(0)
 
@@ -12692,7 +12693,7 @@ class EParser ( AbstractParser ):
             self.exitRule()
         return localctx
 
-    class Native_category_mappingContext(ParserRuleContext):
+    class Native_category_bindingContext(ParserRuleContext):
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12700,7 +12701,7 @@ class EParser ( AbstractParser ):
 
 
         def getRuleIndex(self):
-            return EParser.RULE_native_category_mapping
+            return EParser.RULE_native_category_binding
 
      
         def copyFrom(self, ctx:ParserRuleContext):
@@ -12708,11 +12709,33 @@ class EParser ( AbstractParser ):
 
 
 
-    class CSharpCategoryMappingContext(Native_category_mappingContext):
+    class Python2CategoryBindingContext(Native_category_bindingContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.Native_category_mappingContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.Native_category_bindingContext)
             super().__init__(parser)
-            self.mapping = None # Csharp_identifier_expressionContext
+            self.binding = None # Python_category_bindingContext
+            self.copyFrom(ctx)
+
+        def PYTHON2(self):
+            return self.getToken(EParser.PYTHON2, 0)
+        def python_category_binding(self):
+            return self.getTypedRuleContext(EParser.Python_category_bindingContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if isinstance( listener, EParserListener ):
+                listener.enterPython2CategoryBinding(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if isinstance( listener, EParserListener ):
+                listener.exitPython2CategoryBinding(self)
+
+
+    class CSharpCategoryBindingContext(Native_category_bindingContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.Native_category_bindingContext)
+            super().__init__(parser)
+            self.binding = None # Csharp_identifier_expressionContext
             self.copyFrom(ctx)
 
         def CSHARP(self):
@@ -12723,18 +12746,40 @@ class EParser ( AbstractParser ):
 
         def enterRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.enterCSharpCategoryMapping(self)
+                listener.enterCSharpCategoryBinding(self)
 
         def exitRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.exitCSharpCategoryMapping(self)
+                listener.exitCSharpCategoryBinding(self)
 
 
-    class JavaCategoryMappingContext(Native_category_mappingContext):
+    class JavaScriptCategoryBindingContext(Native_category_bindingContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.Native_category_mappingContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.Native_category_bindingContext)
             super().__init__(parser)
-            self.mapping = None # Java_class_identifier_expressionContext
+            self.binding = None # Javascript_category_bindingContext
+            self.copyFrom(ctx)
+
+        def JAVASCRIPT(self):
+            return self.getToken(EParser.JAVASCRIPT, 0)
+        def javascript_category_binding(self):
+            return self.getTypedRuleContext(EParser.Javascript_category_bindingContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if isinstance( listener, EParserListener ):
+                listener.enterJavaScriptCategoryBinding(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if isinstance( listener, EParserListener ):
+                listener.exitJavaScriptCategoryBinding(self)
+
+
+    class JavaCategoryBindingContext(Native_category_bindingContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.Native_category_bindingContext)
+            super().__init__(parser)
+            self.binding = None # Java_class_identifier_expressionContext
             self.copyFrom(ctx)
 
         def JAVA(self):
@@ -12745,126 +12790,82 @@ class EParser ( AbstractParser ):
 
         def enterRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.enterJavaCategoryMapping(self)
+                listener.enterJavaCategoryBinding(self)
 
         def exitRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.exitJavaCategoryMapping(self)
+                listener.exitJavaCategoryBinding(self)
 
 
-    class JavaScriptCategoryMappingContext(Native_category_mappingContext):
+    class Python3CategoryBindingContext(Native_category_bindingContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.Native_category_mappingContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.Native_category_bindingContext)
             super().__init__(parser)
-            self.mapping = None # Javascript_category_mappingContext
-            self.copyFrom(ctx)
-
-        def JAVASCRIPT(self):
-            return self.getToken(EParser.JAVASCRIPT, 0)
-        def javascript_category_mapping(self):
-            return self.getTypedRuleContext(EParser.Javascript_category_mappingContext,0)
-
-
-        def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, EParserListener ):
-                listener.enterJavaScriptCategoryMapping(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, EParserListener ):
-                listener.exitJavaScriptCategoryMapping(self)
-
-
-    class Python3CategoryMappingContext(Native_category_mappingContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.Native_category_mappingContext)
-            super().__init__(parser)
-            self.mapping = None # Python_category_mappingContext
+            self.binding = None # Python_category_bindingContext
             self.copyFrom(ctx)
 
         def PYTHON3(self):
             return self.getToken(EParser.PYTHON3, 0)
-        def python_category_mapping(self):
-            return self.getTypedRuleContext(EParser.Python_category_mappingContext,0)
+        def python_category_binding(self):
+            return self.getTypedRuleContext(EParser.Python_category_bindingContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.enterPython3CategoryMapping(self)
+                listener.enterPython3CategoryBinding(self)
 
         def exitRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.exitPython3CategoryMapping(self)
-
-
-    class Python2CategoryMappingContext(Native_category_mappingContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.Native_category_mappingContext)
-            super().__init__(parser)
-            self.mapping = None # Python_category_mappingContext
-            self.copyFrom(ctx)
-
-        def PYTHON2(self):
-            return self.getToken(EParser.PYTHON2, 0)
-        def python_category_mapping(self):
-            return self.getTypedRuleContext(EParser.Python_category_mappingContext,0)
-
-
-        def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, EParserListener ):
-                listener.enterPython2CategoryMapping(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, EParserListener ):
-                listener.exitPython2CategoryMapping(self)
+                listener.exitPython3CategoryBinding(self)
 
 
 
-    def native_category_mapping(self):
+    def native_category_binding(self):
 
-        localctx = EParser.Native_category_mappingContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 196, self.RULE_native_category_mapping)
+        localctx = EParser.Native_category_bindingContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 196, self.RULE_native_category_binding)
         try:
             self.state = 1476
             token = self._input.LA(1)
             if token in [EParser.JAVA]:
-                localctx = EParser.JavaCategoryMappingContext(self, localctx)
+                localctx = EParser.JavaCategoryBindingContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1466
                 self.match(EParser.JAVA)
                 self.state = 1467
-                localctx.mapping = self.java_class_identifier_expression(0)
+                localctx.binding = self.java_class_identifier_expression(0)
 
             elif token in [EParser.CSHARP]:
-                localctx = EParser.CSharpCategoryMappingContext(self, localctx)
+                localctx = EParser.CSharpCategoryBindingContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1468
                 self.match(EParser.CSHARP)
                 self.state = 1469
-                localctx.mapping = self.csharp_identifier_expression(0)
+                localctx.binding = self.csharp_identifier_expression(0)
 
             elif token in [EParser.PYTHON2]:
-                localctx = EParser.Python2CategoryMappingContext(self, localctx)
+                localctx = EParser.Python2CategoryBindingContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 1470
                 self.match(EParser.PYTHON2)
                 self.state = 1471
-                localctx.mapping = self.python_category_mapping()
+                localctx.binding = self.python_category_binding()
 
             elif token in [EParser.PYTHON3]:
-                localctx = EParser.Python3CategoryMappingContext(self, localctx)
+                localctx = EParser.Python3CategoryBindingContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 1472
                 self.match(EParser.PYTHON3)
                 self.state = 1473
-                localctx.mapping = self.python_category_mapping()
+                localctx.binding = self.python_category_binding()
 
             elif token in [EParser.JAVASCRIPT]:
-                localctx = EParser.JavaScriptCategoryMappingContext(self, localctx)
+                localctx = EParser.JavaScriptCategoryBindingContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
                 self.state = 1474
                 self.match(EParser.JAVASCRIPT)
                 self.state = 1475
-                localctx.mapping = self.javascript_category_mapping()
+                localctx.binding = self.javascript_category_binding()
 
             else:
                 raise NoViableAltException(self)
@@ -12877,7 +12878,7 @@ class EParser ( AbstractParser ):
             self.exitRule()
         return localctx
 
-    class Python_category_mappingContext(ParserRuleContext):
+    class Python_category_bindingContext(ParserRuleContext):
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12894,23 +12895,23 @@ class EParser ( AbstractParser ):
 
 
         def getRuleIndex(self):
-            return EParser.RULE_python_category_mapping
+            return EParser.RULE_python_category_binding
 
         def enterRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.enterPython_category_mapping(self)
+                listener.enterPython_category_binding(self)
 
         def exitRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.exitPython_category_mapping(self)
+                listener.exitPython_category_binding(self)
 
 
 
 
-    def python_category_mapping(self):
+    def python_category_binding(self):
 
-        localctx = EParser.Python_category_mappingContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 198, self.RULE_python_category_mapping)
+        localctx = EParser.Python_category_bindingContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 198, self.RULE_python_category_binding)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 1478
@@ -13052,7 +13053,7 @@ class EParser ( AbstractParser ):
             self.exitRule()
         return localctx
 
-    class Javascript_category_mappingContext(ParserRuleContext):
+    class Javascript_category_bindingContext(ParserRuleContext):
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13069,23 +13070,23 @@ class EParser ( AbstractParser ):
 
 
         def getRuleIndex(self):
-            return EParser.RULE_javascript_category_mapping
+            return EParser.RULE_javascript_category_binding
 
         def enterRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.enterJavascript_category_mapping(self)
+                listener.enterJavascript_category_binding(self)
 
         def exitRule(self, listener:ParseTreeListener):
             if isinstance( listener, EParserListener ):
-                listener.exitJavascript_category_mapping(self)
+                listener.exitJavascript_category_binding(self)
 
 
 
 
-    def javascript_category_mapping(self):
+    def javascript_category_binding(self):
 
-        localctx = EParser.Javascript_category_mappingContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 204, self.RULE_javascript_category_mapping)
+        localctx = EParser.Javascript_category_bindingContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 204, self.RULE_javascript_category_binding)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 1496
@@ -15467,7 +15468,7 @@ class EParser ( AbstractParser ):
             self.match(EParser.LPAR)
             self.state = 1688
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.METHOD_T) | (1 << EParser.CODE) | (1 << EParser.DOCUMENT))) != 0) or ((((_la - 86)) & ~0x3f) == 0 and ((1 << (_la - 86)) & ((1 << (EParser.EXECUTE - 86)) | (1 << (EParser.FETCH - 86)) | (1 << (EParser.INVOKE - 86)) | (1 << (EParser.MUTABLE - 86)) | (1 << (EParser.NOT - 86)) | (1 << (EParser.NOTHING - 86)) | (1 << (EParser.READ - 86)) | (1 << (EParser.SELF - 86)) | (1 << (EParser.SORTED - 86)) | (1 << (EParser.THIS - 86)) | (1 << (EParser.BOOLEAN_LITERAL - 86)) | (1 << (EParser.CHAR_LITERAL - 86)) | (1 << (EParser.MIN_INTEGER - 86)) | (1 << (EParser.MAX_INTEGER - 86)) | (1 << (EParser.SYMBOL_IDENTIFIER - 86)) | (1 << (EParser.TYPE_IDENTIFIER - 86)) | (1 << (EParser.VARIABLE_IDENTIFIER - 86)) | (1 << (EParser.TEXT_LITERAL - 86)) | (1 << (EParser.INTEGER_LITERAL - 86)) | (1 << (EParser.HEXA_LITERAL - 86)) | (1 << (EParser.DECIMAL_LITERAL - 86)) | (1 << (EParser.DATETIME_LITERAL - 86)))) != 0) or ((((_la - 150)) & ~0x3f) == 0 and ((1 << (_la - 150)) & ((1 << (EParser.TIME_LITERAL - 150)) | (1 << (EParser.DATE_LITERAL - 150)) | (1 << (EParser.PERIOD_LITERAL - 150)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.METHOD_T) | (1 << EParser.CODE) | (1 << EParser.DOCUMENT))) != 0) or ((((_la - 87)) & ~0x3f) == 0 and ((1 << (_la - 87)) & ((1 << (EParser.EXECUTE - 87)) | (1 << (EParser.FETCH - 87)) | (1 << (EParser.INVOKE - 87)) | (1 << (EParser.MUTABLE - 87)) | (1 << (EParser.NOT - 87)) | (1 << (EParser.NOTHING - 87)) | (1 << (EParser.READ - 87)) | (1 << (EParser.SELF - 87)) | (1 << (EParser.SORTED - 87)) | (1 << (EParser.THIS - 87)) | (1 << (EParser.BOOLEAN_LITERAL - 87)) | (1 << (EParser.CHAR_LITERAL - 87)) | (1 << (EParser.MIN_INTEGER - 87)) | (1 << (EParser.MAX_INTEGER - 87)) | (1 << (EParser.SYMBOL_IDENTIFIER - 87)) | (1 << (EParser.TYPE_IDENTIFIER - 87)) | (1 << (EParser.VARIABLE_IDENTIFIER - 87)) | (1 << (EParser.TEXT_LITERAL - 87)) | (1 << (EParser.INTEGER_LITERAL - 87)) | (1 << (EParser.HEXA_LITERAL - 87)) | (1 << (EParser.DECIMAL_LITERAL - 87)) | (1 << (EParser.DATETIME_LITERAL - 87)) | (1 << (EParser.TIME_LITERAL - 87)))) != 0) or _la==EParser.DATE_LITERAL or _la==EParser.PERIOD_LITERAL:
                 self.state = 1687
                 localctx.items = self.expression_tuple(0)
 
@@ -15524,7 +15525,7 @@ class EParser ( AbstractParser ):
             self.match(EParser.LCURL)
             self.state = 1694
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.METHOD_T) | (1 << EParser.CODE) | (1 << EParser.DOCUMENT))) != 0) or ((((_la - 86)) & ~0x3f) == 0 and ((1 << (_la - 86)) & ((1 << (EParser.EXECUTE - 86)) | (1 << (EParser.FETCH - 86)) | (1 << (EParser.INVOKE - 86)) | (1 << (EParser.MUTABLE - 86)) | (1 << (EParser.NOT - 86)) | (1 << (EParser.NOTHING - 86)) | (1 << (EParser.READ - 86)) | (1 << (EParser.SELF - 86)) | (1 << (EParser.SORTED - 86)) | (1 << (EParser.THIS - 86)) | (1 << (EParser.BOOLEAN_LITERAL - 86)) | (1 << (EParser.CHAR_LITERAL - 86)) | (1 << (EParser.MIN_INTEGER - 86)) | (1 << (EParser.MAX_INTEGER - 86)) | (1 << (EParser.SYMBOL_IDENTIFIER - 86)) | (1 << (EParser.TYPE_IDENTIFIER - 86)) | (1 << (EParser.VARIABLE_IDENTIFIER - 86)) | (1 << (EParser.TEXT_LITERAL - 86)) | (1 << (EParser.INTEGER_LITERAL - 86)) | (1 << (EParser.HEXA_LITERAL - 86)) | (1 << (EParser.DECIMAL_LITERAL - 86)) | (1 << (EParser.DATETIME_LITERAL - 86)))) != 0) or ((((_la - 150)) & ~0x3f) == 0 and ((1 << (_la - 150)) & ((1 << (EParser.TIME_LITERAL - 150)) | (1 << (EParser.DATE_LITERAL - 150)) | (1 << (EParser.PERIOD_LITERAL - 150)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.METHOD_T) | (1 << EParser.CODE) | (1 << EParser.DOCUMENT))) != 0) or ((((_la - 87)) & ~0x3f) == 0 and ((1 << (_la - 87)) & ((1 << (EParser.EXECUTE - 87)) | (1 << (EParser.FETCH - 87)) | (1 << (EParser.INVOKE - 87)) | (1 << (EParser.MUTABLE - 87)) | (1 << (EParser.NOT - 87)) | (1 << (EParser.NOTHING - 87)) | (1 << (EParser.READ - 87)) | (1 << (EParser.SELF - 87)) | (1 << (EParser.SORTED - 87)) | (1 << (EParser.THIS - 87)) | (1 << (EParser.BOOLEAN_LITERAL - 87)) | (1 << (EParser.CHAR_LITERAL - 87)) | (1 << (EParser.MIN_INTEGER - 87)) | (1 << (EParser.MAX_INTEGER - 87)) | (1 << (EParser.SYMBOL_IDENTIFIER - 87)) | (1 << (EParser.TYPE_IDENTIFIER - 87)) | (1 << (EParser.VARIABLE_IDENTIFIER - 87)) | (1 << (EParser.TEXT_LITERAL - 87)) | (1 << (EParser.INTEGER_LITERAL - 87)) | (1 << (EParser.HEXA_LITERAL - 87)) | (1 << (EParser.DECIMAL_LITERAL - 87)) | (1 << (EParser.DATETIME_LITERAL - 87)) | (1 << (EParser.TIME_LITERAL - 87)))) != 0) or _la==EParser.DATE_LITERAL or _la==EParser.PERIOD_LITERAL:
                 self.state = 1693
                 localctx.items = self.dict_entry_list(0)
 
@@ -21267,7 +21268,7 @@ class EParser ( AbstractParser ):
     def sempred(self, localctx:RuleContext, ruleIndex:int, predIndex:int):
         if self._predicates == None:
             self._predicates = dict()
-        self._predicates[14] = self.native_category_mapping_list_sempred
+        self._predicates[14] = self.native_category_binding_list_sempred
         self._predicates[33] = self.else_if_statement_list_sempred
         self._predicates[38] = self.expression_sempred
         self._predicates[39] = self.unresolved_expression_sempred
@@ -21323,7 +21324,7 @@ class EParser ( AbstractParser ):
         else:
             return pred(localctx, predIndex)
 
-    def native_category_mapping_list_sempred(self, localctx:Native_category_mapping_listContext, predIndex:int):
+    def native_category_binding_list_sempred(self, localctx:Native_category_binding_listContext, predIndex:int):
             if predIndex == 0:
                 return self.precpred(self._ctx, 1)
          

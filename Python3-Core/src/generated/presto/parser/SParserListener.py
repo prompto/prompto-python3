@@ -121,30 +121,30 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#native_category_mappings.
-    def enterNative_category_mappings(self, ctx):
+    # Enter a parse tree produced by SParser#native_category_bindings.
+    def enterNative_category_bindings(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#native_category_mappings.
-    def exitNative_category_mappings(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#NativeCategoryMappingList.
-    def enterNativeCategoryMappingList(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#NativeCategoryMappingList.
-    def exitNativeCategoryMappingList(self, ctx):
+    # Exit a parse tree produced by SParser#native_category_bindings.
+    def exitNative_category_bindings(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#NativeCategoryMappingListItem.
-    def enterNativeCategoryMappingListItem(self, ctx):
+    # Enter a parse tree produced by SParser#NativeCategoryBindingListItem.
+    def enterNativeCategoryBindingListItem(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#NativeCategoryMappingListItem.
-    def exitNativeCategoryMappingListItem(self, ctx):
+    # Exit a parse tree produced by SParser#NativeCategoryBindingListItem.
+    def exitNativeCategoryBindingListItem(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#NativeCategoryBindingList.
+    def enterNativeCategoryBindingList(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#NativeCategoryBindingList.
+    def exitNativeCategoryBindingList(self, ctx):
         pass
 
 
@@ -1840,57 +1840,57 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#JavaCategoryMapping.
-    def enterJavaCategoryMapping(self, ctx):
+    # Enter a parse tree produced by SParser#JavaCategoryBinding.
+    def enterJavaCategoryBinding(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#JavaCategoryMapping.
-    def exitJavaCategoryMapping(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#CSharpCategoryMapping.
-    def enterCSharpCategoryMapping(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#CSharpCategoryMapping.
-    def exitCSharpCategoryMapping(self, ctx):
+    # Exit a parse tree produced by SParser#JavaCategoryBinding.
+    def exitJavaCategoryBinding(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#Python2CategoryMapping.
-    def enterPython2CategoryMapping(self, ctx):
+    # Enter a parse tree produced by SParser#CSharpCategoryBinding.
+    def enterCSharpCategoryBinding(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#Python2CategoryMapping.
-    def exitPython2CategoryMapping(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#Python3CategoryMapping.
-    def enterPython3CategoryMapping(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#Python3CategoryMapping.
-    def exitPython3CategoryMapping(self, ctx):
+    # Exit a parse tree produced by SParser#CSharpCategoryBinding.
+    def exitCSharpCategoryBinding(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#JavaScriptCategoryMapping.
-    def enterJavaScriptCategoryMapping(self, ctx):
+    # Enter a parse tree produced by SParser#Python2CategoryBinding.
+    def enterPython2CategoryBinding(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#JavaScriptCategoryMapping.
-    def exitJavaScriptCategoryMapping(self, ctx):
+    # Exit a parse tree produced by SParser#Python2CategoryBinding.
+    def exitPython2CategoryBinding(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#python_category_mapping.
-    def enterPython_category_mapping(self, ctx):
+    # Enter a parse tree produced by SParser#Python3CategoryBinding.
+    def enterPython3CategoryBinding(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#python_category_mapping.
-    def exitPython_category_mapping(self, ctx):
+    # Exit a parse tree produced by SParser#Python3CategoryBinding.
+    def exitPython3CategoryBinding(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#JavaScriptCategoryBinding.
+    def enterJavaScriptCategoryBinding(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#JavaScriptCategoryBinding.
+    def exitJavaScriptCategoryBinding(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#python_category_binding.
+    def enterPython_category_binding(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#python_category_binding.
+    def exitPython_category_binding(self, ctx):
         pass
 
 
@@ -1912,12 +1912,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#javascript_category_mapping.
-    def enterJavascript_category_mapping(self, ctx):
+    # Enter a parse tree produced by SParser#javascript_category_binding.
+    def enterJavascript_category_binding(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#javascript_category_mapping.
-    def exitJavascript_category_mapping(self, ctx):
+    # Exit a parse tree produced by SParser#javascript_category_binding.
+    def exitJavascript_category_binding(self, ctx):
         pass
 
 

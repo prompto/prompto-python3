@@ -7,8 +7,8 @@ from presto.error.SyntaxError import SyntaxError
 
 class NativeResourceDeclaration(NativeCategoryDeclaration):
 
-    def __init__(self, name, attributes, categoryMappings, attributeMappings):
-        super(NativeResourceDeclaration, self).__init__(name, attributes, categoryMappings, attributeMappings)
+    def __init__(self, name, attributes, categoryBindings, attributeBindings):
+        super(NativeResourceDeclaration, self).__init__(name, attributes, categoryBindings, attributeBindings)
 
     def getType(self, context):
         return ResourceType(self.name)

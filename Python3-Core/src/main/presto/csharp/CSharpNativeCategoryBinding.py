@@ -1,7 +1,7 @@
-from presto.grammar.NativeCategoryMapping import NativeCategoryMapping
+from presto.grammar.NativeCategoryBinding import NativeCategoryBinding
 
 
-class CSharpNativeCategoryMapping ( NativeCategoryMapping ):
+class CSharpNativeCategoryBinding ( NativeCategoryBinding ):
 
     def __init__(self, expression):
         super().__init__()
