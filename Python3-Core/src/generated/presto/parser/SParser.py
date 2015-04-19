@@ -13,7 +13,7 @@ from .AbstractParser import AbstractParser
 def serializedATN():
     with StringIO() as buf:
         buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\u009b")
-        buf.write("\u07c9\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
+        buf.write("\u07cd\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
         buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
         buf.write("\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31")
@@ -177,58 +177,60 @@ def serializedATN():
         buf.write("\13\u009d\3\u009e\3\u009e\3\u009e\3\u009e\3\u009e\3\u009e")
         buf.write("\3\u009e\3\u009e\3\u009e\3\u009e\3\u009e\7\u009e\u070c")
         buf.write("\n\u009e\f\u009e\16\u009e\u070f\13\u009e\3\u009f\3\u009f")
-        buf.write("\3\u009f\3\u009f\3\u00a0\3\u00a0\3\u00a0\3\u00a0\3\u00a0")
-        buf.write("\3\u00a0\7\u00a0\u071b\n\u00a0\f\u00a0\16\u00a0\u071e")
-        buf.write("\13\u00a0\3\u00a1\3\u00a1\3\u00a1\3\u00a1\3\u00a1\5\u00a1")
-        buf.write("\u0725\n\u00a1\3\u00a2\3\u00a2\3\u00a3\3\u00a3\3\u00a3")
-        buf.write("\3\u00a3\3\u00a3\3\u00a3\3\u00a3\5\u00a3\u0730\n\u00a3")
-        buf.write("\3\u00a4\3\u00a4\3\u00a4\3\u00a4\3\u00a4\7\u00a4\u0737")
-        buf.write("\n\u00a4\f\u00a4\16\u00a4\u073a\13\u00a4\3\u00a5\3\u00a5")
-        buf.write("\3\u00a5\5\u00a5\u073f\n\u00a5\3\u00a6\3\u00a6\3\u00a6")
-        buf.write("\5\u00a6\u0744\n\u00a6\3\u00a7\3\u00a7\3\u00a7\5\u00a7")
-        buf.write("\u0749\n\u00a7\3\u00a7\3\u00a7\3\u00a8\3\u00a8\3\u00a8")
-        buf.write("\3\u00a8\3\u00a8\3\u00a8\7\u00a8\u0753\n\u00a8\f\u00a8")
-        buf.write("\16\u00a8\u0756\13\u00a8\3\u00a9\3\u00a9\3\u00a9\3\u00a9")
-        buf.write("\3\u00aa\3\u00aa\3\u00aa\3\u00aa\3\u00ab\3\u00ab\3\u00ab")
-        buf.write("\3\u00ab\3\u00ab\3\u00ab\7\u00ab\u0766\n\u00ab\f\u00ab")
-        buf.write("\16\u00ab\u0769\13\u00ab\3\u00ac\3\u00ac\3\u00ac\3\u00ac")
-        buf.write("\3\u00ac\7\u00ac\u0770\n\u00ac\f\u00ac\16\u00ac\u0773")
-        buf.write("\13\u00ac\3\u00ad\3\u00ad\3\u00ad\3\u00ad\3\u00ad\5\u00ad")
-        buf.write("\u077a\n\u00ad\3\u00ae\3\u00ae\3\u00af\3\u00af\3\u00af")
-        buf.write("\3\u00af\3\u00af\3\u00af\3\u00af\5\u00af\u0785\n\u00af")
-        buf.write("\3\u00b0\3\u00b0\3\u00b0\3\u00b0\3\u00b0\7\u00b0\u078c")
-        buf.write("\n\u00b0\f\u00b0\16\u00b0\u078f\13\u00b0\3\u00b1\3\u00b1")
-        buf.write("\3\u00b1\5\u00b1\u0794\n\u00b1\3\u00b2\3\u00b2\3\u00b2")
-        buf.write("\5\u00b2\u0799\n\u00b2\3\u00b3\3\u00b3\3\u00b3\5\u00b3")
-        buf.write("\u079e\n\u00b3\3\u00b3\3\u00b3\3\u00b4\3\u00b4\3\u00b4")
-        buf.write("\3\u00b4\3\u00b4\3\u00b4\7\u00b4\u07a8\n\u00b4\f\u00b4")
-        buf.write("\16\u00b4\u07ab\13\u00b4\3\u00b5\3\u00b5\3\u00b5\3\u00b5")
-        buf.write("\3\u00b6\3\u00b6\3\u00b6\3\u00b6\3\u00b7\3\u00b7\3\u00b7")
-        buf.write("\3\u00b7\3\u00b7\3\u00b7\7\u00b7\u07bb\n\u00b7\f\u00b7")
-        buf.write("\16\u00b7\u07be\13\u00b7\3\u00b8\3\u00b8\3\u00b8\3\u00b8")
-        buf.write("\3\u00b8\5\u00b8\u07c5\n\u00b8\3\u00b9\3\u00b9\3\u00b9")
-        buf.write("\2*\36\64HRV`~\u0086\u0088\u008a\u0092\u0096\u00a4\u00b0")
-        buf.write("\u00bc\u00be\u00ce\u00d2\u00da\u00dc\u00de\u00e0\u00e6")
-        buf.write("\u00f6\u00f8\u0100\u0118\u0120\u0126\u012e\u0138\u013a")
-        buf.write("\u013e\u0146\u014e\u0154\u0156\u015e\u0166\u016c\u00ba")
-        buf.write("\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62")
-        buf.write("\64\668:<>@BDFHJLNPRTVXZ\\^`bdfhjlnprtvxz|~\u0080\u0082")
-        buf.write("\u0084\u0086\u0088\u008a\u008c\u008e\u0090\u0092\u0094")
-        buf.write("\u0096\u0098\u009a\u009c\u009e\u00a0\u00a2\u00a4\u00a6")
-        buf.write("\u00a8\u00aa\u00ac\u00ae\u00b0\u00b2\u00b4\u00b6\u00b8")
-        buf.write("\u00ba\u00bc\u00be\u00c0\u00c2\u00c4\u00c6\u00c8\u00ca")
-        buf.write("\u00cc\u00ce\u00d0\u00d2\u00d4\u00d6\u00d8\u00da\u00dc")
-        buf.write("\u00de\u00e0\u00e2\u00e4\u00e6\u00e8\u00ea\u00ec\u00ee")
-        buf.write("\u00f0\u00f2\u00f4\u00f6\u00f8\u00fa\u00fc\u00fe\u0100")
-        buf.write("\u0102\u0104\u0106\u0108\u010a\u010c\u010e\u0110\u0112")
-        buf.write("\u0114\u0116\u0118\u011a\u011c\u011e\u0120\u0122\u0124")
-        buf.write("\u0126\u0128\u012a\u012c\u012e\u0130\u0132\u0134\u0136")
-        buf.write("\u0138\u013a\u013c\u013e\u0140\u0142\u0144\u0146\u0148")
-        buf.write("\u014a\u014c\u014e\u0150\u0152\u0154\u0156\u0158\u015a")
-        buf.write("\u015c\u015e\u0160\u0162\u0164\u0166\u0168\u016a\u016c")
-        buf.write("\u016e\u0170\2\b\3\2JK\3\2!\"\4\2{{\u0081\u0081\4\2&&")
-        buf.write("hh\7\2\63;vv\u0080\u0080\u0089\u0089\u008e\u0090\7\2\63")
-        buf.write(";vv\u0080\u0080\u0089\u0089\u008e\u0092\u0819\2\u0172")
+        buf.write("\3\u009f\3\u009f\3\u00a0\3\u00a0\3\u00a0\5\u00a0\u0718")
+        buf.write("\n\u00a0\3\u00a0\3\u00a0\3\u00a0\7\u00a0\u071d\n\u00a0")
+        buf.write("\f\u00a0\16\u00a0\u0720\13\u00a0\3\u00a1\3\u00a1\3\u00a1")
+        buf.write("\3\u00a1\3\u00a1\5\u00a1\u0727\n\u00a1\3\u00a2\3\u00a2")
+        buf.write("\3\u00a3\3\u00a3\3\u00a3\3\u00a3\3\u00a3\3\u00a3\3\u00a3")
+        buf.write("\5\u00a3\u0732\n\u00a3\3\u00a4\3\u00a4\3\u00a4\3\u00a4")
+        buf.write("\3\u00a4\7\u00a4\u0739\n\u00a4\f\u00a4\16\u00a4\u073c")
+        buf.write("\13\u00a4\3\u00a5\3\u00a5\3\u00a5\5\u00a5\u0741\n\u00a5")
+        buf.write("\3\u00a6\3\u00a6\3\u00a6\5\u00a6\u0746\n\u00a6\3\u00a7")
+        buf.write("\3\u00a7\3\u00a7\5\u00a7\u074b\n\u00a7\3\u00a7\3\u00a7")
+        buf.write("\3\u00a8\3\u00a8\3\u00a8\3\u00a8\3\u00a8\3\u00a8\7\u00a8")
+        buf.write("\u0755\n\u00a8\f\u00a8\16\u00a8\u0758\13\u00a8\3\u00a9")
+        buf.write("\3\u00a9\3\u00a9\3\u00a9\3\u00aa\3\u00aa\3\u00aa\3\u00aa")
+        buf.write("\3\u00ab\3\u00ab\3\u00ab\3\u00ab\3\u00ab\3\u00ab\7\u00ab")
+        buf.write("\u0768\n\u00ab\f\u00ab\16\u00ab\u076b\13\u00ab\3\u00ac")
+        buf.write("\3\u00ac\3\u00ac\3\u00ac\3\u00ac\7\u00ac\u0772\n\u00ac")
+        buf.write("\f\u00ac\16\u00ac\u0775\13\u00ac\3\u00ad\3\u00ad\3\u00ad")
+        buf.write("\3\u00ad\3\u00ad\5\u00ad\u077c\n\u00ad\3\u00ae\3\u00ae")
+        buf.write("\3\u00af\3\u00af\3\u00af\3\u00af\3\u00af\3\u00af\3\u00af")
+        buf.write("\5\u00af\u0787\n\u00af\3\u00b0\3\u00b0\3\u00b0\3\u00b0")
+        buf.write("\3\u00b0\7\u00b0\u078e\n\u00b0\f\u00b0\16\u00b0\u0791")
+        buf.write("\13\u00b0\3\u00b1\3\u00b1\3\u00b1\5\u00b1\u0796\n\u00b1")
+        buf.write("\3\u00b2\3\u00b2\3\u00b2\5\u00b2\u079b\n\u00b2\3\u00b3")
+        buf.write("\3\u00b3\3\u00b3\5\u00b3\u07a0\n\u00b3\3\u00b3\3\u00b3")
+        buf.write("\3\u00b4\3\u00b4\3\u00b4\3\u00b4\3\u00b4\3\u00b4\7\u00b4")
+        buf.write("\u07aa\n\u00b4\f\u00b4\16\u00b4\u07ad\13\u00b4\3\u00b5")
+        buf.write("\3\u00b5\3\u00b5\3\u00b5\3\u00b6\3\u00b6\3\u00b6\3\u00b6")
+        buf.write("\3\u00b7\3\u00b7\3\u00b7\5\u00b7\u07ba\n\u00b7\3\u00b7")
+        buf.write("\3\u00b7\3\u00b7\7\u00b7\u07bf\n\u00b7\f\u00b7\16\u00b7")
+        buf.write("\u07c2\13\u00b7\3\u00b8\3\u00b8\3\u00b8\3\u00b8\3\u00b8")
+        buf.write("\5\u00b8\u07c9\n\u00b8\3\u00b9\3\u00b9\3\u00b9\2*\36\64")
+        buf.write("HRV`~\u0086\u0088\u008a\u0092\u0096\u00a4\u00b0\u00bc")
+        buf.write("\u00be\u00ce\u00d2\u00da\u00dc\u00de\u00e0\u00e6\u00f6")
+        buf.write("\u00f8\u0100\u0118\u0120\u0126\u012e\u0138\u013a\u013e")
+        buf.write("\u0146\u014e\u0154\u0156\u015e\u0166\u016c\u00ba\2\4\6")
+        buf.write("\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\66")
+        buf.write("8:<>@BDFHJLNPRTVXZ\\^`bdfhjlnprtvxz|~\u0080\u0082\u0084")
+        buf.write("\u0086\u0088\u008a\u008c\u008e\u0090\u0092\u0094\u0096")
+        buf.write("\u0098\u009a\u009c\u009e\u00a0\u00a2\u00a4\u00a6\u00a8")
+        buf.write("\u00aa\u00ac\u00ae\u00b0\u00b2\u00b4\u00b6\u00b8\u00ba")
+        buf.write("\u00bc\u00be\u00c0\u00c2\u00c4\u00c6\u00c8\u00ca\u00cc")
+        buf.write("\u00ce\u00d0\u00d2\u00d4\u00d6\u00d8\u00da\u00dc\u00de")
+        buf.write("\u00e0\u00e2\u00e4\u00e6\u00e8\u00ea\u00ec\u00ee\u00f0")
+        buf.write("\u00f2\u00f4\u00f6\u00f8\u00fa\u00fc\u00fe\u0100\u0102")
+        buf.write("\u0104\u0106\u0108\u010a\u010c\u010e\u0110\u0112\u0114")
+        buf.write("\u0116\u0118\u011a\u011c\u011e\u0120\u0122\u0124\u0126")
+        buf.write("\u0128\u012a\u012c\u012e\u0130\u0132\u0134\u0136\u0138")
+        buf.write("\u013a\u013c\u013e\u0140\u0142\u0144\u0146\u0148\u014a")
+        buf.write("\u014c\u014e\u0150\u0152\u0154\u0156\u0158\u015a\u015c")
+        buf.write("\u015e\u0160\u0162\u0164\u0166\u0168\u016a\u016c\u016e")
+        buf.write("\u0170\2\t\3\2JK\3\2!\"\4\2{{\u0081\u0081\4\2&&hh\b\2")
+        buf.write("\63;vv\u0080\u0080\u0089\u0089\u008e\u0090\u0092\u0092")
+        buf.write("\7\2\63;vv\u0080\u0080\u0089\u0089\u008e\u0090\7\2\63")
+        buf.write(";vv\u0080\u0080\u0089\u0089\u008e\u0092\u081f\2\u0172")
         buf.write("\3\2\2\2\4\u0183\3\2\2\2\6\u018d\3\2\2\2\b\u0191\3\2\2")
         buf.write("\2\n\u0198\3\2\2\2\f\u01a5\3\2\2\2\16\u01b9\3\2\2\2\20")
         buf.write("\u01c6\3\2\2\2\22\u01c8\3\2\2\2\24\u01d7\3\2\2\2\26\u01e1")
@@ -281,16 +283,16 @@ def serializedATN():
         buf.write("\2\2\2\u012c\u06cc\3\2\2\2\u012e\u06ce\3\2\2\2\u0130\u06dc")
         buf.write("\3\2\2\2\u0132\u06e4\3\2\2\2\u0134\u06e6\3\2\2\2\u0136")
         buf.write("\u06f3\3\2\2\2\u0138\u06f5\3\2\2\2\u013a\u0700\3\2\2\2")
-        buf.write("\u013c\u0710\3\2\2\2\u013e\u0714\3\2\2\2\u0140\u0724\3")
-        buf.write("\2\2\2\u0142\u0726\3\2\2\2\u0144\u072f\3\2\2\2\u0146\u0731")
-        buf.write("\3\2\2\2\u0148\u073e\3\2\2\2\u014a\u0743\3\2\2\2\u014c")
-        buf.write("\u0745\3\2\2\2\u014e\u074c\3\2\2\2\u0150\u0757\3\2\2\2")
-        buf.write("\u0152\u075b\3\2\2\2\u0154\u075f\3\2\2\2\u0156\u076a\3")
-        buf.write("\2\2\2\u0158\u0779\3\2\2\2\u015a\u077b\3\2\2\2\u015c\u0784")
-        buf.write("\3\2\2\2\u015e\u0786\3\2\2\2\u0160\u0793\3\2\2\2\u0162")
-        buf.write("\u0798\3\2\2\2\u0164\u079a\3\2\2\2\u0166\u07a1\3\2\2\2")
-        buf.write("\u0168\u07ac\3\2\2\2\u016a\u07b0\3\2\2\2\u016c\u07b4\3")
-        buf.write("\2\2\2\u016e\u07c4\3\2\2\2\u0170\u07c6\3\2\2\2\u0172\u0173")
+        buf.write("\u013c\u0710\3\2\2\2\u013e\u0717\3\2\2\2\u0140\u0726\3")
+        buf.write("\2\2\2\u0142\u0728\3\2\2\2\u0144\u0731\3\2\2\2\u0146\u0733")
+        buf.write("\3\2\2\2\u0148\u0740\3\2\2\2\u014a\u0745\3\2\2\2\u014c")
+        buf.write("\u0747\3\2\2\2\u014e\u074e\3\2\2\2\u0150\u0759\3\2\2\2")
+        buf.write("\u0152\u075d\3\2\2\2\u0154\u0761\3\2\2\2\u0156\u076c\3")
+        buf.write("\2\2\2\u0158\u077b\3\2\2\2\u015a\u077d\3\2\2\2\u015c\u0786")
+        buf.write("\3\2\2\2\u015e\u0788\3\2\2\2\u0160\u0795\3\2\2\2\u0162")
+        buf.write("\u079a\3\2\2\2\u0164\u079c\3\2\2\2\u0166\u07a3\3\2\2\2")
+        buf.write("\u0168\u07ae\3\2\2\2\u016a\u07b2\3\2\2\2\u016c\u07b9\3")
+        buf.write("\2\2\2\u016e\u07c8\3\2\2\2\u0170\u07ca\3\2\2\2\u0172\u0173")
         buf.write("\7U\2\2\u0173\u0174\5\u00acW\2\u0174\u017b\7\25\2\2\u0175")
         buf.write("\u0178\5\u00acW\2\u0176\u0177\7\22\2\2\u0177\u0179\5 ")
         buf.write("\21\2\u0178\u0176\3\2\2\2\u0178\u0179\3\2\2\2\u0179\u017c")
@@ -916,107 +918,110 @@ def serializedATN():
         buf.write("\3\2\2\2\u070d\u070e\3\2\2\2\u070e\u013b\3\2\2\2\u070f")
         buf.write("\u070d\3\2\2\2\u0710\u0711\7\25\2\2\u0711\u0712\5\u012e")
         buf.write("\u0098\2\u0712\u0713\7\26\2\2\u0713\u013d\3\2\2\2\u0714")
-        buf.write("\u0715\b\u00a0\1\2\u0715\u0716\5\u0142\u00a2\2\u0716\u071c")
-        buf.write("\3\2\2\2\u0717\u0718\f\3\2\2\u0718\u0719\7\24\2\2\u0719")
-        buf.write("\u071b\5\u0142\u00a2\2\u071a\u0717\3\2\2\2\u071b\u071e")
-        buf.write("\3\2\2\2\u071c\u071a\3\2\2\2\u071c\u071d\3\2\2\2\u071d")
-        buf.write("\u013f\3\2\2\2\u071e\u071c\3\2\2\2\u071f\u0725\7\u0094")
-        buf.write("\2\2\u0720\u0725\7\u0096\2\2\u0721\u0725\7\u0093\2\2\u0722")
-        buf.write("\u0725\7\u008a\2\2\u0723\u0725\7\u008b\2\2\u0724\u071f")
-        buf.write("\3\2\2\2\u0724\u0720\3\2\2\2\u0724\u0721\3\2\2\2\u0724")
-        buf.write("\u0722\3\2\2\2\u0724\u0723\3\2\2\2\u0725\u0141\3\2\2\2")
-        buf.write("\u0726\u0727\t\6\2\2\u0727\u0143\3\2\2\2\u0728\u0729\7")
-        buf.write("y\2\2\u0729\u072a\5\u0146\u00a4\2\u072a\u072b\7\21\2\2")
-        buf.write("\u072b\u0730\3\2\2\2\u072c\u072d\5\u0146\u00a4\2\u072d")
-        buf.write("\u072e\7\21\2\2\u072e\u0730\3\2\2\2\u072f\u0728\3\2\2")
-        buf.write("\2\u072f\u072c\3\2\2\2\u0730\u0145\3\2\2\2\u0731\u0732")
-        buf.write("\b\u00a4\1\2\u0732\u0733\5\u0148\u00a5\2\u0733\u0738\3")
-        buf.write("\2\2\2\u0734\u0735\f\3\2\2\u0735\u0737\5\u014a\u00a6\2")
-        buf.write("\u0736\u0734\3\2\2\2\u0737\u073a\3\2\2\2\u0738\u0736\3")
-        buf.write("\2\2\2\u0738\u0739\3\2\2\2\u0739\u0147\3\2\2\2\u073a\u0738")
-        buf.write("\3\2\2\2\u073b\u073f\5\u0152\u00aa\2\u073c\u073f\5\u0154")
-        buf.write("\u00ab\2\u073d\u073f\5\u0158\u00ad\2\u073e\u073b\3\2\2")
-        buf.write("\2\u073e\u073c\3\2\2\2\u073e\u073d\3\2\2\2\u073f\u0149")
-        buf.write("\3\2\2\2\u0740\u0741\7\24\2\2\u0741\u0744\5\u014c\u00a7")
-        buf.write("\2\u0742\u0744\5\u0150\u00a9\2\u0743\u0740\3\2\2\2\u0743")
-        buf.write("\u0742\3\2\2\2\u0744\u014b\3\2\2\2\u0745\u0746\5\u015a")
-        buf.write("\u00ae\2\u0746\u0748\7\25\2\2\u0747\u0749\5\u014e\u00a8")
-        buf.write("\2\u0748\u0747\3\2\2\2\u0748\u0749\3\2\2\2\u0749\u074a")
-        buf.write("\3\2\2\2\u074a\u074b\7\26\2\2\u074b\u014d\3\2\2\2\u074c")
-        buf.write("\u074d\b\u00a8\1\2\u074d\u074e\5\u0146\u00a4\2\u074e\u0754")
-        buf.write("\3\2\2\2\u074f\u0750\f\3\2\2\u0750\u0751\7\22\2\2\u0751")
-        buf.write("\u0753\5\u0146\u00a4\2\u0752\u074f\3\2\2\2\u0753\u0756")
-        buf.write("\3\2\2\2\u0754\u0752\3\2\2\2\u0754\u0755\3\2\2\2\u0755")
-        buf.write("\u014f\3\2\2\2\u0756\u0754\3\2\2\2\u0757\u0758\7\27\2")
-        buf.write("\2\u0758\u0759\5\u0146\u00a4\2\u0759\u075a\7\30\2\2\u075a")
-        buf.write("\u0151\3\2\2\2\u075b\u075c\7\25\2\2\u075c\u075d\5\u0146")
-        buf.write("\u00a4\2\u075d\u075e\7\26\2\2\u075e\u0153\3\2\2\2\u075f")
-        buf.write("\u0760\b\u00ab\1\2\u0760\u0761\5\u015a\u00ae\2\u0761\u0767")
-        buf.write("\3\2\2\2\u0762\u0763\f\3\2\2\u0763\u0764\7\24\2\2\u0764")
-        buf.write("\u0766\5\u015a\u00ae\2\u0765\u0762\3\2\2\2\u0766\u0769")
-        buf.write("\3\2\2\2\u0767\u0765\3\2\2\2\u0767\u0768\3\2\2\2\u0768")
-        buf.write("\u0155\3\2\2\2\u0769\u0767\3\2\2\2\u076a\u076b\b\u00ac")
-        buf.write("\1\2\u076b\u076c\5\u0154\u00ab\2\u076c\u0771\3\2\2\2\u076d")
-        buf.write("\u076e\f\3\2\2\u076e\u0770\7\u0092\2\2\u076f\u076d\3\2")
-        buf.write("\2\2\u0770\u0773\3\2\2\2\u0771\u076f\3\2\2\2\u0771\u0772")
-        buf.write("\3\2\2\2\u0772\u0157\3\2\2\2\u0773\u0771\3\2\2\2\u0774")
-        buf.write("\u077a\7\u0094\2\2\u0775\u077a\7\u0096\2\2\u0776\u077a")
-        buf.write("\7\u0093\2\2\u0777\u077a\7\u008a\2\2\u0778\u077a\7\u008b")
-        buf.write("\2\2\u0779\u0774\3\2\2\2\u0779\u0775\3\2\2\2\u0779\u0776")
-        buf.write("\3\2\2\2\u0779\u0777\3\2\2\2\u0779\u0778\3\2\2\2\u077a")
-        buf.write("\u0159\3\2\2\2\u077b\u077c\t\7\2\2\u077c\u015b\3\2\2\2")
-        buf.write("\u077d\u077e\7y\2\2\u077e\u077f\5\u015e\u00b0\2\u077f")
-        buf.write("\u0780\7\21\2\2\u0780\u0785\3\2\2\2\u0781\u0782\5\u015e")
-        buf.write("\u00b0\2\u0782\u0783\7\21\2\2\u0783\u0785\3\2\2\2\u0784")
-        buf.write("\u077d\3\2\2\2\u0784\u0781\3\2\2\2\u0785\u015d\3\2\2\2")
-        buf.write("\u0786\u0787\b\u00b0\1\2\u0787\u0788\5\u0160\u00b1\2\u0788")
-        buf.write("\u078d\3\2\2\2\u0789\u078a\f\3\2\2\u078a\u078c\5\u0162")
-        buf.write("\u00b2\2\u078b\u0789\3\2\2\2\u078c\u078f\3\2\2\2\u078d")
-        buf.write("\u078b\3\2\2\2\u078d\u078e\3\2\2\2\u078e\u015f\3\2\2\2")
-        buf.write("\u078f\u078d\3\2\2\2\u0790\u0794\5\u016a\u00b6\2\u0791")
-        buf.write("\u0794\5\u016c\u00b7\2\u0792\u0794\5\u016e\u00b8\2\u0793")
-        buf.write("\u0790\3\2\2\2\u0793\u0791\3\2\2\2\u0793\u0792\3\2\2\2")
-        buf.write("\u0794\u0161\3\2\2\2\u0795\u0796\7\24\2\2\u0796\u0799")
-        buf.write("\5\u0164\u00b3\2\u0797\u0799\5\u0168\u00b5\2\u0798\u0795")
-        buf.write("\3\2\2\2\u0798\u0797\3\2\2\2\u0799\u0163\3\2\2\2\u079a")
-        buf.write("\u079b\5\u0170\u00b9\2\u079b\u079d\7\25\2\2\u079c\u079e")
-        buf.write("\5\u0166\u00b4\2\u079d\u079c\3\2\2\2\u079d\u079e\3\2\2")
-        buf.write("\2\u079e\u079f\3\2\2\2\u079f\u07a0\7\26\2\2\u07a0\u0165")
-        buf.write("\3\2\2\2\u07a1\u07a2\b\u00b4\1\2\u07a2\u07a3\5\u015e\u00b0")
-        buf.write("\2\u07a3\u07a9\3\2\2\2\u07a4\u07a5\f\3\2\2\u07a5\u07a6")
-        buf.write("\7\22\2\2\u07a6\u07a8\5\u015e\u00b0\2\u07a7\u07a4\3\2")
-        buf.write("\2\2\u07a8\u07ab\3\2\2\2\u07a9\u07a7\3\2\2\2\u07a9\u07aa")
-        buf.write("\3\2\2\2\u07aa\u0167\3\2\2\2\u07ab\u07a9\3\2\2\2\u07ac")
-        buf.write("\u07ad\7\27\2\2\u07ad\u07ae\5\u015e\u00b0\2\u07ae\u07af")
-        buf.write("\7\30\2\2\u07af\u0169\3\2\2\2\u07b0\u07b1\7\25\2\2\u07b1")
-        buf.write("\u07b2\5\u015e\u00b0\2\u07b2\u07b3\7\26\2\2\u07b3\u016b")
-        buf.write("\3\2\2\2\u07b4\u07b5\b\u00b7\1\2\u07b5\u07b6\5\u0170\u00b9")
-        buf.write("\2\u07b6\u07bc\3\2\2\2\u07b7\u07b8\f\3\2\2\u07b8\u07b9")
-        buf.write("\7\24\2\2\u07b9\u07bb\5\u0170\u00b9\2\u07ba\u07b7\3\2")
-        buf.write("\2\2\u07bb\u07be\3\2\2\2\u07bc\u07ba\3\2\2\2\u07bc\u07bd")
-        buf.write("\3\2\2\2\u07bd\u016d\3\2\2\2\u07be\u07bc\3\2\2\2\u07bf")
-        buf.write("\u07c5\7\u0094\2\2\u07c0\u07c5\7\u0096\2\2\u07c1\u07c5")
-        buf.write("\7\u0093\2\2\u07c2\u07c5\7\u008a\2\2\u07c3\u07c5\7\u008b")
-        buf.write("\2\2\u07c4\u07bf\3\2\2\2\u07c4\u07c0\3\2\2\2\u07c4\u07c1")
-        buf.write("\3\2\2\2\u07c4\u07c2\3\2\2\2\u07c4\u07c3\3\2\2\2\u07c5")
-        buf.write("\u016f\3\2\2\2\u07c6\u07c7\t\6\2\2\u07c7\u0171\3\2\2\2")
-        buf.write("\u0097\u0178\u017b\u0194\u01a1\u01ae\u01b5\u01c2\u01d0")
-        buf.write("\u01f0\u01fd\u0214\u021e\u0223\u0229\u022e\u023a\u023f")
-        buf.write("\u0257\u0262\u0266\u0277\u027c\u0285\u028e\u0297\u02b4")
-        buf.write("\u02c7\u02cd\u02ef\u02f8\u030f\u031d\u0326\u032f\u0346")
-        buf.write("\u034a\u035e\u03be\u03c0\u03cc\u03d5\u03e4\u03e9\u03ee")
-        buf.write("\u03f7\u03fe\u041d\u042d\u0436\u043c\u0441\u0448\u0450")
-        buf.write("\u045e\u0466\u046c\u0477\u0483\u048e\u049b\u049f\u04a5")
-        buf.write("\u04b1\u04c5\u04c7\u04cc\u04d8\u04e3\u04ed\u04f2\u04f7")
-        buf.write("\u0507\u050c\u050f\u0513\u0518\u051f\u052a\u052c\u0538")
-        buf.write("\u0540\u054c\u0550\u055a\u0562\u0568\u056f\u0574\u057e")
-        buf.write("\u0585\u0590\u059d\u05a1\u05a4\u05a8\u05ab\u05b6\u05c2")
-        buf.write("\u05ce\u05da\u05eb\u05fa\u0604\u060b\u0615\u061c\u0620")
-        buf.write("\u0626\u0632\u063d\u064d\u065a\u0661\u0669\u0685\u068e")
-        buf.write("\u0694\u0699\u069e\u06aa\u06bd\u06c5\u06cc\u06d5\u06dc")
-        buf.write("\u06e4\u06e9\u06f3\u06fd\u070d\u071c\u0724\u072f\u0738")
-        buf.write("\u073e\u0743\u0748\u0754\u0767\u0771\u0779\u0784\u078d")
-        buf.write("\u0793\u0798\u079d\u07a9\u07bc\u07c4")
+        buf.write("\u0715\b\u00a0\1\2\u0715\u0718\7\u0092\2\2\u0716\u0718")
+        buf.write("\5\u0142\u00a2\2\u0717\u0714\3\2\2\2\u0717\u0716\3\2\2")
+        buf.write("\2\u0718\u071e\3\2\2\2\u0719\u071a\f\3\2\2\u071a\u071b")
+        buf.write("\7\24\2\2\u071b\u071d\5\u0142\u00a2\2\u071c\u0719\3\2")
+        buf.write("\2\2\u071d\u0720\3\2\2\2\u071e\u071c\3\2\2\2\u071e\u071f")
+        buf.write("\3\2\2\2\u071f\u013f\3\2\2\2\u0720\u071e\3\2\2\2\u0721")
+        buf.write("\u0727\7\u0094\2\2\u0722\u0727\7\u0096\2\2\u0723\u0727")
+        buf.write("\7\u0093\2\2\u0724\u0727\7\u008a\2\2\u0725\u0727\7\u008b")
+        buf.write("\2\2\u0726\u0721\3\2\2\2\u0726\u0722\3\2\2\2\u0726\u0723")
+        buf.write("\3\2\2\2\u0726\u0724\3\2\2\2\u0726\u0725\3\2\2\2\u0727")
+        buf.write("\u0141\3\2\2\2\u0728\u0729\t\7\2\2\u0729\u0143\3\2\2\2")
+        buf.write("\u072a\u072b\7y\2\2\u072b\u072c\5\u0146\u00a4\2\u072c")
+        buf.write("\u072d\7\21\2\2\u072d\u0732\3\2\2\2\u072e\u072f\5\u0146")
+        buf.write("\u00a4\2\u072f\u0730\7\21\2\2\u0730\u0732\3\2\2\2\u0731")
+        buf.write("\u072a\3\2\2\2\u0731\u072e\3\2\2\2\u0732\u0145\3\2\2\2")
+        buf.write("\u0733\u0734\b\u00a4\1\2\u0734\u0735\5\u0148\u00a5\2\u0735")
+        buf.write("\u073a\3\2\2\2\u0736\u0737\f\3\2\2\u0737\u0739\5\u014a")
+        buf.write("\u00a6\2\u0738\u0736\3\2\2\2\u0739\u073c\3\2\2\2\u073a")
+        buf.write("\u0738\3\2\2\2\u073a\u073b\3\2\2\2\u073b\u0147\3\2\2\2")
+        buf.write("\u073c\u073a\3\2\2\2\u073d\u0741\5\u0152\u00aa\2\u073e")
+        buf.write("\u0741\5\u0154\u00ab\2\u073f\u0741\5\u0158\u00ad\2\u0740")
+        buf.write("\u073d\3\2\2\2\u0740\u073e\3\2\2\2\u0740\u073f\3\2\2\2")
+        buf.write("\u0741\u0149\3\2\2\2\u0742\u0743\7\24\2\2\u0743\u0746")
+        buf.write("\5\u014c\u00a7\2\u0744\u0746\5\u0150\u00a9\2\u0745\u0742")
+        buf.write("\3\2\2\2\u0745\u0744\3\2\2\2\u0746\u014b\3\2\2\2\u0747")
+        buf.write("\u0748\5\u015a\u00ae\2\u0748\u074a\7\25\2\2\u0749\u074b")
+        buf.write("\5\u014e\u00a8\2\u074a\u0749\3\2\2\2\u074a\u074b\3\2\2")
+        buf.write("\2\u074b\u074c\3\2\2\2\u074c\u074d\7\26\2\2\u074d\u014d")
+        buf.write("\3\2\2\2\u074e\u074f\b\u00a8\1\2\u074f\u0750\5\u0146\u00a4")
+        buf.write("\2\u0750\u0756\3\2\2\2\u0751\u0752\f\3\2\2\u0752\u0753")
+        buf.write("\7\22\2\2\u0753\u0755\5\u0146\u00a4\2\u0754\u0751\3\2")
+        buf.write("\2\2\u0755\u0758\3\2\2\2\u0756\u0754\3\2\2\2\u0756\u0757")
+        buf.write("\3\2\2\2\u0757\u014f\3\2\2\2\u0758\u0756\3\2\2\2\u0759")
+        buf.write("\u075a\7\27\2\2\u075a\u075b\5\u0146\u00a4\2\u075b\u075c")
+        buf.write("\7\30\2\2\u075c\u0151\3\2\2\2\u075d\u075e\7\25\2\2\u075e")
+        buf.write("\u075f\5\u0146\u00a4\2\u075f\u0760\7\26\2\2\u0760\u0153")
+        buf.write("\3\2\2\2\u0761\u0762\b\u00ab\1\2\u0762\u0763\5\u015a\u00ae")
+        buf.write("\2\u0763\u0769\3\2\2\2\u0764\u0765\f\3\2\2\u0765\u0766")
+        buf.write("\7\24\2\2\u0766\u0768\5\u015a\u00ae\2\u0767\u0764\3\2")
+        buf.write("\2\2\u0768\u076b\3\2\2\2\u0769\u0767\3\2\2\2\u0769\u076a")
+        buf.write("\3\2\2\2\u076a\u0155\3\2\2\2\u076b\u0769\3\2\2\2\u076c")
+        buf.write("\u076d\b\u00ac\1\2\u076d\u076e\5\u0154\u00ab\2\u076e\u0773")
+        buf.write("\3\2\2\2\u076f\u0770\f\3\2\2\u0770\u0772\7\u0092\2\2\u0771")
+        buf.write("\u076f\3\2\2\2\u0772\u0775\3\2\2\2\u0773\u0771\3\2\2\2")
+        buf.write("\u0773\u0774\3\2\2\2\u0774\u0157\3\2\2\2\u0775\u0773\3")
+        buf.write("\2\2\2\u0776\u077c\7\u0094\2\2\u0777\u077c\7\u0096\2\2")
+        buf.write("\u0778\u077c\7\u0093\2\2\u0779\u077c\7\u008a\2\2\u077a")
+        buf.write("\u077c\7\u008b\2\2\u077b\u0776\3\2\2\2\u077b\u0777\3\2")
+        buf.write("\2\2\u077b\u0778\3\2\2\2\u077b\u0779\3\2\2\2\u077b\u077a")
+        buf.write("\3\2\2\2\u077c\u0159\3\2\2\2\u077d\u077e\t\b\2\2\u077e")
+        buf.write("\u015b\3\2\2\2\u077f\u0780\7y\2\2\u0780\u0781\5\u015e")
+        buf.write("\u00b0\2\u0781\u0782\7\21\2\2\u0782\u0787\3\2\2\2\u0783")
+        buf.write("\u0784\5\u015e\u00b0\2\u0784\u0785\7\21\2\2\u0785\u0787")
+        buf.write("\3\2\2\2\u0786\u077f\3\2\2\2\u0786\u0783\3\2\2\2\u0787")
+        buf.write("\u015d\3\2\2\2\u0788\u0789\b\u00b0\1\2\u0789\u078a\5\u0160")
+        buf.write("\u00b1\2\u078a\u078f\3\2\2\2\u078b\u078c\f\3\2\2\u078c")
+        buf.write("\u078e\5\u0162\u00b2\2\u078d\u078b\3\2\2\2\u078e\u0791")
+        buf.write("\3\2\2\2\u078f\u078d\3\2\2\2\u078f\u0790\3\2\2\2\u0790")
+        buf.write("\u015f\3\2\2\2\u0791\u078f\3\2\2\2\u0792\u0796\5\u016a")
+        buf.write("\u00b6\2\u0793\u0796\5\u016c\u00b7\2\u0794\u0796\5\u016e")
+        buf.write("\u00b8\2\u0795\u0792\3\2\2\2\u0795\u0793\3\2\2\2\u0795")
+        buf.write("\u0794\3\2\2\2\u0796\u0161\3\2\2\2\u0797\u0798\7\24\2")
+        buf.write("\2\u0798\u079b\5\u0164\u00b3\2\u0799\u079b\5\u0168\u00b5")
+        buf.write("\2\u079a\u0797\3\2\2\2\u079a\u0799\3\2\2\2\u079b\u0163")
+        buf.write("\3\2\2\2\u079c\u079d\5\u0170\u00b9\2\u079d\u079f\7\25")
+        buf.write("\2\2\u079e\u07a0\5\u0166\u00b4\2\u079f\u079e\3\2\2\2\u079f")
+        buf.write("\u07a0\3\2\2\2\u07a0\u07a1\3\2\2\2\u07a1\u07a2\7\26\2")
+        buf.write("\2\u07a2\u0165\3\2\2\2\u07a3\u07a4\b\u00b4\1\2\u07a4\u07a5")
+        buf.write("\5\u015e\u00b0\2\u07a5\u07ab\3\2\2\2\u07a6\u07a7\f\3\2")
+        buf.write("\2\u07a7\u07a8\7\22\2\2\u07a8\u07aa\5\u015e\u00b0\2\u07a9")
+        buf.write("\u07a6\3\2\2\2\u07aa\u07ad\3\2\2\2\u07ab\u07a9\3\2\2\2")
+        buf.write("\u07ab\u07ac\3\2\2\2\u07ac\u0167\3\2\2\2\u07ad\u07ab\3")
+        buf.write("\2\2\2\u07ae\u07af\7\27\2\2\u07af\u07b0\5\u015e\u00b0")
+        buf.write("\2\u07b0\u07b1\7\30\2\2\u07b1\u0169\3\2\2\2\u07b2\u07b3")
+        buf.write("\7\25\2\2\u07b3\u07b4\5\u015e\u00b0\2\u07b4\u07b5\7\26")
+        buf.write("\2\2\u07b5\u016b\3\2\2\2\u07b6\u07b7\b\u00b7\1\2\u07b7")
+        buf.write("\u07ba\7\u0092\2\2\u07b8\u07ba\5\u0170\u00b9\2\u07b9\u07b6")
+        buf.write("\3\2\2\2\u07b9\u07b8\3\2\2\2\u07ba\u07c0\3\2\2\2\u07bb")
+        buf.write("\u07bc\f\3\2\2\u07bc\u07bd\7\24\2\2\u07bd\u07bf\5\u0170")
+        buf.write("\u00b9\2\u07be\u07bb\3\2\2\2\u07bf\u07c2\3\2\2\2\u07c0")
+        buf.write("\u07be\3\2\2\2\u07c0\u07c1\3\2\2\2\u07c1\u016d\3\2\2\2")
+        buf.write("\u07c2\u07c0\3\2\2\2\u07c3\u07c9\7\u0094\2\2\u07c4\u07c9")
+        buf.write("\7\u0096\2\2\u07c5\u07c9\7\u0093\2\2\u07c6\u07c9\7\u008a")
+        buf.write("\2\2\u07c7\u07c9\7\u008b\2\2\u07c8\u07c3\3\2\2\2\u07c8")
+        buf.write("\u07c4\3\2\2\2\u07c8\u07c5\3\2\2\2\u07c8\u07c6\3\2\2\2")
+        buf.write("\u07c8\u07c7\3\2\2\2\u07c9\u016f\3\2\2\2\u07ca\u07cb\t")
+        buf.write("\7\2\2\u07cb\u0171\3\2\2\2\u0099\u0178\u017b\u0194\u01a1")
+        buf.write("\u01ae\u01b5\u01c2\u01d0\u01f0\u01fd\u0214\u021e\u0223")
+        buf.write("\u0229\u022e\u023a\u023f\u0257\u0262\u0266\u0277\u027c")
+        buf.write("\u0285\u028e\u0297\u02b4\u02c7\u02cd\u02ef\u02f8\u030f")
+        buf.write("\u031d\u0326\u032f\u0346\u034a\u035e\u03be\u03c0\u03cc")
+        buf.write("\u03d5\u03e4\u03e9\u03ee\u03f7\u03fe\u041d\u042d\u0436")
+        buf.write("\u043c\u0441\u0448\u0450\u045e\u0466\u046c\u0477\u0483")
+        buf.write("\u048e\u049b\u049f\u04a5\u04b1\u04c5\u04c7\u04cc\u04d8")
+        buf.write("\u04e3\u04ed\u04f2\u04f7\u0507\u050c\u050f\u0513\u0518")
+        buf.write("\u051f\u052a\u052c\u0538\u0540\u054c\u0550\u055a\u0562")
+        buf.write("\u0568\u056f\u0574\u057e\u0585\u0590\u059d\u05a1\u05a4")
+        buf.write("\u05a8\u05ab\u05b6\u05c2\u05ce\u05da\u05eb\u05fa\u0604")
+        buf.write("\u060b\u0615\u061c\u0620\u0626\u0632\u063d\u064d\u065a")
+        buf.write("\u0661\u0669\u0685\u068e\u0694\u0699\u069e\u06aa\u06bd")
+        buf.write("\u06c5\u06cc\u06d5\u06dc\u06e4\u06e9\u06f3\u06fd\u070d")
+        buf.write("\u0717\u071e\u0726\u0731\u073a\u0740\u0745\u074a\u0756")
+        buf.write("\u0769\u0773\u077b\u0786\u078f\u0795\u079a\u079f\u07ab")
+        buf.write("\u07b9\u07c0\u07c8")
         return buf.getvalue()
 
 
@@ -16033,7 +16038,7 @@ class SParser ( AbstractParser ):
                 self.state = 1662
                 self.match(SParser.SEMI)
 
-            elif token in [SParser.LPAR, SParser.BOOLEAN, SParser.CHARACTER, SParser.TEXT, SParser.INTEGER, SParser.DECIMAL, SParser.DATE, SParser.TIME, SParser.DATETIME, SParser.PERIOD, SParser.READ, SParser.TEST, SParser.WRITE, SParser.BOOLEAN_LITERAL, SParser.CHAR_LITERAL, SParser.SYMBOL_IDENTIFIER, SParser.TYPE_IDENTIFIER, SParser.VARIABLE_IDENTIFIER, SParser.TEXT_LITERAL, SParser.INTEGER_LITERAL, SParser.DECIMAL_LITERAL]:
+            elif token in [SParser.LPAR, SParser.BOOLEAN, SParser.CHARACTER, SParser.TEXT, SParser.INTEGER, SParser.DECIMAL, SParser.DATE, SParser.TIME, SParser.DATETIME, SParser.PERIOD, SParser.READ, SParser.TEST, SParser.WRITE, SParser.BOOLEAN_LITERAL, SParser.CHAR_LITERAL, SParser.SYMBOL_IDENTIFIER, SParser.TYPE_IDENTIFIER, SParser.VARIABLE_IDENTIFIER, SParser.DOLLAR_IDENTIFIER, SParser.TEXT_LITERAL, SParser.INTEGER_LITERAL, SParser.DECIMAL_LITERAL]:
                 localctx = SParser.JavascriptStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1664
@@ -16247,7 +16252,7 @@ class SParser ( AbstractParser ):
                 self.state = 1679
                 localctx.exp = self.javascript_parenthesis_expression()
 
-            elif token in [SParser.BOOLEAN, SParser.CHARACTER, SParser.TEXT, SParser.INTEGER, SParser.DECIMAL, SParser.DATE, SParser.TIME, SParser.DATETIME, SParser.PERIOD, SParser.READ, SParser.TEST, SParser.WRITE, SParser.SYMBOL_IDENTIFIER, SParser.TYPE_IDENTIFIER, SParser.VARIABLE_IDENTIFIER]:
+            elif token in [SParser.BOOLEAN, SParser.CHARACTER, SParser.TEXT, SParser.INTEGER, SParser.DECIMAL, SParser.DATE, SParser.TIME, SParser.DATETIME, SParser.PERIOD, SParser.READ, SParser.TEST, SParser.WRITE, SParser.SYMBOL_IDENTIFIER, SParser.TYPE_IDENTIFIER, SParser.VARIABLE_IDENTIFIER, SParser.DOLLAR_IDENTIFIER]:
                 localctx = SParser.JavascriptIdentifierExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1680
@@ -16410,7 +16415,7 @@ class SParser ( AbstractParser ):
             self.match(SParser.LPAR)
             self.state = 1692
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SParser.LPAR) | (1 << SParser.BOOLEAN) | (1 << SParser.CHARACTER) | (1 << SParser.TEXT) | (1 << SParser.INTEGER) | (1 << SParser.DECIMAL) | (1 << SParser.DATE) | (1 << SParser.TIME) | (1 << SParser.DATETIME) | (1 << SParser.PERIOD))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (SParser.READ - 116)) | (1 << (SParser.TEST - 116)) | (1 << (SParser.WRITE - 116)) | (1 << (SParser.BOOLEAN_LITERAL - 116)) | (1 << (SParser.CHAR_LITERAL - 116)) | (1 << (SParser.SYMBOL_IDENTIFIER - 116)) | (1 << (SParser.TYPE_IDENTIFIER - 116)) | (1 << (SParser.VARIABLE_IDENTIFIER - 116)) | (1 << (SParser.TEXT_LITERAL - 116)) | (1 << (SParser.INTEGER_LITERAL - 116)) | (1 << (SParser.DECIMAL_LITERAL - 116)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SParser.LPAR) | (1 << SParser.BOOLEAN) | (1 << SParser.CHARACTER) | (1 << SParser.TEXT) | (1 << SParser.INTEGER) | (1 << SParser.DECIMAL) | (1 << SParser.DATE) | (1 << SParser.TIME) | (1 << SParser.DATETIME) | (1 << SParser.PERIOD))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (SParser.READ - 116)) | (1 << (SParser.TEST - 116)) | (1 << (SParser.WRITE - 116)) | (1 << (SParser.BOOLEAN_LITERAL - 116)) | (1 << (SParser.CHAR_LITERAL - 116)) | (1 << (SParser.SYMBOL_IDENTIFIER - 116)) | (1 << (SParser.TYPE_IDENTIFIER - 116)) | (1 << (SParser.VARIABLE_IDENTIFIER - 116)) | (1 << (SParser.DOLLAR_IDENTIFIER - 116)) | (1 << (SParser.TEXT_LITERAL - 116)) | (1 << (SParser.INTEGER_LITERAL - 116)) | (1 << (SParser.DECIMAL_LITERAL - 116)))) != 0):
                 self.state = 1691
                 localctx.args = self.javascript_arguments(0)
 
@@ -16917,6 +16922,9 @@ class SParser ( AbstractParser ):
         def SYMBOL_IDENTIFIER(self):
             return self.getToken(SParser.SYMBOL_IDENTIFIER, 0)
 
+        def DOLLAR_IDENTIFIER(self):
+            return self.getToken(SParser.DOLLAR_IDENTIFIER, 0)
+
         def TYPE_IDENTIFIER(self):
             return self.getToken(SParser.TYPE_IDENTIFIER, 0)
 
@@ -16979,7 +16987,7 @@ class SParser ( AbstractParser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 1733
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SParser.BOOLEAN) | (1 << SParser.CHARACTER) | (1 << SParser.TEXT) | (1 << SParser.INTEGER) | (1 << SParser.DECIMAL) | (1 << SParser.DATE) | (1 << SParser.TIME) | (1 << SParser.DATETIME) | (1 << SParser.PERIOD))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (SParser.READ - 116)) | (1 << (SParser.TEST - 116)) | (1 << (SParser.WRITE - 116)) | (1 << (SParser.SYMBOL_IDENTIFIER - 116)) | (1 << (SParser.TYPE_IDENTIFIER - 116)) | (1 << (SParser.VARIABLE_IDENTIFIER - 116)))) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SParser.BOOLEAN) | (1 << SParser.CHARACTER) | (1 << SParser.TEXT) | (1 << SParser.INTEGER) | (1 << SParser.DECIMAL) | (1 << SParser.DATE) | (1 << SParser.TIME) | (1 << SParser.DATETIME) | (1 << SParser.PERIOD))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (SParser.READ - 116)) | (1 << (SParser.TEST - 116)) | (1 << (SParser.WRITE - 116)) | (1 << (SParser.SYMBOL_IDENTIFIER - 116)) | (1 << (SParser.TYPE_IDENTIFIER - 116)) | (1 << (SParser.VARIABLE_IDENTIFIER - 116)) | (1 << (SParser.DOLLAR_IDENTIFIER - 116)))) != 0)):
                 self._errHandler.recoverInline(self)
             self.consume()
         except RecognitionException as re:
@@ -17064,7 +17072,7 @@ class SParser ( AbstractParser ):
                 self.state = 1736
                 localctx.exp = self.python_expression(0)
 
-            elif token in [SParser.LPAR, SParser.BOOLEAN, SParser.CHARACTER, SParser.TEXT, SParser.INTEGER, SParser.DECIMAL, SParser.DATE, SParser.TIME, SParser.DATETIME, SParser.PERIOD, SParser.READ, SParser.TEST, SParser.WRITE, SParser.BOOLEAN_LITERAL, SParser.CHAR_LITERAL, SParser.SYMBOL_IDENTIFIER, SParser.TYPE_IDENTIFIER, SParser.VARIABLE_IDENTIFIER, SParser.TEXT_LITERAL, SParser.INTEGER_LITERAL, SParser.DECIMAL_LITERAL]:
+            elif token in [SParser.LPAR, SParser.BOOLEAN, SParser.CHARACTER, SParser.TEXT, SParser.INTEGER, SParser.DECIMAL, SParser.DATE, SParser.TIME, SParser.DATETIME, SParser.PERIOD, SParser.READ, SParser.TEST, SParser.WRITE, SParser.BOOLEAN_LITERAL, SParser.CHAR_LITERAL, SParser.SYMBOL_IDENTIFIER, SParser.TYPE_IDENTIFIER, SParser.VARIABLE_IDENTIFIER, SParser.DOLLAR_IDENTIFIER, SParser.TEXT_LITERAL, SParser.INTEGER_LITERAL, SParser.DECIMAL_LITERAL]:
                 localctx = SParser.PythonStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1737
@@ -17475,7 +17483,7 @@ class SParser ( AbstractParser ):
             self.match(SParser.LPAR)
             self.state = 1767
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SParser.LPAR) | (1 << SParser.BOOLEAN) | (1 << SParser.CHARACTER) | (1 << SParser.TEXT) | (1 << SParser.INTEGER) | (1 << SParser.DECIMAL) | (1 << SParser.DATE) | (1 << SParser.TIME) | (1 << SParser.DATETIME) | (1 << SParser.PERIOD))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (SParser.READ - 116)) | (1 << (SParser.TEST - 116)) | (1 << (SParser.WRITE - 116)) | (1 << (SParser.BOOLEAN_LITERAL - 116)) | (1 << (SParser.CHAR_LITERAL - 116)) | (1 << (SParser.SYMBOL_IDENTIFIER - 116)) | (1 << (SParser.TYPE_IDENTIFIER - 116)) | (1 << (SParser.VARIABLE_IDENTIFIER - 116)) | (1 << (SParser.TEXT_LITERAL - 116)) | (1 << (SParser.INTEGER_LITERAL - 116)) | (1 << (SParser.DECIMAL_LITERAL - 116)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SParser.LPAR) | (1 << SParser.BOOLEAN) | (1 << SParser.CHARACTER) | (1 << SParser.TEXT) | (1 << SParser.INTEGER) | (1 << SParser.DECIMAL) | (1 << SParser.DATE) | (1 << SParser.TIME) | (1 << SParser.DATETIME) | (1 << SParser.PERIOD))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (SParser.READ - 116)) | (1 << (SParser.TEST - 116)) | (1 << (SParser.WRITE - 116)) | (1 << (SParser.BOOLEAN_LITERAL - 116)) | (1 << (SParser.CHAR_LITERAL - 116)) | (1 << (SParser.SYMBOL_IDENTIFIER - 116)) | (1 << (SParser.TYPE_IDENTIFIER - 116)) | (1 << (SParser.VARIABLE_IDENTIFIER - 116)) | (1 << (SParser.DOLLAR_IDENTIFIER - 116)) | (1 << (SParser.TEXT_LITERAL - 116)) | (1 << (SParser.INTEGER_LITERAL - 116)) | (1 << (SParser.DECIMAL_LITERAL - 116)))) != 0):
                 self.state = 1766
                 localctx.args = self.python_argument_list()
 
@@ -17964,6 +17972,24 @@ class SParser ( AbstractParser ):
                 listener.exitPythonIdentifier(self)
 
 
+    class PythonPrestoIdentifierContext(Python_identifier_expressionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a SParser.Python_identifier_expressionContext)
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def DOLLAR_IDENTIFIER(self):
+            return self.getToken(SParser.DOLLAR_IDENTIFIER, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if isinstance( listener, SParserListener ):
+                listener.enterPythonPrestoIdentifier(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if isinstance( listener, SParserListener ):
+                listener.exitPythonPrestoIdentifier(self)
+
+
 
     def python_identifier_expression(self, _p:int=0):
         _parentctx = self._ctx
@@ -17974,16 +18000,30 @@ class SParser ( AbstractParser ):
         self.enterRecursionRule(localctx, 316, self.RULE_python_identifier_expression, _p)
         try:
             self.enterOuterAlt(localctx, 1)
-            localctx = SParser.PythonIdentifierContext(self, localctx)
-            self._ctx = localctx
-            _prevctx = localctx
+            self.state = 1813
+            token = self._input.LA(1)
+            if token in [SParser.DOLLAR_IDENTIFIER]:
+                localctx = SParser.PythonPrestoIdentifierContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
 
-            self.state = 1811
-            localctx.name = self.python_identifier()
+                self.state = 1811
+                self.match(SParser.DOLLAR_IDENTIFIER)
+
+            elif token in [SParser.BOOLEAN, SParser.CHARACTER, SParser.TEXT, SParser.INTEGER, SParser.DECIMAL, SParser.DATE, SParser.TIME, SParser.DATETIME, SParser.PERIOD, SParser.READ, SParser.TEST, SParser.WRITE, SParser.SYMBOL_IDENTIFIER, SParser.TYPE_IDENTIFIER, SParser.VARIABLE_IDENTIFIER]:
+                localctx = SParser.PythonIdentifierContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
+                self.state = 1812
+                localctx.name = self.python_identifier()
+
+            else:
+                raise NoViableAltException(self)
+
             self._ctx.stop = self._input.LT(-1)
-            self.state = 1818
+            self.state = 1820
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,130,self._ctx)
+            _alt = self._interp.adaptivePredict(self._input,131,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
                     if self._parseListeners is not None:
@@ -17992,17 +18032,17 @@ class SParser ( AbstractParser ):
                     localctx = SParser.PythonChildIdentifierContext(self, SParser.Python_identifier_expressionContext(self, _parentctx, _parentState))
                     localctx.parent = _prevctx
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_python_identifier_expression)
-                    self.state = 1813
+                    self.state = 1815
                     if not self.precpred(self._ctx, 1):
                         from antlr4.error.Errors import FailedPredicateException
                         raise FailedPredicateException(self, "self.precpred(self._ctx, 1)")
-                    self.state = 1814
+                    self.state = 1816
                     self.match(SParser.DOT)
-                    self.state = 1815
+                    self.state = 1817
                     localctx.name = self.python_identifier() 
-                self.state = 1820
+                self.state = 1822
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,130,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,131,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -18129,36 +18169,36 @@ class SParser ( AbstractParser ):
         localctx = SParser.Python_literal_expressionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 318, self.RULE_python_literal_expression)
         try:
-            self.state = 1826
+            self.state = 1828
             token = self._input.LA(1)
             if token in [SParser.INTEGER_LITERAL]:
                 localctx = SParser.PythonIntegerLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 1821
+                self.state = 1823
                 localctx.t = self.match(SParser.INTEGER_LITERAL)
 
             elif token in [SParser.DECIMAL_LITERAL]:
                 localctx = SParser.PythonDecimalLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 1822
+                self.state = 1824
                 localctx.t = self.match(SParser.DECIMAL_LITERAL)
 
             elif token in [SParser.TEXT_LITERAL]:
                 localctx = SParser.PythonTextLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 1823
+                self.state = 1825
                 localctx.t = self.match(SParser.TEXT_LITERAL)
 
             elif token in [SParser.BOOLEAN_LITERAL]:
                 localctx = SParser.PythonBooleanLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
-                self.state = 1824
+                self.state = 1826
                 localctx.t = self.match(SParser.BOOLEAN_LITERAL)
 
             elif token in [SParser.CHAR_LITERAL]:
                 localctx = SParser.PythonCharacterLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
-                self.state = 1825
+                self.state = 1827
                 localctx.t = self.match(SParser.CHAR_LITERAL)
 
             else:
@@ -18244,7 +18284,7 @@ class SParser ( AbstractParser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 1828
+            self.state = 1830
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SParser.BOOLEAN) | (1 << SParser.CHARACTER) | (1 << SParser.TEXT) | (1 << SParser.INTEGER) | (1 << SParser.DECIMAL) | (1 << SParser.DATE) | (1 << SParser.TIME) | (1 << SParser.DATETIME) | (1 << SParser.PERIOD))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (SParser.READ - 116)) | (1 << (SParser.TEST - 116)) | (1 << (SParser.WRITE - 116)) | (1 << (SParser.SYMBOL_IDENTIFIER - 116)) | (1 << (SParser.TYPE_IDENTIFIER - 116)) | (1 << (SParser.VARIABLE_IDENTIFIER - 116)))) != 0)):
                 self._errHandler.recoverInline(self)
@@ -18325,24 +18365,24 @@ class SParser ( AbstractParser ):
         localctx = SParser.Java_statementContext(self, self._ctx, self.state)
         self.enterRule(localctx, 322, self.RULE_java_statement)
         try:
-            self.state = 1837
+            self.state = 1839
             token = self._input.LA(1)
             if token in [SParser.RETURN]:
                 localctx = SParser.JavaReturnStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 1830
-                self.match(SParser.RETURN)
-                self.state = 1831
-                localctx.exp = self.java_expression(0)
                 self.state = 1832
+                self.match(SParser.RETURN)
+                self.state = 1833
+                localctx.exp = self.java_expression(0)
+                self.state = 1834
                 self.match(SParser.SEMI)
 
             elif token in [SParser.LPAR, SParser.BOOLEAN, SParser.CHARACTER, SParser.TEXT, SParser.INTEGER, SParser.DECIMAL, SParser.DATE, SParser.TIME, SParser.DATETIME, SParser.PERIOD, SParser.READ, SParser.TEST, SParser.WRITE, SParser.BOOLEAN_LITERAL, SParser.CHAR_LITERAL, SParser.SYMBOL_IDENTIFIER, SParser.TYPE_IDENTIFIER, SParser.VARIABLE_IDENTIFIER, SParser.NATIVE_IDENTIFIER, SParser.DOLLAR_IDENTIFIER, SParser.TEXT_LITERAL, SParser.INTEGER_LITERAL, SParser.DECIMAL_LITERAL]:
                 localctx = SParser.JavaStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 1834
+                self.state = 1836
                 localctx.exp = self.java_expression(0)
-                self.state = 1835
+                self.state = 1837
                 self.match(SParser.SEMI)
 
             else:
@@ -18429,12 +18469,12 @@ class SParser ( AbstractParser ):
             self._ctx = localctx
             _prevctx = localctx
 
-            self.state = 1840
+            self.state = 1842
             localctx.exp = self.java_primary_expression()
             self._ctx.stop = self._input.LT(-1)
-            self.state = 1846
+            self.state = 1848
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,133,self._ctx)
+            _alt = self._interp.adaptivePredict(self._input,134,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
                     if self._parseListeners is not None:
@@ -18443,15 +18483,15 @@ class SParser ( AbstractParser ):
                     localctx = SParser.JavaSelectorExpressionContext(self, SParser.Java_expressionContext(self, _parentctx, _parentState))
                     localctx.parent = _prevctx
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_java_expression)
-                    self.state = 1842
+                    self.state = 1844
                     if not self.precpred(self._ctx, 1):
                         from antlr4.error.Errors import FailedPredicateException
                         raise FailedPredicateException(self, "self.precpred(self._ctx, 1)")
-                    self.state = 1843
+                    self.state = 1845
                     localctx.child = self.java_selector_expression() 
-                self.state = 1848
+                self.state = 1850
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,133,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,134,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -18543,24 +18583,24 @@ class SParser ( AbstractParser ):
         localctx = SParser.Java_primary_expressionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 326, self.RULE_java_primary_expression)
         try:
-            self.state = 1852
+            self.state = 1854
             token = self._input.LA(1)
             if token in [SParser.LPAR]:
                 localctx = SParser.JavaParenthesisExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 1849
+                self.state = 1851
                 localctx.exp = self.java_parenthesis_expression()
 
             elif token in [SParser.BOOLEAN, SParser.CHARACTER, SParser.TEXT, SParser.INTEGER, SParser.DECIMAL, SParser.DATE, SParser.TIME, SParser.DATETIME, SParser.PERIOD, SParser.READ, SParser.TEST, SParser.WRITE, SParser.SYMBOL_IDENTIFIER, SParser.TYPE_IDENTIFIER, SParser.VARIABLE_IDENTIFIER, SParser.NATIVE_IDENTIFIER, SParser.DOLLAR_IDENTIFIER]:
                 localctx = SParser.JavaIdentifierExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 1850
+                self.state = 1852
                 localctx.exp = self.java_identifier_expression(0)
 
             elif token in [SParser.BOOLEAN_LITERAL, SParser.CHAR_LITERAL, SParser.TEXT_LITERAL, SParser.INTEGER_LITERAL, SParser.DECIMAL_LITERAL]:
                 localctx = SParser.JavaLiteralExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 1851
+                self.state = 1853
                 localctx.exp = self.java_literal_expression()
 
             else:
@@ -18638,20 +18678,20 @@ class SParser ( AbstractParser ):
         localctx = SParser.Java_selector_expressionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 328, self.RULE_java_selector_expression)
         try:
-            self.state = 1857
+            self.state = 1859
             token = self._input.LA(1)
             if token in [SParser.DOT]:
                 localctx = SParser.JavaMethodExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 1854
+                self.state = 1856
                 self.match(SParser.DOT)
-                self.state = 1855
+                self.state = 1857
                 localctx.exp = self.java_method_expression()
 
             elif token in [SParser.LBRAK]:
                 localctx = SParser.JavaItemExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 1856
+                self.state = 1858
                 localctx.exp = self.java_item_expression()
 
             else:
@@ -18708,18 +18748,18 @@ class SParser ( AbstractParser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 1859
+            self.state = 1861
             localctx.name = self.java_identifier()
-            self.state = 1860
-            self.match(SParser.LPAR)
             self.state = 1862
+            self.match(SParser.LPAR)
+            self.state = 1864
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SParser.LPAR) | (1 << SParser.BOOLEAN) | (1 << SParser.CHARACTER) | (1 << SParser.TEXT) | (1 << SParser.INTEGER) | (1 << SParser.DECIMAL) | (1 << SParser.DATE) | (1 << SParser.TIME) | (1 << SParser.DATETIME) | (1 << SParser.PERIOD))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (SParser.READ - 116)) | (1 << (SParser.TEST - 116)) | (1 << (SParser.WRITE - 116)) | (1 << (SParser.BOOLEAN_LITERAL - 116)) | (1 << (SParser.CHAR_LITERAL - 116)) | (1 << (SParser.SYMBOL_IDENTIFIER - 116)) | (1 << (SParser.TYPE_IDENTIFIER - 116)) | (1 << (SParser.VARIABLE_IDENTIFIER - 116)) | (1 << (SParser.NATIVE_IDENTIFIER - 116)) | (1 << (SParser.DOLLAR_IDENTIFIER - 116)) | (1 << (SParser.TEXT_LITERAL - 116)) | (1 << (SParser.INTEGER_LITERAL - 116)) | (1 << (SParser.DECIMAL_LITERAL - 116)))) != 0):
-                self.state = 1861
+                self.state = 1863
                 localctx.args = self.java_arguments(0)
 
 
-            self.state = 1864
+            self.state = 1866
             self.match(SParser.RPAR)
         except RecognitionException as re:
             localctx.exception = re
@@ -18804,12 +18844,12 @@ class SParser ( AbstractParser ):
             self._ctx = localctx
             _prevctx = localctx
 
-            self.state = 1867
+            self.state = 1869
             localctx.item = self.java_expression(0)
             self._ctx.stop = self._input.LT(-1)
-            self.state = 1874
+            self.state = 1876
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,137,self._ctx)
+            _alt = self._interp.adaptivePredict(self._input,138,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
                     if self._parseListeners is not None:
@@ -18818,17 +18858,17 @@ class SParser ( AbstractParser ):
                     localctx = SParser.JavaArgumentListItemContext(self, SParser.Java_argumentsContext(self, _parentctx, _parentState))
                     localctx.items = _prevctx
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_java_arguments)
-                    self.state = 1869
+                    self.state = 1871
                     if not self.precpred(self._ctx, 1):
                         from antlr4.error.Errors import FailedPredicateException
                         raise FailedPredicateException(self, "self.precpred(self._ctx, 1)")
-                    self.state = 1870
+                    self.state = 1872
                     self.match(SParser.COMMA)
-                    self.state = 1871
+                    self.state = 1873
                     localctx.item = self.java_expression(0) 
-                self.state = 1876
+                self.state = 1878
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,137,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,138,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -18875,11 +18915,11 @@ class SParser ( AbstractParser ):
         self.enterRule(localctx, 334, self.RULE_java_item_expression)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 1877
-            self.match(SParser.LBRAK)
-            self.state = 1878
-            localctx.exp = self.java_expression(0)
             self.state = 1879
+            self.match(SParser.LBRAK)
+            self.state = 1880
+            localctx.exp = self.java_expression(0)
+            self.state = 1881
             self.match(SParser.RBRAK)
         except RecognitionException as re:
             localctx.exception = re
@@ -18926,11 +18966,11 @@ class SParser ( AbstractParser ):
         self.enterRule(localctx, 336, self.RULE_java_parenthesis_expression)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 1881
-            self.match(SParser.LPAR)
-            self.state = 1882
-            localctx.exp = self.java_expression(0)
             self.state = 1883
+            self.match(SParser.LPAR)
+            self.state = 1884
+            localctx.exp = self.java_expression(0)
+            self.state = 1885
             self.match(SParser.RPAR)
         except RecognitionException as re:
             localctx.exception = re
@@ -19015,12 +19055,12 @@ class SParser ( AbstractParser ):
             self._ctx = localctx
             _prevctx = localctx
 
-            self.state = 1886
+            self.state = 1888
             localctx.name = self.java_identifier()
             self._ctx.stop = self._input.LT(-1)
-            self.state = 1893
+            self.state = 1895
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,138,self._ctx)
+            _alt = self._interp.adaptivePredict(self._input,139,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
                     if self._parseListeners is not None:
@@ -19029,17 +19069,17 @@ class SParser ( AbstractParser ):
                     localctx = SParser.JavaChildIdentifierContext(self, SParser.Java_identifier_expressionContext(self, _parentctx, _parentState))
                     localctx.parent = _prevctx
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_java_identifier_expression)
-                    self.state = 1888
+                    self.state = 1890
                     if not self.precpred(self._ctx, 1):
                         from antlr4.error.Errors import FailedPredicateException
                         raise FailedPredicateException(self, "self.precpred(self._ctx, 1)")
-                    self.state = 1889
+                    self.state = 1891
                     self.match(SParser.DOT)
-                    self.state = 1890
+                    self.state = 1892
                     localctx.name = self.java_identifier() 
-                self.state = 1895
+                self.state = 1897
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,138,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,139,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -19121,12 +19161,12 @@ class SParser ( AbstractParser ):
             self._ctx = localctx
             _prevctx = localctx
 
-            self.state = 1897
+            self.state = 1899
             localctx.klass = self.java_identifier_expression(0)
             self._ctx.stop = self._input.LT(-1)
-            self.state = 1903
+            self.state = 1905
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,139,self._ctx)
+            _alt = self._interp.adaptivePredict(self._input,140,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
                     if self._parseListeners is not None:
@@ -19135,15 +19175,15 @@ class SParser ( AbstractParser ):
                     localctx = SParser.JavaChildClassIdentifierContext(self, SParser.Java_class_identifier_expressionContext(self, _parentctx, _parentState))
                     localctx.parent = _prevctx
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_java_class_identifier_expression)
-                    self.state = 1899
+                    self.state = 1901
                     if not self.precpred(self._ctx, 1):
                         from antlr4.error.Errors import FailedPredicateException
                         raise FailedPredicateException(self, "self.precpred(self._ctx, 1)")
-                    self.state = 1900
+                    self.state = 1902
                     localctx.name = self.match(SParser.DOLLAR_IDENTIFIER) 
-                self.state = 1905
+                self.state = 1907
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,139,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,140,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -19270,36 +19310,36 @@ class SParser ( AbstractParser ):
         localctx = SParser.Java_literal_expressionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 342, self.RULE_java_literal_expression)
         try:
-            self.state = 1911
+            self.state = 1913
             token = self._input.LA(1)
             if token in [SParser.INTEGER_LITERAL]:
                 localctx = SParser.JavaIntegerLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 1906
+                self.state = 1908
                 localctx.t = self.match(SParser.INTEGER_LITERAL)
 
             elif token in [SParser.DECIMAL_LITERAL]:
                 localctx = SParser.JavaDecimalLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 1907
+                self.state = 1909
                 localctx.t = self.match(SParser.DECIMAL_LITERAL)
 
             elif token in [SParser.TEXT_LITERAL]:
                 localctx = SParser.JavaTextLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 1908
+                self.state = 1910
                 localctx.t = self.match(SParser.TEXT_LITERAL)
 
             elif token in [SParser.BOOLEAN_LITERAL]:
                 localctx = SParser.JavaBooleanLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
-                self.state = 1909
+                self.state = 1911
                 localctx.t = self.match(SParser.BOOLEAN_LITERAL)
 
             elif token in [SParser.CHAR_LITERAL]:
                 localctx = SParser.JavaCharacterLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
-                self.state = 1910
+                self.state = 1912
                 localctx.t = self.match(SParser.CHAR_LITERAL)
 
             else:
@@ -19391,7 +19431,7 @@ class SParser ( AbstractParser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 1913
+            self.state = 1915
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SParser.BOOLEAN) | (1 << SParser.CHARACTER) | (1 << SParser.TEXT) | (1 << SParser.INTEGER) | (1 << SParser.DECIMAL) | (1 << SParser.DATE) | (1 << SParser.TIME) | (1 << SParser.DATETIME) | (1 << SParser.PERIOD))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (SParser.READ - 116)) | (1 << (SParser.TEST - 116)) | (1 << (SParser.WRITE - 116)) | (1 << (SParser.SYMBOL_IDENTIFIER - 116)) | (1 << (SParser.TYPE_IDENTIFIER - 116)) | (1 << (SParser.VARIABLE_IDENTIFIER - 116)) | (1 << (SParser.NATIVE_IDENTIFIER - 116)) | (1 << (SParser.DOLLAR_IDENTIFIER - 116)))) != 0)):
                 self._errHandler.recoverInline(self)
@@ -19472,24 +19512,24 @@ class SParser ( AbstractParser ):
         localctx = SParser.Csharp_statementContext(self, self._ctx, self.state)
         self.enterRule(localctx, 346, self.RULE_csharp_statement)
         try:
-            self.state = 1922
+            self.state = 1924
             token = self._input.LA(1)
             if token in [SParser.RETURN]:
                 localctx = SParser.CSharpReturnStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 1915
-                self.match(SParser.RETURN)
-                self.state = 1916
-                localctx.exp = self.csharp_expression(0)
                 self.state = 1917
+                self.match(SParser.RETURN)
+                self.state = 1918
+                localctx.exp = self.csharp_expression(0)
+                self.state = 1919
                 self.match(SParser.SEMI)
 
-            elif token in [SParser.LPAR, SParser.BOOLEAN, SParser.CHARACTER, SParser.TEXT, SParser.INTEGER, SParser.DECIMAL, SParser.DATE, SParser.TIME, SParser.DATETIME, SParser.PERIOD, SParser.READ, SParser.TEST, SParser.WRITE, SParser.BOOLEAN_LITERAL, SParser.CHAR_LITERAL, SParser.SYMBOL_IDENTIFIER, SParser.TYPE_IDENTIFIER, SParser.VARIABLE_IDENTIFIER, SParser.TEXT_LITERAL, SParser.INTEGER_LITERAL, SParser.DECIMAL_LITERAL]:
+            elif token in [SParser.LPAR, SParser.BOOLEAN, SParser.CHARACTER, SParser.TEXT, SParser.INTEGER, SParser.DECIMAL, SParser.DATE, SParser.TIME, SParser.DATETIME, SParser.PERIOD, SParser.READ, SParser.TEST, SParser.WRITE, SParser.BOOLEAN_LITERAL, SParser.CHAR_LITERAL, SParser.SYMBOL_IDENTIFIER, SParser.TYPE_IDENTIFIER, SParser.VARIABLE_IDENTIFIER, SParser.DOLLAR_IDENTIFIER, SParser.TEXT_LITERAL, SParser.INTEGER_LITERAL, SParser.DECIMAL_LITERAL]:
                 localctx = SParser.CSharpStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 1919
+                self.state = 1921
                 localctx.exp = self.csharp_expression(0)
-                self.state = 1920
+                self.state = 1922
                 self.match(SParser.SEMI)
 
             else:
@@ -19576,12 +19616,12 @@ class SParser ( AbstractParser ):
             self._ctx = localctx
             _prevctx = localctx
 
-            self.state = 1925
+            self.state = 1927
             localctx.exp = self.csharp_primary_expression()
             self._ctx.stop = self._input.LT(-1)
-            self.state = 1931
+            self.state = 1933
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,142,self._ctx)
+            _alt = self._interp.adaptivePredict(self._input,143,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
                     if self._parseListeners is not None:
@@ -19590,15 +19630,15 @@ class SParser ( AbstractParser ):
                     localctx = SParser.CSharpSelectorExpressionContext(self, SParser.Csharp_expressionContext(self, _parentctx, _parentState))
                     localctx.parent = _prevctx
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_csharp_expression)
-                    self.state = 1927
+                    self.state = 1929
                     if not self.precpred(self._ctx, 1):
                         from antlr4.error.Errors import FailedPredicateException
                         raise FailedPredicateException(self, "self.precpred(self._ctx, 1)")
-                    self.state = 1928
+                    self.state = 1930
                     localctx.child = self.csharp_selector_expression() 
-                self.state = 1933
+                self.state = 1935
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,142,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,143,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -19690,24 +19730,24 @@ class SParser ( AbstractParser ):
         localctx = SParser.Csharp_primary_expressionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 350, self.RULE_csharp_primary_expression)
         try:
-            self.state = 1937
+            self.state = 1939
             token = self._input.LA(1)
             if token in [SParser.LPAR]:
                 localctx = SParser.CSharpParenthesisExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 1934
+                self.state = 1936
                 localctx.exp = self.csharp_parenthesis_expression()
 
-            elif token in [SParser.BOOLEAN, SParser.CHARACTER, SParser.TEXT, SParser.INTEGER, SParser.DECIMAL, SParser.DATE, SParser.TIME, SParser.DATETIME, SParser.PERIOD, SParser.READ, SParser.TEST, SParser.WRITE, SParser.SYMBOL_IDENTIFIER, SParser.TYPE_IDENTIFIER, SParser.VARIABLE_IDENTIFIER]:
+            elif token in [SParser.BOOLEAN, SParser.CHARACTER, SParser.TEXT, SParser.INTEGER, SParser.DECIMAL, SParser.DATE, SParser.TIME, SParser.DATETIME, SParser.PERIOD, SParser.READ, SParser.TEST, SParser.WRITE, SParser.SYMBOL_IDENTIFIER, SParser.TYPE_IDENTIFIER, SParser.VARIABLE_IDENTIFIER, SParser.DOLLAR_IDENTIFIER]:
                 localctx = SParser.CSharpIdentifierExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 1935
+                self.state = 1937
                 localctx.exp = self.csharp_identifier_expression(0)
 
             elif token in [SParser.BOOLEAN_LITERAL, SParser.CHAR_LITERAL, SParser.TEXT_LITERAL, SParser.INTEGER_LITERAL, SParser.DECIMAL_LITERAL]:
                 localctx = SParser.CSharpLiteralExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 1936
+                self.state = 1938
                 localctx.exp = self.csharp_literal_expression()
 
             else:
@@ -19785,20 +19825,20 @@ class SParser ( AbstractParser ):
         localctx = SParser.Csharp_selector_expressionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 352, self.RULE_csharp_selector_expression)
         try:
-            self.state = 1942
+            self.state = 1944
             token = self._input.LA(1)
             if token in [SParser.DOT]:
                 localctx = SParser.CSharpMethodExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 1939
+                self.state = 1941
                 self.match(SParser.DOT)
-                self.state = 1940
+                self.state = 1942
                 localctx.exp = self.csharp_method_expression()
 
             elif token in [SParser.LBRAK]:
                 localctx = SParser.CSharpItemExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 1941
+                self.state = 1943
                 localctx.exp = self.csharp_item_expression()
 
             else:
@@ -19855,18 +19895,18 @@ class SParser ( AbstractParser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 1944
+            self.state = 1946
             localctx.name = self.csharp_identifier()
-            self.state = 1945
-            self.match(SParser.LPAR)
             self.state = 1947
+            self.match(SParser.LPAR)
+            self.state = 1949
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SParser.LPAR) | (1 << SParser.BOOLEAN) | (1 << SParser.CHARACTER) | (1 << SParser.TEXT) | (1 << SParser.INTEGER) | (1 << SParser.DECIMAL) | (1 << SParser.DATE) | (1 << SParser.TIME) | (1 << SParser.DATETIME) | (1 << SParser.PERIOD))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (SParser.READ - 116)) | (1 << (SParser.TEST - 116)) | (1 << (SParser.WRITE - 116)) | (1 << (SParser.BOOLEAN_LITERAL - 116)) | (1 << (SParser.CHAR_LITERAL - 116)) | (1 << (SParser.SYMBOL_IDENTIFIER - 116)) | (1 << (SParser.TYPE_IDENTIFIER - 116)) | (1 << (SParser.VARIABLE_IDENTIFIER - 116)) | (1 << (SParser.TEXT_LITERAL - 116)) | (1 << (SParser.INTEGER_LITERAL - 116)) | (1 << (SParser.DECIMAL_LITERAL - 116)))) != 0):
-                self.state = 1946
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SParser.LPAR) | (1 << SParser.BOOLEAN) | (1 << SParser.CHARACTER) | (1 << SParser.TEXT) | (1 << SParser.INTEGER) | (1 << SParser.DECIMAL) | (1 << SParser.DATE) | (1 << SParser.TIME) | (1 << SParser.DATETIME) | (1 << SParser.PERIOD))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (SParser.READ - 116)) | (1 << (SParser.TEST - 116)) | (1 << (SParser.WRITE - 116)) | (1 << (SParser.BOOLEAN_LITERAL - 116)) | (1 << (SParser.CHAR_LITERAL - 116)) | (1 << (SParser.SYMBOL_IDENTIFIER - 116)) | (1 << (SParser.TYPE_IDENTIFIER - 116)) | (1 << (SParser.VARIABLE_IDENTIFIER - 116)) | (1 << (SParser.DOLLAR_IDENTIFIER - 116)) | (1 << (SParser.TEXT_LITERAL - 116)) | (1 << (SParser.INTEGER_LITERAL - 116)) | (1 << (SParser.DECIMAL_LITERAL - 116)))) != 0):
+                self.state = 1948
                 localctx.args = self.csharp_arguments(0)
 
 
-            self.state = 1949
+            self.state = 1951
             self.match(SParser.RPAR)
         except RecognitionException as re:
             localctx.exception = re
@@ -19951,12 +19991,12 @@ class SParser ( AbstractParser ):
             self._ctx = localctx
             _prevctx = localctx
 
-            self.state = 1952
+            self.state = 1954
             localctx.item = self.csharp_expression(0)
             self._ctx.stop = self._input.LT(-1)
-            self.state = 1959
+            self.state = 1961
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,146,self._ctx)
+            _alt = self._interp.adaptivePredict(self._input,147,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
                     if self._parseListeners is not None:
@@ -19965,17 +20005,17 @@ class SParser ( AbstractParser ):
                     localctx = SParser.CSharpArgumentListItemContext(self, SParser.Csharp_argumentsContext(self, _parentctx, _parentState))
                     localctx.items = _prevctx
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_csharp_arguments)
-                    self.state = 1954
+                    self.state = 1956
                     if not self.precpred(self._ctx, 1):
                         from antlr4.error.Errors import FailedPredicateException
                         raise FailedPredicateException(self, "self.precpred(self._ctx, 1)")
-                    self.state = 1955
+                    self.state = 1957
                     self.match(SParser.COMMA)
-                    self.state = 1956
+                    self.state = 1958
                     localctx.item = self.csharp_expression(0) 
-                self.state = 1961
+                self.state = 1963
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,146,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,147,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -20022,11 +20062,11 @@ class SParser ( AbstractParser ):
         self.enterRule(localctx, 358, self.RULE_csharp_item_expression)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 1962
-            self.match(SParser.LBRAK)
-            self.state = 1963
-            localctx.exp = self.csharp_expression(0)
             self.state = 1964
+            self.match(SParser.LBRAK)
+            self.state = 1965
+            localctx.exp = self.csharp_expression(0)
+            self.state = 1966
             self.match(SParser.RBRAK)
         except RecognitionException as re:
             localctx.exception = re
@@ -20073,11 +20113,11 @@ class SParser ( AbstractParser ):
         self.enterRule(localctx, 360, self.RULE_csharp_parenthesis_expression)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 1966
-            self.match(SParser.LPAR)
-            self.state = 1967
-            localctx.exp = self.csharp_expression(0)
             self.state = 1968
+            self.match(SParser.LPAR)
+            self.state = 1969
+            localctx.exp = self.csharp_expression(0)
+            self.state = 1970
             self.match(SParser.RPAR)
         except RecognitionException as re:
             localctx.exception = re
@@ -20100,6 +20140,24 @@ class SParser ( AbstractParser ):
      
         def copyFrom(self, ctx:ParserRuleContext):
             super().copyFrom(ctx)
+
+
+    class CSharpPrestoIdentifierContext(Csharp_identifier_expressionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a SParser.Csharp_identifier_expressionContext)
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def DOLLAR_IDENTIFIER(self):
+            return self.getToken(SParser.DOLLAR_IDENTIFIER, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if isinstance( listener, SParserListener ):
+                listener.enterCSharpPrestoIdentifier(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if isinstance( listener, SParserListener ):
+                listener.exitCSharpPrestoIdentifier(self)
 
 
     class CSharpIdentifierContext(Csharp_identifier_expressionContext):
@@ -20158,16 +20216,30 @@ class SParser ( AbstractParser ):
         self.enterRecursionRule(localctx, 362, self.RULE_csharp_identifier_expression, _p)
         try:
             self.enterOuterAlt(localctx, 1)
-            localctx = SParser.CSharpIdentifierContext(self, localctx)
-            self._ctx = localctx
-            _prevctx = localctx
+            self.state = 1975
+            token = self._input.LA(1)
+            if token in [SParser.DOLLAR_IDENTIFIER]:
+                localctx = SParser.CSharpPrestoIdentifierContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
 
-            self.state = 1971
-            localctx.name = self.csharp_identifier()
+                self.state = 1973
+                self.match(SParser.DOLLAR_IDENTIFIER)
+
+            elif token in [SParser.BOOLEAN, SParser.CHARACTER, SParser.TEXT, SParser.INTEGER, SParser.DECIMAL, SParser.DATE, SParser.TIME, SParser.DATETIME, SParser.PERIOD, SParser.READ, SParser.TEST, SParser.WRITE, SParser.SYMBOL_IDENTIFIER, SParser.TYPE_IDENTIFIER, SParser.VARIABLE_IDENTIFIER]:
+                localctx = SParser.CSharpIdentifierContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
+                self.state = 1974
+                localctx.name = self.csharp_identifier()
+
+            else:
+                raise NoViableAltException(self)
+
             self._ctx.stop = self._input.LT(-1)
-            self.state = 1978
+            self.state = 1982
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,147,self._ctx)
+            _alt = self._interp.adaptivePredict(self._input,149,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
                     if self._parseListeners is not None:
@@ -20176,17 +20248,17 @@ class SParser ( AbstractParser ):
                     localctx = SParser.CSharpChildIdentifierContext(self, SParser.Csharp_identifier_expressionContext(self, _parentctx, _parentState))
                     localctx.parent = _prevctx
                     self.pushNewRecursionContext(localctx, _startState, self.RULE_csharp_identifier_expression)
-                    self.state = 1973
+                    self.state = 1977
                     if not self.precpred(self._ctx, 1):
                         from antlr4.error.Errors import FailedPredicateException
                         raise FailedPredicateException(self, "self.precpred(self._ctx, 1)")
-                    self.state = 1974
+                    self.state = 1978
                     self.match(SParser.DOT)
-                    self.state = 1975
+                    self.state = 1979
                     localctx.name = self.csharp_identifier() 
-                self.state = 1980
+                self.state = 1984
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,147,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,149,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -20308,36 +20380,36 @@ class SParser ( AbstractParser ):
         localctx = SParser.Csharp_literal_expressionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 364, self.RULE_csharp_literal_expression)
         try:
-            self.state = 1986
+            self.state = 1990
             token = self._input.LA(1)
             if token in [SParser.INTEGER_LITERAL]:
                 localctx = SParser.CSharpIntegerLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 1981
+                self.state = 1985
                 self.match(SParser.INTEGER_LITERAL)
 
             elif token in [SParser.DECIMAL_LITERAL]:
                 localctx = SParser.CSharpDecimalLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 1982
+                self.state = 1986
                 self.match(SParser.DECIMAL_LITERAL)
 
             elif token in [SParser.TEXT_LITERAL]:
                 localctx = SParser.CSharpTextLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 1983
+                self.state = 1987
                 self.match(SParser.TEXT_LITERAL)
 
             elif token in [SParser.BOOLEAN_LITERAL]:
                 localctx = SParser.CSharpBooleanLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
-                self.state = 1984
+                self.state = 1988
                 self.match(SParser.BOOLEAN_LITERAL)
 
             elif token in [SParser.CHAR_LITERAL]:
                 localctx = SParser.CSharpCharacterLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
-                self.state = 1985
+                self.state = 1989
                 self.match(SParser.CHAR_LITERAL)
 
             else:
@@ -20423,7 +20495,7 @@ class SParser ( AbstractParser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 1988
+            self.state = 1992
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SParser.BOOLEAN) | (1 << SParser.CHARACTER) | (1 << SParser.TEXT) | (1 << SParser.INTEGER) | (1 << SParser.DECIMAL) | (1 << SParser.DATE) | (1 << SParser.TIME) | (1 << SParser.DATETIME) | (1 << SParser.PERIOD))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (SParser.READ - 116)) | (1 << (SParser.TEST - 116)) | (1 << (SParser.WRITE - 116)) | (1 << (SParser.SYMBOL_IDENTIFIER - 116)) | (1 << (SParser.TYPE_IDENTIFIER - 116)) | (1 << (SParser.VARIABLE_IDENTIFIER - 116)))) != 0)):
                 self._errHandler.recoverInline(self)

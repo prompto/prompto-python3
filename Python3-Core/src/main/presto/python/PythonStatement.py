@@ -19,7 +19,7 @@ class PythonStatement(object):
         if self.isReturn:
             if o is not None:
                 ct = PythonClassType(type(o))
-                o = ct.convertPythonValueToPrestoValue(o, returnType)
+                o = ct.convertPythonValueToPrestoValue(context, o, returnType)
             return o
         else:
             return None

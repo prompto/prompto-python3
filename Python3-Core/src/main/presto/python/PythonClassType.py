@@ -40,14 +40,17 @@ class PythonClassType(CategoryType):
         else:
             return result
 
-    def convertPythonValueToPrestoValue(self, value, returnType):
+    def convertPythonValueToPrestoValue(self, context, value, returnType):
+        from presto.value.NativeInstance import NativeInstance
         if isinstance(value, IValue):
             return value
-        type_ = PythonClassType.pythonToPrestoMap.get(self.klass.__name__, None)
-        if type_ is not None:
-            return type_.convertPythonValueToPrestoValue(value)
+        typ = PythonClassType.pythonToPrestoMap.get(self.klass.__name__, None)
+        if typ is not None:
+            return typ.convertPythonValueToPrestoValue(context, value, returnType)
+        decl = context.getNativeMapping(self.klass)
+        if decl is not None:
+            return NativeInstance(decl, value)
         elif returnType is AnyType.instance:
-            from presto.value.NativeInstance import NativeInstance
             return NativeInstance(AnyNativeCategoryDeclaration.instance, value)
         else:
-            raise InternalError("Unable to convert:" + type(value).__name__);
+            raise InternalError("Unable to convert:" + type(value).__name__)

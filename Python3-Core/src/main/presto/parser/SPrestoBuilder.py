@@ -565,9 +565,9 @@ class SPrestoBuilder(SParserListener):
 
     def exitConstructor_expression(self, ctx:SParser.Constructor_expressionContext):
         mutable = ctx.MUTABLE() is not None
-        type = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.typ)
         args = self.getNodeValue(ctx.args)
-        self.setNodeValue(ctx, ConstructorExpression(type, mutable, args))
+        self.setNodeValue(ctx, ConstructorExpression(typ, mutable, args))
 
 
     def exitConstructorExpression(self, ctx:SParser.ConstructorExpressionContext):
@@ -666,6 +666,11 @@ class SPrestoBuilder(SParserListener):
     def exitCSharpNativeStatement(self, ctx:SParser.CSharpNativeStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, CSharpNativeCall(stmt))
+
+
+    def exitCSharpPrestoIdentifier(self, ctx:SParser.CSharpPrestoIdentifierContext):
+        name = ctx.DOLLAR_IDENTIFIER().getText()
+        self.setNodeValue(ctx, CSharpIdentifierExpression(None, name))
 
 
     def exitCSharpPrimaryExpression(self, ctx:SParser.CSharpPrimaryExpressionContext):
@@ -1796,6 +1801,10 @@ class SPrestoBuilder(SParserListener):
     def exitPythonOrdinalOnlyArgumentList(self, ctx:SParser.PythonOrdinalOnlyArgumentListContext):
         ordinal = self.getNodeValue(ctx.ordinal)
         self.setNodeValue(ctx, ordinal)
+
+    def exitPythonPrestoIdentifier(self, ctx:SParser.PythonPrestoIdentifierContext):
+        name = ctx.DOLLAR_IDENTIFIER().getText()
+        self.setNodeValue(ctx, PythonIdentifierExpression(name))
 
     def exitPythonPrimaryExpression(self, ctx:SParser.PythonPrimaryExpressionContext):
         exp = self.getNodeValue(ctx.exp)

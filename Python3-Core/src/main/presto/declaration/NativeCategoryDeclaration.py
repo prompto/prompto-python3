@@ -12,24 +12,34 @@ class NativeCategoryDeclaration ( CategoryDeclaration ):
     def __str__(self):
         return self.getName() + (":" + str(self.attributes)) if self.attributes is not None else ""
 
+    def register(self, context):
+        context.registerDeclaration(self)
+        mapped = self.getMappedClass(False)
+        if mapped is not None:
+            context.registerNativeMapping(mapped, self)
+
     def newInstance(self):
         from presto.value.NativeInstance import NativeInstance
         return NativeInstance(self)
 
-    def getMappedClass(self):
+    def getMappedClass(self, fail:bool):
         if self.mappedClass is None:
-            mapping = self.getMapping()
-            self.mappedClass = mapping.interpret()
-            if self.mappedClass is None:
-                raise SyntaxError("No Python class:" + str(mapping))
+            mapping = self.getMapping(fail)
+            if mapping is not None:
+                self.mappedClass = mapping.interpret()
+                if fail and self.mappedClass is None:
+                    raise SyntaxError("No Python class:" + str(mapping))
         return self.mappedClass
 
-    def getMapping(self):
+    def getMapping(self, fail:bool):
         for mapping in self.categoryMappings:
             from presto.python.PythonNativeCategoryMapping import Python3NativeCategoryMapping
             if isinstance(mapping, Python3NativeCategoryMapping):
                 return mapping
-        raise SyntaxError("Missing PYTHON3 mapping !")
+        if fail:
+            raise SyntaxError("Missing PYTHON2 mapping !")
+        else:
+            return None
 
     def toEDialect(self, writer):
         self.protoToEDialect(writer, False, True)

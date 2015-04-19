@@ -3127,6 +3127,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#PythonPrestoIdentifier.
+    def enterPythonPrestoIdentifier(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#PythonPrestoIdentifier.
+    def exitPythonPrestoIdentifier(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#PythonIntegerLiteral.
     def enterPythonIntegerLiteral(self, ctx):
         pass
@@ -3520,6 +3529,15 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#csharp_parenthesis_expression.
     def exitCsharp_parenthesis_expression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#CSharpPrestoIdentifier.
+    def enterCSharpPrestoIdentifier(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#CSharpPrestoIdentifier.
+    def exitCSharpPrestoIdentifier(self, ctx):
         pass
 
 

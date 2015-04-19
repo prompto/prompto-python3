@@ -208,9 +208,9 @@ class OPrestoBuilder(OParserListener):
         return None
 
     def findLastValidToken(self, idx:int):
-        if idx==-1: # happens because input.index() is called before any other read operation (bug?)
+        if idx == -1:  # happens because input.index() is called before any other read operation (bug?)
             idx = 0
-        while idx>=0:
+        while idx >= 0:
             token = self.readValidToken(idx)
             if token is not None:
                 return token
@@ -220,7 +220,7 @@ class OPrestoBuilder(OParserListener):
     def readValidToken(self, idx:int):
         token = self.input.tokens[idx]
         text = token.text
-        if text is not None and len(text)>0 and not text[0].isspace():
+        if text is not None and len(text) > 0 and not text[0].isspace():
             return token
         else:
             return None
@@ -540,7 +540,7 @@ class OPrestoBuilder(OParserListener):
     def exitAttribute_declaration(self, ctx:OParser.Attribute_declarationContext):
         name = self.getNodeValue(ctx.name)
         type = self.getNodeValue(ctx.typ)
-        match = self.getNodeValue(getattr(ctx,"match",None))
+        match = self.getNodeValue(getattr(ctx, "match", None))
         self.setNodeValue(ctx, AttributeDeclaration(name, type, match))
     
 
@@ -824,7 +824,7 @@ class OPrestoBuilder(OParserListener):
     def exitAddExpression(self, ctx:OParser.AddExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        exp = AddExpression(left, right) if ctx.op.type==OParser.PLUS else SubtractExpression(left, right)
+        exp = AddExpression(left, right) if ctx.op.type == OParser.PLUS else SubtractExpression(left, right)
         self.setNodeValue(ctx, exp)
     
 
@@ -849,16 +849,6 @@ class OPrestoBuilder(OParserListener):
         self.setNodeValue(ctx, items)
     
 
-    
-    def exitMember_method_declaration(self, ctx:OParser.Member_method_declarationContext):
-        type = self.getNodeValue(ctx.typ)
-        name = self.getNodeValue(ctx.name)
-        args = self.getNodeValue(ctx.args)
-        stmts = self.getNodeValue(ctx.stmts)
-        self.setNodeValue(ctx, MemberMethodDeclaration(name, args, type, stmts))
-    
-
-    
     def exitSetter_method_declaration(self, ctx:OParser.Setter_method_declarationContext):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
@@ -1124,6 +1114,10 @@ class OPrestoBuilder(OParserListener):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, PythonIdentifierExpression(name))
     
+    def exitPythonPrestoIdentifier(self, ctx:OParser.PythonPrestoIdentifierContext):
+        name = ctx.DOLLAR_IDENTIFIER().getText()
+        self.setNodeValue(ctx, PythonIdentifierExpression(name))
+
     def exitPythonPrimaryExpression(self, ctx:OParser.PythonPrimaryExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
@@ -1185,7 +1179,10 @@ class OPrestoBuilder(OParserListener):
         self.setNodeValue(ctx, exp)
     
 
-    
+    def exitCSharpPrestoIdentifier(self, ctx:OParser.CSharpPrestoIdentifierContext):
+        name = ctx.DOLLAR_IDENTIFIER().getText()
+        self.setNodeValue(ctx, CSharpIdentifierExpression(None, name))
+
     def exitCSharpPrimaryExpression(self, ctx:OParser.CSharpPrimaryExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
@@ -1214,18 +1211,18 @@ class OPrestoBuilder(OParserListener):
     
     def exitJavaStatement(self, ctx:OParser.JavaStatementContext):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, JavaStatement(exp,False))
+        self.setNodeValue(ctx, JavaStatement(exp, False))
     
 
     
     def exitCSharpStatement(self, ctx:OParser.CSharpStatementContext):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, CSharpStatement(exp,False))
+        self.setNodeValue(ctx, CSharpStatement(exp, False))
     
 
     def exitPythonStatement(self, ctx:OParser.PythonStatementContext):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, PythonStatement(exp,False))
+        self.setNodeValue(ctx, PythonStatement(exp, False))
     
     def exitPython_native_statement(self, ctx:OParser.Python_native_statementContext):
         stmt = self.getNodeValue(ctx.stmt)
@@ -1240,17 +1237,17 @@ class OPrestoBuilder(OParserListener):
     
     def exitJavaReturnStatement(self, ctx:OParser.JavaReturnStatementContext):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, JavaStatement(exp,True))
+        self.setNodeValue(ctx, JavaStatement(exp, True))
     
 
     
     def exitCSharpReturnStatement(self, ctx:OParser.CSharpReturnStatementContext):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, CSharpStatement(exp,True))
+        self.setNodeValue(ctx, CSharpStatement(exp, True))
 
     def exitPythonReturnStatement(self, ctx:OParser.PythonReturnStatementContext):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, PythonStatement(exp,True))
+        self.setNodeValue(ctx, PythonStatement(exp, True))
 
     def exitJavaNativeStatement(self, ctx:OParser.JavaNativeStatementContext):
         stmt = self.getNodeValue(ctx.stmt)

@@ -10,10 +10,16 @@ class TestNative(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testAttribute(self):
+        self.checkOutput("native/attribute.pec")
+
     def testCategory(self):
         self.checkOutput("native/category.pec")
 
     def testMethod(self):
         self.checkOutput("native/method.pec")
+
+    def testPrinter(self):
+        self.checkOutput("native/printer.pec")
 
 

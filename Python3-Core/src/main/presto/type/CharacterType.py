@@ -52,7 +52,7 @@ class CharacterType(NativeType):
     def toString(self, value):
         return "'" + str(value) + "'";
 
-    def convertPythonValueToPrestoValue(self, value):
+    def convertPythonValueToPrestoValue(self, context, value, returnType):
         if isinstance(value, basestring):
             return Character(value)
         else:

@@ -3064,6 +3064,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#PythonPrestoIdentifier.
+    def enterPythonPrestoIdentifier(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#PythonPrestoIdentifier.
+    def exitPythonPrestoIdentifier(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#PythonIntegerLiteral.
     def enterPythonIntegerLiteral(self, ctx):
         pass
@@ -3457,6 +3466,15 @@ class SParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by SParser#csharp_parenthesis_expression.
     def exitCsharp_parenthesis_expression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#CSharpPrestoIdentifier.
+    def enterCSharpPrestoIdentifier(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#CSharpPrestoIdentifier.
+    def exitCSharpPrestoIdentifier(self, ctx):
         pass
 
 

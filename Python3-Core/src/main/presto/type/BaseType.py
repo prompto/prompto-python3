@@ -88,7 +88,7 @@ class BaseType(IType):
     def toString(self, value):
         return str(value)
 
-    def convertPythonValueToPrestoValue(self, value):
+    def convertPythonValueToPrestoValue(self, context, value, returnType):
         raise Exception("Unsupported!")
 
     def sort(self, context, source, key=None):

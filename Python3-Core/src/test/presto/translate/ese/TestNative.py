@@ -5,14 +5,17 @@ class TestNative(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testAttribute(self):
+        self.compareResourceESE("native/attribute.pec")
+
     def testCategory(self):
         self.compareResourceESE("native/category.pec")
 
     def testMethod(self):
         self.compareResourceESE("native/method.pec")
 
-    def testPrint(self):
-        self.compareResourceESE("native/print.pec")
+    def testPrinter(self):
+        self.compareResourceESE("native/printer.pec")
 
     def testReturn(self):
         self.compareResourceESE("native/return.pec")

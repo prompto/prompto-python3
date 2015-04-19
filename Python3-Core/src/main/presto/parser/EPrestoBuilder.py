@@ -221,7 +221,7 @@ class EPrestoBuilder(EParserListener):
     def readValidToken(self, idx:int):
         token = self.input.tokens[idx]
         text = token.text
-        if text is not None and len(text)>0 and not text[0].isspace():
+        if text is not None and len(text) > 0 and not text[0].isspace():
             return token
         else:
             return None
@@ -242,7 +242,7 @@ class EPrestoBuilder(EParserListener):
     def exitMethodCallExpression(self, ctx:EParser.MethodCallExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         args = self.getNodeValue(ctx.args)
-        call = UnresolvedCall(exp,args)
+        call = UnresolvedCall(exp, args)
         self.setNodeValue(ctx, call)
     
 
@@ -887,16 +887,6 @@ class EPrestoBuilder(EParserListener):
         self.setNodeValue(ctx, items)
     
 
-    
-    def exitMember_method_declaration(self, ctx:EParser.Member_method_declarationContext):
-        type = self.getNodeValue(ctx.typ)
-        name = self.getNodeValue(ctx.name)
-        args = self.getNodeValue(ctx.args)
-        stmts = self.getNodeValue(ctx.stmts)
-        self.setNodeValue(ctx, MemberMethodDeclaration(name, args, type, stmts))
-    
-
-    
     def exitSetter_method_declaration(self, ctx:EParser.Setter_method_declarationContext):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
@@ -1109,10 +1099,6 @@ class EPrestoBuilder(EParserListener):
         items.append(item)
         self.setNodeValue(ctx, items)
 
-    def exitPythonCharacterLiteral(self, ctx):
-        text = ctx.t.text
-        self.setNodeValue(ctx, PythonCharacterLiteral(text))
-
     def exitPython_identifier(self, ctx:EParser.Python_identifierContext):
         name = ctx.getText()
         self.setNodeValue(ctx, name)
@@ -1175,6 +1161,9 @@ class EPrestoBuilder(EParserListener):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, PythonIdentifierExpression(name))
     
+    def exitPythonPrestoIdentifier(self, ctx:EParser.PythonPrestoIdentifierContext):
+        name = ctx.DOLLAR_IDENTIFIER().getText()
+        self.setNodeValue(ctx, PythonIdentifierExpression(name))
 
     def exitPythonPrimaryExpression(self, ctx:EParser.PythonPrimaryExpressionContext):
         exp = self.getNodeValue(ctx.exp)
@@ -1194,8 +1183,6 @@ class EPrestoBuilder(EParserListener):
         name = self.getNodeValue(ctx.name)
         child = CSharpIdentifierExpression(parent, name)
         self.setNodeValue(ctx, child)
-    
-
     
     def exitPythonChildIdentifier(self, ctx:EParser.PythonChildIdentifierContext):
         parent = self.getNodeValue(ctx.parent)
@@ -1251,8 +1238,12 @@ class EPrestoBuilder(EParserListener):
 
     def exitJavaReturnStatement(self, ctx):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, JavaStatement(exp,True))
+        self.setNodeValue(ctx, JavaStatement(exp, True))
     
+
+    def exitCSharpPrestoIdentifier(self, ctx:EParser.CSharpPrestoIdentifierContext):
+        name = ctx.DOLLAR_IDENTIFIER().getText()
+        self.setNodeValue(ctx, CSharpIdentifierExpression(None, name))
 
     def exitCSharpPrimaryExpression(self, ctx):
         exp = self.getNodeValue(ctx.exp)
@@ -1261,12 +1252,12 @@ class EPrestoBuilder(EParserListener):
 
     def exitCSharpStatement(self, ctx:EParser.CSharpStatementContext):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, CSharpStatement(exp,False))
+        self.setNodeValue(ctx, CSharpStatement(exp, False))
     
 
     def exitPythonStatement(self, ctx:EParser.PythonStatementContext):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, PythonStatement(exp,False))
+        self.setNodeValue(ctx, PythonStatement(exp, False))
     
     def exitPython_native_statement(self, ctx:EParser.Python_native_statementContext):
         stmt = self.getNodeValue(ctx.stmt)
@@ -1280,11 +1271,11 @@ class EPrestoBuilder(EParserListener):
 
     def exitCSharpReturnStatement(self, ctx):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, CSharpStatement(exp,True))
+        self.setNodeValue(ctx, CSharpStatement(exp, True))
     
     def exitPythonReturnStatement(self, ctx:EParser.PythonReturnStatementContext):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, PythonStatement(exp,True))
+        self.setNodeValue(ctx, PythonStatement(exp, True))
     
 
     
@@ -1448,6 +1439,8 @@ class EPrestoBuilder(EParserListener):
     def exitPythonBooleanLiteral(self, ctx:EParser.PythonBooleanLiteralContext):
         self.setNodeValue(ctx, PythonBooleanLiteral(ctx.getText()))
     
+    def exitPythonCharacterLiteral(self, ctx):
+        self.setNodeValue(ctx, PythonCharacterLiteral(ctx.getText()))
 
     
     def exitPythonIntegerLiteral(self, ctx:EParser.PythonIntegerLiteralContext):

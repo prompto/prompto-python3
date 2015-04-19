@@ -40,6 +40,9 @@ class PythonIdentifierExpression(PythonExpression):
             return self.interpret_child(context, module)
 
     def interpret_root(self, context, module):
+        o = self.interpret_presto(context)
+        if o is not None:
+            return o
         o = self.interpret_instance(context)
         if o is not None:
             return o
@@ -50,6 +53,12 @@ class PythonIdentifierExpression(PythonExpression):
         if o is not None:
             return o
         return None
+
+    def interpret_presto(self, context):
+        if self.identifier=="$context":
+            return context
+        else:
+            return None
 
     def interpret_global(self):
         try:

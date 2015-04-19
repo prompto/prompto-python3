@@ -3100,6 +3100,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#PythonPrestoIdentifier.
+    def enterPythonPrestoIdentifier(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#PythonPrestoIdentifier.
+    def exitPythonPrestoIdentifier(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#PythonIntegerLiteral.
     def enterPythonIntegerLiteral(self, ctx):
         pass
@@ -3493,6 +3502,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#csharp_parenthesis_expression.
     def exitCsharp_parenthesis_expression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#CSharpPrestoIdentifier.
+    def enterCSharpPrestoIdentifier(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#CSharpPrestoIdentifier.
+    def exitCSharpPrestoIdentifier(self, ctx):
         pass
 
 

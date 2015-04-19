@@ -36,6 +36,7 @@ class Context(IContext):
         self.tests = dict()
         self.instances = dict()
         self.values = dict()
+        self.nativeMappings = dict()
 
     def isGlobalContext(self):
         return id(self) == id(self.globals)
@@ -112,6 +113,9 @@ class Context(IContext):
         context.debugger = self.debugger
         return context
 
+    def findAttribute(self, name):
+        return self.getRegisteredDeclaration(AttributeDeclaration, name)
+
     def getRegistered(self, name):
         # resolve upwards, since local names override global ones
         actual = self.declarations.get(name, None)
@@ -182,6 +186,20 @@ class Context(IContext):
             if self.instances.get(value.getName(), None) is not None:
                 raise SyntaxError("Duplicate name: \"" + value.getName() + "\"")
         self.instances[value.getName()] = value
+
+    def registerNativeMapping(self, klass, decl):
+        if self is self.globals:
+            # use id since klass may change between register and get
+            self.nativeMappings[id(klass)] = decl
+        else:
+            self.globals.registerNativeMapping(klass, decl)
+
+    def getNativeMapping(self, klass):
+        if self is self.globals:
+            # use id since klass may change between register and get
+            return self.nativeMappings.get(id(klass), None)
+        else:
+            return self.globals.getNativeMapping(klass)
 
     def getValue(self, name):
         context = self.contextForValue(name)

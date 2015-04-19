@@ -14,7 +14,7 @@ class BooleanType(NativeType):
     def sort(self, context, source):
         return sorted(source)
 
-    def convertPythonValueToPrestoValue(self, value):
+    def convertPythonValueToPrestoValue(self, context, value, returnType):
         from presto.value.Boolean import Boolean
         if isinstance(value, bool):
             return Boolean.ValueOf(value)
