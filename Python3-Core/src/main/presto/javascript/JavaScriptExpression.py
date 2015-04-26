@@ -1,7 +1,8 @@
-from presto.grammar.IDialectElement import IDialectElement
 
+class JavaScriptExpression(object):
 
-class JavaScriptExpression(IDialectElement):
+	def __init__(self, text):
+		self.text = text
 
-    def toDialect(self, writer):
-        raise Exception("Not implemented!")
+	def __str__(self):
+		return self.text

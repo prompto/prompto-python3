@@ -22,7 +22,7 @@ class RaiseStatement ( SimpleStatement ):
         writer.append("throw ")
         self.expression.toDialect(writer)
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         writer.append("raise ")
         self.expression.toDialect(writer)
 

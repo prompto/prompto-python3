@@ -25,7 +25,7 @@ class WithResourceStatement ( BaseStatement ):
             if isinstance(res, IResource):
                 res.close()
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         writer.append("with ")
         self.resource.toDialect(writer)
         writer.append(":\n")

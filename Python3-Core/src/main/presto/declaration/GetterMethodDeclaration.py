@@ -1,21 +1,21 @@
-from presto.declaration.BaseCategoryMethodDeclaration import BaseCategoryMethodDeclaration
+from presto.declaration.ConcreteMethodDeclaration import ConcreteMethodDeclaration
 from presto.expression.IExpression import IExpression
 
 
-class GetterMethodDeclaration(BaseCategoryMethodDeclaration, IExpression):
+class GetterMethodDeclaration(ConcreteMethodDeclaration, IExpression):
 
-    def __init__(self, name, instructions):
-        super(GetterMethodDeclaration, self).__init__(name, None, instructions)
+    def __init__(self, name, statements):
+        super().__init__(name, None, None, statements)
 
     def checkMember(self, category, context):
         pass  # TODO
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         writer.append("def ")
         writer.append(self.name)
         writer.append(" getter():\n")
         writer.indent()
-        self.instructions.toDialect(writer)
+        self.statements.toDialect(writer)
         writer.dedent()
 
     def toODialect(self, writer):
@@ -23,7 +23,7 @@ class GetterMethodDeclaration(BaseCategoryMethodDeclaration, IExpression):
         writer.append(self.name)
         writer.append(" {\n")
         writer.indent()
-        self.instructions.toDialect(writer)
+        self.statements.toDialect(writer)
         writer.dedent()
         writer.append("}\n")
 
@@ -32,6 +32,6 @@ class GetterMethodDeclaration(BaseCategoryMethodDeclaration, IExpression):
         writer.append(self.name)
         writer.append(" getter doing:\n")
         writer.indent()
-        self.instructions.toDialect(writer)
+        self.statements.toDialect(writer)
         writer.dedent()
 

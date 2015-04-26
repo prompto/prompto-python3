@@ -31,7 +31,7 @@ class IfStatement ( BaseStatement ):
                 return element.interpret(context)
         return None
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         first = True
         for elem in self.elements:
             if not first:
@@ -94,7 +94,7 @@ class IfElement ( BaseStatement ):
         context = context if id(parent)!=id(context) else context.newChildContext()
         return context
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         self.toEDialect(writer)
 
     def toODialect(self, writer):

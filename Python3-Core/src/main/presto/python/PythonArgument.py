@@ -26,6 +26,7 @@ class PythonArgumentList(list):
         if len(self)>0:
             writer.trimLast(2)
 
+
 class PythonOrdinalArgumentList(PythonArgumentList):
 
     def __init__(self, expression):
@@ -53,9 +54,10 @@ class PythonNamedArgument(object):
 
 class PythonNamedArgumentList(PythonArgumentList):
 
-    def __init__(self, argument):
+    def __init__(self, argument=None):
         super(PythonNamedArgumentList, self).__init__()
-        self.append(argument)
+        if argument is not None:
+            self.append(argument)
 
     def computeArguments(self, context, module):
         values = dict()

@@ -58,5 +58,5 @@ class DoWhileStatement ( BaseStatement ):
         self.condition.toDialect(writer)
         writer.append(");\n")
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         self.toEDialect(writer)

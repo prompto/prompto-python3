@@ -102,7 +102,7 @@ class SwitchErrorStatement(BaseSwitchStatement):
             writer.append("}")
         writer.newLine()
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         writer.append("try ")
         writer.append(self.errorName)
         writer.append(":\n")

@@ -10,6 +10,12 @@ class TestNative(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testAnyId(self):
+        self.checkOutput("native/anyId.pec")
+
+    def testAnyText(self):
+        self.checkOutput("native/anyText.pec")
+
     def testAttribute(self):
         self.checkOutput("native/attribute.pec")
 

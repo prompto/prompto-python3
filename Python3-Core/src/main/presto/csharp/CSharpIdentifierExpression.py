@@ -10,11 +10,10 @@ class CSharpIdentifierExpression (CSharpExpression):
             result = CSharpIdentifierExpression(parent=result, identifier=part)
         return result
 
-    def __init__(self, parent, identifier, isChildClass = False):
-        super().__init__()
+    def __init__(self, parent, identifier):
+        super().__init__(identifier)
         self.parent = parent
         self.identifier = identifier
-        self.isChildClass = isChildClass
 
     def getParent(self):
         return self.parent
@@ -26,7 +25,7 @@ class CSharpIdentifierExpression (CSharpExpression):
         if self.parent is None:
             return self.identifier
         else:
-            return str(self.parent) + ('$' if self.isChildClass else '.') + self.identifier
+            return str(self.parent) + '.' + self.identifier
 
     def toDialect(self, writer):
         if self.parent is not None:

@@ -1,10 +1,5 @@
-from presto.declaration.AttributeDeclaration import *
-from presto.declaration.ConcreteCategoryDeclaration import *
-from presto.declaration.IDeclaration import *
-from presto.grammar.BaseArgument import *
-from presto.grammar.INamedValue import *
-from presto.grammar.ITypedArgument import *
-from presto.grammar.IdentifierList import *
+from presto.grammar.BaseArgument import BaseArgument
+from presto.grammar.ITypedArgument import ITypedArgument
 
 
 class CategoryArgument(BaseArgument, ITypedArgument):
@@ -47,10 +42,13 @@ class CategoryArgument(BaseArgument, ITypedArgument):
             and self.getAttributes() == obj.getAttributes()
 
     def register(self, context):
+        from presto.grammar.INamedValue import INamedValue
         actual = context.getRegisteredValue(INamedValue, self.name)
         if actual != None:
             raise SyntaxError("Duplicate argument: \"" + self.name + "\"")
         if self.attributes != None:
+            from presto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
+            from presto.grammar.IdentifierList import IdentifierList
             declaration = ConcreteCategoryDeclaration(self.name)
             declaration.setDerivedFrom(IdentifierList(self.type_.getName()))
             declaration.setAttributes(self.attributes)
@@ -63,6 +61,7 @@ class CategoryArgument(BaseArgument, ITypedArgument):
         self.type_.checkExists(context)
         if self.attributes != None:
             for attribute in self.attributes:
+                from presto.declaration.AttributeDeclaration import AttributeDeclaration
                 actual = context.getRegisteredDeclaration(AttributeDeclaration, attribute)
                 if actual == None:
                     raise SyntaxError("Unknown attribute: \"" + attribute + "\"")
@@ -71,6 +70,7 @@ class CategoryArgument(BaseArgument, ITypedArgument):
         if self.attributes is None or context is None:
             return self.type_
         else:
+            from presto.declaration.IDeclaration import IDeclaration
             return context.getRegisteredDeclaration(IDeclaration, self.name).getType(context)
 
     def toDialect(self, writer):
@@ -109,7 +109,7 @@ class CategoryArgument(BaseArgument, ITypedArgument):
         writer.append(' ')
         writer.append(self.name)
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         writer.append(self.name)
         writer.append(':')
         self.type_.toDialect(writer)

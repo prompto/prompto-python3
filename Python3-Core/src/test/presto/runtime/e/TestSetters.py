@@ -13,6 +13,9 @@ class TestSetters(BaseEParserTest):
     def testGetter(self):
         self.checkOutput("setters/getter.pec")
 
+    def testGetterCall(self):
+        self.checkOutput("setters/getterCall.pec")
+
     def testSetter(self):
         self.checkOutput("setters/setter.pec")
 

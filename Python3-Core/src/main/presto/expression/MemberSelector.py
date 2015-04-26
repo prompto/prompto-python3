@@ -12,7 +12,7 @@ from presto.error.SyntaxError import SyntaxError
 class MemberSelector (SelectorExpression):
 
     def __init__(self, name, parent = None):
-        super(MemberSelector, self).__init__(parent)
+        super().__init__(parent)
         self.name = name
 
     def getName(self):

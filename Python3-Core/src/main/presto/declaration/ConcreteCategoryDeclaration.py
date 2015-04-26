@@ -61,12 +61,19 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         self.checkMethods(context)
         return super(ConcreteCategoryDeclaration, self).check(context)
 
-    def checkMethods(self, context):
+    def registerMethods(self, context):
         if self.methodsMap is None:
             self.methodsMap = dict()
             if self.methods is not None:
                 for method in self.methods:
+                    method.memberOf = self
                     self.registerMethodDeclaration(method,context)
+
+    def checkMethods(self, context):
+        self.registerMethods(context)
+        if self.methods is not None:
+            for method in self.methods:
+                method.checkMember(self, context)
 
     def registerMethodDeclaration(self, method, context):
         actual = None
@@ -86,7 +93,6 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
                 actual = MethodDeclarationMap(method.getName())
                 self.methodsMap[method.getName()] = actual
             actual.register(method,context)
-        method.checkMember(self, context)
 
     def checkDerived(self, context):
         if self.derivedFrom is not None:
@@ -165,6 +171,7 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         return actual.findSetter(context, attrName)
 
     def findMemberMethods(self, context, name):
+        self.registerMethods(context)
         result = MethodDeclarationMap(name)
         self.registerMemberMethods(context,result)
         return result.values()
@@ -221,24 +228,23 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
             self.derivedFrom.toDialect(writer, True)
 
     def bodyToODialect(self, writer):
-        for decl in self.methods:
-            decl.toDialect(writer)
-            writer.newLine()
+        self.methodsToODialect(writer, self.methods)
 
-    def toPDialect(self, writer):
-        self.protoToPDialect(writer, self.derivedFrom)
-        self.methodsToPDialect(writer)
+    def toSDialect(self, writer):
+        self.protoToSDialect(writer, self.derivedFrom)
+        self.methodsToSDialect(writer)
 
-    def categoryTypeToPDialect(self, writer):
+    def categoryTypeToSDialect(self, writer):
         writer.append("class")
 
-    def methodsToPDialect(self, writer):
+    def methodsToSDialect(self, writer):
         writer.indent()
         if self.methods is None or len(self.methods)==0:
             writer.append("pass\n")
         else:
             for decl in self.methods:
-                decl.toDialect(writer)
+                w = writer.newMemberWriter()
+                decl.toDialect(w)
                 writer.newLine()
         writer.dedent()
 

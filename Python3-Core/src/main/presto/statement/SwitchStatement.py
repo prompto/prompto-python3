@@ -14,7 +14,7 @@ class SwitchStatement(BaseSwitchStatement):
         switchValue = self.expression.interpret(context)
         return self.interpretSwitch(context, switchValue, None)
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         self.toEDialect(writer)
 
     def toODialect(self, writer):

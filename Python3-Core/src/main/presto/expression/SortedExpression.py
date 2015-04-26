@@ -48,7 +48,7 @@ class SortedExpression(IExpression):
     def setKey(self, key):
         self.key = key
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         self.toODialect(writer)
 
     def toODialect(self, writer):

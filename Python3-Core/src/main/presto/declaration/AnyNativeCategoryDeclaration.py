@@ -3,6 +3,6 @@ from presto.declaration.NativeCategoryDeclaration import NativeCategoryDeclarati
 class AnyNativeCategoryDeclaration(NativeCategoryDeclaration):
 
     def __init__(self):
-        super().__init__("Any", [], [], [])
+        super().__init__("Any", [], [], [], [])
 
 AnyNativeCategoryDeclaration.instance = AnyNativeCategoryDeclaration()

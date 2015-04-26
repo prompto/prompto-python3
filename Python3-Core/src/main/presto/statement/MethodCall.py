@@ -12,7 +12,7 @@ from presto.utils.CodeWriter import CodeWriter
 class MethodCall(SimpleStatement):
 
     def __init__(self, method, assignments=None):
-        super(MethodCall, self).__init__()
+        super().__init__()
         self.method = method
         self.assignments = assignments
 
@@ -29,7 +29,7 @@ class MethodCall(SimpleStatement):
     def check(self, context):
         finder = MethodFinder(context, self)
         declaration = finder.findMethod(False)
-        local = self.method.newLocalCheckContext(context)
+        local = self.method.newLocalCheckContext(context, declaration)
         return self.doCheck(declaration, context, local)
 
 
@@ -63,7 +63,7 @@ class MethodCall(SimpleStatement):
 
     def interpret(self, context):
         declaration = self.findDeclaration(context)
-        local = self.method.newLocalContext(context)
+        local = self.method.newLocalContext(context, declaration)
         declaration.registerArguments(local)
         assignments = self.makeAssignments(context, declaration)
         for assignment in assignments:
@@ -71,6 +71,7 @@ class MethodCall(SimpleStatement):
             argument = assignment.getArgument()
             value = argument.checkValue(context, expression)
             if value is not None and value.mutable and not argument.mutable:
+                from presto.error.NotMutableError import NotMutableError
                 raise NotMutableError()
             local.setValue(assignment.getName(), value)
         return declaration.interpret(local)

@@ -52,6 +52,10 @@ class CategoryDeclaration(BaseDeclaration):
         # nothing to do
         pass
 
+    def toDialect(self, writer):
+        writer = writer.newInstanceWriter(self.getType(writer.context))
+        super().toDialect(writer)
+
     def protoToEDialect(self, writer, hasMethods, hasBindings):
         hasAttributes = self.attributes is not None and len(self.attributes)>0
         writer.append("define ")
@@ -80,9 +84,15 @@ class CategoryDeclaration(BaseDeclaration):
         writer.indent()
         for decl in methods:
             writer.newLine()
-            decl.toDialect(writer)
+            w = writer.newMemberWriter()
+            decl.toDialect(w)
         writer.dedent()
 
+    def methodsToODialect(self, writer, methods):
+        for decl in methods:
+            w = writer.newMemberWriter()
+            decl.toDialect(w)
+            writer.newLine()
 
     def allToODialect(self, writer, hasBody):
         self.categoryTypeToODialect(writer)
@@ -108,8 +118,8 @@ class CategoryDeclaration(BaseDeclaration):
         # by default no extension
         pass
 
-    def protoToPDialect(self, writer,  derivedFrom):
-        self.categoryTypeToPDialect(writer)
+    def protoToSDialect(self, writer,  derivedFrom):
+        self.categoryTypeToSDialect(writer)
         writer.append(" ")
         writer.append(self.name)
         writer.append("(")

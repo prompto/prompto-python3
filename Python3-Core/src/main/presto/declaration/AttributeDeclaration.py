@@ -38,7 +38,7 @@ class AttributeDeclaration ( BaseDeclaration ):
                 self.constraint.toDialect(writer)
             writer.append(';')
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
             writer.append("attr ")
             writer.append(self.getName())
             writer.append(" ( ")

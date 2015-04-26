@@ -31,6 +31,9 @@ class TestMethods(BaseEParserTest):
     def testMember(self):
         self.checkOutput("methods/member.pec")
 
+    def testMemberCall(self):
+        self.checkOutput("methods/memberCall.pec")
+
     def testPolymorphic_abstract(self):
         self.checkOutput("methods/polymorphic_abstract.pec")
 

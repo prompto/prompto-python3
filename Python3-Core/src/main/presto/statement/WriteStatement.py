@@ -37,7 +37,7 @@ class WriteStatement ( SimpleStatement ):
         o.writeFully(text)
         return None
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         writer.append("write ")
         self.content.toDialect(writer)
         writer.append(" to ")

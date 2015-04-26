@@ -76,7 +76,7 @@ class TestMethodDeclaration(BaseDeclaration):
             writer = writer.newLocalWriter ()
         super().toDialect(writer)
     
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         writer.append ("def test ")
         writer.append (self.name)
         writer.append (" ():\n")

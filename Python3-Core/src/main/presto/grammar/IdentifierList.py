@@ -24,7 +24,7 @@ class IdentifierList(ObjectList, IDialectElement):
         elif writer.dialect is Dialect.O:
             self.toODialect(writer)
         elif writer.dialect is Dialect.S:
-            self.toPDialect(writer)
+            self.toSDialect(writer)
         else:
             raise Exception("Unsupported dialect:" + str(writer.dialect))
 
@@ -50,5 +50,5 @@ class IdentifierList(ObjectList, IDialectElement):
                 writer.append(", ")
             writer.trimLast(2)
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         self.toODialect(writer)

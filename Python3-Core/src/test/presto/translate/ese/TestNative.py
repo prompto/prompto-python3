@@ -5,6 +5,12 @@ class TestNative(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testAnyId(self):
+        self.compareResourceESE("native/anyId.pec")
+
+    def testAnyText(self):
+        self.compareResourceESE("native/anyText.pec")
+
     def testAttribute(self):
         self.compareResourceESE("native/attribute.pec")
 

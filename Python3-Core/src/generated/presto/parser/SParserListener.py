@@ -1795,48 +1795,39 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#SetterMemberMethod.
-    def enterSetterMemberMethod(self, ctx):
+    # Enter a parse tree produced by SParser#member_method_declaration.
+    def enterMember_method_declaration(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#SetterMemberMethod.
-    def exitSetterMemberMethod(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#GetterMemberMethod.
-    def enterGetterMemberMethod(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#GetterMemberMethod.
-    def exitGetterMemberMethod(self, ctx):
+    # Exit a parse tree produced by SParser#member_method_declaration.
+    def exitMember_method_declaration(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#ConcreteMemberMethod.
-    def enterConcreteMemberMethod(self, ctx):
+    # Enter a parse tree produced by SParser#NativeCategoryMethodList.
+    def enterNativeCategoryMethodList(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#ConcreteMemberMethod.
-    def exitConcreteMemberMethod(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#AbstractMemberMethod.
-    def enterAbstractMemberMethod(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#AbstractMemberMethod.
-    def exitAbstractMemberMethod(self, ctx):
+    # Exit a parse tree produced by SParser#NativeCategoryMethodList.
+    def exitNativeCategoryMethodList(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#OperatorMemberMethod.
-    def enterOperatorMemberMethod(self, ctx):
+    # Enter a parse tree produced by SParser#NativeCategoryMethodListItem.
+    def enterNativeCategoryMethodListItem(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#OperatorMemberMethod.
-    def exitOperatorMemberMethod(self, ctx):
+    # Exit a parse tree produced by SParser#NativeCategoryMethodListItem.
+    def exitNativeCategoryMethodListItem(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#native_member_method_declaration.
+    def enterNative_member_method_declaration(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#native_member_method_declaration.
+    def exitNative_member_method_declaration(self, ctx):
         pass
 
 
@@ -2713,48 +2704,48 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#JavascriptParenthesisExpression.
-    def enterJavascriptParenthesisExpression(self, ctx):
+    # Enter a parse tree produced by SParser#javascript_primary_expression.
+    def enterJavascript_primary_expression(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#JavascriptParenthesisExpression.
-    def exitJavascriptParenthesisExpression(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#JavascriptIdentifierExpression.
-    def enterJavascriptIdentifierExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#JavascriptIdentifierExpression.
-    def exitJavascriptIdentifierExpression(self, ctx):
+    # Exit a parse tree produced by SParser#javascript_primary_expression.
+    def exitJavascript_primary_expression(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#JavascriptLiteralExpression.
-    def enterJavascriptLiteralExpression(self, ctx):
+    # Enter a parse tree produced by SParser#javascript_this_expression.
+    def enterJavascript_this_expression(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#JavascriptLiteralExpression.
-    def exitJavascriptLiteralExpression(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#JavascriptMethodExpression.
-    def enterJavascriptMethodExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#JavascriptMethodExpression.
-    def exitJavascriptMethodExpression(self, ctx):
+    # Exit a parse tree produced by SParser#javascript_this_expression.
+    def exitJavascript_this_expression(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#JavascriptItemExpression.
-    def enterJavascriptItemExpression(self, ctx):
+    # Enter a parse tree produced by SParser#JavaScriptMethodExpression.
+    def enterJavaScriptMethodExpression(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#JavascriptItemExpression.
-    def exitJavascriptItemExpression(self, ctx):
+    # Exit a parse tree produced by SParser#JavaScriptMethodExpression.
+    def exitJavaScriptMethodExpression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#JavaScriptMemberExpression.
+    def enterJavaScriptMemberExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#JavaScriptMemberExpression.
+    def exitJavaScriptMemberExpression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#JavaScriptItemExpression.
+    def enterJavaScriptItemExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#JavaScriptItemExpression.
+    def exitJavaScriptItemExpression(self, ctx):
         pass
 
 
@@ -2803,21 +2794,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#JavascriptChildIdentifier.
-    def enterJavascriptChildIdentifier(self, ctx):
+    # Enter a parse tree produced by SParser#javascript_identifier_expression.
+    def enterJavascript_identifier_expression(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#JavascriptChildIdentifier.
-    def exitJavascriptChildIdentifier(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#JavascriptIdentifier.
-    def enterJavascriptIdentifier(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#JavascriptIdentifier.
-    def exitJavascriptIdentifier(self, ctx):
+    # Exit a parse tree produced by SParser#javascript_identifier_expression.
+    def exitJavascript_identifier_expression(self, ctx):
         pass
 
 
@@ -3163,30 +3145,21 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#JavaParenthesisExpression.
-    def enterJavaParenthesisExpression(self, ctx):
+    # Enter a parse tree produced by SParser#java_primary_expression.
+    def enterJava_primary_expression(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#JavaParenthesisExpression.
-    def exitJavaParenthesisExpression(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#JavaIdentifierExpression.
-    def enterJavaIdentifierExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#JavaIdentifierExpression.
-    def exitJavaIdentifierExpression(self, ctx):
+    # Exit a parse tree produced by SParser#java_primary_expression.
+    def exitJava_primary_expression(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#JavaLiteralExpression.
-    def enterJavaLiteralExpression(self, ctx):
+    # Enter a parse tree produced by SParser#java_this_expression.
+    def enterJava_this_expression(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#JavaLiteralExpression.
-    def exitJavaLiteralExpression(self, ctx):
+    # Exit a parse tree produced by SParser#java_this_expression.
+    def exitJava_this_expression(self, ctx):
         pass
 
 
@@ -3379,30 +3352,21 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#CSharpParenthesisExpression.
-    def enterCSharpParenthesisExpression(self, ctx):
+    # Enter a parse tree produced by SParser#csharp_primary_expression.
+    def enterCsharp_primary_expression(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#CSharpParenthesisExpression.
-    def exitCSharpParenthesisExpression(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#CSharpIdentifierExpression.
-    def enterCSharpIdentifierExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#CSharpIdentifierExpression.
-    def exitCSharpIdentifierExpression(self, ctx):
+    # Exit a parse tree produced by SParser#csharp_primary_expression.
+    def exitCsharp_primary_expression(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#CSharpLiteralExpression.
-    def enterCSharpLiteralExpression(self, ctx):
+    # Enter a parse tree produced by SParser#csharp_this_expression.
+    def enterCsharp_this_expression(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#CSharpLiteralExpression.
-    def exitCSharpLiteralExpression(self, ctx):
+    # Exit a parse tree produced by SParser#csharp_this_expression.
+    def exitCsharp_this_expression(self, ctx):
         pass
 
 

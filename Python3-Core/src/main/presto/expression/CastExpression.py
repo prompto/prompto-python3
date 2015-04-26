@@ -16,7 +16,7 @@ class CastExpression (IExpression):
     def interpret(self, context):
         return self.expression.interpret(context)
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         self.toEDialect(writer)
 
     def toEDialect(self, writer):

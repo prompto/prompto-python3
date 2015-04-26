@@ -4,6 +4,7 @@ from presto.csharp.CSharpBooleanLiteral import CSharpBooleanLiteral
 from presto.csharp.CSharpCharacterLiteral import CSharpCharacterLiteral
 from presto.csharp.CSharpDecimalLiteral import CSharpDecimalLiteral
 from presto.csharp.CSharpExpressionList import CSharpExpressionList
+from presto.csharp.CSharpThisExpression import CSharpThisExpression
 from presto.csharp.CSharpIdentifierExpression import CSharpIdentifierExpression
 from presto.csharp.CSharpIntegerLiteral import CSharpIntegerLiteral
 from presto.csharp.CSharpMethodExpression import CSharpMethodExpression
@@ -60,7 +61,7 @@ from presto.grammar.ArgumentAssignment import ArgumentAssignment
 from presto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
 from presto.grammar.ArgumentList import ArgumentList
 from presto.grammar.CategoryArgument import CategoryArgument
-from presto.grammar.CategoryMethodDeclarationList import CategoryMethodDeclarationList
+from presto.grammar.MethodDeclarationList import MethodDeclarationList
 from presto.grammar.CategorySymbol import CategorySymbol
 from presto.grammar.CategorySymbolList import CategorySymbolList
 from presto.grammar.CmpOp import CmpOp
@@ -93,13 +94,16 @@ from presto.java.JavaNativeCategoryBinding import JavaNativeCategoryBinding
 from presto.java.JavaNativeCall import JavaNativeCall
 from presto.java.JavaStatement import JavaStatement
 from presto.java.JavaTextLiteral import JavaTextLiteral
+from presto.java.JavaThisExpression import JavaThisExpression
 from presto.javascript.JavaScriptBooleanLiteral import JavaScriptBooleanLiteral
 from presto.javascript.JavaScriptCharacterLiteral import JavaScriptCharacterLiteral
 from presto.javascript.JavaScriptDecimalLiteral import JavaScriptDecimalLiteral
 from presto.javascript.JavaScriptExpressionList import JavaScriptExpressionList
 from presto.javascript.JavaScriptIdentifierExpression import JavaScriptIdentifierExpression
 from presto.javascript.JavaScriptIntegerLiteral import JavaScriptIntegerLiteral
+from presto.javascript.JavaScriptThisExpression import JavaScriptThisExpression
 from presto.javascript.JavaScriptMethodExpression import JavaScriptMethodExpression
+from presto.javascript.JavaScriptMemberExpression import JavaScriptMemberExpression
 from presto.javascript.JavaScriptModule import JavaScriptModule
 from presto.javascript.JavaScriptNativeCall import JavaScriptNativeCall
 from presto.javascript.JavaScriptNativeCategoryBinding import JavaScriptNativeCategoryBinding
@@ -119,9 +123,9 @@ from presto.literal.ListLiteral import ListLiteral
 from presto.literal.NullLiteral import NullLiteral
 from presto.literal.PeriodLiteral import PeriodLiteral
 from presto.literal.RangeLiteral import RangeLiteral
+from presto.literal.SetLiteral import SetLiteral
 from presto.literal.TextLiteral import TextLiteral
 from presto.literal.TimeLiteral import TimeLiteral
-from presto.literal.SetLiteral import SetLiteral
 from presto.literal.TupleLiteral import TupleLiteral
 from presto.parser.EParser import EParser
 from presto.parser.EParserListener import EParserListener
@@ -563,28 +567,28 @@ class EPrestoBuilder(EParserListener):
 
     
     def exitPrimaryType(self, ctx:EParser.PrimaryTypeContext):
-        type = self.getNodeValue(ctx.p)
-        self.setNodeValue(ctx, type)
+        typ = self.getNodeValue(ctx.p)
+        self.setNodeValue(ctx, typ)
     
 
     
     def exitAttribute_declaration(self, ctx:EParser.Attribute_declarationContext):
         name = self.getNodeValue(ctx.name)
-        type = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.typ)
         match = self.getNodeValue(getattr(ctx, "match", None))
-        self.setNodeValue(ctx, AttributeDeclaration(name, type, match))
+        self.setNodeValue(ctx, AttributeDeclaration(name, typ, match))
     
 
     
     def exitNativeType(self, ctx:EParser.NativeTypeContext):
-        type = self.getNodeValue(ctx.n)
-        self.setNodeValue(ctx, type)
+        typ = self.getNodeValue(ctx.n)
+        self.setNodeValue(ctx, typ)
     
 
     
     def exitCategoryType(self, ctx:EParser.CategoryTypeContext):
-        type = self.getNodeValue(ctx.c)
-        self.setNodeValue(ctx, type)
+        typ = self.getNodeValue(ctx.c)
+        self.setNodeValue(ctx, typ)
     
 
     
@@ -595,14 +599,14 @@ class EPrestoBuilder(EParserListener):
 
     
     def exitListType(self, ctx:EParser.ListTypeContext):
-        type = self.getNodeValue(ctx.l)
-        self.setNodeValue(ctx, ListType(type))
+        typ = self.getNodeValue(ctx.l)
+        self.setNodeValue(ctx, ListType(typ))
     
 
     
     def exitDictType(self, ctx:EParser.DictTypeContext):
-        type = self.getNodeValue(ctx.d)
-        self.setNodeValue(ctx, DictType(type))
+        typ = self.getNodeValue(ctx.d)
+        self.setNodeValue(ctx, DictType(typ))
     
 
     
@@ -745,11 +749,11 @@ class EPrestoBuilder(EParserListener):
 
     
     def exitTyped_argument(self, ctx:EParser.Typed_argumentContext):
-        type = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.typ)
         name = self.getNodeValue(ctx.name)
         attrs = self.getNodeValue(ctx.attrs)
         exp = self.getNodeValue(ctx.value)
-        arg = CategoryArgument(type, name, attrs)
+        arg = CategoryArgument(typ, name, attrs)
         arg.defaultExpression = exp
         self.setNodeValue(ctx, arg)
 
@@ -772,8 +776,8 @@ class EPrestoBuilder(EParserListener):
 
     
     def exitCategoryArgumentType(self, ctx:EParser.CategoryArgumentTypeContext):
-        type = self.getNodeValue(ctx.typ)
-        self.setNodeValue(ctx, type)
+        typ = self.getNodeValue(ctx.typ)
+        self.setNodeValue(ctx, typ)
     
 
     
@@ -871,15 +875,29 @@ class EPrestoBuilder(EParserListener):
         exp = AddExpression(left, right) if ctx.op.type == EParser.PLUS else SubtractExpression(left, right)
         self.setNodeValue(ctx, exp)
     
+    def exitNative_member_method_declaration(self, ctx:EParser.Native_member_method_declarationContext):
+        decl = self.getNodeValue(ctx.getChild(0))
+        self.setNodeValue(ctx, decl)
+
+    def exitNativeCategoryMethodList(self, ctx:EParser.NativeCategoryMethodListContext):
+        item = self.getNodeValue(ctx.item)
+        items = MethodDeclarationList(item)
+        self.setNodeValue(ctx, items)
+
+
+    def exitNativeCategoryMethodListItem(self, ctx:EParser.NativeCategoryMethodListItemContext):
+        item = self.getNodeValue(ctx.item)
+        items = self.getNodeValue(ctx.items)
+        items.append(item)
+        self.setNodeValue(ctx, items)
 
     
     def exitCategoryMethodList(self, ctx:EParser.CategoryMethodListContext):
         item = self.getNodeValue(ctx.item)
-        items = CategoryMethodDeclarationList(item)
+        items = MethodDeclarationList(item)
         self.setNodeValue(ctx, items)
     
 
-    
     def exitCategoryMethodListItem(self, ctx:EParser.CategoryMethodListItemContext):
         item = self.getNodeValue(ctx.item)
         items = self.getNodeValue(ctx.items)
@@ -898,31 +916,15 @@ class EPrestoBuilder(EParserListener):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
         self.setNodeValue(ctx, GetterMethodDeclaration(name, stmts))
-    
 
-    
-    def exitAbstractMemberMethod(self, ctx:EParser.AbstractMemberMethodContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-    
 
-    def exitConcreteMemberMethod(self, ctx:EParser.ConcreteMemberMethodContext):
-        decl = self.getNodeValue(ctx.decl)
+
+    def exitMember_method_declaration(self, ctx:EParser.Member_method_declarationContext):
+        decl = self.getNodeValue(ctx.getChild(0))
         self.setNodeValue(ctx, decl)
 
 
-    def exitSetterMemberMethod(self, ctx:EParser.SetterMemberMethodContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-    
 
-    
-    def exitGetterMemberMethod(self, ctx:EParser.GetterMemberMethodContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-    
-
-    
     def exitStatementList(self, ctx:EParser.StatementListContext):
         item = self.getNodeValue(ctx.item)
         self.setNodeValue(ctx, StatementList(item))
@@ -938,19 +940,19 @@ class EPrestoBuilder(EParserListener):
 
     
     def exitAbstract_method_declaration(self, ctx:EParser.Abstract_method_declarationContext):
-        type = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.typ)
         name = self.getNodeValue(ctx.name)
         args = self.getNodeValue(ctx.args)
-        self.setNodeValue(ctx, AbstractMethodDeclaration(name, args, type))
+        self.setNodeValue(ctx, AbstractMethodDeclaration(name, args, typ))
     
 
     
     def exitConcrete_method_declaration(self, ctx:EParser.Concrete_method_declarationContext):
-        type = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.typ)
         name = self.getNodeValue(ctx.name)
         args = self.getNodeValue(ctx.args)
         stmts = self.getNodeValue(ctx.stmts)
-        self.setNodeValue(ctx, ConcreteMethodDeclaration(name, args, type, stmts))
+        self.setNodeValue(ctx, ConcreteMethodDeclaration(name, args, typ, stmts))
     
 
     
@@ -977,14 +979,14 @@ class EPrestoBuilder(EParserListener):
     
     def exitConstructorNoFrom(self, ctx:EParser.ConstructorNoFromContext):
         mutable = ctx.MUTABLE() is not None
-        type = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.typ)
         args = self.getNodeValue(ctx.args)
         if args is None:
             args = ArgumentAssignmentList()
         arg = self.getNodeValue(ctx.arg)
         if arg is not None:
             args.append(arg)
-        self.setNodeValue(ctx, ConstructorExpression(type, mutable, args))
+        self.setNodeValue(ctx, ConstructorExpression(typ, mutable, args))
     
 
     def exitAssertion(self, ctx:EParser.AssertionContext):
@@ -1071,29 +1073,35 @@ class EPrestoBuilder(EParserListener):
     def exitJava_identifier(self, ctx:EParser.Java_identifierContext):
         self.setNodeValue(ctx, ctx.getText())
 
+    def exitCSharpChildIdentifier(self, ctx:EParser.CSharpChildIdentifierContext):
+        parent = self.getNodeValue(ctx.parent)
+        name = self.getNodeValue(ctx.name)
+        child = CSharpIdentifierExpression(parent, name)
+        self.setNodeValue(ctx, child)
+
     def exitCsharp_identifier(self, ctx:EParser.Csharp_identifierContext):
         self.setNodeValue(ctx, ctx.getText())
 
-    def exitCsharp_method_expression(self, ctx):
+    def exitCsharp_method_expression(self, ctx:EParser.Csharp_method_expressionContext):
         name = self.getNodeValue(ctx.name)
         args = self.getNodeValue(ctx.args)
         self.setNodeValue(ctx, CSharpMethodExpression(name, args))
 
-    def exitCSharpMethodExpression(self, ctx):
+    def exitCSharpMethodExpression(self, ctx:EParser.CSharpMethodExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
 
-    def exitCSharpSelectorExpression(self, ctx):
+    def exitCSharpSelectorExpression(self, ctx:EParser.CSharpSelectorExpressionContext):
         parent = self.getNodeValue(ctx.parent)
         child = self.getNodeValue(ctx.child)
         child.parent = parent
         self.setNodeValue(ctx, child)
 
-    def exitCSharpArgumentList(self,  ctx):
+    def exitCSharpArgumentList(self,  ctx:EParser.CSharpArgumentListContext):
         item = self.getNodeValue(ctx.item)
         self.setNodeValue(ctx, CSharpExpressionList(item))
 
-    def exitCSharpArgumentListItem(self, ctx):
+    def exitCSharpArgumentListItem(self, ctx:EParser.CSharpArgumentListItemContext):
         item = self.getNodeValue(ctx.item)
         items = self.getNodeValue(ctx.items)
         items.append(item)
@@ -1173,17 +1181,13 @@ class EPrestoBuilder(EParserListener):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
 
-
-    def exitCSharpIdentifierExpression(self, ctx:EParser.CSharpIdentifierExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
+    def exitCsharp_primary_expression(self, ctx:EParser.Csharp_primary_expressionContext):
+        exp = self.getNodeValue(ctx.getChild(0))
         self.setNodeValue(ctx, exp)
 
-    def exitCSharpChildIdentifier(self, ctx:EParser.CSharpChildIdentifierContext):
-        parent = self.getNodeValue(ctx.parent)
-        name = self.getNodeValue(ctx.name)
-        child = CSharpIdentifierExpression(parent, name)
-        self.setNodeValue(ctx, child)
-    
+    def exitCsharp_this_expression(self, ctx:EParser.Csharp_this_expressionContext):
+        self.setNodeValue(ctx, CSharpThisExpression())
+
     def exitPythonChildIdentifier(self, ctx:EParser.PythonChildIdentifierContext):
         parent = self.getNodeValue(ctx.parent)
         name = self.getNodeValue(ctx.name)
@@ -1195,8 +1199,9 @@ class EPrestoBuilder(EParserListener):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, JavaIdentifierExpression(name))
 
-    def exitJavaIdentifierExpression(self, ctx:EParser.JavaIdentifierExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
+
+    def exitJava_primary_expression(self, ctx:EParser.Java_primary_expressionContext):
+        exp = self.getNodeValue(ctx.getChild(0))
         self.setNodeValue(ctx, exp)
 
     def exitJavaChildIdentifier(self, ctx:EParser.JavaChildIdentifierContext):
@@ -1228,24 +1233,23 @@ class EPrestoBuilder(EParserListener):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, JavaItemExpression(exp))
     
-    def exitJavaItemExpression(self, ctx):
+    def exitJavaItemExpression(self, ctx:EParser.JavaItemExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
 
-    def exitJavaStatement(self, ctx):
+    def exitJavaStatement(self, ctx:EParser.JavaStatementContext):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, JavaStatement(exp,False))
+        self.setNodeValue(ctx, JavaStatement(exp, False))
 
-    def exitJavaReturnStatement(self, ctx):
+    def exitJavaReturnStatement(self, ctx:EParser.JavaReturnStatementContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, JavaStatement(exp, True))
     
-
     def exitCSharpPrestoIdentifier(self, ctx:EParser.CSharpPrestoIdentifierContext):
         name = ctx.DOLLAR_IDENTIFIER().getText()
         self.setNodeValue(ctx, CSharpIdentifierExpression(None, name))
 
-    def exitCSharpPrimaryExpression(self, ctx):
+    def exitCSharpPrimaryExpression(self, ctx:EParser.CSharpPrimaryExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
     
@@ -1269,7 +1273,7 @@ class EPrestoBuilder(EParserListener):
         module = PythonModule(ids)
         self.setNodeValue(ctx, module)
 
-    def exitCSharpReturnStatement(self, ctx):
+    def exitCSharpReturnStatement(self, ctx:EParser.CSharpReturnStatementContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, CSharpStatement(exp, True))
     
@@ -1277,25 +1281,17 @@ class EPrestoBuilder(EParserListener):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, PythonStatement(exp, True))
     
-
-    
     def exitJavaNativeStatement(self, ctx:EParser.JavaNativeStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, JavaNativeCall(stmt))
-    
-
     
     def exitCSharpNativeStatement(self, ctx:EParser.CSharpNativeStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, CSharpNativeCall(stmt))
     
-
-    
     def exitPython2NativeStatement(self, ctx:EParser.Python2NativeStatementContext):
         call = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, Python2NativeCall(call.statement, call.module))
-    
-
     
     def exitPython3NativeStatement(self, ctx:EParser.Python3NativeStatementContext):
         call = self.getNodeValue(ctx.stmt)
@@ -1304,14 +1300,13 @@ class EPrestoBuilder(EParserListener):
 
     
     def exitNative_method_declaration(self, ctx:EParser.Native_method_declarationContext):
-        type = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.typ)
         name = self.getNodeValue(ctx.name)
         args = self.getNodeValue(ctx.args)
         stmts = self.getNodeValue(ctx.stmts)
-        self.setNodeValue(ctx, NativeMethodDeclaration(name, args, type, stmts))
+        self.setNodeValue(ctx, NativeMethodDeclaration(name, args, typ, stmts))
     
 
-    
     def exitJavaArgumentList(self, ctx:EParser.JavaArgumentListContext):
         item = self.getNodeValue(ctx.item)
         self.setNodeValue(ctx, JavaExpressionList(item))
@@ -1439,10 +1434,10 @@ class EPrestoBuilder(EParserListener):
     def exitPythonBooleanLiteral(self, ctx:EParser.PythonBooleanLiteralContext):
         self.setNodeValue(ctx, PythonBooleanLiteral(ctx.getText()))
     
+
     def exitPythonCharacterLiteral(self, ctx):
         self.setNodeValue(ctx, PythonCharacterLiteral(ctx.getText()))
 
-    
     def exitPythonIntegerLiteral(self, ctx:EParser.PythonIntegerLiteralContext):
         self.setNodeValue(ctx, PythonIntegerLiteral(ctx.getText()))
     
@@ -1457,24 +1452,14 @@ class EPrestoBuilder(EParserListener):
         self.setNodeValue(ctx, PythonTextLiteral(ctx.getText()))
     
 
-    
-    def exitJavaLiteralExpression(self, ctx:EParser.JavaLiteralExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-    
+
+    def exitJava_this_expression(self, ctx:EParser.Java_this_expressionContext):
+        self.setNodeValue(ctx, JavaThisExpression())
 
 
-    
-    def exitCSharpLiteralExpression(self, ctx:EParser.CSharpLiteralExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-    
-
-    
     def exitPythonLiteralExpression(self, ctx:EParser.PythonLiteralExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
-    
 
     
     def exitJavaCategoryBinding(self, ctx:EParser.JavaCategoryBindingContext):
@@ -1486,7 +1471,8 @@ class EPrestoBuilder(EParserListener):
     def exitCSharpCategoryBinding(self, ctx:EParser.CSharpCategoryBindingContext):
         map = self.getNodeValue(ctx.binding)
         self.setNodeValue(ctx, CSharpNativeCategoryBinding(map))
-    
+
+
     def exitPython_category_binding(self, ctx:EParser.Python_category_bindingContext):
         id_ = ctx.id_.getText()
         module = self.getNodeValue(ctx.module)
@@ -1530,7 +1516,8 @@ class EPrestoBuilder(EParserListener):
         name = self.getNodeValue(ctx.name)
         attrs = self.getNodeValue(ctx.attrs)
         bindings = self.getNodeValue(ctx.bindings)
-        self.setNodeValue(ctx, NativeCategoryDeclaration(name, attrs, bindings, None))
+        methods = self.getNodeValue(ctx.methods)
+        self.setNodeValue(ctx, NativeCategoryDeclaration(name, attrs, bindings, None, methods))
     
 
     
@@ -1544,7 +1531,8 @@ class EPrestoBuilder(EParserListener):
         name = self.getNodeValue(ctx.name)
         attrs = self.getNodeValue(ctx.attrs)
         bindings = self.getNodeValue(ctx.bindings)
-        self.setNodeValue(ctx, NativeResourceDeclaration(name, attrs, bindings, None))
+        methods = self.getNodeValue(ctx.methods)
+        self.setNodeValue(ctx, NativeResourceDeclaration(name, attrs, bindings, None, methods))
     
 
     
@@ -1618,9 +1606,9 @@ class EPrestoBuilder(EParserListener):
     
     def exitEnum_native_declaration(self, ctx:EParser.Enum_native_declarationContext):
         name = self.getNodeValue(ctx.name)
-        type = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.typ)
         symbols = self.getNodeValue(ctx.symbols)
-        self.setNodeValue(ctx, EnumeratedNativeDeclaration(name, type, symbols))
+        self.setNodeValue(ctx, EnumeratedNativeDeclaration(name, typ, symbols))
     
 
     
@@ -2008,11 +1996,6 @@ class EPrestoBuilder(EParserListener):
         self.setNodeValue(ctx, decl)
 
 
-    def exitOperatorMemberMethod(self, ctx:EParser.OperatorMemberMethodContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-
-
     def exitOrExpression(self, ctx:EParser.OrExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
@@ -2227,14 +2210,14 @@ class EPrestoBuilder(EParserListener):
 
     
     def exitAnyListType(self, ctx:EParser.AnyListTypeContext):
-        type = self.getNodeValue(ctx.typ)
-        self.setNodeValue(ctx, ListType(type))
+        typ = self.getNodeValue(ctx.typ)
+        self.setNodeValue(ctx, ListType(typ))
     
 
     
     def exitAnyDictType(self, ctx:EParser.AnyDictTypeContext):
-        type = self.getNodeValue(ctx.typ)
-        self.setNodeValue(ctx, DictType(type))
+        typ = self.getNodeValue(ctx.typ)
+        self.setNodeValue(ctx, DictType(typ))
     
 
     def exitAnyArgumentType(self, ctx:EParser.AnyArgumentTypeContext):
@@ -2317,20 +2300,14 @@ class EPrestoBuilder(EParserListener):
     def exitMatchingPattern(self, ctx:EParser.MatchingPatternContext):
         self.setNodeValue(ctx, MatchingPatternConstraint(TextLiteral(ctx.text.text)))
 
-
-    
     def exitInvocation_expression(self, ctx:EParser.Invocation_expressionContext):
         name = self.getNodeValue(ctx.name)
         select = MethodSelector(name)
         self.setNodeValue(ctx, MethodCall(select))
     
-
-    
     def exitInvocationExpression(self, ctx:EParser.InvocationExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
-    
-
     
     def exitInvokeStatement(self, ctx:EParser.InvokeStatementContext):
         exp = self.getNodeValue(ctx.exp)
@@ -2356,9 +2333,10 @@ class EPrestoBuilder(EParserListener):
         name = ctx.getText()
         self.setNodeValue(ctx, name)
 
-    def exitJavascriptLiteralExpression(self, ctx:EParser.JavascriptLiteralExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
+
+    def exitJavascript_this_expression(self, ctx:EParser.Javascript_this_expressionContext):
+        self.setNodeValue(ctx, JavaScriptThisExpression())
+
 
     def exitJavascript_method_expression(self, ctx:EParser.Javascript_method_expressionContext):
         name = self.getNodeValue(ctx.name)
@@ -2366,6 +2344,7 @@ class EPrestoBuilder(EParserListener):
         args = self.getNodeValue(ctx.args)
         method.arguments = args
         self.setNodeValue(ctx, method)
+
 
     def exitJavascript_module(self, ctx:EParser.Javascript_moduleContext):
         ids = []
@@ -2394,32 +2373,27 @@ class EPrestoBuilder(EParserListener):
     def exitJavaScriptCategoryBinding(self, ctx:EParser.JavaScriptCategoryBindingContext):
         self.setNodeValue(ctx, self.getNodeValue(ctx.binding))
 
-    def exitJavascriptChildIdentifier(self, ctx:EParser.JavascriptChildIdentifierContext):
-        parent = self.getNodeValue(ctx.parent)
+
+    def exitJavascript_identifier_expression(self, ctx:EParser.Javascript_identifier_expressionContext):
         name = self.getNodeValue(ctx.name)
-        exp = JavaScriptIdentifierExpression(parent, name)
+        exp = JavaScriptIdentifierExpression(None, name)
         self.setNodeValue(ctx, exp)
+
 
     def exitJavascriptDecimalLiteral(self, ctx:EParser.JavascriptDecimalLiteralContext):
         text = ctx.t.text
         self.setNodeValue(ctx, JavaScriptDecimalLiteral(text))
 
 
-    def exitJavascriptIdentifier(self, ctx:EParser.JavascriptIdentifierContext):
-        name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, JavaScriptIdentifierExpression(None, name))
-
-    def exitJavascriptIdentifierExpression(self, ctx):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-
     def exitJavascriptIntegerLiteral(self, ctx:EParser.JavascriptIntegerLiteralContext):
         text = ctx.t.text
         self.setNodeValue(ctx, JavaScriptIntegerLiteral(text))
 
-    def exitJavascriptMethodExpression(self, ctx:EParser.JavascriptMethodExpressionContext):
-        method = self.getNodeValue(ctx.exp)
+
+    def exitJavaScriptMethodExpression(self, ctx:EParser.JavaScriptMethodExpressionContext):
+        method = self.getNodeValue(ctx.method)
         self.setNodeValue(ctx, method)
+
 
     def exitJavaScriptNativeStatement(self, ctx:EParser.JavaScriptNativeStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
@@ -2438,6 +2412,14 @@ class EPrestoBuilder(EParserListener):
         child = self.getNodeValue(ctx.child)
         child.parent = parent
         self.setNodeValue(ctx, child)
+
+    def exitJavaScriptMemberExpression(self, ctx:EParser.JavaScriptMemberExpressionContext):
+        name = ctx.name.getText()
+        self.setNodeValue(ctx, JavaScriptMemberExpression(name))
+
+    def exitJavascript_primary_expression(self, ctx:EParser.Java_primary_expressionContext):
+        exp = self.getNodeValue(ctx.getChild(0))
+        self.setNodeValue(ctx, exp)
 
     def exitJavascriptStatement(self, ctx:EParser.JavascriptStatementContext):
         exp = self.getNodeValue(ctx.exp)

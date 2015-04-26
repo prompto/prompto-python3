@@ -41,18 +41,20 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
 
     def GetMember(self, context, attrName):
         stacked = activeGetters.__dict__.get(attrName, None)
+        first = stacked is None
+        if first:
+            activeGetters.__dict__[attrName] = context
         try:
-            return self.get(context, attrName, stacked == None)
+            return self.doGetMember(context, attrName, first)
         finally:
-            if stacked == context:
+            if first:
                 del activeGetters.__dict__[attrName]
 
-    def get(self, context, attrName, allowGetter):
+    def doGetMember(self, context, attrName, allowGetter):
         getter = self.declaration.findGetter(context, attrName) if allowGetter else None
         if getter != None:
-            activeGetters.__dict__[attrName] = context
-            context = context.newInstanceContext(self, None)
-            return ContextualExpression(context, getter)
+            context = context.newInstanceContext(self, None).newChildContext()
+            return getter.interpret(context)
         else:
             return self.values.get(attrName, None)
 
@@ -60,24 +62,29 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         if not self.mutable:
             raise NotMutableError()
         stacked = activeSetters.__dict__.get(attrName, None)
+        first = stacked is None
+        if first:
+            activeSetters.__dict__[attrName] = context
         try:
-            self.doSet(context, attrName, value, stacked == None)
+            self.doSetMember(context, attrName, value, first)
         finally:
-            if stacked == context:
+            if first:
                 del activeSetters.__dict__[attrName]
 
-    def doSet(self, context, attrName, value, allowSetter):
+
+    def doSetMember(self, context, attrName, value, allowSetter):
         decl = context.getRegisteredDeclaration(AttributeDeclaration, attrName)
         setter = self.declaration.findSetter(context, attrName) if allowSetter else None
         if setter != None:
             activeSetters.__dict__[attrName] = context
             # use attribute name as parameter name for incoming value
-            context = context.newInstanceContext(self, None)
+            context = context.newInstanceContext(self, None).newChildContext()
             context.registerValue(Variable(attrName, decl.getType()))
             context.setValue(attrName, value)
             value = setter.interpret(context)
         value = self.autocast(decl, value)
         self.values[attrName] = value
+
 
     def autocast(self, decl, value):
         if isinstance(value, Integer) and decl.getType() is DecimalType.instance:

@@ -10,11 +10,12 @@ from presto.grammar.ArgumentAssignment import ArgumentAssignment
 class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
 
     def __init__(self, name, arguments, returnType=None):
-        super(BaseMethodDeclaration, self).__init__(name)
+        super().__init__(name)
         from presto.grammar.ArgumentList import ArgumentList
         self.arguments = arguments if arguments != None else ArgumentList()
         from presto.type.VoidType import VoidType
         self.returnType = returnType if returnType != None else VoidType.instance
+        self.memberOf = None
 
     def getSignature(self, dialect):
         sb = StringIO()

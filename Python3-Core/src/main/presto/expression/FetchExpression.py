@@ -24,7 +24,7 @@ class FetchExpression(Section, IExpression):
     def __str__(self):
         return "fetch any " + self.itemName + " from " + str(self.source) + " where " + str(self.filter)
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         writer.append("fetch ")
         writer.append(self.itemName)
         writer.append(" from ")

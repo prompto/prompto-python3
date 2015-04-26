@@ -16,7 +16,7 @@ class DocumentExpression ( IExpression ):
     def __str__(self):
         return "Document"
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         writer.append("Document")
 
     def toODialect(self, writer):

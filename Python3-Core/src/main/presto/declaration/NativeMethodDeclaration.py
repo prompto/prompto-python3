@@ -3,8 +3,8 @@ from presto.declaration.ConcreteMethodDeclaration import *
 
 class NativeMethodDeclaration(ConcreteMethodDeclaration):
 
-    def __init__(self, name, arguments, returnType, instructions):
-        super(NativeMethodDeclaration, self).__init__(name, arguments, returnType, instructions)
+    def __init__(self, name, arguments, returnType, statements):
+        super().__init__(name, arguments, returnType, statements)
 
     def interpret(self, context):
         context.enterMethod(self)
@@ -26,7 +26,7 @@ class NativeMethodDeclaration(ConcreteMethodDeclaration):
         checked = self.fullCheck(context, True)
         return checked if self.returnType is None else self.returnType
 
-    def toPDialect(self, writer):
+    def toSDialect(self, writer):
         writer.append("def native ")
         writer.append(self.name)
         writer.append(" (")

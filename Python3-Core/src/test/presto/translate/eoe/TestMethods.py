@@ -26,6 +26,9 @@ class TestMethods(BaseEParserTest):
     def testMember(self):
         self.compareResourceEOE("methods/member.pec")
 
+    def testMemberCall(self):
+        self.compareResourceEOE("methods/memberCall.pec")
+
     def testPolymorphic_abstract(self):
         self.compareResourceEOE("methods/polymorphic_abstract.pec")
 
