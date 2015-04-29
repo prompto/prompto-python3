@@ -13,7 +13,7 @@ class AssignInstanceStatement ( SimpleStatement ):
         return str(self.instance) + " = " + str(self.expression)
 
     def toDialect(self, writer):
-        self.instance.toDialect(writer)
+        self.instance.toDialect(writer, self.expression)
         writer.append(" = ")
         self.expression.toDialect(writer)
 

@@ -17,8 +17,8 @@ class MemberInstance ( IAssignableInstance ):
     def __str__(self):
         return str(self.parent) + "." + self.name
 
-    def toDialect(self, writer):
-        self.parent.toDialect(writer)
+    def toDialect(self, writer, expression):
+        self.parent.toDialect(writer, None)
         writer.append(".")
         writer.append(self.name)
 

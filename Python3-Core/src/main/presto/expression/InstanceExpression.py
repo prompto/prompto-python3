@@ -1,6 +1,5 @@
 from presto.grammar.IArgument import *
 from presto.parser.Dialect import Dialect
-from presto.runtime.Attribute import *
 from presto.runtime.Context import *
 from presto.runtime.LinkedVariable import LinkedVariable
 from presto.runtime.Variable import *
@@ -37,8 +36,6 @@ class InstanceExpression(IExpression):
         named = context.getRegistered(self.name)
         if named is None:
             raise SyntaxError("Unknown identifier:" + self.name)
-        elif isinstance(named, Attribute):  # instance member
-            return named.getType(context)
         elif isinstance(named, Variable):  # local variable
             return named.getType(context)
         elif isinstance(named, LinkedVariable):  # linked variable

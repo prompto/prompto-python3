@@ -24,8 +24,8 @@ class ItemInstance ( IAssignableInstance ):
     def __str__(self):
         return str(self.parent) + "[" + str(self.item) + "]"
 
-    def toDialect(self, writer):
-        self.parent.toDialect(writer)
+    def toDialect(self, writer, expression):
+        self.parent.toDialect(writer, None)
         writer.append('[')
         self.item.toDialect(writer)
         writer.append(']')

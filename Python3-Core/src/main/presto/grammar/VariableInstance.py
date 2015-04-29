@@ -15,11 +15,18 @@ class VariableInstance(IAssignableInstance):
     def __str__(self):
         return self.name
 
-    def toDialect(self, writer):
+    def toDialect(self, writer, expression):
+        if expression is not None:
+            try:
+                actual = writer.context.getRegisteredValue(INamedValue, self.name)
+                if actual == None:
+                    typ = expression.check(writer.context)
+                    writer.context.registerValue(Variable(self.name, typ))
+            except:
+                pass
         writer.append(self.name)
 
     def checkAssignValue(self, context, expression):
-        type = expression.check(context)
         actual = context.getRegisteredValue(INamedValue, self.name)
         if actual == None:
             actualType = expression.check(context)
