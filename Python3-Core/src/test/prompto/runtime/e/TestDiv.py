@@ -1,0 +1,26 @@
+# generated: 2015-07-05T23:01:01.770
+from prompto.parser.e.BaseEParserTest import BaseEParserTest
+from prompto.runtime.utils.Out import Out
+
+class TestDiv(BaseEParserTest):
+    
+    def setUp(self):
+        super(type(self), self).setUp()
+        Out.init()
+    
+    def tearDown(self):
+        Out.restore()
+
+    def testDivDecimal(self):
+        self.checkOutput("div/divDecimal.pec")
+
+    def testDivInteger(self):
+        self.checkOutput("div/divInteger.pec")
+
+    def testIdivInteger(self):
+        self.checkOutput("div/idivInteger.pec")
+
+    def testModInteger(self):
+        self.checkOutput("div/modInteger.pec")
+
+
