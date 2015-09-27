@@ -60,13 +60,13 @@ class CategoryDeclaration(BaseDeclaration):
         hasAttributes = self.attributes is not None and len(self.attributes)>0
         writer.append("define ")
         writer.append(self.name)
-        writer.append(" as: ")
+        writer.append(" as ")
         self.categoryTypeToEDialect(writer)
         if hasAttributes:
             if len(self.attributes)==1:
-                writer.append(" with attribute: ")
+                writer.append(" with attribute ")
             else:
-                writer.append(" with attributes: ")
+                writer.append(" with attributes ")
             self.attributes.toDialect(writer, True)
         if hasMethods:
             if hasAttributes:

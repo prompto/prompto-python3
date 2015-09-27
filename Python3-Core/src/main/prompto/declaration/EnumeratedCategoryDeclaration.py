@@ -52,16 +52,16 @@ class EnumeratedCategoryDeclaration ( ConcreteCategoryDeclaration, IEnumeratedDe
     def toEDialect(self, writer):
         writer.append("define ")
         writer.append(self.name)
-        writer.append(" as: enumerated ")
+        writer.append(" as enumerated ")
         if self.derivedFrom is not None:
             self.derivedFrom.toDialect(writer, True)
         else:
             writer.append("category")
         if self.attributes is not None and len(self.attributes)>0:
             if len(self.attributes)==1:
-                writer.append(" with attribute: ")
+                writer.append(" with attribute ")
             else:
-                writer.append(" with attributes: ")
+                writer.append(" with attributes ")
             self.attributes.toDialect(writer, True)
             if len(self.symbols)>0:
                 writer.append(", and symbols:\n")

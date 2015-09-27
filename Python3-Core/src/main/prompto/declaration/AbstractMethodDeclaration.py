@@ -45,9 +45,9 @@ class AbstractMethodDeclaration(BaseMethodDeclaration):
     def toEDialect(self, writer):
         writer.append("define ")
         writer.append(self.name)
-        writer.append(" as: abstract method ")
+        writer.append(" as abstract method ")
         self.arguments.toDialect(writer)
         if self.returnType is not None and self.returnType is not VoidType.instance:
-            writer.append("returning: ")
+            writer.append("returning ")
             self.returnType.toDialect(writer)
 

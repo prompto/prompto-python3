@@ -9,7 +9,7 @@ class TestScope(BaseEParserTest):
 
     def testAttribute(self):
         self.assertIsNone(self.context.getRegisteredDeclaration(IDeclaration, "id"))
-        stmts = self.parseString("define id as: Integer attribute")
+        stmts = self.parseString("define id as Integer attribute")
         self.assertIsNotNone(stmts)
         stmts.register(self.context)
         actual = self.context.getRegisteredDeclaration(IDeclaration, "id")
@@ -23,7 +23,7 @@ class TestScope(BaseEParserTest):
 
     def testCategory(self):
         self.assertIsNone(self.context.getRegisteredDeclaration(IDeclaration, "Person"))
-        stmts = self.parseString("define Person as: category with attributes: id and name")
+        stmts = self.parseString("define Person as category with attributes id and name")
         self.assertIsNotNone(stmts)
         stmts.register(self.context)
         actual = self.context.getRegisteredDeclaration(IDeclaration, "Person")
@@ -37,15 +37,15 @@ class TestScope(BaseEParserTest):
 
     def testMethod(self):
         self.assertIsNone(self.context.getRegisteredDeclaration(IDeclaration, "printName"))
-        stmts = self.parseString("define name as: Text attribute\r\n"
-                                 + "define printName as: method receiving: name doing:\r\n"
+        stmts = self.parseString("define name as Text attribute\r\n"
+                                 + "define printName as method receiving name doing:\r\n"
                                  + "\tprint with \"name\" + name as value")
         self.assertIsNotNone(stmts)
         stmts.register(self.context)
         actual = self.context.getRegisteredDeclaration(IDeclaration, "printName")
         self.assertIsNotNone(actual)
         self.assertIsInstance(actual, MethodDeclarationMap)
-        stmts = self.parseString("define printName as: method receiving: Person p doing:"
+        stmts = self.parseString("define printName as method receiving Person p doing:"
                                   + "\r\n\tprint with \"person\" + p.name as value")
         self.assertIsNotNone(stmts)
         stmts.register(self.context)

@@ -59,7 +59,7 @@ class EnumeratedNativeDeclaration ( BaseDeclaration, IEnumeratedDeclaration ):
     def toEDialect(self, writer):
         writer.append("define ")
         writer.append(self.name)
-        writer.append(" as: enumerated ")
+        writer.append(" as enumerated ")
         self.type.getDerivedFrom().toDialect(writer)
         writer.append(" with symbols:\n")
         writer.indent()

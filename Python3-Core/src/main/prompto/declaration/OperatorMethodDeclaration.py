@@ -30,10 +30,10 @@ class OperatorMethodDeclaration(ConcreteMethodDeclaration, IExpression):
     def toEDialect(self, writer):
         writer.append("define ")
         writer.append(self.operator.token)
-        writer.append(" as: operator ")
+        writer.append(" as operator ")
         self.arguments.toDialect(writer)
         if self.returnType is not None and self.returnType is not VoidType.instance:
-            writer.append("returning: ")
+            writer.append("returning ")
             self.returnType.toDialect(writer)
             writer.append(" ")
         writer.append("doing:\n")

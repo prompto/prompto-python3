@@ -52,7 +52,7 @@ class TestParserAtoms(unittest.TestCase):
 
 
     def testAttribute(self):
-        statement = "define id as : Integer attribute"
+        statement = "define id as Integer attribute"
         ad = self.parse(statement,ECleverParser.attribute_declaration)
         self.assertIsNotNone(ad)
         self.assertEquals("id",ad.getName())
@@ -60,7 +60,7 @@ class TestParserAtoms(unittest.TestCase):
 
 
     def testArrayAttribute(self):
-        statement = "define id as : Integer[] attribute"
+        statement = "define id as Integer[] attribute"
         ad = self.parse(statement,ECleverParser.attribute_declaration)
         self.assertIsNotNone(ad)
         self.assertEquals("id",ad.getName())
@@ -68,7 +68,7 @@ class TestParserAtoms(unittest.TestCase):
 
 
     def testCategory1Attribute(self):
-        statement = "define Person as: category with attribute: id "
+        statement = "define Person as category with attribute id "
         cd = self.parse(statement,ECleverParser.category_declaration)
         self.assertIsNotNone(cd)
         self.assertEquals("Person",cd.getName())
@@ -78,7 +78,7 @@ class TestParserAtoms(unittest.TestCase):
 
 
     def testCategory2Attributes(self):
-        statement = "define Person as: category with attributes: id, name"
+        statement = "define Person as category with attributes id, name"
         cd = self.parse(statement,ECleverParser.category_declaration)
         self.assertIsNotNone(cd)
         self.assertEquals("Person",cd.getName())
@@ -89,7 +89,7 @@ class TestParserAtoms(unittest.TestCase):
 
 
     def testCategory1Derived1Attribute(self):
-        statement = "define Employee as: Person with attribute: company"
+        statement = "define Employee as Person with attribute company"
         cd = self.parse(statement,ECleverParser.category_declaration)
         self.assertIsNotNone(cd)
         self.assertEquals("Employee",cd.getName())
@@ -101,7 +101,7 @@ class TestParserAtoms(unittest.TestCase):
 
 
     def testCategory2DerivedNoAttribute(self):
-        statement = "define Entrepreneur as: Person and Company"
+        statement = "define Entrepreneur as Person and Company"
         cd = self.parse(statement, ECleverParser.category_declaration)
         self.assertIsNotNone(cd)
         self.assertEquals("Entrepreneur",cd.getName())
@@ -219,7 +219,7 @@ class TestParserAtoms(unittest.TestCase):
 
 
     def testMethod1Parameter1Statement(self):
-        statement = "define printName as: method receiving: Person p doing:\r\n" \
+        statement = "define printName as method receiving Person p doing:\r\n" \
                 + "\tprint with \"person\" + p.name as value"
         ad = self.parse(statement,ECleverParser.concrete_method_declaration)
         self.assertIsNotNone(ad)
@@ -236,7 +236,7 @@ class TestParserAtoms(unittest.TestCase):
 
 
     def testMethod1Extended1Statement(self):
-        statement = "define printName as: method receiving: Object o with attribute: name doing:\r\n" \
+        statement = "define printName as method receiving Object o with attribute name doing:\r\n" \
                 + "\tprint with \"object\" + o.name as value"
         ad = self.parse(statement,ECleverParser.concrete_method_declaration)
         self.assertIsNotNone(ad)
@@ -253,7 +253,7 @@ class TestParserAtoms(unittest.TestCase):
 
 
     def testMethod1Array1Statement(self):
-        statement = "define printName as: method receiving: Option[] options doing:\r\n" \
+        statement = "define printName as method receiving Option[] options doing:\r\n" \
                 + "\tprint with \"array\" + args as value"
         ad = self.parse(statement,ECleverParser.concrete_method_declaration)
         self.assertIsNotNone(ad)
@@ -339,7 +339,7 @@ class TestParserAtoms(unittest.TestCase):
         self.assertIsInstance(call, NativeCall)
 
     def testNativeMethod(self):
-        statement = "define print as: native method receiving: String value doing:\r\n" \
+        statement = "define print as native method receiving String value doing:\r\n" \
                 + "\tJava: System.out.println(value); \r\n" \
                 + "\tC#: Console.println(value); "
         method = self.parse(statement,ECleverParser.native_method_declaration)

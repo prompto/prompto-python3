@@ -26,7 +26,7 @@ class ArgumentList ( ObjectList, IDialectElement ):
     def toEDialect(self, writer):
         if len(self)>0:
             last = self[-1]
-            writer.append("receiving: ")
+            writer.append("receiving ")
             for argument in self:
                 if argument is last:
                     break

@@ -23,7 +23,7 @@ class AttributeDeclaration ( BaseDeclaration ):
     def toEDialect(self, writer):
             writer.append("define ")
             writer.append(self.getName())
-            writer.append(" as: ")
+            writer.append(" as ")
             self.type_.toDialect(writer)
             writer.append(" attribute")
             if self.constraint is not None:

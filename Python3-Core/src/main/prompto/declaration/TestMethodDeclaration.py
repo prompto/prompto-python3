@@ -99,7 +99,7 @@ class TestMethodDeclaration(BaseDeclaration):
     def toEDialect(self, writer):
         writer.append ("define ")
         writer.append (self.name)
-        writer.append (" as: test method doing:\n")
+        writer.append (" as test method doing:\n")
         writer.indent ()
         self.statements.toDialect (writer)
         writer.dedent ()

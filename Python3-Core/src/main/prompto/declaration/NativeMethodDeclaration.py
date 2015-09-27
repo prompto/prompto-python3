@@ -59,10 +59,10 @@ class NativeMethodDeclaration(ConcreteMethodDeclaration):
     def toEDialect(self, writer):
         writer.append("define ")
         writer.append(self.name)
-        writer.append(" as: native method ")
+        writer.append(" as native method ")
         self.arguments.toDialect(writer)
         if self.returnType is not None and self.returnType is not VoidType.instance:
-            writer.append("returning: ")
+            writer.append("returning ")
             self.returnType.toDialect(writer)
             writer.append(" ")
         writer.append("doing:\n")

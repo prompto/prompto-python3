@@ -6,32 +6,28 @@ from prompto.parser.ELexer import ELexer
 class TestELexer(unittest.TestCase, BaseELexerTest):
 
     def testIntegerAttribute(self):
-        actual = self.parseTokenNamesFromString("define id as: Integer attribute")
+        actual = self.parseTokenNamesFromString("define id as Integer attribute")
         expected = self.tokenNamesAsString([ELexer.DEFINE, ELexer.VARIABLE_IDENTIFIER,
-                ELexer.AS, ELexer.COLON, ELexer.INTEGER,
-                ELexer.ATTRIBUTE, ELexer.LF ])
+                ELexer.AS, ELexer.INTEGER, ELexer.ATTRIBUTE, ELexer.LF ])
         self.assertEquals(expected,actual)
 
     def testStringAttribute(self):
-        actual = self.parseTokenNamesFromString("define name as: Text attribute")
+        actual = self.parseTokenNamesFromString("define name as Text attribute")
         expected = self.tokenNamesAsString([ELexer.DEFINE, ELexer.VARIABLE_IDENTIFIER,
-                ELexer.AS, ELexer.COLON, ELexer.TEXT,
-                ELexer.ATTRIBUTE, ELexer.LF ])
+                ELexer.AS, ELexer.TEXT, ELexer.ATTRIBUTE, ELexer.LF ])
         self.assertEquals(expected,actual)
 
     def testPersonCategory(self):
-        actual = self.parseTokenNamesFromString("define Person as: category with attributes: id, name")
+        actual = self.parseTokenNamesFromString("define Person as category with attributes id, name")
         expected = self.tokenNamesAsString([ ELexer.DEFINE, ELexer.TYPE_IDENTIFIER,
-                ELexer.AS, ELexer.COLON, ELexer.CATEGORY,
-                ELexer.WITH, ELexer.ATTRIBUTES, ELexer.COLON,
+                ELexer.AS, ELexer.CATEGORY, ELexer.WITH, ELexer.ATTRIBUTES,
                 ELexer.VARIABLE_IDENTIFIER, ELexer.COMMA, ELexer.VARIABLE_IDENTIFIER, ELexer.LF ])
         self.assertEquals(expected,actual)
 
     def testEmployeeCategoryExtendsPerson(self):
-        actual = self.parseTokenNamesFromString("define Employee as: Person with attribute: company")
+        actual = self.parseTokenNamesFromString("define Employee as Person with attribute company")
         expected = self.tokenNamesAsString([ ELexer.DEFINE, ELexer.TYPE_IDENTIFIER,
-                ELexer.AS, ELexer.COLON, ELexer.TYPE_IDENTIFIER,
-                ELexer.WITH, ELexer.ATTRIBUTE, ELexer.COLON,
+                ELexer.AS, ELexer.TYPE_IDENTIFIER, ELexer.WITH, ELexer.ATTRIBUTE,
                 ELexer.VARIABLE_IDENTIFIER, ELexer.LF ])
         self.assertEquals(expected,actual)
 

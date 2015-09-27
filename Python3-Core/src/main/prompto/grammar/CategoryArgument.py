@@ -90,10 +90,10 @@ class CategoryArgument(BaseArgument, ITypedArgument):
             writer.append(self.name)
         if self.attributes is not None:
             if len(self.attributes)==1:
-                writer.append(" with attribute: ")
+                writer.append(" with attribute ")
                 self.attributes.toDialect(writer, False)
             elif len(self.attributes)>1:
-                writer.append(" with attributes: ")
+                writer.append(" with attributes ")
                 self.attributes.toDialect(writer, True)
         if not anonymous:
             writer.append(' ')
