@@ -432,10 +432,10 @@ def serializedATN():
         buf.write("\u02a0\7\u0080\2\2\u02a0\u02a1\7f\2\2\u02a1\u02a2\7S\2")
         buf.write("\2\u02a2\u02a3\7\20\2\2\u02a3\u02a4\5z>\2\u02a4\u02a5")
         buf.write("\5\u00e2r\2\u02a5\u02a6\5|?\2\u02a6\u02a7\5x=\2\u02a7")
-        buf.write("\u02a8\7B\2\2\u02a8\u02a9\7Z\2\2\u02a9\u02af\7\20\2\2")
+        buf.write("\u02a8\7B\2\2\u02a8\u02af\7Z\2\2\u02a9\u02aa\7\20\2\2")
         buf.write("\u02aa\u02ab\5z>\2\u02ab\u02ac\5\u00e4s\2\u02ac\u02ad")
         buf.write("\5|?\2\u02ad\u02b0\3\2\2\2\u02ae\u02b0\5\u00b2Z\2\u02af")
-        buf.write("\u02aa\3\2\2\2\u02af\u02ae\3\2\2\2\u02b0)\3\2\2\2\u02b1")
+        buf.write("\u02a9\3\2\2\2\u02af\u02ae\3\2\2\2\u02b0)\3\2\2\2\u02b1")
         buf.write("\u02b2\5N(\2\u02b2+\3\2\2\2\u02b3\u02b6\5\u00b4[\2\u02b4")
         buf.write("\u02b5\7B\2\2\u02b5\u02b7\5\u00b6\\\2\u02b6\u02b4\3\2")
         buf.write("\2\2\u02b6\u02b7\3\2\2\2\u02b7-\3\2\2\2\u02b8\u02b9\5")
@@ -3785,11 +3785,11 @@ class EParser ( AbstractParser ):
             self.match(EParser.AND)
             self.state = 678
             self.match(EParser.EXPECTING)
-            self.state = 679
-            self.match(EParser.COLON)
             self.state = 685
             token = self._input.LA(1)
-            if token in [EParser.LF]:
+            if token in [EParser.COLON]:
+                self.state = 679
+                self.match(EParser.COLON)
                 self.state = 680
                 self.indent()
                 self.state = 681

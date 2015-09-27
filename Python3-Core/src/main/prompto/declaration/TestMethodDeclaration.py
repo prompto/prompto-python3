@@ -103,13 +103,13 @@ class TestMethodDeclaration(BaseDeclaration):
         writer.indent ()
         self.statements.toDialect (writer)
         writer.dedent ()
-        writer.append ("and expecting:")
+        writer.append ("and expecting")
         if self.error is not None:
             writer.append (" ")
             self.error.toDialect (writer)
             writer.append ("\n")
         else:
-            writer.append ("\n")
+            writer.append (":\n")
             writer.indent ()
             for a in self.assertions:
                 a.toDialect (writer)
