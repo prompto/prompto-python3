@@ -6,11 +6,13 @@ from prompto.parser.OCleverParser import OCleverParser
 from prompto.parser.OPromptoBuilder import OPromptoBuilder
 from prompto.parser.SCleverParser import SCleverParser
 from prompto.parser.SPromptoBuilder import SPromptoBuilder
+from prompto.declaration.TestMethodDeclaration import TestMethodDeclaration
 from prompto.runtime.Context import Context
 from prompto.runtime.Interpreter import Interpreter
 from prompto.runtime.utils.Out import Out
 from prompto.utils.CodeWriter import CodeWriter
 
+import os
 import unittest
 
 
@@ -18,19 +20,56 @@ class BaseParserTest(unittest.TestCase):
 
     def __init__(self, args=None):
         super(BaseParserTest, self).__init__(args)
+        self.coreContext = None
 
     def setUp(self):
         self.context = Context.newGlobalContext()
 
+    def loadDependency(self, name):
+        if self.coreContext is None:
+            self.coreContext = Context.newGlobalContext()
+        files = self.listLibraryFiles(name)
+        if files is not None:
+            for file in files:
+                resourceName = name + "/" + file
+                stmts = self.parseResource(resourceName)
+                stmts.register(self.coreContext)
+
+    def listLibraryFiles(self, libraryName):
+        idx = __file__.index("/prompto-python3/Python3-Core/")
+        dir = __file__[0:idx] + "/prompto-libraries/" + libraryName
+        if os.path.isdir(dir):
+            files = os.listdir(dir)
+            def validFile(file):
+                return ".pec" in file or ".poc" in file or ".psc" in file
+            return filter(validFile, files )
+        else:
+            return None
+
+    def runTests(self, resource):
+        stmts = self.parseResource(resource)
+        for decl in stmts:
+            if not isinstance(decl, TestMethodDeclaration):
+                continue
+            Out.reset()
+            Interpreter.interpretTest(self.coreContext, decl.name)
+            expected = decl.name + " test successful"
+            read = Out.read()
+            self.assertEqual(read, expected)
+
     def getResourceAsString(self, resourceName, mode):
         idx = __file__.index("/prompto-python3/Python3-Core/")
         file = __file__[0:idx] + "/prompto-tests/Tests/resources/" + resourceName
+        if not os.path.exists(file):
+            file = __file__[0:idx] + "/prompto-libraries/" + resourceName
         with open(file, mode) as input:
             return input.read()
 
     def getResourceAsStream(self, resourceName, mode):
         idx = __file__.index("/prompto-python3/Python3-Core/")
         file = __file__[0:idx] + "/prompto-tests/Tests/resources/" + resourceName
+        if not os.path.exists(file):
+            file = __file__[0:idx] + "/prompto-libraries/" + resourceName
         return open(file, mode)
 
     def loadResource(self, resourceName):

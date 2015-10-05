@@ -4,7 +4,7 @@ from prompto.value.Boolean import Boolean
 from prompto.value.IContainer import IContainer
 from prompto.utils.CodeWriter import CodeWriter
 from prompto.value.IValue import IValue
-
+from prompto.error.SyntaxError import SyntaxError
 
 class ContainsExpression(IExpression):
 
@@ -97,6 +97,8 @@ class ContainsExpression(IExpression):
         writer = CodeWriter(test.dialect, context)
         self.toDialect(writer)
         expected = str(writer)
-        actual = str(lval) + self.operator.toDialect(test.dialect) + str(rval)
+        writer = CodeWriter(test.dialect, context)
+        self.operator.toDialect(writer)
+        actual = str(lval) + " " + str(writer) + " " + str(rval)
         test.printFailure(context, expected, actual)
         return False

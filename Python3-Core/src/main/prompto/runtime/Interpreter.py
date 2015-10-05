@@ -24,6 +24,12 @@ class Interpreter(object):
             test.interpret(local)
 
     @staticmethod
+    def interpretTest(context, name):
+        test = context.tests[name]
+        local = context.newLocalContext()
+        test.interpret(local)
+
+    @staticmethod
     def interpretMainNoArgs(context):
         Interpreter.interpret(context, "main", "")
 

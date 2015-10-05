@@ -38,7 +38,7 @@ class NativeCategoryDeclaration ( ConcreteCategoryDeclaration ):
             if isinstance(binding, Python3NativeCategoryBinding):
                 return binding
         if fail:
-            raise SyntaxError("Missing PYTHON2 binding !")
+            raise SyntaxError("Missing Python3 binding !")
         else:
             return None
 
