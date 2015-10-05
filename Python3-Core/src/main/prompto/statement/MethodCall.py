@@ -70,7 +70,7 @@ class MethodCall(SimpleStatement):
             expression = assignment.resolve(local, declaration, True)
             argument = assignment.getArgument()
             value = argument.checkValue(context, expression)
-            if value is not None and value.mutable and not argument.mutable:
+            if value is not None and argument.mutable and not value.mutable:
                 from prompto.error.NotMutableError import NotMutableError
                 raise NotMutableError()
             local.setValue(assignment.getName(), value)
