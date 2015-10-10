@@ -67,7 +67,7 @@ class TextType(NativeType):
         return sorted(list_)
 
 
-    def convertPythonValueToPrestoValue(self, context, value, returnType):
+    def convertPythonValueToPromptoValue(self, context, value, returnType):
         from prompto.value.Text import Text
         if isinstance(value, str):
             return Text(value)

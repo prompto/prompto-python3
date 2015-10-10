@@ -13,8 +13,7 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
         super().__init__(name)
         from prompto.grammar.ArgumentList import ArgumentList
         self.arguments = arguments if arguments != None else ArgumentList()
-        from prompto.type.VoidType import VoidType
-        self.returnType = returnType if returnType != None else VoidType.instance
+        self.returnType = returnType
         self.memberOf = None
 
     def getSignature(self, dialect):

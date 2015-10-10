@@ -58,6 +58,6 @@ class CompareExpression ( IExpression ):
         writer = CodeWriter(test.dialect, context)
         self.toDialect(writer)
         expected = str(writer)
-        actual = str(lval) + " " + self.operator.toDialect(test.dialect) + " " + str(rval)
+        actual = str(lval) + " " + str(self.operator) + " " + str(rval)
         test.printFailure(context, expected, actual)
         return False

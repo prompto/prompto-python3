@@ -8,6 +8,7 @@ from prompto.value.Integer import Integer
 
 
 class ForEachStatement(BaseStatement):
+
     def __init__(self, name1, name2, source, instructions):
         super(ForEachStatement, self).__init__()
         self.v1 = name1
@@ -29,7 +30,7 @@ class ForEachStatement(BaseStatement):
         context.registerValue(TransientVariable(itemName, elemType))
         if self.v2 != None:
             context.registerValue(TransientVariable(self.v1, IntegerType.instance))
-        return self.instructions.check(child)
+        return self.instructions.check(child, None)
 
     def interpret(self, context):
         srcType = self.source.check(context)

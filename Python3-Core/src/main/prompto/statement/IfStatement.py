@@ -81,7 +81,7 @@ class IfElement ( BaseStatement ):
         if cond!=BooleanType.instance:
             raise SyntaxError("Expected a boolean condition!")
         context = self.downCast(context, False)
-        return self.instructions.check(context)
+        return self.instructions.check(context, None)
 
     def interpret(self, context):
         context = self.downCast(context, True)

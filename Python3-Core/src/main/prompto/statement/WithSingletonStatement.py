@@ -11,7 +11,7 @@ class WithSingletonStatement(BaseStatement):
     def check(self, context):
         instanceContext = context.newInstanceContext(None, self.type)
         childContext = instanceContext.newChildContext()
-        return self.instructions.check(childContext)
+        return self.instructions.check(childContext, None)
 
     def interpret(self, context):
         # TODO synchronize

@@ -41,7 +41,7 @@ class BaseSwitchStatement(BaseStatement):
                 if type_ != VoidType.instance:
                     types[type_.getName()] = type_
         if self.defaultCase is not None:
-            type_ = self.defaultCase.check(context)
+            type_ = self.defaultCase.check(context, None)
             if type_ != VoidType.instance:
                 types.put(type_.getName(), type_)
 

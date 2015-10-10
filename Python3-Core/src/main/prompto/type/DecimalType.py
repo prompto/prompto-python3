@@ -78,7 +78,7 @@ class DecimalType(NativeType):
     def sort(self, context, source):
         return sorted(source)
 
-    def convertPythonValueToPrestoValue(self, context, value, returnType):
+    def convertPythonValueToPromptoValue(self, context, value, returnType):
         if isinstance(value, Number):
             return Decimal(float(value))
         else:

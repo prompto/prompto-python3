@@ -116,6 +116,17 @@ class Context(IContext):
     def findAttribute(self, name):
         return self.getRegisteredDeclaration(AttributeDeclaration, name)
 
+    def getAllAttributes(self):
+        if id(self) != id(self.globals):
+            return self.globals.getAllAttributes()
+        else:
+            # need a real list here
+            list = []
+            for decl in self.declarations.values():
+                if isinstance(decl, AttributeDeclaration):
+                    list.append(decl)
+            return list
+
     def getRegistered(self, name):
         # resolve upwards, since local names override global ones
         actual = self.declarations.get(name, None)

@@ -1,7 +1,8 @@
 from prompto.error.UserError import UserError
 from prompto.statement.SimpleStatement import SimpleStatement
 from prompto.type.CategoryType import CategoryType
-
+from prompto.type.VoidType import VoidType
+from prompto.error.SyntaxError import SyntaxError
 
 class RaiseStatement ( SimpleStatement ):
 
@@ -39,7 +40,7 @@ class RaiseStatement ( SimpleStatement ):
         type_ = self.expression.check(context)
         if not type_.isAssignableTo(context, CategoryType("Error")):
             raise SyntaxError(type_.getName() + " does not extend Error")
-        return type_
+        return VoidType.instance
 
     def interpret(self, context):
         raise UserError(self.expression)

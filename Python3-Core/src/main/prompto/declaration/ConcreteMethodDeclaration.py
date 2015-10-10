@@ -46,14 +46,14 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
             self.registerArguments(context)
         if self.arguments is not None:
             self.arguments.check(context)
-        return self.statements.check(context, nativeOnly)
+        return self.statements.check(context, self.returnType, nativeOnly)
 
     def checkChild(self, context, nativeOnly = False):
         if self.arguments is not None:
             self.arguments.check(context)
         child = context.newChildContext()
         self.registerArguments(child)
-        return self.statements.check(child, nativeOnly)
+        return self.statements.check(child, self.returnType, nativeOnly)
 
     def interpret(self, context):
         context.enterMethod(self)

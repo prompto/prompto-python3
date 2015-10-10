@@ -22,7 +22,7 @@ class WhileStatement ( BaseStatement ):
         if cond!=BooleanType.instance:
             raise SyntaxError("Expected a Boolean condition!")
         child = context.newChildContext()
-        return self.instructions.check(child)
+        return self.instructions.check(child, None)
 
     def interpret(self, context):
         while self.interpretCondition(context):

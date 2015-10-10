@@ -13,7 +13,7 @@ class WithResourceStatement ( BaseStatement ):
     def check(self, context):
         context = context.newResourceContext()
         self.resource.checkResource(context)
-        return self.instructions.check(context)
+        return self.instructions.check(context, None)
 
     def interpret(self, context):
         context = context.newResourceContext()

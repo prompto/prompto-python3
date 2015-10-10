@@ -13,15 +13,29 @@ class StatementList(list):
         if statement != None:
             self.append(statement)
 
-    def check(self, context, nativeOnly=False):
-        types = TypeMap()
-        for statement in self:
-            if nativeOnly and not isinstance(statement, Python3NativeCall):
-                continue
-            type_ = statement.check(context)
-            if type_ != VoidType.instance:
-                types[type_.getName()] = type_
-        return types.inferType(context)
+    def check(self, context, returnType, nativeOnly=False):
+        if returnType == VoidType.instance:
+            for statement in self:
+                if nativeOnly and not isinstance(statement, Python3NativeCall):
+                    continue
+                type_ = statement.check(context)
+                if type_ != VoidType.instance:
+                    raise SyntaxError("Illegal return!")
+        else:
+            types = TypeMap()
+            if returnType is not None:
+                types[returnType.getName()] = returnType
+            for statement in self:
+                if nativeOnly and not isinstance(statement, Python3NativeCall):
+                    continue
+                type_ = statement.check(context)
+                if type_ != VoidType.instance:
+                    types[type_.getName()] = type_
+            type_ = types.inferType(context)
+            if returnType is not None:
+                return returnType
+            else:
+                return type_
 
     def interpret(self, context):
         try:

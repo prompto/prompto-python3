@@ -82,17 +82,17 @@ class IntegerType(NativeType):
     def checkRange(self, context, other):
         if isinstance(other, IntegerType):
             return RangeType(self)
-        return super(IntegerType, self).checkCompare(context, other)
+        return super(IntegerType, self).checkRange(context, other)
 
     def newRange(self, left, right):
         if isinstance(left, Integer) and isinstance(right, Integer):
             return IntegerRange(left, right)
         return super(IntegerType, self).newRange(left, right)
 
-    def sort(self, context, source):
+    def sort(self, context, source, key=None):
         return sorted(source)
 
-    def convertPythonValueToPrestoValue(self, context, value, returnType):
+    def convertPythonValueToPromptoValue(self, context, value, returnType):
         if isinstance(value, Number):
             return Integer(int(value))
         else:

@@ -1,3 +1,4 @@
+from prompto.type.AnyType import AnyType
 from prompto.type.BooleanType import BooleanType
 from prompto.type.CollectionType import CollectionType
 
@@ -8,7 +9,8 @@ class ListType(CollectionType):
         super(ListType, self).__init__(itemType.getName() + "[]", itemType)
 
     def isAssignableTo(self, context, other):
-        return isinstance(other, ListType) and self.itemType.isAssignableTo(context, other.getItemType())
+        return isinstance(other, AnyType) or \
+               (isinstance(other, ListType) and self.itemType.isAssignableTo(context, other.getItemType()))
 
     def __eq__(self, obj):
         if id(obj) == id(self):

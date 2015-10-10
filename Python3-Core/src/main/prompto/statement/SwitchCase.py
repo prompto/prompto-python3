@@ -10,7 +10,7 @@ class SwitchCase ( Section, ISection ):
         self.statements = statements
 
     def checkReturnType(self, context):
-        return self.statements.check(context)
+        return self.statements.check(context, None)
 
     def interpret(self, context):
         return self.statements.interpret(context)

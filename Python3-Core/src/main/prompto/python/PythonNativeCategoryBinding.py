@@ -15,9 +15,9 @@ class PythonNativeCategoryBinding(NativeCategoryBinding):
         return self.module
 
     def interpret(self):
-        m = self.module.resolve()
+        m = None if self.module is None else self.module.resolve()
         if m is None:
-            return None
+            return eval(self.identifier)
         else:
             return m.__dict__.get(self.identifier, None)
 

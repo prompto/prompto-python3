@@ -13,13 +13,13 @@ class TestCore(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
-    def testAny(self):
-        self.runTests("core/any.pec")
+    # def testAny(self):
+    #     self.runTests("core/any.pec")
 
     def testAttribute(self):
         self.runTests("core/attribute.pec")
 
-    def testError(self):
-        self.runTests("core/error.pec")
+    # def testError(self):
+    #     self.runTests("core/error.pec")
 
 
