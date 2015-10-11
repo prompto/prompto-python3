@@ -1,5 +1,6 @@
 from antlr4 import ParserRuleContext
 from antlr4.tree.Tree import ParseTree
+
 from prompto.csharp.CSharpBooleanLiteral import CSharpBooleanLiteral
 from prompto.csharp.CSharpCharacterLiteral import CSharpCharacterLiteral
 from prompto.csharp.CSharpDecimalLiteral import CSharpDecimalLiteral
@@ -12,6 +13,7 @@ from prompto.csharp.CSharpNativeCall import CSharpNativeCall
 from prompto.csharp.CSharpNativeCategoryBinding import CSharpNativeCategoryBinding
 from prompto.csharp.CSharpStatement import CSharpStatement
 from prompto.csharp.CSharpTextLiteral import CSharpTextLiteral
+from prompto.declaration.DeclarationList import DeclarationList
 from prompto.declaration.AbstractMethodDeclaration import AbstractMethodDeclaration
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
@@ -67,7 +69,6 @@ from prompto.grammar.CategorySymbolList import CategorySymbolList
 from prompto.grammar.CmpOp import CmpOp
 from prompto.grammar.CodeArgument import CodeArgument
 from prompto.grammar.ContOp import ContOp
-from prompto.grammar.DeclarationList import DeclarationList
 from prompto.grammar.EqOp import EqOp
 from prompto.grammar.IdentifierList import IdentifierList
 from prompto.grammar.ItemInstance import ItemInstance

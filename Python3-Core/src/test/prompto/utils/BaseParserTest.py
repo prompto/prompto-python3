@@ -28,12 +28,17 @@ class BaseParserTest(unittest.TestCase):
     def loadDependency(self, name):
         if self.coreContext is None:
             self.coreContext = Context.newGlobalContext()
+        allStmts = None
         files = self.listLibraryFiles(name)
         if files is not None:
             for file in files:
                 resourceName = name + "/" + file
                 stmts = self.parseResource(resourceName)
-                stmts.register(self.coreContext)
+                if allStmts is None:
+                    allStmts = stmts
+                else:
+                    allStmts.extend(stmts)
+        allStmts.register(self.coreContext)
 
     def listLibraryFiles(self, libraryName):
         idx = __file__.index("/prompto-python3/Python3-Core/")
