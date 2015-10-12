@@ -238,6 +238,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#StoreStatement.
+    def enterStoreStatement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#StoreStatement.
+    def exitStoreStatement(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#ReturnStatement.
     def enterReturnStatement(self, ctx):
         pass
@@ -343,6 +352,24 @@ class SParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by SParser#ClosureStatement.
     def exitClosureStatement(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#StoreOne.
+    def enterStoreOne(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#StoreOne.
+    def exitStoreOne(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#StoreMany.
+    def enterStoreMany(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#StoreMany.
+    def exitStoreMany(self, ctx):
         pass
 
 
@@ -1030,12 +1057,30 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#fetch_expression.
-    def enterFetch_expression(self, ctx):
+    # Enter a parse tree produced by SParser#FetchList.
+    def enterFetchList(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#fetch_expression.
-    def exitFetch_expression(self, ctx):
+    # Exit a parse tree produced by SParser#FetchList.
+    def exitFetchList(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#FetchOne.
+    def enterFetchOne(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#FetchOne.
+    def exitFetchOne(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#FetchAll.
+    def enterFetchAll(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#FetchAll.
+    def exitFetchAll(self, ctx):
         pass
 
 

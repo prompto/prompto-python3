@@ -292,6 +292,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#StoreStatement.
+    def enterStoreStatement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#StoreStatement.
+    def exitStoreStatement(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#ReturnStatement.
     def enterReturnStatement(self, ctx):
         pass
@@ -397,6 +406,24 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#ClosureStatement.
     def exitClosureStatement(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#StoreOne.
+    def enterStoreOne(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#StoreOne.
+    def exitStoreOne(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#StoreMany.
+    def enterStoreMany(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#StoreMany.
+    def exitStoreMany(self, ctx):
         pass
 
 
@@ -1039,12 +1066,30 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#fetch_expression.
-    def enterFetch_expression(self, ctx):
+    # Enter a parse tree produced by OParser#FetchList.
+    def enterFetchList(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#fetch_expression.
-    def exitFetch_expression(self, ctx):
+    # Exit a parse tree produced by OParser#FetchList.
+    def exitFetchList(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#FetchOne.
+    def enterFetchOne(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#FetchOne.
+    def exitFetchOne(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#FetchAll.
+    def enterFetchAll(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#FetchAll.
+    def exitFetchAll(self, ctx):
         pass
 
 

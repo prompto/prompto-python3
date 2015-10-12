@@ -265,6 +265,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#StoreStatement.
+    def enterStoreStatement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#StoreStatement.
+    def exitStoreStatement(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#ReturnStatement.
     def enterReturnStatement(self, ctx):
         pass
@@ -370,6 +379,24 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#ClosureStatement.
     def exitClosureStatement(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#StoreOne.
+    def enterStoreOne(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#StoreOne.
+    def exitStoreOne(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#StoreMany.
+    def enterStoreMany(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#StoreMany.
+    def exitStoreMany(self, ctx):
         pass
 
 
@@ -1048,12 +1075,30 @@ class EParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EParser#fetch_expression.
-    def enterFetch_expression(self, ctx):
+    # Enter a parse tree produced by EParser#FetchList.
+    def enterFetchList(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#fetch_expression.
-    def exitFetch_expression(self, ctx):
+    # Exit a parse tree produced by EParser#FetchList.
+    def exitFetchList(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#FetchOne.
+    def enterFetchOne(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#FetchOne.
+    def exitFetchOne(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#FetchAll.
+    def enterFetchAll(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#FetchAll.
+    def exitFetchAll(self, ctx):
         pass
 
 
