@@ -1,4 +1,3 @@
-# generated: 2015-07-05T23:01:01.822
 from prompto.parser.o.BaseOParserTest import BaseOParserTest
 from prompto.runtime.utils.Out import Out
 

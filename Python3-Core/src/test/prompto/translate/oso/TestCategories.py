@@ -1,4 +1,3 @@
-# generated: 2015-07-05T23:01:01.741
 from prompto.parser.o.BaseOParserTest import BaseOParserTest
 
 class TestCategories(BaseOParserTest):

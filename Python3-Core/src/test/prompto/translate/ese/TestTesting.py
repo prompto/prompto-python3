@@ -1,4 +1,3 @@
-# generated: 2015-07-05T23:01:01.970
 from prompto.parser.e.BaseEParserTest import BaseEParserTest
 
 class TestTesting(BaseEParserTest):
