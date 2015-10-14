@@ -76,8 +76,6 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
 
     def doSetMember(self, context, attrName, value, allowSetter):
         decl = context.getRegisteredDeclaration(AttributeDeclaration, attrName)
-        if decl is None:
-            raise "abc"
         setter = self.declaration.findSetter(context, attrName) if allowSetter else None
         if setter != None:
             activeSetters.__dict__[attrName] = context

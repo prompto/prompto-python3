@@ -28,13 +28,13 @@ class CategoryType(BaseType):
 
     def checkUnique(self, context):
         actual = context.getRegisteredDeclaration(IDeclaration, self.name)
-        if actual != None:
+        if actual is not None:
             raise SyntaxError("Duplicate name: \"" + self.name + "\"")
 
     def getDeclaration(self, context):
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
         decl = context.getRegisteredDeclaration(CategoryDeclaration, self.name)
-        if decl == None:
+        if decl is None:
             raise SyntaxError("Unknown category: \"" + self.name + "\"")
         return decl
 
@@ -111,12 +111,12 @@ class CategoryType(BaseType):
     def checkMember(self, context, name):
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
         cd = context.getRegisteredDeclaration(CategoryDeclaration, self.getName())
-        if cd == None:
+        if cd is None:
             raise SyntaxError("Unknown category:" + self.getName())
         if not cd.hasAttribute(context, name):
             raise SyntaxError("No attribute:" + name + " in category:" + self.getName())
         ad = context.getRegisteredDeclaration(AttributeDeclaration, name)
-        if ad == None:
+        if ad is None:
             raise SyntaxError("Unknown atttribute:" + name)
         return ad.getType(context)
 
@@ -140,7 +140,7 @@ class CategoryType(BaseType):
             return False
 
     def isDerivedFromCompatibleCategory(self, context, decl, other):
-        if decl.getDerivedFrom() == None:
+        if decl.getDerivedFrom() is None:
             return False
         for derived in decl.getDerivedFrom():
             ct = CategoryType(derived)
@@ -202,7 +202,7 @@ class CategoryType(BaseType):
         return decl.newInstance()
 
     def sort(self, context, source, key):
-        if key == None:
+        if key is None:
             key = UnresolvedIdentifier("key")
         decl = self.getDeclaration(context)
         if decl.hasAttribute(context, str(key)):
@@ -241,7 +241,7 @@ class CategoryType(BaseType):
             args = ArgumentAssignmentList(item=arg)
             proto = MethodCall(MethodSelector(name), args)
             finder = MethodFinder(context, proto)
-            return finder.findMethod(True) != None
+            return finder.findMethod(True) is not None
         except PrestoError:
             return False
 

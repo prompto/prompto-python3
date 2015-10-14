@@ -19,7 +19,7 @@ class MethodFinder(object):
         compatibles = self.filterCompatible(candidates, checkInstance)
         if len(compatibles) == 0:
             #TODO refine
-            compatibles = self.filterCompatible(candidates, checkInstance)
+            # compatibles = self.filterCompatible(candidates, checkInstance)
             raise SyntaxError("No matching prototype for:" + str(self.methodCall))
         elif len(compatibles) == 1:
             return compatibles[0]

@@ -570,13 +570,10 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, CodeType.instance)
     
 
-    
     def exitPrimaryType(self, ctx:EParser.PrimaryTypeContext):
         typ = self.getNodeValue(ctx.p)
         self.setNodeValue(ctx, typ)
-    
 
-    
     def exitAttribute_declaration(self, ctx:EParser.Attribute_declarationContext):
         name = self.getNodeValue(ctx.name)
         typ = self.getNodeValue(ctx.typ)
@@ -586,31 +583,26 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, decl)
     
 
-    
     def exitNativeType(self, ctx:EParser.NativeTypeContext):
         typ = self.getNodeValue(ctx.n)
         self.setNodeValue(ctx, typ)
     
 
-    
     def exitCategoryType(self, ctx:EParser.CategoryTypeContext):
         typ = self.getNodeValue(ctx.c)
         self.setNodeValue(ctx, typ)
     
 
-    
     def exitCategory_type(self, ctx:EParser.Category_typeContext):
         name = ctx.getText()
         self.setNodeValue(ctx, CategoryType(name))
     
 
-    
     def exitListType(self, ctx:EParser.ListTypeContext):
         typ = self.getNodeValue(ctx.l)
         self.setNodeValue(ctx, ListType(typ))
     
 
-    
     def exitDictType(self, ctx:EParser.DictTypeContext):
         typ = self.getNodeValue(ctx.d)
         self.setNodeValue(ctx, DictType(typ))
@@ -782,7 +774,6 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, arg)
     
 
-    
     def exitCategoryArgumentType(self, ctx:EParser.CategoryArgumentTypeContext):
         typ = self.getNodeValue(ctx.typ)
         self.setNodeValue(ctx, typ)
@@ -1441,7 +1432,6 @@ class EPromptoBuilder(EParserListener):
     
     def exitPythonBooleanLiteral(self, ctx:EParser.PythonBooleanLiteralContext):
         self.setNodeValue(ctx, PythonBooleanLiteral(ctx.getText()))
-    
 
     def exitPythonCharacterLiteral(self, ctx):
         self.setNodeValue(ctx, PythonCharacterLiteral(ctx.getText()))

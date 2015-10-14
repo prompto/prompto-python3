@@ -1,6 +1,7 @@
 from prompto.type.CategoryType import *
 from prompto.value.BaseValue import *
 from prompto.value.IInstance import *
+from prompto.store.StorableDocument import StorableDocument
 from prompto.python.PythonClassType import PythonClassType
 
 class NativeInstance(BaseValue, IInstance):

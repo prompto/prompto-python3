@@ -905,7 +905,7 @@ class SPromptoBuilder(SParserListener):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
 
-    def exitFetchList(self, ctx:SParser.Fetch_expressionContext):
+    def exitFetchList(self, ctx:SParser.FetchListContext):
         itemName = self.getNodeValue(ctx.name)
         source = self.getNodeValue(ctx.source)
         filter = self.getNodeValue(ctx.xfilter)

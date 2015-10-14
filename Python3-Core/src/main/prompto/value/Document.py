@@ -8,7 +8,6 @@ class Document ( BaseValue ):
         self.mutable = True
         self.members = dict()
 
-
     def HasMember(self, name):
         result = self.members.get(name, None)
         return result is not None

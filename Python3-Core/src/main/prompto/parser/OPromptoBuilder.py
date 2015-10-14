@@ -549,7 +549,6 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, typ)
     
 
-    
     def exitAttribute_declaration(self, ctx:OParser.Attribute_declarationContext):
         name = self.getNodeValue(ctx.name)
         typ = self.getNodeValue(ctx.typ)
@@ -569,7 +568,6 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, typ)
     
 
-    
     def exitCategory_type(self, ctx:OParser.Category_typeContext):
         name = ctx.getText()
         self.setNodeValue(ctx, CategoryType(name))
@@ -591,7 +589,6 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, IdentifierList(item))
     
 
-    
     def exitAttributeListItem(self, ctx:OParser.AttributeListItemContext):
         items = self.getNodeValue(ctx.items)
         item = self.getNodeValue(ctx.item)
@@ -599,13 +596,11 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, items)
     
 
-    
     def exitVariableList(self, ctx:OParser.VariableListContext):
         item = self.getNodeValue(ctx.item)
         self.setNodeValue(ctx, IdentifierList(item))
     
 
-    
     def exitVariableListItem(self, ctx:OParser.VariableListItemContext):
         items = self.getNodeValue(ctx.items)
         item = self.getNodeValue(ctx.item)
@@ -821,7 +816,6 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, items)
     
 
-    
     def exitArgumentAssignmentListItem(self, ctx:OParser.ArgumentAssignmentListItemContext):
         item = self.getNodeValue(ctx.item)
         items = self.getNodeValue(ctx.items)
@@ -829,7 +823,6 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, items)
     
 
-    
     def exitAddExpression(self, ctx:OParser.AddExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
@@ -2064,9 +2057,8 @@ class OPromptoBuilder(OParserListener):
     def exitFetchExpression(self, ctx:OParser.FetchExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
-    
 
-    
+
     def exitFetchList(self, ctx:OParser.Fetch_expressionContext):
         itemName = self.getNodeValue(ctx.name)
         source = self.getNodeValue(ctx.source)

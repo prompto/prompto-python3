@@ -35,4 +35,4 @@ class TestParserFiles ( BaseEParserTest ):
     def testEnumeratedCategory(self):
         stmts = self.parseResource("enums/categoryEnum.pec")
         self.assertIsNotNone(stmts)
-        self.assertEquals(5,len(stmts))
+        self.assertEquals(6,len(stmts))
