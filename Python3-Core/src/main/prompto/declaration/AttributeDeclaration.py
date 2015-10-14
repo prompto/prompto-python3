@@ -10,6 +10,7 @@ class AttributeDeclaration ( BaseDeclaration ):
         super(AttributeDeclaration, self).__init__(name)
         self.type_ = type_
         self.constraint = constraint
+        self.storable = False
 
     def getType(self, context = None):
         return self.type_
@@ -24,12 +25,16 @@ class AttributeDeclaration ( BaseDeclaration ):
             writer.append("define ")
             writer.append(self.getName())
             writer.append(" as ")
+            if self.storable:
+                writer.append(" storable")
             self.type_.toDialect(writer)
             writer.append(" attribute")
             if self.constraint is not None:
                 self.constraint.toDialect(writer)
 
     def toODialect(self, writer):
+            if self.storable:
+                writer.append("storable ")
             writer.append("attribute ")
             writer.append(self.getName())
             writer.append(" : ")
@@ -39,6 +44,8 @@ class AttributeDeclaration ( BaseDeclaration ):
             writer.append(';')
 
     def toSDialect(self, writer):
+            if self.storable:
+                writer.append("storable ")
             writer.append("attr ")
             writer.append(self.getName())
             writer.append(" ( ")

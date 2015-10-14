@@ -8,9 +8,14 @@ class Document ( BaseValue ):
         self.mutable = True
         self.members = dict()
 
-    def GetMember(self, context, name):
+
+    def HasMember(self, name):
         result = self.members.get(name, None)
-        if result is None:
+        return result is not None
+
+    def GetMember(self, context, name, create = True):
+        result = self.members.get(name, None)
+        if create and result is None:
             result = Document()
             self.members[name] = result
         return result

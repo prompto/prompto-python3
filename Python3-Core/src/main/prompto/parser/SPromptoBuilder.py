@@ -40,6 +40,8 @@ from prompto.expression.DocumentExpression import DocumentExpression
 from prompto.expression.EqualsExpression import EqualsExpression
 from prompto.expression.ExecuteExpression import ExecuteExpression
 from prompto.expression.FetchExpression import FetchExpression
+from prompto.expression.FetchOneExpression import FetchOneExpression
+from prompto.expression.FetchAllExpression import FetchAllExpression
 from prompto.expression.IntDivideExpression import IntDivideExpression
 from prompto.expression.ItemSelector import ItemSelector
 from prompto.expression.MemberSelector import MemberSelector
@@ -157,6 +159,7 @@ from prompto.statement.IfStatement import IfElement, IfElementList, IfStatement
 from prompto.statement.RaiseStatement import RaiseStatement
 from prompto.statement.ReturnStatement import ReturnStatement
 from prompto.statement.StatementList import StatementList
+from prompto.statement.StoreStatement import StoreStatement
 from prompto.statement.SwitchCase import SwitchCaseList
 from prompto.statement.SwitchErrorStatement import SwitchErrorStatement
 from prompto.statement.SwitchStatement import SwitchStatement
@@ -366,9 +369,11 @@ class SPromptoBuilder(SParserListener):
 
     def exitAttribute_declaration(self, ctx:SParser.Attribute_declarationContext):
         name = self.getNodeValue(ctx.name)
-        type = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.typ)
         match = self.getNodeValue(ctx.match)
-        self.setNodeValue(ctx, AttributeDeclaration(name, type, match))
+        decl = AttributeDeclaration(name, typ, match)
+        decl.storable = ctx.STORABLE() is not None
+        self.setNodeValue(ctx, decl)
 
 
     def exitAttribute_list(self, ctx:SParser.Attribute_listContext):
@@ -563,6 +568,7 @@ class SPromptoBuilder(SParserListener):
         derived = self.getNodeValue(ctx.derived)
         methods = self.getNodeValue(ctx.methods)
         ccd = ConcreteCategoryDeclaration(name)
+        ccd.storable = ctx.STORABLE() is not None
         ccd.setAttributes(attrs)
         ccd.setDerivedFrom(derived)
         ccd.setMethods(methods)
@@ -895,17 +901,29 @@ class SPromptoBuilder(SParserListener):
         self.setNodeValue(ctx, items)
 
 
-    def exitFetch_expression(self, ctx:SParser.Fetch_expressionContext):
+    def exitFetchExpression(self, ctx:SParser.FetchExpressionContext):
+        exp = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, exp)
+
+    def exitFetchList(self, ctx:SParser.Fetch_expressionContext):
         itemName = self.getNodeValue(ctx.name)
         source = self.getNodeValue(ctx.source)
         filter = self.getNodeValue(ctx.xfilter)
         self.setNodeValue(ctx, FetchExpression(itemName, source, filter))
 
 
-    def exitFetchExpression(self, ctx:SParser.FetchExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
+    def exitFetchOne (self, ctx:SParser.FetchOneContext):
+        category = self.getNodeValue(ctx.typ)
+        xfilter = self.getNodeValue(ctx.xfilter)
+        self.setNodeValue(ctx, FetchOneExpression(category, xfilter))
 
+
+    def exitFetchAll (self, ctx:SParser.FetchAllContext):
+        category = self.getNodeValue(ctx.typ)
+        xfilter = self.getNodeValue(ctx.xfilter)
+        start = self.getNodeValue(ctx.start)
+        end = self.getNodeValue(ctx.end)
+        self.setNodeValue(ctx, FetchAllExpression(category, xfilter, start, end))
 
     def exitFor_each_statement(self, ctx:SParser.For_each_statementContext):
         name1 = self.getNodeValue(ctx.name1)
@@ -1461,7 +1479,9 @@ class SPromptoBuilder(SParserListener):
         attrs = self.getNodeValue(ctx.attrs)
         bindings = self.getNodeValue(ctx.bindings)
         methods = self.getNodeValue(ctx.methods)
-        self.setNodeValue(ctx, NativeCategoryDeclaration(name, attrs, bindings, None, methods))
+        decl = NativeCategoryDeclaration(name, attrs, bindings, None, methods)
+        decl.storable = ctx.STORABLE() is not None
+        self.setNodeValue(ctx, decl)
 
 
     def exitNative_category_bindings(self, ctx:SParser.Native_category_bindingsContext):
@@ -1930,6 +1950,16 @@ class SPromptoBuilder(SParserListener):
     def exitSliceSelector(self, ctx:SParser.SliceSelectorContext):
         slice = self.getNodeValue(ctx.xslice)
         self.setNodeValue(ctx, slice)
+
+
+    def exitStoreStatement (self, ctx:SParser.StoreStatementContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.stmt))
+
+
+    def exitStore_statement (self, ctx:SParser.Store_statementContext):
+        exps = self.getNodeValue(ctx.exps)
+        stmt = StoreStatement(exps)
+        self.setNodeValue(ctx, stmt)
 
 
     def exitSorted_expression(self, ctx:SParser.Sorted_expressionContext):

@@ -409,21 +409,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#StoreOne.
-    def enterStoreOne(self, ctx):
+    # Enter a parse tree produced by OParser#store_statement.
+    def enterStore_statement(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#StoreOne.
-    def exitStoreOne(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#StoreMany.
-    def enterStoreMany(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#StoreMany.
-    def exitStoreMany(self, ctx):
+    # Exit a parse tree produced by OParser#store_statement.
+    def exitStore_statement(self, ctx):
         pass
 
 

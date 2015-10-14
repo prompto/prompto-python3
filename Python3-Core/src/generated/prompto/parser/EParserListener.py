@@ -382,21 +382,12 @@ class EParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EParser#StoreOne.
-    def enterStoreOne(self, ctx):
+    # Enter a parse tree produced by EParser#store_statement.
+    def enterStore_statement(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#StoreOne.
-    def exitStoreOne(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by EParser#StoreMany.
-    def enterStoreMany(self, ctx):
-        pass
-
-    # Exit a parse tree produced by EParser#StoreMany.
-    def exitStoreMany(self, ctx):
+    # Exit a parse tree produced by EParser#store_statement.
+    def exitStore_statement(self, ctx):
         pass
 
 

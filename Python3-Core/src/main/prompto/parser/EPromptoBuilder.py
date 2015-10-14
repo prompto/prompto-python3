@@ -40,6 +40,8 @@ from prompto.expression.DocumentExpression import DocumentExpression
 from prompto.expression.EqualsExpression import EqualsExpression
 from prompto.expression.ExecuteExpression import ExecuteExpression
 from prompto.expression.FetchExpression import FetchExpression
+from prompto.expression.FetchOneExpression import FetchOneExpression
+from prompto.expression.FetchAllExpression import FetchAllExpression
 from prompto.expression.IntDivideExpression import IntDivideExpression
 from prompto.expression.ItemSelector import ItemSelector
 from prompto.expression.MemberSelector import MemberSelector
@@ -157,6 +159,7 @@ from prompto.statement.MethodCall import MethodCall
 from prompto.statement.RaiseStatement import RaiseStatement
 from prompto.statement.ReturnStatement import ReturnStatement
 from prompto.statement.StatementList import StatementList
+from prompto.statement.StoreStatement import StoreStatement
 from prompto.statement.SwitchCase import SwitchCaseList
 from prompto.statement.SwitchErrorStatement import SwitchErrorStatement
 from prompto.statement.SwitchStatement import SwitchStatement
@@ -578,7 +581,9 @@ class EPromptoBuilder(EParserListener):
         name = self.getNodeValue(ctx.name)
         typ = self.getNodeValue(ctx.typ)
         match = self.getNodeValue(getattr(ctx, "match", None))
-        self.setNodeValue(ctx, AttributeDeclaration(name, typ, match))
+        decl = AttributeDeclaration(name, typ, match)
+        decl.storable = ctx.STORABLE() is not None
+        self.setNodeValue(ctx, decl)
     
 
     
@@ -646,6 +651,7 @@ class EPromptoBuilder(EParserListener):
         derived = self.getNodeValue(ctx.derived)
         methods = self.getNodeValue(ctx.methods)
         ccd = ConcreteCategoryDeclaration(name)
+        ccd.storable = ctx.STORABLE() is not None
         ccd.setAttributes(attrs)
         ccd.setDerivedFrom(derived)
         ccd.setMethods(methods)
@@ -1519,8 +1525,9 @@ class EPromptoBuilder(EParserListener):
         attrs = self.getNodeValue(ctx.attrs)
         bindings = self.getNodeValue(ctx.bindings)
         methods = self.getNodeValue(ctx.methods)
-        self.setNodeValue(ctx, NativeCategoryDeclaration(name, attrs, bindings, None, methods))
-    
+        decl = NativeCategoryDeclaration(name, attrs, bindings, None, methods)
+        decl.storable = ctx.STORABLE() is not None
+        self.setNodeValue(ctx, decl)
 
     
     def exitNativeCategoryDeclaration(self, ctx:EParser.NativeCategoryDeclarationContext):
@@ -2064,6 +2071,15 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, SliceSelector(None, last))
     
 
+    def exitStoreStatement (self, ctx:EParser.StoreStatementContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.stmt))
+
+
+    def exitStore_statement (self, ctx:EParser.Store_statementContext):
+        exps = self.getNodeValue(ctx.exps)
+        stmt = StoreStatement(exps)
+        self.setNodeValue(ctx, stmt)
+
     
     def exitSorted_expression(self, ctx:EParser.Sorted_expressionContext):
         source = self.getNodeValue(ctx.source)
@@ -2100,14 +2116,27 @@ class EPromptoBuilder(EParserListener):
     
 
     
-    def exitFetch_expression(self, ctx:EParser.Fetch_expressionContext):
+    def exitFetchList(self, ctx:EParser.Fetch_expressionContext):
         itemName = self.getNodeValue(ctx.name)
         source = self.getNodeValue(ctx.source)
         filter = self.getNodeValue(ctx.xfilter)
         self.setNodeValue(ctx, FetchExpression(itemName, source, filter))
-    
 
-    
+
+    def exitFetchOne (self, ctx:EParser.FetchOneContext):
+        category = self.getNodeValue(ctx.typ)
+        xfilter = self.getNodeValue(ctx.xfilter)
+        self.setNodeValue(ctx, FetchOneExpression(category, xfilter))
+
+
+    def exitFetchAll (self, ctx:EParser.FetchAllContext):
+        category = self.getNodeValue(ctx.typ)
+        xfilter = self.getNodeValue(ctx.xfilter)
+        start = self.getNodeValue(ctx.start)
+        end = self.getNodeValue(ctx.end)
+        self.setNodeValue(ctx, FetchAllExpression(category, xfilter, start, end))
+
+
     def exitCode_type(self, ctx:EParser.Code_typeContext):
         self.setNodeValue(ctx, CodeType.instance)
     

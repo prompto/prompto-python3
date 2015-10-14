@@ -27,14 +27,13 @@ class VariableInstance(IAssignableInstance):
         writer.append(self.name)
 
     def checkAssignValue(self, context, expression):
+        typ = expression.check(context)
         actual = context.getRegisteredValue(INamedValue, self.name)
         if actual == None:
-            actualType = expression.check(context)
-            context.registerValue(Variable(self.name, actualType))
+            context.registerValue(Variable(self.name, typ))
         else:
             # need to check type compatibility
             actualType = actual.getType(context)
-            typ = expression.check(context)
             typ.checkAssignableTo(context, actualType)
 
     def checkAssignMember(self, context, memberName):

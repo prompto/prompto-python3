@@ -13,6 +13,7 @@ from prompto.value.Dictionary import Dictionary
 from prompto.runtime.Variable import Variable
 from prompto.error.SyntaxError import SyntaxError
 from prompto.error.NotMutableError import NotMutableError
+from prompto.store.StorableDocument import StorableDocument
 
 # don't call getters from getters, so register them
 activeGetters = threading.local()
@@ -26,6 +27,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         from prompto.type.CategoryType import CategoryType
         super(ConcreteInstance, self).__init__(CategoryType(declaration.name))
         self.declaration = declaration
+        self.storable = StorableDocument() if declaration.storable else None
         self.mutable = False
         self.values = dict()
 
@@ -74,6 +76,8 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
 
     def doSetMember(self, context, attrName, value, allowSetter):
         decl = context.getRegisteredDeclaration(AttributeDeclaration, attrName)
+        if decl is None:
+            raise "abc"
         setter = self.declaration.findSetter(context, attrName) if allowSetter else None
         if setter != None:
             activeSetters.__dict__[attrName] = context
@@ -84,6 +88,10 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
             value = setter.interpret(context)
         value = self.autocast(decl, value)
         self.values[attrName] = value
+        if self.storable is not None:
+            if decl.storable:
+                # TODO convert object graph if(value instanceof IInstance)
+                self.storable.SetMember(context, attrName, value)
 
 
     def autocast(self, decl, value):

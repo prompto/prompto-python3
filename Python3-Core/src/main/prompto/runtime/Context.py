@@ -97,6 +97,14 @@ class Context(IContext):
         context.debugger = self.debugger
         return context
 
+    def newDocumentContext(self, doc):
+        context = DocumentContext(doc)
+        context.globals = self.globals
+        context.calling = self
+        context.parent = None
+        context.debugger = self.debugger
+        return context
+
     def newInstanceContext(self, instance, typ):
         context = InstanceContext(instance, typ)
         context.globals = self.globals
@@ -215,6 +223,7 @@ class Context(IContext):
     def getValue(self, name):
         context = self.contextForValue(name)
         if context == None:
+            # context = self.contextForValue(name)
             raise SyntaxError(name + " is not defined")
         return context.readValue(name)
 
@@ -301,6 +310,30 @@ class Context(IContext):
 class ResourceContext(Context):
     def __init__(self):
         super(ResourceContext, self).__init__()
+
+
+class DocumentContext(Context):
+
+    def __init__(self, document):
+        super(DocumentContext, self).__init__()
+        self.document = document
+
+    def contextForValue(self, name):
+        # params and variables have precedence over members
+        # so first look in context values
+        context = super(DocumentContext, self).contextForValue(name)
+        if context is not None:
+            return context
+        elif self.document.HasMember(name):
+            return self
+        else:
+            return None
+
+    def readValue(self, name):
+        return self.document.GetMember(self.calling, name)
+
+    def writeValue(self, name, value):
+        self.document.SetMember(self.calling, name, value)
 
 
 class InstanceContext(Context):
