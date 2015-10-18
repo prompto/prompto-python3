@@ -1,5 +1,7 @@
 from prompto.statement.BaseStatement import BaseStatement
 from prompto.parser.Dialect import Dialect
+from prompto.type.VoidType import VoidType
+
 
 class CommentStatement(BaseStatement):
 
@@ -8,7 +10,7 @@ class CommentStatement(BaseStatement):
         self.text = text
 
     def check(self, context):
-        return None
+        return VoidType.instance
 
     def interpret(self, context):
         return None

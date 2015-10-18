@@ -12,7 +12,7 @@ from .AbstractParser import AbstractParser
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\u009b")
+        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\u009c")
         buf.write("\u082c\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
         buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
@@ -243,10 +243,10 @@ def serializedATN():
         buf.write("\u015c\u015e\u0160\u0162\u0164\u0166\u0168\u016a\u016c")
         buf.write("\u016e\u0170\u0172\u0174\u0176\u0178\u017a\u017c\u017e")
         buf.write("\u0180\2\t\3\2\36\37\4\2zz\u0082\u0082\4\2##ee\b\2\60")
-        buf.write("8tt\u0081\u0081\u008a\u008a\u008f\u0091\u0093\u0093\b")
-        buf.write("\2\608ttzz\u0081\u0082\u008a\u008a\u008f\u0091\7\2\60")
-        buf.write("8tt\u0081\u0081\u008a\u008a\u008f\u0093\7\2\608tt\u0081")
-        buf.write("\u0081\u008a\u008a\u008f\u0091\u0897\2\u0182\3\2\2\2\4")
+        buf.write("8tt\u0081\u0081\u008b\u008b\u0090\u0092\u0094\u0094\b")
+        buf.write("\2\608ttzz\u0081\u0082\u008b\u008b\u0090\u0092\7\2\60")
+        buf.write("8tt\u0081\u0081\u008b\u008b\u0090\u0094\7\2\608tt\u0081")
+        buf.write("\u0081\u008b\u008b\u0090\u0092\u0897\2\u0182\3\2\2\2\4")
         buf.write("\u0193\3\2\2\2\6\u019c\3\2\2\2\b\u01a2\3\2\2\2\n\u01a8")
         buf.write("\3\2\2\2\f\u01b4\3\2\2\2\16\u01c4\3\2\2\2\20\u01ce\3\2")
         buf.write("\2\2\22\u01df\3\2\2\2\24\u01e2\3\2\2\2\26\u01ef\3\2\2")
@@ -410,11 +410,11 @@ def serializedATN():
         buf.write("\3\2\2\2\u0267\u0268\7\23\2\2\u0268\u0269\7\26\2\2\u0269")
         buf.write("\u026a\5\u00d8m\2\u026a\u026b\7\27\2\2\u026b)\3\2\2\2")
         buf.write("\u026c\u026d\7\u0081\2\2\u026d\u026e\7c\2\2\u026e\u026f")
-        buf.write("\7\u0094\2\2\u026f\u0270\7\22\2\2\u0270\u0271\7\23\2\2")
+        buf.write("\7\u0095\2\2\u026f\u0270\7\22\2\2\u0270\u0271\7\23\2\2")
         buf.write("\u0271\u0272\7\26\2\2\u0272\u0273\5\u00e0q\2\u0273\u0274")
-        buf.write("\7\27\2\2\u0274\u027c\7W\2\2\u0275\u0276\7\26\2\2\u0276")
-        buf.write("\u0277\5\u00e2r\2\u0277\u0278\7\27\2\2\u0278\u027d\3\2")
-        buf.write("\2\2\u0279\u027a\5\u00aeX\2\u027a\u027b\7\16\2\2\u027b")
+        buf.write("\7\27\2\2\u0274\u027c\7\u0086\2\2\u0275\u0276\7\26\2\2")
+        buf.write("\u0276\u0277\5\u00e2r\2\u0277\u0278\7\27\2\2\u0278\u027d")
+        buf.write("\3\2\2\2\u0279\u027a\5\u00aeX\2\u027a\u027b\7\16\2\2\u027b")
         buf.write("\u027d\3\2\2\2\u027c\u0275\3\2\2\2\u027c\u0279\3\2\2\2")
         buf.write("\u027d+\3\2\2\2\u027e\u027f\5X-\2\u027f\u0280\7\16\2\2")
         buf.write("\u0280-\3\2\2\2\u0281\u0286\5\u00ba^\2\u0282\u0283\7\22")
@@ -442,9 +442,9 @@ def serializedATN():
         buf.write("\u02a9\u02a8\3\2\2\2\u02aa\63\3\2\2\2\u02ab\u02ac\7\177")
         buf.write("\2\2\u02ac\u02ad\7\22\2\2\u02ad\u02ae\5\u0092J\2\u02ae")
         buf.write("\u02af\7\23\2\2\u02af\u02b0\7\16\2\2\u02b0\65\3\2\2\2")
-        buf.write("\u02b1\u02b2\7\u0086\2\2\u02b2\u02b3\7\22\2\2\u02b3\u02b4")
+        buf.write("\u02b1\u02b2\7\u0087\2\2\u02b2\u02b3\7\22\2\2\u02b3\u02b4")
         buf.write("\5\u0104\u0083\2\u02b4\u02b5\7\23\2\2\u02b5\u02b6\5\60")
-        buf.write("\31\2\u02b6\67\3\2\2\2\u02b7\u02b8\7\u0086\2\2\u02b8\u02b9")
+        buf.write("\31\2\u02b6\67\3\2\2\2\u02b7\u02b8\7\u0087\2\2\u02b8\u02b9")
         buf.write("\7\22\2\2\u02b9\u02ba\5\u00acW\2\u02ba\u02bb\7\23\2\2")
         buf.write("\u02bb\u02bc\5\60\31\2\u02bc9\3\2\2\2\u02bd\u02be\7\u0080")
         buf.write("\2\2\u02be\u02bf\7\22\2\2\u02bf\u02c0\5X-\2\u02c0\u02c1")
@@ -467,9 +467,9 @@ def serializedATN():
         buf.write("\7\23\2\2\u02e6\u02e7\5\60\31\2\u02e7?\3\2\2\2\u02e8\u02e9")
         buf.write("\7O\2\2\u02e9\u02eb\7\26\2\2\u02ea\u02ec\5\u00e0q\2\u02eb")
         buf.write("\u02ea\3\2\2\2\u02eb\u02ec\3\2\2\2\u02ec\u02ed\3\2\2\2")
-        buf.write("\u02ed\u02ee\7\27\2\2\u02ee\u02ef\7\u0089\2\2\u02ef\u02f0")
+        buf.write("\u02ed\u02ee\7\27\2\2\u02ee\u02ef\7\u008a\2\2\u02ef\u02f0")
         buf.write("\7\22\2\2\u02f0\u02f1\5X-\2\u02f1\u02f2\7\23\2\2\u02f2")
-        buf.write("\u02f3\7\16\2\2\u02f3A\3\2\2\2\u02f4\u02f5\7\u0089\2\2")
+        buf.write("\u02f3\7\16\2\2\u02f3A\3\2\2\2\u02f4\u02f5\7\u008a\2\2")
         buf.write("\u02f5\u02f6\7\22\2\2\u02f6\u02f7\5X-\2\u02f7\u02f8\7")
         buf.write("\23\2\2\u02f8\u02f9\5\60\31\2\u02f9C\3\2\2\2\u02fa\u02fb")
         buf.write("\7^\2\2\u02fb\u02fc\7\22\2\2\u02fc\u02fd\5X-\2\u02fd\u02fe")
@@ -584,7 +584,7 @@ def serializedATN():
         buf.write("\u03f6\u03ef\3\2\2\2\u03f6\u03f3\3\2\2\2\u03f7\u03fa\3")
         buf.write("\2\2\2\u03f8\u03f6\3\2\2\2\u03f8\u03f9\3\2\2\2\u03f9Y")
         buf.write("\3\2\2\2\u03fa\u03f8\3\2\2\2\u03fb\u03fc\6.\"\3\u03fc")
-        buf.write("\u03fd\7\u0091\2\2\u03fd\u03fe\5\u00ba^\2\u03fe[\3\2\2")
+        buf.write("\u03fd\7\u0092\2\2\u03fd\u03fe\5\u00ba^\2\u03fe[\3\2\2")
         buf.write("\2\u03ff\u0400\5\u00acW\2\u0400]\3\2\2\2\u0401\u0402\b")
         buf.write("\60\1\2\u0402\u0403\5\u00eex\2\u0403\u0408\3\2\2\2\u0404")
         buf.write("\u0405\f\3\2\2\u0405\u0407\5l\67\2\u0406\u0404\3\2\2\2")
@@ -597,22 +597,22 @@ def serializedATN():
         buf.write("\2\2\2\u0412a\3\2\2\2\u0413\u0414\5\u00a0Q\2\u0414\u0415")
         buf.write("\7\22\2\2\u0415\u0416\7\23\2\2\u0416c\3\2\2\2\u0417\u0418")
         buf.write("\7t\2\2\u0418\u0419\7\\\2\2\u0419\u041a\5X-\2\u041ae\3")
-        buf.write("\2\2\2\u041b\u041c\7\u008a\2\2\u041c\u041d\7\22\2\2\u041d")
+        buf.write("\2\2\2\u041b\u041c\7\u008b\2\2\u041c\u041d\7\22\2\2\u041d")
         buf.write("\u041e\5X-\2\u041e\u041f\7\23\2\2\u041f\u0420\7\u0084")
         buf.write("\2\2\u0420\u0421\5X-\2\u0421\u0422\7\16\2\2\u0422g\3\2")
         buf.write("\2\2\u0423\u0424\7Y\2\2\u0424\u0425\7\22\2\2\u0425\u0426")
         buf.write("\5\u00aaV\2\u0426\u0427\7\23\2\2\u0427\u0428\7\\\2\2\u0428")
-        buf.write("\u0429\5X-\2\u0429\u042a\7\u0088\2\2\u042a\u042b\5X-\2")
+        buf.write("\u0429\5X-\2\u0429\u042a\7\u0089\2\2\u042a\u042b\5X-\2")
         buf.write("\u042b\u044a\3\2\2\2\u042c\u042d\7Y\2\2\u042d\u042e\7")
         buf.write("m\2\2\u042e\u042f\7\22\2\2\u042f\u0430\5\u009cO\2\u0430")
-        buf.write("\u0431\7\23\2\2\u0431\u0432\7\u0088\2\2\u0432\u0433\7")
+        buf.write("\u0431\7\23\2\2\u0431\u0432\7\u0089\2\2\u0432\u0433\7")
         buf.write("\22\2\2\u0433\u0434\5X-\2\u0434\u0435\7\23\2\2\u0435\u044a")
         buf.write("\3\2\2\2\u0436\u043d\7Y\2\2\u0437\u043e\7=\2\2\u0438\u0439")
         buf.write("\7y\2\2\u0439\u043a\5X-\2\u043a\u043b\7\u0084\2\2\u043b")
         buf.write("\u043c\5X-\2\u043c\u043e\3\2\2\2\u043d\u0437\3\2\2\2\u043d")
         buf.write("\u0438\3\2\2\2\u043e\u043f\3\2\2\2\u043f\u0440\7\22\2")
         buf.write("\2\u0440\u0441\5\u009cO\2\u0441\u0447\7\23\2\2\u0442\u0443")
-        buf.write("\7\u0088\2\2\u0443\u0444\7\22\2\2\u0444\u0445\5X-\2\u0445")
+        buf.write("\7\u0089\2\2\u0443\u0444\7\22\2\2\u0444\u0445\5X-\2\u0445")
         buf.write("\u0446\7\23\2\2\u0446\u0448\3\2\2\2\u0447\u0442\3\2\2")
         buf.write("\2\u0447\u0448\3\2\2\2\u0448\u044a\3\2\2\2\u0449\u0423")
         buf.write("\3\2\2\2\u0449\u042c\3\2\2\2\u0449\u0436\3\2\2\2\u044a")
@@ -677,7 +677,7 @@ def serializedATN():
         buf.write("\3\2\2\2\u04d4\u008b\3\2\2\2\u04d5\u04d3\3\2\2\2\u04d6")
         buf.write("\u04d7\7_\2\2\u04d7\u04e1\5\u008eH\2\u04d8\u04d9\7_\2")
         buf.write("\2\u04d9\u04e1\5\u0090I\2\u04da\u04db\7_\2\2\u04db\u04e1")
-        buf.write("\5\u0094K\2\u04dc\u04dd\7b\2\2\u04dd\u04e1\7\u0094\2\2")
+        buf.write("\5\u0094K\2\u04dc\u04dd\7b\2\2\u04dd\u04e1\7\u0095\2\2")
         buf.write("\u04de\u04df\7b\2\2\u04df\u04e1\5X-\2\u04e0\u04d6\3\2")
         buf.write("\2\2\u04e0\u04d8\3\2\2\2\u04e0\u04da\3\2\2\2\u04e0\u04dc")
         buf.write("\3\2\2\2\u04e0\u04de\3\2\2\2\u04e1\u008d\3\2\2\2\u04e2")
@@ -709,7 +709,7 @@ def serializedATN():
         buf.write("\u051d\u0515\3\2\2\2\u051d\u0516\3\2\2\2\u051d\u0517\3")
         buf.write("\2\2\2\u051d\u0518\3\2\2\2\u051d\u0519\3\2\2\2\u051d\u051a")
         buf.write("\3\2\2\2\u051d\u051b\3\2\2\2\u051d\u051c\3\2\2\2\u051e")
-        buf.write("\u009b\3\2\2\2\u051f\u0520\7\u0090\2\2\u0520\u009d\3\2")
+        buf.write("\u009b\3\2\2\2\u051f\u0520\7\u0091\2\2\u0520\u009d\3\2")
         buf.write("\2\2\u0521\u0522\7:\2\2\u0522\u009f\3\2\2\2\u0523\u0524")
         buf.write("\7;\2\2\u0524\u00a1\3\2\2\2\u0525\u0529\5\f\7\2\u0526")
         buf.write("\u0529\5\34\17\2\u0527\u0529\5\16\b\2\u0528\u0525\3\2")
@@ -723,8 +723,8 @@ def serializedATN():
         buf.write("\3\2\2\2\u0538\u00a7\3\2\2\2\u0539\u053d\5\u00aaV\2\u053a")
         buf.write("\u053d\5\u00acW\2\u053b\u053d\5\u00aeX\2\u053c\u0539\3")
         buf.write("\2\2\2\u053c\u053a\3\2\2\2\u053c\u053b\3\2\2\2\u053d\u00a9")
-        buf.write("\3\2\2\2\u053e\u053f\7\u0091\2\2\u053f\u00ab\3\2\2\2\u0540")
-        buf.write("\u0541\7\u0090\2\2\u0541\u00ad\3\2\2\2\u0542\u0543\7\u008f")
+        buf.write("\3\2\2\2\u053e\u053f\7\u0092\2\2\u053f\u00ab\3\2\2\2\u0540")
+        buf.write("\u0541\7\u0091\2\2\u0541\u00ad\3\2\2\2\u0542\u0543\7\u0090")
         buf.write("\2\2\u0543\u00af\3\2\2\2\u0544\u0545\bY\1\2\u0545\u0546")
         buf.write("\5\u00b2Z\2\u0546\u054c\3\2\2\2\u0547\u0548\f\3\2\2\u0548")
         buf.write("\u0549\7\17\2\2\u0549\u054b\5\u00b2Z\2\u054a\u0547\3\2")
@@ -775,7 +775,7 @@ def serializedATN():
         buf.write("\5\u00a8U\2\u05ab\u05ac\7\21\2\2\u05ac\u05ae\5\u00a8U")
         buf.write("\2\u05ad\u05ab\3\2\2\2\u05ae\u05b1\3\2\2\2\u05af\u05ad")
         buf.write("\3\2\2\2\u05af\u05b0\3\2\2\2\u05b0\u00cb\3\2\2\2\u05b1")
-        buf.write("\u05af\3\2\2\2\u05b2\u05b3\7\u0091\2\2\u05b3\u05b4\6g")
+        buf.write("\u05af\3\2\2\2\u05b2\u05b3\7\u0092\2\2\u05b3\u05b4\6g")
         buf.write("\64\3\u05b4\u00cd\3\2\2\2\u05b5\u05b7\5\u00a8U\2\u05b6")
         buf.write("\u05b8\5\u00d0i\2\u05b7\u05b6\3\2\2\2\u05b7\u05b8\3\2")
         buf.write("\2\2\u05b8\u00cf\3\2\2\2\u05b9\u05ba\7\\\2\2\u05ba\u05bb")
@@ -840,11 +840,11 @@ def serializedATN():
         buf.write("\u063f\7&\2\2\u063f\u0640\5\u00ecw\2\u0640\u0641\7$\2")
         buf.write("\2\u0641\u0643\3\2\2\2\u0642\u0634\3\2\2\2\u0642\u063a")
         buf.write("\3\2\2\2\u0642\u063e\3\2\2\2\u0643\u00e9\3\2\2\2\u0644")
-        buf.write("\u0652\7\u008d\2\2\u0645\u0652\7\u008e\2\2\u0646\u0652")
-        buf.write("\7\u0095\2\2\u0647\u0652\7\u0096\2\2\u0648\u0652\7\u008c")
-        buf.write("\2\2\u0649\u0652\7\u009a\2\2\u064a\u0652\7\u0099\2\2\u064b")
-        buf.write("\u0652\7\u0094\2\2\u064c\u0652\7\u0097\2\2\u064d\u0652")
-        buf.write("\7\u0098\2\2\u064e\u0652\7\u008b\2\2\u064f\u0652\7\u009b")
+        buf.write("\u0652\7\u008e\2\2\u0645\u0652\7\u008f\2\2\u0646\u0652")
+        buf.write("\7\u0096\2\2\u0647\u0652\7\u0097\2\2\u0648\u0652\7\u008d")
+        buf.write("\2\2\u0649\u0652\7\u009b\2\2\u064a\u0652\7\u009a\2\2\u064b")
+        buf.write("\u0652\7\u0095\2\2\u064c\u0652\7\u0098\2\2\u064d\u0652")
+        buf.write("\7\u0099\2\2\u064e\u0652\7\u008c\2\2\u064f\u0652\7\u009c")
         buf.write("\2\2\u0650\u0652\5z>\2\u0651\u0644\3\2\2\2\u0651\u0645")
         buf.write("\3\2\2\2\u0651\u0646\3\2\2\2\u0651\u0647\3\2\2\2\u0651")
         buf.write("\u0648\3\2\2\2\u0651\u0649\3\2\2\2\u0651\u064a\3\2\2\2")
@@ -894,17 +894,17 @@ def serializedATN():
         buf.write("\2\2\u06ae\u06b0\5v<\2\u06af\u06ad\3\2\2\2\u06b0\u06b3")
         buf.write("\3\2\2\2\u06b1\u06af\3\2\2\2\u06b1\u06b2\3\2\2\2\u06b2")
         buf.write("\u0107\3\2\2\2\u06b3\u06b1\3\2\2\2\u06b4\u06b5\6\u0085")
-        buf.write("?\3\u06b5\u06b6\7\u0091\2\2\u06b6\u06b9\5\u00ba^\2\u06b7")
+        buf.write("?\3\u06b5\u06b6\7\u0092\2\2\u06b6\u06b9\5\u00ba^\2\u06b7")
         buf.write("\u06b9\5X-\2\u06b8\u06b4\3\2\2\2\u06b8\u06b7\3\2\2\2\u06b9")
         buf.write("\u0109\3\2\2\2\u06ba\u06c1\7\36\2\2\u06bb\u06c1\7\37\2")
         buf.write("\2\u06bc\u06c1\5\u0114\u008b\2\u06bd\u06c1\5\u0116\u008c")
         buf.write("\2\u06be\u06c1\5\u0118\u008d\2\u06bf\u06c1\5\u011a\u008e")
         buf.write("\2\u06c0\u06ba\3\2\2\2\u06c0\u06bb\3\2\2\2\u06c0\u06bc")
         buf.write("\3\2\2\2\u06c0\u06bd\3\2\2\2\u06c0\u06be\3\2\2\2\u06c0")
-        buf.write("\u06bf\3\2\2\2\u06c1\u010b\3\2\2\2\u06c2\u06c3\7\u0091")
+        buf.write("\u06bf\3\2\2\2\u06c1\u010b\3\2\2\2\u06c2\u06c3\7\u0092")
         buf.write("\2\2\u06c3\u06c4\6\u0087@\3\u06c4\u010d\3\2\2\2\u06c5")
-        buf.write("\u06c6\7\u0091\2\2\u06c6\u06c7\6\u0088A\3\u06c7\u010f")
-        buf.write("\3\2\2\2\u06c8\u06c9\7\u0091\2\2\u06c9\u06ca\6\u0089B")
+        buf.write("\u06c6\7\u0092\2\2\u06c6\u06c7\6\u0088A\3\u06c7\u010f")
+        buf.write("\3\2\2\2\u06c8\u06c9\7\u0092\2\2\u06c9\u06ca\6\u0089B")
         buf.write("\3\u06ca\u0111\3\2\2\2\u06cb\u06cc\7)\2\2\u06cc\u0113")
         buf.write("\3\2\2\2\u06cd\u06ce\7 \2\2\u06ce\u0115\3\2\2\2\u06cf")
         buf.write("\u06d0\7!\2\2\u06d0\u0117\3\2\2\2\u06d1\u06d2\7\"\2\2")
@@ -941,9 +941,9 @@ def serializedATN():
         buf.write("\u0712\7\25\2\2\u0712\u012f\3\2\2\2\u0713\u0714\7\22\2")
         buf.write("\2\u0714\u0715\5\u0122\u0092\2\u0715\u0716\7\23\2\2\u0716")
         buf.write("\u0131\3\2\2\2\u0717\u0718\5\u0136\u009c\2\u0718\u0133")
-        buf.write("\3\2\2\2\u0719\u071f\7\u0095\2\2\u071a\u071f\7\u0097\2")
-        buf.write("\2\u071b\u071f\7\u0094\2\2\u071c\u071f\7\u008b\2\2\u071d")
-        buf.write("\u071f\7\u008c\2\2\u071e\u0719\3\2\2\2\u071e\u071a\3\2")
+        buf.write("\3\2\2\2\u0719\u071f\7\u0096\2\2\u071a\u071f\7\u0098\2")
+        buf.write("\2\u071b\u071f\7\u0095\2\2\u071c\u071f\7\u008c\2\2\u071d")
+        buf.write("\u071f\7\u008d\2\2\u071e\u0719\3\2\2\2\u071e\u071a\3\2")
         buf.write("\2\2\u071e\u071b\3\2\2\2\u071e\u071c\3\2\2\2\u071e\u071d")
         buf.write("\3\2\2\2\u071f\u0135\3\2\2\2\u0720\u0721\t\5\2\2\u0721")
         buf.write("\u0137\3\2\2\2\u0722\u0723\7w\2\2\u0723\u0726\5\u013a")
@@ -982,14 +982,14 @@ def serializedATN():
         buf.write("\u0767\u0147\3\2\2\2\u0768\u0766\3\2\2\2\u0769\u076a\7")
         buf.write("\22\2\2\u076a\u076b\5\u013a\u009e\2\u076b\u076c\7\23\2")
         buf.write("\2\u076c\u0149\3\2\2\2\u076d\u076e\b\u00a6\1\2\u076e\u0771")
-        buf.write("\7\u0093\2\2\u076f\u0771\5\u014e\u00a8\2\u0770\u076d\3")
+        buf.write("\7\u0094\2\2\u076f\u0771\5\u014e\u00a8\2\u0770\u076d\3")
         buf.write("\2\2\2\u0770\u076f\3\2\2\2\u0771\u0777\3\2\2\2\u0772\u0773")
         buf.write("\f\3\2\2\u0773\u0774\7\21\2\2\u0774\u0776\5\u014e\u00a8")
         buf.write("\2\u0775\u0772\3\2\2\2\u0776\u0779\3\2\2\2\u0777\u0775")
         buf.write("\3\2\2\2\u0777\u0778\3\2\2\2\u0778\u014b\3\2\2\2\u0779")
-        buf.write("\u0777\3\2\2\2\u077a\u0780\7\u0095\2\2\u077b\u0780\7\u0097")
-        buf.write("\2\2\u077c\u0780\7\u0094\2\2\u077d\u0780\7\u008b\2\2\u077e")
-        buf.write("\u0780\7\u008c\2\2\u077f\u077a\3\2\2\2\u077f\u077b\3\2")
+        buf.write("\u0777\3\2\2\2\u077a\u0780\7\u0096\2\2\u077b\u0780\7\u0098")
+        buf.write("\2\2\u077c\u0780\7\u0095\2\2\u077d\u0780\7\u008c\2\2\u077e")
+        buf.write("\u0780\7\u008d\2\2\u077f\u077a\3\2\2\2\u077f\u077b\3\2")
         buf.write("\2\2\u077f\u077c\3\2\2\2\u077f\u077d\3\2\2\2\u077f\u077e")
         buf.write("\3\2\2\2\u0780\u014d\3\2\2\2\u0781\u0782\t\6\2\2\u0782")
         buf.write("\u014f\3\2\2\2\u0783\u0784\7w\2\2\u0784\u0785\5\u0152")
@@ -1025,12 +1025,12 @@ def serializedATN():
         buf.write("\2\2\u07c4\u07c7\3\2\2\2\u07c5\u07c3\3\2\2\2\u07c5\u07c6")
         buf.write("\3\2\2\2\u07c6\u0163\3\2\2\2\u07c7\u07c5\3\2\2\2\u07c8")
         buf.write("\u07c9\b\u00b3\1\2\u07c9\u07ca\5\u0162\u00b2\2\u07ca\u07cf")
-        buf.write("\3\2\2\2\u07cb\u07cc\f\3\2\2\u07cc\u07ce\7\u0093\2\2\u07cd")
+        buf.write("\3\2\2\2\u07cb\u07cc\f\3\2\2\u07cc\u07ce\7\u0094\2\2\u07cd")
         buf.write("\u07cb\3\2\2\2\u07ce\u07d1\3\2\2\2\u07cf\u07cd\3\2\2\2")
         buf.write("\u07cf\u07d0\3\2\2\2\u07d0\u0165\3\2\2\2\u07d1\u07cf\3")
-        buf.write("\2\2\2\u07d2\u07d8\7\u0095\2\2\u07d3\u07d8\7\u0097\2\2")
-        buf.write("\u07d4\u07d8\7\u0094\2\2\u07d5\u07d8\7\u008b\2\2\u07d6")
-        buf.write("\u07d8\7\u008c\2\2\u07d7\u07d2\3\2\2\2\u07d7\u07d3\3\2")
+        buf.write("\2\2\2\u07d2\u07d8\7\u0096\2\2\u07d3\u07d8\7\u0098\2\2")
+        buf.write("\u07d4\u07d8\7\u0095\2\2\u07d5\u07d8\7\u008c\2\2\u07d6")
+        buf.write("\u07d8\7\u008d\2\2\u07d7\u07d2\3\2\2\2\u07d7\u07d3\3\2")
         buf.write("\2\2\u07d7\u07d4\3\2\2\2\u07d7\u07d5\3\2\2\2\u07d7\u07d6")
         buf.write("\3\2\2\2\u07d8\u0167\3\2\2\2\u07d9\u07da\t\7\2\2\u07da")
         buf.write("\u0169\3\2\2\2\u07db\u07dc\7w\2\2\u07dc\u07dd\5\u016c")
@@ -1060,15 +1060,15 @@ def serializedATN():
         buf.write("\u080e\7\24\2\2\u080e\u080f\5\u016c\u00b7\2\u080f\u0810")
         buf.write("\7\25\2\2\u0810\u0179\3\2\2\2\u0811\u0812\7\22\2\2\u0812")
         buf.write("\u0813\5\u016c\u00b7\2\u0813\u0814\7\23\2\2\u0814\u017b")
-        buf.write("\3\2\2\2\u0815\u0816\b\u00bf\1\2\u0816\u0819\7\u0093\2")
+        buf.write("\3\2\2\2\u0815\u0816\b\u00bf\1\2\u0816\u0819\7\u0094\2")
         buf.write("\2\u0817\u0819\5\u0180\u00c1\2\u0818\u0815\3\2\2\2\u0818")
         buf.write("\u0817\3\2\2\2\u0819\u081f\3\2\2\2\u081a\u081b\f\3\2\2")
         buf.write("\u081b\u081c\7\21\2\2\u081c\u081e\5\u0180\u00c1\2\u081d")
         buf.write("\u081a\3\2\2\2\u081e\u0821\3\2\2\2\u081f\u081d\3\2\2\2")
         buf.write("\u081f\u0820\3\2\2\2\u0820\u017d\3\2\2\2\u0821\u081f\3")
-        buf.write("\2\2\2\u0822\u0828\7\u0095\2\2\u0823\u0828\7\u0097\2\2")
-        buf.write("\u0824\u0828\7\u0094\2\2\u0825\u0828\7\u008b\2\2\u0826")
-        buf.write("\u0828\7\u008c\2\2\u0827\u0822\3\2\2\2\u0827\u0823\3\2")
+        buf.write("\2\2\2\u0822\u0828\7\u0096\2\2\u0823\u0828\7\u0098\2\2")
+        buf.write("\u0824\u0828\7\u0095\2\2\u0825\u0828\7\u008c\2\2\u0826")
+        buf.write("\u0828\7\u008d\2\2\u0827\u0822\3\2\2\2\u0827\u0823\3\2")
         buf.write("\2\2\u0827\u0824\3\2\2\2\u0827\u0825\3\2\2\2\u0827\u0826")
         buf.write("\3\2\2\2\u0828\u017f\3\2\2\2\u0829\u082a\t\b\2\2\u082a")
         buf.write("\u0181\3\2\2\2\u00b0\u0189\u018d\u01a8\u01af\u01b4\u01bc")
@@ -1131,8 +1131,9 @@ class OParser ( AbstractParser ):
                      u"'rows'", u"'self'", u"'setter'", u"'singleton'", 
                      u"'sorted'", u"'storable'", u"'store'", u"'switch'", 
                      u"'test'", u"'this'", u"'throw'", u"'to'", u"'try'", 
-                     u"'with'", u"'when'", u"'where'", u"'while'", u"'write'", 
-                     u"<INVALID>", u"<INVALID>", u"'MIN_INTEGER'", u"'MAX_INTEGER'" ]
+                     u"'verifying'", u"'with'", u"'when'", u"'where'", u"'while'", 
+                     u"'write'", u"<INVALID>", u"<INVALID>", u"'MIN_INTEGER'", 
+                     u"'MAX_INTEGER'" ]
 
     symbolicNames = [ u"<INVALID>", u"SPACE", u"WS", u"LF", u"COMMENT", 
                       u"JAVA", u"CSHARP", u"PYTHON2", u"PYTHON3", u"JAVASCRIPT", 
@@ -1158,12 +1159,13 @@ class OParser ( AbstractParser ):
                       u"RESOURCE", u"RETURN", u"RETURNING", u"ROWS", u"SELF", 
                       u"SETTER", u"SINGLETON", u"SORTED", u"STORABLE", u"STORE", 
                       u"SWITCH", u"TEST", u"THIS", u"THROW", u"TO", u"TRY", 
-                      u"WITH", u"WHEN", u"WHERE", u"WHILE", u"WRITE", u"BOOLEAN_LITERAL", 
-                      u"CHAR_LITERAL", u"MIN_INTEGER", u"MAX_INTEGER", u"SYMBOL_IDENTIFIER", 
-                      u"TYPE_IDENTIFIER", u"VARIABLE_IDENTIFIER", u"NATIVE_IDENTIFIER", 
-                      u"DOLLAR_IDENTIFIER", u"TEXT_LITERAL", u"INTEGER_LITERAL", 
-                      u"HEXA_LITERAL", u"DECIMAL_LITERAL", u"DATETIME_LITERAL", 
-                      u"TIME_LITERAL", u"DATE_LITERAL", u"PERIOD_LITERAL" ]
+                      u"VERIFYING", u"WITH", u"WHEN", u"WHERE", u"WHILE", 
+                      u"WRITE", u"BOOLEAN_LITERAL", u"CHAR_LITERAL", u"MIN_INTEGER", 
+                      u"MAX_INTEGER", u"SYMBOL_IDENTIFIER", u"TYPE_IDENTIFIER", 
+                      u"VARIABLE_IDENTIFIER", u"NATIVE_IDENTIFIER", u"DOLLAR_IDENTIFIER", 
+                      u"TEXT_LITERAL", u"INTEGER_LITERAL", u"HEXA_LITERAL", 
+                      u"DECIMAL_LITERAL", u"DATETIME_LITERAL", u"TIME_LITERAL", 
+                      u"DATE_LITERAL", u"PERIOD_LITERAL" ]
 
     RULE_enum_category_declaration = 0
     RULE_enum_native_declaration = 1
@@ -1559,28 +1561,29 @@ class OParser ( AbstractParser ):
     THROW=129
     TO=130
     TRY=131
-    WITH=132
-    WHEN=133
-    WHERE=134
-    WHILE=135
-    WRITE=136
-    BOOLEAN_LITERAL=137
-    CHAR_LITERAL=138
-    MIN_INTEGER=139
-    MAX_INTEGER=140
-    SYMBOL_IDENTIFIER=141
-    TYPE_IDENTIFIER=142
-    VARIABLE_IDENTIFIER=143
-    NATIVE_IDENTIFIER=144
-    DOLLAR_IDENTIFIER=145
-    TEXT_LITERAL=146
-    INTEGER_LITERAL=147
-    HEXA_LITERAL=148
-    DECIMAL_LITERAL=149
-    DATETIME_LITERAL=150
-    TIME_LITERAL=151
-    DATE_LITERAL=152
-    PERIOD_LITERAL=153
+    VERIFYING=132
+    WITH=133
+    WHEN=134
+    WHERE=135
+    WHILE=136
+    WRITE=137
+    BOOLEAN_LITERAL=138
+    CHAR_LITERAL=139
+    MIN_INTEGER=140
+    MAX_INTEGER=141
+    SYMBOL_IDENTIFIER=142
+    TYPE_IDENTIFIER=143
+    VARIABLE_IDENTIFIER=144
+    NATIVE_IDENTIFIER=145
+    DOLLAR_IDENTIFIER=146
+    TEXT_LITERAL=147
+    INTEGER_LITERAL=148
+    HEXA_LITERAL=149
+    DECIMAL_LITERAL=150
+    DATETIME_LITERAL=151
+    TIME_LITERAL=152
+    DATE_LITERAL=153
+    PERIOD_LITERAL=154
 
     def __init__(self, input:TokenStream):
         super().__init__(input)
@@ -2454,7 +2457,7 @@ class OParser ( AbstractParser ):
             self.match(OParser.LCURL)
             self.state = 489
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 141)) & ~0x3f) == 0 and ((1 << (_la - 141)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 141)) | (1 << (OParser.TYPE_IDENTIFIER - 141)) | (1 << (OParser.VARIABLE_IDENTIFIER - 141)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 142)) & ~0x3f) == 0 and ((1 << (_la - 142)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 142)) | (1 << (OParser.TYPE_IDENTIFIER - 142)) | (1 << (OParser.VARIABLE_IDENTIFIER - 142)))) != 0):
                 self.state = 488
                 localctx.stmts = self.statement_list(0)
 
@@ -2523,7 +2526,7 @@ class OParser ( AbstractParser ):
             self.match(OParser.LCURL)
             self.state = 497
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 141)) & ~0x3f) == 0 and ((1 << (_la - 141)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 141)) | (1 << (OParser.TYPE_IDENTIFIER - 141)) | (1 << (OParser.VARIABLE_IDENTIFIER - 141)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 142)) & ~0x3f) == 0 and ((1 << (_la - 142)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 142)) | (1 << (OParser.TYPE_IDENTIFIER - 142)) | (1 << (OParser.VARIABLE_IDENTIFIER - 142)))) != 0):
                 self.state = 496
                 localctx.stmts = self.statement_list(0)
 
@@ -2592,7 +2595,7 @@ class OParser ( AbstractParser ):
             self.match(OParser.LCURL)
             self.state = 505
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 141)) & ~0x3f) == 0 and ((1 << (_la - 141)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 141)) | (1 << (OParser.TYPE_IDENTIFIER - 141)) | (1 << (OParser.VARIABLE_IDENTIFIER - 141)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 142)) & ~0x3f) == 0 and ((1 << (_la - 142)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 142)) | (1 << (OParser.TYPE_IDENTIFIER - 142)) | (1 << (OParser.VARIABLE_IDENTIFIER - 142)))) != 0):
                 self.state = 504
                 localctx.stmts = self.statement_list(0)
 
@@ -3285,7 +3288,7 @@ class OParser ( AbstractParser ):
             self.match(OParser.LCURL)
             self.state = 599
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 141)) & ~0x3f) == 0 and ((1 << (_la - 141)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 141)) | (1 << (OParser.TYPE_IDENTIFIER - 141)) | (1 << (OParser.VARIABLE_IDENTIFIER - 141)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 142)) & ~0x3f) == 0 and ((1 << (_la - 142)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 142)) | (1 << (OParser.TYPE_IDENTIFIER - 142)) | (1 << (OParser.VARIABLE_IDENTIFIER - 142)))) != 0):
                 self.state = 598
                 localctx.stmts = self.statement_list(0)
 
@@ -3437,8 +3440,8 @@ class OParser ( AbstractParser ):
             else:
                 return self.getToken(OParser.RCURL, i)
 
-        def EXPECTING(self):
-            return self.getToken(OParser.EXPECTING, 0)
+        def VERIFYING(self):
+            return self.getToken(OParser.VERIFYING, 0)
 
         def TEXT_LITERAL(self):
             return self.getToken(OParser.TEXT_LITERAL, 0)
@@ -3495,7 +3498,7 @@ class OParser ( AbstractParser ):
             self.state = 625
             self.match(OParser.RCURL)
             self.state = 626
-            self.match(OParser.EXPECTING)
+            self.match(OParser.VERIFYING)
             self.state = 634
             token = self._input.LA(1)
             if token in [OParser.LCURL]:
@@ -4524,7 +4527,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.COLON)
                 self.state = 708
                 _la = self._input.LA(1)
-                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 141)) & ~0x3f) == 0 and ((1 << (_la - 141)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 141)) | (1 << (OParser.TYPE_IDENTIFIER - 141)) | (1 << (OParser.VARIABLE_IDENTIFIER - 141)))) != 0):
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 142)) & ~0x3f) == 0 and ((1 << (_la - 142)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 142)) | (1 << (OParser.TYPE_IDENTIFIER - 142)) | (1 << (OParser.VARIABLE_IDENTIFIER - 142)))) != 0):
                     self.state = 707
                     localctx.stmts = self.statement_list(0)
 
@@ -4831,7 +4834,7 @@ class OParser ( AbstractParser ):
             self.match(OParser.LCURL)
             self.state = 745
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 141)) & ~0x3f) == 0 and ((1 << (_la - 141)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 141)) | (1 << (OParser.TYPE_IDENTIFIER - 141)) | (1 << (OParser.VARIABLE_IDENTIFIER - 141)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 142)) & ~0x3f) == 0 and ((1 << (_la - 142)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 142)) | (1 << (OParser.TYPE_IDENTIFIER - 142)) | (1 << (OParser.VARIABLE_IDENTIFIER - 142)))) != 0):
                 self.state = 744
                 localctx.stmts = self.statement_list(0)
 
@@ -5305,7 +5308,7 @@ class OParser ( AbstractParser ):
             self.match(OParser.LCURL)
             self.state = 803
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 141)) & ~0x3f) == 0 and ((1 << (_la - 141)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 141)) | (1 << (OParser.TYPE_IDENTIFIER - 141)) | (1 << (OParser.VARIABLE_IDENTIFIER - 141)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 142)) & ~0x3f) == 0 and ((1 << (_la - 142)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 142)) | (1 << (OParser.TYPE_IDENTIFIER - 142)) | (1 << (OParser.VARIABLE_IDENTIFIER - 142)))) != 0):
                 self.state = 802
                 localctx.stmts = self.statement_list(0)
 
@@ -5334,7 +5337,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.LCURL)
                 self.state = 815
                 _la = self._input.LA(1)
-                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 141)) & ~0x3f) == 0 and ((1 << (_la - 141)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 141)) | (1 << (OParser.TYPE_IDENTIFIER - 141)) | (1 << (OParser.VARIABLE_IDENTIFIER - 141)))) != 0):
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 142)) & ~0x3f) == 0 and ((1 << (_la - 142)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 142)) | (1 << (OParser.TYPE_IDENTIFIER - 142)) | (1 << (OParser.VARIABLE_IDENTIFIER - 142)))) != 0):
                     self.state = 814
                     localctx.anyStmts = self.statement_list(0)
 
@@ -5352,7 +5355,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.LCURL)
                 self.state = 823
                 _la = self._input.LA(1)
-                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 141)) & ~0x3f) == 0 and ((1 << (_la - 141)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 141)) | (1 << (OParser.TYPE_IDENTIFIER - 141)) | (1 << (OParser.VARIABLE_IDENTIFIER - 141)))) != 0):
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 142)) & ~0x3f) == 0 and ((1 << (_la - 142)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 142)) | (1 << (OParser.TYPE_IDENTIFIER - 142)) | (1 << (OParser.VARIABLE_IDENTIFIER - 142)))) != 0):
                     self.state = 822
                     localctx.finalStmts = self.statement_list(0)
 
@@ -5479,7 +5482,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.LCURL)
                 self.state = 834
                 _la = self._input.LA(1)
-                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 141)) & ~0x3f) == 0 and ((1 << (_la - 141)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 141)) | (1 << (OParser.TYPE_IDENTIFIER - 141)) | (1 << (OParser.VARIABLE_IDENTIFIER - 141)))) != 0):
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 142)) & ~0x3f) == 0 and ((1 << (_la - 142)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 142)) | (1 << (OParser.TYPE_IDENTIFIER - 142)) | (1 << (OParser.VARIABLE_IDENTIFIER - 142)))) != 0):
                     self.state = 833
                     localctx.stmts = self.statement_list(0)
 
@@ -5505,7 +5508,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.LCURL)
                 self.state = 845
                 _la = self._input.LA(1)
-                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 141)) & ~0x3f) == 0 and ((1 << (_la - 141)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 141)) | (1 << (OParser.TYPE_IDENTIFIER - 141)) | (1 << (OParser.VARIABLE_IDENTIFIER - 141)))) != 0):
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.CODE))) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & ((1 << (OParser.DO - 77)) | (1 << (OParser.FOR - 77)) | (1 << (OParser.IF - 77)) | (1 << (OParser.METHOD - 77)) | (1 << (OParser.RETURN - 77)) | (1 << (OParser.STORE - 77)) | (1 << (OParser.SWITCH - 77)) | (1 << (OParser.THROW - 77)) | (1 << (OParser.TRY - 77)) | (1 << (OParser.WITH - 77)) | (1 << (OParser.WHILE - 77)) | (1 << (OParser.WRITE - 77)))) != 0) or ((((_la - 142)) & ~0x3f) == 0 and ((1 << (_la - 142)) & ((1 << (OParser.SYMBOL_IDENTIFIER - 142)) | (1 << (OParser.TYPE_IDENTIFIER - 142)) | (1 << (OParser.VARIABLE_IDENTIFIER - 142)))) != 0):
                     self.state = 844
                     localctx.stmts = self.statement_list(0)
 
@@ -5565,7 +5568,7 @@ class OParser ( AbstractParser ):
             self.match(OParser.RETURN)
             self.state = 853
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT))) != 0) or ((((_la - 84)) & ~0x3f) == 0 and ((1 << (_la - 84)) & ((1 << (OParser.EXECUTE - 84)) | (1 << (OParser.FETCH - 84)) | (1 << (OParser.MUTABLE - 84)) | (1 << (OParser.NULL - 84)) | (1 << (OParser.READ - 84)) | (1 << (OParser.SELF - 84)) | (1 << (OParser.SORTED - 84)) | (1 << (OParser.THIS - 84)) | (1 << (OParser.BOOLEAN_LITERAL - 84)) | (1 << (OParser.CHAR_LITERAL - 84)) | (1 << (OParser.MIN_INTEGER - 84)) | (1 << (OParser.MAX_INTEGER - 84)) | (1 << (OParser.SYMBOL_IDENTIFIER - 84)) | (1 << (OParser.TYPE_IDENTIFIER - 84)) | (1 << (OParser.VARIABLE_IDENTIFIER - 84)) | (1 << (OParser.TEXT_LITERAL - 84)) | (1 << (OParser.INTEGER_LITERAL - 84)))) != 0) or ((((_la - 148)) & ~0x3f) == 0 and ((1 << (_la - 148)) & ((1 << (OParser.HEXA_LITERAL - 148)) | (1 << (OParser.DECIMAL_LITERAL - 148)) | (1 << (OParser.DATETIME_LITERAL - 148)) | (1 << (OParser.TIME_LITERAL - 148)) | (1 << (OParser.DATE_LITERAL - 148)) | (1 << (OParser.PERIOD_LITERAL - 148)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT))) != 0) or ((((_la - 84)) & ~0x3f) == 0 and ((1 << (_la - 84)) & ((1 << (OParser.EXECUTE - 84)) | (1 << (OParser.FETCH - 84)) | (1 << (OParser.MUTABLE - 84)) | (1 << (OParser.NULL - 84)) | (1 << (OParser.READ - 84)) | (1 << (OParser.SELF - 84)) | (1 << (OParser.SORTED - 84)) | (1 << (OParser.THIS - 84)) | (1 << (OParser.BOOLEAN_LITERAL - 84)) | (1 << (OParser.CHAR_LITERAL - 84)) | (1 << (OParser.MIN_INTEGER - 84)) | (1 << (OParser.MAX_INTEGER - 84)) | (1 << (OParser.SYMBOL_IDENTIFIER - 84)) | (1 << (OParser.TYPE_IDENTIFIER - 84)) | (1 << (OParser.VARIABLE_IDENTIFIER - 84)) | (1 << (OParser.TEXT_LITERAL - 84)))) != 0) or ((((_la - 148)) & ~0x3f) == 0 and ((1 << (_la - 148)) & ((1 << (OParser.INTEGER_LITERAL - 148)) | (1 << (OParser.HEXA_LITERAL - 148)) | (1 << (OParser.DECIMAL_LITERAL - 148)) | (1 << (OParser.DATETIME_LITERAL - 148)) | (1 << (OParser.TIME_LITERAL - 148)) | (1 << (OParser.DATE_LITERAL - 148)) | (1 << (OParser.PERIOD_LITERAL - 148)))) != 0):
                 self.state = 852
                 localctx.exp = self.expression(0)
 
@@ -5629,7 +5632,7 @@ class OParser ( AbstractParser ):
             self.match(OParser.LPAR)
             self.state = 860
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT))) != 0) or ((((_la - 84)) & ~0x3f) == 0 and ((1 << (_la - 84)) & ((1 << (OParser.EXECUTE - 84)) | (1 << (OParser.FETCH - 84)) | (1 << (OParser.MUTABLE - 84)) | (1 << (OParser.NULL - 84)) | (1 << (OParser.READ - 84)) | (1 << (OParser.SELF - 84)) | (1 << (OParser.SORTED - 84)) | (1 << (OParser.THIS - 84)) | (1 << (OParser.BOOLEAN_LITERAL - 84)) | (1 << (OParser.CHAR_LITERAL - 84)) | (1 << (OParser.MIN_INTEGER - 84)) | (1 << (OParser.MAX_INTEGER - 84)) | (1 << (OParser.SYMBOL_IDENTIFIER - 84)) | (1 << (OParser.TYPE_IDENTIFIER - 84)) | (1 << (OParser.VARIABLE_IDENTIFIER - 84)) | (1 << (OParser.TEXT_LITERAL - 84)) | (1 << (OParser.INTEGER_LITERAL - 84)))) != 0) or ((((_la - 148)) & ~0x3f) == 0 and ((1 << (_la - 148)) & ((1 << (OParser.HEXA_LITERAL - 148)) | (1 << (OParser.DECIMAL_LITERAL - 148)) | (1 << (OParser.DATETIME_LITERAL - 148)) | (1 << (OParser.TIME_LITERAL - 148)) | (1 << (OParser.DATE_LITERAL - 148)) | (1 << (OParser.PERIOD_LITERAL - 148)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT))) != 0) or ((((_la - 84)) & ~0x3f) == 0 and ((1 << (_la - 84)) & ((1 << (OParser.EXECUTE - 84)) | (1 << (OParser.FETCH - 84)) | (1 << (OParser.MUTABLE - 84)) | (1 << (OParser.NULL - 84)) | (1 << (OParser.READ - 84)) | (1 << (OParser.SELF - 84)) | (1 << (OParser.SORTED - 84)) | (1 << (OParser.THIS - 84)) | (1 << (OParser.BOOLEAN_LITERAL - 84)) | (1 << (OParser.CHAR_LITERAL - 84)) | (1 << (OParser.MIN_INTEGER - 84)) | (1 << (OParser.MAX_INTEGER - 84)) | (1 << (OParser.SYMBOL_IDENTIFIER - 84)) | (1 << (OParser.TYPE_IDENTIFIER - 84)) | (1 << (OParser.VARIABLE_IDENTIFIER - 84)) | (1 << (OParser.TEXT_LITERAL - 84)))) != 0) or ((((_la - 148)) & ~0x3f) == 0 and ((1 << (_la - 148)) & ((1 << (OParser.INTEGER_LITERAL - 148)) | (1 << (OParser.HEXA_LITERAL - 148)) | (1 << (OParser.DECIMAL_LITERAL - 148)) | (1 << (OParser.DATETIME_LITERAL - 148)) | (1 << (OParser.TIME_LITERAL - 148)) | (1 << (OParser.DATE_LITERAL - 148)) | (1 << (OParser.PERIOD_LITERAL - 148)))) != 0):
                 self.state = 859
                 localctx.args = self.argument_assignment_list(0)
 
@@ -8497,7 +8500,7 @@ class OParser ( AbstractParser ):
             self.match(OParser.LPAR)
             self.state = 1127
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT))) != 0) or ((((_la - 84)) & ~0x3f) == 0 and ((1 << (_la - 84)) & ((1 << (OParser.EXECUTE - 84)) | (1 << (OParser.FETCH - 84)) | (1 << (OParser.MUTABLE - 84)) | (1 << (OParser.NULL - 84)) | (1 << (OParser.READ - 84)) | (1 << (OParser.SELF - 84)) | (1 << (OParser.SORTED - 84)) | (1 << (OParser.THIS - 84)) | (1 << (OParser.BOOLEAN_LITERAL - 84)) | (1 << (OParser.CHAR_LITERAL - 84)) | (1 << (OParser.MIN_INTEGER - 84)) | (1 << (OParser.MAX_INTEGER - 84)) | (1 << (OParser.SYMBOL_IDENTIFIER - 84)) | (1 << (OParser.TYPE_IDENTIFIER - 84)) | (1 << (OParser.VARIABLE_IDENTIFIER - 84)) | (1 << (OParser.TEXT_LITERAL - 84)) | (1 << (OParser.INTEGER_LITERAL - 84)))) != 0) or ((((_la - 148)) & ~0x3f) == 0 and ((1 << (_la - 148)) & ((1 << (OParser.HEXA_LITERAL - 148)) | (1 << (OParser.DECIMAL_LITERAL - 148)) | (1 << (OParser.DATETIME_LITERAL - 148)) | (1 << (OParser.TIME_LITERAL - 148)) | (1 << (OParser.DATE_LITERAL - 148)) | (1 << (OParser.PERIOD_LITERAL - 148)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT))) != 0) or ((((_la - 84)) & ~0x3f) == 0 and ((1 << (_la - 84)) & ((1 << (OParser.EXECUTE - 84)) | (1 << (OParser.FETCH - 84)) | (1 << (OParser.MUTABLE - 84)) | (1 << (OParser.NULL - 84)) | (1 << (OParser.READ - 84)) | (1 << (OParser.SELF - 84)) | (1 << (OParser.SORTED - 84)) | (1 << (OParser.THIS - 84)) | (1 << (OParser.BOOLEAN_LITERAL - 84)) | (1 << (OParser.CHAR_LITERAL - 84)) | (1 << (OParser.MIN_INTEGER - 84)) | (1 << (OParser.MAX_INTEGER - 84)) | (1 << (OParser.SYMBOL_IDENTIFIER - 84)) | (1 << (OParser.TYPE_IDENTIFIER - 84)) | (1 << (OParser.VARIABLE_IDENTIFIER - 84)) | (1 << (OParser.TEXT_LITERAL - 84)))) != 0) or ((((_la - 148)) & ~0x3f) == 0 and ((1 << (_la - 148)) & ((1 << (OParser.INTEGER_LITERAL - 148)) | (1 << (OParser.HEXA_LITERAL - 148)) | (1 << (OParser.DECIMAL_LITERAL - 148)) | (1 << (OParser.DATETIME_LITERAL - 148)) | (1 << (OParser.TIME_LITERAL - 148)) | (1 << (OParser.DATE_LITERAL - 148)) | (1 << (OParser.PERIOD_LITERAL - 148)))) != 0):
                 self.state = 1126
                 localctx.args = self.argument_assignment_list(0)
 
@@ -10002,7 +10005,7 @@ class OParser ( AbstractParser ):
             self.match(OParser.LBRAK)
             self.state = 1250
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT))) != 0) or ((((_la - 84)) & ~0x3f) == 0 and ((1 << (_la - 84)) & ((1 << (OParser.EXECUTE - 84)) | (1 << (OParser.FETCH - 84)) | (1 << (OParser.MUTABLE - 84)) | (1 << (OParser.NULL - 84)) | (1 << (OParser.READ - 84)) | (1 << (OParser.SELF - 84)) | (1 << (OParser.SORTED - 84)) | (1 << (OParser.THIS - 84)) | (1 << (OParser.BOOLEAN_LITERAL - 84)) | (1 << (OParser.CHAR_LITERAL - 84)) | (1 << (OParser.MIN_INTEGER - 84)) | (1 << (OParser.MAX_INTEGER - 84)) | (1 << (OParser.SYMBOL_IDENTIFIER - 84)) | (1 << (OParser.TYPE_IDENTIFIER - 84)) | (1 << (OParser.VARIABLE_IDENTIFIER - 84)) | (1 << (OParser.TEXT_LITERAL - 84)) | (1 << (OParser.INTEGER_LITERAL - 84)))) != 0) or ((((_la - 148)) & ~0x3f) == 0 and ((1 << (_la - 148)) & ((1 << (OParser.HEXA_LITERAL - 148)) | (1 << (OParser.DECIMAL_LITERAL - 148)) | (1 << (OParser.DATETIME_LITERAL - 148)) | (1 << (OParser.TIME_LITERAL - 148)) | (1 << (OParser.DATE_LITERAL - 148)) | (1 << (OParser.PERIOD_LITERAL - 148)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT))) != 0) or ((((_la - 84)) & ~0x3f) == 0 and ((1 << (_la - 84)) & ((1 << (OParser.EXECUTE - 84)) | (1 << (OParser.FETCH - 84)) | (1 << (OParser.MUTABLE - 84)) | (1 << (OParser.NULL - 84)) | (1 << (OParser.READ - 84)) | (1 << (OParser.SELF - 84)) | (1 << (OParser.SORTED - 84)) | (1 << (OParser.THIS - 84)) | (1 << (OParser.BOOLEAN_LITERAL - 84)) | (1 << (OParser.CHAR_LITERAL - 84)) | (1 << (OParser.MIN_INTEGER - 84)) | (1 << (OParser.MAX_INTEGER - 84)) | (1 << (OParser.SYMBOL_IDENTIFIER - 84)) | (1 << (OParser.TYPE_IDENTIFIER - 84)) | (1 << (OParser.VARIABLE_IDENTIFIER - 84)) | (1 << (OParser.TEXT_LITERAL - 84)))) != 0) or ((((_la - 148)) & ~0x3f) == 0 and ((1 << (_la - 148)) & ((1 << (OParser.INTEGER_LITERAL - 148)) | (1 << (OParser.HEXA_LITERAL - 148)) | (1 << (OParser.DECIMAL_LITERAL - 148)) | (1 << (OParser.DATETIME_LITERAL - 148)) | (1 << (OParser.TIME_LITERAL - 148)) | (1 << (OParser.DATE_LITERAL - 148)) | (1 << (OParser.PERIOD_LITERAL - 148)))) != 0):
                 self.state = 1249
                 localctx.items = self.expression_list(0)
 
@@ -10059,7 +10062,7 @@ class OParser ( AbstractParser ):
             self.match(OParser.LT)
             self.state = 1256
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT))) != 0) or ((((_la - 84)) & ~0x3f) == 0 and ((1 << (_la - 84)) & ((1 << (OParser.EXECUTE - 84)) | (1 << (OParser.FETCH - 84)) | (1 << (OParser.MUTABLE - 84)) | (1 << (OParser.NULL - 84)) | (1 << (OParser.READ - 84)) | (1 << (OParser.SELF - 84)) | (1 << (OParser.SORTED - 84)) | (1 << (OParser.THIS - 84)) | (1 << (OParser.BOOLEAN_LITERAL - 84)) | (1 << (OParser.CHAR_LITERAL - 84)) | (1 << (OParser.MIN_INTEGER - 84)) | (1 << (OParser.MAX_INTEGER - 84)) | (1 << (OParser.SYMBOL_IDENTIFIER - 84)) | (1 << (OParser.TYPE_IDENTIFIER - 84)) | (1 << (OParser.VARIABLE_IDENTIFIER - 84)) | (1 << (OParser.TEXT_LITERAL - 84)) | (1 << (OParser.INTEGER_LITERAL - 84)))) != 0) or ((((_la - 148)) & ~0x3f) == 0 and ((1 << (_la - 148)) & ((1 << (OParser.HEXA_LITERAL - 148)) | (1 << (OParser.DECIMAL_LITERAL - 148)) | (1 << (OParser.DATETIME_LITERAL - 148)) | (1 << (OParser.TIME_LITERAL - 148)) | (1 << (OParser.DATE_LITERAL - 148)) | (1 << (OParser.PERIOD_LITERAL - 148)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT))) != 0) or ((((_la - 84)) & ~0x3f) == 0 and ((1 << (_la - 84)) & ((1 << (OParser.EXECUTE - 84)) | (1 << (OParser.FETCH - 84)) | (1 << (OParser.MUTABLE - 84)) | (1 << (OParser.NULL - 84)) | (1 << (OParser.READ - 84)) | (1 << (OParser.SELF - 84)) | (1 << (OParser.SORTED - 84)) | (1 << (OParser.THIS - 84)) | (1 << (OParser.BOOLEAN_LITERAL - 84)) | (1 << (OParser.CHAR_LITERAL - 84)) | (1 << (OParser.MIN_INTEGER - 84)) | (1 << (OParser.MAX_INTEGER - 84)) | (1 << (OParser.SYMBOL_IDENTIFIER - 84)) | (1 << (OParser.TYPE_IDENTIFIER - 84)) | (1 << (OParser.VARIABLE_IDENTIFIER - 84)) | (1 << (OParser.TEXT_LITERAL - 84)))) != 0) or ((((_la - 148)) & ~0x3f) == 0 and ((1 << (_la - 148)) & ((1 << (OParser.INTEGER_LITERAL - 148)) | (1 << (OParser.HEXA_LITERAL - 148)) | (1 << (OParser.DECIMAL_LITERAL - 148)) | (1 << (OParser.DATETIME_LITERAL - 148)) | (1 << (OParser.TIME_LITERAL - 148)) | (1 << (OParser.DATE_LITERAL - 148)) | (1 << (OParser.PERIOD_LITERAL - 148)))) != 0):
                 self.state = 1255
                 localctx.items = self.expression_list(0)
 
@@ -15274,7 +15277,7 @@ class OParser ( AbstractParser ):
             self.match(OParser.LPAR)
             self.state = 1653
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT))) != 0) or ((((_la - 84)) & ~0x3f) == 0 and ((1 << (_la - 84)) & ((1 << (OParser.EXECUTE - 84)) | (1 << (OParser.FETCH - 84)) | (1 << (OParser.MUTABLE - 84)) | (1 << (OParser.NULL - 84)) | (1 << (OParser.READ - 84)) | (1 << (OParser.SELF - 84)) | (1 << (OParser.SORTED - 84)) | (1 << (OParser.THIS - 84)) | (1 << (OParser.BOOLEAN_LITERAL - 84)) | (1 << (OParser.CHAR_LITERAL - 84)) | (1 << (OParser.MIN_INTEGER - 84)) | (1 << (OParser.MAX_INTEGER - 84)) | (1 << (OParser.SYMBOL_IDENTIFIER - 84)) | (1 << (OParser.TYPE_IDENTIFIER - 84)) | (1 << (OParser.VARIABLE_IDENTIFIER - 84)) | (1 << (OParser.TEXT_LITERAL - 84)) | (1 << (OParser.INTEGER_LITERAL - 84)))) != 0) or ((((_la - 148)) & ~0x3f) == 0 and ((1 << (_la - 148)) & ((1 << (OParser.HEXA_LITERAL - 148)) | (1 << (OParser.DECIMAL_LITERAL - 148)) | (1 << (OParser.DATETIME_LITERAL - 148)) | (1 << (OParser.TIME_LITERAL - 148)) | (1 << (OParser.DATE_LITERAL - 148)) | (1 << (OParser.PERIOD_LITERAL - 148)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT))) != 0) or ((((_la - 84)) & ~0x3f) == 0 and ((1 << (_la - 84)) & ((1 << (OParser.EXECUTE - 84)) | (1 << (OParser.FETCH - 84)) | (1 << (OParser.MUTABLE - 84)) | (1 << (OParser.NULL - 84)) | (1 << (OParser.READ - 84)) | (1 << (OParser.SELF - 84)) | (1 << (OParser.SORTED - 84)) | (1 << (OParser.THIS - 84)) | (1 << (OParser.BOOLEAN_LITERAL - 84)) | (1 << (OParser.CHAR_LITERAL - 84)) | (1 << (OParser.MIN_INTEGER - 84)) | (1 << (OParser.MAX_INTEGER - 84)) | (1 << (OParser.SYMBOL_IDENTIFIER - 84)) | (1 << (OParser.TYPE_IDENTIFIER - 84)) | (1 << (OParser.VARIABLE_IDENTIFIER - 84)) | (1 << (OParser.TEXT_LITERAL - 84)))) != 0) or ((((_la - 148)) & ~0x3f) == 0 and ((1 << (_la - 148)) & ((1 << (OParser.INTEGER_LITERAL - 148)) | (1 << (OParser.HEXA_LITERAL - 148)) | (1 << (OParser.DECIMAL_LITERAL - 148)) | (1 << (OParser.DATETIME_LITERAL - 148)) | (1 << (OParser.TIME_LITERAL - 148)) | (1 << (OParser.DATE_LITERAL - 148)) | (1 << (OParser.PERIOD_LITERAL - 148)))) != 0):
                 self.state = 1652
                 localctx.items = self.expression_tuple(0)
 
@@ -15331,7 +15334,7 @@ class OParser ( AbstractParser ):
             self.match(OParser.LCURL)
             self.state = 1659
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT))) != 0) or ((((_la - 84)) & ~0x3f) == 0 and ((1 << (_la - 84)) & ((1 << (OParser.EXECUTE - 84)) | (1 << (OParser.FETCH - 84)) | (1 << (OParser.MUTABLE - 84)) | (1 << (OParser.NULL - 84)) | (1 << (OParser.READ - 84)) | (1 << (OParser.SELF - 84)) | (1 << (OParser.SORTED - 84)) | (1 << (OParser.THIS - 84)) | (1 << (OParser.BOOLEAN_LITERAL - 84)) | (1 << (OParser.CHAR_LITERAL - 84)) | (1 << (OParser.MIN_INTEGER - 84)) | (1 << (OParser.MAX_INTEGER - 84)) | (1 << (OParser.SYMBOL_IDENTIFIER - 84)) | (1 << (OParser.TYPE_IDENTIFIER - 84)) | (1 << (OParser.VARIABLE_IDENTIFIER - 84)) | (1 << (OParser.TEXT_LITERAL - 84)) | (1 << (OParser.INTEGER_LITERAL - 84)))) != 0) or ((((_la - 148)) & ~0x3f) == 0 and ((1 << (_la - 148)) & ((1 << (OParser.HEXA_LITERAL - 148)) | (1 << (OParser.DECIMAL_LITERAL - 148)) | (1 << (OParser.DATETIME_LITERAL - 148)) | (1 << (OParser.TIME_LITERAL - 148)) | (1 << (OParser.DATE_LITERAL - 148)) | (1 << (OParser.PERIOD_LITERAL - 148)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT))) != 0) or ((((_la - 84)) & ~0x3f) == 0 and ((1 << (_la - 84)) & ((1 << (OParser.EXECUTE - 84)) | (1 << (OParser.FETCH - 84)) | (1 << (OParser.MUTABLE - 84)) | (1 << (OParser.NULL - 84)) | (1 << (OParser.READ - 84)) | (1 << (OParser.SELF - 84)) | (1 << (OParser.SORTED - 84)) | (1 << (OParser.THIS - 84)) | (1 << (OParser.BOOLEAN_LITERAL - 84)) | (1 << (OParser.CHAR_LITERAL - 84)) | (1 << (OParser.MIN_INTEGER - 84)) | (1 << (OParser.MAX_INTEGER - 84)) | (1 << (OParser.SYMBOL_IDENTIFIER - 84)) | (1 << (OParser.TYPE_IDENTIFIER - 84)) | (1 << (OParser.VARIABLE_IDENTIFIER - 84)) | (1 << (OParser.TEXT_LITERAL - 84)))) != 0) or ((((_la - 148)) & ~0x3f) == 0 and ((1 << (_la - 148)) & ((1 << (OParser.INTEGER_LITERAL - 148)) | (1 << (OParser.HEXA_LITERAL - 148)) | (1 << (OParser.DECIMAL_LITERAL - 148)) | (1 << (OParser.DATETIME_LITERAL - 148)) | (1 << (OParser.TIME_LITERAL - 148)) | (1 << (OParser.DATE_LITERAL - 148)) | (1 << (OParser.PERIOD_LITERAL - 148)))) != 0):
                 self.state = 1658
                 localctx.items = self.dict_entry_list(0)
 
