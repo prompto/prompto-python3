@@ -409,6 +409,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#CommentStatement.
+    def enterCommentStatement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#CommentStatement.
+    def exitCommentStatement(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#store_statement.
     def enterStore_statement(self, ctx):
         pass
@@ -2053,6 +2062,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#TestMethod.
     def exitTestMethod(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#comment_statement.
+    def enterComment_statement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#comment_statement.
+    def exitComment_statement(self, ctx):
         pass
 
 

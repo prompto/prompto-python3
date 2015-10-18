@@ -152,6 +152,7 @@ from prompto.statement.AssignTupleStatement import AssignTupleStatement
 from prompto.statement.AssignVariableStatement import AssignVariableStatement
 from prompto.statement.AtomicSwitchCase import AtomicSwitchCase
 from prompto.statement.CollectionSwitchCase import CollectionSwitchCase
+from prompto.statement.CommentStatement import CommentStatement
 from prompto.statement.DeclarationInstruction import DeclarationInstruction
 from prompto.statement.DoWhileStatement import DoWhileStatement
 from prompto.statement.ForEachStatement import ForEachStatement
@@ -560,6 +561,14 @@ class SPromptoBuilder(SParserListener):
         exp = self.getNodeValue(ctx.exp)
         stmts = self.getNodeValue(ctx.stmts)
         self.setNodeValue(ctx, CollectionSwitchCase(exp, stmts))
+
+
+    def exitCommentStatement(self, ctx:SParser.CommentStatementContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.comment_statement()))
+
+
+    def exitComment_statement(self, ctx:SParser.Comment_statementContext):
+        self.setNodeValue(ctx, CommentStatement(ctx.getText()))
 
 
     def exitConcrete_category_declaration(self, ctx:SParser.Concrete_category_declarationContext):

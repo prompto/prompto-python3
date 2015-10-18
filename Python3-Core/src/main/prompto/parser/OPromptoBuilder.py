@@ -152,6 +152,7 @@ from prompto.statement.AssignTupleStatement import AssignTupleStatement
 from prompto.statement.AssignVariableStatement import AssignVariableStatement
 from prompto.statement.AtomicSwitchCase import AtomicSwitchCase
 from prompto.statement.CollectionSwitchCase import CollectionSwitchCase
+from prompto.statement.CommentStatement import CommentStatement
 from prompto.statement.DeclarationInstruction import DeclarationInstruction
 from prompto.statement.DoWhileStatement import DoWhileStatement
 from prompto.statement.ForEachStatement import ForEachStatement
@@ -1763,7 +1764,14 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, CollectionSwitchCase(exp, stmts))
     
 
-    
+    def exitCommentStatement(self, ctx:OParser.CommentStatementContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.comment_statement()))
+
+
+    def exitComment_statement(self, ctx:OParser.Comment_statementContext):
+        self.setNodeValue(ctx, CommentStatement(ctx.getText()))
+
+
     def exitSwitchCaseStatementList(self, ctx:OParser.SwitchCaseStatementListContext):
         item = self.getNodeValue(ctx.item)
         self.setNodeValue(ctx, SwitchCaseList(item))

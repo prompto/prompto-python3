@@ -382,6 +382,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#CommentStatement.
+    def enterCommentStatement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#CommentStatement.
+    def exitCommentStatement(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#store_statement.
     def enterStore_statement(self, ctx):
         pass
@@ -2071,6 +2080,15 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#TestMethod.
     def exitTestMethod(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#comment_statement.
+    def enterComment_statement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#comment_statement.
+    def exitComment_statement(self, ctx):
         pass
 
 

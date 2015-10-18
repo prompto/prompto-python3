@@ -355,6 +355,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#CommentStatement.
+    def enterCommentStatement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#CommentStatement.
+    def exitCommentStatement(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#store_statement.
     def enterStore_statement(self, ctx):
         pass
@@ -2008,6 +2017,15 @@ class SParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by SParser#TestMethod.
     def exitTestMethod(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#comment_statement.
+    def enterComment_statement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#comment_statement.
+    def exitComment_statement(self, ctx):
         pass
 
 
