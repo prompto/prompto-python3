@@ -2103,7 +2103,7 @@ class EPromptoBuilder(EParserListener):
     
 
     
-    def exitDocument_type(self, ctx:EParser.Document_typeContext):
+    def exitDocumentType(self, ctx:EParser.DocumentTypeContext):
         self.setNodeValue(ctx, DocumentType.instance)
     
 

@@ -1516,6 +1516,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#DocumentType.
+    def enterDocumentType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#DocumentType.
+    def exitDocumentType(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#DateType.
     def enterDateType(self, ctx):
         pass
@@ -1576,15 +1585,6 @@ class SParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by SParser#code_type.
     def exitCode_type(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#document_type.
-    def enterDocument_type(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#document_type.
-    def exitDocument_type(self, ctx):
         pass
 
 

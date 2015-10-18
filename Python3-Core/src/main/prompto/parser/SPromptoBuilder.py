@@ -827,7 +827,7 @@ class SPromptoBuilder(SParserListener):
         self.setNodeValue(ctx, DocumentExpression())
 
 
-    def exitDocument_type(self, ctx:SParser.Document_typeContext):
+    def exitDocumentType(self, ctx:SParser.DocumentTypeContext):
         self.setNodeValue(ctx, DocumentType.instance)
 
 

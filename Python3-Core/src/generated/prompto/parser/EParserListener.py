@@ -1579,6 +1579,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#DocumentType.
+    def enterDocumentType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#DocumentType.
+    def exitDocumentType(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#DateType.
     def enterDateType(self, ctx):
         pass
@@ -1639,15 +1648,6 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#code_type.
     def exitCode_type(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by EParser#document_type.
-    def enterDocument_type(self, ctx):
-        pass
-
-    # Exit a parse tree produced by EParser#document_type.
-    def exitDocument_type(self, ctx):
         pass
 
 

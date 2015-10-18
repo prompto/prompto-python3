@@ -2057,7 +2057,7 @@ class OPromptoBuilder(OParserListener):
     
 
     
-    def exitDocument_type(self, ctx:OParser.Document_typeContext):
+    def exitDocumentType(self, ctx:OParser.DocumentTypeContext):
         self.setNodeValue(ctx, DocumentType.instance)
     
 

@@ -1561,6 +1561,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#DocumentType.
+    def enterDocumentType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#DocumentType.
+    def exitDocumentType(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#DateType.
     def enterDateType(self, ctx):
         pass
@@ -1621,15 +1630,6 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#code_type.
     def exitCode_type(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#document_type.
-    def enterDocument_type(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#document_type.
-    def exitDocument_type(self, ctx):
         pass
 
 
