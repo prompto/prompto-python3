@@ -909,11 +909,11 @@ class OPromptoBuilder(OParserListener):
 
     
     def exitConcrete_method_declaration(self, ctx:OParser.Concrete_method_declarationContext):
-        type = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.typ)
         name = self.getNodeValue(ctx.name)
         args = self.getNodeValue(ctx.args)
         stmts = self.getNodeValue(ctx.stmts)
-        self.setNodeValue(ctx, ConcreteMethodDeclaration(name, args, type, stmts))
+        self.setNodeValue(ctx, ConcreteMethodDeclaration(name, args, typ, stmts))
     
     def exitSingleStatement(self, ctx:OParser.SingleStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
@@ -926,11 +926,11 @@ class OPromptoBuilder(OParserListener):
 
     def exitConstructor_expression(self, ctx:OParser.Constructor_expressionContext):
         mutable = ctx.MUTABLE() is not None
-        type = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.typ)
         args = self.getNodeValue(ctx.args)
         if args is None:
             args = ArgumentAssignmentList()
-        self.setNodeValue(ctx, ConstructorExpression(type, mutable, args))
+        self.setNodeValue(ctx, ConstructorExpression(typ, mutable, args))
     
 
     def exitAssertion(self, ctx:OParser.AssertionContext):

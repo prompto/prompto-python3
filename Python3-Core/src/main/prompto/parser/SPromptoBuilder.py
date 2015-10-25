@@ -874,9 +874,9 @@ class SPromptoBuilder(SParserListener):
 
     def exitEnum_native_declaration(self, ctx:SParser.Enum_native_declarationContext):
         name = self.getNodeValue(ctx.name)
-        type = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.typ)
         symbols = self.getNodeValue(ctx.symbols)
-        self.setNodeValue(ctx, EnumeratedNativeDeclaration(name, type, symbols))
+        self.setNodeValue(ctx, EnumeratedNativeDeclaration(name, typ, symbols))
 
 
     def exitEnumCategoryDeclaration(self, ctx:SParser.EnumCategoryDeclarationContext):
@@ -1333,8 +1333,8 @@ class SPromptoBuilder(SParserListener):
 
 
     def exitListType(self, ctx:SParser.ListTypeContext):
-        type = self.getNodeValue(ctx.l)
-        self.setNodeValue(ctx, ListType(type))
+        typ = self.getNodeValue(ctx.l)
+        self.setNodeValue(ctx, ListType(typ))
 
 
     def exitLiteralExpression(self, ctx:SParser.LiteralExpressionContext):
@@ -1572,8 +1572,8 @@ class SPromptoBuilder(SParserListener):
 
 
     def exitNativeType(self, ctx:SParser.NativeTypeContext):
-        type = self.getNodeValue(ctx.n)
-        self.setNodeValue(ctx, type)
+        typ = self.getNodeValue(ctx.n)
+        self.setNodeValue(ctx, typ)
 
 
     def exitNotContainsAllExpression(self, ctx:SParser.NotContainsAllExpressionContext):
@@ -1688,8 +1688,8 @@ class SPromptoBuilder(SParserListener):
 
 
     def exitPrimaryType(self, ctx:SParser.PrimaryTypeContext):
-        type = self.getNodeValue(ctx.p)
-        self.setNodeValue(ctx, type)
+        typ = self.getNodeValue(ctx.p)
+        self.setNodeValue(ctx, typ)
 
 
     def exitPython_category_binding(self, ctx:SParser.Python_category_bindingContext):
@@ -2134,11 +2134,11 @@ class SPromptoBuilder(SParserListener):
 
 
     def exitTyped_argument(self, ctx:SParser.Typed_argumentContext):
-        type = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.typ)
         name = self.getNodeValue(ctx.name)
         attrs = self.getNodeValue(ctx.attrs)
         exp = self.getNodeValue(ctx.value)
-        arg = CategoryArgument(type, name, attrs)
+        arg = CategoryArgument(typ, name, attrs)
         arg.defaultExpression = exp
         self.setNodeValue(ctx, arg)
 

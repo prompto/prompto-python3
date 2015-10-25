@@ -296,7 +296,7 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, exp)
     
 
-    
+
     def exitListLiteral(self, ctx:EParser.ListLiteralContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
