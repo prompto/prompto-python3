@@ -1,4 +1,6 @@
-class Store(object):
+from prompto.store.MemStore import MemStore
 
-    instance = None
+class Store(object):
+    # start with an empty MemStore
+    instance = MemStore()
 

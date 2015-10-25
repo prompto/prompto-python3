@@ -10,7 +10,19 @@ class TestStore(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
-    def testRecord(self):
-        self.checkOutput("store/record.pec")
+    def testManyRecords(self):
+        self.checkOutput("store/manyRecords.pec")
+
+    def testSimpleRecord(self):
+        self.checkOutput("store/simpleRecord.pec")
+
+    def testSlicedRecords(self):
+        self.checkOutput("store/slicedRecords.pec")
+
+    def testSortedRecords(self):
+        self.checkOutput("store/sortedRecords.pec")
+
+    def testSubRecord(self):
+        self.checkOutput("store/subRecord.pec")
 
 

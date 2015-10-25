@@ -1,9 +1,9 @@
 from prompto.type.AnyType import AnyType
 from prompto.type.BooleanType import BooleanType
-from prompto.type.CollectionType import CollectionType
+from prompto.type.ContainerType import ContainerType
 
 
-class ListType(CollectionType):
+class ListType(ContainerType):
 
     def __init__(self, itemType):
         super(ListType, self).__init__(itemType.getName() + "[]", itemType)

@@ -82,6 +82,8 @@ from prompto.grammar.NativeCategoryBindingList import NativeCategoryBindingList
 from prompto.grammar.NativeSymbol import NativeSymbol
 from prompto.grammar.NativeSymbolList import NativeSymbolList
 from prompto.grammar.Operator import Operator
+from prompto.grammar.OrderByClause import OrderByClause
+from prompto.grammar.OrderByClauseList import OrderByClauseList
 from prompto.grammar.UnresolvedArgument import UnresolvedArgument
 from prompto.grammar.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.VariableInstance import VariableInstance
@@ -930,9 +932,10 @@ class SPromptoBuilder(SParserListener):
     def exitFetchAll (self, ctx:SParser.FetchAllContext):
         category = self.getNodeValue(ctx.typ)
         xfilter = self.getNodeValue(ctx.xfilter)
-        start = self.getNodeValue(ctx.start)
-        end = self.getNodeValue(ctx.end)
-        self.setNodeValue(ctx, FetchAllExpression(category, xfilter, start, end))
+        start = self.getNodeValue(ctx.xstart)
+        stop = self.getNodeValue(ctx.xstop)
+        orderBy = self.getNodeValue(ctx.xorder)
+        self.setNodeValue(ctx, FetchAllExpression(category, xfilter, start, stop, orderBy))
 
     def exitFor_each_statement(self, ctx:SParser.For_each_statementContext):
         name1 = self.getNodeValue(ctx.name1)
@@ -1650,6 +1653,19 @@ class SPromptoBuilder(SParserListener):
         decl = OperatorMethodDeclaration(op, arg, typ, stmts)
         self.setNodeValue(ctx, decl)
 
+
+    def exitOrder_by(self, ctx:SParser.Order_byContext):
+        names = IdentifierList()
+        for ctx_ in ctx.variable_identifier():
+            names.append(self.getNodeValue(ctx_))
+        clause = OrderByClause(names, ctx.DESC() is not None)
+        self.setNodeValue(ctx, clause)
+
+    def exitOrder_by_list(self, ctx:SParser.Order_by_listContext):
+        list_ = OrderByClauseList()
+        for ctx_ in ctx.order_by():
+            list_.append(self.getNodeValue(ctx_))
+        self.setNodeValue(ctx, list_)
 
     def exitOrExpression(self, ctx:SParser.OrExpressionContext):
         left = self.getNodeValue(ctx.left)

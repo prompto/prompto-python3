@@ -1,8 +1,8 @@
 from prompto.type.BooleanType import BooleanType
-from prompto.type.CollectionType import CollectionType
+from prompto.type.ContainerType import ContainerType
 from prompto.value.IContainer import IContainer
 
-class SetType(CollectionType):
+class SetType(ContainerType):
 
     def __init__(self, itemType):
         super().__init__(itemType.getName() + "<>", itemType)

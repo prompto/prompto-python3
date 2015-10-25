@@ -1,5 +1,5 @@
 from prompto.statement.SwitchCase import SwitchCase
-from prompto.type.CollectionType import CollectionType
+from prompto.type.ContainerType import ContainerType
 from prompto.value.IContainer import IContainer
 from prompto.value.ListValue import ListValue
 
@@ -11,7 +11,7 @@ class CollectionSwitchCase ( SwitchCase ):
 
     def checkSwitchType(self, context, type_):
         selfType = self.expression.check(context)
-        if isinstance(selfType, CollectionType):
+        if isinstance(selfType, ContainerType):
             selfType = selfType.getItemType()
         if not selfType.isAssignableTo(context, type_):
             raise SyntaxError("Cannot assign:" + selfType.getName() + " to:" + type_.getName())

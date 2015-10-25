@@ -1,12 +1,12 @@
 from prompto.type.BooleanType import BooleanType
-from prompto.type.CollectionType import CollectionType
+from prompto.type.ContainerType import ContainerType
 from prompto.type.EntryType import EntryType
 from prompto.type.IntegerType import IntegerType
 from prompto.type.ListType import ListType
 from prompto.type.TextType import TextType
 
 
-class DictType ( CollectionType ):
+class DictType ( ContainerType ):
 
     def __init__(self, itemType):
         super(DictType, self).__init__(itemType.getName()+"{}",itemType)

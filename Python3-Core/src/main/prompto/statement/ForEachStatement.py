@@ -4,6 +4,7 @@ from prompto.statement.BaseStatement import BaseStatement
 from prompto.statement.SimpleStatement import SimpleStatement
 from prompto.type.IntegerType import IntegerType
 from prompto.value.IContainer import IContainer
+from prompto.value.ICursor import ICursor
 from prompto.value.Integer import Integer
 
 
@@ -72,7 +73,7 @@ class ForEachStatement(BaseStatement):
         return None
 
     def getIterable(self, context, src):
-        if isinstance(src, IContainer):
+        if isinstance(src, IContainer) or isinstance(src, ICursor):
             return src.getItems(context)
         elif isinstance(src, list):
             return src

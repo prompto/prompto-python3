@@ -42,10 +42,7 @@ class FetchOneExpression(Section, IExpression):
         return self.typ
 
     def interpret (self, context):
-        store = Store.instance
-        if store is None:
-            store = MemStore.instance
-        doc = store.fetchOne (context, self.filter)
+        doc = Store.instance.fetchOne (context, self.filter)
         if doc is None:
             return NullValue.instance
         else:

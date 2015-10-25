@@ -2641,6 +2641,24 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#order_by_list.
+    def enterOrder_by_list(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#order_by_list.
+    def exitOrder_by_list(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#order_by.
+    def enterOrder_by(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#order_by.
+    def exitOrder_by(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#OperatorPlus.
     def enterOperatorPlus(self, ctx):
         pass
