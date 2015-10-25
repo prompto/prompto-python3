@@ -20,7 +20,7 @@ class SetType(ContainerType):
         return self.getItemType() == obj.getItemType()
 
     def checkAdd(self, context, other, tryReverse):
-        if isinstance(other, CollectionType) and self.getItemType() == other.getItemType():
+        if isinstance(other, ContainerType) and self.getItemType() == other.getItemType():
             return self
         else:
             return super().checkAdd(context, other, tryReverse)
