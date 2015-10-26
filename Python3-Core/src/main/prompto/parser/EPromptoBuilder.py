@@ -211,9 +211,9 @@ class EPromptoBuilder(EParserListener):
         section.setFrom(self.path, first, last, Dialect.E)
 
     def findFirstValidToken(self, idx:int):
-        if idx==-1: # happens because input.index() is called before any other read operation (bug?)
+        if idx == -1: # happens because input.index() is called before any other read operation (bug?)
             idx = 0
-        while idx<len(self.input.tokens):
+        while idx < len(self.input.tokens):
             token = self.readValidToken(idx)
             if token is not None:
                 return token
@@ -221,9 +221,9 @@ class EPromptoBuilder(EParserListener):
         return None
 
     def findLastValidToken(self, idx:int):
-        if idx==-1: # happens because input.index() is called before any other read operation (bug?)
+        if idx == -1: # happens because input.index() is called before any other read operation (bug?)
             idx = 0
-        while idx>=0:
+        while idx >= 0:
             token = self.readValidToken(idx)
             if token is not None:
                 return token
@@ -237,40 +237,35 @@ class EPromptoBuilder(EParserListener):
             return token
         else:
             return None
- 
-    
+
+
     def exitIdentifierExpression(self, ctx:EParser.IdentifierExpressionContext):
         name = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, UnresolvedIdentifier(name))
-    
 
-    
+
     def exitTypeIdentifier(self, ctx:EParser.TypeIdentifierContext):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, name)
-    
 
-    
+
     def exitMethodCallExpression(self, ctx:EParser.MethodCallExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         args = self.getNodeValue(ctx.args)
         call = UnresolvedCall(exp, args)
         self.setNodeValue(ctx, call)
-    
 
-    
+
     def exitUnresolvedExpression(self, ctx:EParser.UnresolvedExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
-    
 
-    
+
     def exitUnresolvedIdentifier(self, ctx:EParser.UnresolvedIdentifierContext):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, UnresolvedIdentifier(name))
-    
 
-    
+
     def exitUnresolvedSelector(self, ctx:EParser.UnresolvedSelectorContext):
         parent = self.getNodeValue(ctx.parent)
         selector = self.getNodeValue(ctx.selector)
