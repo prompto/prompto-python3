@@ -1246,48 +1246,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#AttributeDeclaration.
-    def enterAttributeDeclaration(self, ctx):
+    # Enter a parse tree produced by OParser#declaration.
+    def enterDeclaration(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#AttributeDeclaration.
-    def exitAttributeDeclaration(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#CategoryDeclaration.
-    def enterCategoryDeclaration(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#CategoryDeclaration.
-    def exitCategoryDeclaration(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#ResourceDeclaration.
-    def enterResourceDeclaration(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#ResourceDeclaration.
-    def exitResourceDeclaration(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#EnumDeclaration.
-    def enterEnumDeclaration(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#EnumDeclaration.
-    def exitEnumDeclaration(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#MethodDeclaration.
-    def enterMethodDeclaration(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#MethodDeclaration.
-    def exitMethodDeclaration(self, ctx):
+    # Exit a parse tree produced by OParser#declaration.
+    def exitDeclaration(self, ctx):
         pass
 
 

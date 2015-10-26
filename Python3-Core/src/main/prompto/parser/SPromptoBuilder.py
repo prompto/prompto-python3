@@ -384,11 +384,6 @@ class SPromptoBuilder(SParserListener):
         self.setNodeValue(ctx, items)
 
 
-    def exitAttributeDeclaration(self, ctx:SParser.AttributeDeclarationContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-
-
     def exitBooleanLiteral(self, ctx:SParser.BooleanLiteralContext):
         self.setNodeValue(ctx, BooleanLiteral(ctx.t.text))
 
@@ -447,13 +442,10 @@ class SPromptoBuilder(SParserListener):
         self.setNodeValue(ctx, type)
 
 
-    def exitCategoryDeclaration(self, ctx:SParser.CategoryDeclarationContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-
     def exitNative_member_method_declaration(self, ctx:SParser.Native_member_method_declarationContext):
         decl = self.getNodeValue(ctx.getChild(0))
         self.setNodeValue(ctx, decl)
+
 
     def exitNativeCategoryMethodList(self, ctx:SParser.NativeCategoryMethodListContext):
         item = self.getNodeValue(ctx.item)
@@ -760,6 +752,25 @@ class SPromptoBuilder(SParserListener):
         self.setNodeValue(ctx, DecimalType.instance)
 
 
+    def exitDeclaration(self, ctx:SParser.DeclarationContext):
+        stmts = None
+        if ctx.comment_statement() is not None:
+            stmts = [ self.getNodeValue(ctx_) for ctx_ in ctx.comment_statement() ]
+        ctx_ = ctx.attribute_declaration()
+        if ctx_ is None:
+            ctx_ = ctx.category_declaration()
+        if ctx_ is None:
+            ctx_ = ctx.enum_declaration()
+        if ctx_ is None:
+            ctx_ = ctx.method_declaration()
+        if ctx_ is None:
+            ctx_ = ctx.resource_declaration()
+        decl = self.getNodeValue(ctx_)
+        if decl is not None:
+            decl.comments = stmts
+            self.setNodeValue(ctx, decl)
+
+
     def exitDeclarationList(self, ctx:SParser.DeclarationListContext):
         item = self.getNodeValue(ctx.item)
         items = DeclarationList(item)
@@ -880,11 +891,6 @@ class SPromptoBuilder(SParserListener):
 
 
     def exitEnumCategoryDeclaration(self, ctx:SParser.EnumCategoryDeclarationContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-
-
-    def exitEnumDeclaration(self, ctx:SParser.EnumDeclarationContext):
         decl = self.getNodeValue(ctx.decl)
         self.setNodeValue(ctx, decl)
 
@@ -1421,11 +1427,6 @@ class SPromptoBuilder(SParserListener):
         self.setNodeValue(ctx, stmt)
 
 
-    def exitMethodDeclaration(self, ctx:SParser.MethodDeclarationContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-
-
     def exitMethodExpression(self, ctx:SParser.MethodExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
@@ -1898,11 +1899,6 @@ class SPromptoBuilder(SParserListener):
 
 
     def exitResource_declaration(self, ctx:SParser.Resource_declarationContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-
-
-    def exitResourceDeclaration(self, ctx:SParser.ResourceDeclarationContext):
         decl = self.getNodeValue(ctx.decl)
         self.setNodeValue(ctx, decl)
 

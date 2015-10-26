@@ -1264,48 +1264,12 @@ class EParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EParser#AttributeDeclaration.
-    def enterAttributeDeclaration(self, ctx):
+    # Enter a parse tree produced by EParser#declaration.
+    def enterDeclaration(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#AttributeDeclaration.
-    def exitAttributeDeclaration(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by EParser#CategoryDeclaration.
-    def enterCategoryDeclaration(self, ctx):
-        pass
-
-    # Exit a parse tree produced by EParser#CategoryDeclaration.
-    def exitCategoryDeclaration(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by EParser#ResourceDeclaration.
-    def enterResourceDeclaration(self, ctx):
-        pass
-
-    # Exit a parse tree produced by EParser#ResourceDeclaration.
-    def exitResourceDeclaration(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by EParser#EnumDeclaration.
-    def enterEnumDeclaration(self, ctx):
-        pass
-
-    # Exit a parse tree produced by EParser#EnumDeclaration.
-    def exitEnumDeclaration(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by EParser#MethodDeclaration.
-    def enterMethodDeclaration(self, ctx):
-        pass
-
-    # Exit a parse tree produced by EParser#MethodDeclaration.
-    def exitMethodDeclaration(self, ctx):
+    # Exit a parse tree produced by EParser#declaration.
+    def exitDeclaration(self, ctx):
         pass
 
 

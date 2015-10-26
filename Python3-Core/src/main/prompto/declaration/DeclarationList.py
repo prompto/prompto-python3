@@ -56,5 +56,8 @@ class DeclarationList(list):
 
     def toDialect(self, writer):
         for declaration in self:
+            if declaration.comments is not None:
+                for comment in declaration.comments:
+                    comment.toDialect(writer)
             declaration.toDialect(writer)
             writer.newLine()
