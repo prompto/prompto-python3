@@ -4,7 +4,7 @@ from prompto.parser.Section import Section
 from prompto.error.SyntaxError import SyntaxError
 from prompto.type.BooleanType import BooleanType
 from prompto.store.Store import Store
-from prompto.store.MemStore import MemStore
+from prompto.value.NullValue import NullValue
 
 class FetchOneExpression(Section, IExpression):
 
@@ -35,8 +35,7 @@ class FetchOneExpression(Section, IExpression):
         decl = context.getRegisteredDeclaration (CategoryDeclaration, self.typ.name)
         if decl is None:
             raise SyntaxError ("Unknown category: " + self.typ.name)
-        local = context.newLocalContext ()
-        filterType = self.filter.check (local)
+        filterType = self.filter.check (context)
         if filterType is not BooleanType.instance:
             raise  SyntaxError ("Filtering expression must return a boolean !")
         return self.typ

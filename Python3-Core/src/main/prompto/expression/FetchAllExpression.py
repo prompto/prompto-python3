@@ -88,8 +88,7 @@ class FetchAllExpression(Section, IExpression):
     def checkFilter (self, context):
         if self.filter is None:
             return
-        local = context.newLocalContext ()
-        filterType = self.filter.check (local)
+        filterType = self.filter.check (context)
         if filterType is not BooleanType.instance:
             raise SyntaxError ("Filtering expression must return a boolean !")
 
