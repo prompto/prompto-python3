@@ -41,7 +41,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
     def getAttributeNames(self):
         return self.values.keys()
 
-    def GetMember(self, context, attrName):
+    def GetMember(self, context, attrName, autoCreate=False):
         stacked = activeGetters.__dict__.get(attrName, None)
         first = stacked is None
         if first:

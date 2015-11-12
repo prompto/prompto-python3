@@ -12,9 +12,9 @@ class Document ( BaseValue ):
         result = self.members.get(name, None)
         return result is not None
 
-    def GetMember(self, context, name, create = True):
+    def GetMember(self, context, name, autoCreate=False):
         result = self.members.get(name, None)
-        if create and result is None:
+        if autoCreate and result is None:
             result = Document()
             self.members[name] = result
         return result

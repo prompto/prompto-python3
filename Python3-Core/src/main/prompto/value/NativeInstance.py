@@ -25,7 +25,7 @@ class NativeInstance(BaseValue, IInstance):
     def getType(self):
         return self.type
 
-    def GetMember(self, context, attrName):
+    def GetMember(self, context, attrName, autoCreate=False):
         value = getattr(self.instance, attrName)
         ct = PythonClassType(type(value))
         return ct.convertPythonValueToPromptoValue(context, value, None) # TODO use attribute declaration

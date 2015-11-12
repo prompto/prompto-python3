@@ -69,7 +69,7 @@ class Text(BaseValue, ISliceable, IMultiplyable):
             raise SyntaxError("Illegal contain: Text + " + type(value).__name__)
 
 
-    def GetMember(self, context, name):
+    def GetMember(self, context, name, autoCreate=False):
         if "length" == name:
             return Integer(len(self.value))
         else:

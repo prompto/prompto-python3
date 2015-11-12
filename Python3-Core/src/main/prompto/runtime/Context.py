@@ -324,10 +324,10 @@ class DocumentContext(Context):
         context = super(DocumentContext, self).contextForValue(name)
         if context is not None:
             return context
-        elif self.document.HasMember(name):
-            return self
+        # since any name is valid in the context of a document
+        # simply return this document context
         else:
-            return None
+            return self
 
     def readValue(self, name):
         return self.document.GetMember(self.calling, name)

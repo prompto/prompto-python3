@@ -21,7 +21,7 @@ class Cursor(BaseValue, ICursor):
             val = self.type.itemType.newInstanceFromDocument(context, doc)
             yield val
 
-    def GetMember(self, context, name):
+    def GetMember(self, context, name, autoCreate=False):
         if "length" == name:
             return Integer(len(self))
         else:
