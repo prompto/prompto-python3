@@ -1462,6 +1462,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#ImageType.
+    def enterImageType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#ImageType.
+    def exitImageType(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#IntegerType.
     def enterIntegerType(self, ctx):
         pass
@@ -1531,6 +1540,15 @@ class SParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by SParser#CodeType.
     def exitCodeType(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#BlobType.
+    def enterBlobType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#BlobType.
+    def exitBlobType(self, ctx):
         pass
 
 

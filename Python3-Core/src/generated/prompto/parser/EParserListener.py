@@ -1525,6 +1525,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#ImageType.
+    def enterImageType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#ImageType.
+    def exitImageType(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#IntegerType.
     def enterIntegerType(self, ctx):
         pass
@@ -1594,6 +1603,15 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#CodeType.
     def exitCodeType(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#BlobType.
+    def enterBlobType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#BlobType.
+    def exitBlobType(self, ctx):
         pass
 
 

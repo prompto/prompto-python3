@@ -1507,6 +1507,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#ImageType.
+    def enterImageType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#ImageType.
+    def exitImageType(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#IntegerType.
     def enterIntegerType(self, ctx):
         pass
@@ -1576,6 +1585,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#CodeType.
     def exitCodeType(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#BlobType.
+    def enterBlobType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#BlobType.
+    def exitBlobType(self, ctx):
         pass
 
 
