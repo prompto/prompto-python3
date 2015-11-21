@@ -105,7 +105,7 @@ class Dictionary(BaseValue, IContainer):
             yield Text(k)
 
 
-    def getItems(self, context):
+    def getIterator(self, context):
         for k, v in iter(self.value.items()):
             yield KVPValue(k, v)
 

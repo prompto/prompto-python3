@@ -814,6 +814,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#IteratorExpression.
+    def enterIteratorExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#IteratorExpression.
+    def exitIteratorExpression(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#UnresolvedExpression.
     def enterUnresolvedExpression(self, ctx):
         pass

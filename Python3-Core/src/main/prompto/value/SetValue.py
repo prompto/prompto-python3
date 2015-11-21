@@ -18,7 +18,7 @@ class SetValue(BaseValue, IContainer):
     def __len__(self):
         return len(self.items)
 
-    def getItems(self, context=None):
+    def getIterator(self, context=None):
         for item in self.items:
             yield item
 

@@ -37,7 +37,7 @@ class SortedExpression(IExpression):
             raise NullReferenceError()
         if not isinstance(o, (ListValue, TupleValue, SetValue)):
             raise InternalError("Unexpected type:" + type(o).__name__)
-        items = o.getItems(context)
+        items = o.getIterator(context)
         itemType = type_.getItemType()
         if isinstance(itemType, CategoryType):
             items = itemType.sort(context, items, self.key)

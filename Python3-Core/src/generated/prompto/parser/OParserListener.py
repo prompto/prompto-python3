@@ -841,6 +841,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#IteratorExpression.
+    def enterIteratorExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#IteratorExpression.
+    def exitIteratorExpression(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#IsNotExpression.
     def enterIsNotExpression(self, ctx):
         pass

@@ -67,7 +67,7 @@ class ContainsExpression(IExpression):
                           " " + lowerName + " " + type(rval).__name__)
 
     def containsAll(self, context, container, items):
-        for item in items.getItems(context):
+        for item in items.getIterator(context):
             if isinstance(item, IExpression):
                 item = item.interpret(context)
             if isinstance(item, IValue):
@@ -78,7 +78,7 @@ class ContainsExpression(IExpression):
         return True
 
     def containsAny(self, context, container, items):
-        for item in items.getItems(context):
+        for item in items.getIterator(context):
             if isinstance(item, IExpression):
                 item = item.interpret(context)
             if isinstance(item, IValue):

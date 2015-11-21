@@ -87,7 +87,7 @@ class Text(BaseValue, ISliceable, IMultiplyable):
             raise IndexOutOfRangeError()
 
 
-    def getItems(self, context):
+    def getIterator(self, context):
         from prompto.value.Character import Character
         for c in self.value:
             yield Character(c)

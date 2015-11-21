@@ -1,18 +1,11 @@
 from prompto.type.BooleanType import BooleanType
-from prompto.type.NativeType import NativeType
+from prompto.type.IterableType import IterableType
 
 
-class ContainerType ( NativeType ) :
+class ContainerType ( IterableType ) :
 
     def __init__(self, name, itemType):
-        super(ContainerType, self).__init__(name)
-        self.itemType = itemType
-
-    def getItemType(self):
-        return self.itemType
-
-    def checkExists(self, context):
-        self.itemType.checkExists(context)
+        super().__init__(name, itemType)
 
     def checkContains(self, context, other):
         if self.itemType.isAssignableTo(context, other):

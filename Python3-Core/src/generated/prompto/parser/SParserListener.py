@@ -769,6 +769,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#IteratorExpression.
+    def enterIteratorExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#IteratorExpression.
+    def exitIteratorExpression(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#IsNotExpression.
     def enterIsNotExpression(self, ctx):
         pass

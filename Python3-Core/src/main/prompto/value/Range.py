@@ -66,7 +66,7 @@ class Range(BaseValue, IRange):
             raise IndexOutOfRangeError()
         return self.newInstance(self.computeItem(_fi), self.computeItem(_li))
 
-    def getItems(self, context):
+    def getIterator(self, context):
         size = self.size()
         index = 1
         while index <= size:

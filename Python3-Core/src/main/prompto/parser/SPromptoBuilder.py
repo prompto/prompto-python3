@@ -44,6 +44,7 @@ from prompto.expression.FetchOneExpression import FetchOneExpression
 from prompto.expression.FetchAllExpression import FetchAllExpression
 from prompto.expression.IntDivideExpression import IntDivideExpression
 from prompto.expression.ItemSelector import ItemSelector
+from prompto.expression.IteratorExpression import IteratorExpression
 from prompto.expression.MemberSelector import MemberSelector
 from prompto.expression.MethodExpression import MethodExpression
 from prompto.expression.MethodSelector import MethodSelector
@@ -1067,6 +1068,13 @@ class SPromptoBuilder(SParserListener):
     def exitItemSelector(self, ctx:SParser.ItemSelectorContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, ItemSelector(exp))
+
+
+    def exitIteratorExpression(self, ctx:SParser.IteratorExpressionContext):
+        exp = self.getNodeValue(ctx.exp)
+        name = self.getNodeValue(ctx.name)
+        source = self.getNodeValue(ctx.source)
+        self.setNodeValue(ctx, IteratorExpression(name, source, exp))
 
 
     def exitJava_identifier(self, ctx:SParser.Java_identifierContext):
