@@ -1,4 +1,5 @@
 from prompto.value.BaseValue import BaseValue
+from prompto.error.InvalidDataError import InvalidDataError
 from prompto.value.IIterable import IIterable
 from prompto.runtime.Variable import Variable
 

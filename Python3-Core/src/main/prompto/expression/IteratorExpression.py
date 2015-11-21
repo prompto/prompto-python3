@@ -1,5 +1,6 @@
 from prompto.expression.IExpression import IExpression
 from prompto.runtime.Variable import Variable
+from prompto.error.InternalError import InternalError
 from prompto.type.IteratorType import IteratorType
 from prompto.value.Iterator import Iterator
 
