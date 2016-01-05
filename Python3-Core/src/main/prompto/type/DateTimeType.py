@@ -1,3 +1,4 @@
+from datetime import datetime
 from prompto.type.NativeType import NativeType
 
 
@@ -6,6 +7,13 @@ class DateTimeType(NativeType):
 
     def __init__(self):
         super(DateTimeType, self).__init__("DateTime")
+
+    def convertPythonValueToPromptoValue(self, context, value, returnType):
+        if isinstance(value, datetime):
+            from prompto.value.DateTime import DateTime
+            return DateTime(value)
+        else:
+            return value  # TODO for now
 
     def isAssignableTo(self, context, other):
         from prompto.type.AnyType import AnyType
