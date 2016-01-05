@@ -2704,6 +2704,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#new_token.
+    def enterNew_token(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#new_token.
+    def exitNew_token(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#key_token.
     def enterKey_token(self, ctx):
         pass
@@ -2845,6 +2854,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#javascript_this_expression.
     def exitJavascript_this_expression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#javascript_new_expression.
+    def enterJavascript_new_expression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#javascript_new_expression.
+    def exitJavascript_new_expression(self, ctx):
         pass
 
 
@@ -3289,6 +3307,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#java_new_expression.
+    def enterJava_new_expression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#java_new_expression.
+    def exitJava_new_expression(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#JavaMethodExpression.
     def enterJavaMethodExpression(self, ctx):
         pass
@@ -3493,6 +3520,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#csharp_this_expression.
     def exitCsharp_this_expression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#csharp_new_expression.
+    def enterCsharp_new_expression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#csharp_new_expression.
+    def exitCsharp_new_expression(self, ctx):
         pass
 
 
