@@ -20,6 +20,9 @@ class TestNative(BaseEParserTest):
     def testMethod(self):
         self.compareResourceEOE("native/method.pec")
 
+    def testNow(self):
+        self.compareResourceEOE("native/now.pec")
+
     def testPrinter(self):
         self.compareResourceEOE("native/printer.pec")
 

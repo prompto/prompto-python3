@@ -1561,6 +1561,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#UUIDType.
+    def enterUUIDType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#UUIDType.
+    def exitUUIDType(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#category_type.
     def enterCategory_type(self, ctx):
         pass

@@ -107,6 +107,7 @@ from prompto.javascript.JavaScriptDecimalLiteral import JavaScriptDecimalLiteral
 from prompto.javascript.JavaScriptExpressionList import JavaScriptExpressionList
 from prompto.javascript.JavaScriptIdentifierExpression import JavaScriptIdentifierExpression
 from prompto.javascript.JavaScriptIntegerLiteral import JavaScriptIntegerLiteral
+from prompto.javascript.JavaScriptNewExpression import JavaScriptNewExpression
 from prompto.javascript.JavaScriptThisExpression import JavaScriptThisExpression
 from prompto.javascript.JavaScriptMethodExpression import JavaScriptMethodExpression
 from prompto.javascript.JavaScriptMemberExpression import JavaScriptMemberExpression
@@ -2388,22 +2389,32 @@ class EPromptoBuilder(EParserListener):
         module = JavaScriptModule(ids)
         self.setNodeValue(ctx, module)
 
+
     def exitJavascript_native_statement(self, ctx:EParser.Javascript_native_statementContext):
         stmt = self.getNodeValue(ctx.stmt)
         module = self.getNodeValue(ctx.module)
         stmt.module = module
         self.setNodeValue(ctx, stmt)
 
+
+    def exitJavascript_new_expression(self, ctx:EParser.Javascript_new_expressionContext):
+        method = self.getNodeValue(ctx.javascript_method_expression())
+        new = JavaScriptNewExpression(method)
+        self.setNodeValue(ctx, new)
+
+
     def exitJavascriptArgumentList(self, ctx:EParser.JavascriptArgumentListContext):
         exp = self.getNodeValue(ctx.item)
         list = JavaScriptExpressionList(exp)
         self.setNodeValue(ctx, list)
+
 
     def exitJavascriptArgumentListItem(self, ctx:EParser.JavascriptArgumentListItemContext):
         exp = self.getNodeValue(ctx.item)
         list = self.getNodeValue(ctx.items)
         list.append(exp)
         self.setNodeValue(ctx, list)
+
 
     def exitJavaScriptCategoryBinding(self, ctx:EParser.JavaScriptCategoryBindingContext):
         self.setNodeValue(ctx, self.getNodeValue(ctx.binding))

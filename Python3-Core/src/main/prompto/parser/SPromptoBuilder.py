@@ -107,6 +107,7 @@ from prompto.javascript.JavaScriptDecimalLiteral import JavaScriptDecimalLiteral
 from prompto.javascript.JavaScriptExpressionList import JavaScriptExpressionList
 from prompto.javascript.JavaScriptIdentifierExpression import JavaScriptIdentifierExpression
 from prompto.javascript.JavaScriptIntegerLiteral import JavaScriptIntegerLiteral
+from prompto.javascript.JavaScriptNewExpression import JavaScriptNewExpression
 from prompto.javascript.JavaScriptThisExpression import JavaScriptThisExpression
 from prompto.javascript.JavaScriptMethodExpression import JavaScriptMethodExpression
 from prompto.javascript.JavaScriptMemberExpression import JavaScriptMemberExpression
@@ -1232,6 +1233,12 @@ class SPromptoBuilder(SParserListener):
         module = self.getNodeValue(ctx.module)
         stmt.module = module
         self.setNodeValue(ctx, stmt)
+
+
+    def exitJavascript_new_expression(self, ctx:SParser.Javascript_new_expressionContext):
+        method = self.getNodeValue(ctx.javascript_method_expression())
+        new = JavaScriptNewExpression(method)
+        self.setNodeValue(ctx, new)
 
 
     def exitJavascriptArgumentList(self, ctx:SParser.JavascriptArgumentListContext):

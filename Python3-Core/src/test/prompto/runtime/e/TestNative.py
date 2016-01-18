@@ -25,6 +25,9 @@ class TestNative(BaseEParserTest):
     def testMethod(self):
         self.checkOutput("native/method.pec")
 
+    def testNow(self):
+        self.checkOutput("native/now.pec")
+
     def testPrinter(self):
         self.checkOutput("native/printer.pec")
 
