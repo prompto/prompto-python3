@@ -1,6 +1,7 @@
 from prompto.runtime.VoidResult import VoidResult
 from prompto.statement.SimpleStatement import SimpleStatement
 from prompto.type.VoidType import VoidType
+from prompto.value.NullValue import NullValue
 
 
 class ReturnStatement ( SimpleStatement ):
@@ -47,4 +48,5 @@ class ReturnStatement ( SimpleStatement ):
         if self.expression is None:
             return VoidResult.instance
         else:
-            return self.expression.interpret(context)
+            value = self.expression.interpret(context)
+            return NullValue.instance if value is None else value
