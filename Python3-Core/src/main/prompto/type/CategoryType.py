@@ -12,6 +12,7 @@ class CategoryType(BaseType):
 
     def __init__(self, name):
         super(CategoryType, self).__init__(name)
+        self.mutable = False
 
     def __eq__(self, obj):
         if obj == None:
@@ -22,9 +23,18 @@ class CategoryType(BaseType):
             return False
         return self.getName() == obj.getName()
 
+
+    def toDialect(self, writer):
+        if self.mutable:
+            writer.append("mutable ")
+        writer.append(self.name)
+
+
     def newInstanceFromDocument(self, context, document):
         decl = self.getDeclaration(context)
-        return decl.newInstanceFromDocument(context, document)
+        inst = decl.newInstanceFromDocument(context, document)
+        inst.mutable = self.mutable
+        return inst
 
     def checkUnique(self, context):
         actual = context.getRegisteredDeclaration(IDeclaration, self.name)

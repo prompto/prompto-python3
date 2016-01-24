@@ -11,10 +11,9 @@ from prompto.error.NotMutableError import NotMutableError
 
 class ConstructorExpression(IExpression):
 
-    def __init__(self, type:IType, mutable:bool, assignments:ArgumentAssignmentList):
+    def __init__(self, type:IType, assignments:ArgumentAssignmentList):
         self.copyFrom = None
         self.type = type
-        self.mutable = mutable
         self.setAssignments(assignments)
 
     def getType(self):
@@ -52,9 +51,7 @@ class ConstructorExpression(IExpression):
             return sb.getvalue()
 
     def toEDialect(self, writer):
-        if self.mutable:
-            writer.append("mutable ")
-        writer.append(self.type.getName())
+        self.type.toDialect(writer)
         if self.copyFrom is not None:
             writer.append(" from ")
             writer.append(str(self.copyFrom))
@@ -64,9 +61,7 @@ class ConstructorExpression(IExpression):
             self.assignments.toDialect(writer)
 
     def toODialect(self, writer):
-        if self.mutable:
-            writer.append("mutable ")
-        writer.append(self.type.getName())
+        self.type.toDialect(writer)
         assignments = ArgumentAssignmentList()
         if self.copyFrom is not None:
             assignments.append(ArgumentAssignment(None, self.copyFrom))
@@ -83,7 +78,7 @@ class ConstructorExpression(IExpression):
         cd = context.getRegisteredDeclaration(CategoryDeclaration, self.type.getName())
         if cd is None:
             raise SyntaxError("Unknown category " + self.type.getName())
-        self.type = cd.getType(context)
+        type = cd.getType(context)
         cd.checkConstructorContext(context)
         if self.copyFrom is not None:
             cft = self.copyFrom.check(context)
@@ -95,7 +90,7 @@ class ConstructorExpression(IExpression):
                     raise SyntaxError("\"" + assignment.getName() +
                         "\" is not an attribute of " + self.type.getName())
                 assignment.check(context)
-        return self.type
+        return type
 
     def interpret(self, context:Context):
         instance = self.type.newInstance(context)
@@ -108,14 +103,14 @@ class ConstructorExpression(IExpression):
                 for name in copyObj.getAttributeNames():
                     if cd.hasAttribute(context, name):
                         value = copyObj.GetMember(context,name)
-                        if value is not None and value.mutable and not self.mutable:
+                        if value is not None and value.mutable and not self.type.mutable:
                             raise NotMutableError()
                         instance.SetMember(context, name, value)
         if self.assignments is not None:
             for assignment in self.assignments:
                 value = assignment.getExpression().interpret(context)
-                if value is not None and value.mutable and not self.mutable:
+                if value is not None and value.mutable and not self.type.mutable:
                     raise NotMutableError()
                 instance.SetMember(context, assignment.getName(), value)
-        instance.mutable = self.mutable
+        instance.mutable = self.type.mutable
         return instance

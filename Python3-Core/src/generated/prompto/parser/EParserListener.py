@@ -1642,6 +1642,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#mutable_category_type.
+    def enterMutable_category_type(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#mutable_category_type.
+    def exitMutable_category_type(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#code_type.
     def enterCode_type(self, ctx):
         pass

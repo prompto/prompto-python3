@@ -928,12 +928,11 @@ class OPromptoBuilder(OParserListener):
     
 
     def exitConstructor_expression(self, ctx:OParser.Constructor_expressionContext):
-        mutable = ctx.MUTABLE() is not None
         typ = self.getNodeValue(ctx.typ)
         args = self.getNodeValue(ctx.args)
         if args is None:
             args = ArgumentAssignmentList()
-        self.setNodeValue(ctx, ConstructorExpression(typ, mutable, args))
+        self.setNodeValue(ctx, ConstructorExpression(typ, args))
     
 
     def exitAssertion(self, ctx:OParser.AssertionContext):
@@ -1976,7 +1975,13 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, MultiplyExpression(left, right))
     
 
-    
+    def exitMutable_category_type(self, ctx):
+        typ = self.getNodeValue(ctx.category_type())
+        typ.mutable = ctx.MUTABLE() is not None
+        self.setNodeValue(ctx, typ)
+
+
+
     def exitMinusExpression(self, ctx:OParser.MinusExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, MinusExpression(exp))

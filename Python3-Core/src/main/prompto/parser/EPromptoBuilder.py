@@ -963,7 +963,6 @@ class EPromptoBuilder(EParserListener):
 
     
     def exitConstructorFrom(self, ctx:EParser.ConstructorFromContext):
-        mutable = ctx.MUTABLE() is not None
         typ = self.getNodeValue(ctx.typ)
         args = self.getNodeValue(ctx.args)
         if args is None:
@@ -973,12 +972,11 @@ class EPromptoBuilder(EParserListener):
         arg = self.getNodeValue(ctx.arg)
         if arg is not None:
             args.append(arg)
-        self.setNodeValue(ctx, ConstructorExpression(typ, mutable, args))
+        self.setNodeValue(ctx, ConstructorExpression(typ, args))
     
 
     
     def exitConstructorNoFrom(self, ctx:EParser.ConstructorNoFromContext):
-        mutable = ctx.MUTABLE() is not None
         typ = self.getNodeValue(ctx.typ)
         args = self.getNodeValue(ctx.args)
         if args is None:
@@ -986,7 +984,7 @@ class EPromptoBuilder(EParserListener):
         arg = self.getNodeValue(ctx.arg)
         if arg is not None:
             args.append(arg)
-        self.setNodeValue(ctx, ConstructorExpression(typ, mutable, args))
+        self.setNodeValue(ctx, ConstructorExpression(typ, args))
     
 
     def exitAssertion(self, ctx:EParser.AssertionContext):
@@ -2015,7 +2013,12 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, MultiplyExpression(left, right))
     
 
-    
+    def exitMutable_category_type(self, ctx):
+        typ = self.getNodeValue(ctx.category_type())
+        typ.mutable = ctx.MUTABLE() is not None
+        self.setNodeValue(ctx, typ)
+
+
     def exitMinusExpression(self, ctx:EParser.MinusExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, MinusExpression(exp))
