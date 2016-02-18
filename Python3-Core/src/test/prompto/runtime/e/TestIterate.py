@@ -10,6 +10,9 @@ class TestIterate(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testForEachCategoryList(self):
+        self.checkOutput("iterate/forEachCategoryList.pec")
+
     def testForEachIntegerList(self):
         self.checkOutput("iterate/forEachIntegerList.pec")
 
