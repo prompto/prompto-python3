@@ -43,7 +43,10 @@ class CategoryType(BaseType):
 
     def getDeclaration(self, context):
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
+        from prompto.declaration.EnumeratedNativeDeclaration import EnumeratedNativeDeclaration
         decl = context.getRegisteredDeclaration(CategoryDeclaration, self.name)
+        if decl is None:
+            decl = context.getRegisteredDeclaration(EnumeratedNativeDeclaration, self.name)
         if decl is None:
             raise SyntaxError("Unknown category: \"" + self.name + "\"")
         return decl
