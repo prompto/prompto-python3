@@ -4341,8 +4341,8 @@ class OParser ( AbstractParser ):
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
-            self.del = None # Expression_listContext
-            self.add = None # Expression_listContext
+            self.to_del = None # Expression_listContext
+            self.to_add = None # Expression_listContext
 
         def DELETE(self):
             return self.getToken(OParser.DELETE, 0)
@@ -4403,7 +4403,7 @@ class OParser ( AbstractParser ):
                 self.state = 694
                 self.match(OParser.LPAR)
                 self.state = 695
-                localctx.del = self.expression_list(0)
+                localctx.to_del = self.expression_list(0)
                 self.state = 696
                 self.match(OParser.RPAR)
                 self.state = 697
@@ -4417,7 +4417,7 @@ class OParser ( AbstractParser ):
                 self.state = 700
                 self.match(OParser.LPAR)
                 self.state = 701
-                localctx.add = self.expression_list(0)
+                localctx.to_add = self.expression_list(0)
                 self.state = 702
                 self.match(OParser.RPAR)
                 self.state = 703
@@ -4431,7 +4431,7 @@ class OParser ( AbstractParser ):
                 self.state = 706
                 self.match(OParser.LPAR)
                 self.state = 707
-                localctx.del = self.expression_list(0)
+                localctx.to_del = self.expression_list(0)
                 self.state = 708
                 self.match(OParser.RPAR)
                 self.state = 709
@@ -4441,7 +4441,7 @@ class OParser ( AbstractParser ):
                 self.state = 711
                 self.match(OParser.LPAR)
                 self.state = 712
-                localctx.add = self.expression_list(0)
+                localctx.to_add = self.expression_list(0)
                 self.state = 713
                 self.match(OParser.RPAR)
                 self.state = 714

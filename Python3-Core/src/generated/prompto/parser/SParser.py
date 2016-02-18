@@ -4210,8 +4210,8 @@ class SParser ( AbstractParser ):
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
-            self.del = None # Expression_listContext
-            self.add = None # Expression_listContext
+            self.to_del = None # Expression_listContext
+            self.to_add = None # Expression_listContext
 
         def DELETE(self):
             return self.getToken(SParser.DELETE, 0)
@@ -4269,7 +4269,7 @@ class SParser ( AbstractParser ):
                 self.state = 681
                 self.match(SParser.LPAR)
                 self.state = 682
-                localctx.del = self.expression_list(0)
+                localctx.to_del = self.expression_list(0)
                 self.state = 683
                 self.match(SParser.RPAR)
                 pass
@@ -4281,7 +4281,7 @@ class SParser ( AbstractParser ):
                 self.state = 686
                 self.match(SParser.LPAR)
                 self.state = 687
-                localctx.add = self.expression_list(0)
+                localctx.to_add = self.expression_list(0)
                 self.state = 688
                 self.match(SParser.RPAR)
                 pass
@@ -4293,7 +4293,7 @@ class SParser ( AbstractParser ):
                 self.state = 691
                 self.match(SParser.LPAR)
                 self.state = 692
-                localctx.del = self.expression_list(0)
+                localctx.to_del = self.expression_list(0)
                 self.state = 693
                 self.match(SParser.RPAR)
                 self.state = 694
@@ -4303,7 +4303,7 @@ class SParser ( AbstractParser ):
                 self.state = 696
                 self.match(SParser.LPAR)
                 self.state = 697
-                localctx.add = self.expression_list(0)
+                localctx.to_add = self.expression_list(0)
                 self.state = 698
                 self.match(SParser.RPAR)
                 pass

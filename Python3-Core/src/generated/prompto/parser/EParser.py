@@ -4664,8 +4664,8 @@ class EParser ( AbstractParser ):
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
-            self.del = None # Expression_listContext
-            self.add = None # Expression_listContext
+            self.to_del = None # Expression_listContext
+            self.to_add = None # Expression_listContext
 
         def DELETE(self):
             return self.getToken(EParser.DELETE, 0)
@@ -4709,7 +4709,7 @@ class EParser ( AbstractParser ):
                 self.state = 757
                 self.match(EParser.DELETE)
                 self.state = 758
-                localctx.del = self.expression_list(0)
+                localctx.to_del = self.expression_list(0)
                 pass
 
             elif la_ == 2:
@@ -4717,7 +4717,7 @@ class EParser ( AbstractParser ):
                 self.state = 759
                 self.match(EParser.STORE)
                 self.state = 760
-                localctx.add = self.expression_list(0)
+                localctx.to_add = self.expression_list(0)
                 pass
 
             elif la_ == 3:
@@ -4725,13 +4725,13 @@ class EParser ( AbstractParser ):
                 self.state = 761
                 self.match(EParser.DELETE)
                 self.state = 762
-                localctx.del = self.expression_list(0)
+                localctx.to_del = self.expression_list(0)
                 self.state = 763
                 self.match(EParser.AND)
                 self.state = 764
                 self.match(EParser.STORE)
                 self.state = 765
-                localctx.add = self.expression_list(0)
+                localctx.to_add = self.expression_list(0)
                 pass
 
 
