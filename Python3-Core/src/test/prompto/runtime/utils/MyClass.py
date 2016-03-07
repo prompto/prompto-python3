@@ -32,11 +32,11 @@ class MyClass(object):
 
     @staticmethod
     def longObject():
-        return 123
+        return 9876543210
 
     @staticmethod
     def longValue():
-        return 123
+        return 9876543210
 
     @staticmethod
     def characterValue():
