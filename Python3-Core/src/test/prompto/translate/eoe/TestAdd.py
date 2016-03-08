@@ -32,6 +32,9 @@ class TestAdd(BaseEParserTest):
     def testAddSet(self):
         self.compareResourceEOE("add/addSet.pec")
 
+    def testAddTextCharacter(self):
+        self.compareResourceEOE("add/addTextCharacter.pec")
+
     def testAddTextDecimal(self):
         self.compareResourceEOE("add/addTextDecimal.pec")
 

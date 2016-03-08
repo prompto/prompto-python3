@@ -32,6 +32,9 @@ class TestAdd(BaseOParserTest):
     def testAddSet(self):
         self.compareResourceOSO("add/addSet.poc")
 
+    def testAddTextCharacter(self):
+        self.compareResourceOSO("add/addTextCharacter.poc")
+
     def testAddTextDecimal(self):
         self.compareResourceOSO("add/addTextDecimal.poc")
 

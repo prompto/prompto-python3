@@ -37,6 +37,9 @@ class TestAdd(BaseEParserTest):
     def testAddSet(self):
         self.checkOutput("add/addSet.pec")
 
+    def testAddTextCharacter(self):
+        self.checkOutput("add/addTextCharacter.pec")
+
     def testAddTextDecimal(self):
         self.checkOutput("add/addTextDecimal.pec")
 
