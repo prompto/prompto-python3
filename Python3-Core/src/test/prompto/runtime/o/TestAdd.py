@@ -37,8 +37,14 @@ class TestAdd(BaseOParserTest):
     def testAddSet(self):
         self.checkOutput("add/addSet.poc")
 
-    def testAddText(self):
-        self.checkOutput("add/addText.poc")
+    def testAddTextDecimal(self):
+        self.checkOutput("add/addTextDecimal.poc")
+
+    def testAddTextInteger(self):
+        self.checkOutput("add/addTextInteger.poc")
+
+    def testAddTextText(self):
+        self.checkOutput("add/addTextText.poc")
 
     def testAddTime(self):
         self.checkOutput("add/addTime.poc")

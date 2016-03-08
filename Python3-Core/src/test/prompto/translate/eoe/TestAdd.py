@@ -32,8 +32,14 @@ class TestAdd(BaseEParserTest):
     def testAddSet(self):
         self.compareResourceEOE("add/addSet.pec")
 
-    def testAddText(self):
-        self.compareResourceEOE("add/addText.pec")
+    def testAddTextDecimal(self):
+        self.compareResourceEOE("add/addTextDecimal.pec")
+
+    def testAddTextInteger(self):
+        self.compareResourceEOE("add/addTextInteger.pec")
+
+    def testAddTextText(self):
+        self.compareResourceEOE("add/addTextText.pec")
 
     def testAddTime(self):
         self.compareResourceEOE("add/addTime.pec")
