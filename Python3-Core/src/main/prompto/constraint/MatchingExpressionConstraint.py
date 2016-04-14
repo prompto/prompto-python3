@@ -1,5 +1,5 @@
+from prompto.constraint.IAttributeConstraint import IAttributeConstraint
 from prompto.error.InvalidDataError import InvalidDataError
-from prompto.grammar.IAttributeConstraint import IAttributeConstraint
 from prompto.runtime.TransientVariable import TransientVariable
 from prompto.type.AnyType import AnyType
 from prompto.value.Boolean import Boolean

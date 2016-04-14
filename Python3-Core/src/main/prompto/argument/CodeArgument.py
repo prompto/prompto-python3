@@ -1,6 +1,6 @@
-from prompto.grammar.BaseArgument import BaseArgument
+from prompto.argument.BaseArgument import BaseArgument
+from prompto.argument.ITypedArgument import ITypedArgument
 from prompto.grammar.INamedValue import INamedValue
-from prompto.grammar.ITypedArgument import ITypedArgument
 from prompto.type.CodeType import CodeType
 
 

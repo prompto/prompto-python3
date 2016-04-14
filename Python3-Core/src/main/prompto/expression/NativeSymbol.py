@@ -1,5 +1,5 @@
 from prompto.expression.IExpression import *
-from prompto.grammar.Symbol import *
+from prompto.expression.Symbol import *
 
 
 class NativeSymbol ( Symbol, IExpression ):

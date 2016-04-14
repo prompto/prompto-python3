@@ -1,16 +1,16 @@
 from prompto.expression.IExpression import IExpression
 from prompto.expression.InstanceExpression import InstanceExpression
+from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.EqOp import EqOp
 from prompto.grammar.INamedValue import INamedValue
-from prompto.grammar.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.runtime.LinkedValue import LinkedValue
 from prompto.runtime.LinkedVariable import LinkedVariable
 from prompto.type.BooleanType import BooleanType
+from prompto.utils.CodeWriter import CodeWriter
 from prompto.value.Boolean import Boolean
 from prompto.value.IValue import IValue
-from prompto.value.TypeValue import TypeValue
 from prompto.value.NullValue import NullValue
-from prompto.utils.CodeWriter import CodeWriter
+from prompto.value.TypeValue import TypeValue
 
 VOWELS = "AEIO" # sufficient here
 

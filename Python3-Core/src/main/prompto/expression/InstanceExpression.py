@@ -1,4 +1,4 @@
-from prompto.grammar.IArgument import *
+from prompto.argument.IArgument import *
 from prompto.parser.Dialect import Dialect
 from prompto.runtime.Context import *
 from prompto.runtime.LinkedVariable import LinkedVariable

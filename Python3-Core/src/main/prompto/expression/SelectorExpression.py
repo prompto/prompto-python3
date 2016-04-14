@@ -1,5 +1,5 @@
 from prompto.expression.IExpression import IExpression
-from prompto.grammar.UnresolvedIdentifier import UnresolvedIdentifier
+from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 
 class SelectorExpression (IExpression):
 

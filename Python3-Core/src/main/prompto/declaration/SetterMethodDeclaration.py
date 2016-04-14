@@ -30,7 +30,7 @@ class SetterMethodDeclaration(ConcreteMethodDeclaration, IExpression):
     def toEDialect(self, writer):
         writer.append("define ")
         writer.append(self.name)
-        writer.append(" setter doing:\n")
+        writer.append(" as setter doing:\n")
         writer.indent()
         self.statements.toDialect(writer)
         writer.dedent()

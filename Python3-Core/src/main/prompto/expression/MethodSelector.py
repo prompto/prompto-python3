@@ -1,6 +1,6 @@
+from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.MemberSelector import MemberSelector
 from prompto.runtime.Context import Context, InstanceContext
-from prompto.error.SyntaxError import SyntaxError
 from prompto.value.NullValue import NullValue
 from prompto.value.TypeValue import TypeValue
 
@@ -105,7 +105,7 @@ class MethodSelector(MemberSelector):
 
     def toInstanceExpression(self):
         if self.parent == None:
-            from prompto.grammar.UnresolvedIdentifier import UnresolvedIdentifier
+            from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
             return UnresolvedIdentifier(self.name)
         else:
             return MemberSelector(self.parent, self.name)

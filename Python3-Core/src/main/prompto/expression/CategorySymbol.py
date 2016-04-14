@@ -1,8 +1,8 @@
 from io import StringIO
 
-from prompto.expression.IExpression import IExpression
-from prompto.grammar.Symbol import Symbol
 from prompto.error.SyntaxError import SyntaxError
+from prompto.expression.IExpression import IExpression
+from prompto.expression.Symbol import Symbol
 
 class CategorySymbol(Symbol, IExpression):
 

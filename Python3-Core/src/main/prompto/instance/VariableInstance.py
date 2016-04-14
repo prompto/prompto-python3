@@ -1,7 +1,7 @@
-from prompto.grammar.IAssignableInstance import IAssignableInstance
-from prompto.grammar.INamedValue import INamedValue
-from prompto.runtime.Variable import Variable
 from prompto.error.SyntaxError import SyntaxError
+from prompto.grammar.INamedValue import INamedValue
+from prompto.instance.IAssignableInstance import IAssignableInstance
+from prompto.runtime.Variable import Variable
 
 
 class VariableInstance(IAssignableInstance):

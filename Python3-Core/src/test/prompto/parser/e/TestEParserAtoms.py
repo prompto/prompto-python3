@@ -1,12 +1,10 @@
-from datetime import date, time, datetime
+import unittest
+
+from prompto.argument.ExtendedArgument import ExtendedArgument
 from prompto.declaration.NativeMethodDeclaration import *
 from prompto.expression.AddExpression import *
-from prompto.expression.ConstructorExpression import ConstructorExpression
-from prompto.expression.MemberSelector import *
-from prompto.grammar.CategoryArgument import *
+from prompto.expression.NativeSymbol import *
 from prompto.grammar.IdentifierList import *
-from prompto.grammar.NativeSymbol import *
-from prompto.grammar.UnresolvedIdentifier import *
 from prompto.literal.BooleanLiteral import *
 from prompto.literal.DateLiteral import *
 from prompto.literal.DateTimeLiteral import *
@@ -19,13 +17,10 @@ from prompto.literal.PeriodLiteral import *
 from prompto.literal.TextLiteral import *
 from prompto.literal.TimeLiteral import *
 from prompto.parser.ECleverParser import *
-from prompto.parser.Dialect import *
 from prompto.statement.NativeCall import NativeCall
 from prompto.statement.UnresolvedCall import UnresolvedCall
 from prompto.type.CategoryType import *
 from prompto.type.ListType import *
-
-import unittest
 from prompto.utils.CodeWriter import CodeWriter
 
 
@@ -225,7 +220,7 @@ class TestParserAtoms(unittest.TestCase):
         self.assertIsNotNone(ad)
         self.assertEquals("printName",ad.getName())
         self.assertIsNotNone(ad.getArguments())
-        expected = CategoryArgument(CategoryType("Person"),"p",None)
+        expected = CategoryArgument(CategoryType("Person"), "p")
         self.assertTrue(expected in ad.getArguments())
         self.assertIsNotNone(ad.getStatements())
         writer = CodeWriter(Dialect.E, Context.newGlobalContext())
@@ -242,7 +237,7 @@ class TestParserAtoms(unittest.TestCase):
         self.assertIsNotNone(ad)
         self.assertEquals("printName",ad.getName())
         self.assertIsNotNone(ad.getArguments())
-        expected = CategoryArgument(CategoryType("Object"),"o", IdentifierList("name"))
+        expected = ExtendedArgument(CategoryType("Object"),"o", IdentifierList("name"))
         self.assertTrue(expected in ad.getArguments())
         self.assertIsNotNone(ad.getStatements())
         writer = CodeWriter(Dialect.E, Context.newGlobalContext())
@@ -259,7 +254,7 @@ class TestParserAtoms(unittest.TestCase):
         self.assertIsNotNone(ad)
         self.assertEquals("printName",ad.getName())
         self.assertIsNotNone(ad.getArguments())
-        expected = CategoryArgument(ListType(CategoryType("Option")),"options",None)
+        expected = CategoryArgument(ListType(CategoryType("Option")), "options")
         self.assertTrue(expected in ad.getArguments())
         self.assertIsNotNone(ad.getStatements())
         writer = CodeWriter(Dialect.E, Context.newGlobalContext())

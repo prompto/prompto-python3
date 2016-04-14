@@ -9,10 +9,10 @@ from prompto.value.ExpressionValue import ExpressionValue
 from prompto.error.SyntaxError import SyntaxError
 
 
-class DeclarationInstruction(BaseStatement):
+class DeclarationStatement(BaseStatement):
 
     def __init__(self, declaration):
-        super(DeclarationInstruction, self).__init__()
+        super(DeclarationStatement, self).__init__()
         self.declaration = declaration
 
     def getDeclaration(self):

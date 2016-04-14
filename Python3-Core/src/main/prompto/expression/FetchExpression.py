@@ -71,15 +71,7 @@ class FetchExpression(Section, IExpression):
             raise NullReferenceError()
         if not isinstance(items, (ListValue, TupleValue, SetValue)):
             raise InternalError("Illegal fetch source: " + str(items))
-        result = ListValue(itemType)
         local = context.newLocalContext()
         item = TransientVariable(self.itemName, itemType)
         local.registerValue(item)
-        for o in items.getIterator(context):
-            local.setValue(self.itemName, o)
-            test = self.filter.interpret(local)
-            if not isinstance(test, Boolean):
-                raise InternalError("Illegal test result: " + test)
-            if test.getValue():
-                result.append(o)
-        return result
+        return items.filter(local, self.itemName, self.filter)

@@ -1,8 +1,7 @@
+from prompto.argument.BaseArgument import BaseArgument
+from prompto.argument.INamedArgument import INamedArgument
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 from prompto.declaration.IDeclaration import IDeclaration
-from prompto.grammar.BaseArgument import BaseArgument
-from prompto.grammar.INamedArgument import INamedArgument
-from prompto.grammar.INamedValue import INamedValue
 
 
 class AttributeArgument ( BaseArgument, INamedArgument ):

@@ -1,6 +1,6 @@
 from prompto.error.IndexOutOfRangeError import IndexOutOfRangeError
 from prompto.error.InvalidDataError import InvalidDataError
-from prompto.grammar.IAssignableInstance import IAssignableInstance
+from prompto.instance.IAssignableInstance import IAssignableInstance
 from prompto.type.IntegerType import IntegerType
 from prompto.value.IContainer import IContainer
 from prompto.value.IValue import IValue

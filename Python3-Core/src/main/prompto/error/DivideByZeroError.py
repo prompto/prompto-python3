@@ -1,5 +1,5 @@
 from prompto.error.ExecutionError import ExecutionError
-from prompto.grammar.CategorySymbol import CategorySymbol
+from prompto.expression.CategorySymbol import CategorySymbol
 
 
 class DivideByZeroError ( ExecutionError ) :

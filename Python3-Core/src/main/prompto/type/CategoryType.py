@@ -1,12 +1,13 @@
+from prompto.error.PrestoError import PrestoError
 from prompto.expression.MethodSelector import *
+from prompto.expression.UnresolvedIdentifier import *
 from prompto.grammar.ArgumentAssignment import *
 from prompto.grammar.ArgumentAssignmentList import *
-from prompto.grammar.UnresolvedIdentifier import *
 from prompto.grammar.Operator import Operator
+from prompto.runtime.Score import Score
 from prompto.type.AnyType import *
 from prompto.value.ExpressionValue import *
-from prompto.runtime.Score import Score
-from prompto.error.PrestoError import PrestoError
+
 
 class CategoryType(BaseType):
 

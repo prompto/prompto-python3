@@ -1,4 +1,4 @@
-from prompto.grammar.IArgument import IArgument
+from prompto.argument.IArgument import IArgument
 
 
 class BaseArgument ( IArgument ) :

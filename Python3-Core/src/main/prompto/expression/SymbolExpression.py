@@ -1,5 +1,5 @@
 from prompto.expression.IExpression import IExpression
-from prompto.grammar.Symbol import Symbol
+from prompto.expression.Symbol import Symbol
 
 
 class SymbolExpression ( IExpression ):

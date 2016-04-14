@@ -1,13 +1,11 @@
 from prompto.error.NullReferenceError import NullReferenceError
-from prompto.expression.IExpression import IExpression
 from prompto.expression.SelectorExpression import SelectorExpression
 from prompto.expression.SymbolExpression import SymbolExpression
 from prompto.expression.TypeExpression import TypeExpression
-from prompto.grammar.UnresolvedIdentifier import UnresolvedIdentifier
-from prompto.value.IValue import IValue
+from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.value.NullValue import NullValue
 from prompto.value.Text import Text
-from prompto.error.SyntaxError import SyntaxError
+
 
 class MemberSelector (SelectorExpression):
 

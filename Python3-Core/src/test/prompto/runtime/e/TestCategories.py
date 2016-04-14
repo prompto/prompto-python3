@@ -10,6 +10,9 @@ class TestCategories(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testComposed(self):
+        self.checkOutput("categories/composed.pec")
+
     def testCopyFromAscendant(self):
         self.checkOutput("categories/copyFromAscendant.pec")
 

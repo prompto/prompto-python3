@@ -1,4 +1,5 @@
 from prompto.error.IndexOutOfRangeError import IndexOutOfRangeError
+from prompto.error.InternalError import InternalError
 from prompto.error.SyntaxError import SyntaxError
 from prompto.value.BaseValue import BaseValue
 from prompto.value.IContainer import IContainer
@@ -68,3 +69,22 @@ class SetValue(BaseValue, IContainer):
         data |= self.items
         data |= items
         return SetValue(self.type.itemType, data)
+
+    def filter(self, context, itemName, filter):
+        result = set()
+        for o in self.getIterator(context):
+            context.setValue(itemName, o)
+            test = filter.interpret(context)
+            from prompto.value.Boolean import Boolean
+            if not isinstance(test, Boolean):
+                raise InternalError("Illegal test result: " + test)
+            if test.getValue():
+                result.add(o)
+        return SetValue(self.type.itemType, result)
+
+    def GetMember(self, context, name, autoCreate=False):
+        if "length" == name:
+            return Integer(len(self.items))
+        else:
+            return super(SetValue, self).GetMember(context, name)
+

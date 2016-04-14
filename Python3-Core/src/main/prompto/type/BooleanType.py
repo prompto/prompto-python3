@@ -1,4 +1,3 @@
-from prompto.type.AnyType import AnyType
 from prompto.type.NativeType import NativeType
 
 class BooleanType(NativeType):
@@ -9,6 +8,7 @@ class BooleanType(NativeType):
         super(BooleanType, self).__init__("Boolean")
 
     def isAssignableTo(self, context, other):
+        from prompto.type.AnyType import AnyType
         return isinstance(other, BooleanType) or isinstance(other, AnyType)
 
     def sort(self, context, source):

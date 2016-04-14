@@ -94,12 +94,30 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#native_setter_declaration.
+    def enterNative_setter_declaration(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#native_setter_declaration.
+    def exitNative_setter_declaration(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#getter_method_declaration.
     def enterGetter_method_declaration(self, ctx):
         pass
 
     # Exit a parse tree produced by SParser#getter_method_declaration.
     def exitGetter_method_declaration(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#native_getter_declaration.
+    def enterNative_getter_declaration(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#native_getter_declaration.
+    def exitNative_getter_declaration(self, ctx):
         pass
 
 

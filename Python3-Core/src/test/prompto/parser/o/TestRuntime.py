@@ -1,13 +1,16 @@
-from antlr4 import ParseTreeWalker
-from prompto.parser.o.BaseOParserTest import BaseOParserTest
-from prompto.parser.OPromptoBuilder import OPromptoBuilder
-from prompto.runtime.utils.Out import Out
-from prompto.parser.OCleverParser import OCleverParser
-from prompto.runtime.Context import Context
-from prompto.grammar.CategoryArgument import CategoryArgument
-from prompto.type.TextType import TextType
-from prompto.literal.TextLiteral import TextLiteral
 import sys
+
+from antlr4 import ParseTreeWalker
+
+from prompto.argument.CategoryArgument import CategoryArgument
+from prompto.literal.TextLiteral import TextLiteral
+from prompto.parser.OCleverParser import OCleverParser
+from prompto.parser.OPromptoBuilder import OPromptoBuilder
+from prompto.parser.o.BaseOParserTest import BaseOParserTest
+from prompto.runtime.Context import Context
+from prompto.runtime.utils.Out import Out
+from prompto.type.TextType import TextType
+
 
 class TestNative(BaseOParserTest):
 

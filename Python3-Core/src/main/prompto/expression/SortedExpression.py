@@ -1,16 +1,17 @@
 from prompto.error.InternalError import InternalError
 from prompto.error.NullReferenceError import NullReferenceError
+from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.IExpression import IExpression
 from prompto.expression.InstanceExpression import InstanceExpression
-from prompto.grammar.UnresolvedIdentifier import UnresolvedIdentifier
+from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.type.CategoryType import CategoryType
 from prompto.type.ListType import ListType
-from prompto.type.TupleType import TupleType
 from prompto.type.SetType import SetType
+from prompto.type.TupleType import TupleType
 from prompto.value.ListValue import ListValue
-from prompto.value.TupleValue import TupleValue
 from prompto.value.SetValue import SetValue
-from prompto.error.SyntaxError import SyntaxError
+from prompto.value.TupleValue import TupleValue
+
 
 class SortedExpression(IExpression):
 

@@ -13,9 +13,6 @@ class TestCondition(BaseOParserTest):
     def testComplexIf(self):
         self.checkOutput("condition/complexIf.poc")
 
-    def testElseIf(self):
-        self.checkOutput("condition/elseIf.poc")
-
     def testReturnIf(self):
         self.checkOutput("condition/returnIf.poc")
 

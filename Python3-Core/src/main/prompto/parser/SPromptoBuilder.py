@@ -1,11 +1,16 @@
 from antlr4 import ParserRuleContext
 from antlr4.tree.Tree import ParseTree
 
+from prompto.argument.CategoryArgument import CategoryArgument
+from prompto.argument.CodeArgument import CodeArgument
+from prompto.argument.UnresolvedArgument import UnresolvedArgument
+from prompto.constraint.MatchingCollectionConstraint import MatchingCollectionConstraint
+from prompto.constraint.MatchingExpressionConstraint import MatchingExpressionConstraint
+from prompto.constraint.MatchingPatternConstraint import MatchingPatternConstraint
 from prompto.csharp.CSharpBooleanLiteral import CSharpBooleanLiteral
 from prompto.csharp.CSharpCharacterLiteral import CSharpCharacterLiteral
 from prompto.csharp.CSharpDecimalLiteral import CSharpDecimalLiteral
 from prompto.csharp.CSharpExpressionList import CSharpExpressionList
-from prompto.csharp.CSharpThisExpression import CSharpThisExpression
 from prompto.csharp.CSharpIdentifierExpression import CSharpIdentifierExpression
 from prompto.csharp.CSharpIntegerLiteral import CSharpIntegerLiteral
 from prompto.csharp.CSharpMethodExpression import CSharpMethodExpression
@@ -13,24 +18,28 @@ from prompto.csharp.CSharpNativeCall import CSharpNativeCall
 from prompto.csharp.CSharpNativeCategoryBinding import CSharpNativeCategoryBinding
 from prompto.csharp.CSharpStatement import CSharpStatement
 from prompto.csharp.CSharpTextLiteral import CSharpTextLiteral
-from prompto.declaration.DeclarationList import DeclarationList
+from prompto.csharp.CSharpThisExpression import CSharpThisExpression
 from prompto.declaration.AbstractMethodDeclaration import AbstractMethodDeclaration
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
 from prompto.declaration.ConcreteMethodDeclaration import ConcreteMethodDeclaration
+from prompto.declaration.DeclarationList import DeclarationList
 from prompto.declaration.EnumeratedCategoryDeclaration import EnumeratedCategoryDeclaration
 from prompto.declaration.EnumeratedNativeDeclaration import EnumeratedNativeDeclaration
 from prompto.declaration.GetterMethodDeclaration import GetterMethodDeclaration
 from prompto.declaration.NativeCategoryDeclaration import NativeCategoryDeclaration
+from prompto.declaration.NativeGetterMethodDeclaration import NativeGetterMethodDeclaration
 from prompto.declaration.NativeMethodDeclaration import NativeMethodDeclaration
 from prompto.declaration.NativeResourceDeclaration import NativeResourceDeclaration
-from prompto.declaration.TestMethodDeclaration import TestMethodDeclaration
+from prompto.declaration.NativeSetterMethodDeclaration import NativeSetterMethodDeclaration
 from prompto.declaration.OperatorMethodDeclaration import OperatorMethodDeclaration
 from prompto.declaration.SetterMethodDeclaration import SetterMethodDeclaration
 from prompto.declaration.SingletonCategoryDeclaration import SingletonCategoryDeclaration
+from prompto.declaration.TestMethodDeclaration import TestMethodDeclaration
 from prompto.expression.AddExpression import AddExpression
 from prompto.expression.AndExpression import AndExpression
 from prompto.expression.CastExpression import CastExpression
+from prompto.expression.CategorySymbol import CategorySymbol
 from prompto.expression.CodeExpression import CodeExpression
 from prompto.expression.CompareExpression import CompareExpression
 from prompto.expression.ConstructorExpression import ConstructorExpression
@@ -39,9 +48,9 @@ from prompto.expression.DivideExpression import DivideExpression
 from prompto.expression.DocumentExpression import DocumentExpression
 from prompto.expression.EqualsExpression import EqualsExpression
 from prompto.expression.ExecuteExpression import ExecuteExpression
+from prompto.expression.FetchAllExpression import FetchAllExpression
 from prompto.expression.FetchExpression import FetchExpression
 from prompto.expression.FetchOneExpression import FetchOneExpression
-from prompto.expression.FetchAllExpression import FetchAllExpression
 from prompto.expression.IntDivideExpression import IntDivideExpression
 from prompto.expression.ItemSelector import ItemSelector
 from prompto.expression.IteratorExpression import IteratorExpression
@@ -51,6 +60,7 @@ from prompto.expression.MethodSelector import MethodSelector
 from prompto.expression.MinusExpression import MinusExpression
 from prompto.expression.ModuloExpression import ModuloExpression
 from prompto.expression.MultiplyExpression import MultiplyExpression
+from prompto.expression.NativeSymbol import NativeSymbol
 from prompto.expression.NotExpression import NotExpression
 from prompto.expression.OrExpression import OrExpression
 from prompto.expression.ParenthesisExpression import ParenthesisExpression
@@ -62,32 +72,24 @@ from prompto.expression.SymbolExpression import SymbolExpression
 from prompto.expression.TernaryExpression import TernaryExpression
 from prompto.expression.ThisExpression import ThisExpression
 from prompto.expression.TypeExpression import TypeExpression
+from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.ArgumentAssignment import ArgumentAssignment
 from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
 from prompto.grammar.ArgumentList import ArgumentList
-from prompto.grammar.CategoryArgument import CategoryArgument
-from prompto.grammar.MethodDeclarationList import MethodDeclarationList
-from prompto.grammar.CategorySymbol import CategorySymbol
 from prompto.grammar.CategorySymbolList import CategorySymbolList
 from prompto.grammar.CmpOp import CmpOp
-from prompto.grammar.CodeArgument import CodeArgument
 from prompto.grammar.ContOp import ContOp
 from prompto.grammar.EqOp import EqOp
 from prompto.grammar.IdentifierList import IdentifierList
-from prompto.grammar.ItemInstance import ItemInstance
-from prompto.grammar.MatchingCollectionConstraint import MatchingCollectionConstraint
-from prompto.grammar.MatchingExpressionConstraint import MatchingExpressionConstraint
-from prompto.grammar.MatchingPatternConstraint import MatchingPatternConstraint
-from prompto.grammar.MemberInstance import MemberInstance
+from prompto.grammar.MethodDeclarationList import MethodDeclarationList
 from prompto.grammar.NativeCategoryBindingList import NativeCategoryBindingList
-from prompto.grammar.NativeSymbol import NativeSymbol
 from prompto.grammar.NativeSymbolList import NativeSymbolList
 from prompto.grammar.Operator import Operator
 from prompto.grammar.OrderByClause import OrderByClause
 from prompto.grammar.OrderByClauseList import OrderByClauseList
-from prompto.grammar.UnresolvedArgument import UnresolvedArgument
-from prompto.grammar.UnresolvedIdentifier import UnresolvedIdentifier
-from prompto.grammar.VariableInstance import VariableInstance
+from prompto.instance.ItemInstance import ItemInstance
+from prompto.instance.MemberInstance import MemberInstance
+from prompto.instance.VariableInstance import VariableInstance
 from prompto.java.JavaBooleanLiteral import JavaBooleanLiteral
 from prompto.java.JavaCharacterLiteral import JavaCharacterLiteral
 from prompto.java.JavaDecimalLiteral import JavaDecimalLiteral
@@ -107,15 +109,15 @@ from prompto.javascript.JavaScriptDecimalLiteral import JavaScriptDecimalLiteral
 from prompto.javascript.JavaScriptExpressionList import JavaScriptExpressionList
 from prompto.javascript.JavaScriptIdentifierExpression import JavaScriptIdentifierExpression
 from prompto.javascript.JavaScriptIntegerLiteral import JavaScriptIntegerLiteral
-from prompto.javascript.JavaScriptNewExpression import JavaScriptNewExpression
-from prompto.javascript.JavaScriptThisExpression import JavaScriptThisExpression
-from prompto.javascript.JavaScriptMethodExpression import JavaScriptMethodExpression
 from prompto.javascript.JavaScriptMemberExpression import JavaScriptMemberExpression
+from prompto.javascript.JavaScriptMethodExpression import JavaScriptMethodExpression
 from prompto.javascript.JavaScriptModule import JavaScriptModule
 from prompto.javascript.JavaScriptNativeCall import JavaScriptNativeCall
 from prompto.javascript.JavaScriptNativeCategoryBinding import JavaScriptNativeCategoryBinding
+from prompto.javascript.JavaScriptNewExpression import JavaScriptNewExpression
 from prompto.javascript.JavaScriptStatement import JavaScriptStatement
 from prompto.javascript.JavaScriptTextLiteral import JavaScriptTextLiteral
+from prompto.javascript.JavaScriptThisExpression import JavaScriptThisExpression
 from prompto.literal.BooleanLiteral import BooleanLiteral
 from prompto.literal.CharacterLiteral import CharacterLiteral
 from prompto.literal.DateLiteral import DateLiteral
@@ -134,10 +136,10 @@ from prompto.literal.SetLiteral import SetLiteral
 from prompto.literal.TextLiteral import TextLiteral
 from prompto.literal.TimeLiteral import TimeLiteral
 from prompto.literal.TupleLiteral import TupleLiteral
+from prompto.parser.Dialect import Dialect
 from prompto.parser.SParser import SParser
 from prompto.parser.SParserListener import SParserListener
 from prompto.parser.Section import Section
-from prompto.parser.Dialect import Dialect
 from prompto.python.PythonArgument import PythonNamedArgument, PythonOrdinalArgumentList, PythonNamedArgumentList
 from prompto.python.PythonBooleanLiteral import PythonBooleanLiteral
 from prompto.python.PythonCharacterLiteral import PythonCharacterLiteral
@@ -157,7 +159,7 @@ from prompto.statement.AssignVariableStatement import AssignVariableStatement
 from prompto.statement.AtomicSwitchCase import AtomicSwitchCase
 from prompto.statement.CollectionSwitchCase import CollectionSwitchCase
 from prompto.statement.CommentStatement import CommentStatement
-from prompto.statement.DeclarationInstruction import DeclarationInstruction
+from prompto.statement.DeclarationStatement import DeclarationStatement
 from prompto.statement.DoWhileStatement import DoWhileStatement
 from prompto.statement.ForEachStatement import ForEachStatement
 from prompto.statement.IfStatement import IfElement, IfElementList, IfStatement
@@ -525,7 +527,7 @@ class SPromptoBuilder(SParserListener):
 
     def exitClosureStatement(self, ctx:SParser.ClosureStatementContext):
         decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, DeclarationInstruction(decl))
+        self.setNodeValue(ctx, DeclarationStatement(decl))
 
 
     def exitCode_argument(self, ctx:SParser.Code_argumentContext):
@@ -972,6 +974,19 @@ class SPromptoBuilder(SParserListener):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
         self.setNodeValue(ctx, GetterMethodDeclaration(name, stmts))
+
+
+    def exitNative_setter_declaration(self, ctx:SParser.Native_setter_declarationContext):
+        name = self.getNodeValue(ctx.name)
+        stmts = self.getNodeValue(ctx.stmts)
+        self.setNodeValue(ctx, NativeSetterMethodDeclaration(name, stmts))
+
+
+
+    def exitNative_getter_declaration(self, ctx:SParser.Native_getter_declarationContext):
+        name = self.getNodeValue(ctx.name)
+        stmts = self.getNodeValue(ctx.stmts)
+        self.setNodeValue(ctx, NativeGetterMethodDeclaration(name, stmts))
 
 
     def exitGreaterThanExpression(self, ctx:SParser.GreaterThanExpressionContext):
@@ -2168,7 +2183,8 @@ class SPromptoBuilder(SParserListener):
         name = self.getNodeValue(ctx.name)
         attrs = self.getNodeValue(ctx.attrs)
         exp = self.getNodeValue(ctx.value)
-        arg = CategoryArgument(typ, name, attrs)
+        from prompto.argument.ExtendedArgument import ExtendedArgument
+        arg = CategoryArgument(typ, name) if attrs is None else ExtendedArgument(typ, name, attrs)
         arg.defaultExpression = exp
         self.setNodeValue(ctx, arg)
 

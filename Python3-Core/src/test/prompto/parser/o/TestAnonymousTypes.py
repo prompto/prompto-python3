@@ -1,15 +1,16 @@
-from prompto.parser.o.BaseOParserTest import BaseOParserTest
-from prompto.type.BooleanType import BooleanType
-from prompto.type.IntegerType import IntegerType
-from prompto.type.DecimalType import DecimalType
-from prompto.type.TextType import TextType
-from prompto.type.DateType import DateType
-from prompto.type.DateTimeType import DateTimeType
-from prompto.type.AnyType import AnyType
-from prompto.type.CategoryType import CategoryType
-from prompto.type.MissingType import MissingType
-from prompto.grammar.CategoryArgument import CategoryArgument
+from prompto.argument.CategoryArgument import CategoryArgument
+from prompto.argument.ExtendedArgument import ExtendedArgument
 from prompto.grammar.IdentifierList import IdentifierList
+from prompto.parser.o.BaseOParserTest import BaseOParserTest
+from prompto.type.AnyType import AnyType
+from prompto.type.BooleanType import BooleanType
+from prompto.type.CategoryType import CategoryType
+from prompto.type.DateTimeType import DateTimeType
+from prompto.type.DateType import DateType
+from prompto.type.DecimalType import DecimalType
+from prompto.type.IntegerType import IntegerType
+from prompto.type.MissingType import MissingType
+from prompto.type.TextType import TextType
 
 
 class TestAnonymousTypes(BaseOParserTest):
@@ -28,7 +29,7 @@ class TestAnonymousTypes(BaseOParserTest):
 
     def testAnonymousAnyType(self):
         # any x
-        argument = CategoryArgument(AnyType.instance, "x", None)
+        argument = CategoryArgument(AnyType.instance, "x")
         argument.register(self.context)
         st = argument.getType(self.context)
         self.assertIsInstance(st, AnyType)
@@ -49,7 +50,7 @@ class TestAnonymousTypes(BaseOParserTest):
     def testAnonymousAnyTypeWithAttribute(self):
         # any x with attribute: name
         list = IdentifierList("name")
-        argument = CategoryArgument(AnyType.instance, "x", list)
+        argument = ExtendedArgument(AnyType.instance, "x", list)
         argument.register(self.context)
         st = argument.getType(self.context)
         self.assertIsInstance(st, CategoryType)
@@ -71,7 +72,7 @@ class TestAnonymousTypes(BaseOParserTest):
 
     def testAnonymousCategoryType(self):
         # Root x
-        argument = CategoryArgument(CategoryType("Root"), "x", None)
+        argument = CategoryArgument(CategoryType("Root"), "x")
         argument.register(self.context)
         st = argument.getType(self.context)
         self.assertIsInstance(st, CategoryType)
@@ -94,7 +95,7 @@ class TestAnonymousTypes(BaseOParserTest):
     def testAnonymousCategoryTypeWithAttribute(self):
         # Root x with attribute: name
         list = IdentifierList("name")
-        argument = CategoryArgument(CategoryType("Root"), "test", list)
+        argument = ExtendedArgument(CategoryType("Root"), "test", list)
         argument.register(self.context)
         st = argument.getType(self.context)
         self.assertIsInstance(st, CategoryType)

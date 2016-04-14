@@ -1,5 +1,5 @@
 from prompto.error.NotMutableError import NotMutableError
-from prompto.grammar.IAssignableInstance import IAssignableInstance
+from prompto.instance.IAssignableInstance import IAssignableInstance
 
 
 class MemberInstance ( IAssignableInstance ):

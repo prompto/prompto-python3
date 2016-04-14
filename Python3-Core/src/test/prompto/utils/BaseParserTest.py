@@ -145,15 +145,21 @@ class BaseParserTest(unittest.TestCase):
         parser = OCleverParser(text=code)
         return self.parse(OPromptoBuilder, parser)
 
-    def parseSString(self, code):
-        parser = SCleverParser(text=code)
-        return self.parse(SPromptoBuilder, parser)
-
     def parseOResource(self, resourceName):
         stream = self.getResourceAsStream(resourceName, 'rb')
         self.assertIsNotNone("resource not found:" + resourceName, stream)
         parser = OCleverParser(stream=stream)
         return self.parse(OPromptoBuilder, parser)
+
+    def parseSString(self, code):
+        parser = SCleverParser(text=code)
+        return self.parse(SPromptoBuilder, parser)
+
+    def parseSResource(self, resourceName):
+        stream = self.getResourceAsStream(resourceName, 'rb')
+        self.assertIsNotNone("resource not found:" + resourceName, stream)
+        parser = SCleverParser(stream=stream)
+        return self.parse(SPromptoBuilder, parser)
 
     def compareResourceEOE(self, resourceName):
         expected = self.getResourceAsString(resourceName, 'r')

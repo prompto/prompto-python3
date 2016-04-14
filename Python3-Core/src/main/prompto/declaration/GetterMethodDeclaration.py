@@ -30,7 +30,7 @@ class GetterMethodDeclaration(ConcreteMethodDeclaration, IExpression):
     def toEDialect(self, writer):
         writer.append("define ")
         writer.append(self.name)
-        writer.append(" getter doing:\n")
+        writer.append(" as getter doing:\n")
         writer.indent()
         self.statements.toDialect(writer)
         writer.dedent()

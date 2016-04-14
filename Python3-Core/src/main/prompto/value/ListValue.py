@@ -1,7 +1,9 @@
 from io import StringIO
 
+from prompto.error.InternalError import InternalError
 from prompto.value.BaseValueList import BaseValueList
 from prompto.value.Integer import Integer
+from prompto.error.SyntaxError import SyntaxError
 
 class ListValue(BaseValueList):
 
@@ -53,4 +55,14 @@ class ListValue(BaseValueList):
             sb.write("]")
             return sb.getvalue()
 
-
+    def filter(self, context, itemName, filter):
+        result = ListValue(self.type.itemType)
+        for o in self.getIterator(context):
+            context.setValue(itemName, o)
+            test = filter.interpret(context)
+            from prompto.value.Boolean import Boolean
+            if not isinstance(test, Boolean):
+                raise InternalError("Illegal test result: " + test)
+            if test.getValue():
+                result.append(o)
+        return result

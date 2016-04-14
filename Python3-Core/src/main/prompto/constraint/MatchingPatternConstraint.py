@@ -1,7 +1,7 @@
 import re
 
+from prompto.constraint.IAttributeConstraint import *
 from prompto.error.InvalidDataError import *
-from prompto.grammar.IAttributeConstraint import *
 
 
 class MatchingPatternConstraint ( IAttributeConstraint ) :

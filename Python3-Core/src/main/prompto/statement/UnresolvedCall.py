@@ -1,19 +1,18 @@
 from prompto.declaration.CategoryDeclaration import CategoryDeclaration
 from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
 from prompto.declaration.IDeclaration import IDeclaration
+from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.ConstructorExpression import ConstructorExpression
 from prompto.expression.IExpression import IExpression
 from prompto.expression.MethodSelector import MethodSelector
+from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
-from prompto.grammar.UnresolvedIdentifier import UnresolvedIdentifier
-from prompto.parser.Dialect import Dialect
 from prompto.runtime.Context import Context, InstanceContext
-from prompto.statement.BaseStatement import BaseStatement
 from prompto.statement.MethodCall import MethodCall
 from prompto.statement.SimpleStatement import SimpleStatement
 from prompto.type.CategoryType import CategoryType
-from prompto.error.SyntaxError import SyntaxError
 from prompto.utils.CodeWriter import CodeWriter
+
 
 class UnresolvedCall(SimpleStatement):
 

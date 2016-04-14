@@ -1,5 +1,5 @@
+from prompto.constraint.IAttributeConstraint import IAttributeConstraint
 from prompto.error.InvalidDataError import InvalidDataError
-from prompto.grammar.IAttributeConstraint import IAttributeConstraint
 from prompto.value.IContainer import IContainer
 
 

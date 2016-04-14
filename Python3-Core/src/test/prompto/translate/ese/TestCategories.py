@@ -5,6 +5,9 @@ class TestCategories(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testComposed(self):
+        self.compareResourceESE("categories/composed.pec")
+
     def testCopyFromAscendant(self):
         self.compareResourceESE("categories/copyFromAscendant.pec")
 

@@ -1,9 +1,16 @@
 from prompto.expression.IExpression import IExpression
 from prompto.literal.Literal import Literal
+from prompto.type.CharacterType import CharacterType
+from prompto.type.DecimalType import DecimalType
+from prompto.type.IntegerType import IntegerType
 from prompto.type.ListType import ListType
 from prompto.type.MissingType import MissingType
+from prompto.type.TextType import TextType
+from prompto.value.Decimal import Decimal
 from prompto.value.ListValue import ListValue
 from prompto.error.SyntaxError import SyntaxError
+from prompto.value.Text import Text
+
 
 class ListLiteral(Literal):
 
@@ -41,10 +48,21 @@ class ListLiteral(Literal):
             value = ListValue(self.itemType)
             for o in self.expressions:
                 o = o.interpret(context)
+                o = self.interpretPromotion(o)
                 value.items.append(o)
             self.value = value
         return self.value
 
+
+    def interpretPromotion(self, item):
+        if item is None:
+            return item
+        if DecimalType.instance == self.itemType and item.type == IntegerType.instance:
+            return Decimal(item.DecimalValue())
+        elif TextType.instance == self.itemType and item.type == CharacterType.instance:
+            return Text(item.value)
+        else:
+            return item
 
     def toDialect(self, writer):
         writer.append('[')

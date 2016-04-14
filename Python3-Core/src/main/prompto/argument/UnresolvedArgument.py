@@ -1,10 +1,11 @@
+from prompto.argument.AttributeArgument import AttributeArgument
+from prompto.argument.INamedArgument import INamedArgument
+from prompto.argument.MethodArgument import MethodArgument
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 from prompto.declaration.IDeclaration import IDeclaration
-from prompto.grammar.AttributeArgument import AttributeArgument
-from prompto.grammar.INamedArgument import INamedArgument
-from prompto.grammar.MethodArgument import MethodArgument
-from prompto.runtime.Context import MethodDeclarationMap
 from prompto.error.SyntaxError import SyntaxError
+from prompto.runtime.Context import MethodDeclarationMap
+
 
 class UnresolvedArgument ( INamedArgument ):
 
