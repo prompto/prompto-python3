@@ -78,7 +78,6 @@ class NativeInstance(BaseValue, IInstance):
             context.registerValue(Variable(attrName, decl.getType()))
             context.setValue(attrName, value)
             value = setter.interpret(context)
-        value = self.autocast(decl, value)
         setattr(self.instance, attrName, value.convertToPython())
         if self.storable is not None:
             decl = context.getRegisteredDeclaration(AttributeDeclaration, attrName)
