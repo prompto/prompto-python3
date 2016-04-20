@@ -5,6 +5,9 @@ class TestDocuments(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testBlob(self):
+        self.compareResourceESE("documents/blob.pec")
+
     def testDeepItem(self):
         self.compareResourceESE("documents/deepItem.pec")
 

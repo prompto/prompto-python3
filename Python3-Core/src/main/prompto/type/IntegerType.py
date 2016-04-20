@@ -12,6 +12,7 @@ from prompto.value.IntegerRange import *
 
 
 class IntegerType(NativeType):
+
     instance = None
 
     def __init__(self):

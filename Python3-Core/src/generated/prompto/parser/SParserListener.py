@@ -931,6 +931,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#BlobExpression.
+    def enterBlobExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#BlobExpression.
+    def exitBlobExpression(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#DocumentExpression.
     def enterDocumentExpression(self, ctx):
         pass
@@ -1009,6 +1018,15 @@ class SParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by SParser#ItemSelector.
     def exitItemSelector(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#blob_expression.
+    def enterBlob_expression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#blob_expression.
+    def exitBlob_expression(self, ctx):
         pass
 
 

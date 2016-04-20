@@ -751,6 +751,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#BlobExpression.
+    def enterBlobExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#BlobExpression.
+    def exitBlobExpression(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#NotContainsAnyExpression.
     def enterNotContainsAnyExpression(self, ctx):
         pass
@@ -1054,6 +1063,15 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#document_expression.
     def exitDocument_expression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#blob_expression.
+    def enterBlob_expression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#blob_expression.
+    def exitBlob_expression(self, ctx):
         pass
 
 

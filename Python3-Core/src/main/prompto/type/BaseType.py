@@ -94,3 +94,5 @@ class BaseType(IType):
     def sort(self, context, source, key=None):
         raise Exception("Unsupported!")
 
+    def readJSONValue(self, context, node, parts):
+        raise Exception("Unsupported!")

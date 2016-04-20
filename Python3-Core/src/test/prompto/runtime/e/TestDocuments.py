@@ -10,6 +10,9 @@ class TestDocuments(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testBlob(self):
+        self.checkOutput("documents/blob.pec")
+
     def testDeepItem(self):
         self.checkOutput("documents/deepItem.pec")
 
