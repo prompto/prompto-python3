@@ -3,6 +3,8 @@ import unittest
 from prompto.argument.ExtendedArgument import ExtendedArgument
 from prompto.declaration.NativeMethodDeclaration import *
 from prompto.expression.AddExpression import *
+from prompto.expression.InstanceExpression import InstanceExpression
+from prompto.expression.MemberSelector import MemberSelector
 from prompto.expression.NativeSymbol import *
 from prompto.grammar.IdentifierList import *
 from prompto.literal.BooleanLiteral import *
@@ -17,6 +19,7 @@ from prompto.literal.PeriodLiteral import *
 from prompto.literal.TextLiteral import *
 from prompto.literal.TimeLiteral import *
 from prompto.parser.OCleverParser import *
+from prompto.runtime.Context import Context
 from prompto.statement.NativeCall import NativeCall
 from prompto.statement.UnresolvedCall import UnresolvedCall
 from prompto.type.CategoryType import *

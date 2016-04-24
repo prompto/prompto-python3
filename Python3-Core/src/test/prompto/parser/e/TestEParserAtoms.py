@@ -1,6 +1,7 @@
 import unittest
 
 from prompto.argument.ExtendedArgument import ExtendedArgument
+from prompto.expression.MemberSelector import MemberSelector
 from prompto.declaration.NativeMethodDeclaration import *
 from prompto.expression.AddExpression import *
 from prompto.expression.NativeSymbol import *
@@ -22,6 +23,7 @@ from prompto.statement.UnresolvedCall import UnresolvedCall
 from prompto.type.CategoryType import *
 from prompto.type.ListType import *
 from prompto.utils.CodeWriter import CodeWriter
+from prompto.runtime.Context import Context
 
 
 class TestParserAtoms(unittest.TestCase):
