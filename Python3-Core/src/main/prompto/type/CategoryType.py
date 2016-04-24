@@ -193,6 +193,8 @@ class CategoryType(BaseType):
         return True
 
     def isMoreSpecificThan(self, context, other):
+        if isinstance(other, (NullType, AnyType, MissingType)):
+            return True
         if not isinstance(other, CategoryType):
             return False
         if other.isAnonymous():
