@@ -7,6 +7,7 @@ from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
 from prompto.grammar.Operator import Operator
 from prompto.runtime.Score import Score
 from prompto.type.BaseType import BaseType
+from prompto.type.NullType import NullType
 from prompto.type.AnyType import AnyType
 from prompto.type.MissingType import MissingType
 from prompto.value.ExpressionValue import ExpressionValue
@@ -139,6 +140,8 @@ class CategoryType(BaseType):
         return ad.getType(context)
 
     def isAssignableTo(self, context, other):
+        if isinstance(other, (NullType, AnyType, MissingType)):
+            return True
         if self.name == other.getName():
             return True
         if isinstance(other, (AnyType, MissingType)):

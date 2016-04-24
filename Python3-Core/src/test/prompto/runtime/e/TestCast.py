@@ -19,6 +19,9 @@ class TestCast(BaseEParserTest):
     def testCastMissing(self):
         self.checkOutput("cast/castMissing.pec")
 
+    def testCastNull(self):
+        self.checkOutput("cast/castNull.pec")
+
     def testIsAChild(self):
         self.checkOutput("cast/isAChild.pec")
 

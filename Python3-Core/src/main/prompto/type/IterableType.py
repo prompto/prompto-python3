@@ -13,3 +13,6 @@ class IterableType ( NativeType ) :
     def checkExists(self, context):
         self.itemType.checkExists(context)
 
+    def isMoreSpecificThan(self, context, other):
+        return isinstance(other, IterableType) and \
+            self.itemType.isMoreSpecificThan(context, other.itemType)

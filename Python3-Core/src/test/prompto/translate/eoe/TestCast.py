@@ -14,6 +14,9 @@ class TestCast(BaseEParserTest):
     def testCastMissing(self):
         self.compareResourceEOE("cast/castMissing.pec")
 
+    def testCastNull(self):
+        self.compareResourceEOE("cast/castNull.pec")
+
     def testIsAChild(self):
         self.compareResourceEOE("cast/isAChild.pec")
 

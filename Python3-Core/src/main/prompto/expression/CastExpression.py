@@ -17,8 +17,8 @@ class CastExpression (IExpression):
 
     def interpret(self, context):
         value = self.expression.interpret(context)
-        if value is not None and isinstance(self.type, ContainerType) and isinstance(value.type, ContainerType):
-            value.type.itemType = self.type.itemType
+        if value is not None and self.type.isMoreSpecificThan(context, value.type):
+            value.type = self.type
         return value
 
     def toSDialect(self, writer):
