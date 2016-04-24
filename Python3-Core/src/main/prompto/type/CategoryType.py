@@ -1,13 +1,16 @@
 from prompto.error.PrestoError import PrestoError
-from prompto.expression.MethodSelector import *
-from prompto.expression.UnresolvedIdentifier import *
-from prompto.grammar.ArgumentAssignment import *
-from prompto.grammar.ArgumentAssignmentList import *
+from prompto.expression.MethodSelector import MethodSelector
+from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
+from prompto.grammar.ArgumentAssignment import ArgumentAssignment
+from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
 from prompto.grammar.Operator import Operator
 from prompto.runtime.Score import Score
-from prompto.type.AnyType import *
-from prompto.value.ExpressionValue import *
-
+from prompto.type.BaseType import BaseType
+from prompto.type.AnyType import AnyType
+from prompto.type.MissingType import MissingType
+from prompto.value.ExpressionValue import ExpressionValue
+from prompto.declaration.IDeclaration import IDeclaration
+from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 
 class CategoryType(BaseType):
 
@@ -137,7 +140,7 @@ class CategoryType(BaseType):
     def isAssignableTo(self, context, other):
         if self.name == other.getName():
             return True
-        if isinstance(other, AnyType):
+        if isinstance(other, (AnyType, MissingType)):
             return True
         if not isinstance(other, CategoryType):
             return False

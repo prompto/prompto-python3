@@ -1,7 +1,11 @@
-from prompto.declaration.CategoryDeclaration import *
-from prompto.declaration.GetterMethodDeclaration import *
-from prompto.declaration.SetterMethodDeclaration import *
-from prompto.value.ConcreteInstance import *
+from io import StringIO
+
+from prompto.declaration.CategoryDeclaration import CategoryDeclaration
+from prompto.declaration.GetterMethodDeclaration import GetterMethodDeclaration
+from prompto.declaration.IDeclaration import IDeclaration
+from prompto.declaration.SetterMethodDeclaration import SetterMethodDeclaration
+from prompto.runtime.Context import MethodDeclarationMap
+from prompto.value.ConcreteInstance import ConcreteInstance
 
 
 class ConcreteCategoryDeclaration ( CategoryDeclaration ):

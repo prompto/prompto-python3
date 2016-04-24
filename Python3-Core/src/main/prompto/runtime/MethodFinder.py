@@ -1,5 +1,8 @@
-from prompto.type.CategoryType import *
-from prompto.value.IInstance import *
+from prompto.error.PrestoError import PrestoError
+from prompto.runtime.Score import Score
+from prompto.type.CategoryType import CategoryType
+from prompto.value.IInstance import IInstance
+from prompto.error.SyntaxError import SyntaxError
 import itertools
 
 class MethodFinder(object):
