@@ -35,7 +35,7 @@ class BlobExpression ( IExpression ):
         generator = JSONGenerator(output)
         value.toJson(context, generator, None, None, binaries)
         # add it
-        binaries["value"] = output.getvalue()
+        binaries["value.json"] = output.getvalue()
         return binaries
 
     @classmethod

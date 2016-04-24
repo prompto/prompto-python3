@@ -65,9 +65,9 @@ class DocumentExpression ( IExpression ):
             zip.close()
 
     def readValue(self, parts):
-        data = parts.get("value", None)
+        data = parts.get("value.json", None)
         if data is None:
-            raise Exception("Expecting a 'value' part!")
+            raise Exception("Expecting a 'value.json' part!")
         input = BytesIO(data)
         reader = codecs.getreader("utf-8")
         return json.load(reader(input))
