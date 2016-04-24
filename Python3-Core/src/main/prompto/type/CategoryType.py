@@ -1,4 +1,5 @@
 from prompto.error.PrestoError import PrestoError
+from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.MethodSelector import MethodSelector
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.ArgumentAssignment import ArgumentAssignment

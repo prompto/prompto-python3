@@ -6,7 +6,7 @@ from prompto.declaration.IDeclaration import IDeclaration
 from prompto.declaration.SetterMethodDeclaration import SetterMethodDeclaration
 from prompto.runtime.Context import MethodDeclarationMap
 from prompto.value.ConcreteInstance import ConcreteInstance
-
+from prompto.error.SyntaxError import SyntaxError
 
 class ConcreteCategoryDeclaration ( CategoryDeclaration ):
 
