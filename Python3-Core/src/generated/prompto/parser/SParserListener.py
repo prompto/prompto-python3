@@ -166,15 +166,6 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#attribute_list.
-    def enterAttribute_list(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#attribute_list.
-    def exitAttribute_list(self, ctx):
-        pass
-
-
     # Enter a parse tree produced by SParser#abstract_method_declaration.
     def enterAbstract_method_declaration(self, ctx):
         pass
@@ -1732,6 +1723,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#attribute_identifier.
+    def enterAttribute_identifier(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#attribute_identifier.
+    def exitAttribute_identifier(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#type_identifier.
     def enterType_identifier(self, ctx):
         pass
@@ -2011,21 +2011,21 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#VariableList.
-    def enterVariableList(self, ctx):
+    # Enter a parse tree produced by SParser#variable_identifier_list.
+    def enterVariable_identifier_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#VariableList.
-    def exitVariableList(self, ctx):
+    # Exit a parse tree produced by SParser#variable_identifier_list.
+    def exitVariable_identifier_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#VariableListItem.
-    def enterVariableListItem(self, ctx):
+    # Enter a parse tree produced by SParser#attribute_identifier_list.
+    def enterAttribute_identifier_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#VariableListItem.
-    def exitVariableListItem(self, ctx):
+    # Exit a parse tree produced by SParser#attribute_identifier_list.
+    def exitAttribute_identifier_list(self, ctx):
         pass
 
 

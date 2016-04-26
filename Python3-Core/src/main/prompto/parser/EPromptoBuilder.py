@@ -399,6 +399,11 @@ class EPromptoBuilder(EParserListener):
     
 
     
+    def exitAttribute_identifier(self, ctx:EParser.Attribute_identifierContext):
+        self.setNodeValue(ctx, ctx.getText())
+
+
+
     def exitVariable_identifier(self, ctx:EParser.Variable_identifierContext):
         self.setNodeValue(ctx, ctx.getText())
     
@@ -640,17 +645,24 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, items)
     
 
-    
-    def exitVariableList(self, ctx:EParser.VariableListContext):
+    def exitVariableList(self, ctx):
         item = self.getNodeValue(ctx.item)
         self.setNodeValue(ctx, IdentifierList(item))
-    
 
-    
-    def exitVariableListItem(self, ctx:EParser.VariableListItemContext):
-        items = self.getNodeValue(ctx.items)
-        item = self.getNodeValue(ctx.item)
-        items.append(item)
+    def exitAttribute_identifier_list(self, ctx:EParser.Attribute_identifier_listContext):
+        items = IdentifierList()
+        for c in ctx.attribute_identifier():
+            item = self.getNodeValue(c)
+            items.append(item)
+        self.setNodeValue(ctx, items)
+
+
+
+    def exitVariable_identifier_list(self, ctx:EParser.Variable_identifier_listContext):
+        items = IdentifierList()
+        for c in ctx.variable_identifier():
+            item = self.getNodeValue(c)
+            items.append(item)
         self.setNodeValue(ctx, items)
     
 
@@ -885,7 +897,6 @@ class EPromptoBuilder(EParserListener):
     
 
 
-    
     def exitAddExpression(self, ctx:EParser.AddExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)

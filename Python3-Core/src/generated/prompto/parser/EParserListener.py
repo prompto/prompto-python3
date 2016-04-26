@@ -1795,6 +1795,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#attribute_identifier.
+    def enterAttribute_identifier(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#attribute_identifier.
+    def exitAttribute_identifier(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#type_identifier.
     def enterType_identifier(self, ctx):
         pass
@@ -2074,21 +2083,21 @@ class EParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EParser#VariableList.
-    def enterVariableList(self, ctx):
+    # Enter a parse tree produced by EParser#variable_identifier_list.
+    def enterVariable_identifier_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#VariableList.
-    def exitVariableList(self, ctx):
+    # Exit a parse tree produced by EParser#variable_identifier_list.
+    def exitVariable_identifier_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by EParser#VariableListItem.
-    def enterVariableListItem(self, ctx):
+    # Enter a parse tree produced by EParser#attribute_identifier_list.
+    def enterAttribute_identifier_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#VariableListItem.
-    def exitVariableListItem(self, ctx):
+    # Exit a parse tree produced by EParser#attribute_identifier_list.
+    def exitAttribute_identifier_list(self, ctx):
         pass
 
 

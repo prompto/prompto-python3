@@ -193,24 +193,6 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#AttributeList.
-    def enterAttributeList(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#AttributeList.
-    def exitAttributeList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#AttributeListItem.
-    def enterAttributeListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#AttributeListItem.
-    def exitAttributeListItem(self, ctx):
-        pass
-
-
     # Enter a parse tree produced by OParser#abstract_method_declaration.
     def enterAbstract_method_declaration(self, ctx):
         pass
@@ -1777,6 +1759,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#attribute_identifier.
+    def enterAttribute_identifier(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#attribute_identifier.
+    def exitAttribute_identifier(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#type_identifier.
     def enterType_identifier(self, ctx):
         pass
@@ -2056,21 +2047,21 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#VariableList.
-    def enterVariableList(self, ctx):
+    # Enter a parse tree produced by OParser#variable_identifier_list.
+    def enterVariable_identifier_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#VariableList.
-    def exitVariableList(self, ctx):
+    # Exit a parse tree produced by OParser#variable_identifier_list.
+    def exitVariable_identifier_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by OParser#VariableListItem.
-    def enterVariableListItem(self, ctx):
+    # Enter a parse tree produced by OParser#attribute_identifier_list.
+    def enterAttribute_identifier_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#VariableListItem.
-    def exitVariableListItem(self, ctx):
+    # Exit a parse tree produced by OParser#attribute_identifier_list.
+    def exitAttribute_identifier_list(self, ctx):
         pass
 
 

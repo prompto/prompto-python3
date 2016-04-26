@@ -386,10 +386,6 @@ class SPromptoBuilder(SParserListener):
         self.setNodeValue(ctx, decl)
 
 
-    def exitAttribute_list(self, ctx:SParser.Attribute_listContext):
-        items = self.getNodeValue(ctx.items)
-        self.setNodeValue(ctx, items)
-
 
     def exitBlobExpression(self, ctx:SParser.BlobExpressionContext):
         exp = self.getNodeValue(ctx.exp)
@@ -2178,6 +2174,7 @@ class SPromptoBuilder(SParserListener):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
 
+
     def exitSet_literal(self, ctx:SParser.Set_literalContext):
         items = self.getNodeValue(ctx.items)
         items = items if items is not None else []
@@ -2256,6 +2253,10 @@ class SPromptoBuilder(SParserListener):
         self.setNodeValue(ctx, items)
 
 
+    def exitAttribute_identifier(self, ctx:SParser.Attribute_identifierContext):
+        self.setNodeValue(ctx, ctx.getText())
+
+
     def exitVariable_identifier(self, ctx:SParser.Variable_identifierContext):
         self.setNodeValue(ctx, ctx.getText())
 
@@ -2265,16 +2266,22 @@ class SPromptoBuilder(SParserListener):
         self.setNodeValue(ctx, name)
 
 
-    def exitVariableList(self, ctx:SParser.VariableListContext):
-        item = self.getNodeValue(ctx.item)
-        self.setNodeValue(ctx, IdentifierList(item))
 
-
-    def exitVariableListItem(self, ctx:SParser.VariableListItemContext):
-        item = self.getNodeValue(ctx.item)
-        items = self.getNodeValue(ctx.items)
-        items.append(item)
+    def exitAttribute_identifier_list(self, ctx:SParser.Attribute_identifier_listContext):
+        items = IdentifierList()
+        for c in ctx.attribute_identifier():
+            item = self.getNodeValue(c)
+            items.append(item)
         self.setNodeValue(ctx, items)
+
+
+    def exitVariable_identifier_list(self, ctx:SParser.Variable_identifier_listContext):
+        items = IdentifierList()
+        for c in ctx.variable_identifier():
+            item = self.getNodeValue(c)
+            items.append(item)
+        self.setNodeValue(ctx, items)
+
 
 
     def exitWhile_statement(self, ctx:SParser.While_statementContext):
