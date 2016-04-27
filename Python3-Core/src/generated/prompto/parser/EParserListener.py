@@ -1489,6 +1489,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#IteratorType.
+    def enterIteratorType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#IteratorType.
+    def exitIteratorType(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#SetType.
     def enterSetType(self, ctx):
         pass
@@ -1513,6 +1522,15 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#DictType.
     def exitDictType(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#CursorType.
+    def enterCursorType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#CursorType.
+    def exitCursorType(self, ctx):
         pass
 
 

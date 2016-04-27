@@ -1453,6 +1453,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#IteratorType.
+    def enterIteratorType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#IteratorType.
+    def exitIteratorType(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#SetType.
     def enterSetType(self, ctx):
         pass
@@ -1477,6 +1486,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#DictType.
     def exitDictType(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#CursorType.
+    def enterCursorType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#CursorType.
+    def exitCursorType(self, ctx):
         pass
 
 

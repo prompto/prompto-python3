@@ -1417,6 +1417,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#IteratorType.
+    def enterIteratorType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#IteratorType.
+    def exitIteratorType(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#SetType.
     def enterSetType(self, ctx):
         pass
@@ -1441,6 +1450,15 @@ class SParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by SParser#DictType.
     def exitDictType(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#CursorType.
+    def enterCursorType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#CursorType.
+    def exitCursorType(self, ctx):
         pass
 
 

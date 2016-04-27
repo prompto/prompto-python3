@@ -189,6 +189,7 @@ from prompto.type.DecimalType import DecimalType
 from prompto.type.DictType import DictType
 from prompto.type.DocumentType import DocumentType
 from prompto.type.IntegerType import IntegerType
+from prompto.type.IteratorType import IteratorType
 from prompto.type.ListType import ListType
 from prompto.type.TextType import TextType
 from prompto.type.TimeType import TimeType
@@ -2385,16 +2386,24 @@ class EPromptoBuilder(EParserListener):
     def exitInvocationExpression(self, ctx:EParser.InvocationExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
-    
+
+
     def exitInvokeStatement(self, ctx:EParser.InvokeStatementContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
+
 
     def exitIteratorExpression(self, ctx:EParser.IteratorExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         name = self.getNodeValue(ctx.name)
         source = self.getNodeValue(ctx.source)
         self.setNodeValue(ctx, IteratorExpression(name, source, exp))
+
+
+    def exitIteratorType(self, ctx:EParser.IteratorTypeContext):
+        typ = self.getNodeValue(ctx.i)
+        self.setNodeValue(IteratorType(typ))
+
 
     def exitJavascriptBooleanLiteral(self, ctx:EParser.JavascriptBooleanLiteralContext):
         text = ctx.t.text
