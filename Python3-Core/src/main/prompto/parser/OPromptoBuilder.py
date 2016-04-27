@@ -2378,7 +2378,7 @@ class OPromptoBuilder(OParserListener):
 
     def exitIteratorType(self, ctx:OParser.IteratorTypeContext):
         typ = self.getNodeValue(ctx.i)
-        self.setNodeValue(IteratorType(typ))
+        self.setNodeValue(ctx, IteratorType(typ))
 
 
     def exitJavascriptBooleanLiteral(self, ctx:OParser.JavascriptBooleanLiteralContext):

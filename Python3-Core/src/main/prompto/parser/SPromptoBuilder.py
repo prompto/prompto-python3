@@ -1111,7 +1111,7 @@ class SPromptoBuilder(SParserListener):
 
     def exitIteratorType(self, ctx:SParser.IteratorTypeContext):
         typ = self.getNodeValue(ctx.i)
-        self.setNodeValue(IteratorType(typ))
+        self.setNodeValue(ctx, IteratorType(typ))
 
 
     def exitJava_identifier(self, ctx:SParser.Java_identifierContext):
