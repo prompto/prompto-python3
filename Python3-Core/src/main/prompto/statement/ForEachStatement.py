@@ -1,3 +1,5 @@
+from collections import Iterator
+
 from prompto.error.InternalError import InternalError
 from prompto.runtime.TransientVariable import TransientVariable
 from prompto.statement.BaseStatement import BaseStatement
@@ -76,6 +78,8 @@ class ForEachStatement(BaseStatement):
         if isinstance(src, IIterable):
             return src.getIterator(context)
         elif isinstance(src, list):
+            return src
+        elif isinstance(src, Iterator):
             return src
         else:
             raise InternalError("Should never get there!")

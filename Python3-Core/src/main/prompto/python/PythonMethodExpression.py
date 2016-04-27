@@ -1,10 +1,7 @@
 from __future__ import print_function
 from prompto.python.PythonSelectorExpression import PythonSelectorExpression
-from prompto.python.PythonExpressionList import PythonExpressionList
-from prompto.python.PythonExpression import PythonExpression
 from prompto.python.PythonArgument import PythonArgumentList
-from prompto.expression.IExpression import IExpression
-from prompto.value.IValue import IValue
+from prompto.error.SyntaxError import SyntaxError
 from prompto.error.NullReferenceError import NullReferenceError
 import sys
 
@@ -44,34 +41,46 @@ class PythonMethodExpression(PythonSelectorExpression):
         writer.append(")")
 
     def interpret(self, context, module):
+        m = self.findMethod(context, module)
+        if m is None:
+            raise SyntaxError("Unknown native method:" + str(self))
         args = self.arguments.computeArguments(context, module)
-        if self.parent is None:
-            return self.interpretGlobal(context, module, args)
+        if isinstance(args, tuple):
+            return m(*args)
+        elif isinstance(args, dict):
+            return m(**args)
         else:
-            return self.interpretMember(context, module, args)
+            return m()
 
-    def interpretGlobal(self, context, module, args):
-        m = rewritten.get(self.name, None)
+    def findMethod(self, context, module):
+        if self.parent is None:
+            return self.findGlobal(context, module)
+        else:
+            return self.findMember(context, module)
+
+    def findGlobal(self, context, module):
+        m = self.findInModule(context, module)
+        if m is None:
+            m = rewritten.get(self.name, None)
         if m is None:
             m = globals().get(self.name, None)
         if m is None:
             m = globals()["__builtins__"].get(self.name, None)
-        if isinstance(args, tuple):
-            return m(*args)
-        elif isinstance(args, dict):
-            return m(**args)
-        else:
-            return m()
+        return m
 
-    def interpretMember(self, context, module, args):
+    def findInModule(self, context, module):
+        if module is None:
+            return None
+        else:
+            try:
+                m = module.resolve()
+                return m.__dict__.get(self.name, None)
+            except:
+                return None
+
+    def findMember(self, context, module):
         p = self.parent.interpret(context, module)
         if p is None:
             raise NullReferenceError()
-        m = getattr(p, self.name)
-        if isinstance(args, tuple):
-            return m(*args)
-        elif isinstance(args, dict):
-            return m(**args)
-        else:
-            return m()
+        return getattr(p, self.name)
 

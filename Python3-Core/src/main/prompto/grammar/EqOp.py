@@ -19,6 +19,10 @@ class EqOp (object):
     def toString(self, dialect):
         return getattr(self, dialect.name)
 
+    def __str__(self):
+        return self.E
+
+
 EqOp.IS = EqOp("is", "is", "is")
 EqOp.IS_NOT = EqOp("is not", "is not", "is not")
 EqOp.IS_A = EqOp("is a", "is a", "is a")

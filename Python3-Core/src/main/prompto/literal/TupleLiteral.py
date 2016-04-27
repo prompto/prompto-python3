@@ -15,13 +15,14 @@ class TupleLiteral ( Literal ):
         return TupleType.instance
 
     def interpret(self, context):
-        if self.value.isEmpty() and len(self.expressions) >0:
+        if len(self.expressions) >0:
             value = TupleValue()
             for o in self.expressions:
                 o = o.interpret(context)
                 value.items.append(o)
-            self.value = value
-        return self.value
+            return value
+        else:
+            return self.value
 
     def toDialect(self, writer):
         writer.append('(')

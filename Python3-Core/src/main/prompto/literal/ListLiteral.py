@@ -43,15 +43,16 @@ class ListLiteral(Literal):
         return lastType
 
     def interpret(self, context):
-        if self.value.isEmpty() and len(self.expressions)>0:
+        if len(self.expressions)>0:
             self.check(context) # force computation of item type
             value = ListValue(self.itemType)
             for o in self.expressions:
                 o = o.interpret(context)
                 o = self.interpretPromotion(o)
                 value.items.append(o)
-            self.value = value
-        return self.value
+            return value
+        else:
+            return self.value
 
 
     def interpretPromotion(self, item):

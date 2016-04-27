@@ -1,10 +1,7 @@
 from prompto.value.BaseValue import BaseValue
 from prompto.value.ISliceable import ISliceable
 from prompto.value.Integer import Integer
-from prompto.value.IValue import IValue
-from prompto.expression.IExpression import IExpression
 from prompto.error.IndexOutOfRangeError import IndexOutOfRangeError
-from prompto.error.InternalError import InternalError
 
 
 class BaseValueList(BaseValue, ISliceable):
@@ -49,10 +46,13 @@ class BaseValueList(BaseValue, ISliceable):
         return self.newInstance(self.items[_fi-1:_li]) # 0 based, right limit excluded
 
     def merge(self, other):
-        result = []
-        result.extend(self.items)
-        result.extend(other.items)
-        return self.newInstance(result)
+        if(len(other.items)==0):
+            return self
+        else:
+            result = []
+            result.extend(self.items)
+            result.extend(other.items)
+            return self.newInstance(result)
 
     def hasItem(self, context, lval):
         for item in self.items:

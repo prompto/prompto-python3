@@ -43,13 +43,13 @@ class PythonIdentifierExpression(PythonExpression):
         o = self.interpret_presto(context)
         if o is not None:
             return o
+        o = self.interpret_global()
+        if o is not None:
+            return o
         o = self.interpret_instance(context)
         if o is not None:
             return o
         o = self.interpret_module(module)
-        if o is not None:
-            return o
-        o = self.interpret_global()
         if o is not None:
             return o
         return None

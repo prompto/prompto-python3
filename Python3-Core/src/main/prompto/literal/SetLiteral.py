@@ -41,15 +41,16 @@ class SetLiteral(Literal):
         return lastType
 
     def interpret(self, context):
-        if len(self.value)==0 and len(self.expressions)>0:
+        if len(self.expressions)>0:
             self.check(context) # force computation of itemType
-            xvalue = set()
+            value = set()
             for exp in self.expressions:
                 o = exp.interpret(context)
                 o = self.interpretPromotion(o)
-                xvalue.add(o)
-            self.value = SetValue(self.itemType, xvalue)
-        return self.value
+                value.add(o)
+            return SetValue(self.itemType, value)
+        else:
+            return self.value
 
     def interpretPromotion(self, item):
         if item is None:

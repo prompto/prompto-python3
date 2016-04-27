@@ -47,13 +47,13 @@ class DictLiteral(Literal):
         return lastType
 
     def interpret(self, context):
-        if self.value.size() != 0 or len(self.entries) == 0:
+        if len(self.entries) > 0:
+            self.check(context)
+            value = dict()
+            for e in self.entries:
+                key = e.getKey().interpret(context)
+                val = e.getValue().interpret(context)
+                value[key.value] = val
+            return Dictionary(self.itemType, value=value)
+        else:
             return self.value
-        self.check(context)
-        value = dict()
-        for e in self.entries:
-            key = e.getKey().interpret(context)
-            val = e.getValue().interpret(context)
-            value[key.value] = val
-        self.value = Dictionary(self.itemType, value=value)
-        return self.value

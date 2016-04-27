@@ -2,7 +2,7 @@ from prompto.expression.IExpression import IExpression
 from prompto.runtime.Variable import Variable
 from prompto.error.InternalError import InternalError
 from prompto.type.IteratorType import IteratorType
-from prompto.value.Iterator import Iterator
+from prompto.value.IterableValue import IterableValue
 
 class IteratorExpression(IExpression):
 
@@ -25,7 +25,7 @@ class IteratorExpression(IExpression):
         items = self.source.interpret(context)
         length = items.GetMember(context, "length", False)
         iterator = self.getIterator(context, items)
-        return Iterator(itemType, context, length, self.name, iterator, self.expression)
+        return IterableValue(itemType, context, length, self.name, iterator, self.expression)
 
     def getIterator(self, context, src):
         if getattr(src, "getIterator", None) is None:
