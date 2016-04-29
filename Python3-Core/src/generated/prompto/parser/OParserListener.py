@@ -1255,21 +1255,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#DeclarationListItem.
-    def enterDeclarationListItem(self, ctx):
+    # Enter a parse tree produced by OParser#declarations.
+    def enterDeclarations(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#DeclarationListItem.
-    def exitDeclarationListItem(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#DeclarationList.
-    def enterDeclarationList(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#DeclarationList.
-    def exitDeclarationList(self, ctx):
+    # Exit a parse tree produced by OParser#declarations.
+    def exitDeclarations(self, ctx):
         pass
 
 
@@ -1291,75 +1282,39 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#EnumCategoryDeclaration.
-    def enterEnumCategoryDeclaration(self, ctx):
+    # Enter a parse tree produced by OParser#enum_declaration.
+    def enterEnum_declaration(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#EnumCategoryDeclaration.
-    def exitEnumCategoryDeclaration(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#EnumNativeDeclaration.
-    def enterEnumNativeDeclaration(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#EnumNativeDeclaration.
-    def exitEnumNativeDeclaration(self, ctx):
+    # Exit a parse tree produced by OParser#enum_declaration.
+    def exitEnum_declaration(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by OParser#NativeSymbolList.
-    def enterNativeSymbolList(self, ctx):
+    # Enter a parse tree produced by OParser#native_symbol_list.
+    def enterNative_symbol_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#NativeSymbolList.
-    def exitNativeSymbolList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#NativeSymbolListItem.
-    def enterNativeSymbolListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#NativeSymbolListItem.
-    def exitNativeSymbolListItem(self, ctx):
+    # Exit a parse tree produced by OParser#native_symbol_list.
+    def exitNative_symbol_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by OParser#CategorySymbolListItem.
-    def enterCategorySymbolListItem(self, ctx):
+    # Enter a parse tree produced by OParser#category_symbol_list.
+    def enterCategory_symbol_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#CategorySymbolListItem.
-    def exitCategorySymbolListItem(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#CategorySymbolList.
-    def enterCategorySymbolList(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#CategorySymbolList.
-    def exitCategorySymbolList(self, ctx):
+    # Exit a parse tree produced by OParser#category_symbol_list.
+    def exitCategory_symbol_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by OParser#SymbolList.
-    def enterSymbolList(self, ctx):
+    # Enter a parse tree produced by OParser#symbol_list.
+    def enterSymbol_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#SymbolList.
-    def exitSymbolList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#SymbolListItem.
-    def enterSymbolListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#SymbolListItem.
-    def exitSymbolListItem(self, ctx):
+    # Exit a parse tree produced by OParser#symbol_list.
+    def exitSymbol_list(self, ctx):
         pass
 
 
@@ -1426,21 +1381,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#ValueList.
-    def enterValueList(self, ctx):
+    # Enter a parse tree produced by OParser#expression_list.
+    def enterExpression_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#ValueList.
-    def exitValueList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#ValueListItem.
-    def enterValueListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#ValueListItem.
-    def exitValueListItem(self, ctx):
+    # Exit a parse tree produced by OParser#expression_list.
+    def exitExpression_list(self, ctx):
         pass
 
 
@@ -1705,39 +1651,21 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#TypeIdentifierList.
-    def enterTypeIdentifierList(self, ctx):
+    # Enter a parse tree produced by OParser#type_identifier_list.
+    def enterType_identifier_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#TypeIdentifierList.
-    def exitTypeIdentifierList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#TypeIdentifierListItem.
-    def enterTypeIdentifierListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#TypeIdentifierListItem.
-    def exitTypeIdentifierListItem(self, ctx):
+    # Exit a parse tree produced by OParser#type_identifier_list.
+    def exitType_identifier_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by OParser#MethodVariableIdentifier.
-    def enterMethodVariableIdentifier(self, ctx):
+    # Enter a parse tree produced by OParser#method_identifier.
+    def enterMethod_identifier(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#MethodVariableIdentifier.
-    def exitMethodVariableIdentifier(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#MethodTypeIdentifier.
-    def enterMethodTypeIdentifier(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#MethodTypeIdentifier.
-    def exitMethodTypeIdentifier(self, ctx):
+    # Exit a parse tree produced by OParser#method_identifier.
+    def exitMethod_identifier(self, ctx):
         pass
 
 
@@ -1804,21 +1732,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#ArgumentListItem.
-    def enterArgumentListItem(self, ctx):
+    # Enter a parse tree produced by OParser#argument_list.
+    def enterArgument_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#ArgumentListItem.
-    def exitArgumentListItem(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#ArgumentList.
-    def enterArgumentList(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#ArgumentList.
-    def exitArgumentList(self, ctx):
+    # Exit a parse tree produced by OParser#argument_list.
+    def exitArgument_list(self, ctx):
         pass
 
 
@@ -1840,21 +1759,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#NamedArgument.
-    def enterNamedArgument(self, ctx):
+    # Enter a parse tree produced by OParser#operator_argument.
+    def enterOperator_argument(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#NamedArgument.
-    def exitNamedArgument(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#TypedArgument.
-    def enterTypedArgument(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#TypedArgument.
-    def exitTypedArgument(self, ctx):
+    # Exit a parse tree produced by OParser#operator_argument.
+    def exitOperator_argument(self, ctx):
         pass
 
 
@@ -1876,21 +1786,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#CategoryArgumentType.
-    def enterCategoryArgumentType(self, ctx):
+    # Enter a parse tree produced by OParser#category_or_any_type.
+    def enterCategory_or_any_type(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#CategoryArgumentType.
-    def exitCategoryArgumentType(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#AnyArgumentType.
-    def enterAnyArgumentType(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#AnyArgumentType.
-    def exitAnyArgumentType(self, ctx):
+    # Exit a parse tree produced by OParser#category_or_any_type.
+    def exitCategory_or_any_type(self, ctx):
         pass
 
 
@@ -1921,21 +1822,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#CategoryMethodListItem.
-    def enterCategoryMethodListItem(self, ctx):
+    # Enter a parse tree produced by OParser#member_method_declaration_list.
+    def enterMember_method_declaration_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#CategoryMethodListItem.
-    def exitCategoryMethodListItem(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#CategoryMethodList.
-    def enterCategoryMethodList(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#CategoryMethodList.
-    def exitCategoryMethodList(self, ctx):
+    # Exit a parse tree produced by OParser#member_method_declaration_list.
+    def exitMember_method_declaration_list(self, ctx):
         pass
 
 
@@ -1948,21 +1840,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#NativeCategoryMethodList.
-    def enterNativeCategoryMethodList(self, ctx):
+    # Enter a parse tree produced by OParser#native_member_method_declaration_list.
+    def enterNative_member_method_declaration_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#NativeCategoryMethodList.
-    def exitNativeCategoryMethodList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#NativeCategoryMethodListItem.
-    def enterNativeCategoryMethodListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#NativeCategoryMethodListItem.
-    def exitNativeCategoryMethodListItem(self, ctx):
+    # Exit a parse tree produced by OParser#native_member_method_declaration_list.
+    def exitNative_member_method_declaration_list(self, ctx):
         pass
 
 
@@ -2038,15 +1921,6 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#module_token.
-    def enterModule_token(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#module_token.
-    def exitModule_token(self, ctx):
-        pass
-
-
     # Enter a parse tree produced by OParser#javascript_category_binding.
     def enterJavascript_category_binding(self, ctx):
         pass
@@ -2083,39 +1957,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#AbstractMethod.
-    def enterAbstractMethod(self, ctx):
+    # Enter a parse tree produced by OParser#method_declaration.
+    def enterMethod_declaration(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#AbstractMethod.
-    def exitAbstractMethod(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#ConcreteMethod.
-    def enterConcreteMethod(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#ConcreteMethod.
-    def exitConcreteMethod(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#NativeMethod.
-    def enterNativeMethod(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#NativeMethod.
-    def exitNativeMethod(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#TestMethod.
-    def enterTestMethod(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#TestMethod.
-    def exitTestMethod(self, ctx):
+    # Exit a parse tree produced by OParser#method_declaration.
+    def exitMethod_declaration(self, ctx):
         pass
 
 
@@ -2128,21 +1975,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#NativeStatementListItem.
-    def enterNativeStatementListItem(self, ctx):
+    # Enter a parse tree produced by OParser#native_statement_list.
+    def enterNative_statement_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#NativeStatementListItem.
-    def exitNativeStatementListItem(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#NativeStatementList.
-    def enterNativeStatementList(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#NativeStatementList.
-    def exitNativeStatementList(self, ctx):
+    # Exit a parse tree produced by OParser#native_statement_list.
+    def exitNative_statement_list(self, ctx):
         pass
 
 
@@ -2209,75 +2047,39 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#StatementList.
-    def enterStatementList(self, ctx):
+    # Enter a parse tree produced by OParser#statement_list.
+    def enterStatement_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#StatementList.
-    def exitStatementList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#StatementListItem.
-    def enterStatementListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#StatementListItem.
-    def exitStatementListItem(self, ctx):
+    # Exit a parse tree produced by OParser#statement_list.
+    def exitStatement_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by OParser#AssertionList.
-    def enterAssertionList(self, ctx):
+    # Enter a parse tree produced by OParser#assertion_list.
+    def enterAssertion_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#AssertionList.
-    def exitAssertionList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#AssertionListItem.
-    def enterAssertionListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#AssertionListItem.
-    def exitAssertionListItem(self, ctx):
+    # Exit a parse tree produced by OParser#assertion_list.
+    def exitAssertion_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by OParser#SwitchCaseStatementList.
-    def enterSwitchCaseStatementList(self, ctx):
+    # Enter a parse tree produced by OParser#switch_case_statement_list.
+    def enterSwitch_case_statement_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#SwitchCaseStatementList.
-    def exitSwitchCaseStatementList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#SwitchCaseStatementListItem.
-    def enterSwitchCaseStatementListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#SwitchCaseStatementListItem.
-    def exitSwitchCaseStatementListItem(self, ctx):
+    # Exit a parse tree produced by OParser#switch_case_statement_list.
+    def exitSwitch_case_statement_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by OParser#CatchStatementList.
-    def enterCatchStatementList(self, ctx):
+    # Enter a parse tree produced by OParser#catch_statement_list.
+    def enterCatch_statement_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#CatchStatementList.
-    def exitCatchStatementList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#CatchStatementListItem.
-    def enterCatchStatementListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#CatchStatementListItem.
-    def exitCatchStatementListItem(self, ctx):
+    # Exit a parse tree produced by OParser#catch_statement_list.
+    def exitCatch_statement_list(self, ctx):
         pass
 
 
@@ -2425,21 +2227,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#LiteralList.
-    def enterLiteralList(self, ctx):
+    # Enter a parse tree produced by OParser#literal_list_literal.
+    def enterLiteral_list_literal(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#LiteralList.
-    def exitLiteralList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#LiteralListItem.
-    def enterLiteralListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#LiteralListItem.
-    def exitLiteralListItem(self, ctx):
+    # Exit a parse tree produced by OParser#literal_list_literal.
+    def exitLiteral_list_literal(self, ctx):
         pass
 
 
@@ -2497,66 +2290,21 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#AtomicLiteral.
-    def enterAtomicLiteral(self, ctx):
+    # Enter a parse tree produced by OParser#literal_expression.
+    def enterLiteral_expression(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#AtomicLiteral.
-    def exitAtomicLiteral(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#CollectionLiteral.
-    def enterCollectionLiteral(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#CollectionLiteral.
-    def exitCollectionLiteral(self, ctx):
+    # Exit a parse tree produced by OParser#literal_expression.
+    def exitLiteral_expression(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by OParser#RangeLiteral.
-    def enterRangeLiteral(self, ctx):
+    # Enter a parse tree produced by OParser#collection_literal.
+    def enterCollection_literal(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#RangeLiteral.
-    def exitRangeLiteral(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#ListLiteral.
-    def enterListLiteral(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#ListLiteral.
-    def exitListLiteral(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#SetLiteral.
-    def enterSetLiteral(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#SetLiteral.
-    def exitSetLiteral(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#DictLiteral.
-    def enterDictLiteral(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#DictLiteral.
-    def exitDictLiteral(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#TupleLiteral.
-    def enterTupleLiteral(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#TupleLiteral.
-    def exitTupleLiteral(self, ctx):
+    # Exit a parse tree produced by OParser#collection_literal.
+    def exitCollection_literal(self, ctx):
         pass
 
 
@@ -2578,39 +2326,21 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#ValueTuple.
-    def enterValueTuple(self, ctx):
+    # Enter a parse tree produced by OParser#expression_tuple.
+    def enterExpression_tuple(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#ValueTuple.
-    def exitValueTuple(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#ValueTupleItem.
-    def enterValueTupleItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#ValueTupleItem.
-    def exitValueTupleItem(self, ctx):
+    # Exit a parse tree produced by OParser#expression_tuple.
+    def exitExpression_tuple(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by OParser#DictEntryList.
-    def enterDictEntryList(self, ctx):
+    # Enter a parse tree produced by OParser#dict_entry_list.
+    def enterDict_entry_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#DictEntryList.
-    def exitDictEntryList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by OParser#DictEntryListItem.
-    def enterDictEntryListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#DictEntryListItem.
-    def exitDictEntryListItem(self, ctx):
+    # Exit a parse tree produced by OParser#dict_entry_list.
+    def exitDict_entry_list(self, ctx):
         pass
 
 
@@ -2782,6 +2512,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#key_token.
     def exitKey_token(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#module_token.
+    def enterModule_token(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#module_token.
+    def exitModule_token(self, ctx):
         pass
 
 

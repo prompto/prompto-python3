@@ -1,6 +1,7 @@
 from prompto.error.NullReferenceError import NullReferenceError
 from prompto.parser.Dialect import Dialect
 from prompto.python.PythonNativeCall import Python3NativeCall
+from prompto.statement.NativeCall import NativeCall
 from prompto.statement.SimpleStatement import SimpleStatement
 from prompto.type.AnyType import AnyType
 from prompto.type.TypeMap import TypeMap
@@ -80,6 +81,6 @@ class StatementList(list):
         for statement in self:
             statement.toDialect(writer)
             if isinstance(statement, SimpleStatement):
-                if writer.dialect is Dialect.O:
+                if writer.dialect is Dialect.O and not isinstance(statement, NativeCall):
                     writer.append(';')
                 writer.newLine()

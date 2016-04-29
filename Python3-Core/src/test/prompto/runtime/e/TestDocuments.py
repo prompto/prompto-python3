@@ -22,6 +22,9 @@ class TestDocuments(BaseEParserTest):
     def testItem(self):
         self.checkOutput("documents/item.pec")
 
+    def testNamedItem(self):
+        self.checkOutput("documents/namedItem.pec")
+
     def testVariable(self):
         self.checkOutput("documents/variable.pec")
 

@@ -1,7 +1,5 @@
 from prompto.error.NullReferenceError import NullReferenceError
 from prompto.expression.SelectorExpression import SelectorExpression
-from prompto.value.IContainer import IContainer
-from prompto.value.IValue import IValue
 from prompto.value.NullValue import NullValue
 
 
@@ -30,12 +28,8 @@ class ItemSelector(SelectorExpression):
 
     def interpret(self, context):
         o = self.parent.interpret(context)
-        if o is None or o is NullValue.instance:
-            raise NullReferenceError()
         i = self.item.interpret(context)
-        if i is None or i is NullValue.instance:
+        if o is None or o is NullValue.instance or \
+                i is None or i is NullValue.instance:
             raise NullReferenceError()
-        if isinstance(o, IContainer) and isinstance(i, IValue):
-            return o.getItem(context, i)
-        else:
-            raise SyntaxError("Unknown collection: " + self.parent)
+        return o.getItem(context, i)

@@ -14,23 +14,35 @@ class MemberInstance ( IAssignableInstance ):
     def getName(self):
         return self.name
 
+
+
     def __str__(self):
         return str(self.parent) + "." + self.name
+
+
 
     def toDialect(self, writer, expression):
         self.parent.toDialect(writer, None)
         writer.append(".")
         writer.append(self.name)
 
-    def checkAssignValue(self, context, expression):
-        self.parent.checkAssignMember(context, self.name)
-        expression.check(context)
 
-    def checkAssignMember(self, context, memberName):
-        self.parent.checkAssignMember(context, self.name)
 
-    def checkAssignElement(self, context):
-        pass
+    def checkAssignValue(self, context, valueType):
+        return self.parent.checkAssignMember(context, self.name, valueType)
+
+
+
+    def checkAssignMember(self, context, name, valueType):
+        self.parent.checkAssignMember(context, self.name, None)
+        return valueType # TODO
+
+
+
+    def checkAssignItem(self, context, itemType, valueType):
+        return valueType # TODO
+
+
 
     def assign(self, context, expression):
         root = self.parent.interpret(context)

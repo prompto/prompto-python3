@@ -1219,21 +1219,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#DeclarationListItem.
-    def enterDeclarationListItem(self, ctx):
+    # Enter a parse tree produced by SParser#declarations.
+    def enterDeclarations(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#DeclarationListItem.
-    def exitDeclarationListItem(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#DeclarationList.
-    def enterDeclarationList(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#DeclarationList.
-    def exitDeclarationList(self, ctx):
+    # Exit a parse tree produced by SParser#declarations.
+    def exitDeclarations(self, ctx):
         pass
 
 
@@ -1255,75 +1246,39 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#EnumCategoryDeclaration.
-    def enterEnumCategoryDeclaration(self, ctx):
+    # Enter a parse tree produced by SParser#enum_declaration.
+    def enterEnum_declaration(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#EnumCategoryDeclaration.
-    def exitEnumCategoryDeclaration(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#EnumNativeDeclaration.
-    def enterEnumNativeDeclaration(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#EnumNativeDeclaration.
-    def exitEnumNativeDeclaration(self, ctx):
+    # Exit a parse tree produced by SParser#enum_declaration.
+    def exitEnum_declaration(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#NativeSymbolList.
-    def enterNativeSymbolList(self, ctx):
+    # Enter a parse tree produced by SParser#native_symbol_list.
+    def enterNative_symbol_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#NativeSymbolList.
-    def exitNativeSymbolList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#NativeSymbolListItem.
-    def enterNativeSymbolListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#NativeSymbolListItem.
-    def exitNativeSymbolListItem(self, ctx):
+    # Exit a parse tree produced by SParser#native_symbol_list.
+    def exitNative_symbol_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#CategorySymbolListItem.
-    def enterCategorySymbolListItem(self, ctx):
+    # Enter a parse tree produced by SParser#category_symbol_list.
+    def enterCategory_symbol_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#CategorySymbolListItem.
-    def exitCategorySymbolListItem(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#CategorySymbolList.
-    def enterCategorySymbolList(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#CategorySymbolList.
-    def exitCategorySymbolList(self, ctx):
+    # Exit a parse tree produced by SParser#category_symbol_list.
+    def exitCategory_symbol_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#SymbolList.
-    def enterSymbolList(self, ctx):
+    # Enter a parse tree produced by SParser#symbol_list.
+    def enterSymbol_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#SymbolList.
-    def exitSymbolList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#SymbolListItem.
-    def enterSymbolListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#SymbolListItem.
-    def exitSymbolListItem(self, ctx):
+    # Exit a parse tree produced by SParser#symbol_list.
+    def exitSymbol_list(self, ctx):
         pass
 
 
@@ -1390,21 +1345,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#ValueList.
-    def enterValueList(self, ctx):
+    # Enter a parse tree produced by SParser#expression_list.
+    def enterExpression_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#ValueList.
-    def exitValueList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#ValueListItem.
-    def enterValueListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#ValueListItem.
-    def exitValueListItem(self, ctx):
+    # Exit a parse tree produced by SParser#expression_list.
+    def exitExpression_list(self, ctx):
         pass
 
 
@@ -1669,39 +1615,21 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#TypeIdentifierList.
-    def enterTypeIdentifierList(self, ctx):
+    # Enter a parse tree produced by SParser#type_identifier_list.
+    def enterType_identifier_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#TypeIdentifierList.
-    def exitTypeIdentifierList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#TypeIdentifierListItem.
-    def enterTypeIdentifierListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#TypeIdentifierListItem.
-    def exitTypeIdentifierListItem(self, ctx):
+    # Exit a parse tree produced by SParser#type_identifier_list.
+    def exitType_identifier_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#MethodVariableIdentifier.
-    def enterMethodVariableIdentifier(self, ctx):
+    # Enter a parse tree produced by SParser#method_identifier.
+    def enterMethod_identifier(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#MethodVariableIdentifier.
-    def exitMethodVariableIdentifier(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#MethodTypeIdentifier.
-    def enterMethodTypeIdentifier(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#MethodTypeIdentifier.
-    def exitMethodTypeIdentifier(self, ctx):
+    # Exit a parse tree produced by SParser#method_identifier.
+    def exitMethod_identifier(self, ctx):
         pass
 
 
@@ -1768,21 +1696,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#ArgumentListItem.
-    def enterArgumentListItem(self, ctx):
+    # Enter a parse tree produced by SParser#argument_list.
+    def enterArgument_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#ArgumentListItem.
-    def exitArgumentListItem(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#ArgumentList.
-    def enterArgumentList(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#ArgumentList.
-    def exitArgumentList(self, ctx):
+    # Exit a parse tree produced by SParser#argument_list.
+    def exitArgument_list(self, ctx):
         pass
 
 
@@ -1804,21 +1723,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#NamedArgument.
-    def enterNamedArgument(self, ctx):
+    # Enter a parse tree produced by SParser#operator_argument.
+    def enterOperator_argument(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#NamedArgument.
-    def exitNamedArgument(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#TypedArgument.
-    def enterTypedArgument(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#TypedArgument.
-    def exitTypedArgument(self, ctx):
+    # Exit a parse tree produced by SParser#operator_argument.
+    def exitOperator_argument(self, ctx):
         pass
 
 
@@ -1840,21 +1750,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#CategoryArgumentType.
-    def enterCategoryArgumentType(self, ctx):
+    # Enter a parse tree produced by SParser#category_or_any_type.
+    def enterCategory_or_any_type(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#CategoryArgumentType.
-    def exitCategoryArgumentType(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#AnyArgumentType.
-    def enterAnyArgumentType(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#AnyArgumentType.
-    def exitAnyArgumentType(self, ctx):
+    # Exit a parse tree produced by SParser#category_or_any_type.
+    def exitCategory_or_any_type(self, ctx):
         pass
 
 
@@ -1885,21 +1786,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#CategoryMethodListItem.
-    def enterCategoryMethodListItem(self, ctx):
+    # Enter a parse tree produced by SParser#member_method_declaration_list.
+    def enterMember_method_declaration_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#CategoryMethodListItem.
-    def exitCategoryMethodListItem(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#CategoryMethodList.
-    def enterCategoryMethodList(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#CategoryMethodList.
-    def exitCategoryMethodList(self, ctx):
+    # Exit a parse tree produced by SParser#member_method_declaration_list.
+    def exitMember_method_declaration_list(self, ctx):
         pass
 
 
@@ -1912,21 +1804,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#NativeCategoryMethodList.
-    def enterNativeCategoryMethodList(self, ctx):
+    # Enter a parse tree produced by SParser#native_member_method_declaration_list.
+    def enterNative_member_method_declaration_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#NativeCategoryMethodList.
-    def exitNativeCategoryMethodList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#NativeCategoryMethodListItem.
-    def enterNativeCategoryMethodListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#NativeCategoryMethodListItem.
-    def exitNativeCategoryMethodListItem(self, ctx):
+    # Exit a parse tree produced by SParser#native_member_method_declaration_list.
+    def exitNative_member_method_declaration_list(self, ctx):
         pass
 
 
@@ -2002,15 +1885,6 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#module_token.
-    def enterModule_token(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#module_token.
-    def exitModule_token(self, ctx):
-        pass
-
-
     # Enter a parse tree produced by SParser#javascript_category_binding.
     def enterJavascript_category_binding(self, ctx):
         pass
@@ -2047,39 +1921,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#AbstractMethod.
-    def enterAbstractMethod(self, ctx):
+    # Enter a parse tree produced by SParser#method_declaration.
+    def enterMethod_declaration(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#AbstractMethod.
-    def exitAbstractMethod(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#ConcreteMethod.
-    def enterConcreteMethod(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#ConcreteMethod.
-    def exitConcreteMethod(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#NativeMethod.
-    def enterNativeMethod(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#NativeMethod.
-    def exitNativeMethod(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#TestMethod.
-    def enterTestMethod(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#TestMethod.
-    def exitTestMethod(self, ctx):
+    # Exit a parse tree produced by SParser#method_declaration.
+    def exitMethod_declaration(self, ctx):
         pass
 
 
@@ -2092,21 +1939,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#NativeStatementListItem.
-    def enterNativeStatementListItem(self, ctx):
+    # Enter a parse tree produced by SParser#native_statement_list.
+    def enterNative_statement_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#NativeStatementListItem.
-    def exitNativeStatementListItem(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#NativeStatementList.
-    def enterNativeStatementList(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#NativeStatementList.
-    def exitNativeStatementList(self, ctx):
+    # Exit a parse tree produced by SParser#native_statement_list.
+    def exitNative_statement_list(self, ctx):
         pass
 
 
@@ -2173,75 +2011,39 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#StatementList.
-    def enterStatementList(self, ctx):
+    # Enter a parse tree produced by SParser#statement_list.
+    def enterStatement_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#StatementList.
-    def exitStatementList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#StatementListItem.
-    def enterStatementListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#StatementListItem.
-    def exitStatementListItem(self, ctx):
+    # Exit a parse tree produced by SParser#statement_list.
+    def exitStatement_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#AssertionList.
-    def enterAssertionList(self, ctx):
+    # Enter a parse tree produced by SParser#assertion_list.
+    def enterAssertion_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#AssertionList.
-    def exitAssertionList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#AssertionListItem.
-    def enterAssertionListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#AssertionListItem.
-    def exitAssertionListItem(self, ctx):
+    # Exit a parse tree produced by SParser#assertion_list.
+    def exitAssertion_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#SwitchCaseStatementList.
-    def enterSwitchCaseStatementList(self, ctx):
+    # Enter a parse tree produced by SParser#switch_case_statement_list.
+    def enterSwitch_case_statement_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#SwitchCaseStatementList.
-    def exitSwitchCaseStatementList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#SwitchCaseStatementListItem.
-    def enterSwitchCaseStatementListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#SwitchCaseStatementListItem.
-    def exitSwitchCaseStatementListItem(self, ctx):
+    # Exit a parse tree produced by SParser#switch_case_statement_list.
+    def exitSwitch_case_statement_list(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#CatchStatementList.
-    def enterCatchStatementList(self, ctx):
+    # Enter a parse tree produced by SParser#catch_statement_list.
+    def enterCatch_statement_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#CatchStatementList.
-    def exitCatchStatementList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#CatchStatementListItem.
-    def enterCatchStatementListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#CatchStatementListItem.
-    def exitCatchStatementListItem(self, ctx):
+    # Exit a parse tree produced by SParser#catch_statement_list.
+    def exitCatch_statement_list(self, ctx):
         pass
 
 
@@ -2389,21 +2191,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#LiteralList.
-    def enterLiteralList(self, ctx):
+    # Enter a parse tree produced by SParser#literal_list_literal.
+    def enterLiteral_list_literal(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#LiteralList.
-    def exitLiteralList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#LiteralListItem.
-    def enterLiteralListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#LiteralListItem.
-    def exitLiteralListItem(self, ctx):
+    # Exit a parse tree produced by SParser#literal_list_literal.
+    def exitLiteral_list_literal(self, ctx):
         pass
 
 
@@ -2461,66 +2254,21 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#AtomicLiteral.
-    def enterAtomicLiteral(self, ctx):
+    # Enter a parse tree produced by SParser#literal_expression.
+    def enterLiteral_expression(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#AtomicLiteral.
-    def exitAtomicLiteral(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#CollectionLiteral.
-    def enterCollectionLiteral(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#CollectionLiteral.
-    def exitCollectionLiteral(self, ctx):
+    # Exit a parse tree produced by SParser#literal_expression.
+    def exitLiteral_expression(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#RangeLiteral.
-    def enterRangeLiteral(self, ctx):
+    # Enter a parse tree produced by SParser#collection_literal.
+    def enterCollection_literal(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#RangeLiteral.
-    def exitRangeLiteral(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#ListLiteral.
-    def enterListLiteral(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#ListLiteral.
-    def exitListLiteral(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#SetLiteral.
-    def enterSetLiteral(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#SetLiteral.
-    def exitSetLiteral(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#DictLiteral.
-    def enterDictLiteral(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#DictLiteral.
-    def exitDictLiteral(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#TupleLiteral.
-    def enterTupleLiteral(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#TupleLiteral.
-    def exitTupleLiteral(self, ctx):
+    # Exit a parse tree produced by SParser#collection_literal.
+    def exitCollection_literal(self, ctx):
         pass
 
 
@@ -2542,39 +2290,21 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#ValueTuple.
-    def enterValueTuple(self, ctx):
+    # Enter a parse tree produced by SParser#expression_tuple.
+    def enterExpression_tuple(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#ValueTuple.
-    def exitValueTuple(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#ValueTupleItem.
-    def enterValueTupleItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#ValueTupleItem.
-    def exitValueTupleItem(self, ctx):
+    # Exit a parse tree produced by SParser#expression_tuple.
+    def exitExpression_tuple(self, ctx):
         pass
 
 
-    # Enter a parse tree produced by SParser#DictEntryList.
-    def enterDictEntryList(self, ctx):
+    # Enter a parse tree produced by SParser#dict_entry_list.
+    def enterDict_entry_list(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#DictEntryList.
-    def exitDictEntryList(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#DictEntryListItem.
-    def enterDictEntryListItem(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#DictEntryListItem.
-    def exitDictEntryListItem(self, ctx):
+    # Exit a parse tree produced by SParser#dict_entry_list.
+    def exitDict_entry_list(self, ctx):
         pass
 
 
@@ -2746,6 +2476,15 @@ class SParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by SParser#key_token.
     def exitKey_token(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#module_token.
+    def enterModule_token(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#module_token.
+    def exitModule_token(self, ctx):
         pass
 
 

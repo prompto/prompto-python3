@@ -21,7 +21,8 @@ class AssignInstanceStatement ( SimpleStatement ):
         return self.expression
 
     def check(self, context):
-        self.instance.checkAssignValue(context, self.expression)
+        valueType = self.expression.check(context)
+        self.instance.checkAssignValue(context, valueType)
         return VoidType.instance
 
     def interpret(self, context):

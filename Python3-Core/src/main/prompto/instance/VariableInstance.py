@@ -5,6 +5,8 @@ from prompto.runtime.Variable import Variable
 
 
 class VariableInstance(IAssignableInstance):
+
+
     def __init__(self, name):
         super(VariableInstance, self).__init__()
         self.name = name
@@ -26,20 +28,35 @@ class VariableInstance(IAssignableInstance):
                 pass
         writer.append(self.name)
 
-    def checkAssignValue(self, context, expression):
-        typ = expression.check(context)
+    def checkAssignValue(self, context, valueType):
         actual = context.getRegisteredValue(INamedValue, self.name)
         if actual == None:
-            context.registerValue(Variable(self.name, typ))
+            context.registerValue(Variable(self.name, valueType))
+            return valueType
         else:
             # need to check type compatibility
             actualType = actual.getType(context)
-            typ.checkAssignableTo(context, actualType)
+            valueType.checkAssignableTo(context, actualType)
+            return actualType
 
-    def checkAssignMember(self, context, memberName):
+
+
+    def checkAssignMember(self, context, name, valueType):
         actual = context.getRegisteredValue(INamedValue, self.name)
         if actual == None:
             raise SyntaxError("Unknown variable:" + self.name)
+        return valueType
+
+
+
+    def checkAssignItem(self, context, itemType, valueType):
+        actual = context.getRegisteredValue(INamedValue, self.name)
+        if actual == None:
+            raise SyntaxError("Unknown variable:" + self.name)
+        parentType = actual.getType(context)
+        return parentType.checkItem(context, itemType)
+
+
 
     def assign(self, context, expression):
         value = expression.interpret(context)

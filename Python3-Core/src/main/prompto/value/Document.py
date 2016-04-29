@@ -1,5 +1,8 @@
 from prompto.type.DocumentType import DocumentType
 from prompto.value.BaseValue import BaseValue
+from prompto.value.Text import Text
+from prompto.error.SyntaxError import SyntaxError
+
 
 class Document ( BaseValue ):
 
@@ -19,8 +22,26 @@ class Document ( BaseValue ):
             self.values[name] = result
         return result
 
+
+
     def SetMember(self, context, name, value):
         self.values[name] = value
+
+
+    def getItem(self, context, index):
+        if isinstance(index, Text):
+            # TODO autocreate
+            return self.values.get(index.value, None)
+        else:
+            raise SyntaxError("No such item:" + index.toString())
+
+
+    def setItem(self, context, index, value):
+        if isinstance(index, Text):
+            self.values[index.value] = value
+        else:
+            raise SyntaxError("No such item:" + index.toString())
+
 
     def toJson(self, context, generator, instanceId, fieldName, binaries):
         generator.writeStartObject()

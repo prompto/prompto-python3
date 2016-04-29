@@ -14,11 +14,12 @@ from prompto.value.Text import Text
 
 class ListLiteral(Literal):
 
-    def __init__(self, expressions=[]):
+    def __init__(self, expressions=[], mutable=False):
         strs = [ str(e) for e in expressions]
         super().__init__("[" + ", ".join(strs) + "]", ListValue(MissingType.instance))
         self.itemType = None
         self.expressions = expressions
+        self.mutable = mutable
 
     def check(self, context):
         if self.itemType == None:
@@ -45,7 +46,7 @@ class ListLiteral(Literal):
     def interpret(self, context):
         if len(self.expressions)>0:
             self.check(context) # force computation of item type
-            value = ListValue(self.itemType)
+            value = ListValue(self.itemType, mutable = self.mutable)
             for o in self.expressions:
                 o = o.interpret(context)
                 o = self.interpretPromotion(o)
@@ -66,6 +67,8 @@ class ListLiteral(Literal):
             return item
 
     def toDialect(self, writer):
+        if self.mutable:
+            writer.append("mutable ")
         writer.append('[')
         if len(self.expressions)>0:
             for item in self.expressions:

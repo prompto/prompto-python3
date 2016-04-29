@@ -253,7 +253,7 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitTypeIdentifier(self, ctx:EParser.TypeIdentifierContext):
-        name = self.getNodeValue(ctx.name)
+        name = self.getNodeValue(ctx.type_identifier())
         self.setNodeValue(ctx, name)
 
 
@@ -288,31 +288,16 @@ class EPromptoBuilder(EParserListener):
     
 
     
-    def exitAtomicLiteral(self, ctx:EParser.AtomicLiteralContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-    
-
-    
-    def exitCollectionLiteral(self, ctx:EParser.CollectionLiteralContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-    
-
-
-    def exitListLiteral(self, ctx:EParser.ListLiteralContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-    
-
-    def exitBlobExpression(self, ctx:EParser.BlobExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-
-
     def exitBlob_expression(self, ctx:EParser.Blob_expressionContext):
         exp = self.getNodeValue(ctx.expression())
         self.setNodeValue(ctx, BlobExpression(exp))
+
+
+
+    def exitBlobExpression(self, ctx: EParser.BlobExpressionContext):
+        exp = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, exp)
+
 
 
     def exitBlobType(self, ctx:EParser.BlobTypeContext):
@@ -363,6 +348,7 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, DateTimeLiteral(ctx.t.text))
     
 
+
     def exitTernaryExpression(self, ctx:EParser.TernaryExpressionContext):
         condition = self.getNodeValue(ctx.test)
         ifTrue = self.getNodeValue(ctx.ifTrue)
@@ -379,10 +365,6 @@ class EPromptoBuilder(EParserListener):
         error = None if errorName is None else SymbolExpression(errorName)
         self.setNodeValue(ctx, TestMethodDeclaration(name, stmts, exps, error))
 
-
-    def exitTestMethod(self, ctx:EParser.TestMethodContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
 
 
     def exitTextLiteral(self, ctx:EParser.TextLiteralContext):
@@ -411,42 +393,33 @@ class EPromptoBuilder(EParserListener):
 
     
     def exitList_literal(self, ctx:EParser.List_literalContext):
-        items = self.getNodeValue(ctx.items)
+        mutable = ctx.MUTABLE() is not None
+        items = self.getNodeValue(ctx.expression_list())
         items = items if items is not None else []
-        value = ListLiteral(items)
+        value = ListLiteral(items, mutable = mutable)
         self.setNodeValue(ctx, value)
 
 
     
     def exitDict_literal(self, ctx:EParser.Dict_literalContext):
-        items = self.getNodeValue(ctx.items)
+        items = self.getNodeValue(ctx.dict_entry_list())
         value = DictLiteral(items)
         self.setNodeValue(ctx, value)
     
 
     
     def exitTuple_literal(self, ctx:EParser.Tuple_literalContext):
-        items = self.getNodeValue(ctx.items)
+        items = self.getNodeValue(ctx.expression_tuple())
         items = items if items is not None else []
         value = TupleLiteral(items)
         self.setNodeValue(ctx, value)
 
     
-    def exitTupleLiteral(self, ctx:EParser.TupleLiteralContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-    
-
     def exitSet_literal(self, ctx:EParser.Set_literalContext):
-        items = self.getNodeValue(ctx.items)
+        items = self.getNodeValue(ctx.expression_list())
         items = items if items is not None else []
         value = SetLiteral(items)
         self.setNodeValue(ctx, value)
-
-
-    def exitSetLiteral(self, ctx:EParser.SetLiteralContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
 
 
     def exitRange_literal(self, ctx:EParser.Range_literalContext):
@@ -455,41 +428,30 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, RangeLiteral(low, high))
     
 
-    
-    def exitRangeLiteral(self, ctx:EParser.RangeLiteralContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-    
 
-    
-    def exitDictLiteral(self, ctx:EParser.DictLiteralContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-    
-
-    
-    def exitDictEntryList(self, ctx:EParser.DictEntryListContext):
-        item = self.getNodeValue(ctx.item)
-        self.setNodeValue(ctx, DictEntryList(item))
-    
-
-    
-    def exitDictEntryListItem(self, ctx:EParser.DictEntryListItemContext):
-        items = self.getNodeValue(ctx.items)
-        item = self.getNodeValue(ctx.item)
-        items.append(item)
-        self.setNodeValue(ctx, items)
-    
-
-    
     def exitDict_entry(self, ctx:EParser.Dict_entryContext):
         key = self.getNodeValue(ctx.key)
         value = self.getNodeValue(ctx.value)
         entry = DictEntry(key, value)
         self.setNodeValue(ctx, entry)
-    
 
-    
+
+
+    def exitDict_entry_list(self, ctx:EParser.Dict_entry_listContext):
+        items = DictEntryList()
+        for rule in ctx.dict_entry():
+            item = self.getNodeValue(rule)
+            items.append(item)
+        self.setNodeValue(ctx, items)
+
+
+
+    def exitLiteral_expression(self, ctx:EParser.Literal_expressionContext):
+        value = self.getNodeValue(ctx.getChild(0))
+        self.setNodeValue(ctx, value)
+
+
+
     def exitLiteralExpression(self, ctx:EParser.LiteralExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
@@ -497,36 +459,8 @@ class EPromptoBuilder(EParserListener):
 
     
     def exitVariableIdentifier(self, ctx:EParser.VariableIdentifierContext):
-        name = self.getNodeValue(ctx.name)
+        name = self.getNodeValue(ctx.variable_identifier())
         self.setNodeValue(ctx, name)
-    
-
-    
-    def exitValueList(self, ctx:EParser.ValueListContext):
-        item = self.getNodeValue(ctx.item)
-        self.setNodeValue(ctx, [ item ])
-    
-
-    
-    def exitValueListItem(self, ctx:EParser.ValueListItemContext):
-        items = self.getNodeValue(ctx.items)
-        item = self.getNodeValue(ctx.item)
-        items.append(item)
-        self.setNodeValue(ctx, items)
-    
-
-    
-    def exitValueTuple(self, ctx:EParser.ValueTupleContext):
-        item = self.getNodeValue(ctx.item)
-        self.setNodeValue(ctx, [ item ])
-    
-
-    
-    def exitValueTupleItem(self, ctx:EParser.ValueTupleItemContext):
-        items = self.getNodeValue(ctx.items)
-        item = self.getNodeValue(ctx.item)
-        items.append(item)
-        self.setNodeValue(ctx, items)
     
 
     
@@ -543,7 +477,7 @@ class EPromptoBuilder(EParserListener):
 
     
     def exitSymbolIdentifier(self, ctx:EParser.SymbolIdentifierContext):
-        name = self.getNodeValue(ctx.name)
+        name = self.getNodeValue(ctx.symbol_identifier())
         self.setNodeValue(ctx, name)
     
 
@@ -562,9 +496,12 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, TextType.instance)
 
 
+
     def exitThisExpression(self, ctx:EParser.ThisExpressionContext):
         self.setNodeValue(ctx, ThisExpression())
-    
+
+
+
     def exitIntegerType(self, ctx:EParser.IntegerTypeContext):
         self.setNodeValue(ctx, IntegerType.instance)
     
@@ -597,6 +534,7 @@ class EPromptoBuilder(EParserListener):
     def exitPrimaryType(self, ctx:EParser.PrimaryTypeContext):
         typ = self.getNodeValue(ctx.p)
         self.setNodeValue(ctx, typ)
+
 
     def exitAttribute_declaration(self, ctx:EParser.Attribute_declarationContext):
         name = self.getNodeValue(ctx.name)
@@ -650,6 +588,8 @@ class EPromptoBuilder(EParserListener):
         item = self.getNodeValue(ctx.item)
         self.setNodeValue(ctx, IdentifierList(item))
 
+
+
     def exitAttribute_identifier_list(self, ctx:EParser.Attribute_identifier_listContext):
         items = IdentifierList()
         for c in ctx.attribute_identifier():
@@ -688,7 +628,6 @@ class EPromptoBuilder(EParserListener):
     
 
 
-    
     def exitType_identifier(self, ctx:EParser.Type_identifierContext):
         self.setNodeValue(ctx, ctx.getText())
     
@@ -707,17 +646,12 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, items)
     
 
-    
-    def exitTypeIdentifierList(self, ctx:EParser.TypeIdentifierListContext):
-        item = self.getNodeValue(ctx.item)
-        self.setNodeValue(ctx, IdentifierList(item))
-    
 
-    
-    def exitTypeIdentifierListItem(self, ctx:EParser.TypeIdentifierListItemContext):
-        items = self.getNodeValue(ctx.items)
-        item = self.getNodeValue(ctx.item)
-        items.append(item)
+    def exitType_identifier_list(self, ctx:EParser.Type_identifier_listContext):
+        items = IdentifierList()
+        for rule in ctx.type_identifier():
+            item = self.getNodeValue(rule)
+            items.append(item)
         self.setNodeValue(ctx, items)
     
 
@@ -745,15 +679,21 @@ class EPromptoBuilder(EParserListener):
     def exitMemberSelector(self, ctx:EParser.MemberSelectorContext):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, MemberSelector(name))
-    
+
+
+
     def exitIsATypeExpression(self, ctx:EParser.IsATypeExpressionContext):
-        typ = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.category_or_any_type())
         exp = TypeExpression(typ)
         self.setNodeValue(ctx, exp)
 
+
+
     def exitIsOtherExpression(self, ctx:EParser.IsOtherExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
+        exp = self.getNodeValue(ctx.expression())
         self.setNodeValue(ctx, exp)
+
+
 
     def exitIsExpression(self, ctx:EParser.IsExpressionContext):
         left = self.getNodeValue(ctx.left)
@@ -761,11 +701,14 @@ class EPromptoBuilder(EParserListener):
         op = EqOp.IS_A if isinstance(right, TypeExpression) else EqOp.IS
         self.setNodeValue(ctx, EqualsExpression(left, op, right))
 
+
+
     def exitIsNotExpression(self, ctx:EParser.IsNotExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         op = EqOp.IS_NOT_A if isinstance(right, TypeExpression) else EqOp.IS_NOT
         self.setNodeValue(ctx, EqualsExpression(left, op, right))
+
 
     
     def exitItemSelector(self, ctx:EParser.ItemSelectorContext):
@@ -788,16 +731,6 @@ class EPromptoBuilder(EParserListener):
         arg.defaultExpression = exp
         self.setNodeValue(ctx, arg)
 
-    
-    def exitTypedArgument(self, ctx:EParser.TypedArgumentContext):
-        arg = self.getNodeValue(ctx.arg)
-        self.setNodeValue(ctx, arg)
-
-    
-    def exitNamedArgument(self, ctx:EParser.NamedArgumentContext):
-        arg = self.getNodeValue(ctx.arg)
-        self.setNodeValue(ctx, arg)
-    
 
     
     def exitCodeArgument(self, ctx:EParser.CodeArgumentContext):
@@ -805,22 +738,12 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, arg)
     
 
-    def exitCategoryArgumentType(self, ctx:EParser.CategoryArgumentTypeContext):
-        typ = self.getNodeValue(ctx.typ)
-        self.setNodeValue(ctx, typ)
-    
 
-    
-    def exitArgumentList(self, ctx:EParser.ArgumentListContext):
-        item = self.getNodeValue(ctx.item)
-        self.setNodeValue(ctx, ArgumentList(item))
-    
-
-    
-    def exitArgumentListItem(self, ctx:EParser.ArgumentListItemContext):
-        items = self.getNodeValue(ctx.items)
-        item = self.getNodeValue(ctx.item)
-        items.append(item)
+    def exitArgument_list(self, ctx:EParser.Argument_listContext):
+        items = ArgumentList()
+        for rule in ctx.argument():
+            item = self.getNodeValue(rule)
+            items.append(item)
         self.setNodeValue(ctx, items)
     
 
@@ -833,19 +756,7 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, items)
     
 
-    
-    def exitMethodTypeIdentifier(self, ctx:EParser.MethodTypeIdentifierContext):
-        name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, name)
-    
 
-    
-    def exitMethodVariableIdentifier(self, ctx:EParser.MethodVariableIdentifierContext):
-        name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, name)
-    
-
-    
     def exitArgument_assignment(self, ctx:EParser.Argument_assignmentContext):
         name = self.getNodeValue(ctx.name)
         exp = self.getNodeValue(ctx.exp)
@@ -903,36 +814,32 @@ class EPromptoBuilder(EParserListener):
         right = self.getNodeValue(ctx.right)
         exp = AddExpression(left, right) if ctx.op.type == EParser.PLUS else SubtractExpression(left, right)
         self.setNodeValue(ctx, exp)
-    
+
+
+
     def exitNative_member_method_declaration(self, ctx:EParser.Native_member_method_declarationContext):
         decl = self.getNodeValue(ctx.getChild(0))
         self.setNodeValue(ctx, decl)
 
-    def exitNativeCategoryMethodList(self, ctx:EParser.NativeCategoryMethodListContext):
-        item = self.getNodeValue(ctx.item)
-        items = MethodDeclarationList(item)
-        self.setNodeValue(ctx, items)
 
 
-    def exitNativeCategoryMethodListItem(self, ctx:EParser.NativeCategoryMethodListItemContext):
-        item = self.getNodeValue(ctx.item)
-        items = self.getNodeValue(ctx.items)
-        items.append(item)
+    def exitNative_member_method_declaration_list(self, ctx:EParser.Native_member_method_declaration_listContext):
+        items = MethodDeclarationList()
+        for rule in ctx.native_member_method_declaration():
+            item = self.getNodeValue(rule)
+            items.append(item)
         self.setNodeValue(ctx, items)
 
     
-    def exitCategoryMethodList(self, ctx:EParser.CategoryMethodListContext):
-        item = self.getNodeValue(ctx.item)
-        items = MethodDeclarationList(item)
+
+    def exitMember_method_declaration_list(self, ctx:EParser.Member_method_declaration_listContext):
+        items = MethodDeclarationList()
+        for rule in ctx.member_method_declaration():
+            item = self.getNodeValue(rule)
+            items.append(item)
         self.setNodeValue(ctx, items)
     
 
-    def exitCategoryMethodListItem(self, ctx:EParser.CategoryMethodListItemContext):
-        item = self.getNodeValue(ctx.item)
-        items = self.getNodeValue(ctx.items)
-        items.append(item)
-        self.setNodeValue(ctx, items)
-    
 
     def exitSetter_method_declaration(self, ctx:EParser.Setter_method_declarationContext):
         name = self.getNodeValue(ctx.name)
@@ -968,16 +875,11 @@ class EPromptoBuilder(EParserListener):
 
 
 
-    def exitStatementList(self, ctx:EParser.StatementListContext):
-        item = self.getNodeValue(ctx.item)
-        self.setNodeValue(ctx, StatementList(item))
-    
-
-    
-    def exitStatementListItem(self, ctx:EParser.StatementListItemContext):
-        item = self.getNodeValue(ctx.item)
-        items = self.getNodeValue(ctx.items)
-        items.append(item)
+    def exitStatement_list(self, ctx:EParser.Statement_listContext):
+        items = StatementList()
+        for rule in ctx.statement():
+            item = self.getNodeValue(rule)
+            items.append(item)
         self.setNodeValue(ctx, items)
     
 
@@ -998,13 +900,25 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, ConcreteMethodDeclaration(name, args, typ, stmts))
     
 
-    
+
+    def exitMethod_declaration(self, ctx:EParser.Method_declarationContext):
+        value = self.getNodeValue(ctx.getChild(0))
+        self.setNodeValue(ctx, value)
+
+
+
     def exitMethodCallStatement(self, ctx:EParser.MethodCallStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, stmt)
     
 
-    
+
+    def exitMethod_identifier(self, ctx:EParser.Method_identifierContext):
+        stmt = self.getNodeValue(ctx.getChild(0))
+        self.setNodeValue(ctx, stmt)
+
+
+
     def exitConstructorFrom(self, ctx:EParser.ConstructorFromContext):
         typ = self.getNodeValue(ctx.typ)
         args = self.getNodeValue(ctx.args)
@@ -1035,16 +949,11 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, exp)
 
 
-    def exitAssertionList(self, ctx:EParser.AssertionListContext):
-        item = self.getNodeValue(ctx.item)
-        items = [ item ]
-        self.setNodeValue(ctx, items)
-
-
-    def exitAssertionListItem(self, ctx:EParser.AssertionListItemContext):
-        item = self.getNodeValue(ctx.item)
-        items = self.getNodeValue(ctx.items)
-        items.append(item)
+    def exitAssertion_list(self, ctx:EParser.Assertion_listContext):
+        items = []
+        for rule in ctx.assertion():
+            item = self.getNodeValue(rule)
+            items.append(item)
         self.setNodeValue(ctx, items)
 
     
@@ -1062,9 +971,11 @@ class EPromptoBuilder(EParserListener):
 
     
     def exitAssign_variable_statement(self, ctx:EParser.Assign_variable_statementContext):
-        name = self.getNodeValue(ctx.name)
-        exp = self.getNodeValue(ctx.exp)
+        name = self.getNodeValue(ctx.variable_identifier())
+        exp = self.getNodeValue(ctx.expression())
         self.setNodeValue(ctx, AssignVariableStatement(name, exp))
+
+
 
     def exitAssign_tuple_statement(self, ctx:EParser.Assign_tuple_statementContext):
         items = self.getNodeValue(ctx.items)
@@ -1073,46 +984,60 @@ class EPromptoBuilder(EParserListener):
         stmt.setExpression(exp)
         self.setNodeValue(ctx, stmt)
 
+
+
     def exitRootInstance(self, ctx:EParser.RootInstanceContext):
-        name = self.getNodeValue(ctx.name)
+        name = self.getNodeValue(ctx.variable_identifier())
         self.setNodeValue(ctx, VariableInstance(name))
+
+
 
     def exitRoughlyEqualsExpression(self, ctx):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, EqualsExpression(left, EqOp.ROUGHLY, right))
 
+
+
     def exitChildInstance(self, ctx:EParser.ChildInstanceContext):
-        parent = self.getNodeValue(ctx.parent)
-        child = self.getNodeValue(ctx.child)
+        parent = self.getNodeValue(ctx.assignable_instance())
+        child = self.getNodeValue(ctx.child_instance())
         child.setParent(parent)
         self.setNodeValue(ctx, child)
+
+
 
     def exitMemberInstance(self, ctx:EParser.MemberInstanceContext):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, MemberInstance(None, name))
 
+
+
     def exitItemInstance(self, ctx:EParser.ItemInstanceContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, ItemInstance(None, exp))
+
+
 
     def exitConstructorExpression(self, ctx:EParser.ConstructorExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
 
-    def exitNativeStatementList(self, ctx:EParser.NativeStatementListContext):
-        item = self.getNodeValue(ctx.item)
-        items = StatementList(item)
+
+
+    def exitNative_statement_list(self, ctx:EParser.Native_statement_listContext):
+        items = StatementList()
+        for rule in ctx.native_statement():
+            item = self.getNodeValue(rule)
+            items.append(item)
         self.setNodeValue(ctx, items)
 
-    def exitNativeStatementListItem(self, ctx:EParser.NativeStatementListItemContext):
-        item = self.getNodeValue(ctx.item)
-        items = self.getNodeValue(ctx.items)
-        items.append(item)
-        self.setNodeValue(ctx, items)
+
 
     def exitJava_identifier(self, ctx:EParser.Java_identifierContext):
         self.setNodeValue(ctx, ctx.getText())
+
+
 
     def exitCSharpChildIdentifier(self, ctx:EParser.CSharpChildIdentifierContext):
         parent = self.getNodeValue(ctx.parent)
@@ -1285,7 +1210,8 @@ class EPromptoBuilder(EParserListener):
     def exitJavaReturnStatement(self, ctx:EParser.JavaReturnStatementContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, JavaStatement(exp, True))
-    
+
+
     def exitCSharpPromptoIdentifier(self, ctx:EParser.CSharpPromptoIdentifierContext):
         name = ctx.DOLLAR_IDENTIFIER().getText()
         self.setNodeValue(ctx, CSharpIdentifierExpression(None, name))
@@ -1303,39 +1229,55 @@ class EPromptoBuilder(EParserListener):
     def exitPythonStatement(self, ctx:EParser.PythonStatementContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, PythonStatement(exp, False))
-    
+
+
+
     def exitPython_native_statement(self, ctx:EParser.Python_native_statementContext):
-        stmt = self.getNodeValue(ctx.stmt)
-        module = self.getNodeValue(ctx.module)
+        stmt = self.getNodeValue(ctx.python_statement())
+        module = self.getNodeValue(ctx.python_module())
         self.setNodeValue(ctx, PythonNativeCall(stmt, module))
+
+
 
     def exitPython_module(self, ctx:EParser.Python_moduleContext):
         ids = [c.getText() for c in ctx.identifier()]
         module = PythonModule(ids)
         self.setNodeValue(ctx, module)
 
+
+
     def exitCSharpReturnStatement(self, ctx:EParser.CSharpReturnStatementContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, CSharpStatement(exp, True))
-    
+
+
+
     def exitPythonReturnStatement(self, ctx:EParser.PythonReturnStatementContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, PythonStatement(exp, True))
-    
+
+
+
     def exitJavaNativeStatement(self, ctx:EParser.JavaNativeStatementContext):
-        stmt = self.getNodeValue(ctx.stmt)
+        stmt = self.getNodeValue(ctx.java_statement())
         self.setNodeValue(ctx, JavaNativeCall(stmt))
-    
+
+
+
     def exitCSharpNativeStatement(self, ctx:EParser.CSharpNativeStatementContext):
-        stmt = self.getNodeValue(ctx.stmt)
+        stmt = self.getNodeValue(ctx.csharp_statement())
         self.setNodeValue(ctx, CSharpNativeCall(stmt))
-    
+
+
+
     def exitPython2NativeStatement(self, ctx:EParser.Python2NativeStatementContext):
-        call = self.getNodeValue(ctx.stmt)
+        call = self.getNodeValue(ctx.python_native_statement())
         self.setNodeValue(ctx, Python2NativeCall(call.statement, call.module))
-    
+
+
+
     def exitPython3NativeStatement(self, ctx:EParser.Python3NativeStatementContext):
-        call = self.getNodeValue(ctx.stmt)
+        call = self.getNodeValue(ctx.python_native_statement())
         self.setNodeValue(ctx, Python3NativeCall(call.statement, call.module))
     
 
@@ -1376,7 +1318,7 @@ class EPromptoBuilder(EParserListener):
 
     
     def exitFullDeclarationList(self, ctx:EParser.FullDeclarationListContext):
-        items = self.getNodeValue(ctx.items)
+        items = self.getNodeValue(ctx.declarations())
         if items is None:
             items = DeclarationList()
         self.setNodeValue(ctx, items)
@@ -1401,36 +1343,14 @@ class EPromptoBuilder(EParserListener):
             self.setNodeValue(ctx, decl)
 
 
-    def exitDeclarationList(self, ctx:EParser.DeclarationListContext):
-        item = self.getNodeValue(ctx.item)
-        items = DeclarationList(item)
-        self.setNodeValue(ctx, items)
-    
 
-    
-    def exitDeclarationListItem(self, ctx:EParser.DeclarationListItemContext):
-        item = self.getNodeValue(ctx.item)
-        items = self.getNodeValue(ctx.items)
-        items.append(item)
+    def exitDeclarations(self, ctx:EParser.DeclarationsContext):
+        items = DeclarationList()
+        for rule in ctx.declaration():
+            item = self.getNodeValue(rule)
+            items.append(item)
         self.setNodeValue(ctx, items)
 
-    
-    def exitNativeMethod(self, ctx:EParser.NativeMethodContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-    
-
-    
-    def exitConcreteMethod(self, ctx:EParser.ConcreteMethodContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-    
-
-    
-    def exitAbstractMethod(self, ctx:EParser.AbstractMethodContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-    
 
     
     def exitJavaBooleanLiteral(self, ctx:EParser.JavaBooleanLiteralContext):
@@ -1489,6 +1409,7 @@ class EPromptoBuilder(EParserListener):
     def exitPythonCharacterLiteral(self, ctx):
         self.setNodeValue(ctx, PythonCharacterLiteral(ctx.getText()))
 
+
     def exitPythonIntegerLiteral(self, ctx:EParser.PythonIntegerLiteralContext):
         self.setNodeValue(ctx, PythonIntegerLiteral(ctx.getText()))
     
@@ -1525,8 +1446,8 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitPython_category_binding(self, ctx:EParser.Python_category_bindingContext):
-        id_ = ctx.id_.getText()
-        module = self.getNodeValue(ctx.module)
+        id_ = ctx.identifier().getText()
+        module = self.getNodeValue(ctx.python_module())
         self.setNodeValue(ctx, PythonNativeCategoryBinding(id_, module))
 
     
@@ -1589,25 +1510,13 @@ class EPromptoBuilder(EParserListener):
 
     
     def exitResource_declaration(self, ctx:EParser.Resource_declarationContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-    
-
-    
-    def exitEnumCategoryDeclaration(self, ctx:EParser.EnumCategoryDeclarationContext):
-        decl = self.getNodeValue(ctx.decl)
-        self.setNodeValue(ctx, decl)
-    
-
-    
-    def exitEnumNativeDeclaration(self, ctx:EParser.EnumNativeDeclarationContext):
-        decl = self.getNodeValue(ctx.decl)
+        decl = self.getNodeValue(ctx.native_resource_declaration())
         self.setNodeValue(ctx, decl)
     
 
     
     def exitParenthesis_expression(self, ctx:EParser.Parenthesis_expressionContext):
-        exp = self.getNodeValue(ctx.exp)
+        exp = self.getNodeValue(ctx.expression())
         self.setNodeValue(ctx, ParenthesisExpression(exp))
     
 
@@ -1618,16 +1527,11 @@ class EPromptoBuilder(EParserListener):
     
 
     
-    def exitNativeSymbolList(self, ctx:EParser.NativeSymbolListContext):
-        item = self.getNodeValue(ctx.item)
-        self.setNodeValue(ctx, NativeSymbolList(item))
-    
-
-    
-    def exitNativeSymbolListItem(self, ctx:EParser.NativeSymbolListItemContext):
-        item = self.getNodeValue(ctx.item)
-        items = self.getNodeValue(ctx.items)
-        items.append(item)
+    def exitNative_symbol_list(self, ctx:EParser.Native_symbol_listContext):
+        items = NativeSymbolList()
+        for rule in ctx.native_symbol():
+            item = self.getNodeValue(rule)
+            items.append(item)
         self.setNodeValue(ctx, items)
     
 
@@ -1671,11 +1575,12 @@ class EPromptoBuilder(EParserListener):
 
     
     def exitNamed_argument(self, ctx:EParser.Named_argumentContext):
-        name = self.getNodeValue(ctx.name)
+        name = self.getNodeValue(ctx.variable_identifier())
         arg = UnresolvedArgument(name)
-        exp = self.getNodeValue(ctx.value)
+        exp = self.getNodeValue(ctx.literal_expression())
         arg.defaultValue = exp
         self.setNodeValue(ctx, arg)
+
 
     
     def exitClosureStatement(self, ctx:EParser.ClosureStatementContext):
@@ -1837,6 +1742,13 @@ class EPromptoBuilder(EParserListener):
     
 
     
+
+    def exitCollection_literal(self, ctx:EParser.Collection_literalContext):
+        stmt = self.getNodeValue(ctx.getChild(0))
+        self.setNodeValue(ctx, stmt)
+
+
+
     def exitCollectionSwitchCase(self, ctx:EParser.CollectionSwitchCaseContext):
         exp = self.getNodeValue(ctx.exp)
         stmts = self.getNodeValue(ctx.stmts)
@@ -1851,16 +1763,16 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, CommentStatement(ctx.getText()))
 
 
-    def exitSwitchCaseStatementList(self, ctx:EParser.SwitchCaseStatementListContext):
-        item = self.getNodeValue(ctx.item)
-        self.setNodeValue(ctx, SwitchCaseList(item))
-    
 
-    
-    def exitSwitchCaseStatementListItem(self, ctx:EParser.SwitchCaseStatementListItemContext):
-        item = self.getNodeValue(ctx.item)
-        items = self.getNodeValue(ctx.items)
-        items.append(item)
+    def exitCursorType(self, ctx:EParser.CursorTypeContext):
+        raise "not implemented"
+
+
+    def exitSwitch_case_statement_list(self, ctx:EParser.Switch_case_statement_listContext):
+        items = SwitchCaseList()
+        for rule in ctx.switch_case_statement():
+            item = self.getNodeValue(rule)
+            items.append(item)
         self.setNodeValue(ctx, items)
     
 
@@ -1883,24 +1795,21 @@ class EPromptoBuilder(EParserListener):
     
 
     def exitLiteralSetLiteral(self, ctx:EParser.LiteralSetLiteralContext):
-        exp = self.getNodeValue(ctx.exp)
+        exp = self.getNodeValue(ctx.literal_list_literal())
         self.setNodeValue(ctx, SetLiteral(exp))
 
+
     def exitLiteralListLiteral(self, ctx:EParser.LiteralListLiteralContext):
-        exp = self.getNodeValue(ctx.exp)
+        exp = self.getNodeValue(ctx.literal_list_literal())
         self.setNodeValue(ctx, ListLiteral(exp))
 
 
-    def exitLiteralList(self, ctx:EParser.LiteralListContext):
-        item = self.getNodeValue(ctx.item)
-        self.setNodeValue(ctx, [ item ])
-    
 
-    
-    def exitLiteralListItem(self, ctx:EParser.LiteralListItemContext):
-        items = self.getNodeValue(ctx.items)
-        item = self.getNodeValue(ctx.item)
-        items.append(item)
+    def exitLiteral_list_literal(self, ctx:EParser.Literal_list_literalContext):
+        items = []
+        for rule in ctx.atomic_literal():
+            item = self.getNodeValue(rule)
+            items.append(item)
         self.setNodeValue(ctx, items)
     
 
@@ -1992,6 +1901,13 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, NullLiteral.instance)
 
 
+
+    def exitOperator_argument(self, ctx:EParser.Operator_argumentContext):
+        stmt = self.getNodeValue(ctx.getChild(0))
+        self.setNodeValue(ctx, stmt)
+
+
+
     def exitOperatorArgument(self, ctx:EParser.OperatorArgumentContext):
         arg = self.getNodeValue(ctx.arg)
         arg.mutable = ctx.MUTABLE() is not None
@@ -2056,7 +1972,7 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, MultiplyExpression(left, right))
     
 
-    def exitMutable_category_type(self, ctx):
+    def exitMutable_category_type(self, ctx:EParser.Mutable_category_typeContext):
         typ = self.getNodeValue(ctx.category_type())
         typ.mutable = ctx.MUTABLE() is not None
         self.setNodeValue(ctx, typ)
@@ -2192,9 +2108,24 @@ class EPromptoBuilder(EParserListener):
     def exitExecuteExpression(self, ctx:EParser.ExecuteExpressionContext):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, ExecuteExpression(name))
-    
 
-    
+
+    def exitExpression_list(self, ctx: EParser.expression_list):
+        items = []
+        for rule in ctx.expression():
+            item = self.getNodeValue(rule)
+            items.append(item)
+        self.setNodeValue(ctx, items)
+
+    def exitExpression_tuple(self, ctx: EParser.expression_tuple):
+        items = []
+        for rule in ctx.expression():
+            item = self.getNodeValue(rule)
+            items.append(item)
+        self.setNodeValue(ctx, items)
+
+
+
     def exitCodeExpression(self, ctx:EParser.CodeExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, CodeExpression(exp))
@@ -2206,7 +2137,13 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, CodeArgument(name))
     
 
-    
+
+    def exitCategory_or_any_type(self, ctx:EParser.Category_or_any_typeContext):
+        stmt = self.getNodeValue(ctx.getChild(0))
+        self.setNodeValue(ctx, stmt)
+
+
+
     def exitCategory_symbol(self, ctx:EParser.Category_symbolContext):
         name = self.getNodeValue(ctx.name)
         args = self.getNodeValue(ctx.args)
@@ -2217,16 +2154,11 @@ class EPromptoBuilder(EParserListener):
     
 
     
-    def exitCategorySymbolList(self, ctx:EParser.CategorySymbolListContext):
-        item = self.getNodeValue(ctx.item)
-        self.setNodeValue(ctx, CategorySymbolList(item))
-    
-
-    
-    def exitCategorySymbolListItem(self, ctx:EParser.CategorySymbolListItemContext):
-        item = self.getNodeValue(ctx.item)
-        items = self.getNodeValue(ctx.items)
-        items.append(item)
+    def exitCategory_symbol_list(self, ctx:EParser.Category_symbol_listContext):
+        items = CategorySymbolList()
+        for rule in ctx.category_symbol():
+            item = self.getNodeValue(rule)
+            items.append(item)
         self.setNodeValue(ctx, items)
     
 
@@ -2242,9 +2174,15 @@ class EPromptoBuilder(EParserListener):
         ecd.setDerivedFrom(derived)
         ecd.setSymbols(symbols)
         self.setNodeValue(ctx, ecd)
-    
 
-    
+
+
+    def exitEnum_declaration(self, ctx: EParser.Enum_declarationContext):
+        value = self.getNodeValue(ctx.getChild(0))
+        self.setNodeValue(ctx, value)
+
+
+
     def exitRead_expression(self, ctx:EParser.Read_expressionContext):
         source = self.getNodeValue(ctx.source)
         self.setNodeValue(ctx, ReadExpression(source))
@@ -2262,6 +2200,7 @@ class EPromptoBuilder(EParserListener):
         target = self.getNodeValue(ctx.target)
         self.setNodeValue(ctx, WriteStatement(what, target))
     
+
 
     def exitWith_singleton_statement(self, ctx:EParser.With_singleton_statementContext):
         name = self.getNodeValue(ctx.typ)
@@ -2298,9 +2237,6 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, DictType(typ))
     
 
-    def exitAnyArgumentType(self, ctx:EParser.AnyArgumentTypeContext):
-        typ = self.getNodeValue(ctx.typ)
-        self.setNodeValue(ctx, typ)
 
     def exitCastExpression(self, ctx:EParser.CastExpressionContext):
         typ = self.getNodeValue(ctx.right)
@@ -2321,17 +2257,12 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, CollectionSwitchCase(exp, stmts))
     
 
-    
-    def exitCatchStatementList(self, ctx:EParser.CatchStatementListContext):
-        item = self.getNodeValue(ctx.item)
-        self.setNodeValue(ctx, SwitchCaseList(item))
-    
 
-    
-    def exitCatchStatementListItem(self, ctx:EParser.CatchStatementListItemContext):
-        item = self.getNodeValue(ctx.item)
-        items = self.getNodeValue(ctx.items)
-        items.add(item)
+    def exitCatch_statement_list(self, ctx:EParser.Catch_statement_listContext):
+        items = SwitchCaseList()
+        for rule in ctx.catch_statement():
+            item = self.getNodeValue(rule)
+            items.append(item)
         self.setNodeValue(ctx, items)
     
 
@@ -2378,11 +2309,13 @@ class EPromptoBuilder(EParserListener):
     def exitMatchingPattern(self, ctx:EParser.MatchingPatternContext):
         self.setNodeValue(ctx, MatchingPatternConstraint(TextLiteral(ctx.text.text)))
 
+
     def exitInvocation_expression(self, ctx:EParser.Invocation_expressionContext):
         name = self.getNodeValue(ctx.name)
         select = MethodSelector(name)
         self.setNodeValue(ctx, MethodCall(select))
-    
+
+
     def exitInvocationExpression(self, ctx:EParser.InvocationExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
@@ -2447,8 +2380,8 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitJavascript_native_statement(self, ctx:EParser.Javascript_native_statementContext):
-        stmt = self.getNodeValue(ctx.stmt)
-        module = self.getNodeValue(ctx.module)
+        stmt = self.getNodeValue(ctx.javascript_statement())
+        module = self.getNodeValue(ctx.javascript_module())
         stmt.module = module
         self.setNodeValue(ctx, stmt)
 
@@ -2498,7 +2431,7 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitJavaScriptNativeStatement(self, ctx:EParser.JavaScriptNativeStatementContext):
-        stmt = self.getNodeValue(ctx.stmt)
+        stmt = self.getNodeValue(ctx.javascript_native_statement())
         self.setNodeValue(ctx, JavaScriptNativeCall(stmt))
 
     def exitJavascriptPrimaryExpression(self, ctx:EParser.JavascriptPrimaryExpressionContext):

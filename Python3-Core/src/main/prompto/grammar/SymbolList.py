@@ -1,5 +1,6 @@
 class SymbolList (list):
 
-	def __init__(self, symbol):
+	def __init__(self, symbol = None):
 		super(SymbolList, self).__init__()
-		self.append(symbol)
+		if symbol is not None:
+			self.append(symbol)

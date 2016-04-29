@@ -1,3 +1,4 @@
+from prompto.type.TextType import TextType
 from prompto.type.AnyType import AnyType
 from prompto.type.NativeType import NativeType
 from prompto.value.NullValue import NullValue
@@ -19,6 +20,13 @@ class DocumentType ( NativeType ):
 
     def checkMember(self, context, name):
         return AnyType.instance
+
+
+    def checkItem(self, context, itemType):
+        if itemType is TextType.instance:
+            return AnyType.instance
+        else:
+            raise Exception("text") # TODO
 
     def readJSONValue(self, context, node, parts):
         from prompto.value.Document import Document

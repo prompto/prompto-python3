@@ -1,7 +1,9 @@
 from prompto.error.IndexOutOfRangeError import IndexOutOfRangeError
 from prompto.error.InvalidDataError import InvalidDataError
+from prompto.error.NotMutableError import NotMutableError
+from prompto.error.SyntaxError import SyntaxError
 from prompto.instance.IAssignableInstance import IAssignableInstance
-from prompto.type.IntegerType import IntegerType
+from prompto.type.AnyType import AnyType
 from prompto.value.IContainer import IContainer
 from prompto.value.IValue import IValue
 from prompto.value.Integer import Integer
@@ -30,29 +32,29 @@ class ItemInstance ( IAssignableInstance ):
         self.item.toDialect(writer)
         writer.append(']')
 
-    def checkAssignValue(self, context, expression):
-        self.parent.checkAssignElement(context)
+    def checkAssignValue(self, context, valueType):
         itemType = self.item.check(context)
-        if itemType!=IntegerType.instance:
-            raise SyntaxError("Expecting an Integer, got:" + str(itemType))
+        return self.parent.checkAssignItem(context, itemType, valueType)
 
-    def checkAssignMember(self, context, memberName):
-        pass
 
-    def checkAssignElement(self, context):
-        pass
+    def checkAssignMember(self, context, name, valueType):
+        return AnyType.instance
+
+
+    def checkAssignItem(self, context, itemType, valueType):
+        return AnyType.instance
+
+
 
     def assign(self, context, expression):
-        obj = self.parent.interpret(context)
-        if not isinstance(obj, ListValue):
-            raise InvalidDataError("Expected a List, got:" + type(obj).getName())
-        idx = self.item.interpret(context)
-        if not isinstance(idx, Integer):
-            raise InvalidDataError("Expected an Integer, got:" + type(idx).getName())
-        index = idx.IntegerValue()
-        if index<1 or index>obj.size():
-            raise IndexOutOfRangeError()
-        obj.setItem(index-1,expression.interpret(context))
+        root = self.parent.interpret(context)
+        if not root.mutable:
+            raise NotMutableError()
+        item = self.item.interpret(context)
+        value = expression.interpret(context)
+        root.setItem(context, item, value)
+
+
 
     def interpret(self, context):
         parent = self.parent.interpret(context)

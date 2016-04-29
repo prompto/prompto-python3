@@ -17,6 +17,9 @@ class TestDocuments(BaseEParserTest):
     def testItem(self):
         self.compareResourceEOE("documents/item.pec")
 
+    def testNamedItem(self):
+        self.compareResourceEOE("documents/namedItem.pec")
+
     def testVariable(self):
         self.compareResourceEOE("documents/variable.pec")
 
