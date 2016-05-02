@@ -44,7 +44,7 @@ class PythonClassType(CategoryType):
         super(PythonClassType, self).__init__(klass.__name__)
         self.klass = klass
 
-    def convertPythonTypeToPrestoType(self):
+    def convertPythonTypeToPromptoType(self):
         result = PythonClassType.pythonToPromptoMap.get(self.klass.__name__, None)
         if result is None:
             return self
@@ -55,7 +55,10 @@ class PythonClassType(CategoryType):
         return self.doConvertPythonValueToPromptoValue(context, value, self.klass, returnType)
 
     def doConvertPythonValueToPromptoValue(self, context, value, klass, returnType):
-        res = self.convertIValue(value)
+        if value is None:
+            return None
+        else:
+            res = self.convertIValue(value)
         if res is not None:
             return res
         else:

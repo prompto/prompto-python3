@@ -1,6 +1,7 @@
 from io import StringIO
 
 from prompto.error.InternalError import InternalError
+from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.IExpression import IExpression
 from prompto.type.TextType import TextType
 from prompto.type.DictType import DictType
@@ -74,8 +75,10 @@ class Dictionary(BaseValue, IContainer):
             raise SyntaxError("No such item:" + str(item))
 
 
-    def ConvertTo(self, type_):
-        return self
+    def convertToPython(self):
+        keys = [ key for key in self.value.keys()]
+        values = [ self.value.get(key).convertToPython() for key in keys]
+        return dict(zip ( keys, values))
 
 
     def __eq__(self, obj):

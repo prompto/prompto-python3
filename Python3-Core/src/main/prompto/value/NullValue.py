@@ -9,4 +9,10 @@ class NullValue (BaseValue):
     def __init__(self):
         super().__init__(NullType.instance)
 
+
+    def convertToPython(self):
+        return None
+
+
+
 NullValue.instance = NullValue()
