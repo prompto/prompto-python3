@@ -363,10 +363,15 @@ class SPromptoBuilder(SParserListener):
         name = self.getNodeValue(ctx.name)
         typ = self.getNodeValue(ctx.typ)
         match = self.getNodeValue(ctx.match)
-        decl = AttributeDeclaration(name, typ, match)
+        indices = None if ctx.index_clause() is None else self.getNodeValue(ctx.index_clause())
+        decl = AttributeDeclaration(name, typ, match, indices)
         decl.storable = ctx.STORABLE() is not None
         self.setNodeValue(ctx, decl)
 
+
+    def exitIndex_clause(self, ctx:SParser.Index_clauseContext):
+        indices = IdentifierList() if ctx.indices is None else self.getNodeValue(ctx.indices)
+        self.setNodeValue(ctx, indices)
 
 
     def exitBlobExpression(self, ctx:SParser.BlobExpressionContext):

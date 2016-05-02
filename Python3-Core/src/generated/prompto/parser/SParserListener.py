@@ -49,6 +49,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#index_clause.
+    def enterIndex_clause(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#index_clause.
+    def exitIndex_clause(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#concrete_category_declaration.
     def enterConcrete_category_declaration(self, ctx):
         pass

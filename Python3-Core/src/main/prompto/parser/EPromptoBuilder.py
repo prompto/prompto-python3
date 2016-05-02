@@ -540,7 +540,12 @@ class EPromptoBuilder(EParserListener):
         name = self.getNodeValue(ctx.name)
         typ = self.getNodeValue(ctx.typ)
         match = self.getNodeValue(getattr(ctx, "match", None))
-        decl = AttributeDeclaration(name, typ, match)
+        indices = None if ctx.INDEX() is None else IdentifierList()
+        if ctx.indices is not None:
+            indices.extend(self.getNodeValue(ctx.indices))
+        if ctx.index is not None:
+            indices.append(self.getNodeValue(ctx.index))
+        decl = AttributeDeclaration(name, typ, match, indices)
         decl.storable = ctx.STORABLE() is not None
         self.setNodeValue(ctx, decl)
     

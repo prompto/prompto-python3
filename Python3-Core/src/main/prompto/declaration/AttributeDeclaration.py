@@ -1,15 +1,14 @@
 from prompto.declaration.BaseDeclaration import BaseDeclaration
-from prompto.error.InternalError import InternalError
 from prompto.expression.IExpression import IExpression
-from prompto.value.IValue import IValue
 
 
 class AttributeDeclaration ( BaseDeclaration ):
 
-    def __init__(self, name, type_, constraint=None):
+    def __init__(self, name, type_, constraint=None, indexTypes=None):
         super(AttributeDeclaration, self).__init__(name)
         self.type_ = type_
         self.constraint = constraint
+        self.indexTypes = indexTypes
         self.storable = False
 
     def getType(self, context = None):
@@ -31,6 +30,12 @@ class AttributeDeclaration ( BaseDeclaration ):
             writer.append(" attribute")
             if self.constraint is not None:
                 self.constraint.toDialect(writer)
+            if self.indexTypes is not None:
+                writer.append(" with ")
+                self.indexTypes.toDialect(writer, True)
+                writer.append(" index")
+
+
 
     def toODialect(self, writer):
             if self.storable:
@@ -41,7 +46,15 @@ class AttributeDeclaration ( BaseDeclaration ):
             self.type_.toDialect(writer)
             if self.constraint is not None:
                 self.constraint.toDialect(writer)
+            if self.indexTypes is not None:
+                writer.append(" with index")
+                if len(self.indexTypes) > 0:
+                    writer.append(" (")
+                    self.indexTypes.toDialect(writer, False)
+                    writer.append(')')
             writer.append(';')
+
+
 
     def toSDialect(self, writer):
             if self.storable:
@@ -54,7 +67,13 @@ class AttributeDeclaration ( BaseDeclaration ):
             writer.indent()
             if self.constraint is not None:
                 self.constraint.toDialect(writer)
-            else:
+            if self.indexTypes is not None:
+                if self.constraint is not None:
+                    writer.newLine()
+                writer.append("index (")
+                self.indexTypes.toDialect(writer, False)
+                writer.append(')')
+            if self.constraint is None and self.indexTypes is None:
                 writer.append("pass")
             writer.dedent()
 
