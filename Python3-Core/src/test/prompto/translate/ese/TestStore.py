@@ -5,6 +5,9 @@ class TestStore(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testListRecords(self):
+        self.compareResourceESE("store/listRecords.pec")
+
     def testManyRecords(self):
         self.compareResourceESE("store/manyRecords.pec")
 
