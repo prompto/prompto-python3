@@ -64,13 +64,13 @@ class CategoryDeclaration(BaseDeclaration):
                     raise "abc"
                 if not decl.storable:
                     continue
-                value = document.GetMember(context, name, False)
+                value = document.getMember(context, name, False)
                 if isinstance(value, Document):
                     typ = decl.GetType(context)
                     if not isinstance(typ, CategoryType):
                         raise InternalError("How did we get there?")
                     value = typ.newInstanceFromDocument(context, document)
-                instance.SetMember(context, name, value)
+                instance.setMember(context, name, value)
         finally:
             instance.mutable = False
         return instance

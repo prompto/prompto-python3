@@ -1,3 +1,5 @@
+from prompto.error.InternalError import InternalError
+from prompto.error.NullReferenceError import NullReferenceError
 from prompto.error.SyntaxError import SyntaxError
 from prompto.value.Boolean import Boolean
 from prompto.value.Integer import Integer
@@ -89,7 +91,7 @@ class MemStore(object):
                 for name in clause.names:
                     if not isinstance(source, Document):
                         return None
-                    value = source.GetMember(context, name)
+                    value = source.getMember(context, name)
                     source = value
                 return value
             return extractValue

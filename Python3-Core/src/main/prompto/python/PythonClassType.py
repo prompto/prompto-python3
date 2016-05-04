@@ -151,7 +151,7 @@ class PythonClassType(CategoryType):
                     ival = itype.convertPythonValueToPromptoValue(context, val, None)
                 else:
                     ival = self.doConvertPythonValueToPromptoValue(context, val, klass, itype)
-                doc.SetMember(context, str(key), ival)
+                doc.setMember(context, str(key), ival)
             return doc
         else:
             return None

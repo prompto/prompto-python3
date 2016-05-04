@@ -56,7 +56,7 @@ class MemberSelector (SelectorExpression):
         if instance is None or instance is NullValue.instance:
             raise NullReferenceError()
         else:
-            return instance.GetMember(context, self.name, True)
+            return instance.getMember(context, self.name, True)
 
     def interpretTypeMember(self, context, parent):
        if isinstance(parent, TypeExpression):
@@ -69,7 +69,7 @@ class MemberSelector (SelectorExpression):
         if isinstance(parent, TypeExpression) and isinstance(parent.type, CategoryType):
             instance = context.loadSingleton(parent.type)
             if instance is not None:
-                return instance.GetMember(context, self.name, False)
+                return instance.getMember(context, self.name, False)
         return None
 
     def interpretSymbol(self, context, parent):

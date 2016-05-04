@@ -330,10 +330,10 @@ class DocumentContext(Context):
             return self
 
     def readValue(self, name):
-        return self.document.GetMember(self.calling, name)
+        return self.document.getMember(self.calling, name)
 
     def writeValue(self, name, value):
-        self.document.SetMember(self.calling, name, value)
+        self.document.setMember(self.calling, name, value)
 
 
 class InstanceContext(Context):
@@ -372,7 +372,7 @@ class InstanceContext(Context):
             return self.getRegisteredDeclaration(ConcreteCategoryDeclaration, self.instanceType.getName())
 
     def readValue(self, name):
-        value = self.instance.GetMember(self.calling, name)
+        value = self.instance.getMember(self.calling, name)
         if value is None:
             return None
         if isinstance(value, IExpression):
@@ -382,7 +382,7 @@ class InstanceContext(Context):
             return ExpressionValue(decl.getType(), value)
 
     def writeValue(self, name, value):
-        self.instance.SetMember(self.calling, name, value)
+        self.instance.setMember(self.calling, name, value)
 
 
 class MethodDeclarationMap(dict, IDeclaration):

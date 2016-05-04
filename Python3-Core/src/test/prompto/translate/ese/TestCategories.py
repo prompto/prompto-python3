@@ -20,4 +20,7 @@ class TestCategories(BaseEParserTest):
     def testCopyFromDescendantWithOverride(self):
         self.compareResourceESE("categories/copyFromDescendantWithOverride.pec")
 
+    def testCopyFromDocument(self):
+        self.compareResourceESE("categories/copyFromDocument.pec")
+
 

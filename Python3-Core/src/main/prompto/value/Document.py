@@ -11,11 +11,14 @@ class Document ( BaseValue ):
         self.mutable = True
         self.values = dict()
 
-    def HasMember(self, name):
+    def getMemberNames(self):
+        return self.values.keys()
+
+    def hasMember(self, name):
         result = self.values.get(name, None)
         return result is not None
 
-    def GetMember(self, context, name, autoCreate=False):
+    def getMember(self, context, name, autoCreate=False):
         result = self.values.get(name, None)
         if autoCreate and result is None:
             result = Document()
@@ -24,7 +27,7 @@ class Document ( BaseValue ):
 
 
 
-    def SetMember(self, context, name, value):
+    def setMember(self, context, name, value):
         self.values[name] = value
 
 

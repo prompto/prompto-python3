@@ -17,4 +17,7 @@ class TestCategories(BaseOParserTest):
     def testCopyFromDescendantWithOverride(self):
         self.compareResourceOSO("categories/copyFromDescendantWithOverride.poc")
 
+    def testCopyFromDocument(self):
+        self.compareResourceOSO("categories/copyFromDocument.poc")
+
 

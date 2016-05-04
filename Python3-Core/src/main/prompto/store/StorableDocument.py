@@ -27,4 +27,4 @@ class StorableDocument(object):
     def SetMember (self, context, name, value):
         if self.document is None:
             self.document = Document()
-        self.document.SetMember (context, name, value);
+        self.document.setMember (context, name, value);

@@ -25,4 +25,7 @@ class TestCategories(BaseEParserTest):
     def testCopyFromDescendantWithOverride(self):
         self.checkOutput("categories/copyFromDescendantWithOverride.pec")
 
+    def testCopyFromDocument(self):
+        self.checkOutput("categories/copyFromDocument.pec")
+
 

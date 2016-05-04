@@ -49,8 +49,8 @@ class MemberInstance ( IAssignableInstance ):
         if not root.mutable:
             raise NotMutableError()
         value = expression.interpret(context)
-        root.SetMember(context, self.name, value)
+        root.setMember(context, self.name, value)
 
     def interpret(self, context):
         root = self.parent.interpret(context)
-        return root.GetMember(context, self.name, True)
+        return root.getMember(context, self.name, True)

@@ -22,4 +22,7 @@ class TestCategories(BaseOParserTest):
     def testCopyFromDescendantWithOverride(self):
         self.checkOutput("categories/copyFromDescendantWithOverride.poc")
 
+    def testCopyFromDocument(self):
+        self.checkOutput("categories/copyFromDocument.poc")
+
 

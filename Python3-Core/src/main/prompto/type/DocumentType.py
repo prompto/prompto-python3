@@ -33,7 +33,7 @@ class DocumentType ( NativeType ):
         instance = Document()
         for key, node in node.items():
             value = self.readJSONField(context, node, parts)
-            instance.SetMember(context, key, value)
+            instance.setMember(context, key, value)
         return instance
 
     def readJSONField(self, context, node, parts):

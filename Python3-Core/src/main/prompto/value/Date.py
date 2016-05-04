@@ -50,7 +50,7 @@ class Date ( BaseValue ):
         else:
             raise SyntaxError("Illegal comparison: Date - " + type(value).__name__)
 
-    def GetMember(self, context, name, autoCreate=False):
+    def getMember(self, context, name, autoCreate=False):
         if "year"==name:
             return Integer(self.value.year)
         elif "month"==name:

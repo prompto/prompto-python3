@@ -38,10 +38,10 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         from prompto.type.CategoryType import CategoryType
         return CategoryType(self.declaration.getName())
 
-    def getAttributeNames(self):
+    def getMemberNames(self):
         return self.values.keys()
 
-    def GetMember(self, context, attrName, autoCreate=False):
+    def getMember(self, context, attrName, autoCreate=False):
         stacked = activeGetters.__dict__.get(attrName, None)
         first = stacked is None
         if first:
@@ -60,7 +60,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         else:
             return self.values.get(attrName, None)
 
-    def SetMember(self, context, attrName, value):
+    def setMember(self, context, attrName, value):
         if not self.mutable:
             raise NotMutableError()
         stacked = activeSetters.__dict__.get(attrName, None)

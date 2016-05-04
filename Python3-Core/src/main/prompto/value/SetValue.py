@@ -82,9 +82,9 @@ class SetValue(BaseValue, IContainer):
                 result.add(o)
         return SetValue(self.type.itemType, result)
 
-    def GetMember(self, context, name, autoCreate=False):
+    def getMember(self, context, name, autoCreate=False):
         if "length" == name:
             return Integer(len(self.items))
         else:
-            return super(SetValue, self).GetMember(context, name)
+            return super(SetValue, self).getMember(context, name)
 

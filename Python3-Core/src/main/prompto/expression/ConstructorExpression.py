@@ -4,7 +4,9 @@ from prompto.grammar.ArgumentAssignment import ArgumentAssignment
 from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
 from prompto.parser.Dialect import Dialect
 from prompto.runtime.Context import Context
+from prompto.type.DocumentType import DocumentType
 from prompto.type.IType import IType
+from prompto.value.Document import Document
 from prompto.value.IInstance import IInstance
 from prompto.error.SyntaxError import SyntaxError
 from prompto.error.NotMutableError import NotMutableError
@@ -82,7 +84,7 @@ class ConstructorExpression(IExpression):
         cd.checkConstructorContext(context)
         if self.copyFrom is not None:
             cft = self.copyFrom.check(context)
-            if not isinstance(cft, CategoryType):
+            if not isinstance(cft, (CategoryType, DocumentType)):
                 raise SyntaxError("Cannot copy from " + cft.getName())
         if self.assignments is not None:
             for assignment in self.assignments:
@@ -97,20 +99,27 @@ class ConstructorExpression(IExpression):
         instance.mutable = True
         if self.copyFrom is not None:
             copyObj = self.copyFrom.interpret(context)
+            from prompto.declaration.CategoryDeclaration import CategoryDeclaration
+            cd = context.getRegisteredDeclaration(CategoryDeclaration, self.type.getName())
             if isinstance(copyObj, IInstance):
-                from prompto.declaration.CategoryDeclaration import CategoryDeclaration
-                cd = context.getRegisteredDeclaration(CategoryDeclaration, self.type.getName())
-                for name in copyObj.getAttributeNames():
+                for name in copyObj.getMemberNames():
                     if cd.hasAttribute(context, name):
-                        value = copyObj.GetMember(context,name)
+                        value = copyObj.getMember(context, name)
                         if value is not None and value.mutable and not self.type.mutable:
                             raise NotMutableError()
-                        instance.SetMember(context, name, value)
+                        instance.setMember(context, name, value)
+            elif isinstance(copyObj, Document):
+                for name in copyObj.getMemberNames():
+                    if cd.hasAttribute(context, name):
+                        value = copyObj.getMember(context, name)
+                        if value is not None and value.mutable and not self.type.mutable:
+                            raise NotMutableError()
+                        instance.setMember(context, name, value)
         if self.assignments is not None:
             for assignment in self.assignments:
                 value = assignment.getExpression().interpret(context)
                 if value is not None and value.mutable and not self.type.mutable:
                     raise NotMutableError()
-                instance.SetMember(context, assignment.getName(), value)
+                instance.setMember(context, assignment.getName(), value)
         instance.mutable = self.type.mutable
         return instance
