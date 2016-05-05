@@ -12,20 +12,30 @@ class StoreStatement(SimpleStatement):
         self.to_add = to_add
 
 
-    def toDialect (self, writer):
-        writer.append ("store ")
-        if writer.dialect is Dialect.E:
-            for exp in self.to_add:
-                exp.toDialect (writer)
-                writer.append(",")
-            writer.trimLast(1)
-        else:
-            writer.append ('(')
-            for exp in self.to_add:
-                exp.toDialect (writer)
-                writer.append(",")
-            writer.trimLast(1)
-            writer.append (')')
+
+    def toDialect(self, writer):
+        if self.to_del is not None:
+            writer.append("delete ")
+            self.itemsToDialect(self.to_del, writer)
+            if self.to_add is not None:
+                writer.append(" and ")
+        if self.to_add is not None:
+            writer.append("store ")
+            self.itemsToDialect(self.to_add, writer)
+
+
+
+    def itemsToDialect(self, items, writer):
+        if writer.dialect is not Dialect.E:
+            writer.append('(')
+        for item in items:
+            item.toDialect(writer)
+            writer.append(",")
+        writer.trimLast(1)
+        if writer.dialect is not Dialect.E:
+            writer.append(')')
+
+
 
     def __str__(self):
         return "store " + str(self.to_add)
