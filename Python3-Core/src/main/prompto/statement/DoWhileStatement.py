@@ -11,12 +11,6 @@ class DoWhileStatement ( BaseStatement ):
         self.condition = condition
         self.instructions = instructions
 
-    def getCondition(self):
-        return self.condition
-
-    def getInstructions(self):
-        return self.instructions
-
     def check(self, context):
         cond = self.condition.check(context)
         if cond!=BooleanType.instance:

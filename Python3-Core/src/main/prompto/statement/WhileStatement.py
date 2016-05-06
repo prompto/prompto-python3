@@ -6,28 +6,22 @@ from prompto.value.Boolean import Boolean
 
 class WhileStatement ( BaseStatement ):
 
-    def __init__(self, condition, instructions):
+    def __init__(self, condition, statements):
         super(WhileStatement, self).__init__()
         self.condition = condition
-        self.instructions = instructions
-
-    def getCondition(self):
-        return self.condition
-
-    def getInstructions(self):
-        return self.instructions
+        self.statements = statements
 
     def check(self, context):
         cond = self.condition.check(context)
         if cond!=BooleanType.instance:
             raise SyntaxError("Expected a Boolean condition!")
         child = context.newChildContext()
-        return self.instructions.check(child, None)
+        return self.statements.check(child, None)
 
     def interpret(self, context):
         while self.interpretCondition(context):
             child = context.newChildContext()
-            value = self.instructions.interpret(child)
+            value = self.statements.interpret(child)
             if value is not None:
                 return value
         return None
@@ -43,7 +37,7 @@ class WhileStatement ( BaseStatement ):
         self.condition.toDialect(writer)
         writer.append(" :\n")
         writer.indent()
-        self.instructions.toDialect(writer)
+        self.statements.toDialect(writer)
         writer.dedent()
 
     def toODialect(self, writer):
@@ -51,7 +45,7 @@ class WhileStatement ( BaseStatement ):
         self.condition.toDialect(writer)
         writer.append(") {\n")
         writer.indent()
-        self.instructions.toDialect(writer)
+        self.statements.toDialect(writer)
         writer.dedent()
         writer.append("}\n")
 

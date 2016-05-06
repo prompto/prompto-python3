@@ -5,22 +5,18 @@ from prompto.runtime.TransientVariable import TransientVariable
 from prompto.statement.BaseStatement import BaseStatement
 from prompto.statement.SimpleStatement import SimpleStatement
 from prompto.type.IntegerType import IntegerType
-from prompto.value.IContainer import IContainer
 from prompto.value.IIterable import IIterable
 from prompto.value.Integer import Integer
 
 
 class ForEachStatement(BaseStatement):
 
-    def __init__(self, name1, name2, source, instructions):
+    def __init__(self, name1, name2, source, statements):
         super(ForEachStatement, self).__init__()
         self.v1 = name1
         self.v2 = name2
         self.source = source
-        self.instructions = instructions
-
-    def getInstructions(self):
-        return self.instructions
+        self.statements = statements
 
     def check(self, context):
         srcType = self.source.check(context)
@@ -33,7 +29,7 @@ class ForEachStatement(BaseStatement):
         context.registerValue(TransientVariable(itemName, elemType))
         if self.v2 != None:
             context.registerValue(TransientVariable(self.v1, IntegerType.instance))
-        return self.instructions.check(child, None)
+        return self.statements.check(child, None)
 
     def interpret(self, context):
         srcType = self.source.check(context)
@@ -53,7 +49,7 @@ class ForEachStatement(BaseStatement):
             child = context.newChildContext()
             child.registerValue(TransientVariable(self.v1, elemType))
             child.setValue(self.v1, item)
-            value = self.instructions.interpret(child)
+            value = self.statements.interpret(child)
             if value != None:
                 return value
         return None
@@ -69,7 +65,7 @@ class ForEachStatement(BaseStatement):
             child.registerValue(TransientVariable(self.v1, IntegerType.instance))
             i += 1
             child.setValue(self.v1, Integer(i))
-            value = self.instructions.interpret(child)
+            value = self.statements.interpret(child)
             if value is not None:
                 return value
         return None
@@ -93,12 +89,12 @@ class ForEachStatement(BaseStatement):
         writer.append(" in ")
         self.source.toDialect(writer)
         writer.append(")")
-        oneLine = len(self.instructions)==1 and isinstance(self.instructions[0], SimpleStatement)
+        oneLine = len(self.statements) == 1 and isinstance(self.statements[0], SimpleStatement)
         if not oneLine:
             writer.append(" {")
         writer.newLine()
         writer.indent()
-        self.instructions.toDialect(writer)
+        self.statements.toDialect(writer)
         writer.dedent()
         if not oneLine:
             writer.append("}")
@@ -115,7 +111,7 @@ class ForEachStatement(BaseStatement):
         writer.append(":")
         writer.newLine()
         writer.indent()
-        self.instructions.toDialect(writer)
+        self.statements.toDialect(writer)
         writer.dedent()
 
     def toSDialect(self, writer):
@@ -129,5 +125,5 @@ class ForEachStatement(BaseStatement):
         writer.append(":")
         writer.newLine()
         writer.indent()
-        self.instructions.toDialect(writer)
+        self.statements.toDialect(writer)
         writer.dedent()
