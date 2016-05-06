@@ -25,7 +25,7 @@ class IfStatement ( BaseStatement ):
 
     def interpret(self, context):
         for element in self.elements:
-            condition = element.getCondition()
+            condition = element.condition
             test = Boolean.TRUE if condition is None else condition.interpret(context)
             if isinstance(test, Boolean) and Boolean.TRUE==test:
                 return element.interpret(context)
