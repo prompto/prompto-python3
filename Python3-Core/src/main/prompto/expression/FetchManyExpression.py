@@ -7,7 +7,7 @@ from prompto.type.CursorType import CursorType
 from prompto.store.Store import Store
 from prompto.value.Cursor import Cursor
 
-class FetchAllExpression(Section, IExpression):
+class FetchManyExpression(Section, IExpression):
 
     def __init__(self, typ, filter, start, stop, orderBy):
         self.typ = typ

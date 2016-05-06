@@ -50,7 +50,7 @@ from prompto.expression.DivideExpression import DivideExpression
 from prompto.expression.DocumentExpression import DocumentExpression
 from prompto.expression.EqualsExpression import EqualsExpression
 from prompto.expression.ExecuteExpression import ExecuteExpression
-from prompto.expression.FetchAllExpression import FetchAllExpression
+from prompto.expression.FetchManyExpression import FetchManyExpression
 from prompto.expression.FetchExpression import FetchExpression
 from prompto.expression.FetchOneExpression import FetchOneExpression
 from prompto.expression.InstanceExpression import InstanceExpression
@@ -2079,7 +2079,7 @@ class OPromptoBuilder(OParserListener):
         start = self.getNodeValue(ctx.xstart)
         stop = self.getNodeValue(ctx.xstop)
         orderBy = self.getNodeValue(ctx.xorder)
-        self.setNodeValue(ctx, FetchAllExpression(category, xfilter, start, stop, orderBy))
+        self.setNodeValue(ctx, FetchManyExpression(category, xfilter, start, stop, orderBy))
     
     def exitClosure_expression(self, ctx):
         name = self.getNodeValue(ctx.name)
