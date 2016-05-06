@@ -5,15 +5,6 @@ class TestResource(BaseOParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
-    def testBadRead(self):
-        self.compareResourceOSO("resource/badRead.poc")
-
-    def testBadResource(self):
-        self.compareResourceOSO("resource/badResource.poc")
-
-    def testBadWrite(self):
-        self.compareResourceOSO("resource/badWrite.poc")
-
     def testReadResource(self):
         self.compareResourceOSO("resource/readResource.poc")
 

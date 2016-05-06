@@ -1,6 +1,7 @@
 from prompto.error.InternalError import InternalError
 from prompto.error.InvalidResourceError import InvalidResourceError
 from prompto.error.NullReferenceError import NullReferenceError
+from prompto.runtime.Context import ResourceContext
 from prompto.statement.SimpleStatement import SimpleStatement
 from prompto.type.ResourceType import ResourceType
 from prompto.type.VoidType import VoidType
@@ -17,25 +18,35 @@ class WriteStatement ( SimpleStatement ):
     def __str__(self):
         return "write " + self.content.toString() + " to " + self.resource.toString()
 
+
+
     def check(self, context):
-        context = context.newResourceContext()
+        context = context if isinstance(context, ResourceContext) else context.newResourceContext()
         resourceType = self.resource.check(context)
         if not isinstance(resourceType, ResourceType):
             raise SyntaxError("Not a resource!")
         return VoidType.instance
 
+
+
     def interpret(self, context):
-        context = context.newResourceContext()
-        o = self.resource.interpret(context)
+        resContext = context if isinstance(context, ResourceContext) else context.newResourceContext()
+        o = self.resource.interpret(resContext)
         if o is None:
             raise NullReferenceError()
         if not isinstance(o, IResource):
             raise InternalError("Illegal write source: " + o)
         if not o.isWritable():
             raise InvalidResourceError("Not writable")
-        text = self.content.interpret(context)
-        o.writeFully(text)
-        return None
+        text = self.content.interpret(resContext)
+        try:
+            o.writeFully(text)
+            return None
+        finally:
+            if context is not resContext:
+                o.close()
+
+
 
     def toSDialect(self, writer):
         writer.append("write ")

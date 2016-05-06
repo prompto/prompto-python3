@@ -2,6 +2,7 @@ from prompto.error.InternalError import InternalError
 from prompto.error.InvalidResourceError import InvalidResourceError
 from prompto.error.NullReferenceError import NullReferenceError
 from prompto.expression.IExpression import IExpression
+from prompto.runtime.Context import ResourceContext
 from prompto.type.ResourceType import ResourceType
 from prompto.type.TextType import TextType
 from prompto.value.IResource import IResource
@@ -17,22 +18,26 @@ class ReadExpression ( IExpression ) :
         return "read from " + str(self.resource)
 
     def check(self, context):
-        context = context.newResourceContext()
+        context = context if isinstance(context, ResourceContext) else context.newResourceContext()
         sourceType = self.resource.check(context)
         if not isinstance(sourceType, ResourceType):
             raise SyntaxError("Not a readable resource!")
         return TextType.instance
 
     def interpret(self, context):
-        context = context.newResourceContext()
-        o = self.resource.interpret(context)
+        resContext = context if isinstance(context, ResourceContext) else context.newResourceContext()
+        o = self.resource.interpret(resContext)
         if o is None:
             raise NullReferenceError()
         if not isinstance(o, IResource):
             raise InternalError("Illegal read source: " + o)
         if not o.isReadable():
             raise InvalidResourceError("Not readable")
-        return o.readFully()
+        try:
+            return o.readFully()
+        finally:
+            if context is not resContext:
+                o.close()
 
     def toDialect(self, writer):
         writer.append("read from ")

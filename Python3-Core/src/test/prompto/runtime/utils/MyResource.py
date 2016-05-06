@@ -2,7 +2,7 @@ from prompto.value.IResource import IResource
 
 class MyResource(IResource):
 
-    content = ""
+    content = "readFullyOk"
 
     def __init__(self):
         self.path = None
