@@ -2,10 +2,17 @@ from prompto.value.IResource import IResource
 
 class MyResource(IResource):
 
-    content = "readFullyOk"
+    contents = dict()
 
     def __init__(self):
         self.path = None
+
+    def __setattr__(self, key, value):
+        if key=="content":
+            MyResource.contents[self.path] = value
+        else:
+            self.__dict__[key] = value
+
 
     def isReadable(self):
         return True
@@ -17,7 +24,7 @@ class MyResource(IResource):
         pass
 
     def readFully(self):
-        return MyResource.content
+        return MyResource.contents[self.path]
 
     def writeFully(self, data):
-        MyResource.content = data
+        MyResource.contents[self.path] = data
