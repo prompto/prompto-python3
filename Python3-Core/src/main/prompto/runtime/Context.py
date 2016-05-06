@@ -97,11 +97,11 @@ class Context(IContext):
         context.debugger = self.debugger
         return context
 
-    def newDocumentContext(self, doc):
+    def newDocumentContext(self, doc, isChild:bool):
         context = DocumentContext(doc)
         context.globals = self.globals
-        context.calling = self
-        context.parent = None
+        context.calling = self.calling if isChild else self
+        context.parent = self if isChild else None
         context.debugger = self.debugger
         return context
 

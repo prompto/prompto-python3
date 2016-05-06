@@ -14,28 +14,28 @@ class MemStore(object):
     def store (self,  document):
         self.documents.add (document)
 
-    def fetchOne (self, context, xfilter):
+    def fetchOne (self, context, predicate):
         for doc in self.documents:
-            if self.matches(context, doc, xfilter):
+            if self.matches(context, doc, predicate):
                 return doc
         return None
 
-    def matches (self, context, doc, xfilter):
-        if xfilter is None:
+    def matches (self, context, doc, predicate):
+        if predicate is None:
             return True
-        local = context.newDocumentContext (doc)
-        test = xfilter.interpret (local)
+        local = context.newDocumentContext (doc, True)
+        test = predicate.interpret (local)
         if not isinstance(test, Boolean):
             raise InternalError ("Illegal test result: " + test)
         return test.value
 
-    def fetchMany(self, context, start, end, xfilter, orderBy):
-        docs = self.fetchManyDocs(context, start, end, xfilter, orderBy)
+    def fetchMany(self, context, start, end, predicate, orderBy):
+        docs = self.fetchManyDocs(context, start, end, predicate, orderBy)
         # need the below to do more than iterate
         return DocumentIterator(docs)
 
-    def fetchManyDocs(self, context, start, end, xfilter, orderBy):
-        docs = self.filterDocs(context, xfilter)
+    def fetchManyDocs(self, context, start, end, predicate, orderBy):
+        docs = self.filterDocs(context, predicate)
         # sort if required
         docs = self.sort(context, docs, orderBy)
         # slice it if required
@@ -43,11 +43,11 @@ class MemStore(object):
         # done
         return docs
 
-    def filterDocs(self, context, xfilter):
+    def filterDocs(self, context, predicate):
         # create list of filtered docs
         docs = list()
         for doc in self.documents:
-            if self.matches(context, doc, xfilter):
+            if self.matches(context, doc, predicate):
                 docs.append(doc)
         return docs
 
