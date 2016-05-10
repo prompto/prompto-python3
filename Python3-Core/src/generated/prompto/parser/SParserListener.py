@@ -931,66 +931,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#BlobExpression.
-    def enterBlobExpression(self, ctx):
+    # Enter a parse tree produced by SParser#method_expression.
+    def enterMethod_expression(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#BlobExpression.
-    def exitBlobExpression(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#DocumentExpression.
-    def enterDocumentExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#DocumentExpression.
-    def exitDocumentExpression(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#FetchExpression.
-    def enterFetchExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#FetchExpression.
-    def exitFetchExpression(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#ReadExpression.
-    def enterReadExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#ReadExpression.
-    def exitReadExpression(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#SortedExpression.
-    def enterSortedExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#SortedExpression.
-    def exitSortedExpression(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#MethodCallExpression.
-    def enterMethodCallExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#MethodCallExpression.
-    def exitMethodCallExpression(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by SParser#ConstructorExpression.
-    def enterConstructorExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#ConstructorExpression.
-    def exitConstructorExpression(self, ctx):
+    # Exit a parse tree produced by SParser#method_expression.
+    def exitMethod_expression(self, ctx):
         pass
 
 
@@ -1102,12 +1048,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#FetchList.
-    def enterFetchList(self, ctx):
+    # Enter a parse tree produced by SParser#fetch_list_expression.
+    def enterFetch_list_expression(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#FetchList.
-    def exitFetchList(self, ctx):
+    # Exit a parse tree produced by SParser#fetch_list_expression.
+    def exitFetch_list_expression(self, ctx):
         pass
 
 
@@ -1120,12 +1066,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#FetchAll.
-    def enterFetchAll(self, ctx):
+    # Enter a parse tree produced by SParser#FetchMany.
+    def enterFetchMany(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#FetchAll.
-    def exitFetchAll(self, ctx):
+    # Exit a parse tree produced by SParser#FetchMany.
+    def exitFetchMany(self, ctx):
         pass
 
 

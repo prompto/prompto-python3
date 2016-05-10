@@ -607,6 +607,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#FetchStoreExpression.
+    def enterFetchStoreExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#FetchStoreExpression.
+    def exitFetchStoreExpression(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#ContainsAllExpression.
     def enterContainsAllExpression(self, ctx):
         pass
@@ -724,15 +733,6 @@ class EParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EParser#FetchExpression.
-    def enterFetchExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by EParser#FetchExpression.
-    def exitFetchExpression(self, ctx):
-        pass
-
-
     # Enter a parse tree produced by EParser#ClosureExpression.
     def enterClosureExpression(self, ctx):
         pass
@@ -820,6 +820,15 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#ExecuteExpression.
     def exitExecuteExpression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#FetchListExpression.
+    def enterFetchListExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#FetchListExpression.
+    def exitFetchListExpression(self, ctx):
         pass
 
 
@@ -1120,12 +1129,12 @@ class EParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EParser#FetchList.
-    def enterFetchList(self, ctx):
+    # Enter a parse tree produced by EParser#fetch_list_expression.
+    def enterFetch_list_expression(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#FetchList.
-    def exitFetchList(self, ctx):
+    # Exit a parse tree produced by EParser#fetch_list_expression.
+    def exitFetch_list_expression(self, ctx):
         pass
 
 
@@ -1138,12 +1147,12 @@ class EParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EParser#FetchAll.
-    def enterFetchAll(self, ctx):
+    # Enter a parse tree produced by EParser#FetchMany.
+    def enterFetchMany(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#FetchAll.
-    def exitFetchAll(self, ctx):
+    # Exit a parse tree produced by EParser#FetchMany.
+    def exitFetchMany(self, ctx):
         pass
 
 

@@ -252,8 +252,8 @@ class OPromptoBuilder(OParserListener):
     
 
     
-    def exitMethodCallExpression(self, ctx:OParser.MethodCallExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
+    def exitMethod_expression(self, ctx:OParser.Method_expressionContext):
+        exp = self.getNodeValue(ctx.getChild(0))
         self.setNodeValue(ctx, exp)
 
 
@@ -263,11 +263,6 @@ class OPromptoBuilder(OParserListener):
 
 
     
-    def exitBlobExpression(self, ctx:OParser.BlobExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-
-
     def exitBlob_expression(self, ctx:OParser.Blob_expressionContext):
         exp = self.getNodeValue(ctx.expression())
         self.setNodeValue(ctx, BlobExpression(exp))
@@ -980,12 +975,6 @@ class OPromptoBuilder(OParserListener):
     def exitItemInstance(self, ctx:OParser.ItemInstanceContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, ItemInstance(None, exp))
-
-
-
-    def exitConstructorExpression(self, ctx:OParser.ConstructorExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
 
 
 
@@ -2032,18 +2021,6 @@ class OPromptoBuilder(OParserListener):
     
 
     
-    def exitSortedExpression(self, ctx:OParser.SortedExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-    
-
-    
-    def exitDocumentExpression(self, ctx:OParser.DocumentExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-    
-
-    
     def exitDocument_expression(self, ctx:OParser.Document_expressionContext):
         exp = self.getNodeValue(ctx.expression())
         self.setNodeValue(ctx, DocumentExpression(exp))
@@ -2055,32 +2032,31 @@ class OPromptoBuilder(OParserListener):
     
 
     
-    def exitFetchExpression(self, ctx:OParser.FetchExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-
-
-    def exitFetchList(self, ctx:OParser.Fetch_expressionContext):
+    def exitFetch_list_expression(self, ctx:OParser.Fetch_list_expressionContext):
         itemName = self.getNodeValue(ctx.name)
         source = self.getNodeValue(ctx.source)
-        filter = self.getNodeValue(ctx.xfilter)
-        self.setNodeValue(ctx, FetchExpression(itemName, source, filter))
+        predicate = self.getNodeValue(ctx.predicate)
+        self.setNodeValue(ctx, FetchExpression(itemName, source, predicate))
+
 
 
     def exitFetchOne (self, ctx:OParser.FetchOneContext):
         category = self.getNodeValue(ctx.typ)
-        xfilter = self.getNodeValue(ctx.xfilter)
-        self.setNodeValue(ctx, FetchOneExpression(category, xfilter))
+        predicate = self.getNodeValue(ctx.predicate)
+        self.setNodeValue(ctx, FetchOneExpression(category, predicate))
 
 
-    def exitFetchAll (self, ctx:OParser.FetchAllContext):
+
+    def exitFetchMany (self, ctx:OParser.FetchManyContext):
         category = self.getNodeValue(ctx.typ)
-        xfilter = self.getNodeValue(ctx.xfilter)
+        predicate = self.getNodeValue(ctx.predicate)
         start = self.getNodeValue(ctx.xstart)
         stop = self.getNodeValue(ctx.xstop)
-        orderBy = self.getNodeValue(ctx.xorder)
-        self.setNodeValue(ctx, FetchManyExpression(category, xfilter, start, stop, orderBy))
-    
+        orderBy = self.getNodeValue(ctx.orderby)
+        self.setNodeValue(ctx, FetchManyExpression(category, predicate, start, stop, orderBy))
+
+
+
     def exitClosure_expression(self, ctx):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, MethodExpression(name))
@@ -2174,23 +2150,19 @@ class OPromptoBuilder(OParserListener):
     
 
     
-    def exitReadExpression(self, ctx:OParser.ReadExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-    
-
-    
     def exitWrite_statement(self, ctx:OParser.Write_statementContext):
         what = self.getNodeValue(ctx.what)
         target = self.getNodeValue(ctx.target)
         self.setNodeValue(ctx, WriteStatement(what, target))
     
 
+
     def exitWith_singleton_statement(self, ctx:OParser.With_singleton_statementContext):
         name = self.getNodeValue(ctx.typ)
         typ = CategoryType(name)
         stmts = self.getNodeValue(ctx.stmts)
         self.setNodeValue(ctx, WithSingletonStatement(typ, stmts))
+
 
 
     def exitWithSingletonStatement(self, ctx:OParser.WithSingletonStatementContext):

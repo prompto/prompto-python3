@@ -2077,32 +2077,41 @@ class EPromptoBuilder(EParserListener):
     
 
     
-    def exitFetchExpression(self, ctx:EParser.FetchExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, exp)
-    
-
-    
-    def exitFetchList(self, ctx:EParser.Fetch_expressionContext):
+    def exitFetch_list_expression(self, ctx:EParser.Fetch_list_expressionContext):
         itemName = self.getNodeValue(ctx.name)
         source = self.getNodeValue(ctx.source)
-        filter = self.getNodeValue(ctx.xfilter)
-        self.setNodeValue(ctx, FetchExpression(itemName, source, filter))
+        predicate = self.getNodeValue(ctx.predicate)
+        self.setNodeValue(ctx, FetchExpression(itemName, source, predicate))
+
 
 
     def exitFetchOne (self, ctx:EParser.FetchOneContext):
         category = self.getNodeValue(ctx.typ)
-        xfilter = self.getNodeValue(ctx.xfilter)
-        self.setNodeValue(ctx, FetchOneExpression(category, xfilter))
+        predicate = self.getNodeValue(ctx.predicate)
+        self.setNodeValue(ctx, FetchOneExpression(category, predicate))
 
 
-    def exitFetchAll (self, ctx:EParser.FetchAllContext):
+
+    def exitFetchListExpression(self, ctx:EParser.FetchListExpressionContext):
+        exp = self.getNodeValue(ctx.getChild(0))
+        self.setNodeValue(ctx, exp)
+
+
+
+    def exitFetchMany (self, ctx:EParser.FetchManyContext):
         category = self.getNodeValue(ctx.typ)
-        xfilter = self.getNodeValue(ctx.xfilter)
+        predicate = self.getNodeValue(ctx.predicate)
         start = self.getNodeValue(ctx.xstart)
         stop = self.getNodeValue(ctx.xstop)
-        orderBy = self.getNodeValue(ctx.xorder)
-        self.setNodeValue(ctx, FetchManyExpression(category, xfilter, start, stop, orderBy))
+        orderBy = self.getNodeValue(ctx.orderby)
+        self.setNodeValue(ctx, FetchManyExpression(category, predicate, start, stop, orderBy))
+
+
+
+    def exitFetchStoreExpression(self, ctx:EParser.FetchStoreExpressionContext):
+        exp = self.getNodeValue(ctx.getChild(0))
+        self.setNodeValue(ctx, exp)
+
 
 
     def exitCode_type(self, ctx:EParser.Code_typeContext):
