@@ -5,6 +5,9 @@ from prompto.value.IContainer import IContainer
 from prompto.utils.CodeWriter import CodeWriter
 from prompto.value.IValue import IValue
 from prompto.error.SyntaxError import SyntaxError
+from prompto.value.NullValue import NullValue
+
+
 
 class ContainsExpression(IExpression):
 
@@ -42,16 +45,24 @@ class ContainsExpression(IExpression):
         if isinstance(lval, IValue) and isinstance(rval, IValue):
             result = None
             if self.operator in [ContOp.IN, ContOp.NOT_IN]:
-                if isinstance(rval, IContainer):
+                if rval is NullValue.instance:
+                    result = False
+                elif isinstance(rval, IContainer):
                     result = rval.hasItem(context, lval)
             elif self.operator in [ContOp.CONTAINS, ContOp.NOT_CONTAINS]:
-                if isinstance(lval, IContainer):
+                if lval is NullValue.instance:
+                    result = False
+                elif isinstance(lval, IContainer):
                     result = lval.hasItem(context, rval)
             elif self.operator in [ContOp.CONTAINS_ALL, ContOp.NOT_CONTAINS_ALL]:
-                if isinstance(lval, IContainer) and isinstance(rval, IContainer):
+                if lval is NullValue.instance or rval is NullValue.instance:
+                    result = False
+                elif isinstance(lval, IContainer) and isinstance(rval, IContainer):
                     result = self.containsAll(context, lval, rval)
             elif self.operator in [ContOp.CONTAINS_ANY, ContOp.NOT_CONTAINS_ANY]:
-                if isinstance(lval, IContainer) and isinstance(rval, IContainer):
+                if lval is NullValue.instance or rval is NullValue.instance:
+                    result = False
+                elif isinstance(lval, IContainer) and isinstance(rval, IContainer):
                     result = self.containsAny(context, lval, rval)
             if result != None:
                 if self.operator.name.find("NOT") == 0:
@@ -62,7 +73,7 @@ class ContainsExpression(IExpression):
             tmp = lval
             lval = rval
             rval = tmp
-        lowerName = self.operator.name.tolower().replace('_', ' ')
+        lowerName = self.operator.name.lower().replace('_', ' ')
         raise SyntaxError("Illegal comparison: " + type(lval).__name__ + \
                           " " + lowerName + " " + type(rval).__name__)
 

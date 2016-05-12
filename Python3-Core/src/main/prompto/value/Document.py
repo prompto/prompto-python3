@@ -1,5 +1,6 @@
 from prompto.type.DocumentType import DocumentType
 from prompto.value.BaseValue import BaseValue
+from prompto.value.NullValue import NullValue
 from prompto.value.Text import Text
 from prompto.error.SyntaxError import SyntaxError
 
@@ -18,9 +19,9 @@ class Document ( BaseValue ):
         result = self.values.get(name, None)
         return result is not None
 
-    def getMember(self, context, name, autoCreate=False):
-        result = self.values.get(name, None)
-        if autoCreate and result is None:
+    def getMember(self, context, name, autoCreate = False):
+        result = self.values.get(name, NullValue.instance)
+        if autoCreate and result is NullValue.instance:
             result = Document()
             self.values[name] = result
         return result
