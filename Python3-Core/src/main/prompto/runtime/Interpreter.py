@@ -63,11 +63,11 @@ class Interpreter(object):
             valueArgs = dict()
             for key, value in args:
                 valueArgs[Text(key)] = Text(value)
-            dict_ = Dictionary(valueArgs)
+            dict_ = Dictionary(False, valueArgs)
             return ExpressionValue(Interpreter.argsType, dict_)
         except:
             # TODO
-            return DictLiteral()
+            return DictLiteral(False)
 
 
     @staticmethod

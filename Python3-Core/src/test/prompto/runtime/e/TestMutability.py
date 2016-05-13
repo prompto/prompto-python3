@@ -16,8 +16,17 @@ class TestMutability(BaseEParserTest):
     def testImmutableArgument(self):
         self.checkOutput("mutability/immutableArgument.pec")
 
+    def testImmutableDict(self):
+        self.checkOutput("mutability/immutableDict.pec")
+
+    def testImmutableList(self):
+        self.checkOutput("mutability/immutableList.pec")
+
     def testImmutableMember(self):
         self.checkOutput("mutability/immutableMember.pec")
+
+    def testImmutableTuple(self):
+        self.checkOutput("mutability/immutableTuple.pec")
 
     def testMutable(self):
         self.checkOutput("mutability/mutable.pec")
@@ -25,7 +34,16 @@ class TestMutability(BaseEParserTest):
     def testMutableArgument(self):
         self.checkOutput("mutability/mutableArgument.pec")
 
+    def testMutableDict(self):
+        self.checkOutput("mutability/mutableDict.pec")
+
+    def testMutableList(self):
+        self.checkOutput("mutability/mutableList.pec")
+
     def testMutableMember(self):
         self.checkOutput("mutability/mutableMember.pec")
+
+    def testMutableTuple(self):
+        self.checkOutput("mutability/mutableTuple.pec")
 
 

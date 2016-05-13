@@ -7,13 +7,14 @@ from prompto.value.BaseValueList import BaseValueList
 
 class TupleValue ( BaseValueList ):
 
-    def __init__(self, items=None, item = None):
+    def __init__(self, mutable, items=None, item = None):
         super().__init__(TupleType(), items)
+        self.mutable = mutable
         if item is not None:
             self.items.append(item)
 
     def newInstance(self, items):
-        return TupleValue(items)
+        return TupleValue(False, items)
 
     def Add(self, context, value):
         if isinstance(value, BaseValueList):

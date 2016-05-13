@@ -103,7 +103,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         return self.values == obj.values
 
     def __str__(self):
-        return str(Dictionary(MissingType.instance, value=self.values))
+        return str(Dictionary(MissingType.instance, False, value=self.values))
 
     def __hash__(self):
         return hash((self.declaration.name,frozenset(self.values.items())))

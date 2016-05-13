@@ -17,10 +17,11 @@ class Dictionary(BaseValue, IContainer):
 
     @staticmethod
     def merge(dict1, dict2):
-        return Dictionary(dict1.type.itemType, value=dict(dict1.value, **dict2.value))
+        return Dictionary(dict1.type.itemType, False, value=dict(dict1.value, **dict2.value))
 
-    def __init__(self, itemType, copyFrom=None, value=None):
+    def __init__(self, itemType, mutable, copyFrom=None, value=None):
         super().__init__(DictType(itemType))
+        self.mutable = mutable
         if copyFrom != None:
             self.value = copyFrom.value
         elif value != None:
@@ -62,6 +63,15 @@ class Dictionary(BaseValue, IContainer):
             return ListValue(self.type.itemType, items=self.value.values())
         else:
             raise SyntaxError("No such member:" + name)
+
+
+    def setItem(self, context, item, value):
+        from prompto.value.Text import Text
+        if isinstance(item, Text):
+            self.value[item.value] = value
+        else:
+            raise SyntaxError("No such item:" + str(item))
+
 
     def getItem(self, context, item):
         from prompto.value.Text import Text

@@ -16,8 +16,17 @@ class TestMutability(BaseOParserTest):
     def testImmutableArgument(self):
         self.checkOutput("mutability/immutableArgument.poc")
 
+    def testImmutableDict(self):
+        self.checkOutput("mutability/immutableDict.poc")
+
+    def testImmutableList(self):
+        self.checkOutput("mutability/immutableList.poc")
+
     def testImmutableMember(self):
         self.checkOutput("mutability/immutableMember.poc")
+
+    def testImmutableTuple(self):
+        self.checkOutput("mutability/immutableTuple.poc")
 
     def testMutable(self):
         self.checkOutput("mutability/mutable.poc")
@@ -25,7 +34,16 @@ class TestMutability(BaseOParserTest):
     def testMutableArgument(self):
         self.checkOutput("mutability/mutableArgument.poc")
 
+    def testMutableDict(self):
+        self.checkOutput("mutability/mutableDict.poc")
+
+    def testMutableList(self):
+        self.checkOutput("mutability/mutableList.poc")
+
     def testMutableMember(self):
         self.checkOutput("mutability/mutableMember.poc")
+
+    def testMutableTuple(self):
+        self.checkOutput("mutability/mutableTuple.poc")
 
 
