@@ -11,6 +11,8 @@ from prompto.value.IContainer import IContainer
 from prompto.value.IValue import IValue
 from prompto.value.Integer import Integer
 from prompto.value.ListValue import ListValue
+from prompto.value.NullValue import NullValue
+
 
 
 class Dictionary(BaseValue, IContainer):
@@ -76,7 +78,7 @@ class Dictionary(BaseValue, IContainer):
     def getItem(self, context, item):
         from prompto.value.Text import Text
         if isinstance(item, Text):
-            value = self.value.get(item.value, None)
+            value = self.value.get(item.value, NullValue.instance)
             if isinstance(value, IValue):
                 return value
             else:
