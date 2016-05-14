@@ -13,6 +13,9 @@ class TestLoops(BaseEParserTest):
     def testDoWhile(self):
         self.checkOutput("loops/doWhile.pec")
 
+    def testEmbeddedForEach(self):
+        self.checkOutput("loops/embeddedForEach.pec")
+
     def testForEachCharacterRange(self):
         self.checkOutput("loops/forEachCharacterRange.pec")
 

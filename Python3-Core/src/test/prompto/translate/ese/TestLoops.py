@@ -8,6 +8,9 @@ class TestLoops(BaseEParserTest):
     def testDoWhile(self):
         self.compareResourceESE("loops/doWhile.pec")
 
+    def testEmbeddedForEach(self):
+        self.compareResourceESE("loops/embeddedForEach.pec")
+
     def testForEachCharacterRange(self):
         self.compareResourceESE("loops/forEachCharacterRange.pec")
 

@@ -8,6 +8,9 @@ class TestCondition(BaseOParserTest):
     def testComplexIf(self):
         self.compareResourceOEO("condition/complexIf.poc")
 
+    def testEmbeddedIf(self):
+        self.compareResourceOEO("condition/embeddedIf.poc")
+
     def testReturnIf(self):
         self.compareResourceOEO("condition/returnIf.poc")
 

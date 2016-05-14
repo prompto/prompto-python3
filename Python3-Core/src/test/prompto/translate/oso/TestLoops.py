@@ -8,6 +8,9 @@ class TestLoops(BaseOParserTest):
     def testDoWhile(self):
         self.compareResourceOSO("loops/doWhile.poc")
 
+    def testEmbeddedForEach(self):
+        self.compareResourceOSO("loops/embeddedForEach.poc")
+
     def testForEachCharacterRange(self):
         self.compareResourceOSO("loops/forEachCharacterRange.poc")
 
