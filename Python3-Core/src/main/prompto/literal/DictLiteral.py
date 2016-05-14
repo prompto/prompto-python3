@@ -14,7 +14,6 @@ class DictLiteral(Literal):
             entries = DictEntryList()
         super().__init__(str(entries), Dictionary(MissingType.instance, mutable))
         self.mutable = mutable
-
         self.entries = entries
         self.itemType = None
 
