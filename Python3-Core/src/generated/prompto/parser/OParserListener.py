@@ -301,6 +301,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#FlushStatement.
+    def enterFlushStatement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#FlushStatement.
+    def exitFlushStatement(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#ReturnStatement.
     def enterReturnStatement(self, ctx):
         pass
@@ -415,6 +424,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#CommentStatement.
     def exitCommentStatement(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#flush_statement.
+    def enterFlush_statement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#flush_statement.
+    def exitFlush_statement(self, ctx):
         pass
 
 

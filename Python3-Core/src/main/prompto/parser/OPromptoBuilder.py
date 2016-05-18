@@ -163,6 +163,7 @@ from prompto.statement.CollectionSwitchCase import CollectionSwitchCase
 from prompto.statement.CommentStatement import CommentStatement
 from prompto.statement.DeclarationStatement import DeclarationStatement
 from prompto.statement.DoWhileStatement import DoWhileStatement
+from prompto.statement.FlushStatement import FlushStatement
 from prompto.statement.ForEachStatement import ForEachStatement
 from prompto.statement.IfStatement import IfElement, IfStatement, IfElementList
 from prompto.statement.RaiseStatement import RaiseStatement
@@ -1271,9 +1272,19 @@ class OPromptoBuilder(OParserListener):
     def exitJavaMethodExpression(self, ctx:OParser.JavaMethodExpressionContext):
         exp = self.getNodeValue(ctx.java_method_expression())
         self.setNodeValue(ctx, exp)
-    
 
-    
+
+
+    def exitFlush_statement(self, ctx: OParser.Flush_statementContext):
+        self.setNodeValue(ctx, FlushStatement())
+
+
+
+    def exitFlushStatement(self, ctx: OParser.FlushStatementContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.stmt))
+
+
+
     def exitFullDeclarationList(self, ctx:OParser.FullDeclarationListContext):
         items = self.getNodeValue(ctx.declarations())
         if items is None:

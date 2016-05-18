@@ -8,6 +8,9 @@ class TestStore(BaseEParserTest):
     def testDeleteRecords(self):
         self.compareResourceEOE("store/deleteRecords.pec")
 
+    def testFlush(self):
+        self.compareResourceEOE("store/flush.pec")
+
     def testListRecords(self):
         self.compareResourceEOE("store/listRecords.pec")
 

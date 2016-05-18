@@ -10,6 +10,9 @@ class TestStore(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testFlush(self):
+        self.checkOutput("store/flush.pec")
+
     def testListRecords(self):
         self.checkOutput("store/listRecords.pec")
 

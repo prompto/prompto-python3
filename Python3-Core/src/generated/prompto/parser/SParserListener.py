@@ -265,6 +265,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#FlushStatement.
+    def enterFlushStatement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#FlushStatement.
+    def exitFlushStatement(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#ReturnStatement.
     def enterReturnStatement(self, ctx):
         pass
@@ -379,6 +388,15 @@ class SParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by SParser#CommentStatement.
     def exitCommentStatement(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#flush_statement.
+    def enterFlush_statement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#flush_statement.
+    def exitFlush_statement(self, ctx):
         pass
 
 

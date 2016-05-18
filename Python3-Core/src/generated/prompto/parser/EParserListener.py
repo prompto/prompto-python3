@@ -292,6 +292,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#FlushStatement.
+    def enterFlushStatement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#FlushStatement.
+    def exitFlushStatement(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#ReturnStatement.
     def enterReturnStatement(self, ctx):
         pass
@@ -406,6 +415,15 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#CommentStatement.
     def exitCommentStatement(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#flush_statement.
+    def enterFlush_statement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#flush_statement.
+    def exitFlush_statement(self, ctx):
         pass
 
 

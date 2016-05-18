@@ -164,6 +164,7 @@ from prompto.statement.CollectionSwitchCase import CollectionSwitchCase
 from prompto.statement.CommentStatement import CommentStatement
 from prompto.statement.DeclarationStatement import DeclarationStatement
 from prompto.statement.DoWhileStatement import DoWhileStatement
+from prompto.statement.FlushStatement import FlushStatement
 from prompto.statement.ForEachStatement import ForEachStatement
 from prompto.statement.IfStatement import IfElement, IfElementList, IfStatement
 from prompto.statement.RaiseStatement import RaiseStatement
@@ -933,6 +934,16 @@ class SPromptoBuilder(SParserListener):
         stop = self.getNodeValue(ctx.xstop)
         orderBy = self.getNodeValue(ctx.orderby)
         self.setNodeValue(ctx, FetchManyExpression(category, predicate, start, stop, orderBy))
+
+
+
+    def exitFlush_statement(self, ctx: SParser.Flush_statementContext):
+        self.setNodeValue(ctx, FlushStatement())
+
+
+
+    def exitFlushStatement(self, ctx: SParser.FlushStatementContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.stmt))
 
 
 

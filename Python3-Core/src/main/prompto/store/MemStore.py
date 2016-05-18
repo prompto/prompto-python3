@@ -11,14 +11,21 @@ class MemStore(object):
     def __init__(self):
         self.documents = set()
 
+
+    def flush (self):
+        pass # nothing to do
+
+
     def store (self,  document):
         self.documents.add (document)
+
 
     def fetchOne (self, context, predicate):
         for doc in self.documents:
             if self.matches(context, doc, predicate):
                 return doc
         return None
+
 
     def matches (self, context, doc, predicate):
         if predicate is None:
@@ -28,6 +35,7 @@ class MemStore(object):
         if not isinstance(test, Boolean):
             raise InternalError ("Illegal test result: " + test)
         return test.value
+
 
     def fetchMany(self, context, start, end, predicate, orderBy):
         docs = self.fetchManyDocs(context, start, end, predicate, orderBy)

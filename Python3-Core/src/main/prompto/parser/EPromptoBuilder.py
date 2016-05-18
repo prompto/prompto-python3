@@ -162,6 +162,7 @@ from prompto.statement.CollectionSwitchCase import CollectionSwitchCase
 from prompto.statement.CommentStatement import CommentStatement
 from prompto.statement.DeclarationStatement import DeclarationStatement
 from prompto.statement.DoWhileStatement import DoWhileStatement
+from prompto.statement.FlushStatement import FlushStatement
 from prompto.statement.ForEachStatement import ForEachStatement
 from prompto.statement.IfStatement import IfElement, IfStatement, IfElementList
 from prompto.statement.MethodCall import MethodCall
@@ -752,9 +753,19 @@ class EPromptoBuilder(EParserListener):
             item = self.getNodeValue(rule)
             items.append(item)
         self.setNodeValue(ctx, items)
-    
 
-    
+
+
+    def exitFlush_statement(self, ctx:EParser.Flush_statementContext):
+        self.setNodeValue(ctx, FlushStatement())
+
+
+
+    def exitFlushStatement(self, ctx:EParser.FlushStatementContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.stmt))
+
+
+
     def exitFull_argument_list(self, ctx:EParser.Full_argument_listContext):
         items = self.getNodeValue(ctx.items)
         item = self.getNodeValue(ctx.item)
