@@ -2155,6 +2155,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#UUIDLiteral.
+    def enterUUIDLiteral(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#UUIDLiteral.
+    def exitUUIDLiteral(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#NullLiteral.
     def enterNullLiteral(self, ctx):
         pass

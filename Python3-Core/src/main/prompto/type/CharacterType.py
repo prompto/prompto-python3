@@ -1,11 +1,11 @@
 from prompto.error.InvalidDataError import InvalidDataError
-from prompto.type.AnyType import *
-from prompto.type.BooleanType import *
-from prompto.type.NativeType import *
-from prompto.type.RangeType import *
+from prompto.type.AnyType import AnyType
+from prompto.type.BooleanType import BooleanType
+from prompto.type.NativeType import NativeType
+from prompto.type.RangeType import RangeType
 from prompto.type.TextType import TextType
-from prompto.value.Character import *
-from prompto.value.CharacterRange import *
+from prompto.value.Character import Character
+from prompto.value.CharacterRange import CharacterRange
 
 
 class CharacterType(NativeType):
@@ -50,10 +50,10 @@ class CharacterType(NativeType):
         return sorted(list_, cmp=compare)
 
     def toString(self, value):
-        return "'" + str(value) + "'";
+        return "'" + str(value) + "'"
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
-        if isinstance(value, basestring):
+        if isinstance(value, str):
             return Character(value)
         else:
             return value  # TODO for now

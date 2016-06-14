@@ -2182,6 +2182,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#UUIDLiteral.
+    def enterUUIDLiteral(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#UUIDLiteral.
+    def exitUUIDLiteral(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#NullLiteral.
     def enterNullLiteral(self, ctx):
         pass
