@@ -17,7 +17,7 @@ class DateType(NativeType):
         super(DateType, self).__init__("Date")
 
     def isAssignableTo(self, context, other):
-        return isinstance(other, DateType) or isinstance(other, AnyType)
+        return isinstance(other, (DateType, AnyType))
 
     def checkAdd(self, context, other, tryReverse):
         if isinstance(other, PeriodType):
@@ -29,11 +29,8 @@ class DateType(NativeType):
             return self  # ignore time section
         elif isinstance(other, DateType):
             return PeriodType.instance
-        elif isinstance(other, TimeType):
-            return PeriodType.instance
-        elif isinstance(other, DateTimeType):
-            return PeriodType.instance
-        return super(DateType, self).checkSubstract(context, other)
+        else:
+            return super(DateType, self).checkSubstract(context, other)
 
     def checkCompare(self, context, other):
         if isinstance(other, DateType):

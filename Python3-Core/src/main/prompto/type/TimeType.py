@@ -16,7 +16,7 @@ class TimeType(NativeType):
         super(TimeType, self).__init__("Time")
 
     def isAssignableTo(self, context, other):
-        return isinstance(other, TimeType) or isinstance(other, AnyType)
+        return isinstance(other, (TimeType, AnyType))
 
     def checkAdd(self, context, other, tryReverse):
         from prompto.type.DateTimeType import DateTimeType
@@ -29,7 +29,7 @@ class TimeType(NativeType):
         if isinstance(other, TimeType):
             return PeriodType.instance
         elif isinstance(other, PeriodType):
-            return DateTimeType.instance
+            return self
         else:
             return super(TimeType, self).checkSubstract(context, other)
 
