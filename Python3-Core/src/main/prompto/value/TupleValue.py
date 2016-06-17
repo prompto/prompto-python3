@@ -4,6 +4,9 @@ from prompto.error.InternalError import InternalError
 from prompto.literal.Literal import Literal
 from prompto.type.TupleType import TupleType
 from prompto.value.BaseValueList import BaseValueList
+from prompto.value.SetValue import SetValue
+
+
 
 class TupleValue ( BaseValueList ):
 
@@ -17,7 +20,7 @@ class TupleValue ( BaseValueList ):
         return TupleValue(False, items)
 
     def Add(self, context, value):
-        if isinstance(value, BaseValueList):
+        if isinstance(value, (BaseValueList, SetValue)):
             return self.merge(value)
         else:
             raise SyntaxError("Illegal: Tuple + " + type(value).__name__)

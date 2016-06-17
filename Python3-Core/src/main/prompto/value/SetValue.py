@@ -67,7 +67,10 @@ class SetValue(BaseValue, IContainer):
     def merge(self, items):
         data = set()
         data |= self.items
-        data |= items
+        if isinstance(items, set):
+            data |= items
+        else:
+            data |= set(items)
         return SetValue(self.type.itemType, data)
 
     def filter(self, context, itemName, filter):
