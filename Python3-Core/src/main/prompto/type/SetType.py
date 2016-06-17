@@ -1,6 +1,5 @@
 from prompto.type.BooleanType import BooleanType
 from prompto.type.ContainerType import ContainerType
-from prompto.value.IContainer import IContainer
 
 class SetType(ContainerType):
 
@@ -20,7 +19,8 @@ class SetType(ContainerType):
         return self.getItemType() == obj.getItemType()
 
     def checkAdd(self, context, other, tryReverse):
-        if isinstance(other, ContainerType) and self.getItemType() == other.getItemType():
+        from prompto.type.ListType import ListType
+        if isinstance(other, (ListType, SetType)) and self.getItemType() == other.getItemType():
             return self
         else:
             return super().checkAdd(context, other, tryReverse)
