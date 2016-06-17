@@ -19,8 +19,7 @@ class ListValue(BaseValueList):
 
     def Add(self, context, value):
         from prompto.value.SetValue import SetValue
-        from prompto.value.TupleValue import TupleValue
-        if isinstance(value, (ListValue, TupleValue, SetValue)):
+        if isinstance(value, (ListValue, SetValue)):
             return self.merge(value)
         else:
             return super.Add(context, value)
