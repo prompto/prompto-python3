@@ -5,11 +5,23 @@ class TestCast(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testAutoDecimalCast(self):
+        self.compareResourceEOE("cast/autoDecimalCast.pec")
+
     def testAutoDowncast(self):
         self.compareResourceEOE("cast/autoDowncast.pec")
 
+    def testAutoIntegerCast(self):
+        self.compareResourceEOE("cast/autoIntegerCast.pec")
+
     def testCastChild(self):
         self.compareResourceEOE("cast/castChild.pec")
+
+    def testCastDecimal(self):
+        self.compareResourceEOE("cast/castDecimal.pec")
+
+    def testCastInteger(self):
+        self.compareResourceEOE("cast/castInteger.pec")
 
     def testCastMissing(self):
         self.compareResourceEOE("cast/castMissing.pec")

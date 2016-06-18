@@ -10,11 +10,23 @@ class TestCast(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testAutoDecimalCast(self):
+        self.checkOutput("cast/autoDecimalCast.pec")
+
     def testAutoDowncast(self):
         self.checkOutput("cast/autoDowncast.pec")
 
+    def testAutoIntegerCast(self):
+        self.checkOutput("cast/autoIntegerCast.pec")
+
     def testCastChild(self):
         self.checkOutput("cast/castChild.pec")
+
+    def testCastDecimal(self):
+        self.checkOutput("cast/castDecimal.pec")
+
+    def testCastInteger(self):
+        self.checkOutput("cast/castInteger.pec")
 
     def testCastMissing(self):
         self.checkOutput("cast/castMissing.pec")

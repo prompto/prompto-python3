@@ -24,6 +24,9 @@ class TestCore(BaseEParserTest):
     def testError(self):
         self.runTests("core/error.pec")
 
+    def testMath(self):
+        self.runTests("core/math.pec")
+
     def testTime(self):
         self.runTests("core/time.pec")
 

@@ -1,6 +1,11 @@
 from prompto.expression.IExpression import IExpression
 from prompto.error.SyntaxError import SyntaxError
 from prompto.type.ContainerType import ContainerType
+from prompto.type.DecimalType import DecimalType
+from prompto.type.IntegerType import IntegerType
+from prompto.value.Decimal import Decimal
+from prompto.value.Integer import Integer
+
 
 
 class CastExpression (IExpression):
@@ -17,9 +22,16 @@ class CastExpression (IExpression):
 
     def interpret(self, context):
         value = self.expression.interpret(context)
-        if value is not None and self.type.isMoreSpecificThan(context, value.type):
-            value.type = self.type
+        if value is not None:
+            if isinstance(value, Integer) and self.type == DecimalType.instance:
+                value = Decimal(value.DecimalValue())
+            elif isinstance(value, Decimal) and self.type == IntegerType.instance:
+                return Integer(value.IntegerValue())
+            elif self.type.isMoreSpecificThan(context, value.type):
+                value.type = self.type
         return value
+
+
 
     def toSDialect(self, writer):
         self.toEDialect(writer)
