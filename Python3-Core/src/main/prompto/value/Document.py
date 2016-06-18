@@ -35,7 +35,7 @@ class Document ( BaseValue ):
     def getItem(self, context, index):
         if isinstance(index, Text):
             # TODO autocreate
-            return self.values.get(index.value, None)
+            return self.values.get(index.value, NullValue.instance)
         else:
             raise SyntaxError("No such item:" + index.toString())
 
