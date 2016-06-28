@@ -55,7 +55,7 @@ class Dictionary(BaseValue, IContainer):
 
 
     def getMember(self, context, name, autoCreate=False):
-        if "length" == name:
+        if "count" == name:
             return Integer(self.size())
         elif "keys" == name:
             from prompto.value.Text import Text

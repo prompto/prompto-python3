@@ -47,8 +47,8 @@ class TestBuiltins(BaseEParserTest):
     def testDateYear(self):
         self.compareResourceESE("builtins/dateYear.pec")
 
-    def testDictLength(self):
-        self.compareResourceESE("builtins/dictLength.pec")
+    def testDictCount(self):
+        self.compareResourceESE("builtins/dictCount.pec")
 
     def testEnumName(self):
         self.compareResourceESE("builtins/enumName.pec")
@@ -59,14 +59,14 @@ class TestBuiltins(BaseEParserTest):
     def testEnumValue(self):
         self.compareResourceESE("builtins/enumValue.pec")
 
-    def testListLength(self):
-        self.compareResourceESE("builtins/listLength.pec")
+    def testListCount(self):
+        self.compareResourceESE("builtins/listCount.pec")
 
-    def testSetLength(self):
-        self.compareResourceESE("builtins/setLength.pec")
+    def testSetCount(self):
+        self.compareResourceESE("builtins/setCount.pec")
 
-    def testTextLength(self):
-        self.compareResourceESE("builtins/textLength.pec")
+    def testTextCount(self):
+        self.compareResourceESE("builtins/textCount.pec")
 
     def testTimeHour(self):
         self.compareResourceESE("builtins/timeHour.pec")
@@ -77,7 +77,7 @@ class TestBuiltins(BaseEParserTest):
     def testTimeSecond(self):
         self.compareResourceESE("builtins/timeSecond.pec")
 
-    def testTupleLength(self):
-        self.compareResourceESE("builtins/tupleLength.pec")
+    def testTupleCount(self):
+        self.compareResourceESE("builtins/tupleCount.pec")
 
 

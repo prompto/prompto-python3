@@ -45,7 +45,7 @@ class DictType ( ContainerType ):
         return EntryType(self.itemType)
 
     def checkMember(self, context, name):
-        if "length"==name:
+        if "count"==name:
             return IntegerType.instance
         elif "keys"==name:
             return ListType(TextType.instance)

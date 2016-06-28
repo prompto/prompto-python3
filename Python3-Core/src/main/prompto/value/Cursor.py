@@ -1,3 +1,4 @@
+from prompto.error.InvalidDataError import InvalidDataError
 from prompto.value.BaseValue import BaseValue
 from prompto.type.CursorType import CursorType
 from prompto.value.IIterable import IIterable
@@ -22,7 +23,7 @@ class Cursor(BaseValue, IIterable):
             yield val
 
     def getMember(self, context, name, autoCreate=False):
-        if "length" == name:
+        if "count" == name:
             return Integer(len(self))
         else:
             raise InvalidDataError("No such member:" + name)

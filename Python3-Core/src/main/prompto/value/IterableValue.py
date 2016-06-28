@@ -24,7 +24,7 @@ class IterableValue(BaseValue, IIterable):
             yield value
 
     def getMember(self, context, name, autoCreate):
-        if "length"==name:
+        if "count"==name:
             return self.length
         else:
             raise InvalidDataError("No such member:" + name)

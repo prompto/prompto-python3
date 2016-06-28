@@ -44,8 +44,8 @@ class TestBuiltins(BaseOParserTest):
     def testDateYear(self):
         self.compareResourceOEO("builtins/dateYear.poc")
 
-    def testDictLength(self):
-        self.compareResourceOEO("builtins/dictLength.poc")
+    def testDictCount(self):
+        self.compareResourceOEO("builtins/dictCount.poc")
 
     def testEnumName(self):
         self.compareResourceOEO("builtins/enumName.poc")
@@ -56,14 +56,14 @@ class TestBuiltins(BaseOParserTest):
     def testEnumValue(self):
         self.compareResourceOEO("builtins/enumValue.poc")
 
-    def testListLength(self):
-        self.compareResourceOEO("builtins/listLength.poc")
+    def testListCount(self):
+        self.compareResourceOEO("builtins/listCount.poc")
 
-    def testSetLength(self):
-        self.compareResourceOEO("builtins/setLength.poc")
+    def testSetCount(self):
+        self.compareResourceOEO("builtins/setCount.poc")
 
-    def testTextLength(self):
-        self.compareResourceOEO("builtins/textLength.poc")
+    def testTextCount(self):
+        self.compareResourceOEO("builtins/textCount.poc")
 
     def testTimeHour(self):
         self.compareResourceOEO("builtins/timeHour.poc")
@@ -74,7 +74,7 @@ class TestBuiltins(BaseOParserTest):
     def testTimeSecond(self):
         self.compareResourceOEO("builtins/timeSecond.poc")
 
-    def testTupleLength(self):
-        self.compareResourceOEO("builtins/tupleLength.poc")
+    def testTupleCount(self):
+        self.compareResourceOEO("builtins/tupleCount.poc")
 
 

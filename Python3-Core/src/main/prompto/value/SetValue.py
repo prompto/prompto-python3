@@ -86,7 +86,7 @@ class SetValue(BaseValue, IContainer):
         return SetValue(self.type.itemType, result)
 
     def getMember(self, context, name, autoCreate=False):
-        if "length" == name:
+        if "count" == name:
             return Integer(len(self.items))
         else:
             return super(SetValue, self).getMember(context, name)

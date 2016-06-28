@@ -40,7 +40,7 @@ class TextType(NativeType):
 
     def checkMember(self, context, name):
         from prompto.type.IntegerType import IntegerType
-        if "length" == name:
+        if "count" == name:
             return IntegerType.instance
         else:
             return super(TextType, self).checkMember(context, name)

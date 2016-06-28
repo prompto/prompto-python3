@@ -46,8 +46,8 @@ class TestBuiltins(BaseOParserTest):
     def testDateYear(self):
         self.checkOutput("builtins/dateYear.poc")
 
-    def testDictLength(self):
-        self.checkOutput("builtins/dictLength.poc")
+    def testDictCount(self):
+        self.checkOutput("builtins/dictCount.poc")
 
     def testEnumName(self):
         self.checkOutput("builtins/enumName.poc")
@@ -58,14 +58,14 @@ class TestBuiltins(BaseOParserTest):
     def testEnumValue(self):
         self.checkOutput("builtins/enumValue.poc")
 
-    def testListLength(self):
-        self.checkOutput("builtins/listLength.poc")
+    def testListCount(self):
+        self.checkOutput("builtins/listCount.poc")
 
-    def testSetLength(self):
-        self.checkOutput("builtins/setLength.poc")
+    def testSetCount(self):
+        self.checkOutput("builtins/setCount.poc")
 
-    def testTextLength(self):
-        self.checkOutput("builtins/textLength.poc")
+    def testTextCount(self):
+        self.checkOutput("builtins/textCount.poc")
 
     def testTimeHour(self):
         self.checkOutput("builtins/timeHour.poc")
@@ -76,7 +76,7 @@ class TestBuiltins(BaseOParserTest):
     def testTimeSecond(self):
         self.checkOutput("builtins/timeSecond.poc")
 
-    def testTupleLength(self):
-        self.checkOutput("builtins/tupleLength.poc")
+    def testTupleCount(self):
+        self.checkOutput("builtins/tupleCount.poc")
 
 

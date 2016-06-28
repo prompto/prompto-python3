@@ -70,7 +70,7 @@ class Text(BaseValue, ISliceable, IMultiplyable):
 
 
     def getMember(self, context, name, autoCreate=False):
-        if "length" == name:
+        if "count" == name:
             return Integer(len(self.value))
         else:
             raise InvalidDataError("No such member:" + name)
