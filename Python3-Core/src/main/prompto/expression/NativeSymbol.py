@@ -19,7 +19,7 @@ class NativeSymbol ( Symbol, IExpression ):
         self.type_ = type_
 
     def __str__(self):
-        return self.symbol + " with " + str(self.expression) + " as value"
+        return self.symbol
 
     def toSDialect(self, writer):
         writer.append(self.symbol)
