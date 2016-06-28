@@ -3,6 +3,7 @@ from prompto.type.ContainerType import ContainerType
 from prompto.type.EntryType import EntryType
 from prompto.type.IntegerType import IntegerType
 from prompto.type.ListType import ListType
+from prompto.type.SetType import SetType
 from prompto.type.TextType import TextType
 
 
@@ -48,7 +49,7 @@ class DictType ( ContainerType ):
         if "count"==name:
             return IntegerType.instance
         elif "keys"==name:
-            return ListType(TextType.instance)
+            return SetType(TextType.instance)
         elif "values"==name:
             return ListType(self.itemType)
         else:

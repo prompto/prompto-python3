@@ -67,7 +67,7 @@ class DateTime(BaseValue):
         elif "millisecond" == name:
             return Integer(self.value.microsecond // 1000)
         elif "tzOffset" == name:
-            return Integer(7200)  # self.value.getZone().toTimeZone().getRawOffset() / 1000)
+            return Integer(0)  # self.value.getZone().toTimeZone().getRawOffset() / 1000)
         elif "tzName" == name:
             from prompto.value.Text import Text
             return Text("Z")  # self.value.getZone().toTimeZone().getDisplayName())

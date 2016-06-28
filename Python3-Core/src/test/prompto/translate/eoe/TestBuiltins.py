@@ -53,6 +53,12 @@ class TestBuiltins(BaseEParserTest):
     def testDictCount(self):
         self.compareResourceEOE("builtins/dictCount.pec")
 
+    def testDictKeys(self):
+        self.compareResourceEOE("builtins/dictKeys.pec")
+
+    def testDictValues(self):
+        self.compareResourceEOE("builtins/dictValues.pec")
+
     def testEnumName(self):
         self.compareResourceEOE("builtins/enumName.pec")
 

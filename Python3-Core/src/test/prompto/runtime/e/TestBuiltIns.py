@@ -43,9 +43,6 @@ class TestBuiltins(BaseEParserTest):
     def testDateTimeSecond(self):
         self.checkOutput("builtins/dateTimeSecond.pec")
 
-    def testDateTimeTZOffset(self):
-        self.checkOutput("builtins/dateTimeTZOffset.pec")
-
     def testDateTimeYear(self):
         self.checkOutput("builtins/dateTimeYear.pec")
 
@@ -54,6 +51,12 @@ class TestBuiltins(BaseEParserTest):
 
     def testDictCount(self):
         self.checkOutput("builtins/dictCount.pec")
+
+    def testDictKeys(self):
+        self.checkOutput("builtins/dictKeys.pec")
+
+    def testDictValues(self):
+        self.checkOutput("builtins/dictValues.pec")
 
     def testEnumName(self):
         self.checkOutput("builtins/enumName.pec")

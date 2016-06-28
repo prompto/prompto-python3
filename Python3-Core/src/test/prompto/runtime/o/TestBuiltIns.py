@@ -37,9 +37,6 @@ class TestBuiltins(BaseOParserTest):
     def testDateTimeSecond(self):
         self.checkOutput("builtins/dateTimeSecond.poc")
 
-    def testDateTimeTZOffset(self):
-        self.checkOutput("builtins/dateTimeTZOffset.poc")
-
     def testDateTimeYear(self):
         self.checkOutput("builtins/dateTimeYear.poc")
 

@@ -12,6 +12,7 @@ from prompto.value.IValue import IValue
 from prompto.value.Integer import Integer
 from prompto.value.ListValue import ListValue
 from prompto.value.NullValue import NullValue
+from prompto.value.SetValue import SetValue
 
 
 
@@ -59,8 +60,8 @@ class Dictionary(BaseValue, IContainer):
             return Integer(self.size())
         elif "keys" == name:
             from prompto.value.Text import Text
-            res = [Text(k) for k in self.value.keys()]
-            return ListValue(TextType.instance, items=res)
+            res = set([Text(k) for k in self.value.keys()])
+            return SetValue(TextType.instance, items=res)
         elif "values" == name:
             return ListValue(self.type.itemType, items=self.value.values())
         else:
