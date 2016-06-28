@@ -1,6 +1,9 @@
+from prompto.error.InvalidDataError import InvalidDataError
 from prompto.error.SyntaxError import SyntaxError
 from prompto.value.BaseValue import BaseValue
 from prompto.value.IMultiplyable import IMultiplyable
+from prompto.value.Integer import Integer
+
 
 
 class Character ( BaseValue, IMultiplyable) :
@@ -16,6 +19,12 @@ class Character ( BaseValue, IMultiplyable) :
     def getValue(self):
         return self.value
  
+    def getMember(self, context, name, autoCreate=False):
+        if "codePoint" == name:
+            return Integer(ord(self.value))
+        else:
+            raise InvalidDataError("No such member:" + name)
+
     def Add(self, context, value):
         from prompto.value.Text import Text
         return Text(self.value + str(value))

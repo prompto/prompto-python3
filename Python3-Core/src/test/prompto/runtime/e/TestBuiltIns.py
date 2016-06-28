@@ -10,6 +10,9 @@ class TestBuiltins(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testCharCodePoint(self):
+        self.checkOutput("builtins/charCodePoint.pec")
+
     def testDateDayOfMonth(self):
         self.checkOutput("builtins/dateDayOfMonth.pec")
 

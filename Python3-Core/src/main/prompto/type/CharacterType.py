@@ -8,14 +8,22 @@ from prompto.value.Character import Character
 from prompto.value.CharacterRange import CharacterRange
 
 
+
 class CharacterType(NativeType):
     instance = None
 
     def __init__(self):
-        super(CharacterType, self).__init__("Character")
+        super().__init__("Character")
 
     def isAssignableTo(self, context, other):
         return isinstance(other, CharacterType) or isinstance(other, TextType) or isinstance(other, AnyType)
+
+    def checkMember(self, context, name):
+        from prompto.type.IntegerType import IntegerType
+        if "codePoint" == name:
+            return IntegerType.instance
+        else:
+            return super().checkMember(context, name)
 
     def checkAdd(self, context, other, tryReverse):
         return TextType.instance
@@ -25,22 +33,22 @@ class CharacterType(NativeType):
         if isinstance(other, IntegerType):
             return TextType.instance
         else:
-            return super(CharacterType, self).checkMultiply(context, other, tryReverse)
+            return super().checkMultiply(context, other, tryReverse)
 
     def checkCompare(self, context, other):
         if isinstance(other, CharacterType) or isinstance(other, TextType):
             return BooleanType.instance
-        return super(CharacterType, self).checkCompare(context, other)
+        return super().checkCompare(context, other)
 
     def checkRange(self, context, other):
         if isinstance(other, CharacterType):
             return RangeType(self)
-        return super(CharacterType, self).checkRange(context, other)
+        return super().checkRange(context, other)
 
     def newRange(self, left, right):
         if isinstance(left, Character) and isinstance(right, Character):
             return CharacterRange(left, right)
-        return super(CharacterType, self).newRange(left, right)
+        return super().newRange(left, right)
 
     def sort(self, context, list_):
 

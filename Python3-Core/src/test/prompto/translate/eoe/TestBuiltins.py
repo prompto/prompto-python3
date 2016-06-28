@@ -5,6 +5,9 @@ class TestBuiltins(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testCharCodePoint(self):
+        self.compareResourceEOE("builtins/charCodePoint.pec")
+
     def testDateDayOfMonth(self):
         self.compareResourceEOE("builtins/dateDayOfMonth.pec")
 
