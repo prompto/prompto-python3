@@ -26,6 +26,9 @@ class TestBuiltins(BaseEParserTest):
     def testDateTimeHour(self):
         self.compareResourceESE("builtins/dateTimeHour.pec")
 
+    def testDateTimeMilli(self):
+        self.compareResourceESE("builtins/dateTimeMilli.pec")
+
     def testDateTimeMinute(self):
         self.compareResourceESE("builtins/dateTimeMinute.pec")
 
@@ -70,6 +73,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testTimeHour(self):
         self.compareResourceESE("builtins/timeHour.pec")
+
+    def testTimeMilli(self):
+        self.compareResourceESE("builtins/timeMilli.pec")
 
     def testTimeMinute(self):
         self.compareResourceESE("builtins/timeMinute.pec")

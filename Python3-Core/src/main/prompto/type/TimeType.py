@@ -53,7 +53,7 @@ class TimeType(NativeType):
             return IntegerType.instance
         elif "second" == name:
             return IntegerType.instance
-        elif "millis" == name:
+        elif "millisecond" == name:
             return IntegerType.instance
         else:
             return super(TimeType, self).checkMember(context, name)

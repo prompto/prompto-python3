@@ -31,6 +31,9 @@ class TestBuiltins(BaseEParserTest):
     def testDateTimeHour(self):
         self.checkOutput("builtins/dateTimeHour.pec")
 
+    def testDateTimeMilli(self):
+        self.checkOutput("builtins/dateTimeMilli.pec")
+
     def testDateTimeMinute(self):
         self.checkOutput("builtins/dateTimeMinute.pec")
 
@@ -72,6 +75,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testTimeHour(self):
         self.checkOutput("builtins/timeHour.pec")
+
+    def testTimeMilli(self):
+        self.checkOutput("builtins/timeMilli.pec")
 
     def testTimeMinute(self):
         self.checkOutput("builtins/timeMinute.pec")

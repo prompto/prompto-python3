@@ -67,7 +67,7 @@ class DateTimeType(NativeType):
             return IntegerType.instance
         elif "second" == name:
             return IntegerType.instance
-        elif "millis" == name:
+        elif "millisecond" == name:
             return IntegerType.instance
         elif "tzOffset" == name:
             return IntegerType.instance

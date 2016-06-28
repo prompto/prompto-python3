@@ -3,7 +3,7 @@ from datetime import time, datetime, timedelta
 from prompto.value.BaseValue import BaseValue
 from prompto.value.Integer import Integer
 from prompto.value.Period import Period
-
+from prompto.error.SyntaxError import SyntaxError
 
 class Time(BaseValue):
 
@@ -68,8 +68,8 @@ class Time(BaseValue):
             return Integer(self.value.minute)
         elif "second" == name:
             return Integer(self.value.second)
-        elif "millis" == name:
-            return Integer(self.value.microsecond/1000)
+        elif "millisecond" == name:
+            return Integer(self.value.microsecond // 1000)
         else:
             raise SyntaxError("No such member:" + name)
 
