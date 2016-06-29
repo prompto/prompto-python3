@@ -220,12 +220,20 @@ class Context(IContext):
         else:
             return self.globals.getNativeBinding(klass)
 
+
+    def hasValue(self, name):
+        return self.contextForValue(name) is not None
+
+
+
     def getValue(self, name):
         context = self.contextForValue(name)
-        if context == None:
+        if context is None:
             # context = self.contextForValue(name)
             raise SyntaxError(name + " is not defined")
         return context.readValue(name)
+
+
 
     def readValue(self, name):
         value = self.values.get(name, None)

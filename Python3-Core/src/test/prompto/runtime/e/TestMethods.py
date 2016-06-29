@@ -22,6 +22,9 @@ class TestMethods(BaseEParserTest):
     def testE_as_e_bug(self):
         self.checkOutput("methods/e_as_e_bug.pec")
 
+    def testExplicit(self):
+        self.checkOutput("methods/explicit.pec")
+
     def testExpressionWith(self):
         self.checkOutput("methods/expressionWith.pec")
 

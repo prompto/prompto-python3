@@ -3,6 +3,8 @@ from prompto.parser.Dialect import Dialect
 from prompto.runtime.Context import MethodDeclarationMap
 from prompto.type.MethodType import MethodType
 from prompto.error.SyntaxError import SyntaxError
+from prompto.value.ClosureValue import ClosureValue
+
 
 
 class MethodExpression(IExpression):
@@ -25,7 +27,17 @@ class MethodExpression(IExpression):
             raise SyntaxError("No method with name:" + self.name)
 
     def interpret(self, context):
-        return context.getValue(self.name)
+        if context.hasValue(self.name):
+            return context.getValue(self.name)
+        else:
+            named = context.getRegistered(self.name)
+            if isinstance(named, MethodDeclarationMap):
+                for decl in named.values():
+                    return ClosureValue(context, decl)
+            else:
+                raise SyntaxError("No method with name:" + self.name)
+
+
 
     def toDialect(self, writer):
         if writer.dialect is Dialect.E:
