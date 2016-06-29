@@ -13,6 +13,9 @@ class TestContains(BaseEParserTest):
     def testContainsAllList(self):
         self.checkOutput("contains/containsAllList.pec")
 
+    def testContainsAllRange(self):
+        self.checkOutput("contains/containsAllRange.pec")
+
     def testContainsAllSet(self):
         self.checkOutput("contains/containsAllSet.pec")
 
@@ -24,6 +27,9 @@ class TestContains(BaseEParserTest):
 
     def testContainsAnyList(self):
         self.checkOutput("contains/containsAnyList.pec")
+
+    def testContainsAnyRange(self):
+        self.checkOutput("contains/containsAnyRange.pec")
 
     def testContainsAnySet(self):
         self.checkOutput("contains/containsAnySet.pec")

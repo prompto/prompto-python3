@@ -30,3 +30,8 @@ class RangeType(ContainerType):
 
     def checkIterator(self, context):
         return self.itemType
+
+
+    def checkContainsAllOrAny(self, context, other):
+        from prompto.type.BooleanType import BooleanType
+        return BooleanType.instance

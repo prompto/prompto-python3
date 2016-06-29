@@ -8,6 +8,9 @@ class TestContains(BaseEParserTest):
     def testContainsAllList(self):
         self.compareResourceEOE("contains/containsAllList.pec")
 
+    def testContainsAllRange(self):
+        self.compareResourceEOE("contains/containsAllRange.pec")
+
     def testContainsAllSet(self):
         self.compareResourceEOE("contains/containsAllSet.pec")
 
@@ -19,6 +22,9 @@ class TestContains(BaseEParserTest):
 
     def testContainsAnyList(self):
         self.compareResourceEOE("contains/containsAnyList.pec")
+
+    def testContainsAnyRange(self):
+        self.compareResourceEOE("contains/containsAnyRange.pec")
 
     def testContainsAnySet(self):
         self.compareResourceEOE("contains/containsAnySet.pec")
