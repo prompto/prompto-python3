@@ -10,6 +10,9 @@ class TestContains(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testContainsAllDict(self):
+        self.checkOutput("contains/containsAllDict.pec")
+
     def testContainsAllList(self):
         self.checkOutput("contains/containsAllList.pec")
 
@@ -24,6 +27,9 @@ class TestContains(BaseEParserTest):
 
     def testContainsAllTuple(self):
         self.checkOutput("contains/containsAllTuple.pec")
+
+    def testContainsAnyDict(self):
+        self.checkOutput("contains/containsAnyDict.pec")
 
     def testContainsAnyList(self):
         self.checkOutput("contains/containsAnyList.pec")

@@ -24,11 +24,15 @@ class DictType ( ContainerType ):
             return False
         return self.getItemType()==obj.getItemType()
 
+
+
     def checkAdd(self, context, other, tryReverse):
         if isinstance(other, DictType) and self.getItemType()==other.getItemType():
             return self
         else:
             return super(DictType, self).checkAdd(context, other, tryReverse)
+
+
 
     def checkContains(self, context, other):
         if other==TextType.instance:
@@ -36,11 +40,20 @@ class DictType ( ContainerType ):
         else:
             return super(DictType, self).checkContains(context, other)
 
+
+
+    def checkContainsAllOrAny(self, context, other):
+        return BooleanType.instance
+
+
+
     def checkItem(self, context, other):
         if other==TextType.instance:
             return self.itemType
         else:
             return super(DictType, self).checkItem(context,other)
+
+
 
     def checkIterator(self, context):
         return EntryType(self.itemType)

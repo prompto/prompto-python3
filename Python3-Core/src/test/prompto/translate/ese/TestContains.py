@@ -5,6 +5,9 @@ class TestContains(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testContainsAllDict(self):
+        self.compareResourceESE("contains/containsAllDict.pec")
+
     def testContainsAllList(self):
         self.compareResourceESE("contains/containsAllList.pec")
 
@@ -19,6 +22,9 @@ class TestContains(BaseEParserTest):
 
     def testContainsAllTuple(self):
         self.compareResourceESE("contains/containsAllTuple.pec")
+
+    def testContainsAnyDict(self):
+        self.compareResourceESE("contains/containsAnyDict.pec")
 
     def testContainsAnyList(self):
         self.compareResourceESE("contains/containsAnyList.pec")
