@@ -1,4 +1,5 @@
 from prompto.statement.SimpleStatement import SimpleStatement
+from prompto.type.CodeType import CodeType
 from prompto.type.VoidType import VoidType
 
 
@@ -23,6 +24,9 @@ class AssignInstanceStatement ( SimpleStatement ):
     def check(self, context):
         valueType = self.expression.check(context)
         self.instance.checkAssignValue(context, valueType)
+        # Code expressions need to be interpreted as part of full check
+        if valueType is CodeType.instance:
+            self.instance.assign(context, self.expression)
         return VoidType.instance
 
     def interpret(self, context):
