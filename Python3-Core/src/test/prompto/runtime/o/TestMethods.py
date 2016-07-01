@@ -25,6 +25,9 @@ class TestMethods(BaseOParserTest):
     def testExpressionWith(self):
         self.checkOutput("methods/expressionWith.poc")
 
+    def testExtended(self):
+        self.checkOutput("methods/extended.poc")
+
     def testImplicit(self):
         self.checkOutput("methods/implicit.poc")
 

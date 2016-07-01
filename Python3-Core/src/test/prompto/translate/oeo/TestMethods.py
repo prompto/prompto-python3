@@ -20,6 +20,9 @@ class TestMethods(BaseOParserTest):
     def testExpressionWith(self):
         self.compareResourceOEO("methods/expressionWith.poc")
 
+    def testExtended(self):
+        self.compareResourceOEO("methods/extended.poc")
+
     def testImplicit(self):
         self.compareResourceOEO("methods/implicit.poc")
 

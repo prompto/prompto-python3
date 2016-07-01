@@ -23,6 +23,9 @@ class TestMethods(BaseEParserTest):
     def testExpressionWith(self):
         self.compareResourceEOE("methods/expressionWith.pec")
 
+    def testExtended(self):
+        self.compareResourceEOE("methods/extended.pec")
+
     def testImplicit(self):
         self.compareResourceEOE("methods/implicit.pec")
 
