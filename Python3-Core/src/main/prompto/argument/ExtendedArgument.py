@@ -65,7 +65,7 @@ class ExtendedArgument(CategoryArgument):
         for attribute in self.attributes:
             from prompto.declaration.AttributeDeclaration import AttributeDeclaration
             actual = context.getRegisteredDeclaration(AttributeDeclaration, attribute)
-            if actual is not None:
+            if actual is None:
                 raise SyntaxError("Unknown attribute: \"" + attribute + "\"")
 
 
