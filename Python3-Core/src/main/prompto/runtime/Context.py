@@ -145,6 +145,8 @@ class Context(IContext):
             return actual
         if self.parent != None:
             return self.parent.getRegistered(name)
+        if self.calling != None and self.calling!=self.parent:
+            return self.calling.getRegistered(name)
         if id(self) != id(self.globals):
             return self.globals.getRegistered(name)
         return None
@@ -154,6 +156,8 @@ class Context(IContext):
         actual = self.declarations.get(name, None)
         if actual == None and self.parent != None:
             actual = self.parent.getRegisteredDeclaration(klass, name)
+        if actual == None and self.calling != None and self.calling!=self.parent:
+            actual = self.calling.getRegisteredDeclaration(klass, name)
         if actual == None and id(self) != id(self.globals):
             actual = self.globals.getRegisteredDeclaration(klass, name)
         if isinstance(actual, klass):
