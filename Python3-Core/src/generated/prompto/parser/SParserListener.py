@@ -274,6 +274,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#BreakStatement.
+    def enterBreakStatement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#BreakStatement.
+    def exitBreakStatement(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#ReturnStatement.
     def enterReturnStatement(self, ctx):
         pass
@@ -604,6 +613,15 @@ class SParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by SParser#CatchCollectionStatement.
     def exitCatchCollectionStatement(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#break_statement.
+    def enterBreak_statement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#break_statement.
+    def exitBreak_statement(self, ctx):
         pass
 
 

@@ -310,6 +310,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#BreakStatement.
+    def enterBreakStatement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#BreakStatement.
+    def exitBreakStatement(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#ReturnStatement.
     def enterReturnStatement(self, ctx):
         pass
@@ -577,6 +586,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#CatchCollectionStatement.
     def exitCatchCollectionStatement(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#break_statement.
+    def enterBreak_statement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#break_statement.
+    def exitBreak_statement(self, ctx):
         pass
 
 

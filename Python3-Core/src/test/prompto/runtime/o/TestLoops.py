@@ -13,8 +13,14 @@ class TestLoops(BaseOParserTest):
     def testDoWhile(self):
         self.checkOutput("loops/doWhile.poc")
 
+    def testDoWhileBreak(self):
+        self.checkOutput("loops/doWhileBreak.poc")
+
     def testEmbeddedForEach(self):
         self.checkOutput("loops/embeddedForEach.poc")
+
+    def testForEachBreak(self):
+        self.checkOutput("loops/forEachBreak.poc")
 
     def testForEachCharacterRange(self):
         self.checkOutput("loops/forEachCharacterRange.poc")
@@ -96,5 +102,8 @@ class TestLoops(BaseOParserTest):
 
     def testWhile(self):
         self.checkOutput("loops/while.poc")
+
+    def testWhileBreak(self):
+        self.checkOutput("loops/whileBreak.poc")
 
 

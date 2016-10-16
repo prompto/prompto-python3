@@ -301,6 +301,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#BreakStatement.
+    def enterBreakStatement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#BreakStatement.
+    def exitBreakStatement(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#ReturnStatement.
     def enterReturnStatement(self, ctx):
         pass
@@ -586,6 +595,15 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#CatchCollectionStatement.
     def exitCatchCollectionStatement(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#break_statement.
+    def enterBreak_statement(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#break_statement.
+    def exitBreak_statement(self, ctx):
         pass
 
 

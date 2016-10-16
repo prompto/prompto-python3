@@ -159,6 +159,7 @@ from prompto.statement.AssignInstanceStatement import AssignInstanceStatement
 from prompto.statement.AssignTupleStatement import AssignTupleStatement
 from prompto.statement.AssignVariableStatement import AssignVariableStatement
 from prompto.statement.AtomicSwitchCase import AtomicSwitchCase
+from prompto.statement.BreakStatement import BreakStatement
 from prompto.statement.CollectionSwitchCase import CollectionSwitchCase
 from prompto.statement.CommentStatement import CommentStatement
 from prompto.statement.DeclarationStatement import DeclarationStatement
@@ -307,11 +308,17 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, BlobType.instance)
 
 
+
     def exitBooleanLiteral(self, ctx:EParser.BooleanLiteralContext):
         self.setNodeValue(ctx, BooleanLiteral(ctx.t.text))
     
 
-    
+
+    def exitBreakStatement(self, ctx:EParser.BreakStatementContext):
+        self.setNodeValue(ctx, BreakStatement())
+
+
+
     def exitMinIntegerLiteral(self, ctx:EParser.MinIntegerLiteralContext):
         self.setNodeValue(ctx, MinIntegerLiteral())
     

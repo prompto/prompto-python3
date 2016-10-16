@@ -1,4 +1,5 @@
 from prompto.error.InvalidDataError import InvalidDataError
+from prompto.runtime.BreakResult import BreakResult
 from prompto.statement.BaseStatement import BaseStatement
 from prompto.type.BooleanType import BooleanType
 from prompto.value.Boolean import Boolean
@@ -22,6 +23,8 @@ class WhileStatement ( BaseStatement ):
         while self.interpretCondition(context):
             child = context.newChildContext()
             value = self.statements.interpret(child)
+            if value is BreakResult.instance:
+                break
             if value is not None:
                 return value
         return None

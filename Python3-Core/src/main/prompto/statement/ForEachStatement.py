@@ -1,6 +1,7 @@
 from collections import Iterator
 
 from prompto.error.InternalError import InternalError
+from prompto.runtime.BreakResult import BreakResult
 from prompto.runtime.TransientVariable import TransientVariable
 from prompto.statement.BaseStatement import BaseStatement
 from prompto.statement.SimpleStatement import SimpleStatement
@@ -50,6 +51,8 @@ class ForEachStatement(BaseStatement):
             child.registerValue(TransientVariable(self.v1, elemType))
             child.setValue(self.v1, item)
             value = self.statements.interpret(child)
+            if value is BreakResult.instance:
+                break
             if value != None:
                 return value
         return None
@@ -66,6 +69,8 @@ class ForEachStatement(BaseStatement):
             i += 1
             child.setValue(self.v1, Integer(i))
             value = self.statements.interpret(child)
+            if value is BreakResult.instance:
+                break
             if value is not None:
                 return value
         return None

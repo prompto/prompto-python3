@@ -1,4 +1,5 @@
 from prompto.error.InvalidDataError import InvalidDataError
+from prompto.runtime.BreakResult import BreakResult
 from prompto.statement.BaseStatement import BaseStatement
 from prompto.type.BooleanType import BooleanType
 from prompto.value.Boolean import Boolean
@@ -22,6 +23,8 @@ class DoWhileStatement ( BaseStatement ):
         while True:
             child = context.newChildContext()
             value = self.instructions.interpret(child)
+            if value is BreakResult.instance:
+                break
             if value is not None:
                 return value
             if not self.interpretCondition(context):
