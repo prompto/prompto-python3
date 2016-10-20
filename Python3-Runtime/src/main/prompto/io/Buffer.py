@@ -31,6 +31,5 @@ class Buffer(IResource):
         self.data = StringIO(data)
 
     def writeLine(self, data):
-        if len(self.data.getvalue()) > 0:
-            self.data.write('\n')
         self.data.write(data)
+        self.data.write('\n')

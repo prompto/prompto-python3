@@ -36,13 +36,14 @@ class MyResource(IResource):
 
     def readLine(self):
         if self.reader is None:
-            self.reader = StringIO.StringIO(self.content)
+            self.reader = StringIO(self.content)
         return self.reader.readLine()
 
     def writeFully(self, data):
         self.content = data
 
     def writeLine(self, data):
+        # for testing, don't append LF to last line
         if len(self.content) > 0:
             self.content += '\n'
         self.content += data
