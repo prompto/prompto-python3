@@ -1,3 +1,5 @@
+from io import StringIO
+
 from prompto.value.IResource import IResource
 
 class MyResource(IResource):
@@ -6,13 +8,19 @@ class MyResource(IResource):
 
     def __init__(self):
         self.path = None
+        self.reader = None
 
     def __setattr__(self, key, value):
         if key=="content":
             MyResource.contents[self.path] = value
         else:
-            self.__dict__[key] = value
+            object.__setattr__(self, key, value)
 
+    def __getattr__(self, key):
+        if key=="content":
+            getattr(MyResource.contents, self.path, "")
+        else:
+            return object.__getattribute__(self, key)
 
     def isReadable(self):
         return True
@@ -24,7 +32,17 @@ class MyResource(IResource):
         pass
 
     def readFully(self):
-        return MyResource.contents[self.path]
+        return self.content
+
+    def readLine(self):
+        if self.reader is None:
+            self.reader = StringIO.StringIO(self.content)
+        return self.reader.readLine()
 
     def writeFully(self, data):
-        MyResource.contents[self.path] = data
+        self.content = data
+
+    def writeLine(self, data):
+        if len(self.content) > 0:
+            self.content += '\n'
+        self.content += data

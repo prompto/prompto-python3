@@ -40,7 +40,10 @@ class WriteStatement ( SimpleStatement ):
             raise InvalidResourceError("Not writable")
         text = self.content.interpret(resContext)
         try:
-            o.writeFully(text)
+            if context is resContext:
+                o.writeLine(text)
+            else:
+                o.writeFully(text)
             return None
         finally:
             if context is not resContext:

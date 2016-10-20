@@ -22,5 +22,13 @@ class NativeResource(NativeInstance, IResource):
         s = str(data)
         self.instance.writeFully(s)
 
+    def readLine(self):
+        s = self.instance.readLine()
+        return Text(s)
+
+    def writeLine(self, data):
+        s = str(data)
+        self.instance.writeLine(s)
+
     def close(self):
         self.instance.close()

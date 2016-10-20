@@ -13,6 +13,9 @@ class TestConsole(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testBuffer(self):
+        self.runTests("console/buffer.pec")
+
     def testPrint(self):
         self.runTests("console/print.pec")
 

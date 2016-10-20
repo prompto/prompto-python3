@@ -16,7 +16,7 @@ class PythonModule(object):
             return m
         try:
             return importlib.import_module(fullName)
-        except:
+        except Exception as e:
             return None
 
     def toDialect(self, writer):
