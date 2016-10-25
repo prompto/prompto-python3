@@ -17,6 +17,39 @@ class TestSortSet(BaseOParserTest):
     def testSortDecimals(self):
         self.compareResourceOSO("sortSet/sortDecimals.poc")
 
+    def testSortDescBooleans(self):
+        self.compareResourceOSO("sortSet/sortDescBooleans.poc")
+
+    def testSortDescDates(self):
+        self.compareResourceOSO("sortSet/sortDescDates.poc")
+
+    def testSortDescDateTimes(self):
+        self.compareResourceOSO("sortSet/sortDescDateTimes.poc")
+
+    def testSortDescDecimals(self):
+        self.compareResourceOSO("sortSet/sortDescDecimals.poc")
+
+    def testSortDescExpressions(self):
+        self.compareResourceOSO("sortSet/sortDescExpressions.poc")
+
+    def testSortDescIntegers(self):
+        self.compareResourceOSO("sortSet/sortDescIntegers.poc")
+
+    def testSortDescKeys(self):
+        self.compareResourceOSO("sortSet/sortDescKeys.poc")
+
+    def testSortDescMethods(self):
+        self.compareResourceOSO("sortSet/sortDescMethods.poc")
+
+    def testSortDescNames(self):
+        self.compareResourceOSO("sortSet/sortDescNames.poc")
+
+    def testSortDescTexts(self):
+        self.compareResourceOSO("sortSet/sortDescTexts.poc")
+
+    def testSortDescTimes(self):
+        self.compareResourceOSO("sortSet/sortDescTimes.poc")
+
     def testSortExpressions(self):
         self.compareResourceOSO("sortSet/sortExpressions.poc")
 
