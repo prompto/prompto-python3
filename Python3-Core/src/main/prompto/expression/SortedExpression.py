@@ -15,13 +15,14 @@ from prompto.value.TupleValue import TupleValue
 
 class SortedExpression(IExpression):
 
-    def __init__(self, source, key=None):
+    def __init__(self, source, desc=False, key=None):
         super(SortedExpression, self).__init__()
         self.source = source
+        self.desc = desc
         self.key = key
 
     def __str__(self):
-        return "sorted " + str(self.source) + ("" if self.key is None else " with " + str(self.key) + " as key")
+        return "sorted " + ("descending " if self.desc else "") + str(self.source) + ("" if self.key is None else " with " + str(self.key) + " as key")
 
     def check(self, context):
         type_ = self.source.check(context)
@@ -41,9 +42,9 @@ class SortedExpression(IExpression):
         items = o.getIterator(context)
         itemType = type_.getItemType()
         if isinstance(itemType, CategoryType):
-            items = itemType.sort(context, items, self.key)
+            items = itemType.sort(context, items, self.desc, self.key)
         else:
-            items = itemType.sort(context, items)
+            items = itemType.sort(context, items, self.desc)
         return ListValue(itemType, items=items)
 
     def setKey(self, key):
@@ -53,7 +54,10 @@ class SortedExpression(IExpression):
         self.toODialect(writer)
 
     def toODialect(self, writer):
-        writer.append("sorted (")
+        writer.append("sorted ")
+        if self.desc:
+            writer.append("desc ")
+        writer.append("(")
         self.source.toDialect(writer)
         if self.key is not None:
             writer.append(", key = ")
@@ -62,6 +66,8 @@ class SortedExpression(IExpression):
 
     def toEDialect(self, writer):
         writer.append("sorted ")
+        if self.desc:
+            writer.append("descending ")
         self.source.toDialect(writer)
         if self.key is not None:
             writer.append(" with ")

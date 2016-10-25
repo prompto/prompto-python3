@@ -22,6 +22,39 @@ class TestSortList(BaseOParserTest):
     def testSortDecimals(self):
         self.checkOutput("sortList/sortDecimals.poc")
 
+    def testSortDescBooleans(self):
+        self.checkOutput("sortList/sortDescBooleans.poc")
+
+    def testSortDescDates(self):
+        self.checkOutput("sortList/sortDescDates.poc")
+
+    def testSortDescDateTimes(self):
+        self.checkOutput("sortList/sortDescDateTimes.poc")
+
+    def testSortDescDecimals(self):
+        self.checkOutput("sortList/sortDescDecimals.poc")
+
+    def testSortDescExpressions(self):
+        self.checkOutput("sortList/sortDescExpressions.poc")
+
+    def testSortDescIntegers(self):
+        self.checkOutput("sortList/sortDescIntegers.poc")
+
+    def testSortDescKeys(self):
+        self.checkOutput("sortList/sortDescKeys.poc")
+
+    def testSortDescMethods(self):
+        self.checkOutput("sortList/sortDescMethods.poc")
+
+    def testSortDescNames(self):
+        self.checkOutput("sortList/sortDescNames.poc")
+
+    def testSortDescTexts(self):
+        self.checkOutput("sortList/sortDescTexts.poc")
+
+    def testSortDescTimes(self):
+        self.checkOutput("sortList/sortDescTimes.poc")
+
     def testSortExpressions(self):
         self.checkOutput("sortList/sortExpressions.poc")
 

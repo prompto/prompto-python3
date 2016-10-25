@@ -224,33 +224,33 @@ class CategoryType(BaseType):
         decl = context.getRegisteredDeclaration(CategoryDeclaration, self.getName())
         return decl.newInstance()
 
-    def sort(self, context, source, key):
+    def sort(self, context, source, desc, key):
         if key is None:
             key = UnresolvedIdentifier("key")
         decl = self.getDeclaration(context)
         if decl.hasAttribute(context, str(key)):
-            return self.sortByAttribute(context, source, str(key))
+            return self.sortByAttribute(context, source, desc, str(key))
         elif decl.hasMethod(context, str(key), None):
-            return self.sortByClassMethod(context, source, str(key))
+            return self.sortByClassMethod(context, source, desc, str(key))
         elif self.globalMethodExists(context, source, str(key)):
-            return self.sortByGlobalMethod(context, source, str(key))
+            return self.sortByGlobalMethod(context, source, desc, str(key))
         else:
-            return self.sortByExpression(context, source, key)
+            return self.sortByExpression(context, source, desc, key)
 
-    def sortByExpression(self, context, source, exp):
+    def sortByExpression(self, context, source, desc, exp):
 
         def keyGetter(o):
             co = context.newInstanceContext(o, None)
             return exp.interpret(co)
 
-        return sorted(source, key=keyGetter)
+        return sorted(source, key=keyGetter, reverse=desc)
 
-    def sortByAttribute(self, context, source, name):
+    def sortByAttribute(self, context, source, desc, name):
 
         def keyGetter(o):
             return o.getMember(context, name)
 
-        return sorted(source, key=keyGetter)
+        return sorted(source, key=keyGetter, reverse=desc)
 
     def sortByClassMethod(self, context, source, name):
         return None
@@ -268,7 +268,7 @@ class CategoryType(BaseType):
         except PrestoError:
             return False
 
-    def sortByGlobalMethod(self, context, source, name):
+    def sortByGlobalMethod(self, context, source, desc, name):
         from prompto.statement.MethodCall import MethodCall
         from prompto.runtime.MethodFinder import MethodFinder
         exp = ExpressionValue(self, self.newInstance(context))
@@ -277,13 +277,13 @@ class CategoryType(BaseType):
         proto = MethodCall(MethodSelector(name), args)
         finder = MethodFinder(context, proto)
         method = finder.findMethod(True)
-        return self.doSortByGlobalMethod(context, source, proto, method)
+        return self.doSortByGlobalMethod(context, source, desc, proto, method)
 
-    def doSortByGlobalMethod(self, context, source, method, declaration):
+    def doSortByGlobalMethod(self, context, source, desc, method, declaration):
 
         def keyGetter(o):
             assignment = method.getAssignments()[0]
             assignment.setExpression(ExpressionValue(self, o))
             return method.interpret(context)
 
-        return sorted(source, key=keyGetter)
+        return sorted(source, key=keyGetter, reverse=desc)

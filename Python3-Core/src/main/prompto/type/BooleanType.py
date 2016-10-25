@@ -11,8 +11,8 @@ class BooleanType(NativeType):
         from prompto.type.AnyType import AnyType
         return isinstance(other, BooleanType) or isinstance(other, AnyType)
 
-    def sort(self, context, source):
-        return sorted(source)
+    def sort(self, context, source, desc):
+        return sorted(source, reverse=desc)
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         from prompto.value.Boolean import Boolean

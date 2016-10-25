@@ -75,8 +75,8 @@ class DecimalType(NativeType):
         return super(DecimalType, self).checkCompare(context, other)
 
 
-    def sort(self, context, source):
-        return sorted(source)
+    def sort(self, context, source, desc):
+        return sorted(source, reverse=desc)
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         if isinstance(value, Number):

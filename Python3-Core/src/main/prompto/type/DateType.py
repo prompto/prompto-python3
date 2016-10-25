@@ -65,8 +65,8 @@ class DateType(NativeType):
         return super(DateType, self).newRange(left, right)
 
 
-    def sort(self, context, source):
-        return sorted(source)
+    def sort(self, context, source, desc):
+        return sorted(source, reverse=desc)
 
     def toString(self, value):
         return "'" + value.toString() + "'"

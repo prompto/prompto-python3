@@ -390,8 +390,8 @@ class SPromptoBuilder(SParserListener):
         self.setNodeValue(ctx, BlobType.instance)
 
 
-    def exitBooleanLiteral(self, ctx:SParser.BooleanLiteralContext):
 
+    def exitBooleanLiteral(self, ctx:SParser.BooleanLiteralContext):
         self.setNodeValue(ctx, BooleanLiteral(ctx.t.text))
 
 
@@ -2074,8 +2074,9 @@ class SPromptoBuilder(SParserListener):
 
     def exitSorted_expression(self, ctx:SParser.Sorted_expressionContext):
         source = self.getNodeValue(ctx.source)
+        desc = ctx.DESC() is not None
         key = self.getNodeValue(ctx.key)
-        self.setNodeValue(ctx, SortedExpression(source, key))
+        self.setNodeValue(ctx, SortedExpression(source, desc, key))
 
 
 

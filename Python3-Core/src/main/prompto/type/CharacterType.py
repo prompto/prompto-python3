@@ -50,12 +50,8 @@ class CharacterType(NativeType):
             return CharacterRange(left, right)
         return super().newRange(left, right)
 
-    def sort(self, context, list_):
-
-        def compare(o1, o2):
-            return o1.compareTo(o2)
-
-        return sorted(list_, cmp=compare)
+    def sort(self, context, list_, desc):
+        return sorted(list_, reverse=desc)
 
     def toString(self, value):
         return "'" + str(value) + "'"

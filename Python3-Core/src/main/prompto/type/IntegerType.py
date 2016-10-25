@@ -90,8 +90,8 @@ class IntegerType(NativeType):
             return IntegerRange(left, right)
         return super(IntegerType, self).newRange(left, right)
 
-    def sort(self, context, source, key=None):
-        return sorted(source)
+    def sort(self, context, source, desc, key=None):
+        return sorted(source, reverse=desc)
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         if isinstance(value, Number):
