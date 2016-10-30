@@ -14,3 +14,8 @@ class OrderByClause(Section):
         writer.trimLast(1)
         if self.descending:
             writer.append(" descending")
+
+    def interpretQuery(self, context, query):
+        name = self.names[0]
+        info = context.findAttribute(name).getAttributeInfo()
+        query.addOrderByClause(info, self.descending)

@@ -278,15 +278,15 @@ class Context(IContext):
 
     def loadSingleton(self, type):
         if self is self.globals:
-            value = self.values.get(type.getName(), None)
+            value = self.values.get(type.typeName, None)
             if value is None:
                 from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
-                decl = self.declarations.get(type.getName(), None)
+                decl = self.declarations.get(type.typeName, None)
                 if not isinstance(decl, ConcreteCategoryDeclaration):
-                    raise InternalError("No such singleton:" + type.getName())
-                value = ConcreteInstance(decl)
+                    raise InternalError("No such singleton:" + type.typeName)
+                value = ConcreteInstance(self, decl)
                 value.mutable = True # a singleton is protected by "with x do", so always mutable in that context
-                self.values[type.getName()] = value
+                self.values[type.typeName] = value
             if isinstance(value, ConcreteInstance):
                 return value
             else:
@@ -377,7 +377,7 @@ class InstanceContext(Context):
             return self.instance.getDeclaration()
         else:
             from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
-            return self.getRegisteredDeclaration(ConcreteCategoryDeclaration, self.instanceType.getName())
+            return self.getRegisteredDeclaration(ConcreteCategoryDeclaration, self.instanceType.typeName)
 
     def readValue(self, name):
         value = self.instance.getMember(self.calling, name)

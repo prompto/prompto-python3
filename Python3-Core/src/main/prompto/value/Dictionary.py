@@ -25,9 +25,9 @@ class Dictionary(BaseValue, IContainer):
     def __init__(self, itemType, mutable, copyFrom=None, value=None):
         super().__init__(DictType(itemType))
         self.mutable = mutable
-        if copyFrom != None:
+        if copyFrom is not None:
             self.value = copyFrom.value
-        elif value != None:
+        elif value is not None:
             self.value = value
         else:
             self.value = dict()

@@ -1,10 +1,10 @@
 import threading
 
 from prompto.error.NotMutableError import NotMutableError
+from prompto.memstore.MemStore import StorableDocument
 from prompto.type.CategoryType import *
 from prompto.value.BaseValue import *
 from prompto.value.IInstance import *
-from prompto.store.StorableDocument import StorableDocument
 from prompto.python.PythonClassType import PythonClassType
 
 # don't call getters from getters, so register them
@@ -17,7 +17,7 @@ class NativeInstance(BaseValue, IInstance):
     def __init__(self, declaration, instance=None):
         super(NativeInstance, self).__init__(CategoryType(declaration.name))
         self.declaration = declaration
-        self.storable = StorableDocument() if declaration.storable else None
+        self.storable = DataStore.instance.newStorable() if declaration.storable else None
         self.instance = self.makeInstance() if instance is None else instance
 
     def convertToPython(self):

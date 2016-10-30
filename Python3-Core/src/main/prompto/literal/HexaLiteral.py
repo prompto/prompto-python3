@@ -22,6 +22,6 @@ class HexaLiteral(Literal):
             elif c >= 'A' and c <= 'F':
                 value += 10 + (ord(c) - ord('A'))
             else:
-                from prompto.error.InvalidDataError import InvalidDataError
-                raise InvalidDataError(text + " is not a valid hexadecimal number")
+                from prompto.error.InvalidValueError import InvalidValueError
+                raise InvalidValueError(text + " is not a valid hexadecimal number")
         return Integer(value)

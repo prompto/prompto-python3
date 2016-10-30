@@ -1,9 +1,12 @@
 from prompto.statement.SimpleStatement import SimpleStatement
 from prompto.type.VoidType import VoidType
-from prompto.store.Store import Store
-from prompto.store.MemStore import MemStore
+from prompto.store.DataStore import DataStore
+from prompto.value.IContainer import IContainer
 from prompto.value.IInstance import IInstance
 from prompto.parser.Dialect import Dialect
+from prompto.value.NullValue import NullValue
+
+
 
 class StoreStatement(SimpleStatement):
 
@@ -45,9 +48,9 @@ class StoreStatement(SimpleStatement):
             return True
         if other is None:
             return False
-        if not isinstance(obj, StoreStatement):
+        if not isinstance(other, StoreStatement):
             return False
-        return self.to_add == other.expressions
+        return self.to_del == other.to_del and self.to_add == other.to_add
 
 
     def check (self, context):
@@ -55,18 +58,41 @@ class StoreStatement(SimpleStatement):
         return VoidType.instance
 
     def interpret (self,  context):
-        store = Store.instance
-        if store is None:
-            store = MemStore.instance
-        for exp in self.to_add:
+        idsToDel = self.getIdsToDelete(context)
+        storablesToAdd = self.getStorablesToAdd(context)
+        if idsToDel is not None or storablesToAdd is not None:
+            DataStore.instance.store(idsToDel, storablesToAdd)
+
+
+    def getIdsToDelete(self, context):
+        if self.to_del is None:
+            return None
+        idsToDel = []
+        for exp in self.to_del:
             value = exp.interpret (context)
-            storable = None
-            if isinstance(value, IInstance):
-                storable = value.storable
-            if storable is None:
-                raise NotStorableError ()
-            if not storable.dirty:
+            if value is NullValue.instance:
                 continue
-            document = storable.asDocument ()
-            store.store (document)
-        return None
+            elif value is IInstance:
+                dbId = value.getMember("dbId")
+                if dbId is not None and dbId is not NullValue.instance:
+                    idsToDel.append(dbId.getStorableData())
+            elif value is IContainer:
+                for item in value:
+                    if item is NullValue.instance:
+                        continue
+                    elif item is IInstance:
+                        dbId = item.getMember("dbId")
+                        if dbId is not None and dbId is not NullValue.instance:
+                            idsToDel.append(dbId.getStorableData())
+        return idsToDel
+
+
+
+    def getStorablesToAdd(self, context):
+        if self.to_add is None:
+            return None
+        storablesToAdd = []
+        for exp in self.to_add:
+            value = exp.interpret(context)
+            value.collectStorables(storablesToAdd)
+        return storablesToAdd

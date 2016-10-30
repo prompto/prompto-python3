@@ -1,5 +1,5 @@
 from prompto.type.VoidType import VoidType
-
+from prompto.error.SyntaxError import SyntaxError
 
 class TypeMap ( dict ):
 

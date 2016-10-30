@@ -39,15 +39,15 @@ class CategorySymbol(Symbol, IExpression):
 
     def check(self, context):
         from prompto.declaration.EnumeratedCategoryDeclaration import EnumeratedCategoryDeclaration
-        cd = context.getRegisteredDeclaration(EnumeratedCategoryDeclaration, self.type.getName())
+        cd = context.getRegisteredDeclaration(EnumeratedCategoryDeclaration, self.type.typeName)
         if cd == None:
-            raise SyntaxError("Unknown category " + self.type.getName())
+            raise SyntaxError("Unknown category " + self.type.typeName)
         if self.assignments != None:
             context = context.newLocalContext()
             for assignment in self.assignments:
                 if not cd.hasAttribute(context, assignment.getName()):
                     raise SyntaxError("\"" + assignment.getName() + \
-                                      "\" is not an attribute of " + self.type.getName())
+                                      "\" is not an attribute of " + self.type.typeName)
                 assignment.check(context)
         return self.type
 

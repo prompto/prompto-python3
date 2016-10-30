@@ -1,7 +1,10 @@
 from prompto.declaration.BaseDeclaration import BaseDeclaration
 from prompto.type.CategoryType import *
 from prompto.error.SyntaxError import SyntaxError
+from prompto.utils.TypeUtils import fieldToValue
 from prompto.value.Document import Document
+from prompto.type.CategoryType import CategoryType
+from prompto.error.InternalError import InternalError
 
 class CategoryDeclaration(BaseDeclaration):
 
@@ -21,10 +24,10 @@ class CategoryDeclaration(BaseDeclaration):
 
     def check(self, context):
         from prompto.declaration.AttributeDeclaration import AttributeDeclaration
-        if self.attributes != None:
+        if self.attributes is not None:
             for attribute in self.attributes:
                 ad = context.getRegisteredDeclaration(AttributeDeclaration, attribute)
-                if ad == None:
+                if ad is None:
                     raise SyntaxError("Unknown attribute: \"" + attribute + "\"")
         return CategoryType(self.getName())
 
@@ -34,7 +37,11 @@ class CategoryDeclaration(BaseDeclaration):
 
 
     def hasAttribute(self, context, name):
-        return self.attributes != None and name in self.attributes
+        return self.attributes is not None and name in self.attributes
+
+
+    def getAllAttributes(self, context):
+        return None if self.attributes is None else set(self.attributes)
 
 
     def hasMethod(self, context, key, object_):
@@ -53,32 +60,44 @@ class CategoryDeclaration(BaseDeclaration):
         # nothing to do
         pass
 
-    def newInstanceFromDocument(self, context, document):
-        instance = self.newInstance()
+    def newInstanceFromStored(self, context, stored):
+        instance = self.newInstance(context)
         instance.mutable = True
         try:
-            for name in self.attributes:
-                decl = context.getRegisteredDeclaration(AttributeDeclaration, name)
-                if decl is None:
-                    # decl = context.getRegisteredDeclaration(AttributeDeclaration, name)
-                    raise "abc"
-                if not decl.storable:
-                    continue
-                value = document.getMember(context, name, False)
-                if isinstance(value, Document):
-                    typ = decl.GetType(context)
-                    if not isinstance(typ, CategoryType):
-                        raise InternalError("How did we get there?")
-                    value = typ.newInstanceFromDocument(context, document)
-                instance.setMember(context, name, value)
+            self.populateInstance(context, stored, instance)
         finally:
             instance.mutable = False
         return instance
 
 
+    def populateInstance(self, context, stored, instance):
+        dbId = stored.getData("dbId")
+        value = fieldToValue(context, "dbId", dbId)
+        instance.setMember(context, "dbId", value)
+        for name in self.getAllAttributes(context):
+            self.populateMember(context, stored, instance, name)
+        if instance.storable is not None:
+            instance.storable.dirty = False
+
+
+    def populateMember(self, context, stored, instance, name):
+        from prompto.declaration.AttributeDeclaration import AttributeDeclaration
+        decl = context.getRegisteredDeclaration(AttributeDeclaration, name)
+        if not decl.storable:
+            return
+        data = stored.getData(name)
+        if data is not None:
+            value = decl.typ.convertPythonValueToPromptoValue(context, data, None)
+            if value is not None:
+                instance.setMember(context, name, value)
+
+
+
     def toDialect(self, writer):
         writer = writer.newInstanceWriter(self.getType(writer.context))
         super().toDialect(writer)
+
+
 
     def protoToEDialect(self, writer, hasMethods, hasBindings):
         hasAttributes = self.attributes is not None and len(self.attributes)>0

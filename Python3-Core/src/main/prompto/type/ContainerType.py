@@ -4,8 +4,8 @@ from prompto.type.IterableType import IterableType
 
 class ContainerType ( IterableType ) :
 
-    def __init__(self, name, itemType):
-        super().__init__(name, itemType)
+    def __init__(self, family, itemType):
+        super().__init__(family, itemType)
 
     def checkContains(self, context, other):
         if self.itemType.isAssignableTo(context, other):

@@ -29,4 +29,7 @@ class TestStore(BaseEParserTest):
     def testSubRecord(self):
         self.compareResourceESE("store/subRecord.pec")
 
+    def testUntypedRecord(self):
+        self.compareResourceESE("store/untypedRecord.pec")
+
 

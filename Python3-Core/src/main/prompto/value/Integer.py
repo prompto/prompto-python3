@@ -16,6 +16,11 @@ class Integer(BaseValue, INumber, IMultiplyable):
         super().__init__(IntegerType.instance)
         self.value = value
 
+
+    def getStorableData(self):
+        return self.value
+
+
     def convertToPython(self):
         return self.value
 

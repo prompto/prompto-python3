@@ -1,13 +1,16 @@
 from prompto.expression.IExpression import IExpression
 from prompto.expression.InstanceExpression import InstanceExpression
+from prompto.expression.MemberSelector import MemberSelector
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.EqOp import EqOp
 from prompto.grammar.INamedValue import INamedValue
 from prompto.runtime.LinkedValue import LinkedValue
 from prompto.runtime.LinkedVariable import LinkedVariable
+from prompto.store.MatchOp import MatchOp
 from prompto.type.BooleanType import BooleanType
 from prompto.utils.CodeWriter import CodeWriter
 from prompto.value.Boolean import Boolean
+from prompto.value.IInstance import IInstance
 from prompto.value.IValue import IValue
 from prompto.value.NullValue import NullValue
 from prompto.value.TypeValue import TypeValue
@@ -123,3 +126,43 @@ class EqualsExpression ( IExpression ):
         actual = str(lval) + " " + self.operator.toString(test.dialect) + " " + str(rval)
         test.printFailure(context, expected, actual)
         return False
+
+    def interpretQuery(self, context, query):
+        value = None
+        name = self.readFieldName(self.left)
+        if name is not None:
+            value = self.right.interpret(context)
+        else:
+            name = self.readFieldName(self.right)
+            if name is not None:
+                value = self.left.interpret(context)
+            else:
+                raise SyntaxError("Unable to interpret predicate")
+        if isinstance(value, IInstance):
+            value = value.getMember(context, "dbId", False)
+        decl = context.findAttribute(name)
+        info = None if decl is None else decl.getAttributeInfo()
+        data = None if value is None else value.getStorableData()
+        match = self.getMatchOp()
+        query.verify(info, match, data)
+        if self.operator is EqOp.NOT_EQUALS:
+            query.Not()
+
+
+    def getMatchOp(self):
+        if self.operator is EqOp.EQUALS:
+            return MatchOp.EQUALS
+        elif self.operator is EqOp.ROUGHLY:
+            return MatchOp.ROUGHLY
+        elif self.operator is EqOp.NOT_EQUALS:
+            return MatchOp.EQUALS
+        else:
+            raise Exception("Not supported:" + str(self.operator))
+
+
+    def readFieldName(self, exp):
+        if isinstance(exp, (UnresolvedIdentifier, InstanceExpression, MemberSelector)):
+            return str(exp)
+        else:
+            return None
+

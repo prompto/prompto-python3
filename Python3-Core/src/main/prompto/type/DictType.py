@@ -5,12 +5,15 @@ from prompto.type.IntegerType import IntegerType
 from prompto.type.ListType import ListType
 from prompto.type.SetType import SetType
 from prompto.type.TextType import TextType
+from prompto.store.TypeFamily import TypeFamily
+
 
 
 class DictType ( ContainerType ):
 
     def __init__(self, itemType):
-        super(DictType, self).__init__(itemType.getName()+"{}",itemType)
+        super(DictType, self).__init__(TypeFamily.DICTIONARY, itemType)
+        self.typeName = itemType.typeName + "{}"
 
     def isAssignableTo(self, context, other):
         return isinstance(other, DictType) and self.itemType.isAssignableTo(context, other.getItemType())

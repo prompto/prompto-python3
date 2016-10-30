@@ -1,11 +1,14 @@
 from prompto.type.NativeType import NativeType
+from prompto.store.TypeFamily import TypeFamily
+
+
 
 class BooleanType(NativeType):
 
     instance = None
 
     def __init__(self):
-        super(BooleanType, self).__init__("Boolean")
+        super(BooleanType, self).__init__(TypeFamily.BOOLEAN)
 
     def isAssignableTo(self, context, other):
         from prompto.type.AnyType import AnyType

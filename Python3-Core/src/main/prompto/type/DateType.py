@@ -1,10 +1,3 @@
-from prompto.type.AnyType import *
-from prompto.type.BooleanType import *
-from prompto.type.DateTimeType import *
-from prompto.type.IntegerType import *
-from prompto.type.NativeType import *
-from prompto.type.PeriodType import *
-from prompto.type.RangeType import *
 from prompto.type.TimeType import *
 from prompto.value.Date import *
 from prompto.value.DateRange import *
@@ -14,7 +7,7 @@ class DateType(NativeType):
     instance = None
 
     def __init__(self):
-        super(DateType, self).__init__("Date")
+        super(DateType, self).__init__(TypeFamily.DATE)
 
     def isAssignableTo(self, context, other):
         return isinstance(other, (DateType, AnyType))

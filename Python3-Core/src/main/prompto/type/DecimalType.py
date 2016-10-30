@@ -4,13 +4,14 @@ from prompto.type.BooleanType import *
 from prompto.type.IntegerType import *
 from prompto.type.NativeType import *
 from prompto.value.Decimal import *
+from prompto.store.TypeFamily import TypeFamily
 
 
 class DecimalType(NativeType):
     instance = None
 
     def __init__(self):
-        super(DecimalType, self).__init__("Decimal")
+        super(DecimalType, self).__init__(TypeFamily.DECIMAL)
 
     def isAssignableTo(self, context, other):
         from prompto.type.AnyType import AnyType

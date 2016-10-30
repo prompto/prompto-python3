@@ -3,8 +3,8 @@ from prompto.type.NativeType import NativeType
 
 class IterableType ( NativeType ) :
 
-    def __init__(self, name, itemType):
-        super().__init__(name)
+    def __init__(self, family, itemType):
+        super().__init__(family)
         self.itemType = itemType
 
     def getItemType(self):

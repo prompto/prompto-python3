@@ -9,7 +9,7 @@ class DateTime(BaseValue):
     def __init__(self, value=None, year=None, month=None, day=None, hour=None, minute=None, second=None, millis=None):
         from prompto.type.DateTimeType import DateTimeType
         super().__init__(DateTimeType.instance)
-        if value == None:
+        if value is None:
             value = datetime(year, month, day, hour, minute, second, millis)
         self.value = value
 
@@ -99,7 +99,10 @@ class DateTime(BaseValue):
         return self.value < obj.value
 
     def __eq__(self, obj):
-        return self.value == obj.value
+        if isinstance(obj, DateTime):
+            return self.value == obj.value
+        else:
+            return self.value == obj
 
 
     def __str__(self):

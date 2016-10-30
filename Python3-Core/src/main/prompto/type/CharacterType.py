@@ -1,4 +1,5 @@
-from prompto.error.InvalidDataError import InvalidDataError
+from prompto.store.InvalidValueError import InvalidValueError
+from prompto.store.TypeFamily import TypeFamily
 from prompto.type.AnyType import AnyType
 from prompto.type.BooleanType import BooleanType
 from prompto.type.NativeType import NativeType
@@ -13,7 +14,7 @@ class CharacterType(NativeType):
     instance = None
 
     def __init__(self):
-        super().__init__("Character")
+        super().__init__(TypeFamily.CHARACTER)
 
     def isAssignableTo(self, context, other):
         return isinstance(other, CharacterType) or isinstance(other, TextType) or isinstance(other, AnyType)
@@ -66,7 +67,7 @@ class CharacterType(NativeType):
         if isinstance(value.type, TextType) and len(value.value)>=1:
             return Character(value.value[0:1])
         else:
-            raise InvalidDataError("Cannot convert " + str(value) + " to Character")
+            raise InvalidValueError("Cannot convert " + str(value) + " to Character")
 
 CharacterType.instance = CharacterType()
 

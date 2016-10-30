@@ -1,4 +1,6 @@
 from prompto.type.BaseType import BaseType
+from prompto.store.TypeFamily import TypeFamily
+
 
 
 class NullType(BaseType):
@@ -6,7 +8,7 @@ class NullType(BaseType):
     instance = None
 
     def __init__(self):
-        super(NullType, self).__init__("Null")
+        super(NullType, self).__init__(TypeFamily.NULL)
 
     def isAssignableTo (self, context,  other):
         return True

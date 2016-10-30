@@ -6,6 +6,6 @@ class ImageType(BinaryType):
     instance = None
 
     def __init__(self):
-        super(ImageType, self).__init__("Image")
+        super(ImageType, self).__init__(TypeFamily.IMAGE)
 
 ImageType.instance = ImageType()

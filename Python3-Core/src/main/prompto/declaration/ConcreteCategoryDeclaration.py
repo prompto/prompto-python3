@@ -60,6 +60,26 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
             return False
         return actual.hasAttribute(context, name)
 
+
+    def getAllAttributes(self, context):
+        all = set()
+        more = super(ConcreteCategoryDeclaration, self).getAllAttributes(context)
+        if more is not None:
+            all = more
+        if self.derivedFrom is not None:
+            for name in self.derivedFrom:
+                names = self.getAncestorAttributes(context, name);
+            if names is not None:
+                all = all.union(names)
+        return None if len(all)==0 else all
+
+
+    def getAncestorAttributes(context, ancestor):
+        decl = context.getRegisteredDeclaration(ancestor)
+        return None if decl is None else decl.GetAllAttributes(context);
+
+
+
     def check(self, context):
         self.checkDerived(context)
         self.checkMethods(context)
@@ -109,7 +129,7 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         if self.derivedFrom is None:
             return False
         for ancestor in self.derivedFrom:
-            if ancestor==categoryType.getName():
+            if ancestor==categoryType.typeName:
                 return True
             if self.isAncestorDerivedFrom(ancestor,context,categoryType):
                 return True
@@ -121,8 +141,8 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
             return False
         return actual.isDerivedFrom(context, categoryType)
 
-    def newInstance(self):
-        return ConcreteInstance(self)
+    def newInstance(self, context):
+        return ConcreteInstance(context, self)
 
     def findGetter(self, context, attrName):
         if self.methodsMap is None:
@@ -270,3 +290,20 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
                 if currentBest.isAssignableTo(context, potential):
                     candidate = method
         return candidate
+
+
+    def collectCategories(self, context):
+        set_ = set()
+        list_ = list()
+        self.doCollectCategories(context, set_, list_)
+        return list_
+
+
+    def doCollectCategories(self, context, set_, list_):
+        if self.derivedFrom is not None:
+            for cat in self.derivedFrom:
+                cd = context.getRegisteredDeclaration(cat)
+                cd.doCollectCategories(context, set_, list_)
+        if not self.name in set_:
+            set_.add(self.name)
+            list_.append(self.name)

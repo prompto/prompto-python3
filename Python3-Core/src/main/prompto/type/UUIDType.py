@@ -1,12 +1,14 @@
 from prompto.type.AnyType import AnyType
 from prompto.type.NativeType import NativeType
+from prompto.store.TypeFamily import TypeFamily
+
 
 
 class UUIDType(NativeType):
     instance = None
 
     def __init__(self):
-        super(UUIDType, self).__init__("UUID")
+        super().__init__(TypeFamily.UUID)
 
     def isAssignableTo(self, context, other):
         return isinstance(other, UUIDType) or isinstance(other, AnyType)

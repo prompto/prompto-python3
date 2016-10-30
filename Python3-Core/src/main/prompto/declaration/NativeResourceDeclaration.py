@@ -13,7 +13,7 @@ class NativeResourceDeclaration(NativeCategoryDeclaration):
     def getType(self, context):
         return ResourceType(self.name)
 
-    def newInstance(self):
+    def newInstance(self, context):
         return NativeResource(self)
 
     def checkConstructorContext(self, context):

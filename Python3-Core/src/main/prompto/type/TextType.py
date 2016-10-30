@@ -1,11 +1,13 @@
 from prompto.type.NativeType import NativeType
+from prompto.store.TypeFamily import TypeFamily
+
 
 
 class TextType(NativeType):
     instance = None
 
     def __init__(self):
-        super(TextType, self).__init__("Text")
+        super().__init__(TypeFamily.TEXT)
 
     def isAssignableTo(self, context, other):
         from prompto.type.AnyType import AnyType

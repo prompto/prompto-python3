@@ -35,7 +35,7 @@ class MethodSelector(MemberSelector):
         if isinstance(context.getParentContext(), InstanceContext):
             from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
             typ = context.getParentContext().instanceType
-            cd = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, typ.getName())
+            cd = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, typ.typeName)
             if cd is not None:
                 members = cd.findMemberMethods(context, self.name)
                 if members is not None:
@@ -51,9 +51,9 @@ class MethodSelector(MemberSelector):
         type_ = self.checkParent(context)
         if not isinstance(type_, CategoryType):
             raise SyntaxError(self.parent.toString() + " is not a category")
-        cd = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, type_.getName())
+        cd = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, type_.typeName)
         if cd is None:
-            raise SyntaxError("Unknown category:" + type_.getName())
+            raise SyntaxError("Unknown category:" + type_.typeName)
         return cd.findMemberMethods(context, self.name)
 
     def newLocalContext(self, context:Context, declaration):
@@ -98,8 +98,8 @@ class MethodSelector(MemberSelector):
             value = context.loadSingleton(value.value)
         from prompto.value.ConcreteInstance import ConcreteInstance
         if not isinstance(value, ConcreteInstance):
-            from prompto.error.InvalidDataError import InvalidDataError
-            raise InvalidDataError("Not a concrete instance !")
+            from prompto.error.InvalidValueError import InvalidValueError
+            raise InvalidValueError("Not a concrete instance !")
         context = context.newInstanceContext(value, None)
         return context.newChildContext()
 

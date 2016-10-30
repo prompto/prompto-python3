@@ -16,7 +16,7 @@ class ExtendedArgument(CategoryArgument):
 
 
     def getProto(self, context):
-        return self.type_.getName() + '(' + str(self.attributes) + ')'
+        return self.type_.typeName + '(' + str(self.attributes) + ')'
 
 
 
@@ -51,7 +51,7 @@ class ExtendedArgument(CategoryArgument):
         from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
         from prompto.grammar.IdentifierList import IdentifierList
         declaration = ConcreteCategoryDeclaration(self.name)
-        declaration.setDerivedFrom(IdentifierList(self.type_.getName()))
+        declaration.setDerivedFrom(IdentifierList(self.type_.typeName))
         declaration.setAttributes(self.attributes)
         context.registerDeclaration(declaration)
         context.registerValue(self)

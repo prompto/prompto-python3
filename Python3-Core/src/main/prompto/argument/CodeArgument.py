@@ -13,16 +13,16 @@ class CodeArgument ( BaseArgument, ITypedArgument ):
         return CodeType.instance
 
     def getSignature(self, dialect):
-        return self.name + ':' + CodeType.instance.getName()
+        return self.name + ':' + CodeType.instance.typeName
 
     def getProto(self, context):
-        return CodeType.instance.getName()
+        return CodeType.instance.typeName
 
     def __str__(self):
-        return self.name + ':' + CodeType.instance.getName()
+        return self.name + ':' + CodeType.instance.typeName
 
     def toDialect(self, writer):
-        writer.append(CodeType.instance.getName())
+        writer.append(CodeType.instance.typeName)
         writer.append(" ")
         writer.append(self.name)
 

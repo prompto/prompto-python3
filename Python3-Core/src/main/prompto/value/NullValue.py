@@ -14,5 +14,7 @@ class NullValue (BaseValue):
         return None
 
 
+    def getStorableData(self):
+        return None # Yes!
 
 NullValue.instance = NullValue()

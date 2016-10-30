@@ -31,4 +31,7 @@ class TestStore(BaseEParserTest):
     def testSubRecord(self):
         self.checkOutput("store/subRecord.pec")
 
+    def testUntypedRecord(self):
+        self.checkOutput("store/untypedRecord.pec")
+
 

@@ -18,3 +18,8 @@ class OrderByClauseList(ObjectList):
         writer.trimLast(2)
         if writer.dialect is Dialect.O:
             writer.append(" )")
+
+
+    def interpretQuery(self, context, query):
+        for clause in self:
+            clause.interpretQuery(context, query)

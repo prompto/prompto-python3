@@ -1,12 +1,15 @@
 from datetime import datetime
 from prompto.type.NativeType import NativeType
+from prompto.store.TypeFamily import TypeFamily
+
 
 
 class DateTimeType(NativeType):
     instance = None
 
     def __init__(self):
-        super(DateTimeType, self).__init__("DateTime")
+        super(DateTimeType, self).__init__(TypeFamily.DATETIME)
+        self.typeName = "DateTime"
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         if isinstance(value, datetime):

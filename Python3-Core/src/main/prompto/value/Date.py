@@ -87,8 +87,11 @@ class Date ( BaseValue ):
         value = dt.replace(year=year, month=month) + td
         return Date(value.date())
 
-    def __eq__(self, other):
-        return self.value == other.value
+    def __eq__(self, obj):
+        if isinstance(obj, Date):
+            return self.value == obj.value
+        else:
+            return self.value == obj
 
     def __lt__(self, other):
         return self.value < other.value

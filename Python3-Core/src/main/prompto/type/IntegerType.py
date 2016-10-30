@@ -9,6 +9,7 @@ from prompto.type.RangeType import *
 from prompto.type.TextType import *
 from prompto.value.Integer import *
 from prompto.value.IntegerRange import *
+from prompto.store.TypeFamily import TypeFamily
 
 
 class IntegerType(NativeType):
@@ -16,7 +17,7 @@ class IntegerType(NativeType):
     instance = None
 
     def __init__(self):
-        super(IntegerType, self).__init__("Integer")
+        super(IntegerType, self).__init__(TypeFamily.INTEGER)
 
     def isAssignableTo(self, context, other):
         from prompto.type.DecimalType import DecimalType

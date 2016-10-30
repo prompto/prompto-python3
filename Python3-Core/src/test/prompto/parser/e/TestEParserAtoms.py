@@ -53,7 +53,7 @@ class TestParserAtoms(unittest.TestCase):
         ad = self.parse(statement,ECleverParser.attribute_declaration)
         self.assertIsNotNone(ad)
         self.assertEquals("id",ad.getName())
-        self.assertEquals("Integer",ad.getType().getName())
+        self.assertEquals("Integer",ad.getType().typeName)
 
 
     def testArrayAttribute(self):
@@ -61,7 +61,7 @@ class TestParserAtoms(unittest.TestCase):
         ad = self.parse(statement,ECleverParser.attribute_declaration)
         self.assertIsNotNone(ad)
         self.assertEquals("id",ad.getName())
-        self.assertEquals("Integer[]",ad.getType().getName())
+        self.assertEquals("Integer[]",ad.getType().typeName)
 
 
     def testCategory1Attribute(self):
@@ -124,7 +124,7 @@ class TestParserAtoms(unittest.TestCase):
         statement = "Person p"
         a = self.parse(statement, ECleverParser.typed_argument)
         self.assertIsNotNone(a)
-        self.assertEquals("Person",a.getType().getName())
+        self.assertEquals("Person",a.getType().typeName)
         self.assertEquals("p",a.getName())
 
 

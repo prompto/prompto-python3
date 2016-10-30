@@ -59,3 +59,14 @@ class OrExpression ( IExpression ):
         actual = str(lval) + self.operatorToDialect(test.dialect) + str(rval)
         test.printFailure(context, expected, actual)
         return False
+
+
+    def interpretQuery(self, context, query):
+        if getattr(self.left, "interpretQuery", None) is None:
+            raise SyntaxError("Not a predicate: " + str(self.left))
+        self.left.interpretQuery(context, query)
+        if getattr(self.right, "interpretQuery", None) is None:
+            raise SyntaxError("Not a predicate: " + str(self.right))
+        self.right.interpretQuery(context, query)
+        query.Or()
+

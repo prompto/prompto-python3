@@ -1,4 +1,4 @@
-from prompto.error.InvalidDataError import InvalidDataError
+from prompto.store.InvalidValueError import InvalidValueError
 from prompto.runtime.BreakResult import BreakResult
 from prompto.statement.BaseStatement import BaseStatement
 from prompto.type.BooleanType import BooleanType
@@ -34,7 +34,7 @@ class DoWhileStatement ( BaseStatement ):
     def interpretCondition(self, context):
         value = self.condition.interpret(context)
         if not isinstance(value, Boolean):
-            raise InvalidDataError("Expected a Boolean, got:" + type(value).__name__)
+            raise InvalidValueError("Expected a Boolean, got:" + type(value).__name__)
         return value.value
 
     def toEDialect(self, writer):

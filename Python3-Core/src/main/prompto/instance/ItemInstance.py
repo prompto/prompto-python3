@@ -1,13 +1,10 @@
-from prompto.error.IndexOutOfRangeError import IndexOutOfRangeError
-from prompto.error.InvalidDataError import InvalidDataError
+
 from prompto.error.NotMutableError import NotMutableError
 from prompto.error.SyntaxError import SyntaxError
 from prompto.instance.IAssignableInstance import IAssignableInstance
 from prompto.type.AnyType import AnyType
 from prompto.value.IContainer import IContainer
 from prompto.value.IValue import IValue
-from prompto.value.Integer import Integer
-from prompto.value.ListValue import ListValue
 
 
 class ItemInstance ( IAssignableInstance ):

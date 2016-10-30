@@ -1,5 +1,5 @@
 from prompto.error.IndexOutOfRangeError import IndexOutOfRangeError
-from prompto.error.InvalidDataError import InvalidDataError
+from prompto.store.InvalidValueError import InvalidValueError
 from prompto.type.TextType import TextType
 from prompto.value.BaseValue import BaseValue
 from prompto.value.IMultiplyable import IMultiplyable
@@ -14,6 +14,10 @@ class Text(BaseValue, ISliceable, IMultiplyable):
         self.value = value
 
     def convertToPython(self):
+        return self.value
+
+
+    def getStorableData(self):
         return self.value
 
 
@@ -73,7 +77,7 @@ class Text(BaseValue, ISliceable, IMultiplyable):
         if "count" == name:
             return Integer(len(self.value))
         else:
-            raise InvalidDataError("No such member:" + name)
+            raise InvalidValueError("No such member:" + name)
 
 
     def getItem(self, context, index):
@@ -82,7 +86,7 @@ class Text(BaseValue, ISliceable, IMultiplyable):
             if isinstance(index, Integer):
                 return Character(self.value[index.IntegerValue() - 1])
             else:
-                raise InvalidDataError("No such item:" + str(index))
+                raise InvalidValueError("No such item:" + str(index))
         except IndexError:
             raise IndexOutOfRangeError()
 

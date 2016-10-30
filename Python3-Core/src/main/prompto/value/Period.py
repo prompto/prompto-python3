@@ -42,7 +42,7 @@ class Period ( BaseValue, IMultiplyable ):
                         raise Exception()
                     if step > 3 and not inTime:
                         raise Exception()
-                    if value == None:
+                    if value is None:
                         raise Exception()
                     if step == 6: # millis '.'
                         inMillis = True
@@ -74,8 +74,8 @@ class Period ( BaseValue, IMultiplyable ):
             return Period(years=data[0], months=data[1], weeks=data[2], days=data[3],
                           hours=data[4], minutes=data[5], seconds=data[6], millis=data[7])
         except Exception as e:
-            from prompto.error.InvalidDataError import InvalidDataError
-            raise InvalidDataError("\"" + text + "\" is not a valid ISO 8601 period!")
+            from prompto.error.InvalidValueError import InvalidValueError
+            raise InvalidValueError("\"" + text + "\" is not a valid ISO 8601 period!")
  
     def __init__(self, years = 0, months = 0, weeks = 0, days = 0,
                  hours = 0, minutes = 0, seconds = 0, millis = 0, delta=None):

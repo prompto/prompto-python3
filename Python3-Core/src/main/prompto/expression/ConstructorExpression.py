@@ -41,7 +41,7 @@ class ConstructorExpression(IExpression):
         with StringIO() as sb:
             if self.mutable:
                 sb.write("mutable ")
-            sb.write(self.type.getName())
+            sb.write(self.type.typeName)
             sb.write(' ')
             if self.copyFrom is not None:
                 sb.write("(from:")
@@ -77,9 +77,9 @@ class ConstructorExpression(IExpression):
     def check(self, context:Context):
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
         from prompto.type.CategoryType import CategoryType
-        cd = context.getRegisteredDeclaration(CategoryDeclaration, self.type.getName())
+        cd = context.getRegisteredDeclaration(CategoryDeclaration, self.type.typeName)
         if cd is None:
-            raise SyntaxError("Unknown category " + self.type.getName())
+            raise SyntaxError("Unknown category " + self.type.typeName)
         type = cd.getType(context)
         cd.checkConstructorContext(context)
         if self.copyFrom is not None:
@@ -90,7 +90,7 @@ class ConstructorExpression(IExpression):
             for assignment in self.assignments:
                 if not cd.hasAttribute(context, assignment.getName()):
                     raise SyntaxError("\"" + assignment.getName() +
-                        "\" is not an attribute of " + self.type.getName())
+                        "\" is not an attribute of " + self.type.typeName)
                 assignment.check(context)
         return type
 
@@ -100,7 +100,7 @@ class ConstructorExpression(IExpression):
         if self.copyFrom is not None:
             copyObj = self.copyFrom.interpret(context)
             from prompto.declaration.CategoryDeclaration import CategoryDeclaration
-            cd = context.getRegisteredDeclaration(CategoryDeclaration, self.type.getName())
+            cd = context.getRegisteredDeclaration(CategoryDeclaration, self.type.typeName)
             if isinstance(copyObj, IInstance):
                 for name in copyObj.getMemberNames():
                     if cd.hasAttribute(context, name):

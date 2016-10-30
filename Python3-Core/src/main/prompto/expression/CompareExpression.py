@@ -1,6 +1,11 @@
 from prompto.expression.IExpression import IExpression
+from prompto.expression.InstanceExpression import InstanceExpression
+from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.CmpOp import CmpOp
+from prompto.store.InvalidValueError import InvalidValueError
+from prompto.store.MatchOp import MatchOp
 from prompto.value.Boolean import Boolean
+from prompto.value.IInstance import IInstance
 from prompto.value.IValue import IValue
 from prompto.utils.CodeWriter import CodeWriter
 from prompto.error.SyntaxError import SyntaxError
@@ -61,3 +66,33 @@ class CompareExpression ( IExpression ):
         actual = str(lval) + " " + str(self.operator) + " " + str(rval)
         test.printFailure(context, expected, actual)
         return False
+
+
+    def interpretQuery(self, context, query):
+        name = None
+        value = None
+        if isinstance(self.left, (UnresolvedIdentifier, InstanceExpression)):
+            name = self.left.name
+            value = self.right.interpret(context)
+        elif isinstance(self.right, (UnresolvedIdentifier, InstanceExpression)):
+            name = self.right.name
+            value = self.left.interpret(context)
+        if name is None:
+            raise SyntaxError("Unable to interpret predicate")
+        else:
+            decl = context.findAttribute(name)
+            info = None if decl is None else decl.getAttributeInfo()
+            if isinstance(value, IInstance):
+                value = value.getMember(context, "dbId", False)
+            matchOp = self.getMatchOp()
+            query.verify(info, matchOp, None if value is None else value.getStorableData())
+            if self.operator in [CmpOp.GTE, CmpOp.LTE]:
+                query.Not()
+
+    def getMatchOp(self):
+        if self.operator in [CmpOp.GT, CmpOp.LTE]:
+            return MatchOp.GREATER
+        elif self.operator in [CmpOp.GTE, CmpOp.LT]:
+            return MatchOp.LESSER
+        else:
+            raise InvalidValueError(str(self.operator))

@@ -12,7 +12,7 @@ class CategoryArgument(BaseArgument, ITypedArgument):
         return self.getProto()
 
     def getProto(self, context):
-        return self.type_.getName()
+        return self.type_.typeName
 
     def __str__(self):
         return self.name + ':' + self.getProto()
@@ -52,14 +52,9 @@ class CategoryArgument(BaseArgument, ITypedArgument):
 
 
     def toEDialect(self, writer):
-        anonymous = "any"==self.type_.name
         self.type_.toDialect(writer)
-        if anonymous:
-            writer.append(' ')
-            writer.append(self.name)
-        if not anonymous:
-            writer.append(' ')
-            writer.append(self.name)
+        writer.append(' ')
+        writer.append(self.name)
 
 
     def toODialect(self, writer):

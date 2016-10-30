@@ -1,5 +1,8 @@
 class IValue(object):
 
+    def collectStorables(self, list):
+        pass
+
     def GetType(self, context):
         raise Exception("You must override GetType in " + type(self).__name__)
 

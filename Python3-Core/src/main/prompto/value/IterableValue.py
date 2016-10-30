@@ -1,6 +1,7 @@
 from prompto.value.BaseValue import BaseValue
-from prompto.error.InvalidDataError import InvalidDataError
+from prompto.store.InvalidValueError import InvalidValueError
 from prompto.value.IIterable import IIterable
+from prompto.store.InvalidValueError import InvalidValueError
 from prompto.runtime.Variable import Variable
 
 class IterableValue(BaseValue, IIterable):
@@ -27,5 +28,5 @@ class IterableValue(BaseValue, IIterable):
         if "count"==name:
             return self.length
         else:
-            raise InvalidDataError("No such member:" + name)
+            raise InvalidValueError("No such member:" + name)
 

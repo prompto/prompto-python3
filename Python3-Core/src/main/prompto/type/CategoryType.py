@@ -6,6 +6,9 @@ from prompto.grammar.ArgumentAssignment import ArgumentAssignment
 from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
 from prompto.grammar.Operator import Operator
 from prompto.runtime.Score import Score
+from prompto.store.DataStore import DataStore
+from prompto.store.Store import IStored
+from prompto.store.TypeFamily import TypeFamily
 from prompto.type.BaseType import BaseType
 from prompto.type.NullType import NullType
 from prompto.type.AnyType import AnyType
@@ -16,8 +19,9 @@ from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 
 class CategoryType(BaseType):
 
-    def __init__(self, name):
-        super(CategoryType, self).__init__(name)
+    def __init__(self, name, family = TypeFamily.CATEGORY):
+        super(CategoryType, self).__init__(family)
+        self.typeName = name
         self.mutable = False
 
     def __eq__(self, obj):
@@ -27,34 +31,34 @@ class CategoryType(BaseType):
             return True
         if not isinstance(obj, CategoryType):
             return False
-        return self.getName() == obj.getName()
+        return self.typeName == obj.typeName
 
 
     def toDialect(self, writer):
         if self.mutable:
             writer.append("mutable ")
-        writer.append(self.name)
+        writer.append(self.typeName)
 
 
-    def newInstanceFromDocument(self, context, document):
+    def newInstanceFromStored(self, context, document):
         decl = self.getDeclaration(context)
-        inst = decl.newInstanceFromDocument(context, document)
+        inst = decl.newInstanceFromStored(context, document)
         inst.mutable = self.mutable
         return inst
 
     def checkUnique(self, context):
-        actual = context.getRegisteredDeclaration(IDeclaration, self.name)
+        actual = context.getRegisteredDeclaration(IDeclaration, self.typeName)
         if actual is not None:
-            raise SyntaxError("Duplicate name: \"" + self.name + "\"")
+            raise SyntaxError("Duplicate name: \"" + self.typeName + "\"")
 
     def getDeclaration(self, context):
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
         from prompto.declaration.EnumeratedNativeDeclaration import EnumeratedNativeDeclaration
-        decl = context.getRegisteredDeclaration(CategoryDeclaration, self.name)
+        decl = context.getRegisteredDeclaration(CategoryDeclaration, self.typeName)
         if decl is None:
-            decl = context.getRegisteredDeclaration(EnumeratedNativeDeclaration, self.name)
+            decl = context.getRegisteredDeclaration(EnumeratedNativeDeclaration, self.typeName)
         if decl is None:
-            raise SyntaxError("Unknown category: \"" + self.name + "\"")
+            raise SyntaxError("Unknown category: \"" + self.typeName + "\"")
         return decl
 
     def checkMultiply(self, context, other, tryReverse):
@@ -122,18 +126,18 @@ class CategoryType(BaseType):
         if tryReverse:
             return None
         else:
-            raise SyntaxError("Unsupported operation: " + self.name + " " + operator.token + " " + other.name)
+            raise SyntaxError("Unsupported operation: " + self.typeName + " " + operator.token + " " + other.name)
 
     def checkExists(self, context):
         self.getDeclaration(context)
 
     def checkMember(self, context, name):
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
-        cd = context.getRegisteredDeclaration(CategoryDeclaration, self.getName())
+        cd = context.getRegisteredDeclaration(CategoryDeclaration, self.typeName)
         if cd is None:
-            raise SyntaxError("Unknown category:" + self.getName())
+            raise SyntaxError("Unknown category:" + self.typeName)
         if not cd.hasAttribute(context, name):
-            raise SyntaxError("No attribute:" + name + " in category:" + self.getName())
+            raise SyntaxError("No attribute:" + name + " in category:" + self.typeName)
         ad = context.getRegisteredDeclaration(AttributeDeclaration, name)
         if ad is None:
             raise SyntaxError("Unknown atttribute:" + name)
@@ -142,7 +146,7 @@ class CategoryType(BaseType):
     def isAssignableTo(self, context, other):
         if isinstance(other, (NullType, AnyType, MissingType)):
             return True
-        if self.name == other.getName():
+        if self.typeName == other.typeName:
             return True
         if isinstance(other, (AnyType, MissingType)):
             return True
@@ -151,7 +155,7 @@ class CategoryType(BaseType):
         return self.isCategoryAssignableTo(context, other)
 
     def isCategoryAssignableTo(self, context, other):
-        if self.name == other.getName():
+        if self.typeName == other.typeName:
             return True
         try:
             cd = self.getDeclaration(context)
@@ -179,7 +183,7 @@ class CategoryType(BaseType):
             return False
 
     def isAnonymous(self):
-        return self.name[0:1].islower()  # since it's the name of the argument
+        return self.typeName[0:1].islower()  # since it's the name of the argument
 
     def checkAssignableToAnonymousCategory(self, context, decl, other):
         # an anonymous category extends 1 and only 1 category
@@ -200,7 +204,7 @@ class CategoryType(BaseType):
         if other.isAnonymous():
             return True
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
-        selfDecl = context.getRegisteredDeclaration(CategoryDeclaration, self.getName())
+        selfDecl = context.getRegisteredDeclaration(CategoryDeclaration, self.typeName)
         if selfDecl.isDerivedFrom(context, other):
             return True
         return False
@@ -221,8 +225,8 @@ class CategoryType(BaseType):
 
     def newInstance(self, context):
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
-        decl = context.getRegisteredDeclaration(CategoryDeclaration, self.getName())
-        return decl.newInstance()
+        decl = context.getRegisteredDeclaration(CategoryDeclaration, self.typeName)
+        return decl.newInstance(context)
 
     def sort(self, context, source, desc, key):
         if key is None:
@@ -287,3 +291,18 @@ class CategoryType(BaseType):
             return method.interpret(context)
 
         return sorted(source, key=keyGetter, reverse=desc)
+
+
+
+    def convertPythonValueToPromptoValue(self, context, value, returnType, decl=None):
+        if decl is None:
+            decl = self.getDeclaration(context)
+        if decl is None:
+            return super(CategoryType, self).convertPythonValueToPromptoValue(context, value, returnType)
+        if DataStore.instance.isDbIdType(type(value)):
+            value = DataStore.instance.fetchUnique(value)
+        if isinstance(value, IStored):
+            return decl.newInstanceFromStored(context, value)
+        else:
+            return super(CategoryType, self).convertPythonValueToPromptoValue(context, value, returnType)
+

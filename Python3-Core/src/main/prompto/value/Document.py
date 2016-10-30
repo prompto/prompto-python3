@@ -12,6 +12,11 @@ class Document ( BaseValue ):
         self.mutable = True
         self.values = dict()
 
+
+    def getStorableData(self):
+        return self.values
+
+
     def getMemberNames(self):
         return self.values.keys()
 
@@ -50,7 +55,7 @@ class Document ( BaseValue ):
     def toJson(self, context, generator, instanceId, fieldName, binaries):
         generator.writeStartObject()
         generator.writeFieldName("type")
-        generator.writeString(DocumentType.instance.name)
+        generator.writeString(DocumentType.instance.typeName)
         generator.writeFieldName("value")
         generator.writeStartObject()
         for key, value in self.values.items():

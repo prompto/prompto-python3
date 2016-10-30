@@ -19,7 +19,7 @@ class NativeCategoryDeclaration ( ConcreteCategoryDeclaration ):
         if bounded is not None:
             context.registerNativeBinding(bounded, self)
 
-    def newInstance(self):
+    def newInstance(self, context):
         from prompto.value.NativeInstance import NativeInstance
         return NativeInstance(self)
 

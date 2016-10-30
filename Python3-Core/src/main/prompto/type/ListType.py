@@ -1,14 +1,15 @@
 from prompto.type.AnyType import AnyType
 from prompto.type.BooleanType import BooleanType
 from prompto.type.ContainerType import ContainerType
-
+from prompto.store.TypeFamily import TypeFamily
 
 
 
 class ListType(ContainerType):
 
     def __init__(self, itemType):
-        super(ListType, self).__init__(itemType.getName() + "[]", itemType)
+        super().__init__(TypeFamily.LIST, itemType)
+        self.typeName = itemType.typeName + "[]"
 
     def isAssignableTo(self, context, other):
         return isinstance(other, AnyType) or \
@@ -17,7 +18,7 @@ class ListType(ContainerType):
     def __eq__(self, obj):
         if id(obj) == id(self):
             return True
-        if obj == None:
+        if obj is None:
             return False
         if not isinstance(obj, ListType):
             return False
@@ -59,3 +60,10 @@ class ListType(ContainerType):
         else:
             return super(ListType, self).checkMember(context, name)
 
+    def convertPythonValueToPromptoValue(self, context, value, returnType):
+        if isinstance(value, (list, set, tuple)):
+            items = [self.itemType.convertPythonValueToPromptoValue(context, item, returnType) for item in value]
+            from prompto.value.ListValue import ListValue
+            return ListValue(self.itemType, items=items)
+        else:
+            return super(ListType, self).convertPythonValueToPromptoValue(context, value, returnType)

@@ -1,8 +1,17 @@
+from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 from prompto.expression.IExpression import IExpression
+from prompto.expression.InstanceExpression import InstanceExpression
+from prompto.expression.MemberSelector import MemberSelector
+from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.ContOp import ContOp
+from prompto.store.MatchOp import MatchOp
+from prompto.type.CharacterType import CharacterType
+from prompto.type.ContainerType import ContainerType
+from prompto.type.TextType import TextType
 from prompto.value.Boolean import Boolean
 from prompto.value.IContainer import IContainer
 from prompto.utils.CodeWriter import CodeWriter
+from prompto.value.IInstance import IInstance
 from prompto.value.IValue import IValue
 from prompto.error.SyntaxError import SyntaxError
 from prompto.value.NullValue import NullValue
@@ -64,7 +73,7 @@ class ContainsExpression(IExpression):
                     result = False
                 elif isinstance(lval, IContainer) and isinstance(rval, IContainer):
                     result = self.containsAny(context, lval, rval)
-            if result != None:
+            if result is not None:
                 if self.operator.name.find("NOT") == 0:
                     result = not result
                 return Boolean.ValueOf(result)
@@ -113,3 +122,55 @@ class ContainsExpression(IExpression):
         actual = str(lval) + " " + str(writer) + " " + str(rval)
         test.printFailure(context, expected, actual)
         return False
+
+
+    def interpretQuery(self, context, query):
+        value = None
+        name = self.readFieldName(self.left)
+        reverse = name is None
+        if name is not None:
+            value = self.right.interpret(context)
+        else:
+            name = self.readFieldName(self.right)
+            if name is not None:
+                value = self.left.interpret(context)
+            else:
+                raise SyntaxError("Unable to interpret predicate")
+        matchOp = self.getMatchOp(context, self.getAttributeType(context, name), value.type, self.operator, reverse)
+        if isinstance(value, IInstance):
+            value = value.getMember(context, "dbId", False)
+        info = context.findAttribute(name).getAttributeInfo()
+        data = None if value is None else value.getStorableData()
+        query.verify(info, matchOp, data)
+        if str(self.operator).startswith("NOT_"):
+            query.Not()
+
+    def getAttributeType(self, context, name):
+        return context.getRegisteredDeclaration(AttributeDeclaration, name).getType()
+
+
+    def getMatchOp(self, context, fieldType, valueType, operator, reverse):
+        if reverse:
+            reversed = operator.reverse()
+            if reversed is None:
+                raise SyntaxError("Cannot reverse " + self.operator)
+            return self.getMatchOp(context, valueType, fieldType, reversed, False)
+        if (fieldType is TextType.instance or valueType is CharacterType.instance) and \
+            (valueType is TextType.instance or valueType is CharacterType.instance):
+            if operator in [ContOp.CONTAINS, ContOp.NOT_CONTAINS]:
+                return MatchOp.CONTAINS
+        if isinstance(valueType, ContainerType):
+            if operator in [ContOp.IN, ContOp.NOT_IN]:
+                return MatchOp.CONTAINED
+        if isinstance(fieldType, ContainerType):
+            if operator in [ContOp.CONTAINS, ContOp.NOT_CONTAINS]:
+                return MatchOp.CONTAINS
+        raise SyntaxError("Unsupported operator: " + str(operator))
+
+
+
+    def readFieldName(self, exp):
+        if isinstance(exp, (UnresolvedIdentifier, InstanceExpression, MemberSelector)):
+            return str(exp)
+        else:
+            return None

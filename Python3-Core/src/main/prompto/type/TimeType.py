@@ -13,7 +13,7 @@ class TimeType(NativeType):
     instance = None
 
     def __init__(self):
-        super(TimeType, self).__init__("Time")
+        super(TimeType, self).__init__(TypeFamily.TIME)
 
     def isAssignableTo(self, context, other):
         return isinstance(other, (TimeType, AnyType))

@@ -1,5 +1,5 @@
 from prompto.constraint.IAttributeConstraint import IAttributeConstraint
-from prompto.error.InvalidDataError import InvalidDataError
+from prompto.store.InvalidValueError import InvalidValueError
 from prompto.value.IContainer import IContainer
 
 
@@ -13,9 +13,9 @@ class MatchingCollectionConstraint ( IAttributeConstraint ):
         container = self.collection.interpret(context)
         if isinstance(container, IContainer):
             if not container.hasItem(context, value):
-                raise InvalidDataError("Value:" + str(value) + " is not in range: " + str(self.collection))
+                raise InvalidValueError("Value:" + str(value) + " is not in range: " + str(self.collection))
         else:
-            raise InvalidDataError("Not a collection: " + self.collection.toString())
+            raise InvalidValueError("Not a collection: " + self.collection.toString())
 
     def toDialect(self, writer):
         writer.append(" in ")

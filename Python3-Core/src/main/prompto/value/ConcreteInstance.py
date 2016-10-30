@@ -1,19 +1,19 @@
 import threading
+from io import StringIO
 
+from prompto.error.NotStorableError import NotStorableError
 from prompto.grammar.Operator import Operator
+from prompto.store.DataStore import DataStore
 from prompto.type.DecimalType import DecimalType
 from prompto.value.Decimal import Decimal
 from prompto.value.Integer import Integer
 from prompto.value.IInstance import IInstance
 from prompto.value.IMultiplyable import IMultiplyable
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
-from prompto.value.ContextualExpression import *
 from prompto.value.ExpressionValue import *
-from prompto.value.Dictionary import Dictionary
 from prompto.runtime.Variable import Variable
 from prompto.error.SyntaxError import SyntaxError
 from prompto.error.NotMutableError import NotMutableError
-from prompto.store.StorableDocument import StorableDocument
 
 # don't call getters from getters, so register them
 activeGetters = threading.local()
@@ -23,11 +23,14 @@ activeSetters = threading.local()
 
 class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
 
-    def __init__(self, declaration):
+    def __init__(self, context, declaration):
         from prompto.type.CategoryType import CategoryType
         super(ConcreteInstance, self).__init__(CategoryType(declaration.name))
         self.declaration = declaration
-        self.storable = StorableDocument() if declaration.storable else None
+        self.storable = None
+        if declaration.storable:
+            categories = declaration.collectCategories(context)
+            self.storable = DataStore.instance.newStorable(categories)
         self.mutable = False
         self.values = dict()
 
@@ -37,6 +40,35 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
     def getType(self):
         from prompto.type.CategoryType import CategoryType
         return CategoryType(self.declaration.getName())
+
+
+    def getDbId(self):
+        dbId = self.values.get("dbId", None)
+        return None if dbId is None else dbId.getStorableData()
+
+
+    def getOrCreateDbId(self):
+        dbId = self.getDbId()
+        return dbId if dbId is not None else self.storable.getOrCreateDbId()
+
+
+    def getStorableData(self):
+        # this is called when storing the instance as a field value, so we just return the dbId
+        # the instance data itself will be collected as part of collectStorables
+        if self.storable is None:
+            raise NotStorableError()
+        else:
+            return self.getOrCreateDbId()
+
+
+    def collectStorables(self, list):
+        if self.storable is None:
+            raise NotStorableError()
+        if self.storable.dirty:
+            list.append(self.storable)
+        for value in self.values.values():
+            value.collectStorables(list)
+
 
     def getMemberNames(self):
         return self.values.keys()
@@ -54,7 +86,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
 
     def doGetMember(self, context, attrName, allowGetter):
         getter = self.declaration.findGetter(context, attrName) if allowGetter else None
-        if getter != None:
+        if getter is not None:
             context = context.newInstanceContext(self, None).newChildContext()
             return getter.interpret(context)
         else:
@@ -77,7 +109,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
     def doSetMember(self, context, attrName, value, allowSetter):
         decl = context.getRegisteredDeclaration(AttributeDeclaration, attrName)
         setter = self.declaration.findSetter(context, attrName) if allowSetter else None
-        if setter != None:
+        if setter is not None:
             activeSetters.__dict__[attrName] = context
             # use attribute name as parameter name for incoming value
             context = context.newInstanceContext(self, None).newChildContext()
@@ -86,10 +118,9 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
             value = setter.interpret(context)
         value = self.autocast(decl, value)
         self.values[attrName] = value
-        if self.storable is not None:
-            if decl.storable:
-                # TODO convert object graph if(value instanceof IInstance)
-                self.storable.SetMember(context, attrName, value)
+        if self.storable is not None and decl.storable:
+            # TODO convert object graph if(value instanceof IInstance)
+            self.storable.setData(attrName, value.getStorableData())
 
 
     def autocast(self, decl, value):
@@ -103,7 +134,22 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         return self.values == obj.values
 
     def __str__(self):
-        return str(Dictionary(MissingType.instance, False, value=self.values))
+        with StringIO() as sb:
+            sb.write(u"{")
+            for k, v in self.values.items():
+                if "dbId"==k:
+                    continue
+                sb.write(str(k))
+                sb.write(u":")
+                sb.write(str(v))
+                sb.write(u", ")
+            len = sb.tell()
+            if len > 2:
+                sb.seek(len - 2)
+                sb.truncate(len - 2)
+            sb.write(u"}")
+            return sb.getvalue()
+
 
     def __hash__(self):
         return hash((self.declaration.name,frozenset(self.values.items())))

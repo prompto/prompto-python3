@@ -1,10 +1,14 @@
 from prompto.type.BooleanType import BooleanType
 from prompto.type.ContainerType import ContainerType
+from prompto.store.TypeFamily import TypeFamily
+
+
 
 class SetType(ContainerType):
 
     def __init__(self, itemType):
-        super().__init__(itemType.getName() + "<>", itemType)
+        super().__init__(TypeFamily.SET, itemType)
+        self.typeName = itemType.typeName + "<>"
 
     def isAssignableTo(self, context, other):
         return isinstance(other, SetType) and self.itemType.isAssignableTo(context, other.getItemType())
@@ -12,7 +16,7 @@ class SetType(ContainerType):
     def __eq__(self, obj):
         if id(obj) == id(self):
             return True
-        if obj == None:
+        if obj is None:
             return False
         if not isinstance(obj, SetType):
             return False

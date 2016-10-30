@@ -30,7 +30,7 @@ class RangeLiteral(IExpression):
 
     def interpret(self, context):
         type = self.first.check(context)
-        if "IntegerLimits" == type.getName():
+        if "IntegerLimits" == type.typeName:
             from prompto.type.IntegerType import IntegerType
             type = IntegerType.instance
         of = self.first.interpret(context)

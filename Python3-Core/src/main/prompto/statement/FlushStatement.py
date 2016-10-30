@@ -1,6 +1,6 @@
 from prompto.parser.Dialect import Dialect
 from prompto.statement.SimpleStatement import SimpleStatement
-from prompto.store.Store import Store
+from prompto.store.DataStore import DataStore
 from prompto.type.VoidType import VoidType
 
 
@@ -12,7 +12,7 @@ class FlushStatement(SimpleStatement):
 
 
     def interpret(self, context):
-        Store.instance.flush()
+        DataStore.instance.flush()
 
 
     def toDialect(self, writer):

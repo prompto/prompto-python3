@@ -38,8 +38,8 @@ class NativeType ( BaseType ):
                 ]
         return cls.ALL
 
-    def __init__(self, name):
-        super(NativeType, self).__init__(name)
+    def __init__(self, family):
+        super().__init__(family)
 
     def checkUnique(self, context):
         pass

@@ -1,4 +1,6 @@
 from antlr4 import ParseTreeWalker
+
+from prompto.memstore.MemStore import MemStore
 from prompto.parser.Dialect import Dialect
 from prompto.parser.ECleverParser import ECleverParser
 from prompto.parser.EPromptoBuilder import EPromptoBuilder
@@ -10,10 +12,8 @@ from prompto.declaration.TestMethodDeclaration import TestMethodDeclaration
 from prompto.runtime.Context import Context
 from prompto.runtime.Interpreter import Interpreter
 from prompto.runtime.utils.Out import Out
+from prompto.store.DataStore import DataStore
 from prompto.utils.CodeWriter import CodeWriter
-from prompto.store.Store import Store
-from prompto.store.MemStore import MemStore
-
 import os
 import unittest
 
@@ -99,7 +99,7 @@ class BaseParserTest(unittest.TestCase):
         Interpreter.interpret(self.context, methodName, cmdLineArgs)
 
     def checkOutput(self, resource):
-        Store.instance = MemStore()
+        DataStore.instance = MemStore()
         self.runResource(resource)
         self.checkExpected(resource)
 
