@@ -2,6 +2,8 @@ from prompto.error.SyntaxError import SyntaxError
 from prompto.grammar.INamedValue import INamedValue
 from prompto.instance.IAssignableInstance import IAssignableInstance
 from prompto.runtime.Variable import Variable
+from prompto.value.NullValue import NullValue
+
 
 
 class VariableInstance(IAssignableInstance):
@@ -61,7 +63,8 @@ class VariableInstance(IAssignableInstance):
     def assign(self, context, expression):
         value = expression.interpret(context)
         if context.getRegisteredValue(INamedValue, self.name) == None:
-            context.registerValue(Variable(self.name, value.type))
+            typ = value.type if value is not NullValue.instance else expression.check(context)
+            context.registerValue(Variable(self.name, typ))
         context.setValue(self.name, value)
 
     def interpret(self, context):
