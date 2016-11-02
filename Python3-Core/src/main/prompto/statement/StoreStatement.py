@@ -72,7 +72,7 @@ class StoreStatement(SimpleStatement):
             value = exp.interpret (context)
             if value is NullValue.instance:
                 continue
-            elif value is IInstance:
+            elif isinstance(value, IInstance):
                 dbId = value.getMember("dbId")
                 if dbId is not None and dbId is not NullValue.instance:
                     idsToDel.append(dbId.getStorableData())
@@ -80,7 +80,7 @@ class StoreStatement(SimpleStatement):
                 for item in value:
                     if item is NullValue.instance:
                         continue
-                    elif item is IInstance:
+                    elif isinstance(item, IInstance):
                         dbId = item.getMember("dbId")
                         if dbId is not None and dbId is not NullValue.instance:
                             idsToDel.append(dbId.getStorableData())
