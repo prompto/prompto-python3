@@ -84,7 +84,10 @@ class StoreStatement(SimpleStatement):
                         dbId = item.getMember("dbId")
                         if dbId is not None and dbId is not NullValue.instance:
                             idsToDel.append(dbId.getStorableData())
-        return idsToDel
+        if len(idsToDel) == 0:
+            return None
+        else:
+            return idsToDel
 
 
 
@@ -95,4 +98,7 @@ class StoreStatement(SimpleStatement):
         for exp in self.to_add:
             value = exp.interpret(context)
             value.collectStorables(storablesToAdd)
-        return storablesToAdd
+        if len(storablesToAdd) == 0:
+            return None
+        else:
+            return storablesToAdd
