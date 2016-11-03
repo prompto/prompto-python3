@@ -5,7 +5,7 @@ from prompto.error.NotStorableError import NotStorableError
 from prompto.grammar.Operator import Operator
 from prompto.store.DataStore import DataStore
 from prompto.type.DecimalType import DecimalType
-from prompto.utils import TypeUtils
+from prompto.utils.TypeUtils import fieldToValue
 from prompto.value.Decimal import Decimal
 from prompto.value.Integer import Integer
 from prompto.value.IInstance import IInstance
@@ -52,7 +52,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         dbId = self.getDbId()
         if dbId is None:
             dbId = self.storable.getOrCreateDbId()
-            value = TypeUtils.fieldToValue(None, "dbId", dbId)
+            value = fieldToValue(None, "dbId", dbId)
             self.values["dbId"] = value
         return dbId
 
