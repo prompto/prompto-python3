@@ -5,6 +5,7 @@ from prompto.error.NotStorableError import NotStorableError
 from prompto.grammar.Operator import Operator
 from prompto.store.DataStore import DataStore
 from prompto.type.DecimalType import DecimalType
+from prompto.utils import TypeUtils
 from prompto.value.Decimal import Decimal
 from prompto.value.Integer import Integer
 from prompto.value.IInstance import IInstance
@@ -49,7 +50,11 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
 
     def getOrCreateDbId(self):
         dbId = self.getDbId()
-        return dbId if dbId is not None else self.storable.getOrCreateDbId()
+        if dbId is None:
+            dbId = self.storable.getOrCreateDbId()
+            value = TypeUtils.fieldToValue(None, "dbId", dbId)
+            self.values["dbId"] = value
+        return dbId
 
 
     def getStorableData(self):
@@ -65,6 +70,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         if self.storable is None:
             raise NotStorableError()
         if self.storable.dirty:
+            self.getOrCreateDbId()
             list.append(self.storable)
         for value in self.values.values():
             value.collectStorables(list)
