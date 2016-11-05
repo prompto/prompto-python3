@@ -43,7 +43,7 @@ class BaseParserTest(unittest.TestCase):
         allStmts.register(self.coreContext)
 
     def listLibraryFiles(self, libraryName):
-        idx = __file__.index("/prompto-python3/Python3-Core/")
+        idx = __file__.index("/Python3-Core/")
         dir = __file__[0:idx] + "/prompto-libraries/" + libraryName
         if os.path.isdir(dir):
             files = os.listdir(dir)
@@ -65,7 +65,7 @@ class BaseParserTest(unittest.TestCase):
             self.assertEqual(read, expected)
 
     def getResourceAsString(self, resourceName, mode):
-        idx = __file__.index("/prompto-python3/Python3-Core/")
+        idx = __file__.index("/Python3-Core/")
         file = __file__[0:idx] + "/prompto-tests/Tests/resources/" + resourceName
         if not os.path.exists(file):
             file = __file__[0:idx] + "/prompto-libraries/" + resourceName
@@ -73,7 +73,7 @@ class BaseParserTest(unittest.TestCase):
             return input.read()
 
     def getResourceAsStream(self, resourceName, mode):
-        idx = __file__.index("/prompto-python3/Python3-Core/")
+        idx = __file__.index("/Python3-Core/")
         file = __file__[0:idx] + "/prompto-tests/Tests/resources/" + resourceName
         if not os.path.exists(file):
             file = __file__[0:idx] + "/prompto-libraries/" + resourceName
