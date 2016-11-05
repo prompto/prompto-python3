@@ -10,3 +10,8 @@ before_install:
   - curl https://codeload.github.com/prompto/prompto-libraries/zip/master > prompto-libraries.zip
   - unzip prompto-libraries.zip
   - mv prompto-libraries-master prompto-libraries
+  - pip install antlr4==4.5.3
+before_script:
+  - chmod 777 ./test.sh
+script:
+  - ./test.sh
