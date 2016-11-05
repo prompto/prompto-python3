@@ -1,6 +1,4 @@
 from antlr4 import ParseTreeWalker
-
-from prompto.memstore.MemStore import MemStore
 from prompto.parser.Dialect import Dialect
 from prompto.parser.ECleverParser import ECleverParser
 from prompto.parser.EPromptoBuilder import EPromptoBuilder
@@ -13,7 +11,9 @@ from prompto.runtime.Context import Context
 from prompto.runtime.Interpreter import Interpreter
 from prompto.runtime.utils.Out import Out
 from prompto.store.DataStore import DataStore
+from prompto.memstore.MemStore import MemStore
 from prompto.utils.CodeWriter import CodeWriter
+
 import os
 import unittest
 
@@ -162,7 +162,7 @@ class BaseParserTest(unittest.TestCase):
         return self.parse(SPromptoBuilder, parser)
 
     def compareResourceEOE(self, resourceName):
-        expected = self.getResourceAsString(resourceName, 'r')
+        expected = self.getResourceAsString(resourceName, 'rb')
         # print(expected)
         # parse e source code
         dle = self.parseEString(expected)
@@ -186,7 +186,7 @@ class BaseParserTest(unittest.TestCase):
         self.assertEquivalent(expected, actual)
 
     def compareResourceESE(self, resourceName):
-        expected = self.getResourceAsString(resourceName, 'r')
+        expected = self.getResourceAsString(resourceName, 'rb')
         # print(expected)
         # parse e source code
         dle = self.parseEString(expected)
@@ -210,7 +210,7 @@ class BaseParserTest(unittest.TestCase):
         self.assertEquivalent(expected, actual)
 
     def compareResourceOEO(self, resourceName):
-        expected = self.getResourceAsString(resourceName, 'r')
+        expected = self.getResourceAsString(resourceName, 'rb')
         # print(expected)
         # parse o source code
         dlo = self.parseOString(expected)
@@ -234,7 +234,7 @@ class BaseParserTest(unittest.TestCase):
         self.assertEquivalent(expected, actual)
 
     def compareResourceOSO(self, resourceName):
-        expected = self.getResourceAsString(resourceName, 'r')
+        expected = self.getResourceAsString(resourceName, 'rb')
         # print(expected)
         # parse o source code
         dlo = self.parseOString(expected)
