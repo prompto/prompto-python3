@@ -760,6 +760,15 @@ class SParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SParser#FilteredListExpression.
+    def enterFilteredListExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#FilteredListExpression.
+    def exitFilteredListExpression(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by SParser#NotContainsExpression.
     def enterNotContainsExpression(self, ctx):
         pass
@@ -1084,12 +1093,12 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#fetch_list_expression.
-    def enterFetch_list_expression(self, ctx):
+    # Enter a parse tree produced by SParser#filtered_list_suffix.
+    def enterFiltered_list_suffix(self, ctx):
         pass
 
-    # Exit a parse tree produced by SParser#fetch_list_expression.
-    def exitFetch_list_expression(self, ctx):
+    # Exit a parse tree produced by SParser#filtered_list_suffix.
+    def exitFiltered_list_suffix(self, ctx):
         pass
 
 

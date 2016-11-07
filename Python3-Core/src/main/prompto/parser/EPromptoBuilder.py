@@ -51,7 +51,7 @@ from prompto.expression.DocumentExpression import DocumentExpression
 from prompto.expression.EqualsExpression import EqualsExpression
 from prompto.expression.ExecuteExpression import ExecuteExpression
 from prompto.expression.FetchManyExpression import FetchManyExpression
-from prompto.expression.FetchExpression import FetchExpression
+from prompto.expression.FilteredExpression import FilteredExpression
 from prompto.expression.FetchOneExpression import FetchOneExpression
 from prompto.expression.IntDivideExpression import IntDivideExpression
 from prompto.expression.ItemSelector import ItemSelector
@@ -2110,24 +2110,10 @@ class EPromptoBuilder(EParserListener):
     
 
     
-    def exitFetch_list_expression(self, ctx:EParser.Fetch_list_expressionContext):
-        itemName = self.getNodeValue(ctx.name)
-        source = self.getNodeValue(ctx.source)
-        predicate = self.getNodeValue(ctx.predicate)
-        self.setNodeValue(ctx, FetchExpression(itemName, source, predicate))
-
-
-
     def exitFetchOne (self, ctx:EParser.FetchOneContext):
         category = self.getNodeValue(ctx.typ)
         predicate = self.getNodeValue(ctx.predicate)
         self.setNodeValue(ctx, FetchOneExpression(category, predicate))
-
-
-
-    def exitFetchListExpression(self, ctx:EParser.FetchListExpressionContext):
-        exp = self.getNodeValue(ctx.getChild(0))
-        self.setNodeValue(ctx, exp)
 
 
 
@@ -2144,6 +2130,21 @@ class EPromptoBuilder(EParserListener):
     def exitFetchStoreExpression(self, ctx:EParser.FetchStoreExpressionContext):
         exp = self.getNodeValue(ctx.getChild(0))
         self.setNodeValue(ctx, exp)
+
+
+
+    def exitFilteredListExpression(self, ctx:EParser.FilteredListExpressionContext):
+        filtered = self.getNodeValue(ctx.filtered_list_suffix())
+        source = self.getNodeValue(ctx.src)
+        filtered.source = source
+        self.setNodeValue(ctx, filtered)
+
+
+
+    def exitFiltered_list_suffix(self, ctx:EParser.Filtered_list_suffixContext):
+        itemName = self.getNodeValue(ctx.name)
+        predicate = self.getNodeValue(ctx.predicate)
+        self.setNodeValue(ctx, FilteredExpression(itemName, None, predicate))
 
 
 

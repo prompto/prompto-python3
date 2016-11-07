@@ -814,6 +814,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#FilteredListExpression.
+    def enterFilteredListExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#FilteredListExpression.
+    def exitFilteredListExpression(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#ConstructorExpression.
     def enterConstructorExpression(self, ctx):
         pass
@@ -856,15 +865,6 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#ExecuteExpression.
     def exitExecuteExpression(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by EParser#FetchListExpression.
-    def enterFetchListExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by EParser#FetchListExpression.
-    def exitFetchListExpression(self, ctx):
         pass
 
 
@@ -1165,12 +1165,12 @@ class EParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EParser#fetch_list_expression.
-    def enterFetch_list_expression(self, ctx):
+    # Enter a parse tree produced by EParser#filtered_list_suffix.
+    def enterFiltered_list_suffix(self, ctx):
         pass
 
-    # Exit a parse tree produced by EParser#fetch_list_expression.
-    def exitFetch_list_expression(self, ctx):
+    # Exit a parse tree produced by EParser#filtered_list_suffix.
+    def exitFiltered_list_suffix(self, ctx):
         pass
 
 

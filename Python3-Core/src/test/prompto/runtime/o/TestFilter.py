@@ -1,7 +1,7 @@
 from prompto.parser.o.BaseOParserTest import BaseOParserTest
 from prompto.runtime.utils.Out import Out
 
-class TestFetch(BaseOParserTest):
+class TestFilter(BaseOParserTest):
     
     def setUp(self):
         super(type(self), self).setUp()
@@ -10,10 +10,10 @@ class TestFetch(BaseOParserTest):
     def tearDown(self):
         Out.restore()
 
-    def testFetchFromList(self):
-        self.checkOutput("fetch/fetchFromList.poc")
+    def testFilterFromList(self):
+        self.checkOutput("filter/filterFromList.poc")
 
-    def testFetchFromSet(self):
-        self.checkOutput("fetch/fetchFromSet.poc")
+    def testFilterFromSet(self):
+        self.checkOutput("filter/filterFromSet.poc")
 
 

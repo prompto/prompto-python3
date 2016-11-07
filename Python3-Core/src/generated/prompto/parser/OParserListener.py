@@ -1075,12 +1075,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#fetch_list_expression.
-    def enterFetch_list_expression(self, ctx):
+    # Enter a parse tree produced by OParser#filtered_list_expression.
+    def enterFiltered_list_expression(self, ctx):
         pass
 
-    # Exit a parse tree produced by OParser#fetch_list_expression.
-    def exitFetch_list_expression(self, ctx):
+    # Exit a parse tree produced by OParser#filtered_list_expression.
+    def exitFiltered_list_expression(self, ctx):
         pass
 
 
