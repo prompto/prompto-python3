@@ -22,6 +22,9 @@ class TestStore(BaseEParserTest):
     def testManyRecords(self):
         self.checkOutput("store/manyRecords.pec")
 
+    def testManyUntypedRecords(self):
+        self.checkOutput("store/manyUntypedRecords.pec")
+
     def testSimpleRecord(self):
         self.checkOutput("store/simpleRecord.pec")
 

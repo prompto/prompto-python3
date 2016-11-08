@@ -3,12 +3,13 @@ from prompto.declaration.CategoryDeclaration import CategoryDeclaration
 from prompto.parser.Section import Section
 from prompto.error.SyntaxError import SyntaxError
 from prompto.store.AttributeInfo import AttributeInfo
-from prompto.store.DataStore import DataStore
 from prompto.store.InvalidValueError import InvalidValueError
 from prompto.store.MatchOp import MatchOp
 from prompto.store.TypeFamily import TypeFamily
+from prompto.type.AnyType import AnyType
 from prompto.type.BooleanType import BooleanType
 from prompto.type.CursorType import CursorType
+from prompto.store.DataStore import DataStore
 from prompto.value.Cursor import Cursor
 
 class FetchManyExpression(Section, IExpression):
@@ -69,24 +70,31 @@ class FetchManyExpression(Section, IExpression):
             writer.append(" ")
         else:
             writer.append("all ")
+        writer.append(" ( ")
         if self.typ is not None:
-            writer.append(" ( ")
+            writer.append(" ")
             writer.append(self.typ.typeName)
-            writer.append(" ) ")
+            writer.append(" ")
+        writer.append(" ) ")
         if self.predicate is not None:
             writer.append(" where ")
             self.predicate.toDialect(writer)
+            writer.append(" ")
         if self.orderBy is not None:
             self.orderBy.toDialect(writer)
 
     def check (self, context):
-        decl = context.getRegisteredDeclaration (CategoryDeclaration, self.typ.typeName)
-        if decl is None:
-            raise SyntaxError ("Unknown category: " + self.typ.typeName)
+        typ = self.typ
+        if typ is None:
+            typ = AnyType.instance
+        else:
+            decl = context.getRegisteredDeclaration (CategoryDeclaration, typ.typeName)
+            if decl is None:
+                raise SyntaxError ("Unknown category: " + typ.typeName)
         self.checkFilter(context)
         self.checkOrderBy(context)
         self.checkLimits(context)
-        return CursorType (self.typ)
+        return CursorType (typ)
 
     def checkOrderBy (self, context):
         pass # TODO
@@ -105,7 +113,8 @@ class FetchManyExpression(Section, IExpression):
         store = DataStore.instance
         query = self.buildFetchManyQuery(context, store)
         docs = store.fetchMany (query)
-        return Cursor(context, self.typ, docs)
+        typ = AnyType.instance if self.typ is None else self.typ
+        return Cursor(context, typ, docs)
 
 
 

@@ -17,6 +17,9 @@ class TestStore(BaseEParserTest):
     def testManyRecords(self):
         self.compareResourceESE("store/manyRecords.pec")
 
+    def testManyUntypedRecords(self):
+        self.compareResourceESE("store/manyUntypedRecords.pec")
+
     def testSimpleRecord(self):
         self.compareResourceESE("store/simpleRecord.pec")
 
