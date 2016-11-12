@@ -111,7 +111,7 @@ class SwitchErrorStatement(BaseSwitchStatement):
         writer.dedent()
         if self.switchCases is not None:
             for sc in self.switchCases:
-                sc.catchToPDialect(writer)
+                sc.catchToSDialect(writer)
         if self.defaultCase is not None:
             writer.append("except:\n")
             writer.indent()
