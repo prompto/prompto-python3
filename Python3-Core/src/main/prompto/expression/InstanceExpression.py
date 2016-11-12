@@ -47,7 +47,8 @@ class InstanceExpression(IExpression):
         elif isinstance(named, AttributeDeclaration):  # in category method
             return named.getType(context)
         elif isinstance(named, MethodDeclarationMap):  # global method or closure
-            return MethodType(context, self.name)
+            method = named.getFirst()
+            return MethodType(method)
         else:
             raise SyntaxError(self.name + "  is not an instance:" + type(named).__name__)
 
