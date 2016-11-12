@@ -16,7 +16,7 @@ class AnyType ( NativeType ):
     def checkMember(self, context, name):
         return AnyType.instance # needed to support members in Documents
 
-    def isAssignableTo(self, context, other):
-        return isinstance(other, AnyType)
+    def isAssignableFrom(self, context, other):
+        return True
 
 AnyType.instance = AnyType()

@@ -11,9 +11,10 @@ class ListType(ContainerType):
         super().__init__(TypeFamily.LIST, itemType)
         self.typeName = itemType.typeName + "[]"
 
-    def isAssignableTo(self, context, other):
-        return isinstance(other, AnyType) or \
-               (isinstance(other, ListType) and self.itemType.isAssignableTo(context, other.getItemType()))
+
+    def isAssignableFrom(self, context, other):
+        return super().isAssignableFrom(context, other) or \
+               (isinstance(other, ListType) and self.itemType.isAssignableFrom(context, other.getItemType()))
 
     def __eq__(self, obj):
         if id(obj) == id(self):

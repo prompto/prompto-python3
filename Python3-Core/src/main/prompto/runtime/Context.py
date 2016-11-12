@@ -389,8 +389,12 @@ class InstanceContext(Context):
             decl = self.getRegisteredDeclaration(AttributeDeclaration, name)
             return ExpressionValue(decl.getType(), value)
 
+
+
     def writeValue(self, name, value):
         self.instance.setMember(self.calling, name, value)
+
+
 
 
 class MethodDeclarationMap(dict, IDeclaration):
@@ -399,17 +403,29 @@ class MethodDeclarationMap(dict, IDeclaration):
         super().__init__()
         self.name = name
 
+
+
     def getName(self):
         return self.name
 
+
+
+    def getFirst(self):
+        for method in self.values():
+            return method
+
+
+
     def register(self, declaration, context):
-        proto = declaration.getProto(context)
+        proto = declaration.getProto()
         if self.get(proto, None) != None:
             raise SyntaxError("Duplicate prototype for name: \"" + declaration.name + "\"")
         self[proto] = declaration
 
+
+
     def registerIfMissing(self, declaration, context):
-        proto = declaration.getProto(context)
+        proto = declaration.getProto()
         if self.get(proto, None) is None:
             self[proto] = declaration
 

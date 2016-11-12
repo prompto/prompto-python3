@@ -10,9 +10,6 @@ class UUIDType(NativeType):
     def __init__(self):
         super().__init__(TypeFamily.UUID)
 
-    def isAssignableTo(self, context, other):
-        return isinstance(other, UUIDType) or isinstance(other, AnyType)
-
     def toString(self, value):
         return "'" + str(value) + "'"
 

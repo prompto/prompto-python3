@@ -12,7 +12,7 @@ class MissingType ( NativeType ):
         self.typeName = "*"
 
 
-    def isAssignableTo(self, context, other):
+    def isAssignableFrom(self, context, other):
         return True
 
 MissingType.instance = MissingType()

@@ -15,7 +15,7 @@ class ExtendedArgument(CategoryArgument):
 
 
 
-    def getProto(self, context):
+    def getProto(self):
         return self.type_.typeName + '(' + str(self.attributes) + ')'
 
 

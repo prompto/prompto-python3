@@ -33,18 +33,18 @@ class TestAnonymousTypes(BaseEParserTest):
         argument.register(self.context)
         st = argument.getType(self.context)
         self.assertIsInstance(st, AnyType)
-        self.assertTrue(BooleanType.instance.isAssignableTo(self.context, st))
-        self.assertTrue(IntegerType.instance.isAssignableTo(self.context, st))
-        self.assertTrue(DecimalType.instance.isAssignableTo(self.context, st))
-        self.assertTrue(TextType.instance.isAssignableTo(self.context, st))
-        self.assertTrue(DateType.instance.isAssignableTo(self.context, st))
-        self.assertTrue(DateTimeType.instance.isAssignableTo(self.context, st))
-        self.assertTrue(MissingType.instance.isAssignableTo(self.context, st))  # missing type always compatible
-        self.assertTrue(AnyType.instance.isAssignableTo(self.context, st))
-        self.assertTrue(CategoryType("Simple").isAssignableTo(self.context, st))
-        self.assertTrue(CategoryType("Root").isAssignableTo(self.context, st))
-        self.assertTrue(CategoryType("DerivedWithOther").isAssignableTo(self.context, st))
-        self.assertTrue(CategoryType("DerivedWithName").isAssignableTo(self.context, st))
+        self.assertTrue(st.isAssignableFrom(self.context, BooleanType.instance))
+        self.assertTrue(st.isAssignableFrom(self.context, IntegerType.instance))
+        self.assertTrue(st.isAssignableFrom(self.context, DecimalType.instance))
+        self.assertTrue(st.isAssignableFrom(self.context, TextType.instance))
+        self.assertTrue(st.isAssignableFrom(self.context, DateType.instance))
+        self.assertTrue(st.isAssignableFrom(self.context, DateTimeType.instance))
+        self.assertTrue(st.isAssignableFrom(self.context, MissingType.instance))  # missing type always compatible
+        self.assertTrue(st.isAssignableFrom(self.context, AnyType.instance))
+        self.assertTrue(st.isAssignableFrom(self.context, CategoryType("Simple")))
+        self.assertTrue(st.isAssignableFrom(self.context, CategoryType("Root")))
+        self.assertTrue(st.isAssignableFrom(self.context, CategoryType("DerivedWithOther")))
+        self.assertTrue(st.isAssignableFrom(self.context, CategoryType("DerivedWithName")))
 
 
     def testAnonymousAnyTypeWithAttribute(self):
@@ -54,20 +54,20 @@ class TestAnonymousTypes(BaseEParserTest):
         argument.register(self.context)
         st = argument.getType(self.context)
         self.assertIsInstance(st, CategoryType)
-        self.assertFalse(BooleanType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(IntegerType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(DecimalType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(TextType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(DateType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(DateTimeType.instance.isAssignableTo(self.context, st))
-        self.assertTrue(MissingType.instance.isAssignableTo(self.context, st))  # missing type always compatible
-        self.assertFalse(AnyType.instance.isAssignableTo(self.context, st))  # any type never compatible
-        self.assertTrue(CategoryType("Simple").isAssignableTo(self.context, st))  # since Simple has a name
-        self.assertFalse(CategoryType("Root").isAssignableTo(self.context, st))  # since Root has no name
+        self.assertFalse(st.isAssignableFrom(self.context, BooleanType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, IntegerType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, DecimalType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, TextType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, DateType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, DateTimeType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, MissingType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, AnyType.instance))  # any type never compatible
+        self.assertTrue(st.isAssignableFrom(self.context, CategoryType("Simple")))  # since Simple has a name
+        self.assertFalse(st.isAssignableFrom(self.context, CategoryType("Root")))  # since Root has no name
         self.assertFalse(
-            CategoryType("DerivedWithOther").isAssignableTo(self.context, st))  # since DerivedWithOther has no name
+            st.isAssignableFrom(self.context, CategoryType("DerivedWithOther")))  # since DerivedWithOther has no name
         self.assertTrue(
-            CategoryType("DerivedWithName").isAssignableTo(self.context, st))  # since DerivedWithName has a name
+            st.isAssignableFrom(self.context, CategoryType("DerivedWithName")))  # since DerivedWithName has a name
 
 
     def testAnonymousCategoryType(self):
@@ -76,20 +76,20 @@ class TestAnonymousTypes(BaseEParserTest):
         argument.register(self.context)
         st = argument.getType(self.context)
         self.assertIsInstance(st, CategoryType)
-        self.assertFalse(BooleanType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(IntegerType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(DecimalType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(TextType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(DateType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(DateTimeType.instance.isAssignableTo(self.context, st))
-        self.assertTrue(MissingType.instance.isAssignableTo(self.context, st))  # missing type always compatible
-        self.assertFalse(AnyType.instance.isAssignableTo(self.context, st))  # any type never compatible
-        self.assertFalse(CategoryType("Simple").isAssignableTo(self.context, st))  # since Simple does not extend Root
-        self.assertTrue(CategoryType("Root").isAssignableTo(self.context, st))  # since Root is Root
+        self.assertFalse(st.isAssignableFrom(self.context, BooleanType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, IntegerType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, DecimalType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, TextType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, DateType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, DateTimeType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, MissingType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, AnyType.instance))  # any type never compatible
+        self.assertFalse(st.isAssignableFrom(self.context, CategoryType("Simple")))  # since Simple does not extend Root
+        self.assertTrue(st.isAssignableFrom(self.context, CategoryType("Root")))  # since Root is Root
         self.assertTrue(
-            CategoryType("DerivedWithOther").isAssignableTo(self.context, st))  # since DerivedWithOther extends Root
+            st.isAssignableFrom(self.context, CategoryType("DerivedWithOther")))  # since DerivedWithOther extends Root
         self.assertTrue(
-            CategoryType("DerivedWithName").isAssignableTo(self.context, st))  # since DerivedWithName extends Root
+            st.isAssignableFrom(self.context, CategoryType("DerivedWithName")))  # since DerivedWithName extends Root
 
 
     def testAnonymousCategoryTypeWithAttribute(self):
@@ -99,17 +99,17 @@ class TestAnonymousTypes(BaseEParserTest):
         argument.register(self.context)
         st = argument.getType(self.context)
         self.assertIsInstance(st, CategoryType)
-        self.assertFalse(BooleanType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(IntegerType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(DecimalType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(TextType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(DateType.instance.isAssignableTo(self.context, st))
-        self.assertFalse(DateTimeType.instance.isAssignableTo(self.context, st))
-        self.assertTrue(MissingType.instance.isAssignableTo(self.context, st))  # missing type always compatible
-        self.assertFalse(AnyType.instance.isAssignableTo(self.context, st))  # any type never compatible
-        self.assertFalse(CategoryType("Simple").isAssignableTo(self.context, st))  # since Simple does not extend Root
-        self.assertFalse(CategoryType("Root").isAssignableTo(self.context, st))  # since Root has no name
+        self.assertFalse(st.isAssignableFrom(self.context, BooleanType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, IntegerType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, DecimalType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, TextType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, DateType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, DateTimeType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, MissingType.instance))
+        self.assertFalse(st.isAssignableFrom(self.context, AnyType.instance))  # any type never compatible
+        self.assertFalse(st.isAssignableFrom(self.context, CategoryType("Simple")))  # since Simple does not extend Root
+        self.assertFalse(st.isAssignableFrom(self.context, CategoryType("Root")))  # since Root has no name
         self.assertFalse(
-            CategoryType("DerivedWithOther").isAssignableTo(self.context, st))  # since DerivedWithOther has no name
+            st.isAssignableFrom(self.context, CategoryType("DerivedWithOther")))  # since DerivedWithOther has no name
         self.assertTrue(
-            CategoryType("DerivedWithName").isAssignableTo(self.context, st))  # since DerivedWithName has a name
+            st.isAssignableFrom(self.context, CategoryType("DerivedWithName")))  # since DerivedWithName has a name

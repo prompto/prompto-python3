@@ -10,8 +10,9 @@ class CursorType(IterableType):
         super(CursorType, self).__init__(TypeFamily.CURSOR, itemType)
         self.typeName = "Cursor<" + itemType.typeName+">"
 
-    def isAssignableTo(self, context, other):
-        return isinstance(other, CursorType) and self.itemType.isAssignableTo(context, other.itemType)
+    def isAssignableFrom(self, context, other):
+        return super().isAssignableFrom(context, other) or \
+               (isinstance(other, CursorType) and self.itemType.isAssignableFrom(context, other.itemType))
 
     def __eq__(self, obj):
         if obj is self:

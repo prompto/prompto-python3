@@ -17,5 +17,3 @@ class ResourceType ( CategoryType ):
 			return False
 		return self.typeName == obj.typeName
 
-	def isAssignableTo(self, context, other):
-		return self==other

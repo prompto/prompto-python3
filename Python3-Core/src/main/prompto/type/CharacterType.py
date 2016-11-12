@@ -16,9 +16,6 @@ class CharacterType(NativeType):
     def __init__(self):
         super().__init__(TypeFamily.CHARACTER)
 
-    def isAssignableTo(self, context, other):
-        return isinstance(other, CharacterType) or isinstance(other, TextType) or isinstance(other, AnyType)
-
     def checkMember(self, context, name):
         from prompto.type.IntegerType import IntegerType
         if "codePoint" == name:

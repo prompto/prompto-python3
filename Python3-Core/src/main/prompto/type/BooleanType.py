@@ -10,10 +10,6 @@ class BooleanType(NativeType):
     def __init__(self):
         super(BooleanType, self).__init__(TypeFamily.BOOLEAN)
 
-    def isAssignableTo(self, context, other):
-        from prompto.type.AnyType import AnyType
-        return isinstance(other, BooleanType) or isinstance(other, AnyType)
-
     def sort(self, context, source, desc):
         return sorted(source, reverse=desc)
 

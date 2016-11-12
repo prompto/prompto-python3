@@ -8,7 +8,7 @@ class AtomicSwitchCase ( SwitchCase ):
 
     def checkSwitchType(self, context, type_):
         selfType = self.expression.check(context)
-        if not selfType.isAssignableTo(context, type_):
+        if not type_.isAssignableFrom(context, selfType):
             raise SyntaxError("Cannot assign:" + selfType.getName() + " to:" + type_.getName())
 
     def matches(self, context, value):

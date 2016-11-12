@@ -8,7 +8,7 @@ class ContainerType ( IterableType ) :
         super().__init__(family, itemType)
 
     def checkContains(self, context, other):
-        if self.itemType.isAssignableTo(context, other):
+        if other.isAssignableFrom(context, self.itemType):
             return BooleanType.instance
         else:
             return super(ContainerType, self).checkContains(context, other)

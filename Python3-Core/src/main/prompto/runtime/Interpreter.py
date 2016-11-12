@@ -9,6 +9,7 @@ from prompto.runtime.Context import MethodDeclarationMap
 from prompto.statement.MethodCall import MethodCall
 from prompto.type.DictType import DictType
 from prompto.type.TextType import TextType
+from prompto.utils import CmdLineParser
 from prompto.utils.ArgsParser import ArgsParser
 from prompto.value.Dictionary import Dictionary
 from prompto.value.ExpressionValue import ExpressionValue
@@ -59,11 +60,11 @@ class Interpreter(object):
     @staticmethod
     def parseCmdLineArgs(cmdLineArgs):
         try:
-            args = ArgsParser.parse(cmdLineArgs)
+            args = CmdLineParser.parseCmdLine(cmdLineArgs)
             valueArgs = dict()
             for key, value in args:
                 valueArgs[Text(key)] = Text(value)
-            dict_ = Dictionary(False, valueArgs)
+            dict_ = Dictionary(TextType.instance, False, value=valueArgs)
             return ExpressionValue(Interpreter.argsType, dict_)
         except:
             # TODO

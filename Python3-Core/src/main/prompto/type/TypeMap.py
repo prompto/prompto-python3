@@ -6,19 +6,19 @@ class TypeMap ( dict ):
     def inferType(self, context):
         if len(self)==0:
             return VoidType.instance
-        type_ = None
+        common = None
         # first pass: get less specific type
         for t in self.values():
-            if type_ is None:
-                type_ = t
-            elif t.isAssignableTo(context, type_):
+            if common is None:
+                common = t
+            elif common.isAssignableFrom(context, t):
                 continue
-            elif type_.isAssignableTo(context, t):
-                type_ = t
+            elif t.isAssignableFrom(context, common):
+                common = t
             else:
-                raise SyntaxError("Incompatible types: " + type_.getName() + " and " + t.getName())
+                raise SyntaxError("Incompatible types: " + common.getName() + " and " + t.getName())
         # second pass: check compatible
         for t in self.values():
-            if not t.isAssignableTo(context, type_):
-                raise SyntaxError("Incompatible types: " + type_.getName() + " and " + t.getName())
-        return type_
+            if not common.isAssignableFrom(context, t):
+                raise SyntaxError("Incompatible types: " + common.getName() + " and " + t.getName())
+        return common

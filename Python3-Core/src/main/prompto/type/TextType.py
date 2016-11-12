@@ -9,9 +9,11 @@ class TextType(NativeType):
     def __init__(self):
         super().__init__(TypeFamily.TEXT)
 
-    def isAssignableTo(self, context, other):
-        from prompto.type.AnyType import AnyType
-        return isinstance(other, TextType) or isinstance(other, AnyType)
+    def isAssignableFrom(self, context, other):
+        from prompto.type.CharacterType import CharacterType
+        return super().isAssignableFrom(context, other) or \
+               other == CharacterType.instance
+
 
     def checkAdd(self, context, other, tryReverse):
         return self

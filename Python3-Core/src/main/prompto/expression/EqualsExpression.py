@@ -88,7 +88,7 @@ class EqualsExpression ( IExpression ):
         if isinstance(lval, IValue) and isinstance(rval, TypeValue):
             actual = lval.GetType(context)
             toCheck = rval.value
-            return actual.isAssignableTo(context, toCheck)
+            return toCheck.isAssignableFrom(context, actual)
         else:
             return False
 

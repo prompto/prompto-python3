@@ -50,6 +50,4 @@ class NativeType ( BaseType ):
     def isMoreSpecificThan(self, context, other):
         return False
 
-    def isAssignableTo(self, context, other):
-        return id(other)==id(self)
 

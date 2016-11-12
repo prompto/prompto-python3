@@ -15,7 +15,7 @@ class CodeArgument ( BaseArgument, ITypedArgument ):
     def getSignature(self, dialect):
         return self.name + ':' + CodeType.instance.typeName
 
-    def getProto(self, context):
+    def getProto(self):
         return CodeType.instance.typeName
 
     def __str__(self):

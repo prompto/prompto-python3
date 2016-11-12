@@ -35,10 +35,10 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
     def __str__(self):
         return self.getName() + ":(" + str(self.arguments) + ')'
 
-    def getProto(self, context):
+    def getProto(self):
         sb = StringIO()
         for arg in self.arguments:
-            sb.write(arg.getProto(context))
+            sb.write(arg.getProto())
             sb.write('/')
         val = sb.getvalue()
         if len(val) > 0:
@@ -105,10 +105,10 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
                     actual = value.getType()
             if actual == required:
                 return Specificity.EXACT
-            if actual.isAssignableTo(context, required):
+            if required.isAssignableFrom(context, actual):
                 return Specificity.INHERITED
             actual = assignment.resolve(context, self, checkInstance).check(context)
-            if actual.isAssignableTo(context, required):
+            if required.isAssignableFrom(context, actual):
                 return Specificity.RESOLVED
         except PrestoError:
             pass

@@ -91,27 +91,47 @@ class BaseType(IType):
         raise SyntaxError("Cannot iterate over " + self.typeName)
 
 
-    def checkAssignableTo(self, context, other):
-        if not self.isAssignableTo(context, other):
-            raise SyntaxError("Type: " + self.typeName + " is not compatible with: " + other.typeName)
-
-
     def checkRange(self, context, other):
         raise SyntaxError("Cannot create range of " + self.typeName + " and " + other.typeName)
+
 
 
     def newRange(self, left, right):
         raise SyntaxError("Cannot create range of " + self.typeName)
 
 
+
     def toString(self, value):
         return str(value)
+
+
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         raise Exception("Unsupported!")
 
+
+
     def sort(self, context, source, desc, key=None):
         raise Exception("Unsupported!")
 
+
+
     def readJSONValue(self, context, node, parts):
         raise Exception("Unsupported!")
+
+
+
+    def isAssignableFrom(self, context, other:IType):
+        from prompto.type.NullType import NullType
+        return other is NullType.instance \
+            or self is other \
+            or self == other \
+            or self.typeName == other.typeName
+
+
+
+    def checkAssignableFrom(self, context, other):
+        if not self.isAssignableFrom(context, other):
+            raise SyntaxError("Type: " + self.typeName + " is not compatible with: " + other.typeName)
+
+

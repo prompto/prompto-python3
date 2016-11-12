@@ -10,6 +10,7 @@ from prompto.store.DataStore import DataStore
 from prompto.store.Store import IStored
 from prompto.store.TypeFamily import TypeFamily
 from prompto.type.BaseType import BaseType
+from prompto.type.IType import IType
 from prompto.type.NullType import NullType
 from prompto.type.AnyType import AnyType
 from prompto.type.MissingType import MissingType
@@ -143,58 +144,63 @@ class CategoryType(BaseType):
             raise SyntaxError("Unknown atttribute:" + name)
         return ad.getType(context)
 
-    def isAssignableTo(self, context, other):
-        if isinstance(other, (NullType, AnyType, MissingType)):
-            return True
-        if self.typeName == other.typeName:
-            return True
-        if isinstance(other, (AnyType, MissingType)):
-            return True
+
+    def isDerivedFrom(self, context, other:IType):
+        from prompto.declaration.CategoryDeclaration import CategoryDeclaration
         if not isinstance(other, CategoryType):
             return False
-        return self.isCategoryAssignableTo(context, other)
-
-    def isCategoryAssignableTo(self, context, other):
-        if self.typeName == other.typeName:
-            return True
         try:
-            cd = self.getDeclaration(context)
-            return self.isDerivedFromCompatibleCategory(context, cd, other) \
-                or self.isAssignableToAnonymousCategory(context, cd, other)
-        except SyntaxError:
+            thisDecl = self.getDeclaration(context)
+            if isinstance(thisDecl, CategoryDeclaration):
+                if thisDecl.derivedFrom is None:
+                    return False
+                for derived in thisDecl.derivedFrom:
+                    cat = CategoryType(derived)
+                    if cat==other or cat.isDerivedFrom(context, other):
+                        return True
+        except:
             return False
-
-    def isDerivedFromCompatibleCategory(self, context, decl, other):
-        if decl.getDerivedFrom() is None:
-            return False
-        for derived in decl.getDerivedFrom():
-            ct = CategoryType(derived)
-            if ct.isAssignableTo(context, other):
-                return True
         return False
 
-    def isAssignableToAnonymousCategory(self, context, decl, other):
-        if not other.isAnonymous():
-            return False
-        try:
-            cd = other.getDeclaration(context)
-            return self.checkAssignableToAnonymousCategory(context, decl, cd)
-        except SyntaxError:
-            return False
+
+
+    def isAssignableFrom(self, context, other:IType):
+        return super().isAssignableFrom(context, other) or \
+            (isinstance(other, CategoryType) and self.isAssignableFromCategory(context, other))
+
+
+
+    def isAssignableFromCategory(self, context, other: IType):
+        return other.isDerivedFrom(context, self) or \
+               other.isDerivedFromAnonymous(context, self)
+
 
     def isAnonymous(self):
         return self.typeName[0:1].islower()  # since it's the name of the argument
 
-    def checkAssignableToAnonymousCategory(self, context, decl, other):
-        # an anonymous category extends 1 and only 1 category
-        baseName = other.getDerivedFrom()[0]
-        # check we derive from root category (if not extending 'Any')
-        if not "any" == baseName and not decl.isDerivedFrom(context, CategoryType(baseName)):
+
+    def isDerivedFromAnonymous(self, context, other:IType):
+        if not other.isAnonymous():
             return False
-        for attribute in other.getAttributes():
-            if not decl.hasAttribute(context, attribute):
-                return False
-        return True
+        try:
+            from prompto.declaration.CategoryDeclaration import CategoryDeclaration
+            thisDecl = self.getDeclaration(context)
+            if isinstance(thisDecl, CategoryDeclaration):
+                otherDecl = other.getDeclaration(context)
+                if isinstance(otherDecl, CategoryDeclaration):
+                    # an anonymous category extends 1 and only 1 category
+                    baseName = otherDecl.derivedFrom[0]
+                    # check we derive from root category ( if not extending 'any')
+                    if not "any" == baseName and not thisDecl.isDerivedFrom(context, CategoryType(baseName)):
+                        return False
+                    for attribute in otherDecl.getAllAttributes(context):
+                        if not thisDecl.hasAttribute(context, attribute):
+                            return False
+                    return True
+        except:
+            return False
+
+
 
     def isMoreSpecificThan(self, context, other):
         if isinstance(other, (NullType, AnyType, MissingType)):
@@ -208,6 +214,8 @@ class CategoryType(BaseType):
         if selfDecl.isDerivedFrom(context, other):
             return True
         return False
+
+
 
     def scoreMostSpecific(self, context, t1, t2):
         if t1 == t2:

@@ -37,7 +37,7 @@ class AssignVariableStatement ( SimpleStatement ):
         else:
             # need to check type compatibility
             actualType = actual.getType(context)
-            expressionType.checkAssignableTo(context,actualType)
+            actualType.checkAssignableFrom(context, expressionType)
         return VoidType.instance
 
     def __eq__(self, obj):
@@ -58,7 +58,7 @@ class AssignVariableStatement ( SimpleStatement ):
             # need to check type compatibility
             actualType = actual.getType(context)
             newType = self.expression.check(context)
-            newType.checkAssignableTo(context,actualType)
+            actualType.checkAssignableFrom(context, newType)
         return VoidType.instance
 
     def interpret(self, context):
@@ -78,7 +78,7 @@ class AssignVariableStatement ( SimpleStatement ):
             value = expression.interpret(context.getCallingContext())
             if isinstance(value, IInstance):
                 actual = value.getType()
-        if not actual.isAssignableTo(context, required) and isinstance(actual, CategoryType):
+        if not required.isAssignableFrom(context, actual) and isinstance(actual, CategoryType):
             expression = MemberSelector(expression,self.name)
         return expression
 

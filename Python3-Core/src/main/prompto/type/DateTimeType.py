@@ -18,11 +18,6 @@ class DateTimeType(NativeType):
         else:
             return value  # TODO for now
 
-    def isAssignableTo(self, context, other):
-        from prompto.type.AnyType import AnyType
-        from prompto.type.DateType import DateType
-        from prompto.type.TimeType import TimeType
-        return isinstance(other, (DateTimeType, DateType, TimeType, AnyType))
 
     def checkAdd(self, context, other, tryReverse):
         from prompto.type.PeriodType import PeriodType

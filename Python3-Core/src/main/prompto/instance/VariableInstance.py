@@ -38,7 +38,7 @@ class VariableInstance(IAssignableInstance):
         else:
             # need to check type compatibility
             actualType = actual.getType(context)
-            valueType.checkAssignableTo(context, actualType)
+            actualType.checkAssignableFrom(context, valueType)
             return actualType
 
 

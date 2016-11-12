@@ -38,7 +38,7 @@ class RaiseStatement ( SimpleStatement ):
 
     def check(self, context):
         type_ = self.expression.check(context)
-        if not type_.isAssignableTo(context, CategoryType("Error")):
+        if not CategoryType("Error").isAssignableFrom(context, type_):
             raise SyntaxError(type_.getName() + " does not extend Error")
         return VoidType.instance
 

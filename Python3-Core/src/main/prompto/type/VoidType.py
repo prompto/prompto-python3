@@ -11,7 +11,7 @@ class VoidType (NativeType):
         super().__init__(TypeFamily.VOID)
 
 
-    def isAssignableTo(self, context, other):
+    def isAssignableFrom(self, context, other):
         raise Exception("Should never get there !")
 
 VoidType.instance = VoidType()	

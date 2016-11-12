@@ -1,13 +1,10 @@
 from numbers import Number
-from prompto.type.AnyType import *
-from prompto.type.BooleanType import *
 from prompto.type.CharacterType import *
+from prompto.type.IType import IType
 from prompto.type.ListType import *
-from prompto.type.NativeType import *
 from prompto.type.PeriodType import *
 from prompto.type.RangeType import *
 from prompto.type.TextType import *
-from prompto.value.Integer import *
 from prompto.value.IntegerRange import *
 from prompto.store.TypeFamily import TypeFamily
 
@@ -19,9 +16,11 @@ class IntegerType(NativeType):
     def __init__(self):
         super(IntegerType, self).__init__(TypeFamily.INTEGER)
 
-    def isAssignableTo(self, context, other):
+    def isAssignableFrom(self, context, other:IType):
         from prompto.type.DecimalType import DecimalType
-        return isinstance(other, IntegerType) or isinstance(other, DecimalType) or isinstance(other, AnyType)
+        return super().isAssignableFrom(context, other) or \
+            other == DecimalType.instance
+
 
     def checkAdd(self, context, other, tryReverse):
         from prompto.type.DecimalType import DecimalType
@@ -31,6 +30,8 @@ class IntegerType(NativeType):
             return other
         return super(IntegerType, self).checkAdd(context, other, tryReverse)
 
+
+
     def checkSubstract(self, context, other):
         from prompto.type.DecimalType import DecimalType
         if isinstance(other, IntegerType):
@@ -38,6 +39,8 @@ class IntegerType(NativeType):
         if isinstance(other, DecimalType):
             return other
         return super(IntegerType, self).checkSubstract(context, other)
+
+
 
     def checkMultiply(self, context, other, tryReverse):
         from prompto.type.DecimalType import DecimalType

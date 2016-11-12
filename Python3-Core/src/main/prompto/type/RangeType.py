@@ -8,9 +8,6 @@ class RangeType(ContainerType):
         self.typeName = itemType.typeName + "[..]"
 
 
-    def isAssignableTo(self, context, other):
-        return self == other
-
     def __eq__(self, obj):
         if id(obj) == id(self):
             return True

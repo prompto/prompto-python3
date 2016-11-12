@@ -10,7 +10,7 @@ class NullType(BaseType):
     def __init__(self):
         super(NullType, self).__init__(TypeFamily.NULL)
 
-    def isAssignableTo (self, context,  other):
+    def isAssignableFrom (self, context,  other):
         return True
 
     def isMoreSpecificThan (self, context, other):

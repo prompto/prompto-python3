@@ -13,14 +13,12 @@ class CollectionSwitchCase ( SwitchCase ):
         selfType = self.expression.check(context)
         if isinstance(selfType, ContainerType):
             selfType = selfType.getItemType()
-        if not selfType.isAssignableTo(context, type_):
+        if not type_.isAssignableFrom(context, selfType):
             raise SyntaxError("Cannot assign:" + selfType.getName() + " to:" + type_.getName())
 
     def matches(self, context, value):
         selfValue = self.expression.interpret(context)
         if isinstance(selfValue, IContainer):
-            return selfValue.hasItem(context, value)
-        elif isinstance(selfValue, ValueList):
             return selfValue.hasItem(context, value)
         return False
 

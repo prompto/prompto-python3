@@ -58,7 +58,7 @@ class AssignTupleStatement(SimpleStatement):
                 # need to check type compatibility
                 actualType = actual.getType(context)
                 newType = self.expression.check(context)
-                newType.checkAssignableTo(context, actualType)
+                actualType.checkAssignableFrom(context, newType)
         return VoidType.instance
 
     def interpret(self, context):

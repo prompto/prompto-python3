@@ -16,8 +16,6 @@ class DocumentType ( NativeType ):
     def __init__(self):
         super(DocumentType, self).__init__(TypeFamily.DOCUMENT)
 
-    def isAssignableTo(self, context, other):
-        return isinstance(other, DocumentType) or isinstance(other, AnyType)
 
     def checkMember(self, context, name):
         return AnyType.instance

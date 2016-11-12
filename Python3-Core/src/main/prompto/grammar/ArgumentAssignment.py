@@ -67,7 +67,7 @@ class ArgumentAssignment(IDialectElement):
             # need to check type compatibility
             actualType = actual.getType(context)
             newType = self.expression.check(context)
-            newType.checkAssignableTo(context, actualType)
+            actualType.checkAssignableFrom(context, newType)
         return VoidType.instance
 
     def interpret(self, context):
@@ -88,7 +88,7 @@ class ArgumentAssignment(IDialectElement):
             value = expression.interpret(context.getCallingContext())
             if isinstance(value, IInstance):
                 actual = value.getType()
-        if not actual.isAssignableTo(context, required) and isinstance(actual, CategoryType):
+        if not required.isAssignableFrom(context, actual) and isinstance(actual, CategoryType):
             from prompto.expression.MemberSelector import MemberSelector
             expression = MemberSelector(name, expression)
         return expression

@@ -34,9 +34,9 @@ class DeclarationStatement(BaseStatement):
         if isinstance(self.declaration, ConcreteMethodDeclaration):
             method = self.declaration
             method.register(context)
-            typ = MethodType(context, method.getName())
+            typ = MethodType(method)
             context.registerValue( Variable(method.getName(), typ))
-            context.setValue(method.getName(), ClosureValue(context, method))
+            context.setValue(method.getName(), ClosureValue(context, typ))
             return None
         else:
             raise SyntaxError("Unsupported:" + type(self.declaration).__name__)

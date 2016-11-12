@@ -10,8 +10,11 @@ class SetType(ContainerType):
         super().__init__(TypeFamily.SET, itemType)
         self.typeName = itemType.typeName + "<>"
 
-    def isAssignableTo(self, context, other):
-        return isinstance(other, SetType) and self.itemType.isAssignableTo(context, other.getItemType())
+
+    def isAssignableFrom(self, context, other):
+        return super().isAssignableFrom(context, other) or \
+               (isinstance(other, SetType) and self.itemType.isAssignableFrom(context, other.getItemType()))
+
 
     def __eq__(self, obj):
         if id(obj) == id(self):

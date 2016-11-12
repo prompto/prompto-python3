@@ -15,7 +15,7 @@ class AttributeArgument ( BaseArgument, INamedArgument ):
     def __str__(self):
         return self.getName()
 
-    def getProto(self, context):
+    def getProto(self):
         return self.getName()
 
     def __eq__(self, obj):

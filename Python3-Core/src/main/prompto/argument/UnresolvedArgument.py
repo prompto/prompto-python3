@@ -33,7 +33,7 @@ class UnresolvedArgument ( INamedArgument ):
     def check(self, context):
         self.resolveAndCheck(context)
 
-    def getProto(self, context):
+    def getProto(self):
         return self.name
 
     def getType(self, context):

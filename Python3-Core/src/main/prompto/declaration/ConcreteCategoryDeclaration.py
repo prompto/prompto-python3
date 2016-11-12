@@ -54,11 +54,14 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
                 return True
         return False
 
+
+
     def ancestorHasAttribute(self, ancestor, context, name):
         actual = context.getRegisteredDeclaration(CategoryDeclaration, ancestor)
         if actual is None:
             return False
         return actual.hasAttribute(context, name)
+
 
 
     def getAllAttributes(self, context):
@@ -68,15 +71,16 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
             all = more
         if self.derivedFrom is not None:
             for name in self.derivedFrom:
-                names = self.getAncestorAttributes(context, name);
-            if names is not None:
-                all = all.union(names)
+                names = self.getAncestorAttributes(context, name)
+                if names is not None:
+                    all = all.union(names)
         return None if len(all)==0 else all
 
 
-    def getAncestorAttributes(context, ancestor):
-        decl = context.getRegisteredDeclaration(ancestor)
-        return None if decl is None else decl.GetAllAttributes(context);
+
+    def getAncestorAttributes(self, context, ancestor):
+        decl = context.getRegisteredDeclaration(CategoryDeclaration, ancestor)
+        return None if decl is None else decl.getAllAttributes(context)
 
 
 
@@ -281,7 +285,7 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         candidate = None
         for method in methods:
             potential = method.arguments[0].getType(context)
-            if not type.isAssignableTo(context, potential):
+            if not potential.isAssignableFrom(context, type):
                 continue
             if candidate is None:
                 candidate = method

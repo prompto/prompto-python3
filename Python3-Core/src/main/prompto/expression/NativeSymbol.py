@@ -50,7 +50,7 @@ class NativeSymbol ( Symbol, IExpression ):
 
     def check(self, context):
         actual = self.expression.check(context)
-        if not actual.isAssignableTo(context, self.type_.getDerivedFrom()):
+        if not self.type_.getDerivedFrom().isAssignableFrom(context, actual):
             raise SyntaxError("Cannot assign " + actual.getName() + " to " + self.type_.getDerivedFrom().getName())
         return self.type_
 

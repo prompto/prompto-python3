@@ -22,7 +22,8 @@ class MethodExpression(IExpression):
     def check(self, context):
         named = context.getRegistered(self.name)
         if isinstance(named, MethodDeclarationMap):
-            return MethodType(context, self.name)
+            method = named.getFirst()
+            return MethodType(method)
         else:
             raise SyntaxError("No method with name:" + self.name)
 
@@ -33,7 +34,7 @@ class MethodExpression(IExpression):
             named = context.getRegistered(self.name)
             if isinstance(named, MethodDeclarationMap):
                 for decl in named.values():
-                    return ClosureValue(context, decl)
+                    return ClosureValue(context, MethodType(decl))
             else:
                 raise SyntaxError("No method with name:" + self.name)
 

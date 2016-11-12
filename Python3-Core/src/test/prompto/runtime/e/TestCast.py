@@ -34,6 +34,9 @@ class TestCast(BaseEParserTest):
     def testCastNull(self):
         self.checkOutput("cast/castNull.pec")
 
+    def testCastRoot(self):
+        self.checkOutput("cast/castRoot.pec")
+
     def testIsAChild(self):
         self.checkOutput("cast/isAChild.pec")
 
