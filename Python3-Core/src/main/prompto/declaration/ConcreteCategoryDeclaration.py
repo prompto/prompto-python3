@@ -291,7 +291,7 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
                 candidate = method
             else:
                 currentBest = candidate.arguments[0].getType(context)
-                if currentBest.isAssignableTo(context, potential):
+                if potential.isAssignableFrom(context, currentBest):
                     candidate = method
         return candidate
 
