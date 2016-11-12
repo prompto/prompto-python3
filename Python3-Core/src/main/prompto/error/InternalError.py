@@ -1,6 +1,6 @@
-from prompto.error.PrestoError import PrestoError
+from prompto.error.PromptoError import PromptoError
 
-class InternalError ( PrestoError ):
+class InternalError (PromptoError):
 
 	def __init__(self, e):
 		super(InternalError, self).__init__(e)

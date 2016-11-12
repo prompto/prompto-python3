@@ -1,6 +1,6 @@
-from prompto.error.PrestoError import PrestoError
+from prompto.error.PromptoError import PromptoError
 
-class SyntaxError ( PrestoError ):
+class SyntaxError (PromptoError):
 
     def __init__(self, message):
         super().__init__(message)

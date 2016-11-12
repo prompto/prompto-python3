@@ -90,7 +90,7 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
         return self.computeSpecificity(context, argument, assignment, checkInstance) != Specificity.INCOMPATIBLE
 
     def computeSpecificity(self, context, argument, assignment, checkInstance):
-        from prompto.error.PrestoError import PrestoError
+        from prompto.error.PromptoError import PromptoError
         from prompto.grammar.Specificity import Specificity
         from prompto.type.CategoryType import CategoryType
         from prompto.value.IInstance import IInstance
@@ -110,7 +110,7 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
             actual = assignment.resolve(context, self, checkInstance).check(context)
             if required.isAssignableFrom(context, actual):
                 return Specificity.RESOLVED
-        except PrestoError:
+        except PromptoError:
             pass
         return Specificity.INCOMPATIBLE
 

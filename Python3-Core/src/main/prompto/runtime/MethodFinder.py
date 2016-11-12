@@ -1,4 +1,4 @@
-from prompto.error.PrestoError import PrestoError
+from prompto.error.PromptoError import PromptoError
 from prompto.runtime.Score import Score
 from prompto.type.CategoryType import CategoryType
 from prompto.value.IInstance import IInstance
@@ -83,7 +83,7 @@ class MethodFinder(object):
                         return Score.BETTER
                     if sp2.greaterThan(sp1):
                         return Score.WORSE
-        except PrestoError:
+        except PromptoError:
             pass
         return Score.SIMILAR
 

@@ -1,4 +1,4 @@
-from prompto.error.PrestoError import PrestoError
+from prompto.error.PromptoError import PromptoError
 from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.MethodSelector import MethodSelector
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
@@ -277,7 +277,7 @@ class CategoryType(BaseType):
             proto = MethodCall(MethodSelector(name), args)
             finder = MethodFinder(context, proto)
             return finder.findMethod(True) is not None
-        except PrestoError:
+        except PromptoError:
             return False
 
     def sortByGlobalMethod(self, context, source, desc, name):

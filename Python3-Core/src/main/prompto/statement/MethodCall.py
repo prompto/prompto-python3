@@ -52,7 +52,7 @@ class MethodCall(SimpleStatement):
                 value = assignment.getArgument().checkValue(parent, expression)
                 local.setValue(assignment.getName(), value)
             return declaration.check(local)
-        except PrestoError as e:
+        except PromptoError as e:
             raise SyntaxError(e.message)
 
     def makeAssignments(self, context, declaration):
@@ -90,7 +90,7 @@ class MethodCall(SimpleStatement):
             o = context.getValue(self.method.getName())
             if isinstance(o, ClosureValue):
                 return ClosureDeclaration(o)
-        except PrestoError:
+        except PromptoError:
             pass
         finder = MethodFinder(context, self)
         return finder.findMethod(True)
