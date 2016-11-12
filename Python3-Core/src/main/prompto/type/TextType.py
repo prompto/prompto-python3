@@ -12,7 +12,7 @@ class TextType(NativeType):
     def isAssignableFrom(self, context, other):
         from prompto.type.CharacterType import CharacterType
         return super().isAssignableFrom(context, other) or \
-               other == CharacterType.instance
+               other is CharacterType.instance
 
 
     def checkAdd(self, context, other, tryReverse):

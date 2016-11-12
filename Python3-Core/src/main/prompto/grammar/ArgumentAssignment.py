@@ -52,7 +52,7 @@ class ArgumentAssignment(IDialectElement):
     def __eq__(self, obj):
         if id(obj) == id(self):
             return True
-        if obj == None:
+        if obj is None:
             return False
         if not isinstance(obj, ArgumentAssignment):
             return False
@@ -60,7 +60,7 @@ class ArgumentAssignment(IDialectElement):
 
     def check(self, context):
         actual = context.getRegisteredValue(INamedValue, self.argument.getName())
-        if actual == None:
+        if actual is None:
             actualType = self.expression.check(context)
             context.registerValue(Variable(self.argument.getName(), actualType))
         else:
@@ -71,7 +71,7 @@ class ArgumentAssignment(IDialectElement):
         return VoidType.instance
 
     def interpret(self, context):
-        if context.getRegisteredValue(INamedValue, self.argument.getName()) == None:
+        if context.getRegisteredValue(INamedValue, self.argument.getName()) is None:
             context.registerValue(Variable(self.argument.getName(), self.expression))
         context.setValue(self.argument.getName(), self.expression.interpret(context))
         return None
@@ -96,13 +96,13 @@ class ArgumentAssignment(IDialectElement):
     def makeAssignment(self, context, declaration):
         argument = self.argument
         # when 1st argument, can be unnamed
-        if argument == None:
+        if argument is None:
             if len(declaration.getArguments()) == 0:
                 raise SyntaxError("Method has no argument")
             argument = declaration.getArguments()[0]
         else:
             argument = declaration.getArguments().find(self.getName())
-        if argument == None:
+        if argument is None:
             raise SyntaxError("Method has no argument:" + self.getName())
         expression = ContextualExpression(context, self.expression)
         return ArgumentAssignment(argument, expression)

@@ -23,7 +23,7 @@ class VariableInstance(IAssignableInstance):
         if expression is not None:
             try:
                 actual = writer.context.getRegisteredValue(INamedValue, self.name)
-                if actual == None:
+                if actual is None:
                     typ = expression.check(writer.context)
                     writer.context.registerValue(Variable(self.name, typ))
             except:
@@ -32,7 +32,7 @@ class VariableInstance(IAssignableInstance):
 
     def checkAssignValue(self, context, valueType):
         actual = context.getRegisteredValue(INamedValue, self.name)
-        if actual == None:
+        if actual is None:
             context.registerValue(Variable(self.name, valueType))
             return valueType
         else:
@@ -45,7 +45,7 @@ class VariableInstance(IAssignableInstance):
 
     def checkAssignMember(self, context, name, valueType):
         actual = context.getRegisteredValue(INamedValue, self.name)
-        if actual == None:
+        if actual is None:
             raise SyntaxError("Unknown variable:" + self.name)
         return valueType
 
@@ -53,7 +53,7 @@ class VariableInstance(IAssignableInstance):
 
     def checkAssignItem(self, context, itemType, valueType):
         actual = context.getRegisteredValue(INamedValue, self.name)
-        if actual == None:
+        if actual is None:
             raise SyntaxError("Unknown variable:" + self.name)
         parentType = actual.getType(context)
         return parentType.checkItem(context, itemType)
@@ -62,7 +62,7 @@ class VariableInstance(IAssignableInstance):
 
     def assign(self, context, expression):
         value = expression.interpret(context)
-        if context.getRegisteredValue(INamedValue, self.name) == None:
+        if context.getRegisteredValue(INamedValue, self.name) is None:
             typ = value.type if value is not NullValue.instance else expression.check(context)
             context.registerValue(Variable(self.name, typ))
         context.setValue(self.name, value)

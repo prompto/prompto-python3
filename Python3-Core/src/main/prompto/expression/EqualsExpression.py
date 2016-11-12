@@ -14,6 +14,7 @@ from prompto.value.IInstance import IInstance
 from prompto.value.IValue import IValue
 from prompto.value.NullValue import NullValue
 from prompto.value.TypeValue import TypeValue
+from prompto.error.SyntaxError import SyntaxError
 
 VOWELS = "AEIO" # sufficient here
 

@@ -26,7 +26,7 @@ class CategoryType(BaseType):
         self.mutable = False
 
     def __eq__(self, obj):
-        if obj == None:
+        if obj is None:
             return False
         if id(obj) == id(self):
             return True

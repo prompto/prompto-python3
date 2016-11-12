@@ -8,6 +8,7 @@ from prompto.value.SetValue import SetValue
 from prompto.type.MissingType import MissingType
 from prompto.type.SetType import SetType
 from prompto.value.Text import Text
+from prompto.error.SyntaxError import SyntaxError
 
 
 class SetLiteral(Literal):
@@ -29,7 +30,7 @@ class SetLiteral(Literal):
         lastType = None
         for e in self.expressions:
             elemType = e.check(context)
-            if lastType == None:
+            if lastType is None:
                 lastType = elemType
             elif lastType != elemType:
                 if lastType.isAssignableFrom(context, elemType):

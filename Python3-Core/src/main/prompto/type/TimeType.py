@@ -17,7 +17,7 @@ class TimeType(NativeType):
 
     def isAssignableFrom(self, context, other):
         return super().isAssignableFrom(context, other) or \
-            other == DateTimeType.instance
+            other is DateTimeType.instance
 
     def checkAdd(self, context, other, tryReverse):
         from prompto.type.DateTimeType import DateTimeType

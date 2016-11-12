@@ -1,5 +1,4 @@
 from prompto.declaration.IDeclaration import IDeclaration
-from prompto.runtime.Context import MethodDeclarationMap
 from prompto.type.BaseType import BaseType
 from prompto.error.SyntaxError import SyntaxError
 from prompto.store.TypeFamily import TypeFamily

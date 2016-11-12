@@ -2,7 +2,7 @@ from prompto.argument.BaseArgument import BaseArgument
 from prompto.argument.ITypedArgument import ITypedArgument
 from prompto.grammar.INamedValue import INamedValue
 from prompto.type.CodeType import CodeType
-
+from prompto.error.SyntaxError import SyntaxError
 
 class CodeArgument ( BaseArgument, ITypedArgument ):
 

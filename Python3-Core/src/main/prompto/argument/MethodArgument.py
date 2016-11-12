@@ -1,5 +1,6 @@
 from prompto.argument.BaseArgument import BaseArgument
 from prompto.argument.INamedArgument import INamedArgument
+from prompto.declaration.IMethodDeclaration import IMethodDeclaration
 from prompto.grammar.INamedValue import INamedValue
 from prompto.type.MethodType import MethodType
 from prompto.error.SyntaxError import SyntaxError

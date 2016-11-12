@@ -138,12 +138,12 @@ class Context(IContext):
     def getRegistered(self, name):
         # resolve upwards, since local names override global ones
         actual = self.declarations.get(name, None)
-        if actual != None:
+        if actual is not None:
             return actual
         actual = self.instances.get(name, None)
-        if actual != None:
+        if actual is not None:
             return actual
-        if self.parent != None:
+        if self.parent is not None:
             return self.parent.getRegistered(name)
         if id(self) != id(self.globals):
             return self.globals.getRegistered(name)
@@ -152,9 +152,9 @@ class Context(IContext):
     def getRegisteredDeclaration(self, klass, name):
         # resolve upwards, since local names override global ones
         actual = self.declarations.get(name, None)
-        if actual == None and self.parent != None:
+        if actual is None and self.parent is not None:
             actual = self.parent.getRegisteredDeclaration(klass, name)
-        if actual == None and id(self) != id(self.globals):
+        if actual is None and id(self) != id(self.globals):
             actual = self.globals.getRegisteredDeclaration(klass, name)
         if isinstance(actual, klass):
             return actual
@@ -163,7 +163,7 @@ class Context(IContext):
 
     def registerDeclaration(self, declaration):
         actual = self.getRegistered(declaration.getName())
-        if actual != None:
+        if actual is not None:
             raise SyntaxError("Duplicate name: \"" + declaration.getName() + "\"")
         self.declarations[declaration.getName()] = declaration
 
@@ -171,7 +171,7 @@ class Context(IContext):
         actual = self.getRegistered(declaration.getName())
         if actual is not None and not isinstance(actual, MethodDeclarationMap):
             raise SyntaxError("Duplicate name: \"" + declaration.name + "\"")
-        if actual == None:
+        if actual is None:
             actual = MethodDeclarationMap(declaration.getName())
             self.declarations[declaration.getName()] = actual
         actual.register(declaration, self)
@@ -295,23 +295,23 @@ class Context(IContext):
             return self.globals.loadSingleton(type)
 
     def enterMethod(self, method):
-        if self.debugger != None:
+        if self.debugger is not None:
             self.debugger.enterMethod(self, method)
 
     def leaveMethod(self, method):
-        if self.debugger != None:
+        if self.debugger is not None:
             self.debugger.leaveMethod(self, method)
 
     def enterStatement(self, statement):
-        if self.debugger != None:
+        if self.debugger is not None:
             self.debugger.enterStatement(self, statement)
 
     def leaveStatement(self, statement):
-        if self.debugger != None:
+        if self.debugger is not None:
             self.debugger.leaveStatement(self, statement)
 
     def terminated(self):
-        if self.debugger != None:
+        if self.debugger is not None:
             self.debugger.terminated()
 
 
@@ -365,7 +365,7 @@ class InstanceContext(Context):
         # params and variables have precedence over members
         # so first look in context values
         context = super(InstanceContext, self).contextForValue(name)
-        if context != None:
+        if context is not None:
             return context
         elif self.getDeclaration().hasAttribute(self, name):
             return self
@@ -418,7 +418,7 @@ class MethodDeclarationMap(dict, IDeclaration):
 
     def register(self, declaration, context):
         proto = declaration.getProto()
-        if self.get(proto, None) != None:
+        if self.get(proto, None) is not None:
             raise SyntaxError("Duplicate prototype for name: \"" + declaration.name + "\"")
         self[proto] = declaration
 

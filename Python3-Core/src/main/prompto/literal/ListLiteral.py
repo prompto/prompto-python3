@@ -22,7 +22,7 @@ class ListLiteral(Literal):
         self.mutable = mutable
 
     def check(self, context):
-        if self.itemType == None:
+        if self.itemType is None:
             self.itemType = self.inferElementType(context)
         return ListType(self.itemType)
 
@@ -32,7 +32,7 @@ class ListLiteral(Literal):
         lastType = None
         for o in self.expressions:
             elemType = o.check(context)
-            if lastType == None:
+            if lastType is None:
                 lastType = elemType
             elif lastType != elemType:
                 if lastType.isAssignableFrom(context, elemType):

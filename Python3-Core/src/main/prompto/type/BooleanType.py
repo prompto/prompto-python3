@@ -14,8 +14,8 @@ class BooleanType(NativeType):
         return sorted(source, reverse=desc)
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
-        from prompto.value.Boolean import Boolean
         if isinstance(value, bool):
+            from prompto.value.Boolean import Boolean
             return Boolean.ValueOf(value)
         else:
             return value  # TODO for now

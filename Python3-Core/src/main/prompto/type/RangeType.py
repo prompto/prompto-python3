@@ -11,7 +11,7 @@ class RangeType(ContainerType):
     def __eq__(self, obj):
         if id(obj) == id(self):
             return True
-        if obj == None:
+        if obj is None:
             return False
         if not isinstance(obj, RangeType):
             return False
@@ -23,6 +23,7 @@ class RangeType(ContainerType):
             return self.itemType
         else:
             return super().checkItem(context, other)
+
 
 
     def checkSlice(self, context):

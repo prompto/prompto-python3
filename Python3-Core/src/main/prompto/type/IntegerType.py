@@ -19,7 +19,7 @@ class IntegerType(NativeType):
     def isAssignableFrom(self, context, other:IType):
         from prompto.type.DecimalType import DecimalType
         return super().isAssignableFrom(context, other) or \
-            other == DecimalType.instance
+            other is DecimalType.instance
 
 
     def checkAdd(self, context, other, tryReverse):

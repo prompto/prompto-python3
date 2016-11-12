@@ -65,8 +65,7 @@ class MethodFinder(object):
                     t2 = ar2.getType(s2)
                     # try resolving runtime type
                     if checkInstance and isinstance(t1, CategoryType) and isinstance(t2, CategoryType):
-                        value = as1.getExpression().interpret(
-                            self.context)  # in the named case as1==as2, so only interpret 1
+                        value = as1.getExpression().interpret(self.context)  # in the named case as1==as2, so only interpret 1
                         if isinstance(value, IInstance):
                             actualType = value.getType()
                             score = actualType.scoreMostSpecific(self.context, t1, t2)

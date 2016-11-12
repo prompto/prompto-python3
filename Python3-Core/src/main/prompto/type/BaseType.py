@@ -1,7 +1,6 @@
 from prompto.type.IType import IType
 from prompto.expression.IExpression import IExpression
 from prompto.value.ExpressionValue import ExpressionValue
-from prompto.value.ListValue import ListValue
 from prompto.error.SyntaxError import SyntaxError
 
 class BaseType(IType):

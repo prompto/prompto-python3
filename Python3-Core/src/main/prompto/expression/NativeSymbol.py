@@ -1,6 +1,6 @@
 from prompto.expression.IExpression import *
 from prompto.expression.Symbol import *
-
+from prompto.error.SyntaxError import SyntaxError
 
 class NativeSymbol ( Symbol, IExpression ):
 

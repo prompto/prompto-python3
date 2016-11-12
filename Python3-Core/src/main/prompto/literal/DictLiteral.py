@@ -39,7 +39,7 @@ class DictLiteral(Literal):
             elemType = e.getValue().check(context)
             if lastType is None:
                 lastType = elemType
-            elif lastType != elemType:
+            elif lastType is not elemType:
                 if lastType.isAssignableFrom(context, elemType):
                     pass  # lastType is less specific
                 elif elemType.isAssignableFrom(context, lastType):

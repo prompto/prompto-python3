@@ -20,7 +20,7 @@ class CategoryArgument(BaseArgument, ITypedArgument):
     def __eq__(self, obj):
         if id(obj) == id(self):
             return True
-        if obj == None:
+        if obj is None:
             return False
         if not isinstance(obj, CategoryArgument):
             return False
@@ -30,7 +30,7 @@ class CategoryArgument(BaseArgument, ITypedArgument):
     def register(self, context):
         from prompto.grammar.INamedValue import INamedValue
         actual = context.getRegisteredValue(INamedValue, self.name)
-        if actual != None:
+        if actual is not None:
             raise SyntaxError("Duplicate argument: \"" + self.name + "\"")
         context.registerValue(self)
         if self.defaultExpression is not None:

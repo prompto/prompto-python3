@@ -10,6 +10,7 @@ class UUIDType(NativeType):
     def __init__(self):
         super().__init__(TypeFamily.UUID)
 
+
     def toString(self, value):
         return "'" + str(value) + "'"
 
