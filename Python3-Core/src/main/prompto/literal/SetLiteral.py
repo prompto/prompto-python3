@@ -8,7 +8,7 @@ from prompto.value.SetValue import SetValue
 from prompto.type.MissingType import MissingType
 from prompto.type.SetType import SetType
 from prompto.value.Text import Text
-from prompto.error.SyntaxError import SyntaxError
+from prompto.utils.TypeUtils import inferElementType
 
 
 class SetLiteral(Literal):
@@ -21,25 +21,9 @@ class SetLiteral(Literal):
 
     def check(self, context):
         if self.itemType is None:
-            self.itemType = self.inferElementType(context)
+            self.itemType = inferElementType(context, self.expressions)
         return SetType(self.itemType)
 
-    def inferElementType(self, context):
-        if len(self.expressions)==0:
-            return MissingType.instance
-        lastType = None
-        for e in self.expressions:
-            elemType = e.check(context)
-            if lastType is None:
-                lastType = elemType
-            elif lastType != elemType:
-                if lastType.isAssignableFrom(context, elemType):
-                    pass  # lastType is less specific
-                elif elemType.isAssignableFrom(context, lastType):
-                    lastType = elemType  # elemType is less specific
-                else:
-                    raise SyntaxError("Incompatible types: " + str(elemType) + " and " + str(lastType))
-        return lastType
 
     def interpret(self, context):
         if len(self.expressions)>0:

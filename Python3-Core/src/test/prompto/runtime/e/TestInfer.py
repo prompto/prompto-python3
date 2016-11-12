@@ -10,7 +10,13 @@ class TestInfer(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testInferDict(self):
+        self.checkOutput("infer/inferDict.pec")
+
     def testInferList(self):
         self.checkOutput("infer/inferList.pec")
+
+    def testInferSet(self):
+        self.checkOutput("infer/inferSet.pec")
 
 
