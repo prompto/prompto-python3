@@ -19,8 +19,14 @@ class TestSub(BaseEParserTest):
     def testSubDecimal(self):
         self.checkOutput("sub/subDecimal.pec")
 
+    def testSubDecimalEnum(self):
+        self.checkOutput("sub/subDecimalEnum.pec")
+
     def testSubInteger(self):
         self.checkOutput("sub/subInteger.pec")
+
+    def testSubIntegerEnum(self):
+        self.checkOutput("sub/subIntegerEnum.pec")
 
     def testSubPeriod(self):
         self.checkOutput("sub/subPeriod.pec")

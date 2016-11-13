@@ -17,11 +17,17 @@ class TestAdd(BaseEParserTest):
     def testAddDecimal(self):
         self.compareResourceEOE("add/addDecimal.pec")
 
+    def testAddDecimalEnum(self):
+        self.compareResourceEOE("add/addDecimalEnum.pec")
+
     def testAddDict(self):
         self.compareResourceEOE("add/addDict.pec")
 
     def testAddInteger(self):
         self.compareResourceEOE("add/addInteger.pec")
+
+    def testAddIntegerEnum(self):
+        self.compareResourceEOE("add/addIntegerEnum.pec")
 
     def testAddList(self):
         self.compareResourceEOE("add/addList.pec")
@@ -37,6 +43,9 @@ class TestAdd(BaseEParserTest):
 
     def testAddTextDecimal(self):
         self.compareResourceEOE("add/addTextDecimal.pec")
+
+    def testAddTextEnum(self):
+        self.compareResourceEOE("add/addTextEnum.pec")
 
     def testAddTextInteger(self):
         self.compareResourceEOE("add/addTextInteger.pec")

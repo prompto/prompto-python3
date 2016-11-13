@@ -1,6 +1,4 @@
 from prompto.type.IType import IType
-from prompto.expression.IExpression import IExpression
-from prompto.value.ExpressionValue import ExpressionValue
 from prompto.error.SyntaxError import SyntaxError
 
 class BaseType(IType):
@@ -33,49 +31,87 @@ class BaseType(IType):
 
 
     def checkAdd(self, context, other, tryReverse):
-        if tryReverse:
+        from prompto.type.EnumeratedNativeType import EnumeratedNativeType
+        if isinstance(other, EnumeratedNativeType):
+            return self.checkAdd(context, other.derivedFrom, tryReverse)
+        elif tryReverse:
             return other.checkAdd(context, self, False)
         else:
             raise SyntaxError("Cannot add " + self.typeName + " to " + other.typeName)
 
 
     def checkSubstract(self, context, other):
-        raise SyntaxError("Cannot substract " + self.typeName + " from " + other.typeName)
+        from prompto.type.EnumeratedNativeType import EnumeratedNativeType
+        if isinstance(other, EnumeratedNativeType):
+            return self.checkSubstract(context, other.derivedFrom)
+        else:
+            raise SyntaxError("Cannot substract " + self.typeName + " from " + other.typeName)
 
 
     def checkDivide(self, context, other):
-        raise SyntaxError("Cannot divide " + self.typeName + " with " + other.typeName)
+        from prompto.type.EnumeratedNativeType import EnumeratedNativeType
+        if isinstance(other, EnumeratedNativeType):
+            return self.checkDivide(context, other.derivedFrom)
+        else:
+            raise SyntaxError("Cannot divide " + self.typeName + " with " + other.typeName)
 
 
     def checkIntDivide(self, context, other):
-        raise SyntaxError("Cannot int_divide " + self.typeName + " with " + other.typeName)
+        from prompto.type.EnumeratedNativeType import EnumeratedNativeType
+        if isinstance(other, EnumeratedNativeType):
+            return self.checkIntDivide(context, other.derivedFrom)
+        else:
+            raise SyntaxError("Cannot int_divide " + self.typeName + " with " + other.typeName)
 
 
     def checkModulo(self, context, other):
-        raise SyntaxError("Cannot modulo " + self.typeName + " with " + other.typeName)
+        from prompto.type.EnumeratedNativeType import EnumeratedNativeType
+        if isinstance(other, EnumeratedNativeType):
+            return self.checkModulo(context, other.derivedFrom)
+        else:
+            raise SyntaxError("Cannot modulo " + self.typeName + " with " + other.typeName)
 
 
     def checkMultiply(self, context, other, tryReverse):
-        if tryReverse:
+        from prompto.type.EnumeratedNativeType import EnumeratedNativeType
+        if isinstance(other, EnumeratedNativeType):
+            return self.checkMultiply(context, other.derivedFrom, tryReverse)
+        elif tryReverse:
             return other.checkMultiply(context, self, False)
         else:
             raise SyntaxError("Cannot multiply " + self.typeName + " with " + other.typeName)
 
 
     def checkCompare(self, context, other):
-        raise SyntaxError("Cannot compare " + self.typeName + " to " + other.typeName)
+        from prompto.type.EnumeratedNativeType import EnumeratedNativeType
+        if isinstance(other, EnumeratedNativeType):
+            return self.checkCompare(context, other.derivedFrom)
+        else:
+            raise SyntaxError("Cannot compare " + self.typeName + " to " + other.typeName)
 
 
     def checkContains(self, context, other):
-        raise SyntaxError(self.typeName + " cannot contain " + other.typeName)
+        from prompto.type.EnumeratedNativeType import EnumeratedNativeType
+        if isinstance(other, EnumeratedNativeType):
+            return self.checkContains(context, other.derivedFrom)
+        else:
+            raise SyntaxError(self.typeName + " cannot contain " + other.typeName)
 
 
     def checkContainsAllOrAny(self, context, other):
-        raise SyntaxError(self.typeName + " cannot contain " + other.typeName)
+        from prompto.type.EnumeratedNativeType import EnumeratedNativeType
+        if isinstance(other, EnumeratedNativeType):
+            return self.checkContainsAllOrAny(context, other.derivedFrom)
+        else:
+            raise SyntaxError(self.typeName + " cannot contain " + other.typeName)
 
 
     def checkItem(self, context, itemType):
-        raise SyntaxError("Cannot read item from " + self.typeName)
+        from prompto.type.EnumeratedNativeType import EnumeratedNativeType
+        if isinstance(itemType, EnumeratedNativeType):
+            return self.checkContainsAllOrAny(context, itemType.derivedFrom)
+        else:
+            raise SyntaxError("Cannot read item from " + self.typeName)
 
 
     def checkMember(self, context, name):

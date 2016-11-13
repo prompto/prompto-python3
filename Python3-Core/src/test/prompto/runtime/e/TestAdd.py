@@ -22,11 +22,17 @@ class TestAdd(BaseEParserTest):
     def testAddDecimal(self):
         self.checkOutput("add/addDecimal.pec")
 
+    def testAddDecimalEnum(self):
+        self.checkOutput("add/addDecimalEnum.pec")
+
     def testAddDict(self):
         self.checkOutput("add/addDict.pec")
 
     def testAddInteger(self):
         self.checkOutput("add/addInteger.pec")
+
+    def testAddIntegerEnum(self):
+        self.checkOutput("add/addIntegerEnum.pec")
 
     def testAddList(self):
         self.checkOutput("add/addList.pec")
@@ -42,6 +48,9 @@ class TestAdd(BaseEParserTest):
 
     def testAddTextDecimal(self):
         self.checkOutput("add/addTextDecimal.pec")
+
+    def testAddTextEnum(self):
+        self.checkOutput("add/addTextEnum.pec")
 
     def testAddTextInteger(self):
         self.checkOutput("add/addTextInteger.pec")

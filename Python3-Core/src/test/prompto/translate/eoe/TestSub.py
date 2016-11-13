@@ -14,8 +14,14 @@ class TestSub(BaseEParserTest):
     def testSubDecimal(self):
         self.compareResourceEOE("sub/subDecimal.pec")
 
+    def testSubDecimalEnum(self):
+        self.compareResourceEOE("sub/subDecimalEnum.pec")
+
     def testSubInteger(self):
         self.compareResourceEOE("sub/subInteger.pec")
+
+    def testSubIntegerEnum(self):
+        self.compareResourceEOE("sub/subIntegerEnum.pec")
 
     def testSubPeriod(self):
         self.compareResourceEOE("sub/subPeriod.pec")
