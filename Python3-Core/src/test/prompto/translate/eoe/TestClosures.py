@@ -14,4 +14,7 @@ class TestClosures(BaseEParserTest):
     def testInstanceClosureNoArg(self):
         self.compareResourceEOE("closures/instanceClosureNoArg.pec")
 
+    def testParameterClosure(self):
+        self.compareResourceEOE("closures/parameterClosure.pec")
+
 

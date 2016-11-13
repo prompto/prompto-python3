@@ -19,4 +19,7 @@ class TestClosures(BaseEParserTest):
     def testInstanceClosureNoArg(self):
         self.checkOutput("closures/instanceClosureNoArg.pec")
 
+    def testParameterClosure(self):
+        self.checkOutput("closures/parameterClosure.pec")
+
 
