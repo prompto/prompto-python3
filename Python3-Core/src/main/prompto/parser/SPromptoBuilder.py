@@ -67,7 +67,8 @@ from prompto.expression.NativeSymbol import NativeSymbol
 from prompto.expression.NotExpression import NotExpression
 from prompto.expression.OrExpression import OrExpression
 from prompto.expression.ParenthesisExpression import ParenthesisExpression
-from prompto.expression.ReadExpression import ReadExpression
+from prompto.expression.ReadAllExpression import ReadAllExpression
+from prompto.expression.ReadOneExpression import ReadOneExpression
 from prompto.expression.SliceSelector import SliceSelector
 from prompto.expression.SortedExpression import SortedExpression
 from prompto.expression.SubtractExpression import SubtractExpression
@@ -1959,9 +1960,11 @@ class SPromptoBuilder(SParserListener):
         self.setNodeValue(ctx, RaiseStatement(exp))
 
 
+
     def exitRaiseStatement(self, ctx:SParser.RaiseStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, stmt)
+
 
 
     def exitRange_literal(self, ctx:SParser.Range_literalContext):
@@ -1971,9 +1974,15 @@ class SPromptoBuilder(SParserListener):
 
 
 
-    def exitRead_expression(self, ctx:SParser.Read_expressionContext):
+    def exitRead_all_expression(self, ctx:SParser.Read_all_expressionContext):
         source = self.getNodeValue(ctx.source)
-        self.setNodeValue(ctx, ReadExpression(source))
+        self.setNodeValue(ctx, ReadAllExpression(source))
+
+
+
+    def exitRead_one_expression(self, ctx:SParser.Read_one_expressionContext):
+        source = self.getNodeValue(ctx.source)
+        self.setNodeValue(ctx, ReadOneExpression(source))
 
 
 

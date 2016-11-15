@@ -1075,15 +1075,6 @@ class SParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SParser#read_expression.
-    def enterRead_expression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by SParser#read_expression.
-    def exitRead_expression(self, ctx):
-        pass
-
-
     # Enter a parse tree produced by SParser#write_statement.
     def enterWrite_statement(self, ctx):
         pass
@@ -2395,6 +2386,24 @@ class SParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by SParser#IsOtherExpression.
     def exitIsOtherExpression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#read_all_expression.
+    def enterRead_all_expression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#read_all_expression.
+    def exitRead_all_expression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by SParser#read_one_expression.
+    def enterRead_one_expression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by SParser#read_one_expression.
+    def exitRead_one_expression(self, ctx):
         pass
 
 

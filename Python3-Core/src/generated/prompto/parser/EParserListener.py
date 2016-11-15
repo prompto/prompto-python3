@@ -625,15 +625,6 @@ class EParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EParser#ReadExpression.
-    def enterReadExpression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by EParser#ReadExpression.
-    def exitReadExpression(self, ctx):
-        pass
-
-
     # Enter a parse tree produced by EParser#TernaryExpression.
     def enterTernaryExpression(self, ctx):
         pass
@@ -748,6 +739,15 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#LessThanOrEqualExpression.
     def exitLessThanOrEqualExpression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#ReadOneExpression.
+    def enterReadOneExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#ReadOneExpression.
+    def exitReadOneExpression(self, ctx):
         pass
 
 
@@ -967,6 +967,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#ReadAllExpression.
+    def enterReadAllExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#ReadAllExpression.
+    def exitReadAllExpression(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#ContainsAnyExpression.
     def enterContainsAnyExpression(self, ctx):
         pass
@@ -1135,15 +1144,6 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#ConstructorNoFrom.
     def exitConstructorNoFrom(self, ctx):
-        pass
-
-
-    # Enter a parse tree produced by EParser#read_expression.
-    def enterRead_expression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by EParser#read_expression.
-    def exitRead_expression(self, ctx):
         pass
 
 
@@ -2512,6 +2512,24 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#IsOtherExpression.
     def exitIsOtherExpression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#read_all_expression.
+    def enterRead_all_expression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#read_all_expression.
+    def exitRead_all_expression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#read_one_expression.
+    def enterRead_one_expression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#read_one_expression.
+    def exitRead_one_expression(self, ctx):
         pass
 
 

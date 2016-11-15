@@ -66,7 +66,8 @@ from prompto.expression.NativeSymbol import NativeSymbol
 from prompto.expression.NotExpression import NotExpression
 from prompto.expression.OrExpression import OrExpression
 from prompto.expression.ParenthesisExpression import ParenthesisExpression
-from prompto.expression.ReadExpression import ReadExpression
+from prompto.expression.ReadAllExpression import ReadAllExpression
+from prompto.expression.ReadOneExpression import ReadOneExpression
 from prompto.expression.SliceSelector import SliceSelector
 from prompto.expression.SortedExpression import SortedExpression
 from prompto.expression.SubtractExpression import SubtractExpression
@@ -2231,18 +2232,30 @@ class EPromptoBuilder(EParserListener):
 
 
 
-    def exitRead_expression(self, ctx:EParser.Read_expressionContext):
+    def exitRead_all_expression(self, ctx:EParser.Read_all_expressionContext):
         source = self.getNodeValue(ctx.source)
-        self.setNodeValue(ctx, ReadExpression(source))
+        self.setNodeValue(ctx, ReadAllExpression(source))
     
 
     
-    def exitReadExpression(self, ctx:EParser.ReadExpressionContext):
+    def exitRead_one_expression(self, ctx:EParser.Read_one_expressionContext):
+        source = self.getNodeValue(ctx.source)
+        self.setNodeValue(ctx, ReadOneExpression(source))
+
+
+
+    def exitReadAllExpression(self, ctx:EParser.ReadAllExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
-    
 
-    
+
+
+    def exitReadOneExpression(self, ctx: EParser.ReadOneExpressionContext):
+        exp = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, exp)
+
+
+
     def exitWrite_statement(self, ctx:EParser.Write_statementContext):
         what = self.getNodeValue(ctx.what)
         target = self.getNodeValue(ctx.target)

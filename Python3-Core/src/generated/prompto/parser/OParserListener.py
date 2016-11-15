@@ -1057,15 +1057,6 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#read_expression.
-    def enterRead_expression(self, ctx):
-        pass
-
-    # Exit a parse tree produced by OParser#read_expression.
-    def exitRead_expression(self, ctx):
-        pass
-
-
     # Enter a parse tree produced by OParser#write_statement.
     def enterWrite_statement(self, ctx):
         pass
@@ -2413,6 +2404,24 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#IsOtherExpression.
     def exitIsOtherExpression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#read_all_expression.
+    def enterRead_all_expression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#read_all_expression.
+    def exitRead_all_expression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#read_one_expression.
+    def enterRead_one_expression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#read_one_expression.
+    def exitRead_one_expression(self, ctx):
         pass
 
 
