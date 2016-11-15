@@ -13,17 +13,30 @@ class Cursor(BaseValue, IIterable):
         self.stored = stored
         self.mutable = getattr(itemType, "mutable", False)
 
+
+
     def isEmpty(self):
         return len(self.stored)==0
 
+
+
     def __len__(self):
         return len(self.stored)
+
+
+
+    def totalLength(self):
+        return self.stored.totalLength()
+
+
 
     def getIterator(self, context):
         for stored in self.stored:
             typ = self.readItemType(stored)
             val = typ.newInstanceFromStored(context, stored)
             yield val
+
+
 
     def readItemType(self, stored):
         # val = getattr(stored, "category")
@@ -33,9 +46,13 @@ class Cursor(BaseValue, IIterable):
         typ.mutable = self.mutable
         return typ
 
+
+
     def getMember(self, context, name, autoCreate=False):
         if "count" == name:
             return Integer(len(self))
+        elif "totalCount" == name:
+            return Integer(self.totalLength())
         else:
             raise InvalidValueError("No such member:" + name)
 

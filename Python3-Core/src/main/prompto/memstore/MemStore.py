@@ -63,6 +63,7 @@ class MemStore(IStore):
         # filter with predicate
         if query.predicate() is not None:
             docs = self.filterDocs(docs, query.predicate())
+        totalCount = len(docs)
         # sort if required
         if query.orderBys is not None:
             docs = self.sortDocs(docs, query.orderBys)
@@ -70,7 +71,7 @@ class MemStore(IStore):
         if query.first is not None or query.last is not None:
             docs = self.sliceDocs(docs, query.first, query.last)
         # done
-        return DocumentIterator(docs)
+        return DocumentIterator(docs, totalCount)
 
 
     def filterDocs(self, docs, predicate):
@@ -109,11 +110,15 @@ class MemStore(IStore):
 
 class DocumentIterator(object):
 
-    def __init__(self, docs):
+    def __init__(self, docs, totalCount):
         self.docs = docs
+        self.totalCount = totalCount
 
     def __len__(self):
         return len(self.docs)
+
+    def totalLength(self):
+        return self.totalCount
 
     def __iter__(self):
         for doc in self.docs:

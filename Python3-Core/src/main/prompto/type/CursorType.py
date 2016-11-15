@@ -27,5 +27,7 @@ class CursorType(IterableType):
     def checkMember(self, context, name):
         if "count"==name:
             return IntegerType.instance
+        elif "totalCount" == name:
+            return IntegerType.instance
         else:
             return super().checkMember(context, name)
