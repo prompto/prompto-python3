@@ -17,6 +17,9 @@ class TestMethods(BaseOParserTest):
     def testE_as_e_bug(self):
         self.compareResourceOSO("methods/e_as_e_bug.poc")
 
+    def testExplicit(self):
+        self.compareResourceOSO("methods/explicit.poc")
+
     def testExpressionWith(self):
         self.compareResourceOSO("methods/expressionWith.poc")
 
