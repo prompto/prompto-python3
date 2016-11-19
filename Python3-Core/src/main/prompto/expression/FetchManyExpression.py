@@ -60,7 +60,7 @@ class FetchManyExpression(Section, IExpression):
             self.orderBy.toDialect(writer)
 
 
-    def toSDialect (self, writer):
+    def toMDialect (self, writer):
         writer.append("fetch ")
         if self.first is not None:
             writer.append("rows ")

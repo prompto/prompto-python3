@@ -102,7 +102,7 @@ class SwitchErrorStatement(BaseSwitchStatement):
             writer.append("}")
         writer.newLine()
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("try ")
         writer.append(self.errorName)
         writer.append(":\n")
@@ -111,7 +111,7 @@ class SwitchErrorStatement(BaseSwitchStatement):
         writer.dedent()
         if self.switchCases is not None:
             for sc in self.switchCases:
-                sc.catchToSDialect(writer)
+                sc.catchToMDialect(writer)
         if self.defaultCase is not None:
             writer.append("except:\n")
             writer.indent()

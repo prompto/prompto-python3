@@ -19,7 +19,7 @@ class NullLiteral (IExpression):
             writer.append ("nothing")
         elif writer.dialect is Dialect.O:
             writer.append ("null")
-        elif writer.dialect is Dialect.S:
+        elif writer.dialect is Dialect.M:
             writer.append ("None")
 
 NullLiteral.instance = NullLiteral()

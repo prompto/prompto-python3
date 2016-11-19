@@ -26,5 +26,5 @@ class NativeResourceDeclaration(NativeCategoryDeclaration):
     def categoryTypeToODialect(self, writer):
         writer.append("native resource")
 
-    def categoryTypeToSDialect(self, writer):
+    def categoryTypeToMDialect(self, writer):
         writer.append("native resource")

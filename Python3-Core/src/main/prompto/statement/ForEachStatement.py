@@ -119,7 +119,7 @@ class ForEachStatement(BaseStatement):
         self.statements.toDialect(writer)
         writer.dedent()
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("for ")
         writer.append(self.v1)
         if self.v2 is not None:

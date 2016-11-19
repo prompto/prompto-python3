@@ -22,7 +22,7 @@ class CollectionSwitchCase ( SwitchCase ):
             return selfValue.hasItem(context, value)
         return False
 
-    def caseToSDialect(self, writer):
+    def caseToMDialect(self, writer):
         self.caseToEDialect(writer)
 
     def caseToODialect(self, writer):
@@ -50,7 +50,7 @@ class CollectionSwitchCase ( SwitchCase ):
         writer.dedent()
         writer.append("} ")
 
-    def catchToSDialect(self, writer):
+    def catchToMDialect(self, writer):
         writer.append("except in ")
         self.expression.toDialect(writer)
         writer.append(":\n")

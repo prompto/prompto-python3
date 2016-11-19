@@ -28,7 +28,7 @@ class FilteredExpression(Section, IExpression):
 
 
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         self.source.toDialect(writer)
         writer.append(" filtered with ")
         writer.append(self.itemName)
@@ -36,7 +36,7 @@ class FilteredExpression(Section, IExpression):
         self.predicate.toDialect(writer)
 
     def toEDialect(self, writer):
-        self.toSDialect(writer)
+        self.toMDialect(writer)
 
 
 

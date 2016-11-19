@@ -78,7 +78,7 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
             writer = writer.newLocalWriter()
         super(ConcreteMethodDeclaration, self).toDialect(writer)
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("def ")
         writer.append(self.name)
         writer.append(" (")

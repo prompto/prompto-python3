@@ -21,7 +21,7 @@ class OrExpression ( IExpression ):
         self.right.toDialect(writer)
 
     def operatorToDialect(self, dialect):
-        if dialect is Dialect.E or dialect is Dialect.S:
+        if dialect is Dialect.E or dialect is Dialect.M:
             return " or "
         else:
             return " || "

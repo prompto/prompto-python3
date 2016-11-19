@@ -18,7 +18,7 @@ class ExecuteExpression ( Section, IExpression, ISection ):
     def __str__(self):
         return "execute: " + self.name
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("execute(")
         writer.append(self.name)
         writer.append(")")

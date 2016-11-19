@@ -45,7 +45,7 @@ class ArgumentList ( ObjectList, IDialectElement ):
                 writer.append(", ")
             writer.trimLast(2)
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         if len(self)>0:
             for argument in self:
                 argument.toDialect(writer)

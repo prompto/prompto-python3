@@ -21,7 +21,7 @@ class AbstractMethodDeclaration(BaseMethodDeclaration):
     def interpret(self, context):
         raise SyntaxError("Should never get there !")
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("abstract def ")
         writer.append(self.name)
         writer.append(" (")

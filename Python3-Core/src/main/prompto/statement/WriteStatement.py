@@ -51,7 +51,7 @@ class WriteStatement ( SimpleStatement ):
 
 
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("write ")
         self.content.toDialect(writer)
         writer.append(" to ")

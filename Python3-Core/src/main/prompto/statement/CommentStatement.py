@@ -31,7 +31,7 @@ class CommentStatement(BaseStatement):
                 writer.append("//")
                 writer.append(lines[0])
                 writer.newLine()
-        elif writer.dialect is Dialect.S:
+        elif writer.dialect is Dialect.M:
             for line in lines:
                 writer.append("#")
                 writer.append(line)

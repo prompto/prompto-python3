@@ -13,7 +13,7 @@ class OperatorMethodDeclaration(ConcreteMethodDeclaration, IExpression):
         # TODO Auto-generated method stub
         pass
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("def operator ")
         writer.append(self.operator.token)
         writer.append(" (")

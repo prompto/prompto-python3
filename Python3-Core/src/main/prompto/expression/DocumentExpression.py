@@ -75,7 +75,7 @@ class DocumentExpression ( IExpression ):
     def __str__(self):
         return "Document"
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("Document(")
         if self.source is not None:
             self.source.toDialect(writer)

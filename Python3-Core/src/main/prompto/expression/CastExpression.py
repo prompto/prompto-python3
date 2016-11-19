@@ -40,7 +40,7 @@ class CastExpression (IExpression):
 
 
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         self.toEDialect(writer)
 
     def toEDialect(self, writer):

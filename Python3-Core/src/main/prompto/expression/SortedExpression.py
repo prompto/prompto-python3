@@ -50,7 +50,7 @@ class SortedExpression(IExpression):
     def setKey(self, key):
         self.key = key
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         self.toODialect(writer)
 
     def toODialect(self, writer):

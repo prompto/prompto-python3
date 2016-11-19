@@ -20,7 +20,7 @@ class CodeExpression ( IExpression ):
         self.expression.toDialect(writer)
         writer.append(")")
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         self.toODialect(writer)
 
     def check(self, context):

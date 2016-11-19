@@ -43,7 +43,7 @@ class WithSingletonStatement(BaseStatement):
             writer.append("}")
             writer.newLine()
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("with ")
         self.type.toDialect(writer)
         writer.append(":\n")

@@ -52,7 +52,7 @@ class InstanceExpression(IExpression):
             method = named.getFirst()
             return MethodType(method)
         else:
-            raise SyntaxError(self.name + "  is not an instance:" + type(named).__name__)
+            raise SyntaxError(self.name + "  is not a value or method:" + type(named).__name__)
 
 
     def interpret(self, context):

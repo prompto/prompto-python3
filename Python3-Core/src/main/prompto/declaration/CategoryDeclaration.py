@@ -165,10 +165,10 @@ class CategoryDeclaration(BaseDeclaration):
         # by default no extension
         pass
 
-    def protoToSDialect(self, writer,  derivedFrom):
+    def protoToMDialect(self, writer,  derivedFrom):
         if self.storable:
             writer.append("storable ")
-        self.categoryTypeToSDialect(writer)
+        self.categoryTypeToMDialect(writer)
         writer.append(" ")
         writer.append(self.name)
         writer.append("(")

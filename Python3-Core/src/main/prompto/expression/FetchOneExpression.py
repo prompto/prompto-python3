@@ -35,7 +35,7 @@ class FetchOneExpression(Section, IExpression):
         self.predicate.toDialect (writer)
         writer.append (")")
 
-    def toSDialect (self, writer):
+    def toMDialect (self, writer):
         writer.append ("fetch one ")
         if self.typ:
             writer.append (self.typ.typeName)

@@ -73,7 +73,7 @@ class EnumeratedCategoryDeclaration ( ConcreteCategoryDeclaration, IEnumeratedDe
             writer.append("\n")
         writer.dedent()
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("enum ")
         writer.append(self.name)
         writer.append("(")

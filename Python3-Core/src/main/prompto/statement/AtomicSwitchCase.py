@@ -31,7 +31,7 @@ class AtomicSwitchCase ( SwitchCase ):
         self.statements.toDialect(writer)
         writer.dedent()
 
-    def caseToSDialect(self, writer):
+    def caseToMDialect(self, writer):
         self.caseToEDialect(writer)
 
     def catchToEDialect(self, writer):
@@ -46,7 +46,7 @@ class AtomicSwitchCase ( SwitchCase ):
         writer.dedent()
         writer.append("} ")
 
-    def catchToSDialect(self, writer):
+    def catchToMDialect(self, writer):
         writer.append("except ")
         self.expression.toDialect(writer)
         writer.append(":\n")

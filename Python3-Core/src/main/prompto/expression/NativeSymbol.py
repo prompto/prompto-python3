@@ -21,7 +21,7 @@ class NativeSymbol ( Symbol, IExpression ):
     def __str__(self):
         return self.symbol
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append(self.symbol)
         writer.append(" = ")
         self.expression.toDialect(writer)

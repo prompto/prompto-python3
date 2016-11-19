@@ -37,7 +37,7 @@ class ArgumentAssignment(IDialectElement):
             writer.append(" = ")
         self.expression.toDialect(writer)
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         if self.argument is not None:
             writer.append(self.argument.getName())
             writer.append(" = ")

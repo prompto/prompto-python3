@@ -7,8 +7,8 @@ class IDialectElement(object):
             self.toEDialect(writer)
         elif writer.dialect is Dialect.O:
             self.toODialect(writer)
-        elif writer.dialect is Dialect.S:
-            self.toSDialect(writer)
+        elif writer.dialect is Dialect.M:
+            self.toMDialect(writer)
         else:
             raise Exception("Unsupported dialect:" + str(writer.dialect))
 
@@ -18,5 +18,5 @@ class IDialectElement(object):
     def toODialect(self, writer):
         raise Exception("You must override toODialect in " + type(self).__name__)
 
-    def toSDialect(self, writer):
-        raise Exception("You must override toSDialect in " + type(self).__name__)
+    def toMDialect(self, writer):
+        raise Exception("You must override toMDialect in " + type(self).__name__)

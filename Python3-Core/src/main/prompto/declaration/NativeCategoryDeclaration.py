@@ -72,8 +72,8 @@ class NativeCategoryDeclaration ( ConcreteCategoryDeclaration ):
             writer.newLine()
             self.methodsToODialect(writer, self.methods)
 
-    def toSDialect(self, writer):
-        self.protoToSDialect(writer, None)
+    def toMDialect(self, writer):
+        self.protoToMDialect(writer, None)
         writer.indent()
         writer.newLine()
         self.categoryBindings.toDialect(writer)
@@ -85,5 +85,5 @@ class NativeCategoryDeclaration ( ConcreteCategoryDeclaration ):
         writer.dedent()
         writer.newLine()
 
-    def categoryTypeToSDialect(self, writer):
+    def categoryTypeToMDialect(self, writer):
         writer.append("native category")

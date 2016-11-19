@@ -31,7 +31,7 @@ class EnumeratedNativeDeclaration ( BaseDeclaration, IEnumeratedDeclaration ):
     def getType(self, context):
         return self.type
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("enum ")
         writer.append(self.name)
         writer.append('(')

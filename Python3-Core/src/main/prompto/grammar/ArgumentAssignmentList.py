@@ -80,5 +80,5 @@ class ArgumentAssignmentList(list, IDialectElement):
             writer.trimLast(2)
         writer.append(")")
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         self.toODialect(writer)

@@ -9,7 +9,7 @@ class NativeCategoryBindingList ( ObjectList, IDialectElement ):
         if binding is not None:
             self.append(binding)
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("def category bindings:\n")
         writer.indent()
         for m in self:

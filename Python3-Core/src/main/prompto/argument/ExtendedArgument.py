@@ -100,7 +100,7 @@ class ExtendedArgument(CategoryArgument):
 
 
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append(self.name)
         writer.append(':')
         self.type_.toDialect(writer)

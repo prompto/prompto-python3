@@ -33,7 +33,7 @@ class IteratorExpression(IExpression):
         else:
             return src.getIterator(context)
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         self.expression.toDialect(writer)
         writer.append(" for ")
         writer.append(self.name)

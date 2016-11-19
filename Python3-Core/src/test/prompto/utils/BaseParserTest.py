@@ -6,8 +6,8 @@ from prompto.parser.ECleverParser import ECleverParser
 from prompto.parser.EPromptoBuilder import EPromptoBuilder
 from prompto.parser.OCleverParser import OCleverParser
 from prompto.parser.OPromptoBuilder import OPromptoBuilder
-from prompto.parser.SCleverParser import SCleverParser
-from prompto.parser.SPromptoBuilder import SPromptoBuilder
+from prompto.parser.MCleverParser import MCleverParser
+from prompto.parser.MPromptoBuilder import MPromptoBuilder
 from prompto.declaration.TestMethodDeclaration import TestMethodDeclaration
 from prompto.runtime.Context import Context
 from prompto.runtime.Interpreter import Interpreter
@@ -151,15 +151,15 @@ class BaseParserTest(unittest.TestCase):
         parser = OCleverParser(stream=stream)
         return self.parse(OPromptoBuilder, parser)
 
-    def parseSString(self, code):
-        parser = SCleverParser(text=code)
-        return self.parse(SPromptoBuilder, parser)
+    def parseMString(self, code):
+        parser = MCleverParser(text=code)
+        return self.parse(MPromptoBuilder, parser)
 
-    def parseSResource(self, resourceName):
+    def parseMResource(self, resourceName):
         stream = self.getResourceAsStream(resourceName, 'rb')
         self.assertIsNotNone("resource not found:" + resourceName, stream)
-        parser = SCleverParser(stream=stream)
-        return self.parse(SPromptoBuilder, parser)
+        parser = MCleverParser(stream=stream)
+        return self.parse(MPromptoBuilder, parser)
 
     def compareResourceEOE(self, resourceName):
         expected = self.getResourceAsString(resourceName, 'r')
@@ -185,7 +185,7 @@ class BaseParserTest(unittest.TestCase):
         # ensure equivalent
         self.assertEquivalent(expected, actual)
 
-    def compareResourceESE(self, resourceName):
+    def compareResourceEME(self, resourceName):
         expected = self.getResourceAsString(resourceName, 'r')
         # print(expected)
         # parse e source code
@@ -193,12 +193,12 @@ class BaseParserTest(unittest.TestCase):
         context = Context.newGlobalContext()
         dle.register(context)
         # rewrite as p
-        writer = CodeWriter(Dialect.S, context)
+        writer = CodeWriter(Dialect.M, context)
         dle.toDialect(writer)
         p = str(writer)
         # print(p)
         # parse p source code
-        dlp = self.parseSString(p)
+        dlp = self.parseMString(p)
         context = Context.newGlobalContext()
         dlp.register(context)
         # rewrite as e
@@ -233,7 +233,7 @@ class BaseParserTest(unittest.TestCase):
         # ensure equivalent
         self.assertEquivalent(expected, actual)
 
-    def compareResourceOSO(self, resourceName):
+    def compareResourceOMO(self, resourceName):
         expected = self.getResourceAsString(resourceName, 'r')
         # print(expected)
         # parse o source code
@@ -241,12 +241,12 @@ class BaseParserTest(unittest.TestCase):
         context = Context.newGlobalContext()
         dlo.register(context)
         # rewrite as p
-        writer = CodeWriter(Dialect.S, context)
+        writer = CodeWriter(Dialect.M, context)
         dlo.toDialect(writer)
         p = str(writer)
         # print(p)
         # parse p source code
-        dlp = self.parseSString(p)
+        dlp = self.parseMString(p)
         context = Context.newGlobalContext()
         dlp.register(context)
         # rewrite as o

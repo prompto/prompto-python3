@@ -12,5 +12,5 @@ class SingletonCategoryDeclaration(ConcreteCategoryDeclaration):
     def categoryTypeToODialect(self, writer):
         writer.append("singleton")
 
-    def categoryTypeToSDialect(self, writer):
+    def categoryTypeToMDialect(self, writer):
         writer.append("singleton")

@@ -258,14 +258,14 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
     def bodyToODialect(self, writer):
         self.methodsToODialect(writer, self.methods)
 
-    def toSDialect(self, writer):
-        self.protoToSDialect(writer, self.derivedFrom)
-        self.methodsToSDialect(writer)
+    def toMDialect(self, writer):
+        self.protoToMDialect(writer, self.derivedFrom)
+        self.methodsToMDialect(writer)
 
-    def categoryTypeToSDialect(self, writer):
+    def categoryTypeToMDialect(self, writer):
         writer.append("class")
 
-    def methodsToSDialect(self, writer):
+    def methodsToMDialect(self, writer):
         writer.indent()
         if self.methods is None or len(self.methods)==0:
             writer.append("pass\n")

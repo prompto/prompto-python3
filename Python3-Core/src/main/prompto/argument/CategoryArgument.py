@@ -62,7 +62,7 @@ class CategoryArgument(BaseArgument, ITypedArgument):
         writer.append(' ')
         writer.append(self.name)
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append(self.name)
         writer.append(':')
         self.type_.toDialect(writer)

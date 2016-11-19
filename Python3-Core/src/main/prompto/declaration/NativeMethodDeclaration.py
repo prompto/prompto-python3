@@ -26,7 +26,7 @@ class NativeMethodDeclaration(ConcreteMethodDeclaration):
         checked = self.fullCheck(context, True)
         return checked if self.returnType is None else self.returnType
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("def native ")
         writer.append(self.name)
         writer.append(" (")

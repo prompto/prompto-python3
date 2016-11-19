@@ -59,7 +59,7 @@ class AttributeDeclaration ( BaseDeclaration ):
 
 
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
             if self.storable:
                 writer.append("storable ")
             writer.append("attr ")

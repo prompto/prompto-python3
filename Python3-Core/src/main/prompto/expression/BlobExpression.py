@@ -56,7 +56,7 @@ class BlobExpression ( IExpression ):
         self.source.toDialect(writer)
         writer.append(')')
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("Blob(")
         self.source.toDialect(writer)
         writer.append(')')

@@ -10,7 +10,7 @@ class SetterMethodDeclaration(ConcreteMethodDeclaration, IExpression):
     def checkMember(self, category, context):
         pass  # TODO
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         writer.append("def ")
         writer.append(self.name)
         writer.append(" setter():\n")

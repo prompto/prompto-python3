@@ -71,7 +71,7 @@ class ConstructorExpression(IExpression):
             assignments.extend(self.assignments)
         assignments.toDialect(writer)
 
-    def toSDialect(self, writer):
+    def toMDialect(self, writer):
         self.toODialect(writer)
 
     def check(self, context:Context):
