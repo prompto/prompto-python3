@@ -106,7 +106,7 @@ class MethodSelector(MemberSelector):
 
     def newInstanceContext(self, context:Context):
         value = self.parent.interpret(context)
-        if value == None or value is NullValue.instance:
+        if value is None or value is NullValue.instance:
             from prompto.error.NullReferenceError import NullReferenceError
             raise NullReferenceError()
         from prompto.type.CategoryType import CategoryType
@@ -123,7 +123,7 @@ class MethodSelector(MemberSelector):
 
 
     def toInstanceExpression(self):
-        if self.parent == None:
+        if self.parent is None:
             from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
             return UnresolvedIdentifier(self.name)
         else:

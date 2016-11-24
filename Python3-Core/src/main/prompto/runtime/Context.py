@@ -70,7 +70,7 @@ class Context(IContext):
         return self.calling
 
     def getParentMostContext(self):
-        if self.parent == None:
+        if self.parent is None:
             return self
         else:
             return self.parent.getParentMostContext()
@@ -347,8 +347,12 @@ class DocumentContext(Context):
         else:
             return self
 
+
+
     def readValue(self, name):
         return self.document.getMemberValue(self.calling, name)
+
+
 
     def writeValue(self, name, value):
         self.document.setMember(self.calling, name, value)
@@ -360,6 +364,7 @@ class BuiltInContext(Context):
     def __init__(self, value):
         super().__init__()
         self.value = value
+
 
 
 class InstanceContext(Context):

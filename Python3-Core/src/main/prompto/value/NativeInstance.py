@@ -46,7 +46,7 @@ class NativeInstance(BaseValue, IInstance):
 
     def doGetMember(self, context, attrName, allowGetter):
         getter = self.declaration.findGetter(context, attrName) if allowGetter else None
-        if getter != None:
+        if getter is not None:
             context = context.newInstanceContext(self, None).newChildContext()
             return getter.interpret(context)
         else:
@@ -71,7 +71,7 @@ class NativeInstance(BaseValue, IInstance):
     def doSetMember(self, context, attrName, value, allowSetter):
         decl = context.getRegisteredDeclaration(AttributeDeclaration, attrName)
         setter = self.declaration.findSetter(context, attrName) if allowSetter else None
-        if setter != None:
+        if setter is not None:
             activeSetters.__dict__[attrName] = context
             # use attribute name as parameter name for incoming value
             context = context.newInstanceContext(self, None).newChildContext()

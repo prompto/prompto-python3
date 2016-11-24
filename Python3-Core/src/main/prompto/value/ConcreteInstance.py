@@ -79,6 +79,8 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
     def getMemberNames(self):
         return self.values.keys()
 
+
+
     def getMemberValue(self, context, attrName, autoCreate=False):
         stacked = activeGetters.__dict__.get(attrName, None)
         first = stacked is None
@@ -90,6 +92,8 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
             if first:
                 del activeGetters.__dict__[attrName]
 
+
+
     def doGetMember(self, context, attrName, allowGetter):
         getter = self.declaration.findGetter(context, attrName) if allowGetter else None
         if getter is not None:
@@ -97,6 +101,8 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
             return getter.interpret(context)
         else:
             return self.values.get(attrName, None)
+
+
 
     def setMember(self, context, attrName, value):
         if not self.mutable:

@@ -30,7 +30,8 @@ class AttributeArgument ( BaseArgument, INamedArgument ):
     def register(self, context):
         context.registerValue(self, True)
         if self.defaultExpression is not None:
-            context.setValue(self.name, self.defaultExpression)
+            value = self.defaultExpression.interpret(context)
+            context.setValue(self.name, value)
 
     def check(self, context):
         actual = context.getRegisteredDeclaration(AttributeDeclaration,self.name)

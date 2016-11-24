@@ -56,7 +56,8 @@ class ExtendedArgument(CategoryArgument):
         context.registerDeclaration(declaration)
         context.registerValue(self)
         if self.defaultExpression is not None:
-            context.setValue(self.name, self.defaultExpression)
+            value = self.defaultExpression.interpret(context)
+            context.setValue(self.name, value)
 
 
 

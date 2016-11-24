@@ -6,13 +6,13 @@ class AbstractMethodDeclaration(BaseMethodDeclaration):
 
     def __init__(self, name, arguments, returnType):
         super(AbstractMethodDeclaration, self).__init__(name, arguments)
-        self.returnType = returnType if returnType != None else VoidType.instance
+        self.returnType = returnType if returnType is not None else VoidType.instance
 
     def checkMember(self, category, context):
         pass  # TODO
 
     def check(self, context):
-        if self.arguments != None:
+        if self.arguments is not None:
             self.arguments.check(context)
         local = context.newLocalContext()
         self.registerArguments(local)
