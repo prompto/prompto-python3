@@ -138,7 +138,7 @@ class ContainsExpression(IExpression):
                 raise SyntaxError("Unable to interpret predicate")
         matchOp = self.getMatchOp(context, self.getAttributeType(context, name), value.type, self.operator, reverse)
         if isinstance(value, IInstance):
-            value = value.getMember(context, "dbId", False)
+            value = value.getMemberValue(context, "dbId", False)
         info = context.findAttribute(name).getAttributeInfo()
         data = None if value is None else value.getStorableData()
         query.verify(info, matchOp, data)

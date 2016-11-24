@@ -24,7 +24,7 @@ class Document ( BaseValue ):
         result = self.values.get(name, None)
         return result is not None
 
-    def getMember(self, context, name, autoCreate = False):
+    def getMemberValue(self, context, name, autoCreate = False):
         result = self.values.get(name, NullValue.instance)
         if autoCreate and result is NullValue.instance:
             result = Document()

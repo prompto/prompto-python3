@@ -62,8 +62,20 @@ class TestBuiltins(BaseOParserTest):
     def testSetCount(self):
         self.compareResourceOEO("builtins/setCount.poc")
 
+    def testTextCapitalize(self):
+        self.compareResourceOEO("builtins/textCapitalize.poc")
+
     def testTextCount(self):
         self.compareResourceOEO("builtins/textCount.poc")
+
+    def testTextLowercase(self):
+        self.compareResourceOEO("builtins/textLowercase.poc")
+
+    def testTextSplit(self):
+        self.compareResourceOEO("builtins/textSplit.poc")
+
+    def testTextUppercase(self):
+        self.compareResourceOEO("builtins/textUppercase.poc")
 
     def testTimeHour(self):
         self.compareResourceOEO("builtins/timeHour.poc")

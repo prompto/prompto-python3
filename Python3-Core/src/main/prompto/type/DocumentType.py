@@ -1,3 +1,5 @@
+from prompto.type.MissingType import MissingType
+from prompto.type.NullType import NullType
 from prompto.type.TextType import TextType
 from prompto.type.AnyType import AnyType
 from prompto.type.NativeType import NativeType
@@ -26,6 +28,15 @@ class DocumentType ( NativeType ):
             return AnyType.instance
         else:
             raise Exception("text") # TODO
+
+
+    def isMoreSpecificThan(self, context, other):
+        if isinstance(other, (NullType, AnyType, MissingType)):
+            return True
+        else:
+            return super().isMoreSpecificThan(context, other)
+
+
 
     def readJSONValue(self, context, node, parts):
         from prompto.value.Document import Document

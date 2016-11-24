@@ -28,7 +28,7 @@ class EnumeratedNativeType ( BaseType ):
         else:
             return super(EnumeratedNativeType, self).checkMember(context, name)
 
-    def getMember(self, context:Context, name:str):
+    def getMemberValue(self, context:Context, name:str):
         decl = context.getRegisteredDeclaration(IDeclaration, self.typeName)
         if not isinstance (decl, IEnumeratedDeclaration):
             raise SyntaxError(self.typeName + " is not an enumerated type!")

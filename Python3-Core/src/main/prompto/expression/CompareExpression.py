@@ -83,7 +83,7 @@ class CompareExpression ( IExpression ):
             decl = context.findAttribute(name)
             info = None if decl is None else decl.getAttributeInfo()
             if isinstance(value, IInstance):
-                value = value.getMember(context, "dbId", False)
+                value = value.getMemberValue(context, "dbId", False)
             matchOp = self.getMatchOp()
             query.verify(info, matchOp, None if value is None else value.getStorableData())
             if self.operator in [CmpOp.GTE, CmpOp.LTE]:

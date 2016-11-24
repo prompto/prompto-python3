@@ -4,9 +4,10 @@ from prompto.argument.ITypedArgument import ITypedArgument
 
 class CategoryArgument(BaseArgument, ITypedArgument):
 
-    def __init__(self, type_, name):
+    def __init__(self, type_, name, default=None):
         super(CategoryArgument, self).__init__(name)
         self.type_ = type_
+        self.defaultExpression = default
 
     def getSignature(self, dialect):
         return self.getProto()
@@ -34,7 +35,8 @@ class CategoryArgument(BaseArgument, ITypedArgument):
             raise SyntaxError("Duplicate argument: \"" + self.name + "\"")
         context.registerValue(self)
         if self.defaultExpression is not None:
-            context.setValue(self.name, self.defaultExpression)
+            value = self.defaultExpression.interpret(context)
+            context.setValue(self.name, value)
 
     def check(self, context):
         self.type_.checkExists(context)

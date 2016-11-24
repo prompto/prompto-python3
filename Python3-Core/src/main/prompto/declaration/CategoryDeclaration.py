@@ -21,6 +21,7 @@ class CategoryDeclaration(BaseDeclaration):
 
     def register(self, context):
         context.registerDeclaration(self)
+        self.registerMethods(context)
 
     def check(self, context):
         from prompto.declaration.AttributeDeclaration import AttributeDeclaration

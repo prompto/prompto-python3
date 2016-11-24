@@ -61,8 +61,20 @@ class TestBuiltins(BaseOParserTest):
     def testSetCount(self):
         self.checkOutput("builtins/setCount.poc")
 
+    def testTextCapitalize(self):
+        self.checkOutput("builtins/textCapitalize.poc")
+
     def testTextCount(self):
         self.checkOutput("builtins/textCount.poc")
+
+    def testTextLowercase(self):
+        self.checkOutput("builtins/textLowercase.poc")
+
+    def testTextSplit(self):
+        self.checkOutput("builtins/textSplit.poc")
+
+    def testTextUppercase(self):
+        self.checkOutput("builtins/textUppercase.poc")
 
     def testTimeHour(self):
         self.checkOutput("builtins/timeHour.poc")

@@ -30,7 +30,7 @@ class BaseValue(IValue):
     def CompareTo(self, context, value):
         raise Exception("Compare not supported by " + type(self).__name__)
 
-    def getMember(self, context, name, autoCreate=False):
+    def getMemberValue(self, context, name, autoCreate=False):
         raise Exception("No member support for " + type(self).__name__)
 
     def setMember(self, context, name, value):

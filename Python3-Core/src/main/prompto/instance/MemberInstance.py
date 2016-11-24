@@ -53,4 +53,4 @@ class MemberInstance ( IAssignableInstance ):
 
     def interpret(self, context):
         root = self.parent.interpret(context)
-        return root.getMember(context, self.name, True)
+        return root.getMemberValue(context, self.name, True)

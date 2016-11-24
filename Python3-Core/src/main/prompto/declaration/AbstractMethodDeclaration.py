@@ -1,6 +1,6 @@
 from prompto.declaration.BaseMethodDeclaration import BaseMethodDeclaration
 from prompto.type.VoidType import VoidType
-
+from prompto.error.SyntaxError import SyntaxError
 
 class AbstractMethodDeclaration(BaseMethodDeclaration):
 

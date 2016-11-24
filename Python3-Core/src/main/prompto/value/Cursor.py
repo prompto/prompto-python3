@@ -48,7 +48,7 @@ class Cursor(BaseValue, IIterable):
 
 
 
-    def getMember(self, context, name, autoCreate=False):
+    def getMemberValue(self, context, name, autoCreate=False):
         if "count" == name:
             return Integer(len(self))
         elif "totalCount" == name:

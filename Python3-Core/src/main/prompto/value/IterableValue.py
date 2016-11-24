@@ -24,7 +24,7 @@ class IterableValue(BaseValue, IIterable):
             value = self.expression.interpret(child)
             yield value
 
-    def getMember(self, context, name, autoCreate):
+    def getMemberValue(self, context, name, autoCreate):
         if "count"==name:
             return self.length
         else:

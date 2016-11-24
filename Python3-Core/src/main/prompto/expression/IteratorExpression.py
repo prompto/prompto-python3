@@ -23,7 +23,7 @@ class IteratorExpression(IExpression):
         iterType = self.check(context)
         itemType = iterType.getItemType()
         items = self.source.interpret(context)
-        length = items.getMember(context, "count", False)
+        length = items.getMemberValue(context, "count", False)
         iterator = self.getIterator(context, items)
         return IterableValue(itemType, context, length, self.name, iterator, self.expression)
 

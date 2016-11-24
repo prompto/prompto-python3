@@ -89,6 +89,8 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         self.checkMethods(context)
         return super(ConcreteCategoryDeclaration, self).check(context)
 
+
+
     def registerMethods(self, context):
         if self.methodsMap is None:
             self.methodsMap = dict()
@@ -97,11 +99,15 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
                     method.memberOf = self
                     self.registerMethodDeclaration(method,context)
 
+
+
     def checkMethods(self, context):
         self.registerMethods(context)
         if self.methods is not None:
             for method in self.methods:
                 method.checkMember(self, context)
+
+
 
     def registerMethodDeclaration(self, method, context):
         actual = None
@@ -122,12 +128,16 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
                 self.methodsMap[method.getName()] = actual
             actual.register(method,context)
 
+
+
     def checkDerived(self, context):
         if self.derivedFrom is not None:
             for category in self.derivedFrom:
                 cd = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, category)
                 if cd is None:
                     raise SyntaxError("Unknown category: \"" + category + "\"")
+
+
 
     def isDerivedFrom(self, context, categoryType):
         if self.derivedFrom is None:
@@ -139,14 +149,20 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
                 return True
         return False
 
+
+
     def isAncestorDerivedFrom(self, ancestor, context, categoryType):
         actual = context.getRegisteredDeclaration(IDeclaration, ancestor)
         if actual is None and not isinstance(actual, CategoryDeclaration):
             return False
         return actual.isDerivedFrom(context, categoryType)
 
+
+
     def newInstance(self, context):
         return ConcreteInstance(context, self)
+
+
 
     def findGetter(self, context, attrName):
         if self.methodsMap is None:
@@ -158,6 +174,8 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
             raise SyntaxError("Not a getter method!")
         return self.findDerivedGetter(context, attrName)
 
+
+
     def findDerivedGetter(self, context, attrName):
         if self.derivedFrom is None:
             return None
@@ -167,11 +185,15 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
                 return method
         return None
 
+
+
     def findAncestorGetter(self, ancestor, context, attrName):
         actual = context.getRegisteredDeclaration(IDeclaration, ancestor)
         if actual is None or not isinstance(actual, ConcreteCategoryDeclaration):
             return None
         return actual.findGetter(context, attrName)
+
+
 
     def findSetter(self, context, attrName):
         if self.methodsMap is None:
@@ -182,6 +204,8 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         if method is not None:
             raise SyntaxError("Not a setter method!")
         return self.findDerivedSetter(context,attrName)
+
+
 
     def findDerivedSetter(self, context, attrName):
         if self.derivedFrom is None:
@@ -198,7 +222,7 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
             return None
         return actual.findSetter(context, attrName)
 
-    def findMemberMethods(self, context, name):
+    def getMemberMethods(self, context, name):
         self.registerMethods(context)
         result = MethodDeclarationMap(name)
         self.registerMemberMethods(context,result)
@@ -276,9 +300,9 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
                 writer.newLine()
         writer.dedent()
 
-    def findOperator(self, context, operator, type):
+    def getOperatorMethod(self, context, operator, type):
         methodName = "operator_" + operator.name
-        methods = self.findMemberMethods(context, methodName)
+        methods = self.getMemberMethods(context, methodName)
         if methods is None:
             return None
         # find best candidate

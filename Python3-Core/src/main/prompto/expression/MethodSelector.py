@@ -23,10 +23,10 @@ class MethodSelector(MemberSelector):
             super(MethodSelector, self).toDialect(writer)
 
     def getCandidates(self, context:Context):
-        if self.parent == None:
+        if self.parent is None:
             return self.getGlobalCandidates(context)
         else:
-            return self.getCategoryCandidates(context)
+            return self.getMemberCandidates(context)
 
     def getGlobalCandidates(self, context:Context):
         from prompto.runtime.Context import MethodDeclarationMap
@@ -37,13 +37,20 @@ class MethodSelector(MemberSelector):
             typ = context.getParentContext().instanceType
             cd = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, typ.typeName)
             if cd is not None:
-                members = cd.findMemberMethods(context, self.name)
+                members = cd.getMemberMethods(context, self.name)
                 if members is not None:
                     methods.extend(members)
         globs = context.getRegisteredDeclaration(MethodDeclarationMap, self.name)
         if globs is not None:
             methods.extend(globs.values())
         return methods
+
+
+    def getMemberCandidates(self, context:Context):
+        parentType = self.checkParent(context)
+        return parentType.getMemberMethods(context, self.name)
+
+
 
     def getCategoryCandidates(self, context:Context):
         from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
@@ -54,7 +61,9 @@ class MethodSelector(MemberSelector):
         cd = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, type_.typeName)
         if cd is None:
             raise SyntaxError("Unknown category:" + type_.typeName)
-        return cd.findMemberMethods(context, self.name)
+        return cd.getMemberMethods(context, self.name)
+
+
 
     def newLocalContext(self, context:Context, declaration):
         if self.parent is not None:
@@ -72,6 +81,8 @@ class MethodSelector(MemberSelector):
         else:
             return context.newLocalContext()
 
+
+
     def newLocalInstanceContext(self, context:Context):
         parent = context.getParentContext()
         if not isinstance(parent, InstanceContext):
@@ -80,13 +91,18 @@ class MethodSelector(MemberSelector):
         context.setParentContext(parent) # make local context child of the existing instance context
         return context
 
+
+
     def newInstanceCheckContext(self, context:Context):
         from prompto.type.CategoryType import CategoryType
         typ = self.parent.check (context)
-        if not isinstance(typ, CategoryType):
-            raise SyntaxError ("Not an instance !")
-        context = context.newInstanceContext (None, typ)
-        return context.newChildContext ()
+        if isinstance(typ, CategoryType):
+            context = context.newInstanceContext (None, typ)
+            return context.newChildContext ()
+        else:
+            return context.newChildContext()
+
+
 
     def newInstanceContext(self, context:Context):
         value = self.parent.interpret(context)
@@ -97,11 +113,14 @@ class MethodSelector(MemberSelector):
         if isinstance(value, TypeValue) and isinstance(value.value, CategoryType):
             value = context.loadSingleton(value.value)
         from prompto.value.ConcreteInstance import ConcreteInstance
-        if not isinstance(value, ConcreteInstance):
-            from prompto.error.InvalidValueError import InvalidValueError
-            raise InvalidValueError("Not a concrete instance !")
-        context = context.newInstanceContext(value, None)
-        return context.newChildContext()
+        if isinstance(value, ConcreteInstance):
+            context = context.newInstanceContext(value, None)
+            return context.newChildContext()
+        else:
+            context = context.newBuiltInContext(value)
+            return context.newChildContext()
+
+
 
     def toInstanceExpression(self):
         if self.parent == None:

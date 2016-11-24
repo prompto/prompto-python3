@@ -74,8 +74,20 @@ class TestBuiltins(BaseEParserTest):
     def testSetCount(self):
         self.compareResourceEME("builtins/setCount.pec")
 
+    def testTextCapitalize(self):
+        self.compareResourceEME("builtins/textCapitalize.pec")
+
     def testTextCount(self):
         self.compareResourceEME("builtins/textCount.pec")
+
+    def testTextLowercase(self):
+        self.compareResourceEME("builtins/textLowercase.pec")
+
+    def testTextSplit(self):
+        self.compareResourceEME("builtins/textSplit.pec")
+
+    def testTextUppercase(self):
+        self.compareResourceEME("builtins/textUppercase.pec")
 
     def testTimeHour(self):
         self.compareResourceEME("builtins/timeHour.pec")

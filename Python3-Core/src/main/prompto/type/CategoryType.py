@@ -114,7 +114,7 @@ class CategoryType(BaseType):
         actual = self.getDeclaration(context)
         if isinstance(actual, ConcreteCategoryDeclaration):
             try:
-                method = actual.findOperator(self, operator, other)
+                method = actual.getOperatorMethod(self, operator, other)
                 if method is None:
                     return None
                 context = context.newInstanceContext(None, self)
@@ -260,7 +260,7 @@ class CategoryType(BaseType):
     def sortByAttribute(self, context, source, desc, name):
 
         def keyGetter(o):
-            return o.getMember(context, name)
+            return o.getMemberValue(context, name)
 
         return sorted(source, key=keyGetter, reverse=desc)
 
@@ -313,3 +313,11 @@ class CategoryType(BaseType):
         else:
             return super(CategoryType, self).convertPythonValueToPromptoValue(context, value, returnType)
 
+
+    def getMemberMethods(self, context, name):
+        from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
+        cd = self.getDeclaration(context)
+        if not isinstance(cd, ConcreteCategoryDeclaration):
+            raise SyntaxError("Unknown category:" + self.typeName)
+        else:
+            return cd.getMemberMethods(context, name)

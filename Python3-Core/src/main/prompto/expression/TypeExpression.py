@@ -18,8 +18,8 @@ class TypeExpression(IExpression):
     def interpret(self, context:Context):
         return TypeValue(self.type)
 
-    def getMember(self, context, name):
-        return self.type.getMember(context, name)
+    def getMemberValue(self, context, name):
+        return self.type.getMemberValue(context, name)
 
     def toDialect(self, writer):
         self.type.toDialect(writer)

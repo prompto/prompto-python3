@@ -67,7 +67,7 @@ class TestMethodDeclaration(BaseDeclaration):
         if expectedError == actual:
             self.printSuccess (context)
         else:
-            actualName = str(actual.getMember (context, "name"))
+            actualName = str(actual.getMemberValue (context, "name"))
             expectedName = "SUCCESS" if self.error is None else self.error.name
             self.printFailure (context, expectedName, actualName)
     

@@ -9,7 +9,7 @@ class IValue(object):
     def IntDivide(self, context, value):
         raise Exception("You must override IntDivide in " + type(self).__name__)
 
-    def getMember(self, context, attrName, autoCreate=False):
+    def getMemberValue(self, context, attrName, autoCreate=False):
         raise Exception("You must override GetMember in " + type(self).__name__)
 
     def setMember(self, context, attrName, value):

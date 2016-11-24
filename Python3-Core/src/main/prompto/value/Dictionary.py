@@ -55,7 +55,7 @@ class Dictionary(BaseValue, IContainer):
             raise SyntaxError("Only Text key is supported by " + type(self).__name__)
 
 
-    def getMember(self, context, name, autoCreate=False):
+    def getMemberValue(self, context, name, autoCreate=False):
         if "count" == name:
             return Integer(self.size())
         elif "keys" == name:
@@ -134,7 +134,7 @@ class KVPValue(BaseValue):
         self.key = Text(key)
         self.value = value
 
-    def getMember(self, context, name, autoCreate=False):
+    def getMemberValue(self, context, name, autoCreate=False):
         if "key" == name:
             return self.key
         elif "value" == name:

@@ -79,7 +79,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
     def getMemberNames(self):
         return self.values.keys()
 
-    def getMember(self, context, attrName, autoCreate=False):
+    def getMemberValue(self, context, attrName, autoCreate=False):
         stacked = activeGetters.__dict__.get(attrName, None)
         first = stacked is None
         if first:
@@ -203,7 +203,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
 
 
     def interpretOperator(self, context, value, operator):
-        decl = self.declaration.findOperator(context, operator, value.type)
+        decl = self.declaration.getOperatorMethod(context, operator, value.type)
         context = context.newInstanceContext(self, None)
         local = context.newChildContext()
         decl.registerArguments(local)

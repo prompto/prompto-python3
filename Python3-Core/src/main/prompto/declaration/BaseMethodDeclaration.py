@@ -64,11 +64,10 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
             raise Exception(e)
 
     def isAssignableTo(self, context, assignments, checkInstance):
+        from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
         try:
             local = context.newLocalContext()
             self.registerArguments(local)
-            from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
-
             assignmentsList = ArgumentAssignmentList(list_=assignments)
             for argument in self.arguments:
                 assignment = assignmentsList.find(argument.getName())

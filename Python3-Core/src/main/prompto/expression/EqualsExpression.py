@@ -140,7 +140,7 @@ class EqualsExpression ( IExpression ):
             else:
                 raise SyntaxError("Unable to interpret predicate")
         if isinstance(value, IInstance):
-            value = value.getMember(context, "dbId", False)
+            value = value.getMemberValue(context, "dbId", False)
         decl = context.findAttribute(name)
         info = None if decl is None else decl.getAttributeInfo()
         data = None if value is None else value.getStorableData()

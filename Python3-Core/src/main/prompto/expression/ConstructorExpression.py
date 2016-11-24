@@ -104,14 +104,14 @@ class ConstructorExpression(IExpression):
             if isinstance(copyObj, IInstance):
                 for name in copyObj.getMemberNames():
                     if cd.hasAttribute(context, name):
-                        value = copyObj.getMember(context, name)
+                        value = copyObj.getMemberValue(context, name)
                         if value is not None and value.mutable and not self.type.mutable:
                             raise NotMutableError()
                         instance.setMember(context, name, value)
             elif isinstance(copyObj, Document):
                 for name in copyObj.getMemberNames():
                     if cd.hasAttribute(context, name):
-                        value = copyObj.getMember(context, name)
+                        value = copyObj.getMemberValue(context, name)
                         if value is not None and value.mutable and not self.type.mutable:
                             raise NotMutableError()
                         instance.setMember(context, name, value)

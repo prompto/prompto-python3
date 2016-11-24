@@ -1,3 +1,4 @@
+from prompto.declaration.BuiltInMethodDeclaration import BuiltInMethodDeclaration
 from prompto.type.NativeType import NativeType
 from prompto.store.TypeFamily import TypeFamily
 
@@ -78,5 +79,95 @@ class TextType(NativeType):
         else:
             return value  # TODO for now
 
+    def getMemberMethods(self, context, name):
+        if name == "toLowerCase":
+            return [ToLowerCaseMethodDeclaration()]
+        elif name == "toUpperCase":
+            return [ToUpperCaseMethodDeclaration()]
+        elif name == "toCapitalized":
+            return [ToCapitalizedMethodDeclaration()]
+        elif name == "split":
+            return [SplitMethodDeclaration()]
+        else:
+            return super().getMemberMethods(context, name)
+
 
 TextType.instance = TextType()
+
+
+class SplitMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self):
+        from prompto.argument.CategoryArgument import CategoryArgument
+        from prompto.literal.TextLiteral import TextLiteral
+        SINGLE_SPACE_ARGUMENT = CategoryArgument(TextType.instance, "separator", TextLiteral('" "'))
+        super().__init__("split", SINGLE_SPACE_ARGUMENT)
+
+
+    def interpret(self, context):
+        from prompto.value.Text import Text
+        from prompto.value.ListValue import ListValue
+        value = self.getValue(context).value
+        sep = context.getValue("separator").value
+        parts = [ Text(part) for part in value.split(sep)]
+        return ListValue(TextType.instance, parts, mutable = False)
+
+
+    def check(self, context):
+        from prompto.type.ListType import ListType
+        return ListType(TextType.instance)
+
+
+class ToLowerCaseMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self):
+        super().__init__("toLowerCase")
+
+
+    def interpret(self, context):
+        from prompto.value.Text import Text
+        value = self.getValue(context).getStorableData()
+        return Text(value.lower())
+
+    def check(self, context):
+        return TextType.instance
+
+
+
+class ToUpperCaseMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self):
+        super().__init__("toUpperCase")
+
+
+
+    def interpret(self, context):
+        from prompto.value.Text import Text
+        value = self.getValue(context).getStorableData()
+        return Text(value.upper())
+
+
+
+    def check(self, context):
+        return TextType.instance
+
+
+
+class ToCapitalizedMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self):
+        super().__init__("toCapitalized")
+
+
+
+    def interpret(self, context):
+        from prompto.value.Text import Text
+        value = self.getValue(context).getStorableData()
+        return Text(value.title())
+
+
+
+    def check(self, context):
+        return TextType.instance
+
+
