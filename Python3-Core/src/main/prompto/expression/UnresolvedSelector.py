@@ -23,7 +23,7 @@ class UnresolvedSelector(SelectorExpression):
 
     def toDialect(self, writer):
         try:
-            self.resolve(writer.getContext(), False)
+            self.resolve(writer.context, False)
         except:
             pass
         if self.resolved is not None:

@@ -5,6 +5,7 @@ from prompto.expression.MemberSelector import MemberSelector
 from prompto.declaration.NativeMethodDeclaration import *
 from prompto.expression.AddExpression import *
 from prompto.expression.NativeSymbol import *
+from prompto.expression.UnresolvedSelector import UnresolvedSelector
 from prompto.grammar.IdentifierList import *
 from prompto.literal.BooleanLiteral import *
 from prompto.literal.DateLiteral import *
@@ -112,8 +113,8 @@ class TestParserAtoms(unittest.TestCase):
     def testMemberExpression(self):
         statement = "p.name"
         me = self.parse(statement,ECleverParser.instance_expression)
-        self.assertIsInstance(me, MemberSelector)
-        self.assertEquals("name",me.getName())
+        self.assertIsInstance(me, UnresolvedSelector)
+        self.assertEquals("name",me.name)
         self.assertIsInstance(me.getParent(), UnresolvedIdentifier)
         uie = me.getParent()
         self.assertEquals("p",uie.getName())
