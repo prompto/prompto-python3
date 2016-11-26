@@ -86,6 +86,9 @@ class TestBuiltins(BaseEParserTest):
     def testTextSplit(self):
         self.compareResourceEME("builtins/textSplit.pec")
 
+    def testTextTrim(self):
+        self.compareResourceEME("builtins/textTrim.pec")
+
     def testTextUppercase(self):
         self.compareResourceEME("builtins/textUppercase.pec")
 

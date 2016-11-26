@@ -85,6 +85,9 @@ class TestBuiltins(BaseEParserTest):
     def testTextSplit(self):
         self.checkOutput("builtins/textSplit.pec")
 
+    def testTextTrim(self):
+        self.checkOutput("builtins/textTrim.pec")
+
     def testTextUppercase(self):
         self.checkOutput("builtins/textUppercase.pec")
 

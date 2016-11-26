@@ -88,6 +88,8 @@ class TextType(NativeType):
             return [ToCapitalizedMethodDeclaration()]
         elif name == "split":
             return [SplitMethodDeclaration()]
+        elif name == "trim":
+            return [TrimMethodDeclaration()]
         else:
             return super().getMemberMethods(context, name)
 
@@ -164,6 +166,24 @@ class ToCapitalizedMethodDeclaration(BuiltInMethodDeclaration):
         from prompto.value.Text import Text
         value = self.getValue(context).getStorableData()
         return Text(value.title())
+
+
+
+    def check(self, context):
+        return TextType.instance
+
+
+class TrimMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self):
+        super().__init__("trim")
+
+
+
+    def interpret(self, context):
+        from prompto.value.Text import Text
+        value = self.getValue(context).getStorableData()
+        return Text(value.strip())
 
 
 

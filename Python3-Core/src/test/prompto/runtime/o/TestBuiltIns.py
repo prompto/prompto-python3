@@ -73,6 +73,9 @@ class TestBuiltins(BaseOParserTest):
     def testTextSplit(self):
         self.checkOutput("builtins/textSplit.poc")
 
+    def testTextTrim(self):
+        self.checkOutput("builtins/textTrim.poc")
+
     def testTextUppercase(self):
         self.checkOutput("builtins/textUppercase.poc")
 

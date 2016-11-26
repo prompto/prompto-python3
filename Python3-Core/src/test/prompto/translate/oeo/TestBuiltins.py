@@ -74,6 +74,9 @@ class TestBuiltins(BaseOParserTest):
     def testTextSplit(self):
         self.compareResourceOEO("builtins/textSplit.poc")
 
+    def testTextTrim(self):
+        self.compareResourceOEO("builtins/textTrim.poc")
+
     def testTextUppercase(self):
         self.compareResourceOEO("builtins/textUppercase.poc")
 
