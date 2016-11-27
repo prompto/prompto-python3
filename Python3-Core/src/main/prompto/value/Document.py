@@ -1,4 +1,7 @@
+from io import BytesIO
+
 from prompto.type.DocumentType import DocumentType
+from prompto.utils.JSONGenerator import JSONGenerator
 from prompto.value.BaseValue import BaseValue
 from prompto.value.NullValue import NullValue
 from prompto.value.Text import Text
@@ -25,13 +28,17 @@ class Document ( BaseValue ):
         return result is not None
 
     def getMemberValue(self, context, name, autoCreate = False):
-        result = self.values.get(name, NullValue.instance)
-        if autoCreate and result is NullValue.instance:
+        result = self.values.get(name, None)
+        if result is not None:
+            return result
+        elif "text" == name:
+            return Text(str(self))
+        elif autoCreate:
             result = Document()
             self.values[name] = result
-        return result
-
-
+            return result
+        else:
+            return NullValue.instance
 
     def setMember(self, context, name, value):
         self.values[name] = value
@@ -50,6 +57,23 @@ class Document ( BaseValue ):
             self.values[index.value] = value
         else:
             raise SyntaxError("No such item:" + index.toString())
+
+    def __str__(self):
+        binaries = dict()
+        # create textual data
+        output = BytesIO()
+        generator = JSONGenerator(output)
+        generator.writeStartObject()
+        for key, value in self.values.items():
+            generator.writeFieldName(key)
+            if value is None:
+                generator.writeNull()
+            else:
+                value.toJson(None, generator, id(self), key, binaries)
+        generator.writeEndObject()
+        # done
+        output.flush()
+        return output.getvalue().decode()
 
 
     def toJson(self, context, generator, instanceId, fieldName, binaries):

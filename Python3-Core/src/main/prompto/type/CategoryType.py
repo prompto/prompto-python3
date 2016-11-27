@@ -9,6 +9,7 @@ from prompto.runtime.Score import Score
 from prompto.store.DataStore import DataStore
 from prompto.store.Store import IStored
 from prompto.store.TypeFamily import TypeFamily
+from prompto.type.TextType import TextType
 from prompto.type.BaseType import BaseType
 from prompto.type.IType import IType
 from prompto.type.NullType import NullType
@@ -137,12 +138,16 @@ class CategoryType(BaseType):
         cd = context.getRegisteredDeclaration(CategoryDeclaration, self.typeName)
         if cd is None:
             raise SyntaxError("Unknown category:" + self.typeName)
-        if not cd.hasAttribute(context, name):
+        if cd.hasAttribute(context, name):
+            ad = context.getRegisteredDeclaration(AttributeDeclaration, name)
+            if ad is None:
+                raise SyntaxError("Missing atttribute:" + name)
+            else:
+                return ad.getType(context)
+        elif "text" == name:
+            return TextType.instance
+        else:
             raise SyntaxError("No attribute:" + name + " in category:" + self.typeName)
-        ad = context.getRegisteredDeclaration(AttributeDeclaration, name)
-        if ad is None:
-            raise SyntaxError("Unknown atttribute:" + name)
-        return ad.getType(context)
 
 
     def isDerivedFrom(self, context, other:IType):

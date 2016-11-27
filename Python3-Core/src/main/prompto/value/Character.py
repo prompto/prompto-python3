@@ -1,4 +1,3 @@
-from prompto.store.InvalidValueError import InvalidValueError
 from prompto.error.SyntaxError import SyntaxError
 from prompto.value.BaseValue import BaseValue
 from prompto.value.IMultiplyable import IMultiplyable
@@ -29,8 +28,7 @@ class Character ( BaseValue, IMultiplyable) :
         if "codePoint" == name:
             return Integer(ord(self.value))
         else:
-            raise InvalidValueError("No such member:" + name)
-
+            return super(Character, self).getMemberValue(context, name, autoCreate)
 
 
     def Add(self, context, value):

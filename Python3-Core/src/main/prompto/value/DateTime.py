@@ -72,7 +72,7 @@ class DateTime(BaseValue):
             from prompto.value.Text import Text
             return Text("Z")  # self.value.getZone().toTimeZone().getDisplayName())
         else:
-            raise SyntaxError("No such member:" + name)
+            return super().getMemberValue(context, name, autoCreate)
 
     def plus(self, period):
         td = timedelta(weeks=period.weeks, days=period.days, hours=period.hours, minutes=period.minutes,

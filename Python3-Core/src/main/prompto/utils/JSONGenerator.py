@@ -24,6 +24,8 @@ class JSONGenerator(object):
         self.states = []
         self.state = State.NONE
 
+
+
     def writeStartObject(self):
         if self.state in [State.BEGIN_OBJECT, State.WITHIN_OBJECT]:
             raise Exception("Invalid state: " + str(self.state))
@@ -33,6 +35,8 @@ class JSONGenerator(object):
         self.stream.write(START_OBJECT)
         self.state = State.BEGIN_OBJECT
 
+
+
     def writeEndObject(self):
         if not self.state in [State.BEGIN_OBJECT, State.WITHIN_OBJECT]:
             raise Exception("Invalid state: " + str(self.state))
@@ -40,6 +44,8 @@ class JSONGenerator(object):
         self.state = self.states.pop()
         if self.state is State.BEGIN_VALUE:
             self.state = State.WITHIN_OBJECT
+
+
 
     def writeFieldName(self, name):
         if not self.state in [State.BEGIN_OBJECT, State.WITHIN_OBJECT]:
@@ -52,6 +58,8 @@ class JSONGenerator(object):
         self.stream.write(VALUE_SEPARATOR)
         self.state = State.BEGIN_VALUE
 
+
+
     def writeString(self, value):
         if self.state in [State.BEGIN_OBJECT, State.WITHIN_OBJECT]:
             raise Exception("Invalid state: " + str(self.state))
@@ -61,9 +69,20 @@ class JSONGenerator(object):
         if self.state is State.BEGIN_VALUE:
             self.state = State.WITHIN_OBJECT
 
+
+
     def writeLong(self, value):
         if self.state in [State.BEGIN_OBJECT, State.WITHIN_OBJECT]:
             raise Exception("Invalid state: " + str(self.state))
         self.stream.write(str(value).encode())
+        if self.state is State.BEGIN_VALUE:
+            self.state = State.WITHIN_OBJECT
+
+
+
+    def writeNull(self):
+        if self.state in [State.BEGIN_OBJECT, State.WITHIN_OBJECT]:
+            raise Exception("Invalid state: " + str(self.state))
+        self.stream.write(str("null").encode())
         if self.state is State.BEGIN_VALUE:
             self.state = State.WITHIN_OBJECT

@@ -121,7 +121,11 @@ class BaseType(IType):
 
 
     def checkMember(self, context, name):
-        raise SyntaxError("Cannot read member from " + self.typeName)
+        from prompto.type.TextType import TextType
+        if "text" == name:
+            return TextType.instance
+        else:
+            raise SyntaxError("Cannot read member from " + self.typeName)
 
 
     def checkSlice(self, context):

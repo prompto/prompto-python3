@@ -10,8 +10,17 @@ class TestBuiltins(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testBooleanText(self):
+        self.checkOutput("builtins/booleanText.pec")
+
+    def testCategoryText(self):
+        self.checkOutput("builtins/categoryText.pec")
+
     def testCharCodePoint(self):
         self.checkOutput("builtins/charCodePoint.pec")
+
+    def testCharText(self):
+        self.checkOutput("builtins/charText.pec")
 
     def testDateDayOfMonth(self):
         self.checkOutput("builtins/dateDayOfMonth.pec")
@@ -21,6 +30,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testDateMonth(self):
         self.checkOutput("builtins/dateMonth.pec")
+
+    def testDateText(self):
+        self.checkOutput("builtins/dateText.pec")
 
     def testDateTimeDayOfMonth(self):
         self.checkOutput("builtins/dateTimeDayOfMonth.pec")
@@ -43,11 +55,17 @@ class TestBuiltins(BaseEParserTest):
     def testDateTimeSecond(self):
         self.checkOutput("builtins/dateTimeSecond.pec")
 
+    def testDateTimeText(self):
+        self.checkOutput("builtins/dateTimeText.pec")
+
     def testDateTimeYear(self):
         self.checkOutput("builtins/dateTimeYear.pec")
 
     def testDateYear(self):
         self.checkOutput("builtins/dateYear.pec")
+
+    def testDecimalText(self):
+        self.checkOutput("builtins/decimalText.pec")
 
     def testDictCount(self):
         self.checkOutput("builtins/dictCount.pec")
@@ -55,8 +73,14 @@ class TestBuiltins(BaseEParserTest):
     def testDictKeys(self):
         self.checkOutput("builtins/dictKeys.pec")
 
+    def testDictText(self):
+        self.checkOutput("builtins/dictText.pec")
+
     def testDictValues(self):
         self.checkOutput("builtins/dictValues.pec")
+
+    def testDocumentText(self):
+        self.checkOutput("builtins/documentText.pec")
 
     def testEnumName(self):
         self.checkOutput("builtins/enumName.pec")
@@ -67,11 +91,23 @@ class TestBuiltins(BaseEParserTest):
     def testEnumValue(self):
         self.checkOutput("builtins/enumValue.pec")
 
+    def testIntegerText(self):
+        self.checkOutput("builtins/integerText.pec")
+
     def testListCount(self):
         self.checkOutput("builtins/listCount.pec")
 
+    def testListText(self):
+        self.checkOutput("builtins/listText.pec")
+
+    def testPeriodText(self):
+        self.checkOutput("builtins/periodText.pec")
+
     def testSetCount(self):
         self.checkOutput("builtins/setCount.pec")
+
+    def testSetText(self):
+        self.checkOutput("builtins/setText.pec")
 
     def testTextCapitalize(self):
         self.checkOutput("builtins/textCapitalize.pec")
@@ -84,6 +120,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testTextSplit(self):
         self.checkOutput("builtins/textSplit.pec")
+
+    def testTextText(self):
+        self.checkOutput("builtins/textText.pec")
 
     def testTextTrim(self):
         self.checkOutput("builtins/textTrim.pec")
@@ -103,7 +142,16 @@ class TestBuiltins(BaseEParserTest):
     def testTimeSecond(self):
         self.checkOutput("builtins/timeSecond.pec")
 
+    def testTimeText(self):
+        self.checkOutput("builtins/timeText.pec")
+
     def testTupleCount(self):
         self.checkOutput("builtins/tupleCount.pec")
+
+    def testTupleText(self):
+        self.checkOutput("builtins/tupleText.pec")
+
+    def testUuidText(self):
+        self.checkOutput("builtins/uuidText.pec")
 
 

@@ -1,6 +1,6 @@
 from prompto.argument.BaseArgument import BaseArgument
 from prompto.argument.ITypedArgument import ITypedArgument
-
+from prompto.error.SyntaxError import SyntaxError
 
 class CategoryArgument(BaseArgument, ITypedArgument):
 

@@ -65,7 +65,7 @@ class Dictionary(BaseValue, IContainer):
         elif "values" == name:
             return ListValue(self.type.itemType, items=self.value.values())
         else:
-            raise SyntaxError("No such member:" + name)
+            return super().getMemberValue(context, name, autoCreate)
 
 
     def setItem(self, context, item, value):
@@ -104,8 +104,9 @@ class Dictionary(BaseValue, IContainer):
         with StringIO() as sb:
             sb.write("{")
             for k, v in self.value.items():
+                sb.write('"')
                 sb.write(k)
-                sb.write(":")
+                sb.write('":')
                 sb.write(str(v))
                 sb.write(", ")
             len = sb.tell()

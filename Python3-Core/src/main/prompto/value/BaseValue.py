@@ -31,7 +31,11 @@ class BaseValue(IValue):
         raise Exception("Compare not supported by " + type(self).__name__)
 
     def getMemberValue(self, context, name, autoCreate=False):
-        raise Exception("No member support for " + type(self).__name__)
+        from prompto.value.Text import Text
+        if "text" == name:
+            return Text(str(self))
+        else:
+            raise Exception("No member support for " + type(self).__name__)
 
     def setMember(self, context, name, value):
         raise Exception("No member support for " + type(self).__name__)
