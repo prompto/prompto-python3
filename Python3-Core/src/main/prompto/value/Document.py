@@ -88,7 +88,7 @@ class Document ( BaseValue ):
             if value is None:
                 generator.writeNull()
             else:
-                value.toJson(context, generator, id(self), key, binaries)
+                value.toJson(context, generator, id(self), key, withType, binaries)
         generator.writeEndObject()
         if withType:
             generator.writeEndObject()
