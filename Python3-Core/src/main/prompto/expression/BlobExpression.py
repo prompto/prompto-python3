@@ -33,7 +33,7 @@ class BlobExpression ( IExpression ):
         # create textual data
         output = BytesIO()
         generator = JSONGenerator(output)
-        value.toJson(context, generator, None, None, binaries)
+        value.toJson(context, generator, None, None, True, binaries)
         # add it
         binaries["value.json"] = output.getvalue()
         return binaries
