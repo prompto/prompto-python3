@@ -1,4 +1,5 @@
 from prompto.error.SyntaxError import SyntaxError
+from prompto.expression.InstanceExpression import InstanceExpression
 from prompto.expression.MemberSelector import MemberSelector
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.runtime.Context import Context, InstanceContext
@@ -62,8 +63,12 @@ class MethodSelector(MemberSelector):
 
 
     def checkParentInstance(self, context:Context):
-        if isinstance(self.parent, UnresolvedIdentifier):
+        name = None
+        if isinstance(self.parent, InstanceExpression):
             name = self.parent.name
+        elif isinstance(self.parent, UnresolvedIdentifier):
+            name = self.parent.name
+        if name is not None:
             # don't get Singleton values
             if name[0:1].islower():
                 value = context.getValue(name)
