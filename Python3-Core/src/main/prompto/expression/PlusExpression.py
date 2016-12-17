@@ -1,6 +1,6 @@
 from prompto.expression.IExpression import IExpression
 
-class AddExpression(IExpression):
+class PlusExpression(IExpression):
 
     def __init__(self, left, right):
         self.left = left

@@ -2,7 +2,7 @@ import unittest
 
 from prompto.argument.ExtendedArgument import ExtendedArgument
 from prompto.declaration.NativeMethodDeclaration import *
-from prompto.expression.AddExpression import *
+from prompto.expression.PlusExpression import *
 from prompto.expression.InstanceExpression import InstanceExpression
 from prompto.expression.MemberSelector import MemberSelector
 from prompto.expression.NativeSymbol import *
@@ -143,7 +143,7 @@ class TestParserAtoms(unittest.TestCase):
         ass = mc.getAssignments()[0]
         self.assertEquals("value", ass.getName())
         exp = ass.getExpression()
-        self.assertIsInstance(exp, AddExpression)
+        self.assertIsInstance(exp, PlusExpression)
         writer = CodeWriter(Dialect.O, Context.newGlobalContext())
         mc.toDialect(writer)
         self.assertEquals(statement, str(writer))

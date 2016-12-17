@@ -38,7 +38,7 @@ from prompto.declaration.OperatorMethodDeclaration import OperatorMethodDeclarat
 from prompto.declaration.SetterMethodDeclaration import SetterMethodDeclaration
 from prompto.declaration.SingletonCategoryDeclaration import SingletonCategoryDeclaration
 from prompto.declaration.TestMethodDeclaration import TestMethodDeclaration
-from prompto.expression.AddExpression import AddExpression
+from prompto.expression.PlusExpression import PlusExpression
 from prompto.expression.AndExpression import AndExpression
 from prompto.expression.BlobExpression import BlobExpression
 from prompto.expression.CastExpression import CastExpression
@@ -262,7 +262,7 @@ class MPromptoBuilder(MParserListener):
     def exitAddExpression(self, ctx:MParser.AddExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        exp = AddExpression(left, right) if ctx.op.type == MParser.PLUS else SubtractExpression(left, right)
+        exp = PlusExpression(left, right) if ctx.op.type == MParser.PLUS else SubtractExpression(left, right)
         self.setNodeValue(ctx, exp)
 
 
