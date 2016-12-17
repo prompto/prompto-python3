@@ -1,6 +1,5 @@
 from prompto.declaration.EnumeratedNativeDeclaration import EnumeratedNativeDeclaration
 from prompto.expression.ConstructorExpression import ConstructorExpression
-from prompto.expression.IExpression import IExpression
 from prompto.expression.InstanceExpression import *
 from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.SymbolExpression import SymbolExpression
@@ -67,10 +66,14 @@ class UnresolvedIdentifier(IExpression):
             return None
 
     def resolveType(self, context):
+        from prompto.declaration.EnumeratedCategoryDeclaration import EnumeratedCategoryDeclaration
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
+        from prompto.type.EnumeratedCategoryType import EnumeratedCategoryType
         from prompto.type.CategoryType import CategoryType
         decl = context.getRegisteredDeclaration(IDeclaration, self.name)
-        if isinstance(decl, CategoryDeclaration):
+        if isinstance(decl, EnumeratedCategoryDeclaration):
+            return TypeExpression(EnumeratedCategoryType(self.name))
+        elif isinstance(decl, CategoryDeclaration):
             return TypeExpression(CategoryType(self.name))
         elif isinstance(decl, EnumeratedNativeDeclaration):
             return TypeExpression(decl.getType(context))

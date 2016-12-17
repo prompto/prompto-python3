@@ -5,7 +5,7 @@ from prompto.type.BaseType import BaseType
 from prompto.type.ListType import ListType
 from prompto.type.TextType import TextType
 from prompto.store.TypeFamily import TypeFamily
-
+from prompto.error.SyntaxError import SyntaxError
 
 
 class EnumeratedNativeType ( BaseType ):
