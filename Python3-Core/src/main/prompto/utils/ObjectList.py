@@ -8,8 +8,8 @@ class ObjectList ( list ):
             self.extend(items)
 
     def __str__(self):
-        sb = StringIO()
-        for item in self:
-            sb.write(str(item))
-            sb.write(", " )
-        return sb.getvalue()[:-2]
+        with StringIO() as sb:
+            for item in self:
+                sb.write(str(item))
+                sb.write(", " )
+            return sb.getvalue()[:-2]

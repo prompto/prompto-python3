@@ -12,13 +12,13 @@ class SymbolList (ObjectList):
 
 
     def __str__(self):
-        sb = StringIO()
-        sb.write("[")
-        for item in self:
-            sb.write(item.getName())
-            sb.write(", ")
-        slen = sb.tell()
-        sb.truncate(slen - 2)
-        sb.seek(slen - 2)
-        sb.write("]")
-        return sb.getvalue()
+        with StringIO() as sb:
+            sb.write("[")
+            for item in self:
+                sb.write(item.getName())
+                sb.write(", ")
+            slen = sb.tell()
+            sb.truncate(slen - 2)
+            sb.seek(slen - 2)
+            sb.write("]")
+            return sb.getvalue()

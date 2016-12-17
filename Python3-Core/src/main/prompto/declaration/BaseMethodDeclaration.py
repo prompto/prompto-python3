@@ -17,30 +17,30 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
         self.memberOf = None
 
     def getSignature(self, dialect):
-        sb = StringIO()
-        try:
-            sb.write(self.getName())
-            sb.write('(')
-            for arg in self.arguments:
-                sb.write(arg.getSignature(dialect))
-                sb.write(", ")
-            if self.arguments.size() > 0:
-                sb.seek(-2, os.SEEK_CUR)  # strip ", "
-            sb.write(')')
-            return sb.getvalue()
-        finally:
-            sb.close()
+        with StringIO() as sb:
+            try:
+                sb.write(self.getName())
+                sb.write('(')
+                for arg in self.arguments:
+                    sb.write(arg.getSignature(dialect))
+                    sb.write(", ")
+                if self.arguments.size() > 0:
+                    sb.seek(-2, os.SEEK_CUR)  # strip ", "
+                sb.write(')')
+                return sb.getvalue()
+            finally:
+                sb.close()
 
 
     def __str__(self):
         return self.getName() + ":(" + str(self.arguments) + ')'
 
     def getProto(self):
-        sb = StringIO()
-        for arg in self.arguments:
-            sb.write(arg.getProto())
-            sb.write('/')
-        val = sb.getvalue()
+        with StringIO() as sb:
+            for arg in self.arguments:
+                sb.write(arg.getProto())
+                sb.write('/')
+            val = sb.getvalue()
         if len(val) > 0:
             val = val[:-1]  # strip "/"
         return val
