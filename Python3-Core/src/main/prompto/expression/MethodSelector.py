@@ -73,7 +73,7 @@ class MethodSelector(MemberSelector):
             if name[0:1].islower():
                 value = context.getValue(name)
                 if value is not None and value is not NullValue.instance:
-                    return value.getType()
+                    return value.type
         # TODO check result instance
         return self.checkParent(context)
 
