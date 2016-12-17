@@ -1,5 +1,6 @@
 from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.MemberSelector import MemberSelector
+from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.runtime.Context import Context, InstanceContext
 from prompto.value.NullValue import NullValue
 from prompto.value.TypeValue import TypeValue
@@ -22,11 +23,11 @@ class MethodSelector(MemberSelector):
         else:
             super(MethodSelector, self).toDialect(writer)
 
-    def getCandidates(self, context:Context):
+    def getCandidates(self, context:Context, checkInstance:bool):
         if self.parent is None:
             return self.getGlobalCandidates(context)
         else:
-            return self.getMemberCandidates(context)
+            return self.getMemberCandidates(context, checkInstance)
 
     def getGlobalCandidates(self, context:Context):
         from prompto.runtime.Context import MethodDeclarationMap
@@ -46,9 +47,30 @@ class MethodSelector(MemberSelector):
         return methods
 
 
-    def getMemberCandidates(self, context:Context):
-        parentType = self.checkParent(context)
+    def getMemberCandidates(self, context:Context, checkInstance:bool):
+        parentType = self.checkParentType(context, checkInstance)
         return parentType.getMemberMethods(context, self.name)
+
+
+
+    def checkParentType(self, context:Context, checkInstance:bool):
+        if checkInstance:
+            return self.checkParentInstance(context)
+        else:
+            return self.checkParent(context)
+
+
+
+    def checkParentInstance(self, context:Context):
+        if isinstance(self.parent, UnresolvedIdentifier):
+            name = self.parent.name
+            # don't get Singleton values
+            if name[0:1].islower():
+                value = context.getValue(name)
+                if value is not None and value is not NullValue.instance:
+                    return value.getType()
+        # TODO check result instance
+        return self.checkParent(context)
 
 
 

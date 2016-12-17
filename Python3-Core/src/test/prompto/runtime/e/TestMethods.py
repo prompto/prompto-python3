@@ -40,6 +40,9 @@ class TestMethods(BaseEParserTest):
     def testMemberCall(self):
         self.checkOutput("methods/memberCall.pec")
 
+    def testOverride(self):
+        self.checkOutput("methods/override.pec")
+
     def testPolymorphic_abstract(self):
         self.checkOutput("methods/polymorphic_abstract.pec")
 
