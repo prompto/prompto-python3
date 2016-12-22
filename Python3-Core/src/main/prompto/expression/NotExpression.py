@@ -48,5 +48,5 @@ class NotExpression ( IUnaryExpression ):
         self.toDialect(writer)
         expected = str(writer)
         actual = self.operatorToDialect(test.dialect) + str(val)
-        test.printFailure(context, expected, actual)
+        test.printFailedAssertion(context, expected, actual)
         return False

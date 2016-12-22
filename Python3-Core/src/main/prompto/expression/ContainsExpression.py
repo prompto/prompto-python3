@@ -120,7 +120,7 @@ class ContainsExpression(IExpression):
         writer = CodeWriter(test.dialect, context)
         self.operator.toDialect(writer)
         actual = str(lval) + " " + str(writer) + " " + str(rval)
-        test.printFailure(context, expected, actual)
+        test.printFailedAssertion(context, expected, actual)
         return False
 
 

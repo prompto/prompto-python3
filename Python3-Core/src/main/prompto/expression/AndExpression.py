@@ -56,5 +56,5 @@ class AndExpression ( IExpression ):
         self.toDialect(writer)
         expected = str(writer)
         actual = str(lval) + self.operatorToDialect(test.dialect) + str(rval)
-        test.printFailure(context, expected, actual)
+        test.printFailedAssertion(context, expected, actual)
         return False

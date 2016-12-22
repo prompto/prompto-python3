@@ -125,7 +125,7 @@ class EqualsExpression ( IExpression ):
         self.toDialect(writer)
         expected = str(writer)
         actual = str(lval) + " " + self.operator.toString(test.dialect) + " " + str(rval)
-        test.printFailure(context, expected, actual)
+        test.printFailedAssertion(context, expected, actual)
         return False
 
     def interpretQuery(self, context, query):

@@ -64,7 +64,7 @@ class CompareExpression ( IExpression ):
         self.toDialect(writer)
         expected = str(writer)
         actual = str(lval) + " " + str(self.operator) + " " + str(rval)
-        test.printFailure(context, expected, actual)
+        test.printFailedAssertion(context, expected, actual)
         return False
 
 
