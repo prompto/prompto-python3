@@ -18,7 +18,7 @@ class NativeMethodDeclaration(ConcreteMethodDeclaration):
         # can only cast to specified type, and if required
         if self.returnType is not None and value is not None and not self.returnType.isAssignableFrom(context, value.type):
             # only cast if implemented, on a per type basis
-            if self.returnType.nativeCast:
+            if hasattr(self.returnType, "nativeCast"):
                 value = self.returnType.nativeCast(context, value)
         return value
 

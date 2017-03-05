@@ -22,7 +22,7 @@ class Dictionary(BaseValue, IContainer):
     def merge(dict1, dict2):
         return Dictionary(dict1.type.itemType, False, value=dict(dict1.value, **dict2.value))
 
-    def __init__(self, itemType, mutable, copyFrom=None, value=None):
+    def __init__(self, itemType, mutable=False, copyFrom=None, value=None):
         super().__init__(DictType(itemType))
         self.mutable = mutable
         if copyFrom is not None:

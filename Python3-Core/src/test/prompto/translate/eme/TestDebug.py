@@ -8,4 +8,7 @@ class TestDebug(BaseEParserTest):
     def testStack(self):
         self.compareResourceEME("debug/stack.pec")
 
+    def testVariables(self):
+        self.compareResourceEME("debug/variables.pec")
+
 

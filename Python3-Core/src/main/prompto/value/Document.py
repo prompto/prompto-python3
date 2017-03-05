@@ -10,11 +10,13 @@ from prompto.error.SyntaxError import SyntaxError
 
 class Document ( BaseValue ):
 
-    def __init__(self):
+    def __init__(self, values=None):
         super(Document, self).__init__(DocumentType.instance)
         self.mutable = True
-        self.values = dict()
-
+        if values is None:
+            self.values = dict()
+        else:
+            self.values = values
 
     def getStorableData(self):
         return self.values

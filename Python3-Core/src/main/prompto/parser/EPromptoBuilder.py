@@ -2289,7 +2289,7 @@ class EPromptoBuilder(EParserListener):
 
     
     def exitAnyListType(self, ctx:EParser.AnyListTypeContext):
-        typ = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.any_type())
         self.setNodeValue(ctx, ListType(typ))
     
 
