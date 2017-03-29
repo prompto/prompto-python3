@@ -20,6 +20,9 @@ class TestCast(BaseEParserTest):
     def testCastDecimal(self):
         self.compareResourceEME("cast/castDecimal.pec")
 
+    def testCastDocument(self):
+        self.compareResourceEME("cast/castDocument.pec")
+
     def testCastInteger(self):
         self.compareResourceEME("cast/castInteger.pec")
 

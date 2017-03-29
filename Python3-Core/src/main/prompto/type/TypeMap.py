@@ -16,9 +16,9 @@ class TypeMap ( dict ):
             elif t.isAssignableFrom(context, common):
                 common = t
             else:
-                raise SyntaxError("Incompatible types: " + common.getName() + " and " + t.getName())
+                raise SyntaxError("Incompatible types: " + common.typeName + " and " + t.typeName)
         # second pass: check compatible
         for t in self.values():
             if not common.isAssignableFrom(context, t):
-                raise SyntaxError("Incompatible types: " + common.getName() + " and " + t.getName())
+                raise SyntaxError("Incompatible types: " + common.typeName + " and " + t.typeName)
         return common

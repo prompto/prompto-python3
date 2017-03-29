@@ -25,6 +25,9 @@ class TestCast(BaseEParserTest):
     def testCastDecimal(self):
         self.checkOutput("cast/castDecimal.pec")
 
+    def testCastDocument(self):
+        self.checkOutput("cast/castDocument.pec")
+
     def testCastInteger(self):
         self.checkOutput("cast/castInteger.pec")
 

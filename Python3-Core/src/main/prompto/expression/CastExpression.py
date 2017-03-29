@@ -18,7 +18,7 @@ class CastExpression (IExpression):
     def check(self, context):
         actual = self.expression.check(context)
         # check upcast
-        if isinstance(actual, CategoryType) and actual.isDerivedFrom(context, self.type):
+        if self.type.isAssignableFrom(context, actual):
             return self.type
         # check downcast
         if actual.isAssignableFrom(context, self.type):
