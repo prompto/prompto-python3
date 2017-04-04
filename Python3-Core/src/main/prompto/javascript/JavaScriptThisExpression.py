@@ -1,14 +1,12 @@
 from prompto.javascript.JavaScriptExpression import JavaScriptExpression
-from prompto.expression.ThisExpression import ThisExpression
 
 class JavaScriptThisExpression ( JavaScriptExpression ):
 
     def __init__(self):
         super().__init__("self")
-        self.expression = ThisExpression()
 
     def __str__(self):
-        return str(self.expression)
+        return "this"
 
     def toDialect(self, writer):
-        self.expression.toDialect(writer)
+        writer.append("this")

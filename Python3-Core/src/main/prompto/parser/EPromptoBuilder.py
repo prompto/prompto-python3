@@ -155,6 +155,7 @@ from prompto.python.PythonMethodExpression import PythonMethodExpression
 from prompto.python.PythonModule import PythonModule
 from prompto.python.PythonNativeCall import PythonNativeCall, Python2NativeCall, Python3NativeCall
 from prompto.python.PythonNativeCategoryBinding import PythonNativeCategoryBinding, Python2NativeCategoryBinding, Python3NativeCategoryBinding
+from prompto.python.PythonSelfExpression import PythonSelfExpression
 from prompto.python.PythonStatement import PythonStatement
 from prompto.python.PythonTextLiteral import PythonTextLiteral
 from prompto.statement.AssignInstanceStatement import AssignInstanceStatement
@@ -1142,28 +1143,37 @@ class EPromptoBuilder(EParserListener):
         items.append(item)
         self.setNodeValue(ctx, items)
 
+
     def exitPythonOrdinalOnlyArgumentList(self, ctx:EParser.PythonOrdinalOnlyArgumentListContext):
         ordinal = self.getNodeValue(ctx.ordinal)
         self.setNodeValue(ctx, ordinal)
+
 
     def exitPython_method_expression(self, ctx:EParser.Python_method_expressionContext):
         name = self.getNodeValue(ctx.name)
         args = self.getNodeValue(ctx.args)
         self.setNodeValue(ctx, PythonMethodExpression(name, args))
 
+
     def exitPythonMethodExpression(self, ctx:EParser.PythonMethodExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
 
+
     def exitPythonGlobalMethodExpression(self, ctx:EParser.PythonGlobalMethodExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
+
 
     def exitPythonSelectorExpression(self, ctx:EParser.PythonSelectorExpressionContext):
         parent = self.getNodeValue(ctx.parent)
         child = self.getNodeValue(ctx.child)
         child.setParent(parent)
         self.setNodeValue(ctx, child)
+
+
+    def exitPythonSelfExpression(self, ctx: EParser.PythonSelfExpressionContext):
+        self.setNodeValue(ctx, PythonSelfExpression())
 
 
     def exitCSharpIdentifier(self, ctx:EParser.CSharpIdentifierContext):

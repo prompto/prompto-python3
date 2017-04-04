@@ -13,7 +13,7 @@ class MethodSelector(MemberSelector):
         super(MethodSelector, self).__init__(name, parent)
 
     def __str__(self):
-        if self.parent == None:
+        if self.parent is None:
             return self.name
         else:
             return str(self.parent) + '.' + self.name
@@ -140,7 +140,8 @@ class MethodSelector(MemberSelector):
         if isinstance(value, TypeValue) and isinstance(value.value, CategoryType):
             value = context.loadSingleton(value.value)
         from prompto.value.ConcreteInstance import ConcreteInstance
-        if isinstance(value, ConcreteInstance):
+        from prompto.value.NativeInstance import NativeInstance
+        if isinstance(value, (ConcreteInstance, NativeInstance)):
             context = context.newInstanceContext(value, None)
             return context.newChildContext()
         else:

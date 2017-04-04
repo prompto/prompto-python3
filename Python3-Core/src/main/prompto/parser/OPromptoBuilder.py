@@ -155,6 +155,7 @@ from prompto.python.PythonMethodExpression import PythonMethodExpression
 from prompto.python.PythonModule import PythonModule
 from prompto.python.PythonNativeCall import PythonNativeCall, Python2NativeCall, Python3NativeCall
 from prompto.python.PythonNativeCategoryBinding import PythonNativeCategoryBinding, Python2NativeCategoryBinding, Python3NativeCategoryBinding
+from prompto.python.PythonSelfExpression import PythonSelfExpression
 from prompto.python.PythonStatement import PythonStatement
 from prompto.python.PythonTextLiteral import PythonTextLiteral
 from prompto.statement.AssignInstanceStatement import AssignInstanceStatement
@@ -1088,19 +1089,26 @@ class OPromptoBuilder(OParserListener):
         args = self.getNodeValue(ctx.args)
         self.setNodeValue(ctx, PythonMethodExpression(name, args))
 
+
     def exitPythonMethodExpression(self, ctx:OParser.PythonMethodExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
 
+
     def exitPythonGlobalMethodExpression(self, ctx:OParser.PythonGlobalMethodExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
+
 
     def exitPythonSelectorExpression(self, ctx:OParser.PythonSelectorExpressionContext):
         parent = self.getNodeValue(ctx.parent)
         child = self.getNodeValue(ctx.child)
         child.setParent(parent)
         self.setNodeValue(ctx, child)
+
+
+    def exitPythonSelfExpression(self, ctx: OParser.PythonSelfExpressionContext):
+        self.setNodeValue(ctx, PythonSelfExpression())
 
 
     def exitCSharpIdentifier(self, ctx:OParser.CSharpIdentifierContext):

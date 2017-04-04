@@ -14,7 +14,7 @@ class NativeCategoryDeclaration ( ConcreteCategoryDeclaration ):
         return self.getName() + (":" + str(self.attributes)) if self.attributes is not None else ""
 
     def register(self, context):
-        context.registerDeclaration(self)
+        super().register(context)
         bounded = self.getBoundedClass(False)
         if bounded is not None:
             context.registerNativeBinding(bounded, self)

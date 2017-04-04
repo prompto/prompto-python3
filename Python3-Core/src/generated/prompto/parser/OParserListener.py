@@ -2839,6 +2839,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#PythonSelfExpression.
+    def enterPythonSelfExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#PythonSelfExpression.
+    def exitPythonSelfExpression(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by OParser#PythonParenthesisExpression.
     def enterPythonParenthesisExpression(self, ctx):
         pass
@@ -2872,6 +2881,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#PythonGlobalMethodExpression.
     def exitPythonGlobalMethodExpression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by OParser#python_self_expression.
+    def enterPython_self_expression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by OParser#python_self_expression.
+    def exitPython_self_expression(self, ctx):
         pass
 
 

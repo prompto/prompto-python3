@@ -22,12 +22,16 @@ class NativeMethodDeclaration(ConcreteMethodDeclaration):
                 value = self.returnType.nativeCast(context, value)
         return value
 
+
     def check(self, context):
         checked = self.fullCheck(context, True)
         return checked if self.returnType is None else self.returnType
 
+
     def toMDialect(self, writer):
-        writer.append("def native ")
+        writer.append("def ")
+        if self.memberOf is None:
+            writer.append("native ")
         writer.append(self.name)
         writer.append(" (")
         self.arguments.toDialect(writer)
@@ -40,11 +44,14 @@ class NativeMethodDeclaration(ConcreteMethodDeclaration):
         self.statements.toDialect(writer)
         writer.dedent()
 
+
     def toODialect(self, writer):
         if self.returnType is not None and self.returnType is not VoidType.instance:
             self.returnType.toDialect(writer)
             writer.append(" ")
-        writer.append("native method ")
+        if self.memberOf is None:
+            writer.append("native ")
+        writer.append("method ")
         writer.append(self.name)
         writer.append(" (")
         self.arguments.toDialect(writer)
@@ -56,10 +63,14 @@ class NativeMethodDeclaration(ConcreteMethodDeclaration):
         writer.dedent()
         writer.append("}\n")
 
+
     def toEDialect(self, writer):
         writer.append("define ")
         writer.append(self.name)
-        writer.append(" as native method ")
+        writer.append(" as ")
+        if self.memberOf is None:
+            writer.append("native ")
+        writer.append("method ")
         self.arguments.toDialect(writer)
         if self.returnType is not None and self.returnType is not VoidType.instance:
             writer.append("returning ")

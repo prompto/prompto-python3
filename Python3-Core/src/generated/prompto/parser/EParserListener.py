@@ -2929,6 +2929,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#PythonSelfExpression.
+    def enterPythonSelfExpression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#PythonSelfExpression.
+    def exitPythonSelfExpression(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by EParser#PythonParenthesisExpression.
     def enterPythonParenthesisExpression(self, ctx):
         pass
@@ -2962,6 +2971,15 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#PythonGlobalMethodExpression.
     def exitPythonGlobalMethodExpression(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by EParser#python_self_expression.
+    def enterPython_self_expression(self, ctx):
+        pass
+
+    # Exit a parse tree produced by EParser#python_self_expression.
+    def exitPython_self_expression(self, ctx):
         pass
 
 

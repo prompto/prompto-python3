@@ -156,6 +156,7 @@ from prompto.python.PythonModule import PythonModule
 from prompto.python.PythonNativeCall import Python2NativeCall, Python3NativeCall, PythonNativeCall
 from prompto.python.PythonNativeCategoryBinding import PythonNativeCategoryBinding, Python2NativeCategoryBinding, \
     Python3NativeCategoryBinding
+from prompto.python.PythonSelfExpression import PythonSelfExpression
 from prompto.python.PythonStatement import PythonStatement
 from prompto.python.PythonTextLiteral import PythonTextLiteral
 from prompto.statement.AssignInstanceStatement import AssignInstanceStatement
@@ -1944,6 +1945,11 @@ class MPromptoBuilder(MParserListener):
         selector = self.getNodeValue(ctx.child)
         selector.setParent(parent)
         self.setNodeValue(ctx, selector)
+
+
+    def exitPythonSelfExpression(self, ctx: MParser.PythonSelfExpressionContext):
+        self.setNodeValue(ctx, PythonSelfExpression())
+
 
 
     def exitPythonStatement(self, ctx:MParser.PythonStatementContext):
