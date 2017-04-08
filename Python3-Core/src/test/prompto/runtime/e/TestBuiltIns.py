@@ -118,6 +118,9 @@ class TestBuiltins(BaseEParserTest):
     def testTextLowercase(self):
         self.checkOutput("builtins/textLowercase.pec")
 
+    def testTextReplace(self):
+        self.checkOutput("builtins/textReplace.pec")
+
     def testTextSplit(self):
         self.checkOutput("builtins/textSplit.pec")
 

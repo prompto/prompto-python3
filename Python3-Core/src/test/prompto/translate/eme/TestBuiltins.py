@@ -119,6 +119,9 @@ class TestBuiltins(BaseEParserTest):
     def testTextLowercase(self):
         self.compareResourceEME("builtins/textLowercase.pec")
 
+    def testTextReplace(self):
+        self.compareResourceEME("builtins/textReplace.pec")
+
     def testTextSplit(self):
         self.compareResourceEME("builtins/textSplit.pec")
 

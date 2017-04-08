@@ -4,9 +4,9 @@ from prompto.utils.ObjectList import ObjectList
 
 class ArgumentList ( ObjectList, IDialectElement ):
 
-    def __init__(self, item = None):
+    def __init__(self, *items):
         super(ArgumentList, self).__init__()
-        if item is not None:
+        for item in items:
             self.append(item)
 
     def register(self, context):

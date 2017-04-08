@@ -70,6 +70,9 @@ class TestBuiltins(BaseOParserTest):
     def testTextLowercase(self):
         self.checkOutput("builtins/textLowercase.poc")
 
+    def testTextReplace(self):
+        self.checkOutput("builtins/textReplace.poc")
+
     def testTextSplit(self):
         self.checkOutput("builtins/textSplit.poc")
 

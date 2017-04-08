@@ -6,9 +6,9 @@ from prompto.grammar.ArgumentList import ArgumentList
 
 class BuiltInMethodDeclaration(BaseMethodDeclaration):
 
-    def __init__(self, name, arg=None):
-        args = None if arg is None else ArgumentList(arg)
-        super().__init__(name, args)
+    def __init__(self, name, *args):
+        argsList = None if len(args) == 0 else ArgumentList(*args)
+        super().__init__(name, argsList)
 
 
     def getValue(self, context):
