@@ -91,6 +91,9 @@ class TestBuiltins(BaseEParserTest):
     def testEnumValue(self):
         self.checkOutput("builtins/enumValue.pec")
 
+    def testIntegerFormat(self):
+        self.checkOutput("builtins/integerFormat.pec")
+
     def testIntegerText(self):
         self.checkOutput("builtins/integerText.pec")
 

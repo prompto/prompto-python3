@@ -56,6 +56,9 @@ class TestBuiltins(BaseOParserTest):
     def testEnumValue(self):
         self.compareResourceOMO("builtins/enumValue.poc")
 
+    def testIntegerFormat(self):
+        self.compareResourceOMO("builtins/integerFormat.poc")
+
     def testListCount(self):
         self.compareResourceOMO("builtins/listCount.poc")
 

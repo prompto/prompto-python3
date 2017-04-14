@@ -92,6 +92,9 @@ class TestBuiltins(BaseEParserTest):
     def testEnumValue(self):
         self.compareResourceEOE("builtins/enumValue.pec")
 
+    def testIntegerFormat(self):
+        self.compareResourceEOE("builtins/integerFormat.pec")
+
     def testIntegerText(self):
         self.compareResourceEOE("builtins/integerText.pec")
 

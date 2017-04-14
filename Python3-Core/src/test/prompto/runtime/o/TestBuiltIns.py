@@ -55,6 +55,9 @@ class TestBuiltins(BaseOParserTest):
     def testEnumValue(self):
         self.checkOutput("builtins/enumValue.poc")
 
+    def testIntegerFormat(self):
+        self.checkOutput("builtins/integerFormat.poc")
+
     def testListCount(self):
         self.checkOutput("builtins/listCount.poc")
 
