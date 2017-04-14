@@ -55,7 +55,7 @@ class FilteredExpression(Section, IExpression):
         listType = self.source.check(context)
         if not isinstance(listType, (ListType, TupleType, SetType)):
             raise SyntaxError("Expecting a collection type as data source !")
-        local = context.newLocalContext()
+        local = context.newChildContext()
         local.registerValue(TransientVariable(self.itemName, listType.getItemType()))
         filterType = self.predicate.check(local)
         if filterType is not BooleanType.instance:
@@ -72,7 +72,7 @@ class FilteredExpression(Section, IExpression):
             raise NullReferenceError()
         if not isinstance(items, (ListValue, TupleValue, SetValue)):
             raise InternalError("Illegal fetch source: " + str(items))
-        local = context.newLocalContext()
+        local = context.newChildContext()
         item = TransientVariable(self.itemName, itemType)
         local.registerValue(item)
         return items.filter(local, self.itemName, self.predicate)
