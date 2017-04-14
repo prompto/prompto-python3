@@ -27,6 +27,9 @@ class TestCore(BaseEParserTest):
     def testMath(self):
         self.runTests("core/math.pec")
 
+    def testParse(self):
+        self.runTests("core/parse.pec")
+
     def testTime(self):
         self.runTests("core/time.pec")
 
