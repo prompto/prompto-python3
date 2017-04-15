@@ -32,6 +32,8 @@ class StatementList(list):
                 if nativeOnly and not isinstance(statement, Python3NativeCall):
                     continue
                 type_ = statement.check(context)
+                if not statement.canReturn():
+                    type_ = VoidType.instance
                 if type_ != VoidType.instance:
                     # unless necessary, don't collect AnyType returned by native statement check
                     if len(types) == 0 or type_ is not AnyType.instance or not nativeOnly:
@@ -53,6 +55,8 @@ class StatementList(list):
             context.enterStatement(statement)
             try:
                 result = statement.interpret(context)
+                if not statement.canReturn():
+                    result = None
                 if result is not None:
                     return result
             finally:

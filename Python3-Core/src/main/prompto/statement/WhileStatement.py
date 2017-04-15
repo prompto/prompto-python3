@@ -12,12 +12,14 @@ class WhileStatement ( BaseStatement ):
         self.condition = condition
         self.statements = statements
 
+
     def check(self, context):
         cond = self.condition.check(context)
         if cond!=BooleanType.instance:
             raise SyntaxError("Expected a Boolean condition!")
         child = context.newChildContext()
         return self.statements.check(child, None)
+
 
     def interpret(self, context):
         while self.interpretCondition(context):
@@ -29,11 +31,13 @@ class WhileStatement ( BaseStatement ):
                 return value
         return None
 
+
     def interpretCondition(self, context):
         value = self.condition.interpret(context)
         if not isinstance(value, Boolean):
             raise InvalidValueError("Expected a Boolean, got:" + type(value).__name__)
         return value.value
+
 
     def toEDialect(self, writer):
         writer.append("while ")
@@ -42,6 +46,7 @@ class WhileStatement ( BaseStatement ):
         writer.indent()
         self.statements.toDialect(writer)
         writer.dedent()
+
 
     def toODialect(self, writer):
         writer.append("while (")
@@ -52,7 +57,10 @@ class WhileStatement ( BaseStatement ):
         writer.dedent()
         writer.append("}\n")
 
+
     def toMDialect(self, writer):
         self.toEDialect(writer)
 
 
+    def canReturn(self):
+        return True

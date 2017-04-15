@@ -52,6 +52,9 @@ class BaseSwitchStatement(BaseStatement):
                     return sc.interpret(context)
         if self.defaultCase is not None:
             return self.defaultCase.interpret(context)
-        if toThrow != None:
+        if toThrow is not None:
             raise toThrow
         return None
+
+    def canReturn(self):
+        return True

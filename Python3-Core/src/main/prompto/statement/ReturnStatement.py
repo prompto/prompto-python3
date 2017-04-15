@@ -50,3 +50,7 @@ class ReturnStatement ( SimpleStatement ):
         else:
             value = self.expression.interpret(context)
             return NullValue.instance if value is None else value
+
+
+    def canReturn(self):
+        return True

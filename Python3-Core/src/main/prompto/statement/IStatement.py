@@ -4,5 +4,6 @@ from prompto.parser.ISection import ISection
 
 class IStatement ( IExpression, ISection ):
     
-    pass
+    def canReturn(self):
+        return False
 

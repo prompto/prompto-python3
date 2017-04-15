@@ -132,3 +132,6 @@ class ForEachStatement(BaseStatement):
         writer.indent()
         self.statements.toDialect(writer)
         writer.dedent()
+
+    def canReturn(self):
+        return True

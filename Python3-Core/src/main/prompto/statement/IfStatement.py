@@ -6,18 +6,18 @@ from prompto.error.SyntaxError import SyntaxError
 
 class IfStatement ( BaseStatement ):
 
-    def __init__(self, condition, instructions):
+    def __init__(self, condition, statements):
         super(IfStatement, self).__init__()
-        self.elements = [IfElement(condition,instructions)]
+        self.elements = [IfElement(condition, statements)]
 
     def addAdditionals(self, elements):
         self.elements.extend(elements)
 
-    def addAdditional(self, condition, instructions):
-        self.elements.append(IfElement(condition,instructions))
+    def addAdditional(self, condition, statements):
+        self.elements.append(IfElement(condition, statements))
 
-    def setFinal(self, instructions):
-        self.elements.append(IfElement(None,instructions))
+    def setFinal(self, statements):
+        self.elements.append(IfElement(None, statements))
 
     def check(self, context):
         return self.elements[0].check(context)
@@ -30,6 +30,10 @@ class IfStatement ( BaseStatement ):
             if isinstance(test, Boolean) and Boolean.TRUE==test:
                 return element.interpret(context)
         return None
+
+    def canReturn(self):
+        return True
+
 
     def toMDialect(self, writer):
         first = True

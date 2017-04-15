@@ -22,3 +22,6 @@ class BreakStatement ( SimpleStatement ):
 
     def interpret(self, context):
         return BreakResult.instance
+
+    def canReturn(self):
+        return True
