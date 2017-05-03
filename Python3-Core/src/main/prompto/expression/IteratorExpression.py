@@ -12,20 +12,18 @@ class IteratorExpression(IExpression):
         self.expression = exp
 
     def check(self, context):
-        srcType = self.source.check(context)
-        elemType = srcType.checkIterator(context)
+        elemType = self.source.check(context).checkIterator(context)
         child = context.newChildContext()
         context.registerValue(Variable(self.name, elemType))
         itemType = self.expression.check(child)
         return IteratorType(itemType)
 
     def interpret(self, context):
-        iterType = self.check(context)
-        itemType = iterType.getItemType()
+        elemType = self.source.check(context).checkIterator(context)
         items = self.source.interpret(context)
         length = items.getMemberValue(context, "count", False)
         iterator = self.getIterator(context, items)
-        return IterableValue(itemType, context, length, self.name, iterator, self.expression)
+        return IterableValue(context, self.name, elemType, iterator, length, self.expression)
 
     def getIterator(self, context, src):
         if getattr(src, "getIterator", None) is None:
