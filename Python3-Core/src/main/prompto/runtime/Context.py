@@ -105,11 +105,11 @@ class Context(IContext):
         context.debugger = self.debugger
         return context
 
-    def newInstanceContext(self, instance, typ):
+    def newInstanceContext(self, instance, typ, isChild:bool = False):
         context = InstanceContext(instance, typ)
         context.globals = self.globals
         context.calling = self
-        context.parent = None
+        context.parent = self if isChild else None
         context.debugger = self.debugger
         return context
 

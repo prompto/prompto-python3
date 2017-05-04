@@ -9,14 +9,14 @@ class WithSingletonStatement(BaseStatement):
         self.instructions = instructions
 
     def check(self, context):
-        instanceContext = context.newInstanceContext(None, self.type)
+        instanceContext = context.newInstanceContext(None, self.type, True)
         childContext = instanceContext.newChildContext()
         return self.instructions.check(childContext, None)
 
     def interpret(self, context):
         # TODO synchronize
         instance = context.loadSingleton(self.type)
-        instanceContext = context.newInstanceContext(instance, None)
+        instanceContext = context.newInstanceContext(instance, None, True)
         childContext = instanceContext.newChildContext()
         return self.instructions.interpret(childContext)
 
