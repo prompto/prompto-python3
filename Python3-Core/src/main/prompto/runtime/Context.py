@@ -209,12 +209,13 @@ class Context(IContext):
         else:
             return None
 
-    def registerValue(self, value, checkDuplicate = True):
+    def registerValue(self, decl, checkDuplicate = True):
         if checkDuplicate:
             # only explore current context
-            if self.instances.get(value.getName(), None) is not None:
-                raise SyntaxError("Duplicate name: \"" + value.getName() + "\"")
-        self.instances[value.getName()] = value
+            duplicate = self.instances.get(decl.getName(), None)
+            if duplicate is not None and id(duplicate) != id(decl):
+                raise SyntaxError("Duplicate name: \"" + decl.getName() + "\"")
+        self.instances[decl.getName()] = decl
 
     def registerNativeBinding(self, klass, decl):
         if self is self.globals:
