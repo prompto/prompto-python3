@@ -47,4 +47,7 @@ class TestLess(BaseEParserTest):
     def testLtTime(self):
         self.compareResourceEOE("less/ltTime.pec")
 
+    def testLtVersion(self):
+        self.compareResourceEOE("less/ltVersion.pec")
+
 

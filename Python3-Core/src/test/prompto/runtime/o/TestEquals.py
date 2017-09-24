@@ -49,6 +49,9 @@ class TestEquals(BaseOParserTest):
     def testEqTime(self):
         self.checkOutput("equals/eqTime.poc")
 
+    def testEqVersion(self):
+        self.checkOutput("equals/eqVersion.poc")
+
     def testIsBoolean(self):
         self.checkOutput("equals/isBoolean.poc")
 

@@ -49,6 +49,9 @@ class TestEquals(BaseEParserTest):
     def testEqTime(self):
         self.checkOutput("equals/eqTime.pec")
 
+    def testEqVersion(self):
+        self.checkOutput("equals/eqVersion.pec")
+
     def testIsBoolean(self):
         self.checkOutput("equals/isBoolean.pec")
 

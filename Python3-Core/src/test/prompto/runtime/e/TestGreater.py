@@ -52,4 +52,7 @@ class TestGreater(BaseEParserTest):
     def testGtTime(self):
         self.checkOutput("greater/gtTime.pec")
 
+    def testGtVersion(self):
+        self.checkOutput("greater/gtVersion.pec")
+
 

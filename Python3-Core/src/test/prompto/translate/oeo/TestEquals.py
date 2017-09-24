@@ -44,6 +44,9 @@ class TestEquals(BaseOParserTest):
     def testEqTime(self):
         self.compareResourceOEO("equals/eqTime.poc")
 
+    def testEqVersion(self):
+        self.compareResourceOEO("equals/eqVersion.poc")
+
     def testIsBoolean(self):
         self.compareResourceOEO("equals/isBoolean.poc")
 

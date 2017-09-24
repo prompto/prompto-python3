@@ -47,4 +47,7 @@ class TestGreater(BaseOParserTest):
     def testGtTime(self):
         self.compareResourceOEO("greater/gtTime.poc")
 
+    def testGtVersion(self):
+        self.compareResourceOEO("greater/gtVersion.poc")
+
 

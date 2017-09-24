@@ -141,6 +141,7 @@ from prompto.literal.TextLiteral import TextLiteral
 from prompto.literal.TimeLiteral import TimeLiteral
 from prompto.literal.TupleLiteral import TupleLiteral
 from prompto.literal.UUIDLiteral import UUIDLiteral
+from prompto.literal.VersionLiteral import VersionLiteral
 from prompto.parser.Dialect import Dialect
 from prompto.parser.MParser import MParser
 from prompto.parser.MParserListener import MParserListener
@@ -197,10 +198,11 @@ from prompto.type.DocumentType import DocumentType
 from prompto.type.IntegerType import IntegerType
 from prompto.type.IteratorType import IteratorType
 from prompto.type.ListType import ListType
+from prompto.type.PeriodType import PeriodType
 from prompto.type.TextType import TextType
 from prompto.type.TimeType import TimeType
 from prompto.type.UUIDType import UUIDType
-
+from prompto.type.VersionType import VersionType
 
 
 class MPromptoBuilder(MParserListener):
@@ -1774,6 +1776,21 @@ class MPromptoBuilder(MParserListener):
 
     def exitPeriodLiteral(self, ctx:MParser.PeriodLiteralContext):
         self.setNodeValue(ctx, PeriodLiteral(ctx.t.text))
+
+
+
+    def exitPeriodType(self, ctx: MParser.PeriodTypeContext):
+        self.setNodeValue(ctx, PeriodType.instance)
+
+
+
+    def exitVersionLiteral(self, ctx: MParser.VersionLiteralContext):
+        self.setNodeValue(ctx, VersionLiteral(ctx.t.text))
+
+
+
+    def exitVersionType(self, ctx: MParser.VersionTypeContext):
+        self.setNodeValue(ctx, VersionType.instance)
 
 
     def exitPrimaryType(self, ctx:MParser.PrimaryTypeContext):

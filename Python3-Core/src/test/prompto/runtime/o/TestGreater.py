@@ -52,4 +52,7 @@ class TestGreater(BaseOParserTest):
     def testGtTime(self):
         self.checkOutput("greater/gtTime.poc")
 
+    def testGtVersion(self):
+        self.checkOutput("greater/gtVersion.poc")
+
 

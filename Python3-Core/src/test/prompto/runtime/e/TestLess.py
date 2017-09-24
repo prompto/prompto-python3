@@ -52,4 +52,7 @@ class TestLess(BaseEParserTest):
     def testLtTime(self):
         self.checkOutput("less/ltTime.pec")
 
+    def testLtVersion(self):
+        self.checkOutput("less/ltVersion.pec")
+
 

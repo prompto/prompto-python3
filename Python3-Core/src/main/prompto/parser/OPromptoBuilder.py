@@ -141,6 +141,7 @@ from prompto.literal.TextLiteral import TextLiteral
 from prompto.literal.TimeLiteral import TimeLiteral
 from prompto.literal.TupleLiteral import TupleLiteral
 from prompto.literal.UUIDLiteral import UUIDLiteral
+from prompto.literal.VersionLiteral import VersionLiteral
 from prompto.parser.Dialect import Dialect
 from prompto.parser.OParser import OParser
 from prompto.parser.OParserListener import OParserListener
@@ -196,13 +197,13 @@ from prompto.type.DocumentType import DocumentType
 from prompto.type.IntegerType import IntegerType
 from prompto.type.IteratorType import IteratorType
 from prompto.type.ListType import ListType
+from prompto.type.PeriodType import PeriodType
 from prompto.type.TextType import TextType
 from prompto.type.TimeType import TimeType
 
 # need forward declaration
 from prompto.type.UUIDType import UUIDType
-
-
+from prompto.type.VersionType import VersionType
 
 OCleverParser = None
 
@@ -361,9 +362,24 @@ class OPromptoBuilder(OParserListener):
     
     def exitPeriodLiteral(self, ctx:OParser.PeriodLiteralContext):
         self.setNodeValue(ctx, PeriodLiteral(ctx.t.text))
-    
 
-    
+
+
+    def exitPeriodType(self, ctx: OParser.PeriodTypeContext):
+        self.setNodeValue(ctx, PeriodType.instance)
+
+
+
+    def exitVersionLiteral(self, ctx: OParser.VersionLiteralContext):
+        self.setNodeValue(ctx, VersionLiteral(ctx.t.text))
+
+
+
+    def exitVersionType(self, ctx: OParser.VersionTypeContext):
+        self.setNodeValue(ctx, VersionType.instance)
+
+
+
     def exitAttribute_identifier(self, ctx:OParser.Attribute_identifierContext):
         self.setNodeValue(ctx, ctx.getText())
 

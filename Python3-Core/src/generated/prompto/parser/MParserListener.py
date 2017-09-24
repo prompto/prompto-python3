@@ -1525,6 +1525,15 @@ class MParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MParser#VersionType.
+    def enterVersionType(self, ctx):
+        pass
+
+    # Exit a parse tree produced by MParser#VersionType.
+    def exitVersionType(self, ctx):
+        pass
+
+
     # Enter a parse tree produced by MParser#CodeType.
     def enterCodeType(self, ctx):
         pass
@@ -2170,6 +2179,15 @@ class MParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by MParser#PeriodLiteral.
     def exitPeriodLiteral(self, ctx):
+        pass
+
+
+    # Enter a parse tree produced by MParser#VersionLiteral.
+    def enterVersionLiteral(self, ctx):
+        pass
+
+    # Exit a parse tree produced by MParser#VersionLiteral.
+    def exitVersionLiteral(self, ctx):
         pass
 
 

@@ -13,6 +13,7 @@ class TypeFamily(Enum):
     TIME = "TIME"
     DATETIME = "DATETIME"
     PERIOD = "PERIOD"
+    VERSION = "VERSION"
     LIST = "LIST"
     SET = "SET"
     TUPLE = "TUPLE"
