@@ -76,6 +76,9 @@ class TestBuiltins(BaseOParserTest):
     def testTextReplace(self):
         self.checkOutput("builtins/textReplace.poc")
 
+    def testTextReplaceAll(self):
+        self.checkOutput("builtins/textReplaceAll.poc")
+
     def testTextSplit(self):
         self.checkOutput("builtins/textSplit.poc")
 

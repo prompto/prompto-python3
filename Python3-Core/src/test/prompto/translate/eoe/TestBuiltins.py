@@ -125,6 +125,9 @@ class TestBuiltins(BaseEParserTest):
     def testTextReplace(self):
         self.compareResourceEOE("builtins/textReplace.pec")
 
+    def testTextReplaceAll(self):
+        self.compareResourceEOE("builtins/textReplaceAll.pec")
+
     def testTextSplit(self):
         self.compareResourceEOE("builtins/textSplit.pec")
 

@@ -124,6 +124,9 @@ class TestBuiltins(BaseEParserTest):
     def testTextReplace(self):
         self.checkOutput("builtins/textReplace.pec")
 
+    def testTextReplaceAll(self):
+        self.checkOutput("builtins/textReplaceAll.pec")
+
     def testTextSplit(self):
         self.checkOutput("builtins/textSplit.pec")
 

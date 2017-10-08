@@ -88,6 +88,8 @@ class TextType(NativeType):
             return [ToCapitalizedMethodDeclaration()]
         elif name == "replace":
             return [ReplaceMethodDeclaration()]
+        elif name == "replaceAll":
+            return [ReplaceAllMethodDeclaration()]
         elif name == "split":
             return [SplitMethodDeclaration()]
         elif name == "trim":
@@ -136,13 +138,34 @@ class ReplaceMethodDeclaration(BuiltInMethodDeclaration):
         value = self.getValue(context).value
         toReplace = context.getValue("toReplace").value
         replaceWith = context.getValue("replaceWith").value
-        value = value.replace(toReplace, replaceWith)
+        value = value.replace(toReplace, replaceWith, 1)
         return Text(value)
 
 
     def check(self, context):
         return TextType.instance
 
+
+class ReplaceAllMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self):
+        from prompto.argument.CategoryArgument import CategoryArgument
+        TO_REPLACE_ARGUMENT = CategoryArgument(TextType.instance, "toReplace")
+        REPLACE_WITH_ARGUMENT = CategoryArgument(TextType.instance, "replaceWith")
+        super().__init__("replaceAll", TO_REPLACE_ARGUMENT, REPLACE_WITH_ARGUMENT)
+
+
+    def interpret(self, context):
+        from prompto.value.Text import Text
+        value = self.getValue(context).value
+        toReplace = context.getValue("toReplace").value
+        replaceWith = context.getValue("replaceWith").value
+        value = value.replace(toReplace, replaceWith)
+        return Text(value)
+
+
+    def check(self, context):
+        return TextType.instance
 
 class ToLowerCaseMethodDeclaration(BuiltInMethodDeclaration):
 

@@ -77,6 +77,9 @@ class TestBuiltins(BaseOParserTest):
     def testTextReplace(self):
         self.compareResourceOMO("builtins/textReplace.poc")
 
+    def testTextReplaceAll(self):
+        self.compareResourceOMO("builtins/textReplaceAll.poc")
+
     def testTextSplit(self):
         self.compareResourceOMO("builtins/textSplit.poc")
 
