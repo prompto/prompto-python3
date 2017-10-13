@@ -61,7 +61,7 @@ class SetValue(BaseValue, IContainer):
         if isinstance(value, IContainer):
             return self.merge(value.items)
         else:
-            raise SyntaxError("Illegal: " + self.type.name + " + " + type(value).__name__)
+            raise SyntaxError("Illegal: " + self.itype.name + " + " + type(value).__name__)
 
 
     def merge(self, items):
@@ -71,7 +71,7 @@ class SetValue(BaseValue, IContainer):
             data |= items
         else:
             data |= set(items)
-        return SetValue(self.type.itemType, data)
+        return SetValue(self.itype.itemType, data)
 
     def filter(self, context, itemName, filter):
         result = set()
@@ -83,7 +83,7 @@ class SetValue(BaseValue, IContainer):
                 raise InternalError("Illegal test result: " + test)
             if test.getValue():
                 result.add(o)
-        return SetValue(self.type.itemType, result)
+        return SetValue(self.itype.itemType, result)
 
     def getMemberValue(self, context, name, autoCreate=False):
         if "count" == name:

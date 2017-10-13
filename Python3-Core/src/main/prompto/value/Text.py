@@ -96,7 +96,7 @@ class Text(BaseValue, ISliceable, IMultiplyable):
         for c in self.value:
             yield Character(c)
 
-    def ConvertTo(self, type_):
+    def ConvertTo(self, itype):
         return self.value
 
 

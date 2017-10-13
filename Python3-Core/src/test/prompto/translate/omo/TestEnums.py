@@ -14,4 +14,10 @@ class TestEnums(BaseOParserTest):
     def testTextEnum(self):
         self.compareResourceOMO("enums/textEnum.poc")
 
+    def testTextEnumArg(self):
+        self.compareResourceOMO("enums/textEnumArg.poc")
+
+    def testTextEnumVar(self):
+        self.compareResourceOMO("enums/textEnumVar.poc")
+
 

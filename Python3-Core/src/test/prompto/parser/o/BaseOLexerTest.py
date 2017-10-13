@@ -54,5 +54,5 @@ class BaseOLexerTest (object):
         lexer = ONamingLexer(None)
         s = ""
         for t in tokenTypes:
-            s += lexer.getTokenName(type_=t) + " "
+            s += lexer.getTokenName(itype=t) + " "
         return s[0:len(s)-1]

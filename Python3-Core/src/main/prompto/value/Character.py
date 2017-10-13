@@ -65,7 +65,7 @@ class Character ( BaseValue, IMultiplyable) :
             raise SyntaxError("Illegal comparison: Character + " + type(other).__name__)
 
     
-    def ConvertTo(self, type_):
+    def ConvertTo(self, itype):
         return self.value
     
     def Roughly(self, context, value):

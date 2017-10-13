@@ -2,6 +2,7 @@ from prompto.declaration.IDeclaration import IDeclaration
 from prompto.declaration.IEnumeratedDeclaration import IEnumeratedDeclaration
 from prompto.runtime.Context import Context
 from prompto.type.BaseType import BaseType
+from prompto.type.IType import IType
 from prompto.type.ListType import ListType
 from prompto.type.TextType import TextType
 from prompto.store.TypeFamily import TypeFamily
@@ -20,11 +21,11 @@ class EnumeratedNativeType ( BaseType ):
 
     def checkMember(self, context, name):
         if name=="symbols":
-            return ListType(self.derivedFrom)
+            return ListType(self)
         elif "name"==name:
             return TextType.instance
         elif name=="value":
-            return self
+            return self.derivedFrom
         else:
             return super(EnumeratedNativeType, self).checkMember(context, name)
 
@@ -37,3 +38,6 @@ class EnumeratedNativeType ( BaseType ):
         else:
             raise SyntaxError("Unknown member:" + name)
 
+
+    def isAssignableFrom(self, context, other:IType):
+        return self.typeName==other.typeName

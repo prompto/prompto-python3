@@ -73,7 +73,7 @@ class MethodSelector(MemberSelector):
             if name[0:1].islower():
                 value = context.getValue(name)
                 if value is not None and value is not NullValue.instance:
-                    return value.type
+                    return value.itype
         # TODO check result instance
         return self.checkParent(context)
 
@@ -82,12 +82,12 @@ class MethodSelector(MemberSelector):
     def getCategoryCandidates(self, context:Context):
         from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
         from prompto.type.CategoryType import CategoryType
-        type_ = self.checkParent(context)
-        if not isinstance(type_, CategoryType):
+        itype = self.checkParent(context)
+        if not isinstance(itype, CategoryType):
             raise SyntaxError(self.parent.toString() + " is not a category")
-        cd = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, type_.typeName)
+        cd = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, itype.typeName)
         if cd is None:
-            raise SyntaxError("Unknown category:" + type_.typeName)
+            raise SyntaxError("Unknown category:" + itype.typeName)
         return cd.getMemberMethods(context, self.name)
 
 

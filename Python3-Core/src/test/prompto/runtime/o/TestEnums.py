@@ -19,4 +19,10 @@ class TestEnums(BaseOParserTest):
     def testTextEnum(self):
         self.checkOutput("enums/textEnum.poc")
 
+    def testTextEnumArg(self):
+        self.checkOutput("enums/textEnumArg.poc")
+
+    def testTextEnumVar(self):
+        self.checkOutput("enums/textEnumVar.poc")
+
 

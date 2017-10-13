@@ -24,10 +24,10 @@ class BaseSwitchStatement(BaseStatement):
         return self.checkReturnType(context)
 
     def checkSwitchCasesType(self, context):
-        type_ = self.checkSwitchType(context)
+        itype = self.checkSwitchType(context)
         if self.switchCases is not None:
             for sc in self.switchCases:
-                sc.checkSwitchType(context, type_)
+                sc.checkSwitchType(context, itype)
 
     def checkReturnType(self, context):
         types = TypeMap()
@@ -37,13 +37,13 @@ class BaseSwitchStatement(BaseStatement):
     def collectReturnTypes(self, context, types):
         if self.switchCases is not None:
             for sc in self.switchCases:
-                type_ = sc.checkReturnType(context)
-                if type_ != VoidType.instance:
-                    types[type_.getName()] = type_
+                itype = sc.checkReturnType(context)
+                if itype != VoidType.instance:
+                    types[itype.getName()] = itype
         if self.defaultCase is not None:
-            type_ = self.defaultCase.check(context, None)
-            if type_ != VoidType.instance:
-                types.put(type_.getName(), type_)
+            itype = self.defaultCase.check(context, None)
+            if itype != VoidType.instance:
+                types.put(itype.getName(), itype)
 
     def interpretSwitch(self, context, switchValue, toThrow):
         if self.switchCases is not None:

@@ -134,20 +134,26 @@ class CategoryType(BaseType):
         self.getDeclaration(context)
 
     def checkMember(self, context, name):
+        from prompto.declaration.EnumeratedNativeDeclaration import EnumeratedNativeDeclaration
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
-        cd = context.getRegisteredDeclaration(CategoryDeclaration, self.typeName)
-        if cd is None:
+        dd = context.getRegisteredDeclaration(IDeclaration, self.typeName)
+        if dd is None:
             raise SyntaxError("Unknown category:" + self.typeName)
-        if cd.hasAttribute(context, name):
-            ad = context.getRegisteredDeclaration(AttributeDeclaration, name)
-            if ad is None:
-                raise SyntaxError("Missing atttribute:" + name)
+        if isinstance(dd, EnumeratedNativeDeclaration):
+            return dd.type.checkMember(context, name)
+        elif isinstance(dd, CategoryDeclaration):
+            if dd.hasAttribute(context, name):
+                ad = context.getRegisteredDeclaration(AttributeDeclaration, name)
+                if ad is None:
+                    raise SyntaxError("Missing atttribute:" + name)
+                else:
+                    return ad.getType(context)
+            elif "text" == name:
+                return TextType.instance
             else:
-                return ad.getType(context)
-        elif "text" == name:
-            return TextType.instance
+                raise SyntaxError("No attribute:" + name + " in category:" + self.typeName)
         else:
-            raise SyntaxError("No attribute:" + name + " in category:" + self.typeName)
+            raise SyntaxError("Not a category:" + self.typeName)
 
 
     def isDerivedFrom(self, context, other:IType):

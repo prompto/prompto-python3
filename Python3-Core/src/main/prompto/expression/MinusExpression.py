@@ -20,11 +20,11 @@ class MinusExpression ( IUnaryExpression ):
         self.expression.toDialect(writer)
 
     def check(self, context):
-        type_ = self.expression.check(context)
-        if isinstance(type_, IntegerType) or isinstance(type_, DecimalType) or isinstance(type_, PeriodType):
-            return type_
+        itype = self.expression.check(context)
+        if isinstance(itype, IntegerType) or isinstance(itype, DecimalType) or isinstance(itype, PeriodType):
+            return itype
         else:
-            raise SyntaxError("Cannot negate " + type_.getName())
+            raise SyntaxError("Cannot negate " + itype.getName())
 
     def interpret(self, context):
         val = self.expression.interpret(context)

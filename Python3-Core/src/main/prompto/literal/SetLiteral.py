@@ -40,9 +40,9 @@ class SetLiteral(Literal):
     def interpretPromotion(self, item):
         if item is None:
             return item
-        if DecimalType.instance == self.itemType and item.type == IntegerType.instance:
+        if DecimalType.instance == self.itemType and item.itype == IntegerType.instance:
             return Decimal(item.DecimalValue())
-        elif TextType.instance == self.itemType and item.type == CharacterType.instance:
+        elif TextType.instance == self.itemType and item.itype == CharacterType.instance:
             return Text(item.value)
         else:
             return item

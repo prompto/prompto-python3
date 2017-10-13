@@ -68,9 +68,9 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
         if self.arguments.size()==1:
             arg = self.arguments[0]
             if isinstance(arg, CategoryArgument):
-                type_ = arg.getType()
-                if isinstance(type_, DictType):
-                    return type_.getItemType()==TextType.instance
+                itype = arg.getType()
+                if isinstance(itype, DictType):
+                    return itype.getItemType()==TextType.instance
         return super(ConcreteMethodDeclaration, self).isEligibleAsMain()
 
     def toDialect(self, writer):

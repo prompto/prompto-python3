@@ -74,7 +74,7 @@ class Time(BaseValue):
             return super().getMemberValue(context, name, autoCreate)
 
 
-    def ConvertTo(self, type_):
+    def ConvertTo(self, itype):
         return self.value
 
 

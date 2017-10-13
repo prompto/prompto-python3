@@ -31,7 +31,7 @@ class NativeInstance(BaseValue, IInstance):
         return mapped()
 
     def getType(self):
-        return self.type
+        return self.itype
 
     def getMemberValue(self, context, attrName, autoCreate=False):
         stacked = activeGetters.__dict__.get(attrName, None)
@@ -75,6 +75,7 @@ class NativeInstance(BaseValue, IInstance):
             activeSetters.__dict__[attrName] = context
             # use attribute name as parameter name for incoming value
             context = context.newInstanceContext(self, None).newChildContext()
+            from prompto.runtime.Variable import Variable
             context.registerValue(Variable(attrName, decl.getType()))
             context.setValue(attrName, value)
             value = setter.interpret(context)
@@ -86,4 +87,4 @@ class NativeInstance(BaseValue, IInstance):
                 self.storable.setMember(context, attrName, value)
 
     def __getattr__(self, item):
-        return getattr(self.instance,item)
+        return getattr(self.instance, item)

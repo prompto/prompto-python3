@@ -29,9 +29,9 @@ class TernaryExpression ( IExpression ):
             self.ifFalse.toDialect(writer)
 
     def check(self, context):
-        type_ = self.condition.check(context)
-        if not isinstance(type_, BooleanType):
-            raise SyntaxError("Cannot test condition on " +  type_.getName() )
+        itype = self.condition.check(context)
+        if not isinstance(itype, BooleanType):
+            raise SyntaxError("Cannot test condition on " +  itype.getName() )
         trueType = self.ifTrue.check(context)
         # Type falseType = ifFalse.check(context)
         # TODO check compatibility

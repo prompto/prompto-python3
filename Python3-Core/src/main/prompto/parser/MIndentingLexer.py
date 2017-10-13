@@ -6,10 +6,10 @@ from prompto.parser.Dialect import Dialect
 class MIndentingLexer(MLexer):
 
     @classmethod
-    def getTokenName(cls, token=None, type_=None):
-        if type_ is None:
-            type_ = token.type
-        return cls.symbolicNames[type_]
+    def getTokenName(cls, token=None, itype=None):
+        if itype is None:
+            itype = token.type
+        return cls.symbolicNames[itype]
 
     def __init__(self, input_):
         super().__init__(input_)

@@ -8,10 +8,10 @@ class ONamingLexer(OLexer):
 	tokenNames = extractTokenNames(OLexer)
 
 	@classmethod
-	def getTokenName(cls, token=None, type_=None):
-		if type_ is None:
-			type_ = token.getType()
-		return cls.tokenNames[type_]
+	def getTokenName(cls, token=None, itype=None):
+		if itype is None:
+			itype = token.getType()
+		return cls.tokenNames[itype]
 
 	def __init__(self, input_):
 		super(ONamingLexer, self).__init__(input_)

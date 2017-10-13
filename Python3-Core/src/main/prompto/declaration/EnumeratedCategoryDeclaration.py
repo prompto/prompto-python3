@@ -31,6 +31,14 @@ class EnumeratedCategoryDeclaration ( ConcreteCategoryDeclaration, IEnumeratedDe
     def getType(self, context):
         return EnumeratedCategoryType(self.name)
 
+
+    def hasAttribute(self, context, name):
+        if "name" == name:
+            return True
+        else:
+            return super().hasAttribute(context, name)
+
+
     def toODialect(self, writer):
         writer.append("enumerated category ")
         writer.append(self.name)

@@ -11,6 +11,7 @@ from prompto.utils.TypeUtils import inferElementType
 from prompto.value.Text import Text
 
 
+# noinspection PyDefaultArgument
 class ListLiteral(Literal):
 
     def __init__(self, expressions=[], mutable=False):
@@ -42,9 +43,9 @@ class ListLiteral(Literal):
     def interpretPromotion(self, item):
         if item is None:
             return item
-        if DecimalType.instance == self.itemType and item.type == IntegerType.instance:
+        if DecimalType.instance == self.itemType and item.itype == IntegerType.instance:
             return Decimal(item.DecimalValue())
-        elif TextType.instance == self.itemType and item.type == CharacterType.instance:
+        elif TextType.instance == self.itemType and item.itype == CharacterType.instance:
             return Text(item.value)
         else:
             return item

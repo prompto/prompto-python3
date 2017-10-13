@@ -1,6 +1,6 @@
 class TypeList ( list ):
 
-	def __init__(self, type_):
+	def __init__(self, itype):
 		super(TypeList, self).__init__()
-		if type_ is not None:
-			self.append(type_)
+		if itype is not None:
+			self.append(itype)

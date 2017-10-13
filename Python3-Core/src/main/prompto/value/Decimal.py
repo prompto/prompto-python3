@@ -94,7 +94,7 @@ class Decimal(BaseValue, INumber, IMultiplyable):
             raise SyntaxError("Illegal comparison: Decimal and " + type(value).__name__)
 
 
-    def ConvertTo(self, type_):
+    def ConvertTo(self, itype):
         return self.value
 
     def __lt__(self, obj):

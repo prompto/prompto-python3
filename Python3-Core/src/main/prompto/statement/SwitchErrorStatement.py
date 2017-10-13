@@ -36,16 +36,16 @@ class SwitchErrorStatement(BaseSwitchStatement):
         return EnumeratedCategoryType("Error")
 
     def collectReturnTypes(self, context, types):
-        type_ = self.instructions.check(context, None)
-        if type_ != VoidType.instance:
-            types[type_.getName()] = type_
+        itype = self.instructions.check(context, None)
+        if itype != VoidType.instance:
+            types[itype.getName()] = itype
         local = context.newLocalContext()
         local.registerValue(ErrorVariable(self.errorName))
         super().collectReturnTypes(local, types)
         if self.alwaysInstructions != None:
-            type_ = self.alwaysInstructions.check(context, None)
-            if type_ != VoidType.instance:
-                types[type_.getName()] = type_
+            itype = self.alwaysInstructions.check(context, None)
+            if itype != VoidType.instance:
+                types[itype.getName()] = itype
 
 
     def interpret(self, context):

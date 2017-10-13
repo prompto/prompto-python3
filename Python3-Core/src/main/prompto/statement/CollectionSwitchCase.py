@@ -9,12 +9,12 @@ class CollectionSwitchCase ( SwitchCase ):
     def __init__(self, expression, list_):
         super(CollectionSwitchCase, self).__init__(expression,list_)
 
-    def checkSwitchType(self, context, type_):
+    def checkSwitchType(self, context, itype):
         selfType = self.expression.check(context)
         if isinstance(selfType, ContainerType):
             selfType = selfType.getItemType()
-        if not type_.isAssignableFrom(context, selfType):
-            raise SyntaxError("Cannot assign:" + selfType.getName() + " to:" + type_.getName())
+        if not itype.isAssignableFrom(context, selfType):
+            raise SyntaxError("Cannot assign:" + selfType.getName() + " to:" + itype.getName())
 
     def matches(self, context, value):
         selfValue = self.expression.interpret(context)

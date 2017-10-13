@@ -21,8 +21,8 @@ class StatementList(list):
             for statement in self:
                 if nativeOnly and not isinstance(statement, Python3NativeCall):
                     continue
-                type_ = statement.check(context)
-                if type_ is not VoidType.instance:
+                itype = statement.check(context)
+                if itype is not VoidType.instance:
                     raise SyntaxError("Illegal return!")
         else:
             types = TypeMap()
@@ -31,18 +31,18 @@ class StatementList(list):
             for statement in self:
                 if nativeOnly and not isinstance(statement, Python3NativeCall):
                     continue
-                type_ = statement.check(context)
+                itype = statement.check(context)
                 if not statement.canReturn():
-                    type_ = VoidType.instance
-                if type_ != VoidType.instance:
+                    itype = VoidType.instance
+                if itype != VoidType.instance:
                     # unless necessary, don't collect AnyType returned by native statement check
-                    if len(types) == 0 or type_ is not AnyType.instance or not nativeOnly:
-                        types[type_.typeName] = type_
-            type_ = types.inferType(context)
+                    if len(types) == 0 or itype is not AnyType.instance or not nativeOnly:
+                        types[itype.typeName] = itype
+            itype = types.inferType(context)
             if returnType is not None:
                 return returnType
             else:
-                return type_
+                return itype
 
     def interpret(self, context):
         try:

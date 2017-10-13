@@ -14,4 +14,10 @@ class TestEnums(BaseEParserTest):
     def testTextEnum(self):
         self.compareResourceEME("enums/textEnum.pec")
 
+    def testTextEnumArg(self):
+        self.compareResourceEME("enums/textEnumArg.pec")
+
+    def testTextEnumVar(self):
+        self.compareResourceEME("enums/textEnumVar.pec")
+
 

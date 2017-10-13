@@ -136,7 +136,7 @@ class ContainsExpression(IExpression):
                 value = self.left.interpret(context)
             else:
                 raise SyntaxError("Unable to interpret predicate")
-        matchOp = self.getMatchOp(context, self.getAttributeType(context, name), value.type, self.operator, reverse)
+        matchOp = self.getMatchOp(context, self.getAttributeType(context, name), value.itype, self.operator, reverse)
         if isinstance(value, IInstance):
             value = value.getMemberValue(context, "dbId", False)
         info = context.findAttribute(name).getAttributeInfo()
@@ -144,6 +144,7 @@ class ContainsExpression(IExpression):
         query.verify(info, matchOp, data)
         if str(self.operator).startswith("NOT_"):
             query.Not()
+
 
     def getAttributeType(self, context, name):
         return context.getRegisteredDeclaration(AttributeDeclaration, name).getType()

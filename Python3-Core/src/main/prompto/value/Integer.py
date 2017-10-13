@@ -101,7 +101,7 @@ class Integer(BaseValue, INumber, IMultiplyable):
         else:
             raise SyntaxError("Illegal comparison: Integer and " + type(value).__name__)
 
-    def ConvertTo(self, type_):
+    def ConvertTo(self, itype):
         return self.value
 
     def __str__(self):

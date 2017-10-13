@@ -9,33 +9,33 @@ from prompto.value.Integer import Integer
 
 class CastExpression (IExpression):
 
-    def __init__(self, expression, type):
+    def __init__(self, expression, itype):
         self.expression = expression
-        self.type = type
+        self.itype = itype
 
 
 
     def check(self, context):
         actual = self.expression.check(context)
         # check upcast
-        if self.type.isAssignableFrom(context, actual):
-            return self.type
+        if self.itype.isAssignableFrom(context, actual):
+            return self.itype
         # check downcast
-        if actual.isAssignableFrom(context, self.type):
-            return self.type
-        raise SyntaxError("Cannot cast " + str(actual) + " to " + str(self.type))
+        if actual.isAssignableFrom(context, self.itype):
+            return self.itype
+        raise SyntaxError("Cannot cast " + str(actual) + " to " + str(self.itype))
 
 
 
     def interpret(self, context):
         value = self.expression.interpret(context)
         if value is not None:
-            if isinstance(value, Integer) and self.type == DecimalType.instance:
+            if isinstance(value, Integer) and self.itype == DecimalType.instance:
                 value = Decimal(value.DecimalValue())
-            elif isinstance(value, Decimal) and self.type == IntegerType.instance:
+            elif isinstance(value, Decimal) and self.itype == IntegerType.instance:
                 return Integer(value.IntegerValue())
-            elif self.type.isMoreSpecificThan(context, value.type):
-                value.type = self.type
+            elif self.itype.isMoreSpecificThan(context, value.itype):
+                value.itype = self.itype
         return value
 
 
@@ -46,11 +46,11 @@ class CastExpression (IExpression):
     def toEDialect(self, writer):
         self.expression.toDialect(writer)
         writer.append(" as ")
-        self.type.toDialect(writer)
+        self.itype.toDialect(writer)
 
     def toODialect(self, writer):
         writer.append("(")
-        self.type.toDialect(writer)
+        self.itype.toDialect(writer)
         writer.append(")")
         self.expression.toDialect(writer)
 

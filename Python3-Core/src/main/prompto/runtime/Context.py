@@ -370,18 +370,18 @@ class BuiltInContext(Context):
 
 class InstanceContext(Context):
 
-    def __init__(self, instance, type):
+    def __init__(self, instance, itype):
         super().__init__()
         self.instance = instance
-        self.instanceType = type if type is not None else instance.type
+        self.instanceType = itype if itype is not None else instance.itype
 
     def readRegisteredValue(self, klass, name):
         actual = self.instances.get(name, None)
         # not very pure, but avoids a lot of complexity when registering a value
         if actual is None:
             attr = self.getRegisteredDeclaration(AttributeDeclaration, name)
-            typ = attr.getType()
-            actual = Variable(name, typ)
+            itype = attr.getType()
+            actual = Variable(name, itype)
             self.instances[name] = actual
         return actual
 

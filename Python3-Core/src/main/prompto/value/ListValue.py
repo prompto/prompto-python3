@@ -15,7 +15,7 @@ class ListValue(BaseValueList):
             self.items.append(item)
 
     def newInstance(self, items):
-        return ListValue(self.type.itemType, items=items)
+        return ListValue(self.itype.itemType, items=items)
 
 
     def getStorableData(self):
@@ -29,7 +29,7 @@ class ListValue(BaseValueList):
         if isinstance(value, (ListValue, SetValue)):
             return self.merge(value)
         else:
-            return super.Add(context, value)
+            return super().Add(context, value)
 
     def Multiply(self, context, value):
         if isinstance(value, Integer):
@@ -37,14 +37,14 @@ class ListValue(BaseValueList):
             if count < 0:
                 raise SyntaxError("Negative repeat count:" + count)
             elif count == 0:
-                return ListValue(self.itemType)
+                return ListValue(self.itype.itemType)
             elif count == 1:
                 return self
             else:
                 result = []
                 for i in range(1,count+1):
                     result.extend(self.items)
-                return ListValue(self.type.itemType, items=result)
+                return ListValue(self.itype.itemType, items=result)
         else:
             raise SyntaxError("Illegal: List * " + type(value).__name__)
 
@@ -62,7 +62,7 @@ class ListValue(BaseValueList):
             return sb.getvalue()
 
     def filter(self, context, itemName, filter):
-        result = ListValue(self.type.itemType)
+        result = ListValue(self.itype.itemType)
         for o in self.getIterator(context):
             context.setValue(itemName, o)
             test = filter.interpret(context)

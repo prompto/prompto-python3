@@ -2,12 +2,12 @@ from prompto.value.IValue import IValue
 
 class BaseValue(IValue):
 
-    def __init__(self, type):
-        self.type = type
+    def __init__(self, itype):
+        self.itype = itype
         self.mutable = False
 
     def GetType(self, context):
-        return self.type
+        return self.itype
 
     def Add(self, context, value):
         raise Exception("Add not supported by " + type(self).__name__)
@@ -40,5 +40,5 @@ class BaseValue(IValue):
     def setMember(self, context, name, value):
         raise Exception("No member support for " + type(self).__name__)
 
-    def ConvertTo(self, type_):
+    def ConvertTo(self, itype):
         return self

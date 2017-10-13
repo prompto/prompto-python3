@@ -4,16 +4,16 @@ from prompto.error.SyntaxError import SyntaxError
 
 class CategoryArgument(BaseArgument, ITypedArgument):
 
-    def __init__(self, type_, name, default=None):
+    def __init__(self, itype, name, default=None):
         super(CategoryArgument, self).__init__(name)
-        self.type_ = type_
+        self.itype = itype
         self.defaultExpression = default
 
     def getSignature(self, dialect):
         return self.getProto()
 
     def getProto(self):
-        return self.type_.typeName
+        return self.itype.typeName
 
     def __str__(self):
         return self.name + ':' + self.getProto()
@@ -39,10 +39,10 @@ class CategoryArgument(BaseArgument, ITypedArgument):
             context.setValue(self.name, value)
 
     def check(self, context):
-        self.type_.checkExists(context)
+        self.itype.checkExists(context)
 
     def getType(self, context=None):
-        return self.type_
+        return self.itype
 
     def toDialect(self, writer):
         if self.mutable:
@@ -54,17 +54,17 @@ class CategoryArgument(BaseArgument, ITypedArgument):
 
 
     def toEDialect(self, writer):
-        self.type_.toDialect(writer)
+        self.itype.toDialect(writer)
         writer.append(' ')
         writer.append(self.name)
 
 
     def toODialect(self, writer):
-        self.type_.toDialect(writer)
+        self.itype.toDialect(writer)
         writer.append(' ')
         writer.append(self.name)
 
     def toMDialect(self, writer):
         writer.append(self.name)
         writer.append(':')
-        self.type_.toDialect(writer)
+        self.itype.toDialect(writer)

@@ -35,10 +35,6 @@ class MemberSelector (SelectorExpression):
     def interpret(self, context):
         # resolve parent to keep clarity
         parent = self.resolveParent(context)
-        # special case for Symbol which evaluates as value
-        value = self.interpretSymbol(context, parent)
-        if value is not None:
-            return value
         # special case for singletons
         value = self.interpretSingleton(context, parent)
         if value is not None:
@@ -71,14 +67,6 @@ class MemberSelector (SelectorExpression):
             instance = context.loadSingleton(parent.type)
             if instance is not None:
                 return instance.getMemberValue(context, self.name, False)
-        return None
-
-    def interpretSymbol(self, context, parent):
-        if isinstance(parent, SymbolExpression):
-            if "name"==self.name:
-                return Text(parent.name)
-            if "value"==self.name:
-                return parent.interpret(context)
         return None
 
     def resolveParent(self, context):

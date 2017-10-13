@@ -20,7 +20,7 @@ class Dictionary(BaseValue, IContainer):
 
     @staticmethod
     def merge(dict1, dict2):
-        return Dictionary(dict1.type.itemType, False, value=dict(dict1.value, **dict2.value))
+        return Dictionary(dict1.itype.itemType, False, value=dict(dict1.value, **dict2.value))
 
     def __init__(self, itemType, mutable=False, copyFrom=None, value=None):
         super().__init__(DictType(itemType))
@@ -63,7 +63,7 @@ class Dictionary(BaseValue, IContainer):
             res = set([Text(k) for k in self.value.keys()])
             return SetValue(TextType.instance, items=res)
         elif "values" == name:
-            return ListValue(self.type.itemType, items=self.value.values())
+            return ListValue(self.itype.itemType, items=self.value.values())
         else:
             return super().getMemberValue(context, name, autoCreate)
 

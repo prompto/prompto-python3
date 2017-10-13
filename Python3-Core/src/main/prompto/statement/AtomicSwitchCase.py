@@ -6,10 +6,10 @@ class AtomicSwitchCase ( SwitchCase ):
     def __init__(self, expression, statements):
         super(AtomicSwitchCase, self).__init__(expression, statements)
 
-    def checkSwitchType(self, context, type_):
+    def checkSwitchType(self, context, itype):
         selfType = self.expression.check(context)
-        if not type_.isAssignableFrom(context, selfType):
-            raise SyntaxError("Cannot assign:" + selfType.getName() + " to:" + type_.getName())
+        if not itype.isAssignableFrom(context, selfType):
+            raise SyntaxError("Cannot assign:" + selfType.getName() + " to:" + itype.getName())
 
     def matches(self, context, value):
         selfValue = self.expression.interpret(context)

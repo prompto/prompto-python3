@@ -25,22 +25,22 @@ class SortedExpression(IExpression):
         return "sorted " + ("descending " if self.desc else "") + str(self.source) + ("" if self.key is None else " with " + str(self.key) + " as key")
 
     def check(self, context):
-        type_ = self.source.check(context)
-        if not isinstance(type_, (ListType, TupleType, SetType)):
-            raise SyntaxError("Unsupported type: " + str(type_))
+        itype = self.source.check(context)
+        if not isinstance(itype, (ListType, TupleType, SetType)):
+            raise SyntaxError("Unsupported type: " + str(itype))
         return type
 
     def interpret(self, context):
-        type_ = self.source.check(context)
-        if not isinstance(type_, (ListType, TupleType, SetType)):
-            raise SyntaxError("Unsupported type: " + type_)
+        itype = self.source.check(context)
+        if not isinstance(itype, (ListType, TupleType, SetType)):
+            raise SyntaxError("Unsupported type: " + itype)
         o = self.source.interpret(context)
         if o is None:
             raise NullReferenceError()
         if not isinstance(o, (ListValue, TupleValue, SetValue)):
             raise InternalError("Unexpected type:" + type(o).__name__)
         items = o.getIterator(context)
-        itemType = type_.getItemType()
+        itemType = itype.getItemType()
         if isinstance(itemType, CategoryType):
             items = itemType.sort(context, items, self.desc, self.key)
         else:

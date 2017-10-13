@@ -128,7 +128,7 @@ class Period ( BaseValue, IMultiplyable ):
         else:
             raise SyntaxError("Illegal: Period * " + type(value).__name__)
         
-    def ConvertTo(self, type_):
+    def ConvertTo(self, itype):
         return self
  
     def plus(self, period):

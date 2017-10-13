@@ -24,9 +24,9 @@ class NotExpression ( IUnaryExpression ):
             return "!"
 
     def check(self, context):
-        type_ = self.expression.check(context)
-        if not isinstance(type_, BooleanType):
-            raise SyntaxError("Cannot negate " + type_.getName())
+        itype = self.expression.check(context)
+        if not isinstance(itype, BooleanType):
+            raise SyntaxError("Cannot negate " + itype.getName())
         return BooleanType.instance
 
     def interpret(self, context):

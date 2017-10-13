@@ -9,7 +9,7 @@ class ExpressionValue(BaseValue, IExpression):
         self.value = value
 
     def check(self, context):
-        return self.type
+        return self.itype
 
     def interpret(self, context):
         if isinstance(self.value, IExpression):
