@@ -61,7 +61,7 @@ class CharacterType(NativeType):
             return value  # TODO for now
 
     def nativeCast(self, context, value):
-        if isinstance(value.type, TextType) and len(value.value)>=1:
+        if isinstance(value.itype, TextType) and len(value.value)>=1:
             return Character(value.value[0:1])
         else:
             raise InvalidValueError("Cannot convert " + str(value) + " to Character")
