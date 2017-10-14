@@ -107,12 +107,12 @@ class BaseParserTest(unittest.TestCase):
         read = Out.read()
         expected = self.readExpected(resource)
         if len(expected) == 1:
-            self.assertEquals(expected[0], read)
+            self.assertEqual(expected[0], read)
         else:
             for ex in expected:
                 if ex == read:
                     return
-            self.assertEquals(expected[0], read)  # to get a display
+            self.assertEqual(expected[0], read)  # to get a display
 
     def readExpected(self, resourceName):
         idx = resourceName.index('.')

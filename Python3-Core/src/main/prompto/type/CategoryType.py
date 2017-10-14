@@ -1,6 +1,8 @@
+from prompto.declaration.IEnumeratedDeclaration import IEnumeratedDeclaration
 from prompto.error.PromptoError import PromptoError
 from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.MethodSelector import MethodSelector
+from prompto.expression.Symbol import Symbol
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.ArgumentAssignment import ArgumentAssignment
 from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
@@ -134,11 +136,11 @@ class CategoryType(BaseType):
         self.getDeclaration(context)
 
     def checkMember(self, context, name):
-        from prompto.declaration.EnumeratedNativeDeclaration import EnumeratedNativeDeclaration
-        from prompto.declaration.CategoryDeclaration import CategoryDeclaration
         dd = context.getRegisteredDeclaration(IDeclaration, self.typeName)
         if dd is None:
             raise SyntaxError("Unknown category:" + self.typeName)
+        from prompto.declaration.CategoryDeclaration import CategoryDeclaration
+        from prompto.declaration.EnumeratedNativeDeclaration import EnumeratedNativeDeclaration
         if isinstance(dd, EnumeratedNativeDeclaration):
             return dd.type.checkMember(context, name)
         elif isinstance(dd, CategoryDeclaration):
@@ -317,12 +319,18 @@ class CategoryType(BaseType):
         decl = self.getDeclaration(context)
         if decl is None:
             return super(CategoryType, self).convertPythonValueToPromptoValue(context, value, returnType)
+        if isinstance(decl, IEnumeratedDeclaration):
+            return self.loadEnumValue(context, decl, value)
         if DataStore.instance.isDbIdType(type(value)):
             value = DataStore.instance.fetchUnique(value)
         if isinstance(value, IStored):
             return decl.newInstanceFromStored(context, value)
         else:
             return super(CategoryType, self).convertPythonValueToPromptoValue(context, value, returnType)
+
+
+    def loadEnumValue(self, context, decl, name):
+        return context.getRegisteredValue( Symbol, name)
 
 
     def getMemberMethods(self, context, name):

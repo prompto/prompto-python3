@@ -7,6 +7,7 @@ class Symbol ( Section , INamedValue):
     def __init__(self, symbol):
         super(Symbol, self).__init__()
         self.symbol = symbol
+        self.mutable = False
 
     def getSymbol(self):
         return self.symbol
@@ -16,3 +17,9 @@ class Symbol ( Section , INamedValue):
 
     def register(self, context):
         context.registerValue(self)
+
+    def getStorableData(self):
+        return self.symbol
+
+    def collectStorables(self, storables):
+        pass

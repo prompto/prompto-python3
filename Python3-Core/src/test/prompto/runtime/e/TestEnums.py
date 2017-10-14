@@ -16,6 +16,15 @@ class TestEnums(BaseEParserTest):
     def testIntegerEnum(self):
         self.checkOutput("enums/integerEnum.pec")
 
+    def testStoreCategoryEnum(self):
+        self.checkOutput("enums/storeCategoryEnum.pec")
+
+    def testStoreIntegerEnum(self):
+        self.checkOutput("enums/storeIntegerEnum.pec")
+
+    def testStoreTextEnum(self):
+        self.checkOutput("enums/storeTextEnum.pec")
+
     def testTextEnum(self):
         self.checkOutput("enums/textEnum.pec")
 

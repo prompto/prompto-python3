@@ -1,6 +1,7 @@
 import threading
 from io import StringIO
 
+from prompto.declaration.IEnumeratedDeclaration import IEnumeratedDeclaration
 from prompto.error.NotStorableError import NotStorableError
 from prompto.grammar.Operator import Operator
 from prompto.store.DataStore import DataStore
@@ -61,15 +62,20 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
 
 
     def getStorableData(self):
-        # this is called when storing the instance as a field value, so we just return the dbId
-        # the instance data itself will be collected as part of collectStorables
-        if self.storable is None:
+        # this is called when storing the instance as a field value
+        # if this is an enum then we simply store the symbol name
+        if isinstance(self.declaration, IEnumeratedDeclaration):
+            return self.values.get("name", NullValue.instance).getStorableData()
+        # otherwise we just return the dbId, the instance data itself will be collected as part of collectStorables
+        elif self.storable is None:
             raise NotStorableError()
         else:
             return self.getOrCreateDbId()
 
 
     def collectStorables(self, list):
+        if isinstance(self.declaration, IEnumeratedDeclaration):
+            return
         if self.storable is None:
             raise NotStorableError()
         if self.storable.dirty:
@@ -172,7 +178,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
 
     def __hash__(self):
         return hash((self.declaration.name,frozenset(self.values.items())))
-    
+
     def Multiply(self, context, value):
         try:
             return self.interpretOperator(context, value, Operator.MULTIPLY)

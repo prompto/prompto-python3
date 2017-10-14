@@ -11,6 +11,15 @@ class TestEnums(BaseEParserTest):
     def testIntegerEnum(self):
         self.compareResourceEOE("enums/integerEnum.pec")
 
+    def testStoreCategoryEnum(self):
+        self.compareResourceEOE("enums/storeCategoryEnum.pec")
+
+    def testStoreIntegerEnum(self):
+        self.compareResourceEOE("enums/storeIntegerEnum.pec")
+
+    def testStoreTextEnum(self):
+        self.compareResourceEOE("enums/storeTextEnum.pec")
+
     def testTextEnum(self):
         self.compareResourceEOE("enums/textEnum.pec")
 

@@ -1,6 +1,6 @@
 from prompto.expression.IExpression import IExpression
 from prompto.expression.Symbol import Symbol
-
+from prompto.error.SyntaxError import SyntaxError
 
 class SymbolExpression ( IExpression ):
 
