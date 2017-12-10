@@ -1,32 +1,29 @@
-# Generated from java-escape by ANTLR 4.5
+# Generated from ArgsParser.g4 by ANTLR 4.7.1
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
-package = globals().get("__package__", None)
-ischild = len(package)>0 if package is not None else False
-if ischild:
-    from .ArgsParserListener import ArgsParserListener
-else:
-    from ArgsParserListener import ArgsParserListener
+from typing.io import TextIO
+import sys
+
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\7")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\7")
         buf.write("\36\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\3\2\7\2\f\n\2\f\2")
         buf.write("\16\2\17\13\2\3\3\5\3\22\n\3\3\3\3\3\3\3\3\3\3\4\3\4\3")
-        buf.write("\5\3\5\5\5\34\n\5\3\5\2\2\6\2\4\6\b\2\2\34\2\r\3\2\2\2")
-        buf.write("\4\21\3\2\2\2\6\27\3\2\2\2\b\33\3\2\2\2\n\f\5\4\3\2\13")
-        buf.write("\n\3\2\2\2\f\17\3\2\2\2\r\13\3\2\2\2\r\16\3\2\2\2\16\3")
-        buf.write("\3\2\2\2\17\r\3\2\2\2\20\22\7\5\2\2\21\20\3\2\2\2\21\22")
-        buf.write("\3\2\2\2\22\23\3\2\2\2\23\24\5\6\4\2\24\25\7\4\2\2\25")
-        buf.write("\26\5\b\5\2\26\5\3\2\2\2\27\30\7\7\2\2\30\7\3\2\2\2\31")
-        buf.write("\34\7\7\2\2\32\34\7\3\2\2\33\31\3\2\2\2\33\32\3\2\2\2")
-        buf.write("\34\t\3\2\2\2\5\r\21\33")
+        buf.write("\5\3\5\5\5\34\n\5\3\5\2\2\6\2\4\6\b\2\2\2\34\2\r\3\2\2")
+        buf.write("\2\4\21\3\2\2\2\6\27\3\2\2\2\b\33\3\2\2\2\n\f\5\4\3\2")
+        buf.write("\13\n\3\2\2\2\f\17\3\2\2\2\r\13\3\2\2\2\r\16\3\2\2\2\16")
+        buf.write("\3\3\2\2\2\17\r\3\2\2\2\20\22\7\5\2\2\21\20\3\2\2\2\21")
+        buf.write("\22\3\2\2\2\22\23\3\2\2\2\23\24\5\6\4\2\24\25\7\4\2\2")
+        buf.write("\25\26\5\b\5\2\26\5\3\2\2\2\27\30\7\7\2\2\30\7\3\2\2\2")
+        buf.write("\31\34\7\7\2\2\32\34\7\3\2\2\33\31\3\2\2\2\33\32\3\2\2")
+        buf.write("\2\34\t\3\2\2\2\5\r\21\33")
         return buf.getvalue()
 
 
 class ArgsParser ( Parser ):
 
-    grammarFileName = "java-escape"
+    grammarFileName = "ArgsParser.g4"
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
@@ -34,10 +31,9 @@ class ArgsParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ u"<INVALID>", u"<INVALID>", u"'='", u"'-'", u"' '" ]
+    literalNames = [ "<INVALID>", "<INVALID>", "'='", "'-'", "' '" ]
 
-    symbolicNames = [ u"<INVALID>", u"STRING", u"EQUALS", u"DASH", u"WS", 
-                      u"ELEMENT" ]
+    symbolicNames = [ "<INVALID>", "STRING", "EQUALS", "DASH", "WS", "ELEMENT" ]
 
     RULE_parse = 0
     RULE_entry = 1
@@ -53,9 +49,9 @@ class ArgsParser ( Parser ):
     WS=4
     ELEMENT=5
 
-    def __init__(self, input:TokenStream):
-        super().__init__(input)
-        self.checkVersion("4.5")
+    def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
+        super().__init__(input, output)
+        self.checkVersion("4.7.1")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
 
@@ -79,11 +75,11 @@ class ArgsParser ( Parser ):
             return ArgsParser.RULE_parse
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, ArgsParserListener ):
+            if hasattr( listener, "enterParse" ):
                 listener.enterParse(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, ArgsParserListener ):
+            if hasattr( listener, "exitParse" ):
                 listener.exitParse(self)
 
 
@@ -140,11 +136,11 @@ class ArgsParser ( Parser ):
             return ArgsParser.RULE_entry
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, ArgsParserListener ):
+            if hasattr( listener, "enterEntry" ):
                 listener.enterEntry(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, ArgsParserListener ):
+            if hasattr( listener, "exitEntry" ):
                 listener.exitEntry(self)
 
 
@@ -158,6 +154,7 @@ class ArgsParser ( Parser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 15
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==ArgsParser.DASH:
                 self.state = 14
@@ -191,11 +188,11 @@ class ArgsParser ( Parser ):
             return ArgsParser.RULE_key
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, ArgsParserListener ):
+            if hasattr( listener, "enterKey" ):
                 listener.enterKey(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, ArgsParserListener ):
+            if hasattr( listener, "exitKey" ):
                 listener.exitKey(self)
 
 
@@ -235,7 +232,7 @@ class ArgsParser ( Parser ):
 
     class ELEMENTContext(ValueContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a ArgsParser.ValueContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a ArgsParser.ValueContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -243,17 +240,17 @@ class ArgsParser ( Parser ):
             return self.getToken(ArgsParser.ELEMENT, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, ArgsParserListener ):
+            if hasattr( listener, "enterELEMENT" ):
                 listener.enterELEMENT(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, ArgsParserListener ):
+            if hasattr( listener, "exitELEMENT" ):
                 listener.exitELEMENT(self)
 
 
     class STRINGContext(ValueContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a ArgsParser.ValueContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a ArgsParser.ValueContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -261,11 +258,11 @@ class ArgsParser ( Parser ):
             return self.getToken(ArgsParser.STRING, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, ArgsParserListener ):
+            if hasattr( listener, "enterSTRING" ):
                 listener.enterSTRING(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, ArgsParserListener ):
+            if hasattr( listener, "exitSTRING" ):
                 listener.exitSTRING(self)
 
 
@@ -276,19 +273,20 @@ class ArgsParser ( Parser ):
         self.enterRule(localctx, 6, self.RULE_value)
         try:
             self.state = 25
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [ArgsParser.ELEMENT]:
                 localctx = ArgsParser.ELEMENTContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 23
                 self.match(ArgsParser.ELEMENT)
-
+                pass
             elif token in [ArgsParser.STRING]:
                 localctx = ArgsParser.STRINGContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 24
                 self.match(ArgsParser.STRING)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -299,6 +297,7 @@ class ArgsParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
 
 
