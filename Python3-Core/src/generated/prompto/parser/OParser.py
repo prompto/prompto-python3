@@ -1,18 +1,15 @@
-# Generated from java-escape by ANTLR 4.5
+# Generated from OParser.g4 by ANTLR 4.7.1
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
-package = globals().get("__package__", None)
-ischild = len(package)>0 if package is not None else False
-if ischild:
-    from .OParserListener import OParserListener
-else:
-    from OParserListener import OParserListener
+from typing.io import TextIO
+import sys
+
 from .AbstractParser import AbstractParser
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\u00ad")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\u00ad")
         buf.write("\u08d9\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
         buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
@@ -274,12 +271,12 @@ def serializedATN():
         buf.write("\u0083\u0089\u0089\u0090\u0091\u009a\u009a\u009f\u00a1")
         buf.write("\7\2\609\u0083\u0083\u0090\u0090\u009a\u009a\u009f\u00a3")
         buf.write("\7\2\609\u0083\u0083\u0090\u0090\u009a\u009a\u009f\u00a1")
-        buf.write("\u0960\2\u01a0\3\2\2\2\4\u01b1\3\2\2\2\6\u01ba\3\2\2\2")
-        buf.write("\b\u01c0\3\2\2\2\n\u01c6\3\2\2\2\f\u01dc\3\2\2\2\16\u01ec")
-        buf.write("\3\2\2\2\20\u01f6\3\2\2\2\22\u0207\3\2\2\2\24\u020a\3")
-        buf.write("\2\2\2\26\u0217\3\2\2\2\30\u0220\3\2\2\2\32\u022a\3\2")
-        buf.write("\2\2\34\u0233\3\2\2\2\36\u023d\3\2\2\2 \u024e\3\2\2\2")
-        buf.write("\"\u0260\3\2\2\2$\u0266\3\2\2\2&\u0273\3\2\2\2(\u0281")
+        buf.write("\2\u0960\2\u01a0\3\2\2\2\4\u01b1\3\2\2\2\6\u01ba\3\2\2")
+        buf.write("\2\b\u01c0\3\2\2\2\n\u01c6\3\2\2\2\f\u01dc\3\2\2\2\16")
+        buf.write("\u01ec\3\2\2\2\20\u01f6\3\2\2\2\22\u0207\3\2\2\2\24\u020a")
+        buf.write("\3\2\2\2\26\u0217\3\2\2\2\30\u0220\3\2\2\2\32\u022a\3")
+        buf.write("\2\2\2\34\u0233\3\2\2\2\36\u023d\3\2\2\2 \u024e\3\2\2")
+        buf.write("\2\"\u0260\3\2\2\2$\u0266\3\2\2\2&\u0273\3\2\2\2(\u0281")
         buf.write("\3\2\2\2*\u0291\3\2\2\2,\u02a1\3\2\2\2.\u02b3\3\2\2\2")
         buf.write("\60\u02b6\3\2\2\2\62\u02c9\3\2\2\2\64\u02e0\3\2\2\2\66")
         buf.write("\u02e2\3\2\2\28\u02fe\3\2\2\2:\u0300\3\2\2\2<\u0306\3")
@@ -584,16 +581,16 @@ def serializedATN():
         buf.write("Z\2\u03c7\u03c8\7\24\2\2\u03c8\u03c9\5^\60\2\u03c9\u03ca")
         buf.write("\7\25\2\2\u03ca\u03cc\3\2\2\2\u03cb\u03c5\3\2\2\2\u03cb")
         buf.write("\u03c7\3\2\2\2\u03cc]\3\2\2\2\u03cd\u03ce\b\60\1\2\u03ce")
-        buf.write("\u03cf\7\37\2\2\u03cf\u03e5\5^\60$\u03d0\u03d1\7\31\2")
-        buf.write("\2\u03d1\u03e5\5^\60#\u03d2\u03d3\7\22\2\2\u03d3\u03d4")
-        buf.write("\5\u00c4c\2\u03d4\u03d5\7\23\2\2\u03d5\u03d6\5^\60\17")
-        buf.write("\u03d6\u03e5\3\2\2\2\u03d7\u03e5\5d\63\2\u03d8\u03e5\5")
-        buf.write("f\64\2\u03d9\u03da\7;\2\2\u03da\u03db\7\22\2\2\u03db\u03dc")
+        buf.write("\u03e5\5d\63\2\u03cf\u03e5\5f\64\2\u03d0\u03d1\7\37\2")
+        buf.write("\2\u03d1\u03e5\5^\60$\u03d2\u03d3\7\31\2\2\u03d3\u03e5")
+        buf.write("\5^\60#\u03d4\u03d5\7\22\2\2\u03d5\u03d6\5\u00c4c\2\u03d6")
+        buf.write("\u03d7\7\23\2\2\u03d7\u03d8\5^\60\17\u03d8\u03e5\3\2\2")
+        buf.write("\2\u03d9\u03da\7;\2\2\u03da\u03db\7\22\2\2\u03db\u03dc")
         buf.write("\5^\60\2\u03dc\u03dd\7\23\2\2\u03dd\u03e5\3\2\2\2\u03de")
         buf.write("\u03df\7a\2\2\u03df\u03e0\7\22\2\2\u03e0\u03e1\5\u00b2")
         buf.write("Z\2\u03e1\u03e2\7\23\2\2\u03e2\u03e5\3\2\2\2\u03e3\u03e5")
-        buf.write("\5b\62\2\u03e4\u03cd\3\2\2\2\u03e4\u03d0\3\2\2\2\u03e4")
-        buf.write("\u03d2\3\2\2\2\u03e4\u03d7\3\2\2\2\u03e4\u03d8\3\2\2\2")
+        buf.write("\5b\62\2\u03e4\u03cd\3\2\2\2\u03e4\u03cf\3\2\2\2\u03e4")
+        buf.write("\u03d0\3\2\2\2\u03e4\u03d2\3\2\2\2\u03e4\u03d4\3\2\2\2")
         buf.write("\u03e4\u03d9\3\2\2\2\u03e4\u03de\3\2\2\2\u03e4\u03e3\3")
         buf.write("\2\2\2\u03e5\u0453\3\2\2\2\u03e6\u03e7\f\"\2\2\u03e7\u03e8")
         buf.write("\5\u012a\u0096\2\u03e8\u03e9\5^\60#\u03e9\u0452\3\2\2")
@@ -1210,7 +1207,7 @@ def serializedATN():
 
 class OParser ( AbstractParser ):
 
-    grammarFileName = "java-escape"
+    grammarFileName = "OParser.g4"
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
@@ -1218,75 +1215,71 @@ class OParser ( AbstractParser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ u"<INVALID>", u"' '", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                     u"'Java:'", u"'C#:'", u"'Python2:'", u"'Python3:'", 
-                     u"'JavaScript:'", u"'Swift:'", u"':'", u"';'", u"<INVALID>", 
-                     u"'..'", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                     u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                     u"<INVALID>", u"'!'", u"'&'", u"'&&'", u"'|'", u"'||'", 
-                     u"<INVALID>", u"'-'", u"'*'", u"'/'", u"'\\'", u"'%'", 
-                     u"'>'", u"'>='", u"'<'", u"'<='", u"'<>'", u"'='", 
-                     u"'!='", u"'=='", u"'~='", u"'~'", u"'<-'", u"'->'", 
-                     u"'Boolean'", u"'Character'", u"'Text'", u"'Integer'", 
-                     u"'Decimal'", u"'Date'", u"'Time'", u"'DateTime'", 
-                     u"'Period'", u"'Version'", u"'Method'", u"'Code'", 
-                     u"'Document'", u"'Blob'", u"'Image'", u"'UUID'", u"'Iterator'", 
-                     u"'Cursor'", u"'abstract'", u"'all'", u"'always'", 
-                     u"'and'", u"'any'", u"'as'", u"<INVALID>", u"'attr'", 
-                     u"'attribute'", u"'attributes'", u"'bindings'", u"'break'", 
-                     u"'by'", u"'case'", u"'catch'", u"'category'", u"'class'", 
-                     u"'close'", u"'contains'", u"'def'", u"'default'", 
-                     u"'define'", u"'delete'", u"<INVALID>", u"'do'", u"'doing'", 
-                     u"'each'", u"'else'", u"'enum'", u"'enumerated'", u"'except'", 
-                     u"'execute'", u"'expecting'", u"'extends'", u"'fetch'", 
-                     u"'filtered'", u"'finally'", u"'flush'", u"'for'", 
-                     u"'from'", u"'getter'", u"'if'", u"'in'", u"'index'", 
-                     u"'invoke'", u"'is'", u"'matching'", u"'method'", u"'methods'", 
-                     u"'modulo'", u"'mutable'", u"'native'", u"'None'", 
-                     u"'not'", u"<INVALID>", u"'null'", u"'on'", u"'one'", 
-                     u"'open'", u"'operator'", u"'or'", u"'order'", u"'otherwise'", 
-                     u"'pass'", u"'raise'", u"'read'", u"'receiving'", u"'resource'", 
-                     u"'return'", u"'returning'", u"'rows'", u"'self'", 
-                     u"'setter'", u"'singleton'", u"'sorted'", u"'storable'", 
-                     u"'store'", u"'switch'", u"'test'", u"'this'", u"'throw'", 
-                     u"'to'", u"'try'", u"'verifying'", u"'with'", u"'when'", 
-                     u"'where'", u"'while'", u"'write'", u"<INVALID>", u"<INVALID>", 
-                     u"'MIN_INTEGER'", u"'MAX_INTEGER'" ]
+    literalNames = [ "<INVALID>", "' '", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "'Java:'", "'C#:'", "'Python2:'", "'Python3:'", "'JavaScript:'", 
+                     "'Swift:'", "':'", "';'", "<INVALID>", "'..'", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "'!'", "'&'", 
+                     "'&&'", "'|'", "'||'", "<INVALID>", "'-'", "'*'", "'/'", 
+                     "'\\'", "'%'", "'>'", "'>='", "'<'", "'<='", "'<>'", 
+                     "'='", "'!='", "'=='", "'~='", "'~'", "'<-'", "'->'", 
+                     "'Boolean'", "'Character'", "'Text'", "'Integer'", 
+                     "'Decimal'", "'Date'", "'Time'", "'DateTime'", "'Period'", 
+                     "'Version'", "'Method'", "'Code'", "'Document'", "'Blob'", 
+                     "'Image'", "'UUID'", "'Iterator'", "'Cursor'", "'abstract'", 
+                     "'all'", "'always'", "'and'", "'any'", "'as'", "<INVALID>", 
+                     "'attr'", "'attribute'", "'attributes'", "'bindings'", 
+                     "'break'", "'by'", "'case'", "'catch'", "'category'", 
+                     "'class'", "'close'", "'contains'", "'def'", "'default'", 
+                     "'define'", "'delete'", "<INVALID>", "'do'", "'doing'", 
+                     "'each'", "'else'", "'enum'", "'enumerated'", "'except'", 
+                     "'execute'", "'expecting'", "'extends'", "'fetch'", 
+                     "'filtered'", "'finally'", "'flush'", "'for'", "'from'", 
+                     "'getter'", "'if'", "'in'", "'index'", "'invoke'", 
+                     "'is'", "'matching'", "'method'", "'methods'", "'modulo'", 
+                     "'mutable'", "'native'", "'None'", "'not'", "<INVALID>", 
+                     "'null'", "'on'", "'one'", "'open'", "'operator'", 
+                     "'or'", "'order'", "'otherwise'", "'pass'", "'raise'", 
+                     "'read'", "'receiving'", "'resource'", "'return'", 
+                     "'returning'", "'rows'", "'self'", "'setter'", "'singleton'", 
+                     "'sorted'", "'storable'", "'store'", "'switch'", "'test'", 
+                     "'this'", "'throw'", "'to'", "'try'", "'verifying'", 
+                     "'with'", "'when'", "'where'", "'while'", "'write'", 
+                     "<INVALID>", "<INVALID>", "'MIN_INTEGER'", "'MAX_INTEGER'" ]
 
-    symbolicNames = [ u"<INVALID>", u"SPACE", u"WS", u"LF", u"COMMENT", 
-                      u"JAVA", u"CSHARP", u"PYTHON2", u"PYTHON3", u"JAVASCRIPT", 
-                      u"SWIFT", u"COLON", u"SEMI", u"COMMA", u"RANGE", u"DOT", 
-                      u"LPAR", u"RPAR", u"LBRAK", u"RBRAK", u"LCURL", u"RCURL", 
-                      u"QMARK", u"XMARK", u"AMP", u"AMP2", u"PIPE", u"PIPE2", 
-                      u"PLUS", u"MINUS", u"STAR", u"SLASH", u"BSLASH", u"PERCENT", 
-                      u"GT", u"GTE", u"LT", u"LTE", u"LTGT", u"EQ", u"XEQ", 
-                      u"EQ2", u"TEQ", u"TILDE", u"LARROW", u"RARROW", u"BOOLEAN", 
-                      u"CHARACTER", u"TEXT", u"INTEGER", u"DECIMAL", u"DATE", 
-                      u"TIME", u"DATETIME", u"PERIOD", u"VERSION", u"METHOD_T", 
-                      u"CODE", u"DOCUMENT", u"BLOB", u"IMAGE", u"UUID", 
-                      u"ITERATOR", u"CURSOR", u"ABSTRACT", u"ALL", u"ALWAYS", 
-                      u"AND", u"ANY", u"AS", u"ASC", u"ATTR", u"ATTRIBUTE", 
-                      u"ATTRIBUTES", u"BINDINGS", u"BREAK", u"BY", u"CASE", 
-                      u"CATCH", u"CATEGORY", u"CLASS", u"CLOSE", u"CONTAINS", 
-                      u"DEF", u"DEFAULT", u"DEFINE", u"DELETE", u"DESC", 
-                      u"DO", u"DOING", u"EACH", u"ELSE", u"ENUM", u"ENUMERATED", 
-                      u"EXCEPT", u"EXECUTE", u"EXPECTING", u"EXTENDS", u"FETCH", 
-                      u"FILTERED", u"FINALLY", u"FLUSH", u"FOR", u"FROM", 
-                      u"GETTER", u"IF", u"IN", u"INDEX", u"INVOKE", u"IS", 
-                      u"MATCHING", u"METHOD", u"METHODS", u"MODULO", u"MUTABLE", 
-                      u"NATIVE", u"NONE", u"NOT", u"NOTHING", u"NULL", u"ON", 
-                      u"ONE", u"OPEN", u"OPERATOR", u"OR", u"ORDER", u"OTHERWISE", 
-                      u"PASS", u"RAISE", u"READ", u"RECEIVING", u"RESOURCE", 
-                      u"RETURN", u"RETURNING", u"ROWS", u"SELF", u"SETTER", 
-                      u"SINGLETON", u"SORTED", u"STORABLE", u"STORE", u"SWITCH", 
-                      u"TEST", u"THIS", u"THROW", u"TO", u"TRY", u"VERIFYING", 
-                      u"WITH", u"WHEN", u"WHERE", u"WHILE", u"WRITE", u"BOOLEAN_LITERAL", 
-                      u"CHAR_LITERAL", u"MIN_INTEGER", u"MAX_INTEGER", u"SYMBOL_IDENTIFIER", 
-                      u"TYPE_IDENTIFIER", u"VARIABLE_IDENTIFIER", u"NATIVE_IDENTIFIER", 
-                      u"DOLLAR_IDENTIFIER", u"TEXT_LITERAL", u"UUID_LITERAL", 
-                      u"INTEGER_LITERAL", u"HEXA_LITERAL", u"DECIMAL_LITERAL", 
-                      u"DATETIME_LITERAL", u"TIME_LITERAL", u"DATE_LITERAL", 
-                      u"PERIOD_LITERAL", u"VERSION_LITERAL" ]
+    symbolicNames = [ "<INVALID>", "SPACE", "WS", "LF", "COMMENT", "JAVA", 
+                      "CSHARP", "PYTHON2", "PYTHON3", "JAVASCRIPT", "SWIFT", 
+                      "COLON", "SEMI", "COMMA", "RANGE", "DOT", "LPAR", 
+                      "RPAR", "LBRAK", "RBRAK", "LCURL", "RCURL", "QMARK", 
+                      "XMARK", "AMP", "AMP2", "PIPE", "PIPE2", "PLUS", "MINUS", 
+                      "STAR", "SLASH", "BSLASH", "PERCENT", "GT", "GTE", 
+                      "LT", "LTE", "LTGT", "EQ", "XEQ", "EQ2", "TEQ", "TILDE", 
+                      "LARROW", "RARROW", "BOOLEAN", "CHARACTER", "TEXT", 
+                      "INTEGER", "DECIMAL", "DATE", "TIME", "DATETIME", 
+                      "PERIOD", "VERSION", "METHOD_T", "CODE", "DOCUMENT", 
+                      "BLOB", "IMAGE", "UUID", "ITERATOR", "CURSOR", "ABSTRACT", 
+                      "ALL", "ALWAYS", "AND", "ANY", "AS", "ASC", "ATTR", 
+                      "ATTRIBUTE", "ATTRIBUTES", "BINDINGS", "BREAK", "BY", 
+                      "CASE", "CATCH", "CATEGORY", "CLASS", "CLOSE", "CONTAINS", 
+                      "DEF", "DEFAULT", "DEFINE", "DELETE", "DESC", "DO", 
+                      "DOING", "EACH", "ELSE", "ENUM", "ENUMERATED", "EXCEPT", 
+                      "EXECUTE", "EXPECTING", "EXTENDS", "FETCH", "FILTERED", 
+                      "FINALLY", "FLUSH", "FOR", "FROM", "GETTER", "IF", 
+                      "IN", "INDEX", "INVOKE", "IS", "MATCHING", "METHOD", 
+                      "METHODS", "MODULO", "MUTABLE", "NATIVE", "NONE", 
+                      "NOT", "NOTHING", "NULL", "ON", "ONE", "OPEN", "OPERATOR", 
+                      "OR", "ORDER", "OTHERWISE", "PASS", "RAISE", "READ", 
+                      "RECEIVING", "RESOURCE", "RETURN", "RETURNING", "ROWS", 
+                      "SELF", "SETTER", "SINGLETON", "SORTED", "STORABLE", 
+                      "STORE", "SWITCH", "TEST", "THIS", "THROW", "TO", 
+                      "TRY", "VERIFYING", "WITH", "WHEN", "WHERE", "WHILE", 
+                      "WRITE", "BOOLEAN_LITERAL", "CHAR_LITERAL", "MIN_INTEGER", 
+                      "MAX_INTEGER", "SYMBOL_IDENTIFIER", "TYPE_IDENTIFIER", 
+                      "VARIABLE_IDENTIFIER", "NATIVE_IDENTIFIER", "DOLLAR_IDENTIFIER", 
+                      "TEXT_LITERAL", "UUID_LITERAL", "INTEGER_LITERAL", 
+                      "HEXA_LITERAL", "DECIMAL_LITERAL", "DATETIME_LITERAL", 
+                      "TIME_LITERAL", "DATE_LITERAL", "PERIOD_LITERAL", 
+                      "VERSION_LITERAL" ]
 
     RULE_enum_category_declaration = 0
     RULE_enum_native_declaration = 1
@@ -1744,9 +1737,9 @@ class OParser ( AbstractParser ):
     PERIOD_LITERAL=170
     VERSION_LITERAL=171
 
-    def __init__(self, input:TokenStream):
-        super().__init__(input)
-        self.checkVersion("4.5")
+    def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
+        super().__init__(input, output)
+        self.checkVersion("4.7.1")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
 
@@ -1802,11 +1795,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_enum_category_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterEnum_category_declaration" ):
                 listener.enterEnum_category_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitEnum_category_declaration" ):
                 listener.exitEnum_category_declaration(self)
 
 
@@ -1826,6 +1819,7 @@ class OParser ( AbstractParser ):
             self.state = 416
             localctx.name = self.type_identifier()
             self.state = 421
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.LPAR:
                 self.state = 417
@@ -1837,6 +1831,7 @@ class OParser ( AbstractParser ):
 
 
             self.state = 425
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.EXTENDS:
                 self.state = 423
@@ -1899,11 +1894,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_enum_native_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterEnum_native_declaration" ):
                 listener.enterEnum_native_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitEnum_native_declaration" ):
                 listener.exitEnum_native_declaration(self)
 
 
@@ -1968,11 +1963,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_category_symbol
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCategory_symbol" ):
                 listener.enterCategory_symbol(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCategory_symbol" ):
                 listener.exitCategory_symbol(self)
 
 
@@ -2028,11 +2023,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_native_symbol
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNative_symbol" ):
                 listener.enterNative_symbol(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNative_symbol" ):
                 listener.exitNative_symbol(self)
 
 
@@ -2114,11 +2109,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_attribute_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAttribute_declaration" ):
                 listener.enterAttribute_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAttribute_declaration" ):
                 listener.exitAttribute_declaration(self)
 
 
@@ -2132,6 +2127,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 452
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.STORABLE:
                 self.state = 451
@@ -2147,6 +2143,7 @@ class OParser ( AbstractParser ):
             self.state = 457
             localctx.typ = self.typedef(0)
             self.state = 459
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.IN or _la==OParser.MATCHING:
                 self.state = 458
@@ -2154,6 +2151,7 @@ class OParser ( AbstractParser ):
 
 
             self.state = 469
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.WITH:
                 self.state = 461
@@ -2161,6 +2159,7 @@ class OParser ( AbstractParser ):
                 self.state = 462
                 self.match(OParser.INDEX)
                 self.state = 467
+                self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if _la==OParser.LPAR:
                     self.state = 463
@@ -2228,11 +2227,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_concrete_category_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterConcrete_category_declaration" ):
                 listener.enterConcrete_category_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitConcrete_category_declaration" ):
                 listener.exitConcrete_category_declaration(self)
 
 
@@ -2246,6 +2245,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 474
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.STORABLE:
                 self.state = 473
@@ -2257,6 +2257,7 @@ class OParser ( AbstractParser ):
             self.state = 477
             localctx.name = self.type_identifier()
             self.state = 482
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.LPAR:
                 self.state = 478
@@ -2268,6 +2269,7 @@ class OParser ( AbstractParser ):
 
 
             self.state = 486
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.EXTENDS:
                 self.state = 484
@@ -2320,11 +2322,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_singleton_category_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSingleton_category_declaration" ):
                 listener.enterSingleton_category_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSingleton_category_declaration" ):
                 listener.exitSingleton_category_declaration(self)
 
 
@@ -2342,6 +2344,7 @@ class OParser ( AbstractParser ):
             self.state = 491
             localctx.name = self.type_identifier()
             self.state = 496
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.LPAR:
                 self.state = 492
@@ -2379,7 +2382,7 @@ class OParser ( AbstractParser ):
 
     class DerivedListItemContext(Derived_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Derived_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Derived_listContext
             super().__init__(parser)
             self.items = None # Derived_listContext
             self.item = None # Type_identifierContext
@@ -2395,17 +2398,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDerivedListItem" ):
                 listener.enterDerivedListItem(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDerivedListItem" ):
                 listener.exitDerivedListItem(self)
 
 
     class DerivedListContext(Derived_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Derived_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Derived_listContext
             super().__init__(parser)
             self.item = None # Type_identifierContext
             self.copyFrom(ctx)
@@ -2415,11 +2418,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDerivedList" ):
                 listener.enterDerivedList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDerivedList" ):
                 listener.exitDerivedList(self)
 
 
@@ -2489,7 +2492,7 @@ class OParser ( AbstractParser ):
 
     class EmptyCategoryMethodListContext(Category_method_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Category_method_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Category_method_listContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -2497,17 +2500,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.SEMI, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterEmptyCategoryMethodList" ):
                 listener.enterEmptyCategoryMethodList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitEmptyCategoryMethodList" ):
                 listener.exitEmptyCategoryMethodList(self)
 
 
     class CurlyCategoryMethodListContext(Category_method_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Category_method_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Category_method_listContext
             super().__init__(parser)
             self.items = None # Member_method_declaration_listContext
             self.copyFrom(ctx)
@@ -2521,11 +2524,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCurlyCategoryMethodList" ):
                 listener.enterCurlyCategoryMethodList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCurlyCategoryMethodList" ):
                 listener.exitCurlyCategoryMethodList(self)
 
 
@@ -2537,19 +2540,21 @@ class OParser ( AbstractParser ):
         self._la = 0 # Token type
         try:
             self.state = 517
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.SEMI]:
                 localctx = OParser.EmptyCategoryMethodListContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 511
                 self.match(OParser.SEMI)
-
+                pass
             elif token in [OParser.LCURL]:
                 localctx = OParser.CurlyCategoryMethodListContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 512
                 self.match(OParser.LCURL)
                 self.state = 514
+                self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if ((((_la - 46)) & ~0x3f) == 0 and ((1 << (_la - 46)) & ((1 << (OParser.BOOLEAN - 46)) | (1 << (OParser.CHARACTER - 46)) | (1 << (OParser.TEXT - 46)) | (1 << (OParser.INTEGER - 46)) | (1 << (OParser.DECIMAL - 46)) | (1 << (OParser.DATE - 46)) | (1 << (OParser.TIME - 46)) | (1 << (OParser.DATETIME - 46)) | (1 << (OParser.PERIOD - 46)) | (1 << (OParser.VERSION - 46)) | (1 << (OParser.CODE - 46)) | (1 << (OParser.DOCUMENT - 46)) | (1 << (OParser.BLOB - 46)) | (1 << (OParser.IMAGE - 46)) | (1 << (OParser.UUID - 46)) | (1 << (OParser.ITERATOR - 46)) | (1 << (OParser.CURSOR - 46)) | (1 << (OParser.ABSTRACT - 46)) | (1 << (OParser.GETTER - 46)))) != 0) or ((((_la - 111)) & ~0x3f) == 0 and ((1 << (_la - 111)) & ((1 << (OParser.METHOD - 111)) | (1 << (OParser.OPERATOR - 111)) | (1 << (OParser.SETTER - 111)) | (1 << (OParser.TYPE_IDENTIFIER - 111)))) != 0):
                     self.state = 513
@@ -2558,7 +2563,7 @@ class OParser ( AbstractParser ):
 
                 self.state = 516
                 self.match(OParser.RCURL)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -2615,11 +2620,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_operator_method_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterOperator_method_declaration" ):
                 listener.enterOperator_method_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitOperator_method_declaration" ):
                 listener.exitOperator_method_declaration(self)
 
 
@@ -2633,6 +2638,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 520
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or _la==OParser.TYPE_IDENTIFIER:
                 self.state = 519
@@ -2652,6 +2658,7 @@ class OParser ( AbstractParser ):
             self.state = 527
             self.match(OParser.LCURL)
             self.state = 529
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or ((((_la - 75)) & ~0x3f) == 0 and ((1 << (_la - 75)) & ((1 << (OParser.BREAK - 75)) | (1 << (OParser.DELETE - 75)) | (1 << (OParser.DO - 75)) | (1 << (OParser.FLUSH - 75)) | (1 << (OParser.FOR - 75)) | (1 << (OParser.IF - 75)) | (1 << (OParser.METHOD - 75)) | (1 << (OParser.RETURN - 75)))) != 0) or ((((_la - 140)) & ~0x3f) == 0 and ((1 << (_la - 140)) & ((1 << (OParser.STORE - 140)) | (1 << (OParser.SWITCH - 140)) | (1 << (OParser.THROW - 140)) | (1 << (OParser.TRY - 140)) | (1 << (OParser.WITH - 140)) | (1 << (OParser.WHILE - 140)) | (1 << (OParser.WRITE - 140)) | (1 << (OParser.SYMBOL_IDENTIFIER - 140)) | (1 << (OParser.TYPE_IDENTIFIER - 140)) | (1 << (OParser.VARIABLE_IDENTIFIER - 140)))) != 0):
                 self.state = 528
@@ -2697,11 +2704,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_setter_method_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSetter_method_declaration" ):
                 listener.enterSetter_method_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSetter_method_declaration" ):
                 listener.exitSetter_method_declaration(self)
 
 
@@ -2721,6 +2728,7 @@ class OParser ( AbstractParser ):
             self.state = 535
             self.match(OParser.LCURL)
             self.state = 537
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or ((((_la - 75)) & ~0x3f) == 0 and ((1 << (_la - 75)) & ((1 << (OParser.BREAK - 75)) | (1 << (OParser.DELETE - 75)) | (1 << (OParser.DO - 75)) | (1 << (OParser.FLUSH - 75)) | (1 << (OParser.FOR - 75)) | (1 << (OParser.IF - 75)) | (1 << (OParser.METHOD - 75)) | (1 << (OParser.RETURN - 75)))) != 0) or ((((_la - 140)) & ~0x3f) == 0 and ((1 << (_la - 140)) & ((1 << (OParser.STORE - 140)) | (1 << (OParser.SWITCH - 140)) | (1 << (OParser.THROW - 140)) | (1 << (OParser.TRY - 140)) | (1 << (OParser.WITH - 140)) | (1 << (OParser.WHILE - 140)) | (1 << (OParser.WRITE - 140)) | (1 << (OParser.SYMBOL_IDENTIFIER - 140)) | (1 << (OParser.TYPE_IDENTIFIER - 140)) | (1 << (OParser.VARIABLE_IDENTIFIER - 140)))) != 0):
                 self.state = 536
@@ -2769,11 +2777,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_native_setter_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNative_setter_declaration" ):
                 listener.enterNative_setter_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNative_setter_declaration" ):
                 listener.exitNative_setter_declaration(self)
 
 
@@ -2787,6 +2795,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 542
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.NATIVE:
                 self.state = 541
@@ -2800,6 +2809,7 @@ class OParser ( AbstractParser ):
             self.state = 546
             self.match(OParser.LCURL)
             self.state = 548
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.JAVA) | (1 << OParser.CSHARP) | (1 << OParser.PYTHON2) | (1 << OParser.PYTHON3) | (1 << OParser.JAVASCRIPT))) != 0):
                 self.state = 547
@@ -2845,11 +2855,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_getter_method_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterGetter_method_declaration" ):
                 listener.enterGetter_method_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitGetter_method_declaration" ):
                 listener.exitGetter_method_declaration(self)
 
 
@@ -2869,6 +2879,7 @@ class OParser ( AbstractParser ):
             self.state = 554
             self.match(OParser.LCURL)
             self.state = 556
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or ((((_la - 75)) & ~0x3f) == 0 and ((1 << (_la - 75)) & ((1 << (OParser.BREAK - 75)) | (1 << (OParser.DELETE - 75)) | (1 << (OParser.DO - 75)) | (1 << (OParser.FLUSH - 75)) | (1 << (OParser.FOR - 75)) | (1 << (OParser.IF - 75)) | (1 << (OParser.METHOD - 75)) | (1 << (OParser.RETURN - 75)))) != 0) or ((((_la - 140)) & ~0x3f) == 0 and ((1 << (_la - 140)) & ((1 << (OParser.STORE - 140)) | (1 << (OParser.SWITCH - 140)) | (1 << (OParser.THROW - 140)) | (1 << (OParser.TRY - 140)) | (1 << (OParser.WITH - 140)) | (1 << (OParser.WHILE - 140)) | (1 << (OParser.WRITE - 140)) | (1 << (OParser.SYMBOL_IDENTIFIER - 140)) | (1 << (OParser.TYPE_IDENTIFIER - 140)) | (1 << (OParser.VARIABLE_IDENTIFIER - 140)))) != 0):
                 self.state = 555
@@ -2917,11 +2928,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_native_getter_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNative_getter_declaration" ):
                 listener.enterNative_getter_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNative_getter_declaration" ):
                 listener.exitNative_getter_declaration(self)
 
 
@@ -2935,6 +2946,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 561
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.NATIVE:
                 self.state = 560
@@ -2948,6 +2960,7 @@ class OParser ( AbstractParser ):
             self.state = 565
             self.match(OParser.LCURL)
             self.state = 567
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.JAVA) | (1 << OParser.CSHARP) | (1 << OParser.PYTHON2) | (1 << OParser.PYTHON3) | (1 << OParser.JAVASCRIPT))) != 0):
                 self.state = 566
@@ -3012,11 +3025,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_native_resource_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNative_resource_declaration" ):
                 listener.enterNative_resource_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNative_resource_declaration" ):
                 listener.exitNative_resource_declaration(self)
 
 
@@ -3036,6 +3049,7 @@ class OParser ( AbstractParser ):
             self.state = 573
             localctx.name = self.type_identifier()
             self.state = 578
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.LPAR:
                 self.state = 574
@@ -3051,6 +3065,7 @@ class OParser ( AbstractParser ):
             self.state = 581
             localctx.bindings = self.native_category_bindings()
             self.state = 583
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if ((((_la - 46)) & ~0x3f) == 0 and ((1 << (_la - 46)) & ((1 << (OParser.BOOLEAN - 46)) | (1 << (OParser.CHARACTER - 46)) | (1 << (OParser.TEXT - 46)) | (1 << (OParser.INTEGER - 46)) | (1 << (OParser.DECIMAL - 46)) | (1 << (OParser.DATE - 46)) | (1 << (OParser.TIME - 46)) | (1 << (OParser.DATETIME - 46)) | (1 << (OParser.PERIOD - 46)) | (1 << (OParser.VERSION - 46)) | (1 << (OParser.CODE - 46)) | (1 << (OParser.DOCUMENT - 46)) | (1 << (OParser.BLOB - 46)) | (1 << (OParser.IMAGE - 46)) | (1 << (OParser.UUID - 46)) | (1 << (OParser.ITERATOR - 46)) | (1 << (OParser.CURSOR - 46)) | (1 << (OParser.ANY - 46)) | (1 << (OParser.GETTER - 46)))) != 0) or ((((_la - 111)) & ~0x3f) == 0 and ((1 << (_la - 111)) & ((1 << (OParser.METHOD - 111)) | (1 << (OParser.NATIVE - 111)) | (1 << (OParser.SETTER - 111)) | (1 << (OParser.TYPE_IDENTIFIER - 111)))) != 0):
                 self.state = 582
@@ -3118,11 +3133,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_native_category_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNative_category_declaration" ):
                 listener.enterNative_category_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNative_category_declaration" ):
                 listener.exitNative_category_declaration(self)
 
 
@@ -3136,6 +3151,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 588
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.STORABLE:
                 self.state = 587
@@ -3149,6 +3165,7 @@ class OParser ( AbstractParser ):
             self.state = 592
             localctx.name = self.type_identifier()
             self.state = 597
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.LPAR:
                 self.state = 593
@@ -3164,6 +3181,7 @@ class OParser ( AbstractParser ):
             self.state = 600
             localctx.bindings = self.native_category_bindings()
             self.state = 602
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if ((((_la - 46)) & ~0x3f) == 0 and ((1 << (_la - 46)) & ((1 << (OParser.BOOLEAN - 46)) | (1 << (OParser.CHARACTER - 46)) | (1 << (OParser.TEXT - 46)) | (1 << (OParser.INTEGER - 46)) | (1 << (OParser.DECIMAL - 46)) | (1 << (OParser.DATE - 46)) | (1 << (OParser.TIME - 46)) | (1 << (OParser.DATETIME - 46)) | (1 << (OParser.PERIOD - 46)) | (1 << (OParser.VERSION - 46)) | (1 << (OParser.CODE - 46)) | (1 << (OParser.DOCUMENT - 46)) | (1 << (OParser.BLOB - 46)) | (1 << (OParser.IMAGE - 46)) | (1 << (OParser.UUID - 46)) | (1 << (OParser.ITERATOR - 46)) | (1 << (OParser.CURSOR - 46)) | (1 << (OParser.ANY - 46)) | (1 << (OParser.GETTER - 46)))) != 0) or ((((_la - 111)) & ~0x3f) == 0 and ((1 << (_la - 111)) & ((1 << (OParser.METHOD - 111)) | (1 << (OParser.NATIVE - 111)) | (1 << (OParser.SETTER - 111)) | (1 << (OParser.TYPE_IDENTIFIER - 111)))) != 0):
                 self.state = 601
@@ -3207,11 +3225,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_native_category_bindings
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNative_category_bindings" ):
                 listener.enterNative_category_bindings(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNative_category_bindings" ):
                 listener.exitNative_category_bindings(self)
 
 
@@ -3258,7 +3276,7 @@ class OParser ( AbstractParser ):
 
     class NativeCategoryBindingListItemContext(Native_category_binding_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_category_binding_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_category_binding_listContext
             super().__init__(parser)
             self.items = None # Native_category_binding_listContext
             self.item = None # Native_category_bindingContext
@@ -3274,17 +3292,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNativeCategoryBindingListItem" ):
                 listener.enterNativeCategoryBindingListItem(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNativeCategoryBindingListItem" ):
                 listener.exitNativeCategoryBindingListItem(self)
 
 
     class NativeCategoryBindingListContext(Native_category_binding_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_category_binding_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_category_binding_listContext
             super().__init__(parser)
             self.item = None # Native_category_bindingContext
             self.copyFrom(ctx)
@@ -3296,11 +3314,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNativeCategoryBindingList" ):
                 listener.enterNativeCategoryBindingList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNativeCategoryBindingList" ):
                 listener.exitNativeCategoryBindingList(self)
 
 
@@ -3394,11 +3412,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_abstract_method_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAbstract_method_declaration" ):
                 listener.enterAbstract_method_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAbstract_method_declaration" ):
                 listener.exitAbstract_method_declaration(self)
 
 
@@ -3414,6 +3432,7 @@ class OParser ( AbstractParser ):
             self.state = 625
             self.match(OParser.ABSTRACT)
             self.state = 627
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or _la==OParser.TYPE_IDENTIFIER:
                 self.state = 626
@@ -3427,6 +3446,7 @@ class OParser ( AbstractParser ):
             self.state = 631
             self.match(OParser.LPAR)
             self.state = 633
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if ((((_la - 46)) & ~0x3f) == 0 and ((1 << (_la - 46)) & ((1 << (OParser.BOOLEAN - 46)) | (1 << (OParser.CHARACTER - 46)) | (1 << (OParser.TEXT - 46)) | (1 << (OParser.INTEGER - 46)) | (1 << (OParser.DECIMAL - 46)) | (1 << (OParser.DATE - 46)) | (1 << (OParser.TIME - 46)) | (1 << (OParser.DATETIME - 46)) | (1 << (OParser.PERIOD - 46)) | (1 << (OParser.VERSION - 46)) | (1 << (OParser.CODE - 46)) | (1 << (OParser.DOCUMENT - 46)) | (1 << (OParser.BLOB - 46)) | (1 << (OParser.IMAGE - 46)) | (1 << (OParser.UUID - 46)) | (1 << (OParser.ITERATOR - 46)) | (1 << (OParser.CURSOR - 46)) | (1 << (OParser.ANY - 46)))) != 0) or ((((_la - 114)) & ~0x3f) == 0 and ((1 << (_la - 114)) & ((1 << (OParser.MUTABLE - 114)) | (1 << (OParser.TYPE_IDENTIFIER - 114)) | (1 << (OParser.VARIABLE_IDENTIFIER - 114)))) != 0):
                 self.state = 632
@@ -3490,11 +3510,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_concrete_method_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterConcrete_method_declaration" ):
                 listener.enterConcrete_method_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitConcrete_method_declaration" ):
                 listener.exitConcrete_method_declaration(self)
 
 
@@ -3508,6 +3528,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 639
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or _la==OParser.TYPE_IDENTIFIER:
                 self.state = 638
@@ -3521,6 +3542,7 @@ class OParser ( AbstractParser ):
             self.state = 643
             self.match(OParser.LPAR)
             self.state = 645
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if ((((_la - 46)) & ~0x3f) == 0 and ((1 << (_la - 46)) & ((1 << (OParser.BOOLEAN - 46)) | (1 << (OParser.CHARACTER - 46)) | (1 << (OParser.TEXT - 46)) | (1 << (OParser.INTEGER - 46)) | (1 << (OParser.DECIMAL - 46)) | (1 << (OParser.DATE - 46)) | (1 << (OParser.TIME - 46)) | (1 << (OParser.DATETIME - 46)) | (1 << (OParser.PERIOD - 46)) | (1 << (OParser.VERSION - 46)) | (1 << (OParser.CODE - 46)) | (1 << (OParser.DOCUMENT - 46)) | (1 << (OParser.BLOB - 46)) | (1 << (OParser.IMAGE - 46)) | (1 << (OParser.UUID - 46)) | (1 << (OParser.ITERATOR - 46)) | (1 << (OParser.CURSOR - 46)) | (1 << (OParser.ANY - 46)))) != 0) or ((((_la - 114)) & ~0x3f) == 0 and ((1 << (_la - 114)) & ((1 << (OParser.MUTABLE - 114)) | (1 << (OParser.TYPE_IDENTIFIER - 114)) | (1 << (OParser.VARIABLE_IDENTIFIER - 114)))) != 0):
                 self.state = 644
@@ -3532,6 +3554,7 @@ class OParser ( AbstractParser ):
             self.state = 648
             self.match(OParser.LCURL)
             self.state = 650
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or ((((_la - 75)) & ~0x3f) == 0 and ((1 << (_la - 75)) & ((1 << (OParser.BREAK - 75)) | (1 << (OParser.DELETE - 75)) | (1 << (OParser.DO - 75)) | (1 << (OParser.FLUSH - 75)) | (1 << (OParser.FOR - 75)) | (1 << (OParser.IF - 75)) | (1 << (OParser.METHOD - 75)) | (1 << (OParser.RETURN - 75)))) != 0) or ((((_la - 140)) & ~0x3f) == 0 and ((1 << (_la - 140)) & ((1 << (OParser.STORE - 140)) | (1 << (OParser.SWITCH - 140)) | (1 << (OParser.THROW - 140)) | (1 << (OParser.TRY - 140)) | (1 << (OParser.WITH - 140)) | (1 << (OParser.WHILE - 140)) | (1 << (OParser.WRITE - 140)) | (1 << (OParser.SYMBOL_IDENTIFIER - 140)) | (1 << (OParser.TYPE_IDENTIFIER - 140)) | (1 << (OParser.VARIABLE_IDENTIFIER - 140)))) != 0):
                 self.state = 649
@@ -3596,11 +3619,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_native_method_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNative_method_declaration" ):
                 listener.enterNative_method_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNative_method_declaration" ):
                 listener.exitNative_method_declaration(self)
 
 
@@ -3614,6 +3637,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 655
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if ((((_la - 46)) & ~0x3f) == 0 and ((1 << (_la - 46)) & ((1 << (OParser.BOOLEAN - 46)) | (1 << (OParser.CHARACTER - 46)) | (1 << (OParser.TEXT - 46)) | (1 << (OParser.INTEGER - 46)) | (1 << (OParser.DECIMAL - 46)) | (1 << (OParser.DATE - 46)) | (1 << (OParser.TIME - 46)) | (1 << (OParser.DATETIME - 46)) | (1 << (OParser.PERIOD - 46)) | (1 << (OParser.VERSION - 46)) | (1 << (OParser.CODE - 46)) | (1 << (OParser.DOCUMENT - 46)) | (1 << (OParser.BLOB - 46)) | (1 << (OParser.IMAGE - 46)) | (1 << (OParser.UUID - 46)) | (1 << (OParser.ITERATOR - 46)) | (1 << (OParser.CURSOR - 46)) | (1 << (OParser.ANY - 46)))) != 0) or _la==OParser.TYPE_IDENTIFIER:
                 self.state = 654
@@ -3621,6 +3645,7 @@ class OParser ( AbstractParser ):
 
 
             self.state = 658
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.NATIVE:
                 self.state = 657
@@ -3634,6 +3659,7 @@ class OParser ( AbstractParser ):
             self.state = 662
             self.match(OParser.LPAR)
             self.state = 664
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if ((((_la - 46)) & ~0x3f) == 0 and ((1 << (_la - 46)) & ((1 << (OParser.BOOLEAN - 46)) | (1 << (OParser.CHARACTER - 46)) | (1 << (OParser.TEXT - 46)) | (1 << (OParser.INTEGER - 46)) | (1 << (OParser.DECIMAL - 46)) | (1 << (OParser.DATE - 46)) | (1 << (OParser.TIME - 46)) | (1 << (OParser.DATETIME - 46)) | (1 << (OParser.PERIOD - 46)) | (1 << (OParser.VERSION - 46)) | (1 << (OParser.CODE - 46)) | (1 << (OParser.DOCUMENT - 46)) | (1 << (OParser.BLOB - 46)) | (1 << (OParser.IMAGE - 46)) | (1 << (OParser.UUID - 46)) | (1 << (OParser.ITERATOR - 46)) | (1 << (OParser.CURSOR - 46)) | (1 << (OParser.ANY - 46)))) != 0) or ((((_la - 114)) & ~0x3f) == 0 and ((1 << (_la - 114)) & ((1 << (OParser.MUTABLE - 114)) | (1 << (OParser.TYPE_IDENTIFIER - 114)) | (1 << (OParser.VARIABLE_IDENTIFIER - 114)))) != 0):
                 self.state = 663
@@ -3715,11 +3741,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_test_method_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterTest_method_declaration" ):
                 listener.enterTest_method_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitTest_method_declaration" ):
                 listener.exitTest_method_declaration(self)
 
 
@@ -3750,6 +3776,7 @@ class OParser ( AbstractParser ):
             self.state = 679
             self.match(OParser.VERIFYING)
             self.state = 687
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.LCURL]:
                 self.state = 680
@@ -3758,13 +3785,13 @@ class OParser ( AbstractParser ):
                 localctx.exps = self.assertion_list()
                 self.state = 682
                 self.match(OParser.RCURL)
-
+                pass
             elif token in [OParser.SYMBOL_IDENTIFIER]:
                 self.state = 684
                 localctx.error = self.symbol_identifier()
                 self.state = 685
                 self.match(OParser.SEMI)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -3794,11 +3821,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_assertion
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAssertion" ):
                 listener.enterAssertion(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAssertion" ):
                 listener.exitAssertion(self)
 
 
@@ -3861,11 +3888,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_typed_argument
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterTyped_argument" ):
                 listener.enterTyped_argument(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitTyped_argument" ):
                 listener.exitTyped_argument(self)
 
 
@@ -3881,6 +3908,7 @@ class OParser ( AbstractParser ):
             self.state = 692
             localctx.typ = self.category_or_any_type()
             self.state = 697
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.LPAR:
                 self.state = 693
@@ -3894,6 +3922,7 @@ class OParser ( AbstractParser ):
             self.state = 699
             localctx.name = self.variable_identifier()
             self.state = 702
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.EQ:
                 self.state = 700
@@ -3928,7 +3957,7 @@ class OParser ( AbstractParser ):
 
     class CurlyStatementListContext(Statement_or_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Statement_or_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Statement_or_listContext
             super().__init__(parser)
             self.items = None # Statement_listContext
             self.copyFrom(ctx)
@@ -3942,17 +3971,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCurlyStatementList" ):
                 listener.enterCurlyStatementList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCurlyStatementList" ):
                 listener.exitCurlyStatementList(self)
 
 
     class SingleStatementContext(Statement_or_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Statement_or_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Statement_or_listContext
             super().__init__(parser)
             self.stmt = None # StatementContext
             self.copyFrom(ctx)
@@ -3962,11 +3991,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSingleStatement" ):
                 listener.enterSingleStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSingleStatement" ):
                 listener.exitSingleStatement(self)
 
 
@@ -3977,19 +4006,21 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 48, self.RULE_statement_or_list)
         try:
             self.state = 711
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.COMMENT, OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.CODE, OParser.DOCUMENT, OParser.BLOB, OParser.IMAGE, OParser.UUID, OParser.ITERATOR, OParser.CURSOR, OParser.BREAK, OParser.DELETE, OParser.DO, OParser.FLUSH, OParser.FOR, OParser.IF, OParser.METHOD, OParser.RETURN, OParser.STORE, OParser.SWITCH, OParser.THROW, OParser.TRY, OParser.WITH, OParser.WHILE, OParser.WRITE, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER]:
                 localctx = OParser.SingleStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 704
                 localctx.stmt = self.statement()
-
+                pass
             elif token in [OParser.LCURL]:
                 localctx = OParser.CurlyStatementListContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 705
                 self.match(OParser.LCURL)
                 self.state = 709
+                self._errHandler.sync(self)
                 la_ = self._interp.adaptivePredict(self._input,38,self._ctx)
                 if la_ == 1:
                     self.state = 706
@@ -3998,7 +4029,7 @@ class OParser ( AbstractParser ):
                     self.match(OParser.RCURL)
 
 
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -4028,7 +4059,7 @@ class OParser ( AbstractParser ):
 
     class CommentStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.decl = None # Comment_statementContext
             self.copyFrom(ctx)
@@ -4038,17 +4069,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCommentStatement" ):
                 listener.enterCommentStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCommentStatement" ):
                 listener.exitCommentStatement(self)
 
 
     class StoreStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # Store_statementContext
             self.copyFrom(ctx)
@@ -4058,17 +4089,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterStoreStatement" ):
                 listener.enterStoreStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitStoreStatement" ):
                 listener.exitStoreStatement(self)
 
 
     class WithSingletonStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # With_singleton_statementContext
             self.copyFrom(ctx)
@@ -4078,17 +4109,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterWithSingletonStatement" ):
                 listener.enterWithSingletonStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitWithSingletonStatement" ):
                 listener.exitWithSingletonStatement(self)
 
 
     class WriteStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # Write_statementContext
             self.copyFrom(ctx)
@@ -4098,17 +4129,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterWriteStatement" ):
                 listener.enterWriteStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitWriteStatement" ):
                 listener.exitWriteStatement(self)
 
 
     class WhileStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # While_statementContext
             self.copyFrom(ctx)
@@ -4118,17 +4149,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterWhileStatement" ):
                 listener.enterWhileStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitWhileStatement" ):
                 listener.exitWhileStatement(self)
 
 
     class WithResourceStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # With_resource_statementContext
             self.copyFrom(ctx)
@@ -4138,17 +4169,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterWithResourceStatement" ):
                 listener.enterWithResourceStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitWithResourceStatement" ):
                 listener.exitWithResourceStatement(self)
 
 
     class RaiseStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # Raise_statementContext
             self.copyFrom(ctx)
@@ -4158,17 +4189,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterRaiseStatement" ):
                 listener.enterRaiseStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitRaiseStatement" ):
                 listener.exitRaiseStatement(self)
 
 
     class BreakStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # Break_statementContext
             self.copyFrom(ctx)
@@ -4178,17 +4209,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterBreakStatement" ):
                 listener.enterBreakStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitBreakStatement" ):
                 listener.exitBreakStatement(self)
 
 
     class AssignInstanceStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # Assign_instance_statementContext
             self.copyFrom(ctx)
@@ -4198,17 +4229,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAssignInstanceStatement" ):
                 listener.enterAssignInstanceStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAssignInstanceStatement" ):
                 listener.exitAssignInstanceStatement(self)
 
 
     class IfStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # If_statementContext
             self.copyFrom(ctx)
@@ -4218,17 +4249,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIfStatement" ):
                 listener.enterIfStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIfStatement" ):
                 listener.exitIfStatement(self)
 
 
     class SwitchStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # Switch_statementContext
             self.copyFrom(ctx)
@@ -4238,17 +4269,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSwitchStatement" ):
                 listener.enterSwitchStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSwitchStatement" ):
                 listener.exitSwitchStatement(self)
 
 
     class TryStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # Try_statementContext
             self.copyFrom(ctx)
@@ -4258,17 +4289,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterTryStatement" ):
                 listener.enterTryStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitTryStatement" ):
                 listener.exitTryStatement(self)
 
 
     class MethodCallStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # Method_callContext
             self.copyFrom(ctx)
@@ -4280,17 +4311,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMethodCallStatement" ):
                 listener.enterMethodCallStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMethodCallStatement" ):
                 listener.exitMethodCallStatement(self)
 
 
     class ReturnStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # Return_statementContext
             self.copyFrom(ctx)
@@ -4300,17 +4331,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterReturnStatement" ):
                 listener.enterReturnStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitReturnStatement" ):
                 listener.exitReturnStatement(self)
 
 
     class AssignTupleStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # Assign_tuple_statementContext
             self.copyFrom(ctx)
@@ -4320,17 +4351,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAssignTupleStatement" ):
                 listener.enterAssignTupleStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAssignTupleStatement" ):
                 listener.exitAssignTupleStatement(self)
 
 
     class ClosureStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.decl = None # Concrete_method_declarationContext
             self.copyFrom(ctx)
@@ -4340,17 +4371,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterClosureStatement" ):
                 listener.enterClosureStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitClosureStatement" ):
                 listener.exitClosureStatement(self)
 
 
     class FlushStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # Flush_statementContext
             self.copyFrom(ctx)
@@ -4360,17 +4391,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterFlushStatement" ):
                 listener.enterFlushStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitFlushStatement" ):
                 listener.exitFlushStatement(self)
 
 
     class DoWhileStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # Do_while_statementContext
             self.copyFrom(ctx)
@@ -4380,17 +4411,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDoWhileStatement" ):
                 listener.enterDoWhileStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDoWhileStatement" ):
                 listener.exitDoWhileStatement(self)
 
 
     class ForEachStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.StatementContext
             super().__init__(parser)
             self.stmt = None # For_each_statementContext
             self.copyFrom(ctx)
@@ -4400,11 +4431,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterForEachStatement" ):
                 listener.enterForEachStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitForEachStatement" ):
                 listener.exitForEachStatement(self)
 
 
@@ -4415,6 +4446,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 50, self.RULE_statement)
         try:
             self.state = 734
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,40,self._ctx)
             if la_ == 1:
                 localctx = OParser.MethodCallStatementContext(self, localctx)
@@ -4582,11 +4614,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_flush_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterFlush_statement" ):
                 listener.enterFlush_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitFlush_statement" ):
                 listener.exitFlush_statement(self)
 
 
@@ -4657,11 +4689,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_store_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterStore_statement" ):
                 listener.enterStore_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitStore_statement" ):
                 listener.exitStore_statement(self)
 
 
@@ -4673,6 +4705,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 54, self.RULE_store_statement)
         try:
             self.state = 764
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,41,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
@@ -4764,11 +4797,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_with_resource_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterWith_resource_statement" ):
                 listener.enterWith_resource_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitWith_resource_statement" ):
                 listener.exitWith_resource_statement(self)
 
 
@@ -4827,11 +4860,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_with_singleton_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterWith_singleton_statement" ):
                 listener.enterWith_singleton_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitWith_singleton_statement" ):
                 listener.exitWith_singleton_statement(self)
 
 
@@ -4907,11 +4940,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_switch_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSwitch_statement" ):
                 listener.enterSwitch_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSwitch_statement" ):
                 listener.exitSwitch_statement(self)
 
 
@@ -4937,6 +4970,7 @@ class OParser ( AbstractParser ):
             self.state = 783
             localctx.cases = self.switch_case_statement_list()
             self.state = 789
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.DEFAULT:
                 self.state = 784
@@ -4944,6 +4978,7 @@ class OParser ( AbstractParser ):
                 self.state = 785
                 self.match(OParser.COLON)
                 self.state = 787
+                self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or ((((_la - 75)) & ~0x3f) == 0 and ((1 << (_la - 75)) & ((1 << (OParser.BREAK - 75)) | (1 << (OParser.DELETE - 75)) | (1 << (OParser.DO - 75)) | (1 << (OParser.FLUSH - 75)) | (1 << (OParser.FOR - 75)) | (1 << (OParser.IF - 75)) | (1 << (OParser.METHOD - 75)) | (1 << (OParser.RETURN - 75)))) != 0) or ((((_la - 140)) & ~0x3f) == 0 and ((1 << (_la - 140)) & ((1 << (OParser.STORE - 140)) | (1 << (OParser.SWITCH - 140)) | (1 << (OParser.THROW - 140)) | (1 << (OParser.TRY - 140)) | (1 << (OParser.WITH - 140)) | (1 << (OParser.WHILE - 140)) | (1 << (OParser.WRITE - 140)) | (1 << (OParser.SYMBOL_IDENTIFIER - 140)) | (1 << (OParser.TYPE_IDENTIFIER - 140)) | (1 << (OParser.VARIABLE_IDENTIFIER - 140)))) != 0):
                     self.state = 786
@@ -4980,7 +5015,7 @@ class OParser ( AbstractParser ):
 
     class AtomicSwitchCaseContext(Switch_case_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Switch_case_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Switch_case_statementContext
             super().__init__(parser)
             self.exp = None # Atomic_literalContext
             self.stmts = None # Statement_listContext
@@ -4998,17 +5033,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAtomicSwitchCase" ):
                 listener.enterAtomicSwitchCase(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAtomicSwitchCase" ):
                 listener.exitAtomicSwitchCase(self)
 
 
     class CollectionSwitchCaseContext(Switch_case_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Switch_case_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Switch_case_statementContext
             super().__init__(parser)
             self.exp = None # Literal_collectionContext
             self.stmts = None # Statement_listContext
@@ -5028,11 +5063,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCollectionSwitchCase" ):
                 listener.enterCollectionSwitchCase(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCollectionSwitchCase" ):
                 listener.exitCollectionSwitchCase(self)
 
 
@@ -5044,6 +5079,7 @@ class OParser ( AbstractParser ):
         self._la = 0 # Token type
         try:
             self.state = 806
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,46,self._ctx)
             if la_ == 1:
                 localctx = OParser.AtomicSwitchCaseContext(self, localctx)
@@ -5055,6 +5091,7 @@ class OParser ( AbstractParser ):
                 self.state = 795
                 self.match(OParser.COLON)
                 self.state = 797
+                self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or ((((_la - 75)) & ~0x3f) == 0 and ((1 << (_la - 75)) & ((1 << (OParser.BREAK - 75)) | (1 << (OParser.DELETE - 75)) | (1 << (OParser.DO - 75)) | (1 << (OParser.FLUSH - 75)) | (1 << (OParser.FOR - 75)) | (1 << (OParser.IF - 75)) | (1 << (OParser.METHOD - 75)) | (1 << (OParser.RETURN - 75)))) != 0) or ((((_la - 140)) & ~0x3f) == 0 and ((1 << (_la - 140)) & ((1 << (OParser.STORE - 140)) | (1 << (OParser.SWITCH - 140)) | (1 << (OParser.THROW - 140)) | (1 << (OParser.TRY - 140)) | (1 << (OParser.WITH - 140)) | (1 << (OParser.WHILE - 140)) | (1 << (OParser.WRITE - 140)) | (1 << (OParser.SYMBOL_IDENTIFIER - 140)) | (1 << (OParser.TYPE_IDENTIFIER - 140)) | (1 << (OParser.VARIABLE_IDENTIFIER - 140)))) != 0):
                     self.state = 796
@@ -5075,6 +5112,7 @@ class OParser ( AbstractParser ):
                 self.state = 802
                 self.match(OParser.COLON)
                 self.state = 804
+                self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or ((((_la - 75)) & ~0x3f) == 0 and ((1 << (_la - 75)) & ((1 << (OParser.BREAK - 75)) | (1 << (OParser.DELETE - 75)) | (1 << (OParser.DO - 75)) | (1 << (OParser.FLUSH - 75)) | (1 << (OParser.FOR - 75)) | (1 << (OParser.IF - 75)) | (1 << (OParser.METHOD - 75)) | (1 << (OParser.RETURN - 75)))) != 0) or ((((_la - 140)) & ~0x3f) == 0 and ((1 << (_la - 140)) & ((1 << (OParser.STORE - 140)) | (1 << (OParser.SWITCH - 140)) | (1 << (OParser.THROW - 140)) | (1 << (OParser.TRY - 140)) | (1 << (OParser.WITH - 140)) | (1 << (OParser.WHILE - 140)) | (1 << (OParser.WRITE - 140)) | (1 << (OParser.SYMBOL_IDENTIFIER - 140)) | (1 << (OParser.TYPE_IDENTIFIER - 140)) | (1 << (OParser.VARIABLE_IDENTIFIER - 140)))) != 0):
                     self.state = 803
@@ -5139,11 +5177,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_for_each_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterFor_each_statement" ):
                 listener.enterFor_each_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitFor_each_statement" ):
                 listener.exitFor_each_statement(self)
 
 
@@ -5165,6 +5203,7 @@ class OParser ( AbstractParser ):
             self.state = 811
             localctx.name1 = self.variable_identifier()
             self.state = 814
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.COMMA:
                 self.state = 812
@@ -5230,11 +5269,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_do_while_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDo_while_statement" ):
                 listener.enterDo_while_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDo_while_statement" ):
                 listener.exitDo_while_statement(self)
 
 
@@ -5252,6 +5291,7 @@ class OParser ( AbstractParser ):
             self.state = 822
             self.match(OParser.LCURL)
             self.state = 824
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or ((((_la - 75)) & ~0x3f) == 0 and ((1 << (_la - 75)) & ((1 << (OParser.BREAK - 75)) | (1 << (OParser.DELETE - 75)) | (1 << (OParser.DO - 75)) | (1 << (OParser.FLUSH - 75)) | (1 << (OParser.FOR - 75)) | (1 << (OParser.IF - 75)) | (1 << (OParser.METHOD - 75)) | (1 << (OParser.RETURN - 75)))) != 0) or ((((_la - 140)) & ~0x3f) == 0 and ((1 << (_la - 140)) & ((1 << (OParser.STORE - 140)) | (1 << (OParser.SWITCH - 140)) | (1 << (OParser.THROW - 140)) | (1 << (OParser.TRY - 140)) | (1 << (OParser.WITH - 140)) | (1 << (OParser.WHILE - 140)) | (1 << (OParser.WRITE - 140)) | (1 << (OParser.SYMBOL_IDENTIFIER - 140)) | (1 << (OParser.TYPE_IDENTIFIER - 140)) | (1 << (OParser.VARIABLE_IDENTIFIER - 140)))) != 0):
                 self.state = 823
@@ -5307,11 +5347,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_while_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterWhile_statement" ):
                 listener.enterWhile_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitWhile_statement" ):
                 listener.exitWhile_statement(self)
 
 
@@ -5382,11 +5422,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_if_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIf_statement" ):
                 listener.enterIf_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIf_statement" ):
                 listener.exitIf_statement(self)
 
 
@@ -5409,6 +5449,7 @@ class OParser ( AbstractParser ):
             self.state = 843
             localctx.stmts = self.statement_or_list()
             self.state = 845
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,49,self._ctx)
             if la_ == 1:
                 self.state = 844
@@ -5416,6 +5457,7 @@ class OParser ( AbstractParser ):
 
 
             self.state = 849
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,50,self._ctx)
             if la_ == 1:
                 self.state = 847
@@ -5449,7 +5491,7 @@ class OParser ( AbstractParser ):
 
     class ElseIfStatementListContext(Else_if_statement_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Else_if_statement_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Else_if_statement_listContext
             super().__init__(parser)
             self.exp = None # ExpressionContext
             self.stmts = None # Statement_or_listContext
@@ -5471,17 +5513,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterElseIfStatementList" ):
                 listener.enterElseIfStatementList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitElseIfStatementList" ):
                 listener.exitElseIfStatementList(self)
 
 
     class ElseIfStatementListItemContext(Else_if_statement_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Else_if_statement_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Else_if_statement_listContext
             super().__init__(parser)
             self.items = None # Else_if_statement_listContext
             self.exp = None # ExpressionContext
@@ -5507,11 +5549,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterElseIfStatementListItem" ):
                 listener.enterElseIfStatementListItem(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitElseIfStatementListItem" ):
                 listener.exitElseIfStatementListItem(self)
 
 
@@ -5602,11 +5644,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_raise_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterRaise_statement" ):
                 listener.enterRaise_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitRaise_statement" ):
                 listener.exitRaise_statement(self)
 
 
@@ -5698,11 +5740,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_try_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterTry_statement" ):
                 listener.enterTry_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitTry_statement" ):
                 listener.exitTry_statement(self)
 
 
@@ -5726,6 +5768,7 @@ class OParser ( AbstractParser ):
             self.state = 880
             self.match(OParser.LCURL)
             self.state = 882
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or ((((_la - 75)) & ~0x3f) == 0 and ((1 << (_la - 75)) & ((1 << (OParser.BREAK - 75)) | (1 << (OParser.DELETE - 75)) | (1 << (OParser.DO - 75)) | (1 << (OParser.FLUSH - 75)) | (1 << (OParser.FOR - 75)) | (1 << (OParser.IF - 75)) | (1 << (OParser.METHOD - 75)) | (1 << (OParser.RETURN - 75)))) != 0) or ((((_la - 140)) & ~0x3f) == 0 and ((1 << (_la - 140)) & ((1 << (OParser.STORE - 140)) | (1 << (OParser.SWITCH - 140)) | (1 << (OParser.THROW - 140)) | (1 << (OParser.TRY - 140)) | (1 << (OParser.WITH - 140)) | (1 << (OParser.WHILE - 140)) | (1 << (OParser.WRITE - 140)) | (1 << (OParser.SYMBOL_IDENTIFIER - 140)) | (1 << (OParser.TYPE_IDENTIFIER - 140)) | (1 << (OParser.VARIABLE_IDENTIFIER - 140)))) != 0):
                 self.state = 881
@@ -5735,6 +5778,7 @@ class OParser ( AbstractParser ):
             self.state = 884
             self.match(OParser.RCURL)
             self.state = 886
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,53,self._ctx)
             if la_ == 1:
                 self.state = 885
@@ -5742,6 +5786,7 @@ class OParser ( AbstractParser ):
 
 
             self.state = 897
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,55,self._ctx)
             if la_ == 1:
                 self.state = 888
@@ -5755,6 +5800,7 @@ class OParser ( AbstractParser ):
                 self.state = 892
                 self.match(OParser.LCURL)
                 self.state = 894
+                self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or ((((_la - 75)) & ~0x3f) == 0 and ((1 << (_la - 75)) & ((1 << (OParser.BREAK - 75)) | (1 << (OParser.DELETE - 75)) | (1 << (OParser.DO - 75)) | (1 << (OParser.FLUSH - 75)) | (1 << (OParser.FOR - 75)) | (1 << (OParser.IF - 75)) | (1 << (OParser.METHOD - 75)) | (1 << (OParser.RETURN - 75)))) != 0) or ((((_la - 140)) & ~0x3f) == 0 and ((1 << (_la - 140)) & ((1 << (OParser.STORE - 140)) | (1 << (OParser.SWITCH - 140)) | (1 << (OParser.THROW - 140)) | (1 << (OParser.TRY - 140)) | (1 << (OParser.WITH - 140)) | (1 << (OParser.WHILE - 140)) | (1 << (OParser.WRITE - 140)) | (1 << (OParser.SYMBOL_IDENTIFIER - 140)) | (1 << (OParser.TYPE_IDENTIFIER - 140)) | (1 << (OParser.VARIABLE_IDENTIFIER - 140)))) != 0):
                     self.state = 893
@@ -5766,6 +5812,7 @@ class OParser ( AbstractParser ):
 
 
             self.state = 905
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,57,self._ctx)
             if la_ == 1:
                 self.state = 899
@@ -5773,6 +5820,7 @@ class OParser ( AbstractParser ):
                 self.state = 900
                 self.match(OParser.LCURL)
                 self.state = 902
+                self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or ((((_la - 75)) & ~0x3f) == 0 and ((1 << (_la - 75)) & ((1 << (OParser.BREAK - 75)) | (1 << (OParser.DELETE - 75)) | (1 << (OParser.DO - 75)) | (1 << (OParser.FLUSH - 75)) | (1 << (OParser.FOR - 75)) | (1 << (OParser.IF - 75)) | (1 << (OParser.METHOD - 75)) | (1 << (OParser.RETURN - 75)))) != 0) or ((((_la - 140)) & ~0x3f) == 0 and ((1 << (_la - 140)) & ((1 << (OParser.STORE - 140)) | (1 << (OParser.SWITCH - 140)) | (1 << (OParser.THROW - 140)) | (1 << (OParser.TRY - 140)) | (1 << (OParser.WITH - 140)) | (1 << (OParser.WHILE - 140)) | (1 << (OParser.WRITE - 140)) | (1 << (OParser.SYMBOL_IDENTIFIER - 140)) | (1 << (OParser.TYPE_IDENTIFIER - 140)) | (1 << (OParser.VARIABLE_IDENTIFIER - 140)))) != 0):
                     self.state = 901
@@ -5809,7 +5857,7 @@ class OParser ( AbstractParser ):
 
     class CatchAtomicStatementContext(Catch_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Catch_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Catch_statementContext
             super().__init__(parser)
             self.name = None # Symbol_identifierContext
             self.stmts = None # Statement_listContext
@@ -5833,17 +5881,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCatchAtomicStatement" ):
                 listener.enterCatchAtomicStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCatchAtomicStatement" ):
                 listener.exitCatchAtomicStatement(self)
 
 
     class CatchCollectionStatementContext(Catch_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Catch_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Catch_statementContext
             super().__init__(parser)
             self.exp = None # Symbol_listContext
             self.stmts = None # Statement_listContext
@@ -5869,11 +5917,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCatchCollectionStatement" ):
                 listener.enterCatchCollectionStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCatchCollectionStatement" ):
                 listener.exitCatchCollectionStatement(self)
 
 
@@ -5885,6 +5933,7 @@ class OParser ( AbstractParser ):
         self._la = 0 # Token type
         try:
             self.state = 928
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,60,self._ctx)
             if la_ == 1:
                 localctx = OParser.CatchAtomicStatementContext(self, localctx)
@@ -5900,6 +5949,7 @@ class OParser ( AbstractParser ):
                 self.state = 911
                 self.match(OParser.LCURL)
                 self.state = 913
+                self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or ((((_la - 75)) & ~0x3f) == 0 and ((1 << (_la - 75)) & ((1 << (OParser.BREAK - 75)) | (1 << (OParser.DELETE - 75)) | (1 << (OParser.DO - 75)) | (1 << (OParser.FLUSH - 75)) | (1 << (OParser.FOR - 75)) | (1 << (OParser.IF - 75)) | (1 << (OParser.METHOD - 75)) | (1 << (OParser.RETURN - 75)))) != 0) or ((((_la - 140)) & ~0x3f) == 0 and ((1 << (_la - 140)) & ((1 << (OParser.STORE - 140)) | (1 << (OParser.SWITCH - 140)) | (1 << (OParser.THROW - 140)) | (1 << (OParser.TRY - 140)) | (1 << (OParser.WITH - 140)) | (1 << (OParser.WHILE - 140)) | (1 << (OParser.WRITE - 140)) | (1 << (OParser.SYMBOL_IDENTIFIER - 140)) | (1 << (OParser.TYPE_IDENTIFIER - 140)) | (1 << (OParser.VARIABLE_IDENTIFIER - 140)))) != 0):
                     self.state = 912
@@ -5926,6 +5976,7 @@ class OParser ( AbstractParser ):
                 self.state = 922
                 self.match(OParser.LCURL)
                 self.state = 924
+                self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or ((((_la - 75)) & ~0x3f) == 0 and ((1 << (_la - 75)) & ((1 << (OParser.BREAK - 75)) | (1 << (OParser.DELETE - 75)) | (1 << (OParser.DO - 75)) | (1 << (OParser.FLUSH - 75)) | (1 << (OParser.FOR - 75)) | (1 << (OParser.IF - 75)) | (1 << (OParser.METHOD - 75)) | (1 << (OParser.RETURN - 75)))) != 0) or ((((_la - 140)) & ~0x3f) == 0 and ((1 << (_la - 140)) & ((1 << (OParser.STORE - 140)) | (1 << (OParser.SWITCH - 140)) | (1 << (OParser.THROW - 140)) | (1 << (OParser.TRY - 140)) | (1 << (OParser.WITH - 140)) | (1 << (OParser.WHILE - 140)) | (1 << (OParser.WRITE - 140)) | (1 << (OParser.SYMBOL_IDENTIFIER - 140)) | (1 << (OParser.TYPE_IDENTIFIER - 140)) | (1 << (OParser.VARIABLE_IDENTIFIER - 140)))) != 0):
                     self.state = 923
@@ -5961,11 +6012,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_break_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterBreak_statement" ):
                 listener.enterBreak_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitBreak_statement" ):
                 listener.exitBreak_statement(self)
 
 
@@ -6010,11 +6061,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_return_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterReturn_statement" ):
                 listener.enterReturn_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitReturn_statement" ):
                 listener.exitReturn_statement(self)
 
 
@@ -6030,6 +6081,7 @@ class OParser ( AbstractParser ):
             self.state = 933
             self.match(OParser.RETURN)
             self.state = 935
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB))) != 0) or ((((_la - 95)) & ~0x3f) == 0 and ((1 << (_la - 95)) & ((1 << (OParser.EXECUTE - 95)) | (1 << (OParser.FETCH - 95)) | (1 << (OParser.FILTERED - 95)) | (1 << (OParser.MUTABLE - 95)) | (1 << (OParser.NULL - 95)) | (1 << (OParser.READ - 95)) | (1 << (OParser.SELF - 95)) | (1 << (OParser.SORTED - 95)) | (1 << (OParser.THIS - 95)) | (1 << (OParser.BOOLEAN_LITERAL - 95)) | (1 << (OParser.CHAR_LITERAL - 95)) | (1 << (OParser.MIN_INTEGER - 95)) | (1 << (OParser.MAX_INTEGER - 95)) | (1 << (OParser.SYMBOL_IDENTIFIER - 95)) | (1 << (OParser.TYPE_IDENTIFIER - 95)))) != 0) or ((((_la - 159)) & ~0x3f) == 0 and ((1 << (_la - 159)) & ((1 << (OParser.VARIABLE_IDENTIFIER - 159)) | (1 << (OParser.TEXT_LITERAL - 159)) | (1 << (OParser.UUID_LITERAL - 159)) | (1 << (OParser.INTEGER_LITERAL - 159)) | (1 << (OParser.HEXA_LITERAL - 159)) | (1 << (OParser.DECIMAL_LITERAL - 159)) | (1 << (OParser.DATETIME_LITERAL - 159)) | (1 << (OParser.TIME_LITERAL - 159)) | (1 << (OParser.DATE_LITERAL - 159)) | (1 << (OParser.PERIOD_LITERAL - 159)) | (1 << (OParser.VERSION_LITERAL - 159)))) != 0):
                 self.state = 934
@@ -6072,11 +6124,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_method_call
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMethod_call" ):
                 listener.enterMethod_call(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMethod_call" ):
                 listener.exitMethod_call(self)
 
 
@@ -6094,6 +6146,7 @@ class OParser ( AbstractParser ):
             self.state = 940
             self.match(OParser.LPAR)
             self.state = 942
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB))) != 0) or ((((_la - 95)) & ~0x3f) == 0 and ((1 << (_la - 95)) & ((1 << (OParser.EXECUTE - 95)) | (1 << (OParser.FETCH - 95)) | (1 << (OParser.FILTERED - 95)) | (1 << (OParser.MUTABLE - 95)) | (1 << (OParser.NULL - 95)) | (1 << (OParser.READ - 95)) | (1 << (OParser.SELF - 95)) | (1 << (OParser.SORTED - 95)) | (1 << (OParser.THIS - 95)) | (1 << (OParser.BOOLEAN_LITERAL - 95)) | (1 << (OParser.CHAR_LITERAL - 95)) | (1 << (OParser.MIN_INTEGER - 95)) | (1 << (OParser.MAX_INTEGER - 95)) | (1 << (OParser.SYMBOL_IDENTIFIER - 95)) | (1 << (OParser.TYPE_IDENTIFIER - 95)))) != 0) or ((((_la - 159)) & ~0x3f) == 0 and ((1 << (_la - 159)) & ((1 << (OParser.VARIABLE_IDENTIFIER - 159)) | (1 << (OParser.TEXT_LITERAL - 159)) | (1 << (OParser.UUID_LITERAL - 159)) | (1 << (OParser.INTEGER_LITERAL - 159)) | (1 << (OParser.HEXA_LITERAL - 159)) | (1 << (OParser.DECIMAL_LITERAL - 159)) | (1 << (OParser.DATETIME_LITERAL - 159)) | (1 << (OParser.TIME_LITERAL - 159)) | (1 << (OParser.DATE_LITERAL - 159)) | (1 << (OParser.PERIOD_LITERAL - 159)) | (1 << (OParser.VERSION_LITERAL - 159)))) != 0):
                 self.state = 941
@@ -6128,7 +6181,7 @@ class OParser ( AbstractParser ):
 
     class MethodParentContext(Method_selectorContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Method_selectorContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Method_selectorContext
             super().__init__(parser)
             self.parent = None # Callable_parentContext
             self.name = None # Method_identifierContext
@@ -6144,17 +6197,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMethodParent" ):
                 listener.enterMethodParent(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMethodParent" ):
                 listener.exitMethodParent(self)
 
 
     class MethodNameContext(Method_selectorContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Method_selectorContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Method_selectorContext
             super().__init__(parser)
             self.name = None # Method_identifierContext
             self.copyFrom(ctx)
@@ -6164,11 +6217,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMethodName" ):
                 listener.enterMethodName(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMethodName" ):
                 listener.exitMethodName(self)
 
 
@@ -6179,6 +6232,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 86, self.RULE_method_selector)
         try:
             self.state = 951
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,63,self._ctx)
             if la_ == 1:
                 localctx = OParser.MethodNameContext(self, localctx)
@@ -6224,7 +6278,7 @@ class OParser ( AbstractParser ):
 
     class CallableSelectorContext(Callable_parentContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Callable_parentContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Callable_parentContext
             super().__init__(parser)
             self.parent = None # Callable_parentContext
             self.select = None # Callable_selectorContext
@@ -6238,17 +6292,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCallableSelector" ):
                 listener.enterCallableSelector(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCallableSelector" ):
                 listener.exitCallableSelector(self)
 
 
     class CallableRootContext(Callable_parentContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Callable_parentContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Callable_parentContext
             super().__init__(parser)
             self.name = None # IdentifierContext
             self.copyFrom(ctx)
@@ -6258,11 +6312,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCallableRoot" ):
                 listener.enterCallableRoot(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCallableRoot" ):
                 listener.exitCallableRoot(self)
 
 
@@ -6330,7 +6384,7 @@ class OParser ( AbstractParser ):
 
     class CallableItemSelectorContext(Callable_selectorContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Callable_selectorContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Callable_selectorContext
             super().__init__(parser)
             self.exp = None # ExpressionContext
             self.copyFrom(ctx)
@@ -6344,17 +6398,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCallableItemSelector" ):
                 listener.enterCallableItemSelector(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCallableItemSelector" ):
                 listener.exitCallableItemSelector(self)
 
 
     class CallableMemberSelectorContext(Callable_selectorContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Callable_selectorContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Callable_selectorContext
             super().__init__(parser)
             self.name = None # Variable_identifierContext
             self.copyFrom(ctx)
@@ -6366,11 +6420,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCallableMemberSelector" ):
                 listener.enterCallableMemberSelector(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCallableMemberSelector" ):
                 listener.exitCallableMemberSelector(self)
 
 
@@ -6381,6 +6435,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 90, self.RULE_callable_selector)
         try:
             self.state = 969
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.DOT]:
                 localctx = OParser.CallableMemberSelectorContext(self, localctx)
@@ -6389,7 +6444,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.DOT)
                 self.state = 964
                 localctx.name = self.variable_identifier()
-
+                pass
             elif token in [OParser.LBRAK]:
                 localctx = OParser.CallableItemSelectorContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
@@ -6399,7 +6454,7 @@ class OParser ( AbstractParser ):
                 localctx.exp = self.expression(0)
                 self.state = 967
                 self.match(OParser.RBRAK)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -6428,7 +6483,7 @@ class OParser ( AbstractParser ):
 
     class IntDivideExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -6445,17 +6500,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIntDivideExpression" ):
                 listener.enterIntDivideExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIntDivideExpression" ):
                 listener.exitIntDivideExpression(self)
 
 
     class TernaryExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.test = None # ExpressionContext
             self.ifTrue = None # ExpressionContext
@@ -6474,17 +6529,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterTernaryExpression" ):
                 listener.enterTernaryExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitTernaryExpression" ):
                 listener.exitTernaryExpression(self)
 
 
     class ContainsAllExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -6502,17 +6557,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterContainsAllExpression" ):
                 listener.enterContainsAllExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitContainsAllExpression" ):
                 listener.exitContainsAllExpression(self)
 
 
     class NotEqualsExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -6528,17 +6583,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNotEqualsExpression" ):
                 listener.enterNotEqualsExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNotEqualsExpression" ):
                 listener.exitNotEqualsExpression(self)
 
 
     class InExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -6554,17 +6609,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterInExpression" ):
                 listener.enterInExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitInExpression" ):
                 listener.exitInExpression(self)
 
 
     class IsAnExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # An_expressionContext
@@ -6580,17 +6635,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIsAnExpression" ):
                 listener.enterIsAnExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIsAnExpression" ):
                 listener.exitIsAnExpression(self)
 
 
     class NotExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.exp = None # ExpressionContext
             self.copyFrom(ctx)
@@ -6602,17 +6657,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNotExpression" ):
                 listener.enterNotExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNotExpression" ):
                 listener.exitNotExpression(self)
 
 
     class GreaterThanExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -6628,17 +6683,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterGreaterThanExpression" ):
                 listener.enterGreaterThanExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitGreaterThanExpression" ):
                 listener.exitGreaterThanExpression(self)
 
 
     class OrExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -6654,17 +6709,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterOrExpression" ):
                 listener.enterOrExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitOrExpression" ):
                 listener.exitOrExpression(self)
 
 
     class CodeExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.exp = None # ExpressionContext
             self.copyFrom(ctx)
@@ -6680,17 +6735,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCodeExpression" ):
                 listener.enterCodeExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCodeExpression" ):
                 listener.exitCodeExpression(self)
 
 
     class LessThanOrEqualExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -6706,17 +6761,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterLessThanOrEqualExpression" ):
                 listener.enterLessThanOrEqualExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitLessThanOrEqualExpression" ):
                 listener.exitLessThanOrEqualExpression(self)
 
 
     class AndExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -6732,17 +6787,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAndExpression" ):
                 listener.enterAndExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAndExpression" ):
                 listener.exitAndExpression(self)
 
 
     class ClosureExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.exp = None # Closure_expressionContext
             self.copyFrom(ctx)
@@ -6752,17 +6807,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterClosureExpression" ):
                 listener.enterClosureExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitClosureExpression" ):
                 listener.exitClosureExpression(self)
 
 
     class NotContainsAnyExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -6782,17 +6837,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNotContainsAnyExpression" ):
                 listener.enterNotContainsAnyExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNotContainsAnyExpression" ):
                 listener.exitNotContainsAnyExpression(self)
 
 
     class ContainsExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -6808,17 +6863,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterContainsExpression" ):
                 listener.enterContainsExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitContainsExpression" ):
                 listener.exitContainsExpression(self)
 
 
     class NotContainsExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -6836,17 +6891,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNotContainsExpression" ):
                 listener.enterNotContainsExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNotContainsExpression" ):
                 listener.exitNotContainsExpression(self)
 
 
     class MultiplyExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -6863,17 +6918,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMultiplyExpression" ):
                 listener.enterMultiplyExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMultiplyExpression" ):
                 listener.exitMultiplyExpression(self)
 
 
     class RoughlyEqualsExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -6889,17 +6944,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterRoughlyEqualsExpression" ):
                 listener.enterRoughlyEqualsExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitRoughlyEqualsExpression" ):
                 listener.exitRoughlyEqualsExpression(self)
 
 
     class IsNotAnExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # An_expressionContext
@@ -6917,17 +6972,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIsNotAnExpression" ):
                 listener.enterIsNotAnExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIsNotAnExpression" ):
                 listener.exitIsNotAnExpression(self)
 
 
     class ExecuteExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.name = None # Variable_identifierContext
             self.copyFrom(ctx)
@@ -6943,17 +6998,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterExecuteExpression" ):
                 listener.enterExecuteExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitExecuteExpression" ):
                 listener.exitExecuteExpression(self)
 
 
     class MethodExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.exp = None # Method_expressionContext
             self.copyFrom(ctx)
@@ -6963,17 +7018,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMethodExpression" ):
                 listener.enterMethodExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMethodExpression" ):
                 listener.exitMethodExpression(self)
 
 
     class GreaterThanOrEqualExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -6989,17 +7044,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterGreaterThanOrEqualExpression" ):
                 listener.enterGreaterThanOrEqualExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitGreaterThanOrEqualExpression" ):
                 listener.exitGreaterThanOrEqualExpression(self)
 
 
     class NotInExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -7017,17 +7072,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNotInExpression" ):
                 listener.enterNotInExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNotInExpression" ):
                 listener.exitNotInExpression(self)
 
 
     class IteratorExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.exp = None # ExpressionContext
             self.name = None # Variable_identifierContext
@@ -7055,17 +7110,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIteratorExpression" ):
                 listener.enterIteratorExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIteratorExpression" ):
                 listener.exitIteratorExpression(self)
 
 
     class IsNotExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -7083,17 +7138,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIsNotExpression" ):
                 listener.enterIsNotExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIsNotExpression" ):
                 listener.exitIsNotExpression(self)
 
 
     class DivideExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -7110,17 +7165,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDivideExpression" ):
                 listener.enterDivideExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDivideExpression" ):
                 listener.exitDivideExpression(self)
 
 
     class IsExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -7136,17 +7191,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIsExpression" ):
                 listener.enterIsExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIsExpression" ):
                 listener.exitIsExpression(self)
 
 
     class MinusExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.exp = None # ExpressionContext
             self.copyFrom(ctx)
@@ -7158,17 +7213,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMinusExpression" ):
                 listener.enterMinusExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMinusExpression" ):
                 listener.exitMinusExpression(self)
 
 
     class AddExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.op = None # Token
@@ -7187,17 +7242,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.MINUS, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAddExpression" ):
                 listener.enterAddExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAddExpression" ):
                 listener.exitAddExpression(self)
 
 
     class NotContainsAllExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -7217,17 +7272,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNotContainsAllExpression" ):
                 listener.enterNotContainsAllExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNotContainsAllExpression" ):
                 listener.exitNotContainsAllExpression(self)
 
 
     class InstanceExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.exp = None # Instance_expressionContext
             self.copyFrom(ctx)
@@ -7237,17 +7292,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterInstanceExpression" ):
                 listener.enterInstanceExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitInstanceExpression" ):
                 listener.exitInstanceExpression(self)
 
 
     class CastExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.right = None # Category_or_any_typeContext
             self.left = None # ExpressionContext
@@ -7265,17 +7320,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCastExpression" ):
                 listener.enterCastExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCastExpression" ):
                 listener.exitCastExpression(self)
 
 
     class ContainsAnyExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -7293,17 +7348,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterContainsAnyExpression" ):
                 listener.enterContainsAnyExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitContainsAnyExpression" ):
                 listener.exitContainsAnyExpression(self)
 
 
     class ModuloExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -7320,17 +7375,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterModuloExpression" ):
                 listener.enterModuloExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitModuloExpression" ):
                 listener.exitModuloExpression(self)
 
 
     class LessThanExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -7346,17 +7401,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterLessThanExpression" ):
                 listener.enterLessThanExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitLessThanExpression" ):
                 listener.exitLessThanExpression(self)
 
 
     class EqualsExpressionContext(ExpressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ExpressionContext
             super().__init__(parser)
             self.left = None # ExpressionContext
             self.right = None # ExpressionContext
@@ -7372,11 +7427,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterEqualsExpression" ):
                 listener.enterEqualsExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitEqualsExpression" ):
                 listener.exitEqualsExpression(self)
 
 
@@ -7392,56 +7447,57 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 994
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,66,self._ctx)
             if la_ == 1:
-                localctx = OParser.MinusExpressionContext(self, localctx)
+                localctx = OParser.InstanceExpressionContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
 
                 self.state = 972
-                self.match(OParser.MINUS)
-                self.state = 973
-                localctx.exp = self.expression(34)
-                pass
-
-            elif la_ == 2:
-                localctx = OParser.NotExpressionContext(self, localctx)
-                self._ctx = localctx
-                _prevctx = localctx
-                self.state = 974
-                self.match(OParser.XMARK)
-                self.state = 975
-                localctx.exp = self.expression(33)
-                pass
-
-            elif la_ == 3:
-                localctx = OParser.CastExpressionContext(self, localctx)
-                self._ctx = localctx
-                _prevctx = localctx
-                self.state = 976
-                self.match(OParser.LPAR)
-                self.state = 977
-                localctx.right = self.category_or_any_type()
-                self.state = 978
-                self.match(OParser.RPAR)
-                self.state = 979
-                localctx.left = self.expression(13)
-                pass
-
-            elif la_ == 4:
-                localctx = OParser.InstanceExpressionContext(self, localctx)
-                self._ctx = localctx
-                _prevctx = localctx
-                self.state = 981
                 localctx.exp = self.instance_expression(0)
                 pass
 
-            elif la_ == 5:
+            elif la_ == 2:
                 localctx = OParser.MethodExpressionContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-                self.state = 982
+                self.state = 973
                 localctx.exp = self.method_expression()
+                pass
+
+            elif la_ == 3:
+                localctx = OParser.MinusExpressionContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
+                self.state = 974
+                self.match(OParser.MINUS)
+                self.state = 975
+                localctx.exp = self.expression(34)
+                pass
+
+            elif la_ == 4:
+                localctx = OParser.NotExpressionContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
+                self.state = 976
+                self.match(OParser.XMARK)
+                self.state = 977
+                localctx.exp = self.expression(33)
+                pass
+
+            elif la_ == 5:
+                localctx = OParser.CastExpressionContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
+                self.state = 978
+                self.match(OParser.LPAR)
+                self.state = 979
+                localctx.right = self.category_or_any_type()
+                self.state = 980
+                self.match(OParser.RPAR)
+                self.state = 981
+                localctx.left = self.expression(13)
                 pass
 
             elif la_ == 6:
@@ -7491,6 +7547,7 @@ class OParser ( AbstractParser ):
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
                     self.state = 1103
+                    self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,67,self._ctx)
                     if la_ == 1:
                         localctx = OParser.MultiplyExpressionContext(self, OParser.ExpressionContext(self, _parentctx, _parentState))
@@ -7561,7 +7618,9 @@ class OParser ( AbstractParser ):
                         _la = self._input.LA(1)
                         if not(_la==OParser.PLUS or _la==OParser.MINUS):
                             localctx.op = self._errHandler.recoverInline(self)
-                        self.consume()
+                        else:
+                            self._errHandler.reportMatch(self)
+                            self.consume()
                         self.state = 1014
                         localctx.right = self.expression(29)
                         pass
@@ -7953,11 +8012,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_an_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAn_expression" ):
                 listener.enterAn_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAn_expression" ):
                 listener.exitAn_expression(self)
 
 
@@ -8000,11 +8059,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_closure_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterClosure_expression" ):
                 listener.enterClosure_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitClosure_expression" ):
                 listener.exitClosure_expression(self)
 
 
@@ -8043,7 +8102,7 @@ class OParser ( AbstractParser ):
 
     class SelectorExpressionContext(Instance_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Instance_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Instance_expressionContext
             super().__init__(parser)
             self.parent = None # Instance_expressionContext
             self.selector = None # Selector_expressionContext
@@ -8057,17 +8116,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSelectorExpression" ):
                 listener.enterSelectorExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSelectorExpression" ):
                 listener.exitSelectorExpression(self)
 
 
     class SelectableExpressionContext(Instance_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Instance_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Instance_expressionContext
             super().__init__(parser)
             self.parent = None # Selectable_expressionContext
             self.copyFrom(ctx)
@@ -8077,11 +8136,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSelectableExpression" ):
                 listener.enterSelectableExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSelectableExpression" ):
                 listener.exitSelectableExpression(self)
 
 
@@ -8177,11 +8236,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_method_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMethod_expression" ):
                 listener.enterMethod_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMethod_expression" ):
                 listener.exitMethod_expression(self)
 
 
@@ -8193,6 +8252,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 100, self.RULE_method_expression)
         try:
             self.state = 1133
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,70,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
@@ -8280,11 +8340,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_blob_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterBlob_expression" ):
                 listener.enterBlob_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitBlob_expression" ):
                 listener.exitBlob_expression(self)
 
 
@@ -8335,11 +8395,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_document_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDocument_expression" ):
                 listener.enterDocument_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDocument_expression" ):
                 listener.exitDocument_expression(self)
 
 
@@ -8357,6 +8417,7 @@ class OParser ( AbstractParser ):
             self.state = 1141
             self.match(OParser.LPAR)
             self.state = 1143
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB))) != 0) or ((((_la - 95)) & ~0x3f) == 0 and ((1 << (_la - 95)) & ((1 << (OParser.EXECUTE - 95)) | (1 << (OParser.FETCH - 95)) | (1 << (OParser.FILTERED - 95)) | (1 << (OParser.MUTABLE - 95)) | (1 << (OParser.NULL - 95)) | (1 << (OParser.READ - 95)) | (1 << (OParser.SELF - 95)) | (1 << (OParser.SORTED - 95)) | (1 << (OParser.THIS - 95)) | (1 << (OParser.BOOLEAN_LITERAL - 95)) | (1 << (OParser.CHAR_LITERAL - 95)) | (1 << (OParser.MIN_INTEGER - 95)) | (1 << (OParser.MAX_INTEGER - 95)) | (1 << (OParser.SYMBOL_IDENTIFIER - 95)) | (1 << (OParser.TYPE_IDENTIFIER - 95)))) != 0) or ((((_la - 159)) & ~0x3f) == 0 and ((1 << (_la - 159)) & ((1 << (OParser.VARIABLE_IDENTIFIER - 159)) | (1 << (OParser.TEXT_LITERAL - 159)) | (1 << (OParser.UUID_LITERAL - 159)) | (1 << (OParser.INTEGER_LITERAL - 159)) | (1 << (OParser.HEXA_LITERAL - 159)) | (1 << (OParser.DECIMAL_LITERAL - 159)) | (1 << (OParser.DATETIME_LITERAL - 159)) | (1 << (OParser.TIME_LITERAL - 159)) | (1 << (OParser.DATE_LITERAL - 159)) | (1 << (OParser.PERIOD_LITERAL - 159)) | (1 << (OParser.VERSION_LITERAL - 159)))) != 0):
                 self.state = 1142
@@ -8407,11 +8468,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_write_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterWrite_statement" ):
                 listener.enterWrite_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitWrite_statement" ):
                 listener.exitWrite_statement(self)
 
 
@@ -8490,11 +8551,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_filtered_list_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterFiltered_list_expression" ):
                 listener.enterFiltered_list_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitFiltered_list_expression" ):
                 listener.exitFiltered_list_expression(self)
 
 
@@ -8556,7 +8617,7 @@ class OParser ( AbstractParser ):
 
     class FetchOneContext(Fetch_store_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Fetch_store_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Fetch_store_expressionContext
             super().__init__(parser)
             self.typ = None # Mutable_category_typeContext
             self.predicate = None # ExpressionContext
@@ -8586,17 +8647,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterFetchOne" ):
                 listener.enterFetchOne(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitFetchOne" ):
                 listener.exitFetchOne(self)
 
 
     class FetchManyContext(Fetch_store_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Fetch_store_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Fetch_store_expressionContext
             super().__init__(parser)
             self.typ = None # Mutable_category_typeContext
             self.xstart = None # ExpressionContext
@@ -8643,11 +8704,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterFetchMany" ):
                 listener.enterFetchMany(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitFetchMany" ):
                 listener.exitFetchMany(self)
 
 
@@ -8659,6 +8720,7 @@ class OParser ( AbstractParser ):
         self._la = 0 # Token type
         try:
             self.state = 1219
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,78,self._ctx)
             if la_ == 1:
                 localctx = OParser.FetchOneContext(self, localctx)
@@ -8668,6 +8730,7 @@ class OParser ( AbstractParser ):
                 self.state = 1169
                 self.match(OParser.ONE)
                 self.state = 1174
+                self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if _la==OParser.LPAR:
                     self.state = 1170
@@ -8694,11 +8757,13 @@ class OParser ( AbstractParser ):
                 self.state = 1181
                 self.match(OParser.FETCH)
                 self.state = 1202
+                self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [OParser.ALL]:
                     self.state = 1182
                     self.match(OParser.ALL)
                     self.state = 1187
+                    self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,73,self._ctx)
                     if la_ == 1:
                         self.state = 1183
@@ -8709,9 +8774,10 @@ class OParser ( AbstractParser ):
                         self.match(OParser.RPAR)
 
 
-
+                    pass
                 elif token in [OParser.LPAR, OParser.ROWS]:
                     self.state = 1193
+                    self._errHandler.sync(self)
                     _la = self._input.LA(1)
                     if _la==OParser.LPAR:
                         self.state = 1189
@@ -8734,11 +8800,12 @@ class OParser ( AbstractParser ):
                     localctx.xstop = self.expression(0)
                     self.state = 1200
                     self.match(OParser.RPAR)
-
+                    pass
                 else:
                     raise NoViableAltException(self)
 
                 self.state = 1209
+                self._errHandler.sync(self)
                 la_ = self._interp.adaptivePredict(self._input,76,self._ctx)
                 if la_ == 1:
                     self.state = 1204
@@ -8752,6 +8819,7 @@ class OParser ( AbstractParser ):
 
 
                 self.state = 1217
+                self._errHandler.sync(self)
                 la_ = self._interp.adaptivePredict(self._input,77,self._ctx)
                 if la_ == 1:
                     self.state = 1211
@@ -8818,11 +8886,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_sorted_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSorted_expression" ):
                 listener.enterSorted_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSorted_expression" ):
                 listener.exitSorted_expression(self)
 
 
@@ -8838,6 +8906,7 @@ class OParser ( AbstractParser ):
             self.state = 1221
             self.match(OParser.SORTED)
             self.state = 1223
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.DESC:
                 self.state = 1222
@@ -8849,6 +8918,7 @@ class OParser ( AbstractParser ):
             self.state = 1226
             localctx.source = self.instance_expression(0)
             self.state = 1232
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.COMMA:
                 self.state = 1227
@@ -8889,7 +8959,7 @@ class OParser ( AbstractParser ):
 
     class SliceSelectorContext(Selector_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Selector_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Selector_expressionContext
             super().__init__(parser)
             self.xslice = None # Slice_argumentsContext
             self.copyFrom(ctx)
@@ -8903,17 +8973,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSliceSelector" ):
                 listener.enterSliceSelector(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSliceSelector" ):
                 listener.exitSliceSelector(self)
 
 
     class MemberSelectorContext(Selector_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Selector_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Selector_expressionContext
             super().__init__(parser)
             self.name = None # Variable_identifierContext
             self.copyFrom(ctx)
@@ -8925,17 +8995,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMemberSelector" ):
                 listener.enterMemberSelector(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMemberSelector" ):
                 listener.exitMemberSelector(self)
 
 
     class ItemSelectorContext(Selector_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Selector_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Selector_expressionContext
             super().__init__(parser)
             self.exp = None # ExpressionContext
             self.copyFrom(ctx)
@@ -8949,11 +9019,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterItemSelector" ):
                 listener.enterItemSelector(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitItemSelector" ):
                 listener.exitItemSelector(self)
 
 
@@ -8964,6 +9034,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 114, self.RULE_selector_expression)
         try:
             self.state = 1246
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,81,self._ctx)
             if la_ == 1:
                 localctx = OParser.MemberSelectorContext(self, localctx)
@@ -9031,11 +9102,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_constructor_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterConstructor_expression" ):
                 listener.enterConstructor_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitConstructor_expression" ):
                 listener.exitConstructor_expression(self)
 
 
@@ -9053,6 +9124,7 @@ class OParser ( AbstractParser ):
             self.state = 1249
             self.match(OParser.LPAR)
             self.state = 1251
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB))) != 0) or ((((_la - 95)) & ~0x3f) == 0 and ((1 << (_la - 95)) & ((1 << (OParser.EXECUTE - 95)) | (1 << (OParser.FETCH - 95)) | (1 << (OParser.FILTERED - 95)) | (1 << (OParser.MUTABLE - 95)) | (1 << (OParser.NULL - 95)) | (1 << (OParser.READ - 95)) | (1 << (OParser.SELF - 95)) | (1 << (OParser.SORTED - 95)) | (1 << (OParser.THIS - 95)) | (1 << (OParser.BOOLEAN_LITERAL - 95)) | (1 << (OParser.CHAR_LITERAL - 95)) | (1 << (OParser.MIN_INTEGER - 95)) | (1 << (OParser.MAX_INTEGER - 95)) | (1 << (OParser.SYMBOL_IDENTIFIER - 95)) | (1 << (OParser.TYPE_IDENTIFIER - 95)))) != 0) or ((((_la - 159)) & ~0x3f) == 0 and ((1 << (_la - 159)) & ((1 << (OParser.VARIABLE_IDENTIFIER - 159)) | (1 << (OParser.TEXT_LITERAL - 159)) | (1 << (OParser.UUID_LITERAL - 159)) | (1 << (OParser.INTEGER_LITERAL - 159)) | (1 << (OParser.HEXA_LITERAL - 159)) | (1 << (OParser.DECIMAL_LITERAL - 159)) | (1 << (OParser.DATETIME_LITERAL - 159)) | (1 << (OParser.TIME_LITERAL - 159)) | (1 << (OParser.DATE_LITERAL - 159)) | (1 << (OParser.PERIOD_LITERAL - 159)) | (1 << (OParser.VERSION_LITERAL - 159)))) != 0):
                 self.state = 1250
@@ -9086,7 +9158,7 @@ class OParser ( AbstractParser ):
 
     class ExpressionAssignmentListContext(Argument_assignment_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Argument_assignment_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Argument_assignment_listContext
             super().__init__(parser)
             self.exp = None # ExpressionContext
             self.copyFrom(ctx)
@@ -9096,17 +9168,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterExpressionAssignmentList" ):
                 listener.enterExpressionAssignmentList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitExpressionAssignmentList" ):
                 listener.exitExpressionAssignmentList(self)
 
 
     class ArgumentAssignmentListContext(Argument_assignment_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Argument_assignment_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Argument_assignment_listContext
             super().__init__(parser)
             self.item = None # Argument_assignmentContext
             self.copyFrom(ctx)
@@ -9116,17 +9188,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterArgumentAssignmentList" ):
                 listener.enterArgumentAssignmentList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitArgumentAssignmentList" ):
                 listener.exitArgumentAssignmentList(self)
 
 
     class ArgumentAssignmentListItemContext(Argument_assignment_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Argument_assignment_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Argument_assignment_listContext
             super().__init__(parser)
             self.items = None # Argument_assignment_listContext
             self.item = None # Argument_assignmentContext
@@ -9142,11 +9214,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterArgumentAssignmentListItem" ):
                 listener.enterArgumentAssignmentListItem(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitArgumentAssignmentListItem" ):
                 listener.exitArgumentAssignmentListItem(self)
 
 
@@ -9161,6 +9233,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 1260
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,83,self._ctx)
             if la_ == 1:
                 localctx = OParser.ExpressionAssignmentListContext(self, localctx)
@@ -9240,11 +9313,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_argument_assignment
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterArgument_assignment" ):
                 listener.enterArgument_assignment(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitArgument_assignment" ):
                 listener.exitArgument_assignment(self)
 
 
@@ -9297,11 +9370,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_assign_instance_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAssign_instance_statement" ):
                 listener.enterAssign_instance_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAssign_instance_statement" ):
                 listener.exitAssign_instance_statement(self)
 
 
@@ -9347,7 +9420,7 @@ class OParser ( AbstractParser ):
 
     class MemberInstanceContext(Child_instanceContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Child_instanceContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Child_instanceContext
             super().__init__(parser)
             self.name = None # Variable_identifierContext
             self.copyFrom(ctx)
@@ -9359,17 +9432,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMemberInstance" ):
                 listener.enterMemberInstance(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMemberInstance" ):
                 listener.exitMemberInstance(self)
 
 
     class ItemInstanceContext(Child_instanceContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Child_instanceContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Child_instanceContext
             super().__init__(parser)
             self.exp = None # ExpressionContext
             self.copyFrom(ctx)
@@ -9383,11 +9456,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterItemInstance" ):
                 listener.enterItemInstance(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitItemInstance" ):
                 listener.exitItemInstance(self)
 
 
@@ -9398,6 +9471,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 124, self.RULE_child_instance)
         try:
             self.state = 1285
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.DOT]:
                 localctx = OParser.MemberInstanceContext(self, localctx)
@@ -9406,7 +9480,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.DOT)
                 self.state = 1280
                 localctx.name = self.variable_identifier()
-
+                pass
             elif token in [OParser.LBRAK]:
                 localctx = OParser.ItemInstanceContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
@@ -9416,7 +9490,7 @@ class OParser ( AbstractParser ):
                 localctx.exp = self.expression(0)
                 self.state = 1283
                 self.match(OParser.RBRAK)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -9455,11 +9529,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_assign_tuple_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAssign_tuple_statement" ):
                 listener.enterAssign_tuple_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAssign_tuple_statement" ):
                 listener.exitAssign_tuple_statement(self)
 
 
@@ -9500,11 +9574,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_null_literal
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNull_literal" ):
                 listener.enterNull_literal(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNull_literal" ):
                 listener.exitNull_literal(self)
 
 
@@ -9544,7 +9618,7 @@ class OParser ( AbstractParser ):
 
     class FullDeclarationListContext(Declaration_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Declaration_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Declaration_listContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -9558,11 +9632,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterFullDeclarationList" ):
                 listener.enterFullDeclarationList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitFullDeclarationList" ):
                 listener.exitFullDeclarationList(self)
 
 
@@ -9576,6 +9650,7 @@ class OParser ( AbstractParser ):
             localctx = OParser.FullDeclarationListContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
             self.state = 1295
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.COMMENT) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB) | (1 << OParser.IMAGE) | (1 << OParser.UUID) | (1 << OParser.ITERATOR) | (1 << OParser.CURSOR))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (OParser.ABSTRACT - 64)) | (1 << (OParser.ANY - 64)) | (1 << (OParser.ATTRIBUTE - 64)) | (1 << (OParser.CATEGORY - 64)) | (1 << (OParser.ENUMERATED - 64)) | (1 << (OParser.METHOD - 64)) | (1 << (OParser.NATIVE - 64)))) != 0) or ((((_la - 137)) & ~0x3f) == 0 and ((1 << (_la - 137)) & ((1 << (OParser.SINGLETON - 137)) | (1 << (OParser.STORABLE - 137)) | (1 << (OParser.TEST - 137)) | (1 << (OParser.TYPE_IDENTIFIER - 137)))) != 0):
                 self.state = 1294
@@ -9618,11 +9693,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_declarations
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDeclarations" ):
                 listener.enterDeclarations(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDeclarations" ):
                 listener.exitDeclarations(self)
 
 
@@ -9701,11 +9776,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDeclaration" ):
                 listener.enterDeclaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDeclaration" ):
                 listener.exitDeclaration(self)
 
 
@@ -9731,6 +9806,7 @@ class OParser ( AbstractParser ):
                 _la = self._input.LA(1)
 
             self.state = 1322
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,89,self._ctx)
             if la_ == 1:
                 self.state = 1317
@@ -9780,11 +9856,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_resource_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterResource_declaration" ):
                 listener.enterResource_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitResource_declaration" ):
                 listener.exitResource_declaration(self)
 
 
@@ -9824,11 +9900,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_enum_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterEnum_declaration" ):
                 listener.enterEnum_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitEnum_declaration" ):
                 listener.exitEnum_declaration(self)
 
 
@@ -9840,6 +9916,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 138, self.RULE_enum_declaration)
         try:
             self.state = 1328
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,90,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
@@ -9886,11 +9963,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_native_symbol_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNative_symbol_list" ):
                 listener.enterNative_symbol_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNative_symbol_list" ):
                 listener.exitNative_symbol_list(self)
 
 
@@ -9949,11 +10026,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_category_symbol_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCategory_symbol_list" ):
                 listener.enterCategory_symbol_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCategory_symbol_list" ):
                 listener.exitCategory_symbol_list(self)
 
 
@@ -10011,11 +10088,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_symbol_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSymbol_list" ):
                 listener.enterSymbol_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSymbol_list" ):
                 listener.exitSymbol_list(self)
 
 
@@ -10068,7 +10145,7 @@ class OParser ( AbstractParser ):
 
     class MatchingSetContext(Attribute_constraintContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Attribute_constraintContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Attribute_constraintContext
             super().__init__(parser)
             self.source = None # Set_literalContext
             self.copyFrom(ctx)
@@ -10080,17 +10157,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMatchingSet" ):
                 listener.enterMatchingSet(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMatchingSet" ):
                 listener.exitMatchingSet(self)
 
 
     class MatchingPatternContext(Attribute_constraintContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Attribute_constraintContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Attribute_constraintContext
             super().__init__(parser)
             self.text = None # Token
             self.copyFrom(ctx)
@@ -10101,17 +10178,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.TEXT_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMatchingPattern" ):
                 listener.enterMatchingPattern(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMatchingPattern" ):
                 listener.exitMatchingPattern(self)
 
 
     class MatchingListContext(Attribute_constraintContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Attribute_constraintContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Attribute_constraintContext
             super().__init__(parser)
             self.source = None # List_literalContext
             self.copyFrom(ctx)
@@ -10123,17 +10200,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMatchingList" ):
                 listener.enterMatchingList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMatchingList" ):
                 listener.exitMatchingList(self)
 
 
     class MatchingRangeContext(Attribute_constraintContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Attribute_constraintContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Attribute_constraintContext
             super().__init__(parser)
             self.source = None # Range_literalContext
             self.copyFrom(ctx)
@@ -10145,17 +10222,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMatchingRange" ):
                 listener.enterMatchingRange(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMatchingRange" ):
                 listener.exitMatchingRange(self)
 
 
     class MatchingExpressionContext(Attribute_constraintContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Attribute_constraintContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Attribute_constraintContext
             super().__init__(parser)
             self.exp = None # ExpressionContext
             self.copyFrom(ctx)
@@ -10167,11 +10244,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMatchingExpression" ):
                 listener.enterMatchingExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMatchingExpression" ):
                 listener.exitMatchingExpression(self)
 
 
@@ -10182,6 +10259,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 146, self.RULE_attribute_constraint)
         try:
             self.state = 1366
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,94,self._ctx)
             if la_ == 1:
                 localctx = OParser.MatchingListContext(self, localctx)
@@ -10260,11 +10338,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_list_literal
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterList_literal" ):
                 listener.enterList_literal(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitList_literal" ):
                 listener.exitList_literal(self)
 
 
@@ -10278,6 +10356,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 1369
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.MUTABLE:
                 self.state = 1368
@@ -10287,6 +10366,7 @@ class OParser ( AbstractParser ):
             self.state = 1371
             self.match(OParser.LBRAK)
             self.state = 1373
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB))) != 0) or ((((_la - 95)) & ~0x3f) == 0 and ((1 << (_la - 95)) & ((1 << (OParser.EXECUTE - 95)) | (1 << (OParser.FETCH - 95)) | (1 << (OParser.FILTERED - 95)) | (1 << (OParser.MUTABLE - 95)) | (1 << (OParser.NULL - 95)) | (1 << (OParser.READ - 95)) | (1 << (OParser.SELF - 95)) | (1 << (OParser.SORTED - 95)) | (1 << (OParser.THIS - 95)) | (1 << (OParser.BOOLEAN_LITERAL - 95)) | (1 << (OParser.CHAR_LITERAL - 95)) | (1 << (OParser.MIN_INTEGER - 95)) | (1 << (OParser.MAX_INTEGER - 95)) | (1 << (OParser.SYMBOL_IDENTIFIER - 95)) | (1 << (OParser.TYPE_IDENTIFIER - 95)))) != 0) or ((((_la - 159)) & ~0x3f) == 0 and ((1 << (_la - 159)) & ((1 << (OParser.VARIABLE_IDENTIFIER - 159)) | (1 << (OParser.TEXT_LITERAL - 159)) | (1 << (OParser.UUID_LITERAL - 159)) | (1 << (OParser.INTEGER_LITERAL - 159)) | (1 << (OParser.HEXA_LITERAL - 159)) | (1 << (OParser.DECIMAL_LITERAL - 159)) | (1 << (OParser.DATETIME_LITERAL - 159)) | (1 << (OParser.TIME_LITERAL - 159)) | (1 << (OParser.DATE_LITERAL - 159)) | (1 << (OParser.PERIOD_LITERAL - 159)) | (1 << (OParser.VERSION_LITERAL - 159)))) != 0):
                 self.state = 1372
@@ -10326,11 +10406,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_set_literal
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSet_literal" ):
                 listener.enterSet_literal(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSet_literal" ):
                 listener.exitSet_literal(self)
 
 
@@ -10344,6 +10424,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 1378
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.MUTABLE:
                 self.state = 1377
@@ -10353,6 +10434,7 @@ class OParser ( AbstractParser ):
             self.state = 1380
             self.match(OParser.LT)
             self.state = 1382
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB))) != 0) or ((((_la - 95)) & ~0x3f) == 0 and ((1 << (_la - 95)) & ((1 << (OParser.EXECUTE - 95)) | (1 << (OParser.FETCH - 95)) | (1 << (OParser.FILTERED - 95)) | (1 << (OParser.MUTABLE - 95)) | (1 << (OParser.NULL - 95)) | (1 << (OParser.READ - 95)) | (1 << (OParser.SELF - 95)) | (1 << (OParser.SORTED - 95)) | (1 << (OParser.THIS - 95)) | (1 << (OParser.BOOLEAN_LITERAL - 95)) | (1 << (OParser.CHAR_LITERAL - 95)) | (1 << (OParser.MIN_INTEGER - 95)) | (1 << (OParser.MAX_INTEGER - 95)) | (1 << (OParser.SYMBOL_IDENTIFIER - 95)) | (1 << (OParser.TYPE_IDENTIFIER - 95)))) != 0) or ((((_la - 159)) & ~0x3f) == 0 and ((1 << (_la - 159)) & ((1 << (OParser.VARIABLE_IDENTIFIER - 159)) | (1 << (OParser.TEXT_LITERAL - 159)) | (1 << (OParser.UUID_LITERAL - 159)) | (1 << (OParser.INTEGER_LITERAL - 159)) | (1 << (OParser.HEXA_LITERAL - 159)) | (1 << (OParser.DECIMAL_LITERAL - 159)) | (1 << (OParser.DATETIME_LITERAL - 159)) | (1 << (OParser.TIME_LITERAL - 159)) | (1 << (OParser.DATE_LITERAL - 159)) | (1 << (OParser.PERIOD_LITERAL - 159)) | (1 << (OParser.VERSION_LITERAL - 159)))) != 0):
                 self.state = 1381
@@ -10392,11 +10474,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_expression_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterExpression_list" ):
                 listener.enterExpression_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitExpression_list" ):
                 listener.exitExpression_list(self)
 
 
@@ -10459,11 +10541,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_range_literal
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterRange_literal" ):
                 listener.enterRange_literal(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitRange_literal" ):
                 listener.exitRange_literal(self)
 
 
@@ -10510,7 +10592,7 @@ class OParser ( AbstractParser ):
 
     class IteratorTypeContext(TypedefContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.TypedefContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.TypedefContext
             super().__init__(parser)
             self.i = None # TypedefContext
             self.copyFrom(ctx)
@@ -10526,17 +10608,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIteratorType" ):
                 listener.enterIteratorType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIteratorType" ):
                 listener.exitIteratorType(self)
 
 
     class SetTypeContext(TypedefContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.TypedefContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.TypedefContext
             super().__init__(parser)
             self.s = None # TypedefContext
             self.copyFrom(ctx)
@@ -10548,17 +10630,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSetType" ):
                 listener.enterSetType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSetType" ):
                 listener.exitSetType(self)
 
 
     class ListTypeContext(TypedefContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.TypedefContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.TypedefContext
             super().__init__(parser)
             self.l = None # TypedefContext
             self.copyFrom(ctx)
@@ -10572,17 +10654,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterListType" ):
                 listener.enterListType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitListType" ):
                 listener.exitListType(self)
 
 
     class DictTypeContext(TypedefContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.TypedefContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.TypedefContext
             super().__init__(parser)
             self.d = None # TypedefContext
             self.copyFrom(ctx)
@@ -10596,17 +10678,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDictType" ):
                 listener.enterDictType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDictType" ):
                 listener.exitDictType(self)
 
 
     class CursorTypeContext(TypedefContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.TypedefContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.TypedefContext
             super().__init__(parser)
             self.c = None # TypedefContext
             self.copyFrom(ctx)
@@ -10622,17 +10704,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCursorType" ):
                 listener.enterCursorType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCursorType" ):
                 listener.exitCursorType(self)
 
 
     class PrimaryTypeContext(TypedefContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.TypedefContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.TypedefContext
             super().__init__(parser)
             self.p = None # Primary_typeContext
             self.copyFrom(ctx)
@@ -10642,11 +10724,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPrimaryType" ):
                 listener.enterPrimaryType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPrimaryType" ):
                 listener.exitPrimaryType(self)
 
 
@@ -10661,6 +10743,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 1412
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.CODE, OParser.DOCUMENT, OParser.BLOB, OParser.IMAGE, OParser.UUID, OParser.TYPE_IDENTIFIER]:
                 localctx = OParser.PrimaryTypeContext(self, localctx)
@@ -10669,7 +10752,7 @@ class OParser ( AbstractParser ):
 
                 self.state = 1401
                 localctx.p = self.primary_type()
-
+                pass
             elif token in [OParser.CURSOR]:
                 localctx = OParser.CursorTypeContext(self, localctx)
                 self._ctx = localctx
@@ -10682,7 +10765,7 @@ class OParser ( AbstractParser ):
                 localctx.c = self.typedef(0)
                 self.state = 1405
                 self.match(OParser.GT)
-
+                pass
             elif token in [OParser.ITERATOR]:
                 localctx = OParser.IteratorTypeContext(self, localctx)
                 self._ctx = localctx
@@ -10695,7 +10778,7 @@ class OParser ( AbstractParser ):
                 localctx.i = self.typedef(0)
                 self.state = 1410
                 self.match(OParser.GT)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -10709,6 +10792,7 @@ class OParser ( AbstractParser ):
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
                     self.state = 1422
+                    self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,101,self._ctx)
                     if la_ == 1:
                         localctx = OParser.SetTypeContext(self, OParser.TypedefContext(self, _parentctx, _parentState))
@@ -10781,7 +10865,7 @@ class OParser ( AbstractParser ):
 
     class NativeTypeContext(Primary_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Primary_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Primary_typeContext
             super().__init__(parser)
             self.n = None # Native_typeContext
             self.copyFrom(ctx)
@@ -10791,17 +10875,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNativeType" ):
                 listener.enterNativeType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNativeType" ):
                 listener.exitNativeType(self)
 
 
     class CategoryTypeContext(Primary_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Primary_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Primary_typeContext
             super().__init__(parser)
             self.c = None # Category_typeContext
             self.copyFrom(ctx)
@@ -10811,11 +10895,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCategoryType" ):
                 listener.enterCategoryType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCategoryType" ):
                 listener.exitCategoryType(self)
 
 
@@ -10826,19 +10910,20 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 158, self.RULE_primary_type)
         try:
             self.state = 1429
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.CODE, OParser.DOCUMENT, OParser.BLOB, OParser.IMAGE, OParser.UUID]:
                 localctx = OParser.NativeTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1427
                 localctx.n = self.native_type()
-
+                pass
             elif token in [OParser.TYPE_IDENTIFIER]:
                 localctx = OParser.CategoryTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1428
                 localctx.c = self.category_type()
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -10868,7 +10953,7 @@ class OParser ( AbstractParser ):
 
     class PeriodTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -10876,17 +10961,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.PERIOD, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPeriodType" ):
                 listener.enterPeriodType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPeriodType" ):
                 listener.exitPeriodType(self)
 
 
     class BooleanTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -10894,17 +10979,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.BOOLEAN, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterBooleanType" ):
                 listener.enterBooleanType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitBooleanType" ):
                 listener.exitBooleanType(self)
 
 
     class DocumentTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -10912,17 +10997,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.DOCUMENT, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDocumentType" ):
                 listener.enterDocumentType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDocumentType" ):
                 listener.exitDocumentType(self)
 
 
     class CharacterTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -10930,17 +11015,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.CHARACTER, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCharacterType" ):
                 listener.enterCharacterType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCharacterType" ):
                 listener.exitCharacterType(self)
 
 
     class VersionTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -10948,17 +11033,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.VERSION, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterVersionType" ):
                 listener.enterVersionType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitVersionType" ):
                 listener.exitVersionType(self)
 
 
     class TextTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -10966,17 +11051,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.TEXT, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterTextType" ):
                 listener.enterTextType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitTextType" ):
                 listener.exitTextType(self)
 
 
     class ImageTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -10984,17 +11069,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.IMAGE, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterImageType" ):
                 listener.enterImageType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitImageType" ):
                 listener.exitImageType(self)
 
 
     class TimeTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -11002,17 +11087,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.TIME, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterTimeType" ):
                 listener.enterTimeType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitTimeType" ):
                 listener.exitTimeType(self)
 
 
     class IntegerTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -11020,17 +11105,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.INTEGER, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIntegerType" ):
                 listener.enterIntegerType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIntegerType" ):
                 listener.exitIntegerType(self)
 
 
     class DateTimeTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -11038,17 +11123,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.DATETIME, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDateTimeType" ):
                 listener.enterDateTimeType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDateTimeType" ):
                 listener.exitDateTimeType(self)
 
 
     class BlobTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -11056,17 +11141,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.BLOB, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterBlobType" ):
                 listener.enterBlobType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitBlobType" ):
                 listener.exitBlobType(self)
 
 
     class UUIDTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -11074,17 +11159,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.UUID, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterUUIDType" ):
                 listener.enterUUIDType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitUUIDType" ):
                 listener.exitUUIDType(self)
 
 
     class DecimalTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -11092,17 +11177,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.DECIMAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDecimalType" ):
                 listener.enterDecimalType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDecimalType" ):
                 listener.exitDecimalType(self)
 
 
     class CodeTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -11110,17 +11195,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.CODE, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCodeType" ):
                 listener.enterCodeType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCodeType" ):
                 listener.exitCodeType(self)
 
 
     class DateTypeContext(Native_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -11128,11 +11213,11 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.DATE, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDateType" ):
                 listener.enterDateType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDateType" ):
                 listener.exitDateType(self)
 
 
@@ -11143,97 +11228,98 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 160, self.RULE_native_type)
         try:
             self.state = 1446
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.BOOLEAN]:
                 localctx = OParser.BooleanTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1431
                 self.match(OParser.BOOLEAN)
-
+                pass
             elif token in [OParser.CHARACTER]:
                 localctx = OParser.CharacterTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1432
                 self.match(OParser.CHARACTER)
-
+                pass
             elif token in [OParser.TEXT]:
                 localctx = OParser.TextTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 1433
                 self.match(OParser.TEXT)
-
+                pass
             elif token in [OParser.IMAGE]:
                 localctx = OParser.ImageTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 1434
                 self.match(OParser.IMAGE)
-
+                pass
             elif token in [OParser.INTEGER]:
                 localctx = OParser.IntegerTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
                 self.state = 1435
                 self.match(OParser.INTEGER)
-
+                pass
             elif token in [OParser.DECIMAL]:
                 localctx = OParser.DecimalTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
                 self.state = 1436
                 self.match(OParser.DECIMAL)
-
+                pass
             elif token in [OParser.DOCUMENT]:
                 localctx = OParser.DocumentTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 7)
                 self.state = 1437
                 self.match(OParser.DOCUMENT)
-
+                pass
             elif token in [OParser.DATE]:
                 localctx = OParser.DateTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 8)
                 self.state = 1438
                 self.match(OParser.DATE)
-
+                pass
             elif token in [OParser.DATETIME]:
                 localctx = OParser.DateTimeTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 9)
                 self.state = 1439
                 self.match(OParser.DATETIME)
-
+                pass
             elif token in [OParser.TIME]:
                 localctx = OParser.TimeTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 10)
                 self.state = 1440
                 self.match(OParser.TIME)
-
+                pass
             elif token in [OParser.PERIOD]:
                 localctx = OParser.PeriodTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 11)
                 self.state = 1441
                 self.match(OParser.PERIOD)
-
+                pass
             elif token in [OParser.VERSION]:
                 localctx = OParser.VersionTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 12)
                 self.state = 1442
                 self.match(OParser.VERSION)
-
+                pass
             elif token in [OParser.CODE]:
                 localctx = OParser.CodeTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 13)
                 self.state = 1443
                 self.match(OParser.CODE)
-
+                pass
             elif token in [OParser.BLOB]:
                 localctx = OParser.BlobTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 14)
                 self.state = 1444
                 self.match(OParser.BLOB)
-
+                pass
             elif token in [OParser.UUID]:
                 localctx = OParser.UUIDTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 15)
                 self.state = 1445
                 self.match(OParser.UUID)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -11259,11 +11345,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_category_type
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCategory_type" ):
                 listener.enterCategory_type(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCategory_type" ):
                 listener.exitCategory_type(self)
 
 
@@ -11302,11 +11388,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_mutable_category_type
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMutable_category_type" ):
                 listener.enterMutable_category_type(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMutable_category_type" ):
                 listener.exitMutable_category_type(self)
 
 
@@ -11320,6 +11406,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 1451
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.MUTABLE:
                 self.state = 1450
@@ -11350,11 +11437,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_code_type
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCode_type" ):
                 listener.enterCode_type(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCode_type" ):
                 listener.exitCode_type(self)
 
 
@@ -11394,7 +11481,7 @@ class OParser ( AbstractParser ):
 
     class ConcreteCategoryDeclarationContext(Category_declarationContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Category_declarationContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Category_declarationContext
             super().__init__(parser)
             self.decl = None # Concrete_category_declarationContext
             self.copyFrom(ctx)
@@ -11404,17 +11491,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterConcreteCategoryDeclaration" ):
                 listener.enterConcreteCategoryDeclaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitConcreteCategoryDeclaration" ):
                 listener.exitConcreteCategoryDeclaration(self)
 
 
     class NativeCategoryDeclarationContext(Category_declarationContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Category_declarationContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Category_declarationContext
             super().__init__(parser)
             self.decl = None # Native_category_declarationContext
             self.copyFrom(ctx)
@@ -11424,17 +11511,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNativeCategoryDeclaration" ):
                 listener.enterNativeCategoryDeclaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNativeCategoryDeclaration" ):
                 listener.exitNativeCategoryDeclaration(self)
 
 
     class SingletonCategoryDeclarationContext(Category_declarationContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Category_declarationContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Category_declarationContext
             super().__init__(parser)
             self.decl = None # Singleton_category_declarationContext
             self.copyFrom(ctx)
@@ -11444,11 +11531,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSingletonCategoryDeclaration" ):
                 listener.enterSingletonCategoryDeclaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSingletonCategoryDeclaration" ):
                 listener.exitSingletonCategoryDeclaration(self)
 
 
@@ -11459,6 +11546,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 168, self.RULE_category_declaration)
         try:
             self.state = 1460
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,106,self._ctx)
             if la_ == 1:
                 localctx = OParser.ConcreteCategoryDeclarationContext(self, localctx)
@@ -11513,11 +11601,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_type_identifier_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterType_identifier_list" ):
                 listener.enterType_identifier_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitType_identifier_list" ):
                 listener.exitType_identifier_list(self)
 
 
@@ -11570,11 +11658,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_method_identifier
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMethod_identifier" ):
                 listener.enterMethod_identifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMethod_identifier" ):
                 listener.exitMethod_identifier(self)
 
 
@@ -11586,17 +11674,18 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 172, self.RULE_method_identifier)
         try:
             self.state = 1472
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.VARIABLE_IDENTIFIER]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1470
                 self.variable_identifier()
-
+                pass
             elif token in [OParser.TYPE_IDENTIFIER]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1471
                 self.type_identifier()
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -11626,7 +11715,7 @@ class OParser ( AbstractParser ):
 
     class TypeIdentifierContext(IdentifierContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.IdentifierContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.IdentifierContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -11635,17 +11724,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterTypeIdentifier" ):
                 listener.enterTypeIdentifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitTypeIdentifier" ):
                 listener.exitTypeIdentifier(self)
 
 
     class SymbolIdentifierContext(IdentifierContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.IdentifierContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.IdentifierContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -11654,17 +11743,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSymbolIdentifier" ):
                 listener.enterSymbolIdentifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSymbolIdentifier" ):
                 listener.exitSymbolIdentifier(self)
 
 
     class VariableIdentifierContext(IdentifierContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.IdentifierContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.IdentifierContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -11673,11 +11762,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterVariableIdentifier" ):
                 listener.enterVariableIdentifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitVariableIdentifier" ):
                 listener.exitVariableIdentifier(self)
 
 
@@ -11688,25 +11777,26 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 174, self.RULE_identifier)
         try:
             self.state = 1477
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.VARIABLE_IDENTIFIER]:
                 localctx = OParser.VariableIdentifierContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1474
                 self.variable_identifier()
-
+                pass
             elif token in [OParser.TYPE_IDENTIFIER]:
                 localctx = OParser.TypeIdentifierContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1475
                 self.type_identifier()
-
+                pass
             elif token in [OParser.SYMBOL_IDENTIFIER]:
                 localctx = OParser.SymbolIdentifierContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 1476
                 self.symbol_identifier()
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -11731,11 +11821,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_variable_identifier
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterVariable_identifier" ):
                 listener.enterVariable_identifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitVariable_identifier" ):
                 listener.exitVariable_identifier(self)
 
 
@@ -11773,11 +11863,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_attribute_identifier
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAttribute_identifier" ):
                 listener.enterAttribute_identifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAttribute_identifier" ):
                 listener.exitAttribute_identifier(self)
 
 
@@ -11794,7 +11884,9 @@ class OParser ( AbstractParser ):
             _la = self._input.LA(1)
             if not(_la==OParser.STORABLE or _la==OParser.VARIABLE_IDENTIFIER):
                 self._errHandler.recoverInline(self)
-            self.consume()
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -11816,11 +11908,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_type_identifier
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterType_identifier" ):
                 listener.enterType_identifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitType_identifier" ):
                 listener.exitType_identifier(self)
 
 
@@ -11855,11 +11947,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_symbol_identifier
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSymbol_identifier" ):
                 listener.enterSymbol_identifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSymbol_identifier" ):
                 listener.exitSymbol_identifier(self)
 
 
@@ -11904,11 +11996,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_argument_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterArgument_list" ):
                 listener.enterArgument_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitArgument_list" ):
                 listener.exitArgument_list(self)
 
 
@@ -11961,7 +12053,7 @@ class OParser ( AbstractParser ):
 
     class OperatorArgumentContext(ArgumentContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ArgumentContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ArgumentContext
             super().__init__(parser)
             self.arg = None # Operator_argumentContext
             self.copyFrom(ctx)
@@ -11973,17 +12065,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.MUTABLE, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterOperatorArgument" ):
                 listener.enterOperatorArgument(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitOperatorArgument" ):
                 listener.exitOperatorArgument(self)
 
 
     class CodeArgumentContext(ArgumentContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ArgumentContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.ArgumentContext
             super().__init__(parser)
             self.arg = None # Code_argumentContext
             self.copyFrom(ctx)
@@ -11993,11 +12085,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCodeArgument" ):
                 listener.enterCodeArgument(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCodeArgument" ):
                 listener.exitCodeArgument(self)
 
 
@@ -12009,6 +12101,7 @@ class OParser ( AbstractParser ):
         self._la = 0 # Token type
         try:
             self.state = 1500
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,112,self._ctx)
             if la_ == 1:
                 localctx = OParser.CodeArgumentContext(self, localctx)
@@ -12021,6 +12114,7 @@ class OParser ( AbstractParser ):
                 localctx = OParser.OperatorArgumentContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1497
+                self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if _la==OParser.MUTABLE:
                     self.state = 1496
@@ -12058,11 +12152,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_operator_argument
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterOperator_argument" ):
                 listener.enterOperator_argument(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitOperator_argument" ):
                 listener.exitOperator_argument(self)
 
 
@@ -12074,17 +12168,18 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 188, self.RULE_operator_argument)
         try:
             self.state = 1504
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.VARIABLE_IDENTIFIER]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1502
                 self.named_argument()
-
+                pass
             elif token in [OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.CODE, OParser.DOCUMENT, OParser.BLOB, OParser.IMAGE, OParser.UUID, OParser.ITERATOR, OParser.CURSOR, OParser.ANY, OParser.TYPE_IDENTIFIER]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1503
                 self.typed_argument()
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -12117,11 +12212,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_named_argument
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNamed_argument" ):
                 listener.enterNamed_argument(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNamed_argument" ):
                 listener.exitNamed_argument(self)
 
 
@@ -12137,6 +12232,7 @@ class OParser ( AbstractParser ):
             self.state = 1506
             self.variable_identifier()
             self.state = 1509
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.EQ:
                 self.state = 1507
@@ -12172,11 +12268,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_code_argument
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCode_argument" ):
                 listener.enterCode_argument(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCode_argument" ):
                 listener.exitCode_argument(self)
 
 
@@ -12218,11 +12314,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_category_or_any_type
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCategory_or_any_type" ):
                 listener.enterCategory_or_any_type(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCategory_or_any_type" ):
                 listener.exitCategory_or_any_type(self)
 
 
@@ -12234,17 +12330,18 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 194, self.RULE_category_or_any_type)
         try:
             self.state = 1516
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.CODE, OParser.DOCUMENT, OParser.BLOB, OParser.IMAGE, OParser.UUID, OParser.ITERATOR, OParser.CURSOR, OParser.TYPE_IDENTIFIER]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1514
                 self.typedef(0)
-
+                pass
             elif token in [OParser.ANY]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1515
                 self.any_type(0)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -12273,7 +12370,7 @@ class OParser ( AbstractParser ):
 
     class AnyListTypeContext(Any_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Any_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Any_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -12286,17 +12383,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.RBRAK, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAnyListType" ):
                 listener.enterAnyListType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAnyListType" ):
                 listener.exitAnyListType(self)
 
 
     class AnyTypeContext(Any_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Any_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Any_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -12304,17 +12401,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.ANY, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAnyType" ):
                 listener.enterAnyType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAnyType" ):
                 listener.exitAnyType(self)
 
 
     class AnyDictTypeContext(Any_typeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Any_typeContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Any_typeContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -12327,11 +12424,11 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.RCURL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAnyDictType" ):
                 listener.enterAnyDictType(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAnyDictType" ):
                 listener.exitAnyDictType(self)
 
 
@@ -12361,6 +12458,7 @@ class OParser ( AbstractParser ):
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
                     self.state = 1527
+                    self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,116,self._ctx)
                     if la_ == 1:
                         localctx = OParser.AnyListTypeContext(self, OParser.Any_typeContext(self, _parentctx, _parentState))
@@ -12425,11 +12523,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_member_method_declaration_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMember_method_declaration_list" ):
                 listener.enterMember_method_declaration_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMember_method_declaration_list" ):
                 listener.exitMember_method_declaration_list(self)
 
 
@@ -12494,11 +12592,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_member_method_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMember_method_declaration" ):
                 listener.enterMember_method_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMember_method_declaration" ):
                 listener.exitMember_method_declaration(self)
 
 
@@ -12510,6 +12608,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 200, self.RULE_member_method_declaration)
         try:
             self.state = 1546
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,119,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
@@ -12574,11 +12673,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_native_member_method_declaration_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNative_member_method_declaration_list" ):
                 listener.enterNative_member_method_declaration_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNative_member_method_declaration_list" ):
                 listener.exitNative_member_method_declaration_list(self)
 
 
@@ -12635,11 +12734,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_native_member_method_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNative_member_method_declaration" ):
                 listener.enterNative_member_method_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNative_member_method_declaration" ):
                 listener.exitNative_member_method_declaration(self)
 
 
@@ -12651,6 +12750,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 204, self.RULE_native_member_method_declaration)
         try:
             self.state = 1560
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,121,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
@@ -12697,7 +12797,7 @@ class OParser ( AbstractParser ):
 
     class Python2CategoryBindingContext(Native_category_bindingContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_category_bindingContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_category_bindingContext
             super().__init__(parser)
             self.binding = None # Python_category_bindingContext
             self.copyFrom(ctx)
@@ -12709,17 +12809,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPython2CategoryBinding" ):
                 listener.enterPython2CategoryBinding(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPython2CategoryBinding" ):
                 listener.exitPython2CategoryBinding(self)
 
 
     class Python3CategoryBindingContext(Native_category_bindingContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_category_bindingContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_category_bindingContext
             super().__init__(parser)
             self.binding = None # Python_category_bindingContext
             self.copyFrom(ctx)
@@ -12731,17 +12831,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPython3CategoryBinding" ):
                 listener.enterPython3CategoryBinding(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPython3CategoryBinding" ):
                 listener.exitPython3CategoryBinding(self)
 
 
     class JavaCategoryBindingContext(Native_category_bindingContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_category_bindingContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_category_bindingContext
             super().__init__(parser)
             self.binding = None # Java_class_identifier_expressionContext
             self.copyFrom(ctx)
@@ -12753,17 +12853,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaCategoryBinding" ):
                 listener.enterJavaCategoryBinding(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaCategoryBinding" ):
                 listener.exitJavaCategoryBinding(self)
 
 
     class CSharpCategoryBindingContext(Native_category_bindingContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_category_bindingContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_category_bindingContext
             super().__init__(parser)
             self.binding = None # Csharp_identifier_expressionContext
             self.copyFrom(ctx)
@@ -12775,17 +12875,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpCategoryBinding" ):
                 listener.enterCSharpCategoryBinding(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpCategoryBinding" ):
                 listener.exitCSharpCategoryBinding(self)
 
 
     class JavaScriptCategoryBindingContext(Native_category_bindingContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_category_bindingContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_category_bindingContext
             super().__init__(parser)
             self.binding = None # Javascript_category_bindingContext
             self.copyFrom(ctx)
@@ -12797,11 +12897,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaScriptCategoryBinding" ):
                 listener.enterJavaScriptCategoryBinding(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaScriptCategoryBinding" ):
                 listener.exitJavaScriptCategoryBinding(self)
 
 
@@ -12812,6 +12912,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 206, self.RULE_native_category_binding)
         try:
             self.state = 1572
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.JAVA]:
                 localctx = OParser.JavaCategoryBindingContext(self, localctx)
@@ -12820,7 +12921,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.JAVA)
                 self.state = 1563
                 localctx.binding = self.java_class_identifier_expression(0)
-
+                pass
             elif token in [OParser.CSHARP]:
                 localctx = OParser.CSharpCategoryBindingContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
@@ -12828,7 +12929,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.CSHARP)
                 self.state = 1565
                 localctx.binding = self.csharp_identifier_expression(0)
-
+                pass
             elif token in [OParser.PYTHON2]:
                 localctx = OParser.Python2CategoryBindingContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
@@ -12836,7 +12937,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.PYTHON2)
                 self.state = 1567
                 localctx.binding = self.python_category_binding()
-
+                pass
             elif token in [OParser.PYTHON3]:
                 localctx = OParser.Python3CategoryBindingContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
@@ -12844,7 +12945,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.PYTHON3)
                 self.state = 1569
                 localctx.binding = self.python_category_binding()
-
+                pass
             elif token in [OParser.JAVASCRIPT]:
                 localctx = OParser.JavaScriptCategoryBindingContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
@@ -12852,7 +12953,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.JAVASCRIPT)
                 self.state = 1571
                 localctx.binding = self.javascript_category_binding()
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -12882,11 +12983,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_python_category_binding
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPython_category_binding" ):
                 listener.enterPython_category_binding(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPython_category_binding" ):
                 listener.exitPython_category_binding(self)
 
 
@@ -12902,6 +13003,7 @@ class OParser ( AbstractParser ):
             self.state = 1574
             self.identifier()
             self.state = 1576
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.FROM:
                 self.state = 1575
@@ -12949,11 +13051,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_python_module
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPython_module" ):
                 listener.enterPython_module(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPython_module" ):
                 listener.exitPython_module(self)
 
 
@@ -13012,11 +13114,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_javascript_category_binding
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascript_category_binding" ):
                 listener.enterJavascript_category_binding(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascript_category_binding" ):
                 listener.exitJavascript_category_binding(self)
 
 
@@ -13032,6 +13134,7 @@ class OParser ( AbstractParser ):
             self.state = 1589
             self.identifier()
             self.state = 1591
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.FROM:
                 self.state = 1590
@@ -13082,11 +13185,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_javascript_module
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascript_module" ):
                 listener.enterJavascript_module(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascript_module" ):
                 listener.exitJavascript_module(self)
 
 
@@ -13106,6 +13209,7 @@ class OParser ( AbstractParser ):
             self.state = 1595
             self.match(OParser.COLON)
             self.state = 1597
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.SLASH:
                 self.state = 1596
@@ -13127,6 +13231,7 @@ class OParser ( AbstractParser ):
                 _la = self._input.LA(1)
 
             self.state = 1609
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.DOT:
                 self.state = 1607
@@ -13166,11 +13271,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_variable_identifier_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterVariable_identifier_list" ):
                 listener.enterVariable_identifier_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitVariable_identifier_list" ):
                 listener.exitVariable_identifier_list(self)
 
 
@@ -13228,11 +13333,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_attribute_identifier_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAttribute_identifier_list" ):
                 listener.enterAttribute_identifier_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAttribute_identifier_list" ):
                 listener.exitAttribute_identifier_list(self)
 
 
@@ -13293,11 +13398,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_method_declaration
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMethod_declaration" ):
                 listener.enterMethod_declaration(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMethod_declaration" ):
                 listener.exitMethod_declaration(self)
 
 
@@ -13309,6 +13414,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 220, self.RULE_method_declaration)
         try:
             self.state = 1631
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,131,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
@@ -13356,11 +13462,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_comment_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterComment_statement" ):
                 listener.enterComment_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitComment_statement" ):
                 listener.exitComment_statement(self)
 
 
@@ -13406,11 +13512,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_native_statement_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNative_statement_list" ):
                 listener.enterNative_statement_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNative_statement_list" ):
                 listener.exitNative_statement_list(self)
 
 
@@ -13463,7 +13569,7 @@ class OParser ( AbstractParser ):
 
     class CSharpNativeStatementContext(Native_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_statementContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -13474,17 +13580,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpNativeStatement" ):
                 listener.enterCSharpNativeStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpNativeStatement" ):
                 listener.exitCSharpNativeStatement(self)
 
 
     class JavaNativeStatementContext(Native_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_statementContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -13495,17 +13601,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaNativeStatement" ):
                 listener.enterJavaNativeStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaNativeStatement" ):
                 listener.exitJavaNativeStatement(self)
 
 
     class JavaScriptNativeStatementContext(Native_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_statementContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -13516,17 +13622,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaScriptNativeStatement" ):
                 listener.enterJavaScriptNativeStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaScriptNativeStatement" ):
                 listener.exitJavaScriptNativeStatement(self)
 
 
     class Python2NativeStatementContext(Native_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_statementContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -13537,17 +13643,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPython2NativeStatement" ):
                 listener.enterPython2NativeStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPython2NativeStatement" ):
                 listener.exitPython2NativeStatement(self)
 
 
     class Python3NativeStatementContext(Native_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Native_statementContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -13558,11 +13664,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPython3NativeStatement" ):
                 listener.enterPython3NativeStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPython3NativeStatement" ):
                 listener.exitPython3NativeStatement(self)
 
 
@@ -13573,6 +13679,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 226, self.RULE_native_statement)
         try:
             self.state = 1654
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.JAVA]:
                 localctx = OParser.JavaNativeStatementContext(self, localctx)
@@ -13581,7 +13688,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.JAVA)
                 self.state = 1645
                 self.java_statement()
-
+                pass
             elif token in [OParser.CSHARP]:
                 localctx = OParser.CSharpNativeStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
@@ -13589,7 +13696,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.CSHARP)
                 self.state = 1647
                 self.csharp_statement()
-
+                pass
             elif token in [OParser.PYTHON2]:
                 localctx = OParser.Python2NativeStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
@@ -13597,7 +13704,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.PYTHON2)
                 self.state = 1649
                 self.python_native_statement()
-
+                pass
             elif token in [OParser.PYTHON3]:
                 localctx = OParser.Python3NativeStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
@@ -13605,7 +13712,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.PYTHON3)
                 self.state = 1651
                 self.python_native_statement()
-
+                pass
             elif token in [OParser.JAVASCRIPT]:
                 localctx = OParser.JavaScriptNativeStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
@@ -13613,7 +13720,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.JAVASCRIPT)
                 self.state = 1653
                 self.javascript_native_statement()
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -13646,11 +13753,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_python_native_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPython_native_statement" ):
                 listener.enterPython_native_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPython_native_statement" ):
                 listener.exitPython_native_statement(self)
 
 
@@ -13666,6 +13773,7 @@ class OParser ( AbstractParser ):
             self.state = 1656
             self.python_statement()
             self.state = 1658
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.SEMI:
                 self.state = 1657
@@ -13673,6 +13781,7 @@ class OParser ( AbstractParser ):
 
 
             self.state = 1661
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.FROM:
                 self.state = 1660
@@ -13708,11 +13817,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_javascript_native_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascript_native_statement" ):
                 listener.enterJavascript_native_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascript_native_statement" ):
                 listener.exitJavascript_native_statement(self)
 
 
@@ -13728,6 +13837,7 @@ class OParser ( AbstractParser ):
             self.state = 1663
             self.javascript_statement()
             self.state = 1665
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.SEMI:
                 self.state = 1664
@@ -13735,6 +13845,7 @@ class OParser ( AbstractParser ):
 
 
             self.state = 1668
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.FROM:
                 self.state = 1667
@@ -13773,11 +13884,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_statement_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterStatement_list" ):
                 listener.enterStatement_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitStatement_list" ):
                 listener.exitStatement_list(self)
 
 
@@ -13836,11 +13947,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_assertion_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAssertion_list" ):
                 listener.enterAssertion_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAssertion_list" ):
                 listener.exitAssertion_list(self)
 
 
@@ -13899,11 +14010,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_switch_case_statement_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSwitch_case_statement_list" ):
                 listener.enterSwitch_case_statement_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSwitch_case_statement_list" ):
                 listener.exitSwitch_case_statement_list(self)
 
 
@@ -13962,11 +14073,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_catch_statement_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCatch_statement_list" ):
                 listener.enterCatch_statement_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCatch_statement_list" ):
                 listener.exitCatch_statement_list(self)
 
 
@@ -14019,7 +14130,7 @@ class OParser ( AbstractParser ):
 
     class LiteralListLiteralContext(Literal_collectionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Literal_collectionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Literal_collectionContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -14032,17 +14143,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.RBRAK, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterLiteralListLiteral" ):
                 listener.enterLiteralListLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitLiteralListLiteral" ):
                 listener.exitLiteralListLiteral(self)
 
 
     class LiteralRangeLiteralContext(Literal_collectionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Literal_collectionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Literal_collectionContext
             super().__init__(parser)
             self.low = None # Atomic_literalContext
             self.high = None # Atomic_literalContext
@@ -14062,17 +14173,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterLiteralRangeLiteral" ):
                 listener.enterLiteralRangeLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitLiteralRangeLiteral" ):
                 listener.exitLiteralRangeLiteral(self)
 
 
     class LiteralSetLiteralContext(Literal_collectionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Literal_collectionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Literal_collectionContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -14085,11 +14196,11 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.GT, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterLiteralSetLiteral" ):
                 listener.enterLiteralSetLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitLiteralSetLiteral" ):
                 listener.exitLiteralSetLiteral(self)
 
 
@@ -14100,6 +14211,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 240, self.RULE_literal_collection)
         try:
             self.state = 1720
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,142,self._ctx)
             if la_ == 1:
                 localctx = OParser.LiteralRangeLiteralContext(self, localctx)
@@ -14165,7 +14277,7 @@ class OParser ( AbstractParser ):
 
     class MinIntegerLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -14174,17 +14286,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.MIN_INTEGER, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMinIntegerLiteral" ):
                 listener.enterMinIntegerLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMinIntegerLiteral" ):
                 listener.exitMinIntegerLiteral(self)
 
 
     class DateLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -14193,17 +14305,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.DATE_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDateLiteral" ):
                 listener.enterDateLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDateLiteral" ):
                 listener.exitDateLiteral(self)
 
 
     class BooleanLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -14212,17 +14324,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.BOOLEAN_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterBooleanLiteral" ):
                 listener.enterBooleanLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitBooleanLiteral" ):
                 listener.exitBooleanLiteral(self)
 
 
     class VersionLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -14231,17 +14343,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.VERSION_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterVersionLiteral" ):
                 listener.enterVersionLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitVersionLiteral" ):
                 listener.exitVersionLiteral(self)
 
 
     class HexadecimalLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -14250,17 +14362,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.HEXA_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterHexadecimalLiteral" ):
                 listener.enterHexadecimalLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitHexadecimalLiteral" ):
                 listener.exitHexadecimalLiteral(self)
 
 
     class UUIDLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -14269,17 +14381,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.UUID_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterUUIDLiteral" ):
                 listener.enterUUIDLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitUUIDLiteral" ):
                 listener.exitUUIDLiteral(self)
 
 
     class MaxIntegerLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -14288,17 +14400,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.MAX_INTEGER, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMaxIntegerLiteral" ):
                 listener.enterMaxIntegerLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMaxIntegerLiteral" ):
                 listener.exitMaxIntegerLiteral(self)
 
 
     class DateTimeLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -14307,17 +14419,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.DATETIME_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDateTimeLiteral" ):
                 listener.enterDateTimeLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDateTimeLiteral" ):
                 listener.exitDateTimeLiteral(self)
 
 
     class PeriodLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -14326,17 +14438,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.PERIOD_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPeriodLiteral" ):
                 listener.enterPeriodLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPeriodLiteral" ):
                 listener.exitPeriodLiteral(self)
 
 
     class DecimalLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -14345,17 +14457,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.DECIMAL_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDecimalLiteral" ):
                 listener.enterDecimalLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDecimalLiteral" ):
                 listener.exitDecimalLiteral(self)
 
 
     class TextLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -14364,17 +14476,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.TEXT_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterTextLiteral" ):
                 listener.enterTextLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitTextLiteral" ):
                 listener.exitTextLiteral(self)
 
 
     class NullLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.n = None # Null_literalContext
             self.copyFrom(ctx)
@@ -14384,17 +14496,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNullLiteral" ):
                 listener.enterNullLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNullLiteral" ):
                 listener.exitNullLiteral(self)
 
 
     class IntegerLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -14403,17 +14515,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.INTEGER_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIntegerLiteral" ):
                 listener.enterIntegerLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIntegerLiteral" ):
                 listener.exitIntegerLiteral(self)
 
 
     class TimeLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -14422,17 +14534,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.TIME_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterTimeLiteral" ):
                 listener.enterTimeLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitTimeLiteral" ):
                 listener.exitTimeLiteral(self)
 
 
     class CharacterLiteralContext(Atomic_literalContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Atomic_literalContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -14441,11 +14553,11 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.CHAR_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCharacterLiteral" ):
                 listener.enterCharacterLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCharacterLiteral" ):
                 listener.exitCharacterLiteral(self)
 
 
@@ -14456,97 +14568,98 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 242, self.RULE_atomic_literal)
         try:
             self.state = 1737
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.MIN_INTEGER]:
                 localctx = OParser.MinIntegerLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1722
                 localctx.t = self.match(OParser.MIN_INTEGER)
-
+                pass
             elif token in [OParser.MAX_INTEGER]:
                 localctx = OParser.MaxIntegerLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1723
                 localctx.t = self.match(OParser.MAX_INTEGER)
-
+                pass
             elif token in [OParser.INTEGER_LITERAL]:
                 localctx = OParser.IntegerLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 1724
                 localctx.t = self.match(OParser.INTEGER_LITERAL)
-
+                pass
             elif token in [OParser.HEXA_LITERAL]:
                 localctx = OParser.HexadecimalLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 1725
                 localctx.t = self.match(OParser.HEXA_LITERAL)
-
+                pass
             elif token in [OParser.CHAR_LITERAL]:
                 localctx = OParser.CharacterLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
                 self.state = 1726
                 localctx.t = self.match(OParser.CHAR_LITERAL)
-
+                pass
             elif token in [OParser.DATE_LITERAL]:
                 localctx = OParser.DateLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
                 self.state = 1727
                 localctx.t = self.match(OParser.DATE_LITERAL)
-
+                pass
             elif token in [OParser.TIME_LITERAL]:
                 localctx = OParser.TimeLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 7)
                 self.state = 1728
                 localctx.t = self.match(OParser.TIME_LITERAL)
-
+                pass
             elif token in [OParser.TEXT_LITERAL]:
                 localctx = OParser.TextLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 8)
                 self.state = 1729
                 localctx.t = self.match(OParser.TEXT_LITERAL)
-
+                pass
             elif token in [OParser.DECIMAL_LITERAL]:
                 localctx = OParser.DecimalLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 9)
                 self.state = 1730
                 localctx.t = self.match(OParser.DECIMAL_LITERAL)
-
+                pass
             elif token in [OParser.DATETIME_LITERAL]:
                 localctx = OParser.DateTimeLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 10)
                 self.state = 1731
                 localctx.t = self.match(OParser.DATETIME_LITERAL)
-
+                pass
             elif token in [OParser.BOOLEAN_LITERAL]:
                 localctx = OParser.BooleanLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 11)
                 self.state = 1732
                 localctx.t = self.match(OParser.BOOLEAN_LITERAL)
-
+                pass
             elif token in [OParser.PERIOD_LITERAL]:
                 localctx = OParser.PeriodLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 12)
                 self.state = 1733
                 localctx.t = self.match(OParser.PERIOD_LITERAL)
-
+                pass
             elif token in [OParser.VERSION_LITERAL]:
                 localctx = OParser.VersionLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 13)
                 self.state = 1734
                 localctx.t = self.match(OParser.VERSION_LITERAL)
-
+                pass
             elif token in [OParser.UUID_LITERAL]:
                 localctx = OParser.UUIDLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 14)
                 self.state = 1735
                 localctx.t = self.match(OParser.UUID_LITERAL)
-
+                pass
             elif token in [OParser.NULL]:
                 localctx = OParser.NullLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 15)
                 self.state = 1736
                 localctx.n = self.null_literal()
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -14581,11 +14694,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_literal_list_literal
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterLiteral_list_literal" ):
                 listener.enterLiteral_list_literal(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitLiteral_list_literal" ):
                 listener.exitLiteral_list_literal(self)
 
 
@@ -14638,7 +14751,7 @@ class OParser ( AbstractParser ):
 
     class ThisExpressionContext(Selectable_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Selectable_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Selectable_expressionContext
             super().__init__(parser)
             self.exp = None # This_expressionContext
             self.copyFrom(ctx)
@@ -14648,17 +14761,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterThisExpression" ):
                 listener.enterThisExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitThisExpression" ):
                 listener.exitThisExpression(self)
 
 
     class ParenthesisExpressionContext(Selectable_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Selectable_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Selectable_expressionContext
             super().__init__(parser)
             self.exp = None # Parenthesis_expressionContext
             self.copyFrom(ctx)
@@ -14668,17 +14781,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterParenthesisExpression" ):
                 listener.enterParenthesisExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitParenthesisExpression" ):
                 listener.exitParenthesisExpression(self)
 
 
     class LiteralExpressionContext(Selectable_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Selectable_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Selectable_expressionContext
             super().__init__(parser)
             self.exp = None # Literal_expressionContext
             self.copyFrom(ctx)
@@ -14688,17 +14801,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterLiteralExpression" ):
                 listener.enterLiteralExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitLiteralExpression" ):
                 listener.exitLiteralExpression(self)
 
 
     class IdentifierExpressionContext(Selectable_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Selectable_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Selectable_expressionContext
             super().__init__(parser)
             self.exp = None # IdentifierContext
             self.copyFrom(ctx)
@@ -14708,11 +14821,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIdentifierExpression" ):
                 listener.enterIdentifierExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIdentifierExpression" ):
                 listener.exitIdentifierExpression(self)
 
 
@@ -14723,6 +14836,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 246, self.RULE_selectable_expression)
         try:
             self.state = 1751
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,145,self._ctx)
             if la_ == 1:
                 localctx = OParser.ParenthesisExpressionContext(self, localctx)
@@ -14777,11 +14891,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_this_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterThis_expression" ):
                 listener.enterThis_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitThis_expression" ):
                 listener.exitThis_expression(self)
 
 
@@ -14798,7 +14912,9 @@ class OParser ( AbstractParser ):
             _la = self._input.LA(1)
             if not(_la==OParser.SELF or _la==OParser.THIS):
                 self._errHandler.recoverInline(self)
-            self.consume()
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -14827,11 +14943,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_parenthesis_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterParenthesis_expression" ):
                 listener.enterParenthesis_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitParenthesis_expression" ):
                 listener.exitParenthesis_expression(self)
 
 
@@ -14875,11 +14991,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_literal_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterLiteral_expression" ):
                 listener.enterLiteral_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitLiteral_expression" ):
                 listener.exitLiteral_expression(self)
 
 
@@ -14891,17 +15007,18 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 252, self.RULE_literal_expression)
         try:
             self.state = 1761
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.NULL, OParser.BOOLEAN_LITERAL, OParser.CHAR_LITERAL, OParser.MIN_INTEGER, OParser.MAX_INTEGER, OParser.TEXT_LITERAL, OParser.UUID_LITERAL, OParser.INTEGER_LITERAL, OParser.HEXA_LITERAL, OParser.DECIMAL_LITERAL, OParser.DATETIME_LITERAL, OParser.TIME_LITERAL, OParser.DATE_LITERAL, OParser.PERIOD_LITERAL, OParser.VERSION_LITERAL]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1759
                 self.atomic_literal()
-
+                pass
             elif token in [OParser.LPAR, OParser.LBRAK, OParser.LCURL, OParser.LT, OParser.MUTABLE]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1760
                 self.collection_literal()
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -14943,11 +15060,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_collection_literal
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCollection_literal" ):
                 listener.enterCollection_literal(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCollection_literal" ):
                 listener.exitCollection_literal(self)
 
 
@@ -14959,6 +15076,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 254, self.RULE_collection_literal)
         try:
             self.state = 1768
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,147,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
@@ -15022,11 +15140,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_tuple_literal
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterTuple_literal" ):
                 listener.enterTuple_literal(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitTuple_literal" ):
                 listener.exitTuple_literal(self)
 
 
@@ -15040,6 +15158,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 1771
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.MUTABLE:
                 self.state = 1770
@@ -15049,6 +15168,7 @@ class OParser ( AbstractParser ):
             self.state = 1773
             self.match(OParser.LPAR)
             self.state = 1775
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB))) != 0) or ((((_la - 95)) & ~0x3f) == 0 and ((1 << (_la - 95)) & ((1 << (OParser.EXECUTE - 95)) | (1 << (OParser.FETCH - 95)) | (1 << (OParser.FILTERED - 95)) | (1 << (OParser.MUTABLE - 95)) | (1 << (OParser.NULL - 95)) | (1 << (OParser.READ - 95)) | (1 << (OParser.SELF - 95)) | (1 << (OParser.SORTED - 95)) | (1 << (OParser.THIS - 95)) | (1 << (OParser.BOOLEAN_LITERAL - 95)) | (1 << (OParser.CHAR_LITERAL - 95)) | (1 << (OParser.MIN_INTEGER - 95)) | (1 << (OParser.MAX_INTEGER - 95)) | (1 << (OParser.SYMBOL_IDENTIFIER - 95)) | (1 << (OParser.TYPE_IDENTIFIER - 95)))) != 0) or ((((_la - 159)) & ~0x3f) == 0 and ((1 << (_la - 159)) & ((1 << (OParser.VARIABLE_IDENTIFIER - 159)) | (1 << (OParser.TEXT_LITERAL - 159)) | (1 << (OParser.UUID_LITERAL - 159)) | (1 << (OParser.INTEGER_LITERAL - 159)) | (1 << (OParser.HEXA_LITERAL - 159)) | (1 << (OParser.DECIMAL_LITERAL - 159)) | (1 << (OParser.DATETIME_LITERAL - 159)) | (1 << (OParser.TIME_LITERAL - 159)) | (1 << (OParser.DATE_LITERAL - 159)) | (1 << (OParser.PERIOD_LITERAL - 159)) | (1 << (OParser.VERSION_LITERAL - 159)))) != 0):
                 self.state = 1774
@@ -15088,11 +15208,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_dict_literal
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDict_literal" ):
                 listener.enterDict_literal(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDict_literal" ):
                 listener.exitDict_literal(self)
 
 
@@ -15106,6 +15226,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 1780
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.MUTABLE:
                 self.state = 1779
@@ -15115,6 +15236,7 @@ class OParser ( AbstractParser ):
             self.state = 1782
             self.match(OParser.LCURL)
             self.state = 1784
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB))) != 0) or ((((_la - 95)) & ~0x3f) == 0 and ((1 << (_la - 95)) & ((1 << (OParser.EXECUTE - 95)) | (1 << (OParser.FETCH - 95)) | (1 << (OParser.FILTERED - 95)) | (1 << (OParser.MUTABLE - 95)) | (1 << (OParser.NULL - 95)) | (1 << (OParser.READ - 95)) | (1 << (OParser.SELF - 95)) | (1 << (OParser.SORTED - 95)) | (1 << (OParser.THIS - 95)) | (1 << (OParser.BOOLEAN_LITERAL - 95)) | (1 << (OParser.CHAR_LITERAL - 95)) | (1 << (OParser.MIN_INTEGER - 95)) | (1 << (OParser.MAX_INTEGER - 95)) | (1 << (OParser.SYMBOL_IDENTIFIER - 95)) | (1 << (OParser.TYPE_IDENTIFIER - 95)))) != 0) or ((((_la - 159)) & ~0x3f) == 0 and ((1 << (_la - 159)) & ((1 << (OParser.VARIABLE_IDENTIFIER - 159)) | (1 << (OParser.TEXT_LITERAL - 159)) | (1 << (OParser.UUID_LITERAL - 159)) | (1 << (OParser.INTEGER_LITERAL - 159)) | (1 << (OParser.HEXA_LITERAL - 159)) | (1 << (OParser.DECIMAL_LITERAL - 159)) | (1 << (OParser.DATETIME_LITERAL - 159)) | (1 << (OParser.TIME_LITERAL - 159)) | (1 << (OParser.DATE_LITERAL - 159)) | (1 << (OParser.PERIOD_LITERAL - 159)) | (1 << (OParser.VERSION_LITERAL - 159)))) != 0):
                 self.state = 1783
@@ -15154,11 +15276,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_expression_tuple
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterExpression_tuple" ):
                 listener.enterExpression_tuple(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitExpression_tuple" ):
                 listener.exitExpression_tuple(self)
 
 
@@ -15176,6 +15298,7 @@ class OParser ( AbstractParser ):
             self.state = 1789
             self.match(OParser.COMMA)
             self.state = 1798
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.LCURL) | (1 << OParser.XMARK) | (1 << OParser.MINUS) | (1 << OParser.LT) | (1 << OParser.CODE) | (1 << OParser.DOCUMENT) | (1 << OParser.BLOB))) != 0) or ((((_la - 95)) & ~0x3f) == 0 and ((1 << (_la - 95)) & ((1 << (OParser.EXECUTE - 95)) | (1 << (OParser.FETCH - 95)) | (1 << (OParser.FILTERED - 95)) | (1 << (OParser.MUTABLE - 95)) | (1 << (OParser.NULL - 95)) | (1 << (OParser.READ - 95)) | (1 << (OParser.SELF - 95)) | (1 << (OParser.SORTED - 95)) | (1 << (OParser.THIS - 95)) | (1 << (OParser.BOOLEAN_LITERAL - 95)) | (1 << (OParser.CHAR_LITERAL - 95)) | (1 << (OParser.MIN_INTEGER - 95)) | (1 << (OParser.MAX_INTEGER - 95)) | (1 << (OParser.SYMBOL_IDENTIFIER - 95)) | (1 << (OParser.TYPE_IDENTIFIER - 95)))) != 0) or ((((_la - 159)) & ~0x3f) == 0 and ((1 << (_la - 159)) & ((1 << (OParser.VARIABLE_IDENTIFIER - 159)) | (1 << (OParser.TEXT_LITERAL - 159)) | (1 << (OParser.UUID_LITERAL - 159)) | (1 << (OParser.INTEGER_LITERAL - 159)) | (1 << (OParser.HEXA_LITERAL - 159)) | (1 << (OParser.DECIMAL_LITERAL - 159)) | (1 << (OParser.DATETIME_LITERAL - 159)) | (1 << (OParser.TIME_LITERAL - 159)) | (1 << (OParser.DATE_LITERAL - 159)) | (1 << (OParser.PERIOD_LITERAL - 159)) | (1 << (OParser.VERSION_LITERAL - 159)))) != 0):
                 self.state = 1790
@@ -15225,11 +15348,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_dict_entry_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDict_entry_list" ):
                 listener.enterDict_entry_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDict_entry_list" ):
                 listener.exitDict_entry_list(self)
 
 
@@ -15286,11 +15409,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_dict_entry
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDict_entry" ):
                 listener.enterDict_entry(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDict_entry" ):
                 listener.exitDict_entry(self)
 
 
@@ -15334,7 +15457,7 @@ class OParser ( AbstractParser ):
 
     class SliceFirstAndLastContext(Slice_argumentsContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Slice_argumentsContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Slice_argumentsContext
             super().__init__(parser)
             self.first = None # ExpressionContext
             self.last = None # ExpressionContext
@@ -15350,17 +15473,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSliceFirstAndLast" ):
                 listener.enterSliceFirstAndLast(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSliceFirstAndLast" ):
                 listener.exitSliceFirstAndLast(self)
 
 
     class SliceLastOnlyContext(Slice_argumentsContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Slice_argumentsContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Slice_argumentsContext
             super().__init__(parser)
             self.last = None # ExpressionContext
             self.copyFrom(ctx)
@@ -15372,17 +15495,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSliceLastOnly" ):
                 listener.enterSliceLastOnly(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSliceLastOnly" ):
                 listener.exitSliceLastOnly(self)
 
 
     class SliceFirstOnlyContext(Slice_argumentsContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Slice_argumentsContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Slice_argumentsContext
             super().__init__(parser)
             self.first = None # ExpressionContext
             self.copyFrom(ctx)
@@ -15394,11 +15517,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSliceFirstOnly" ):
                 listener.enterSliceFirstOnly(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSliceFirstOnly" ):
                 listener.exitSliceFirstOnly(self)
 
 
@@ -15409,6 +15532,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 266, self.RULE_slice_arguments)
         try:
             self.state = 1821
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,155,self._ctx)
             if la_ == 1:
                 localctx = OParser.SliceFirstAndLastContext(self, localctx)
@@ -15470,11 +15594,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_assign_variable_statement
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAssign_variable_statement" ):
                 listener.enterAssign_variable_statement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAssign_variable_statement" ):
                 listener.exitAssign_variable_statement(self)
 
 
@@ -15517,7 +15641,7 @@ class OParser ( AbstractParser ):
 
     class ChildInstanceContext(Assignable_instanceContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Assignable_instanceContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Assignable_instanceContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -15529,17 +15653,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterChildInstance" ):
                 listener.enterChildInstance(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitChildInstance" ):
                 listener.exitChildInstance(self)
 
 
     class RootInstanceContext(Assignable_instanceContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Assignable_instanceContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Assignable_instanceContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -15548,11 +15672,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterRootInstance" ):
                 listener.enterRootInstance(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitRootInstance" ):
                 listener.exitRootInstance(self)
 
 
@@ -15619,7 +15743,7 @@ class OParser ( AbstractParser ):
 
     class IsATypeExpressionContext(Is_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Is_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Is_expressionContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -15630,17 +15754,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIsATypeExpression" ):
                 listener.enterIsATypeExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIsATypeExpression" ):
                 listener.exitIsATypeExpression(self)
 
 
     class IsOtherExpressionContext(Is_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Is_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Is_expressionContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -15649,11 +15773,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIsOtherExpression" ):
                 listener.enterIsOtherExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIsOtherExpression" ):
                 listener.exitIsOtherExpression(self)
 
 
@@ -15664,6 +15788,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 272, self.RULE_is_expression)
         try:
             self.state = 1841
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,157,self._ctx)
             if la_ == 1:
                 localctx = OParser.IsATypeExpressionContext(self, localctx)
@@ -15718,11 +15843,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_read_all_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterRead_all_expression" ):
                 listener.enterRead_all_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitRead_all_expression" ):
                 listener.exitRead_all_expression(self)
 
 
@@ -15774,11 +15899,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_read_one_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterRead_one_expression" ):
                 listener.enterRead_one_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitRead_one_expression" ):
                 listener.exitRead_one_expression(self)
 
 
@@ -15829,11 +15954,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_order_by_list
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterOrder_by_list" ):
                 listener.enterOrder_by_list(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitOrder_by_list" ):
                 listener.exitOrder_by_list(self)
 
 
@@ -15897,11 +16022,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_order_by
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterOrder_by" ):
                 listener.enterOrder_by(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitOrder_by" ):
                 listener.exitOrder_by(self)
 
 
@@ -15929,13 +16054,16 @@ class OParser ( AbstractParser ):
                 _la = self._input.LA(1)
 
             self.state = 1870
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==OParser.ASC or _la==OParser.DESC:
                 self.state = 1869
                 _la = self._input.LA(1)
                 if not(_la==OParser.ASC or _la==OParser.DESC):
                     self._errHandler.recoverInline(self)
-                self.consume()
+                else:
+                    self._errHandler.reportMatch(self)
+                    self.consume()
 
 
         except RecognitionException as re:
@@ -15964,7 +16092,7 @@ class OParser ( AbstractParser ):
 
     class OperatorPlusContext(OperatorContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.OperatorContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.OperatorContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -15972,17 +16100,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.PLUS, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterOperatorPlus" ):
                 listener.enterOperatorPlus(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitOperatorPlus" ):
                 listener.exitOperatorPlus(self)
 
 
     class OperatorDivideContext(OperatorContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.OperatorContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.OperatorContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -15991,17 +16119,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterOperatorDivide" ):
                 listener.enterOperatorDivide(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitOperatorDivide" ):
                 listener.exitOperatorDivide(self)
 
 
     class OperatorIDivideContext(OperatorContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.OperatorContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.OperatorContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -16010,17 +16138,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterOperatorIDivide" ):
                 listener.enterOperatorIDivide(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitOperatorIDivide" ):
                 listener.exitOperatorIDivide(self)
 
 
     class OperatorMultiplyContext(OperatorContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.OperatorContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.OperatorContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -16029,17 +16157,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterOperatorMultiply" ):
                 listener.enterOperatorMultiply(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitOperatorMultiply" ):
                 listener.exitOperatorMultiply(self)
 
 
     class OperatorMinusContext(OperatorContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.OperatorContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.OperatorContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -16047,17 +16175,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.MINUS, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterOperatorMinus" ):
                 listener.enterOperatorMinus(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitOperatorMinus" ):
                 listener.exitOperatorMinus(self)
 
 
     class OperatorModuloContext(OperatorContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.OperatorContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.OperatorContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -16066,11 +16194,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterOperatorModulo" ):
                 listener.enterOperatorModulo(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitOperatorModulo" ):
                 listener.exitOperatorModulo(self)
 
 
@@ -16081,43 +16209,44 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 282, self.RULE_operator)
         try:
             self.state = 1878
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.PLUS]:
                 localctx = OParser.OperatorPlusContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1872
                 self.match(OParser.PLUS)
-
+                pass
             elif token in [OParser.MINUS]:
                 localctx = OParser.OperatorMinusContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1873
                 self.match(OParser.MINUS)
-
+                pass
             elif token in [OParser.STAR]:
                 localctx = OParser.OperatorMultiplyContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 1874
                 self.multiply()
-
+                pass
             elif token in [OParser.SLASH]:
                 localctx = OParser.OperatorDivideContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 1875
                 self.divide()
-
+                pass
             elif token in [OParser.BSLASH]:
                 localctx = OParser.OperatorIDivideContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
                 self.state = 1876
                 self.idivide()
-
+                pass
             elif token in [OParser.PERCENT, OParser.MODULO]:
                 localctx = OParser.OperatorModuloContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
                 self.state = 1877
                 self.modulo()
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -16143,11 +16272,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_new_token
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterNew_token" ):
                 listener.enterNew_token(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitNew_token" ):
                 listener.exitNew_token(self)
 
 
@@ -16187,11 +16316,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_key_token
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterKey_token" ):
                 listener.enterKey_token(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitKey_token" ):
                 listener.exitKey_token(self)
 
 
@@ -16231,11 +16360,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_module_token
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterModule_token" ):
                 listener.enterModule_token(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitModule_token" ):
                 listener.exitModule_token(self)
 
 
@@ -16275,11 +16404,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_value_token
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterValue_token" ):
                 listener.enterValue_token(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitValue_token" ):
                 listener.exitValue_token(self)
 
 
@@ -16319,11 +16448,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_symbols_token
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterSymbols_token" ):
                 listener.enterSymbols_token(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitSymbols_token" ):
                 listener.exitSymbols_token(self)
 
 
@@ -16362,11 +16491,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_assign
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterAssign" ):
                 listener.enterAssign(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitAssign" ):
                 listener.exitAssign(self)
 
 
@@ -16401,11 +16530,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_multiply
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterMultiply" ):
                 listener.enterMultiply(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitMultiply" ):
                 listener.exitMultiply(self)
 
 
@@ -16440,11 +16569,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_divide
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterDivide" ):
                 listener.enterDivide(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitDivide" ):
                 listener.exitDivide(self)
 
 
@@ -16479,11 +16608,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_idivide
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterIdivide" ):
                 listener.enterIdivide(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitIdivide" ):
                 listener.exitIdivide(self)
 
 
@@ -16521,11 +16650,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_modulo
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterModulo" ):
                 listener.enterModulo(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitModulo" ):
                 listener.exitModulo(self)
 
 
@@ -16542,7 +16671,9 @@ class OParser ( AbstractParser ):
             _la = self._input.LA(1)
             if not(_la==OParser.PERCENT or _la==OParser.MODULO):
                 self._errHandler.recoverInline(self)
-            self.consume()
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -16562,11 +16693,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_lfs
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterLfs" ):
                 listener.enterLfs(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitLfs" ):
                 listener.exitLfs(self)
 
 
@@ -16598,11 +16729,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_lfp
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterLfp" ):
                 listener.enterLfp(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitLfp" ):
                 listener.exitLfp(self)
 
 
@@ -16641,7 +16772,7 @@ class OParser ( AbstractParser ):
 
     class JavascriptStatementContext(Javascript_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_statementContext
             super().__init__(parser)
             self.exp = None # Javascript_expressionContext
             self.copyFrom(ctx)
@@ -16653,17 +16784,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascriptStatement" ):
                 listener.enterJavascriptStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascriptStatement" ):
                 listener.exitJavascriptStatement(self)
 
 
     class JavascriptReturnStatementContext(Javascript_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_statementContext
             super().__init__(parser)
             self.exp = None # Javascript_expressionContext
             self.copyFrom(ctx)
@@ -16677,11 +16808,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascriptReturnStatement" ):
                 listener.enterJavascriptReturnStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascriptReturnStatement" ):
                 listener.exitJavascriptReturnStatement(self)
 
 
@@ -16692,6 +16823,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 308, self.RULE_javascript_statement)
         try:
             self.state = 1916
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.RETURN]:
                 localctx = OParser.JavascriptReturnStatementContext(self, localctx)
@@ -16702,7 +16834,7 @@ class OParser ( AbstractParser ):
                 localctx.exp = self.javascript_expression(0)
                 self.state = 1911
                 self.match(OParser.SEMI)
-
+                pass
             elif token in [OParser.LPAR, OParser.LBRAK, OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.READ, OParser.SELF, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.BOOLEAN_LITERAL, OParser.CHAR_LITERAL, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER, OParser.DOLLAR_IDENTIFIER, OParser.TEXT_LITERAL, OParser.INTEGER_LITERAL, OParser.DECIMAL_LITERAL]:
                 localctx = OParser.JavascriptStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
@@ -16710,7 +16842,7 @@ class OParser ( AbstractParser ):
                 localctx.exp = self.javascript_expression(0)
                 self.state = 1914
                 self.match(OParser.SEMI)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -16739,7 +16871,7 @@ class OParser ( AbstractParser ):
 
     class JavascriptSelectorExpressionContext(Javascript_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_expressionContext
             super().__init__(parser)
             self.parent = None # Javascript_expressionContext
             self.child = None # Javascript_selector_expressionContext
@@ -16753,17 +16885,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascriptSelectorExpression" ):
                 listener.enterJavascriptSelectorExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascriptSelectorExpression" ):
                 listener.exitJavascriptSelectorExpression(self)
 
 
     class JavascriptPrimaryExpressionContext(Javascript_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_expressionContext
             super().__init__(parser)
             self.exp = None # Javascript_primary_expressionContext
             self.copyFrom(ctx)
@@ -16773,11 +16905,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascriptPrimaryExpression" ):
                 listener.enterJavascriptPrimaryExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascriptPrimaryExpression" ):
                 listener.exitJavascriptPrimaryExpression(self)
 
 
@@ -16865,11 +16997,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_javascript_primary_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascript_primary_expression" ):
                 listener.enterJavascript_primary_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascript_primary_expression" ):
                 listener.exitJavascript_primary_expression(self)
 
 
@@ -16881,6 +17013,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 312, self.RULE_javascript_primary_expression)
         try:
             self.state = 1935
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,164,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
@@ -16947,11 +17080,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_javascript_this_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascript_this_expression" ):
                 listener.enterJavascript_this_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascript_this_expression" ):
                 listener.exitJavascript_this_expression(self)
 
 
@@ -16991,11 +17124,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_javascript_new_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascript_new_expression" ):
                 listener.enterJavascript_new_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascript_new_expression" ):
                 listener.exitJavascript_new_expression(self)
 
 
@@ -17037,7 +17170,7 @@ class OParser ( AbstractParser ):
 
     class JavaScriptMemberExpressionContext(Javascript_selector_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_selector_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_selector_expressionContext
             super().__init__(parser)
             self.name = None # Javascript_identifierContext
             self.copyFrom(ctx)
@@ -17049,17 +17182,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaScriptMemberExpression" ):
                 listener.enterJavaScriptMemberExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaScriptMemberExpression" ):
                 listener.exitJavaScriptMemberExpression(self)
 
 
     class JavaScriptItemExpressionContext(Javascript_selector_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_selector_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_selector_expressionContext
             super().__init__(parser)
             self.exp = None # Javascript_item_expressionContext
             self.copyFrom(ctx)
@@ -17069,17 +17202,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaScriptItemExpression" ):
                 listener.enterJavaScriptItemExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaScriptItemExpression" ):
                 listener.exitJavaScriptItemExpression(self)
 
 
     class JavaScriptMethodExpressionContext(Javascript_selector_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_selector_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_selector_expressionContext
             super().__init__(parser)
             self.method = None # Javascript_method_expressionContext
             self.copyFrom(ctx)
@@ -17091,11 +17224,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaScriptMethodExpression" ):
                 listener.enterJavaScriptMethodExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaScriptMethodExpression" ):
                 listener.exitJavaScriptMethodExpression(self)
 
 
@@ -17106,6 +17239,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 318, self.RULE_javascript_selector_expression)
         try:
             self.state = 1947
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,165,self._ctx)
             if la_ == 1:
                 localctx = OParser.JavaScriptMethodExpressionContext(self, localctx)
@@ -17167,11 +17301,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_javascript_method_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascript_method_expression" ):
                 listener.enterJavascript_method_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascript_method_expression" ):
                 listener.exitJavascript_method_expression(self)
 
 
@@ -17189,6 +17323,7 @@ class OParser ( AbstractParser ):
             self.state = 1950
             self.match(OParser.LPAR)
             self.state = 1952
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.SELF - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.THIS - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.BOOLEAN_LITERAL - 129)) | (1 << (OParser.CHAR_LITERAL - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)) | (1 << (OParser.DOLLAR_IDENTIFIER - 129)) | (1 << (OParser.TEXT_LITERAL - 129)) | (1 << (OParser.INTEGER_LITERAL - 129)) | (1 << (OParser.DECIMAL_LITERAL - 129)))) != 0):
                 self.state = 1951
@@ -17222,7 +17357,7 @@ class OParser ( AbstractParser ):
 
     class JavascriptArgumentListContext(Javascript_argumentsContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_argumentsContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_argumentsContext
             super().__init__(parser)
             self.item = None # Javascript_expressionContext
             self.copyFrom(ctx)
@@ -17232,17 +17367,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascriptArgumentList" ):
                 listener.enterJavascriptArgumentList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascriptArgumentList" ):
                 listener.exitJavascriptArgumentList(self)
 
 
     class JavascriptArgumentListItemContext(Javascript_argumentsContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_argumentsContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_argumentsContext
             super().__init__(parser)
             self.items = None # Javascript_argumentsContext
             self.item = None # Javascript_expressionContext
@@ -17258,11 +17393,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascriptArgumentListItem" ):
                 listener.enterJavascriptArgumentListItem(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascriptArgumentListItem" ):
                 listener.exitJavascriptArgumentListItem(self)
 
 
@@ -17335,11 +17470,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_javascript_item_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascript_item_expression" ):
                 listener.enterJavascript_item_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascript_item_expression" ):
                 listener.exitJavascript_item_expression(self)
 
 
@@ -17386,11 +17521,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_javascript_parenthesis_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascript_parenthesis_expression" ):
                 listener.enterJavascript_parenthesis_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascript_parenthesis_expression" ):
                 listener.exitJavascript_parenthesis_expression(self)
 
 
@@ -17431,11 +17566,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_javascript_identifier_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascript_identifier_expression" ):
                 listener.enterJavascript_identifier_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascript_identifier_expression" ):
                 listener.exitJavascript_identifier_expression(self)
 
 
@@ -17475,7 +17610,7 @@ class OParser ( AbstractParser ):
 
     class JavascriptIntegerLiteralContext(Javascript_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -17484,17 +17619,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.INTEGER_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascriptIntegerLiteral" ):
                 listener.enterJavascriptIntegerLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascriptIntegerLiteral" ):
                 listener.exitJavascriptIntegerLiteral(self)
 
 
     class JavascriptBooleanLiteralContext(Javascript_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -17503,17 +17638,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.BOOLEAN_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascriptBooleanLiteral" ):
                 listener.enterJavascriptBooleanLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascriptBooleanLiteral" ):
                 listener.exitJavascriptBooleanLiteral(self)
 
 
     class JavascriptCharacterLiteralContext(Javascript_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -17522,17 +17657,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.CHAR_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascriptCharacterLiteral" ):
                 listener.enterJavascriptCharacterLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascriptCharacterLiteral" ):
                 listener.exitJavascriptCharacterLiteral(self)
 
 
     class JavascriptTextLiteralContext(Javascript_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -17541,17 +17676,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.TEXT_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascriptTextLiteral" ):
                 listener.enterJavascriptTextLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascriptTextLiteral" ):
                 listener.exitJavascriptTextLiteral(self)
 
 
     class JavascriptDecimalLiteralContext(Javascript_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Javascript_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -17560,11 +17695,11 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.DECIMAL_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascriptDecimalLiteral" ):
                 listener.enterJavascriptDecimalLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascriptDecimalLiteral" ):
                 listener.exitJavascriptDecimalLiteral(self)
 
 
@@ -17575,37 +17710,38 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 330, self.RULE_javascript_literal_expression)
         try:
             self.state = 1982
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.INTEGER_LITERAL]:
                 localctx = OParser.JavascriptIntegerLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1977
                 localctx.t = self.match(OParser.INTEGER_LITERAL)
-
+                pass
             elif token in [OParser.DECIMAL_LITERAL]:
                 localctx = OParser.JavascriptDecimalLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1978
                 localctx.t = self.match(OParser.DECIMAL_LITERAL)
-
+                pass
             elif token in [OParser.TEXT_LITERAL]:
                 localctx = OParser.JavascriptTextLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 1979
                 localctx.t = self.match(OParser.TEXT_LITERAL)
-
+                pass
             elif token in [OParser.BOOLEAN_LITERAL]:
                 localctx = OParser.JavascriptBooleanLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 1980
                 localctx.t = self.match(OParser.BOOLEAN_LITERAL)
-
+                pass
             elif token in [OParser.CHAR_LITERAL]:
                 localctx = OParser.JavascriptCharacterLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
                 self.state = 1981
                 localctx.t = self.match(OParser.CHAR_LITERAL)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -17678,11 +17814,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_javascript_identifier
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavascript_identifier" ):
                 listener.enterJavascript_identifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavascript_identifier" ):
                 listener.exitJavascript_identifier(self)
 
 
@@ -17699,7 +17835,9 @@ class OParser ( AbstractParser ):
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)) | (1 << (OParser.DOLLAR_IDENTIFIER - 129)))) != 0)):
                 self._errHandler.recoverInline(self)
-            self.consume()
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -17726,7 +17864,7 @@ class OParser ( AbstractParser ):
 
     class PythonStatementContext(Python_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_statementContext
             super().__init__(parser)
             self.exp = None # Python_expressionContext
             self.copyFrom(ctx)
@@ -17736,17 +17874,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonStatement" ):
                 listener.enterPythonStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonStatement" ):
                 listener.exitPythonStatement(self)
 
 
     class PythonReturnStatementContext(Python_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_statementContext
             super().__init__(parser)
             self.exp = None # Python_expressionContext
             self.copyFrom(ctx)
@@ -17758,11 +17896,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonReturnStatement" ):
                 listener.enterPythonReturnStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonReturnStatement" ):
                 listener.exitPythonReturnStatement(self)
 
 
@@ -17773,6 +17911,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 334, self.RULE_python_statement)
         try:
             self.state = 1989
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.RETURN]:
                 localctx = OParser.PythonReturnStatementContext(self, localctx)
@@ -17781,13 +17920,13 @@ class OParser ( AbstractParser ):
                 self.match(OParser.RETURN)
                 self.state = 1987
                 localctx.exp = self.python_expression(0)
-
+                pass
             elif token in [OParser.LPAR, OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.READ, OParser.SELF, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.BOOLEAN_LITERAL, OParser.CHAR_LITERAL, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER, OParser.DOLLAR_IDENTIFIER, OParser.TEXT_LITERAL, OParser.INTEGER_LITERAL, OParser.DECIMAL_LITERAL]:
                 localctx = OParser.PythonStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1988
                 localctx.exp = self.python_expression(0)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -17816,7 +17955,7 @@ class OParser ( AbstractParser ):
 
     class PythonSelectorExpressionContext(Python_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_expressionContext
             super().__init__(parser)
             self.parent = None # Python_expressionContext
             self.child = None # Python_selector_expressionContext
@@ -17830,17 +17969,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonSelectorExpression" ):
                 listener.enterPythonSelectorExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonSelectorExpression" ):
                 listener.exitPythonSelectorExpression(self)
 
 
     class PythonPrimaryExpressionContext(Python_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_expressionContext
             super().__init__(parser)
             self.exp = None # Python_primary_expressionContext
             self.copyFrom(ctx)
@@ -17850,11 +17989,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonPrimaryExpression" ):
                 listener.enterPythonPrimaryExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonPrimaryExpression" ):
                 listener.exitPythonPrimaryExpression(self)
 
 
@@ -17922,7 +18061,7 @@ class OParser ( AbstractParser ):
 
     class PythonParenthesisExpressionContext(Python_primary_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_primary_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_primary_expressionContext
             super().__init__(parser)
             self.exp = None # Python_parenthesis_expressionContext
             self.copyFrom(ctx)
@@ -17932,17 +18071,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonParenthesisExpression" ):
                 listener.enterPythonParenthesisExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonParenthesisExpression" ):
                 listener.exitPythonParenthesisExpression(self)
 
 
     class PythonIdentifierExpressionContext(Python_primary_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_primary_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_primary_expressionContext
             super().__init__(parser)
             self.exp = None # Python_identifier_expressionContext
             self.copyFrom(ctx)
@@ -17952,17 +18091,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonIdentifierExpression" ):
                 listener.enterPythonIdentifierExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonIdentifierExpression" ):
                 listener.exitPythonIdentifierExpression(self)
 
 
     class PythonSelfExpressionContext(Python_primary_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_primary_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_primary_expressionContext
             super().__init__(parser)
             self.exp = None # Python_self_expressionContext
             self.copyFrom(ctx)
@@ -17972,17 +18111,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonSelfExpression" ):
                 listener.enterPythonSelfExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonSelfExpression" ):
                 listener.exitPythonSelfExpression(self)
 
 
     class PythonLiteralExpressionContext(Python_primary_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_primary_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_primary_expressionContext
             super().__init__(parser)
             self.exp = None # Python_literal_expressionContext
             self.copyFrom(ctx)
@@ -17992,17 +18131,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonLiteralExpression" ):
                 listener.enterPythonLiteralExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonLiteralExpression" ):
                 listener.exitPythonLiteralExpression(self)
 
 
     class PythonGlobalMethodExpressionContext(Python_primary_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_primary_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_primary_expressionContext
             super().__init__(parser)
             self.exp = None # Python_method_expressionContext
             self.copyFrom(ctx)
@@ -18012,11 +18151,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonGlobalMethodExpression" ):
                 listener.enterPythonGlobalMethodExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonGlobalMethodExpression" ):
                 listener.exitPythonGlobalMethodExpression(self)
 
 
@@ -18027,6 +18166,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 338, self.RULE_python_primary_expression)
         try:
             self.state = 2006
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,171,self._ctx)
             if la_ == 1:
                 localctx = OParser.PythonSelfExpressionContext(self, localctx)
@@ -18086,11 +18226,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_python_self_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPython_self_expression" ):
                 listener.enterPython_self_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPython_self_expression" ):
                 listener.exitPython_self_expression(self)
 
 
@@ -18130,7 +18270,7 @@ class OParser ( AbstractParser ):
 
     class PythonMethodExpressionContext(Python_selector_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_selector_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_selector_expressionContext
             super().__init__(parser)
             self.exp = None # Python_method_expressionContext
             self.copyFrom(ctx)
@@ -18142,17 +18282,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonMethodExpression" ):
                 listener.enterPythonMethodExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonMethodExpression" ):
                 listener.exitPythonMethodExpression(self)
 
 
     class PythonItemExpressionContext(Python_selector_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_selector_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_selector_expressionContext
             super().__init__(parser)
             self.exp = None # Python_expressionContext
             self.copyFrom(ctx)
@@ -18166,11 +18306,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonItemExpression" ):
                 listener.enterPythonItemExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonItemExpression" ):
                 listener.exitPythonItemExpression(self)
 
 
@@ -18181,6 +18321,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 342, self.RULE_python_selector_expression)
         try:
             self.state = 2016
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.DOT]:
                 localctx = OParser.PythonMethodExpressionContext(self, localctx)
@@ -18189,7 +18330,7 @@ class OParser ( AbstractParser ):
                 self.match(OParser.DOT)
                 self.state = 2011
                 localctx.exp = self.python_method_expression()
-
+                pass
             elif token in [OParser.LBRAK]:
                 localctx = OParser.PythonItemExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
@@ -18199,7 +18340,7 @@ class OParser ( AbstractParser ):
                 localctx.exp = self.python_expression(0)
                 self.state = 2014
                 self.match(OParser.RBRAK)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -18237,11 +18378,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_python_method_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPython_method_expression" ):
                 listener.enterPython_method_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPython_method_expression" ):
                 listener.exitPython_method_expression(self)
 
 
@@ -18259,6 +18400,7 @@ class OParser ( AbstractParser ):
             self.state = 2019
             self.match(OParser.LPAR)
             self.state = 2021
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.SELF - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.THIS - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.BOOLEAN_LITERAL - 129)) | (1 << (OParser.CHAR_LITERAL - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)) | (1 << (OParser.DOLLAR_IDENTIFIER - 129)) | (1 << (OParser.TEXT_LITERAL - 129)) | (1 << (OParser.INTEGER_LITERAL - 129)) | (1 << (OParser.DECIMAL_LITERAL - 129)))) != 0):
                 self.state = 2020
@@ -18293,7 +18435,7 @@ class OParser ( AbstractParser ):
 
     class PythonOrdinalOnlyArgumentListContext(Python_argument_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_argument_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_argument_listContext
             super().__init__(parser)
             self.ordinal = None # Python_ordinal_argument_listContext
             self.copyFrom(ctx)
@@ -18303,17 +18445,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonOrdinalOnlyArgumentList" ):
                 listener.enterPythonOrdinalOnlyArgumentList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonOrdinalOnlyArgumentList" ):
                 listener.exitPythonOrdinalOnlyArgumentList(self)
 
 
     class PythonNamedOnlyArgumentListContext(Python_argument_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_argument_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_argument_listContext
             super().__init__(parser)
             self.named = None # Python_named_argument_listContext
             self.copyFrom(ctx)
@@ -18323,17 +18465,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonNamedOnlyArgumentList" ):
                 listener.enterPythonNamedOnlyArgumentList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonNamedOnlyArgumentList" ):
                 listener.exitPythonNamedOnlyArgumentList(self)
 
 
     class PythonArgumentListContext(Python_argument_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_argument_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_argument_listContext
             super().__init__(parser)
             self.ordinal = None # Python_ordinal_argument_listContext
             self.named = None # Python_named_argument_listContext
@@ -18349,11 +18491,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonArgumentList" ):
                 listener.enterPythonArgumentList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonArgumentList" ):
                 listener.exitPythonArgumentList(self)
 
 
@@ -18364,6 +18506,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 346, self.RULE_python_argument_list)
         try:
             self.state = 2031
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,174,self._ctx)
             if la_ == 1:
                 localctx = OParser.PythonOrdinalOnlyArgumentListContext(self, localctx)
@@ -18416,7 +18559,7 @@ class OParser ( AbstractParser ):
 
     class PythonOrdinalArgumentListContext(Python_ordinal_argument_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_ordinal_argument_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_ordinal_argument_listContext
             super().__init__(parser)
             self.item = None # Python_expressionContext
             self.copyFrom(ctx)
@@ -18426,17 +18569,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonOrdinalArgumentList" ):
                 listener.enterPythonOrdinalArgumentList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonOrdinalArgumentList" ):
                 listener.exitPythonOrdinalArgumentList(self)
 
 
     class PythonOrdinalArgumentListItemContext(Python_ordinal_argument_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_ordinal_argument_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_ordinal_argument_listContext
             super().__init__(parser)
             self.items = None # Python_ordinal_argument_listContext
             self.item = None # Python_expressionContext
@@ -18452,11 +18595,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonOrdinalArgumentListItem" ):
                 listener.enterPythonOrdinalArgumentListItem(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonOrdinalArgumentListItem" ):
                 listener.exitPythonOrdinalArgumentListItem(self)
 
 
@@ -18525,7 +18668,7 @@ class OParser ( AbstractParser ):
 
     class PythonNamedArgumentListContext(Python_named_argument_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_named_argument_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_named_argument_listContext
             super().__init__(parser)
             self.name = None # Python_identifierContext
             self.exp = None # Python_expressionContext
@@ -18541,17 +18684,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonNamedArgumentList" ):
                 listener.enterPythonNamedArgumentList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonNamedArgumentList" ):
                 listener.exitPythonNamedArgumentList(self)
 
 
     class PythonNamedArgumentListItemContext(Python_named_argument_listContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_named_argument_listContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_named_argument_listContext
             super().__init__(parser)
             self.items = None # Python_named_argument_listContext
             self.name = None # Python_identifierContext
@@ -18573,11 +18716,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonNamedArgumentListItem" ):
                 listener.enterPythonNamedArgumentListItem(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonNamedArgumentListItem" ):
                 listener.exitPythonNamedArgumentListItem(self)
 
 
@@ -18658,11 +18801,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_python_parenthesis_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPython_parenthesis_expression" ):
                 listener.enterPython_parenthesis_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPython_parenthesis_expression" ):
                 listener.exitPython_parenthesis_expression(self)
 
 
@@ -18705,7 +18848,7 @@ class OParser ( AbstractParser ):
 
     class PythonChildIdentifierContext(Python_identifier_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_identifier_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_identifier_expressionContext
             super().__init__(parser)
             self.parent = None # Python_identifier_expressionContext
             self.name = None # Python_identifierContext
@@ -18721,17 +18864,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonChildIdentifier" ):
                 listener.enterPythonChildIdentifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonChildIdentifier" ):
                 listener.exitPythonChildIdentifier(self)
 
 
     class PythonPromptoIdentifierContext(Python_identifier_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_identifier_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_identifier_expressionContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -18739,17 +18882,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.DOLLAR_IDENTIFIER, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonPromptoIdentifier" ):
                 listener.enterPythonPromptoIdentifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonPromptoIdentifier" ):
                 listener.exitPythonPromptoIdentifier(self)
 
 
     class PythonIdentifierContext(Python_identifier_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_identifier_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_identifier_expressionContext
             super().__init__(parser)
             self.name = None # Python_identifierContext
             self.copyFrom(ctx)
@@ -18759,11 +18902,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonIdentifier" ):
                 listener.enterPythonIdentifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonIdentifier" ):
                 listener.exitPythonIdentifier(self)
 
 
@@ -18778,6 +18921,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 2067
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.DOLLAR_IDENTIFIER]:
                 localctx = OParser.PythonPromptoIdentifierContext(self, localctx)
@@ -18786,14 +18930,14 @@ class OParser ( AbstractParser ):
 
                 self.state = 2065
                 self.match(OParser.DOLLAR_IDENTIFIER)
-
+                pass
             elif token in [OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.READ, OParser.SELF, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER]:
                 localctx = OParser.PythonIdentifierContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 2066
                 localctx.name = self.python_identifier()
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -18847,7 +18991,7 @@ class OParser ( AbstractParser ):
 
     class PythonIntegerLiteralContext(Python_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -18856,17 +19000,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.INTEGER_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonIntegerLiteral" ):
                 listener.enterPythonIntegerLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonIntegerLiteral" ):
                 listener.exitPythonIntegerLiteral(self)
 
 
     class PythonBooleanLiteralContext(Python_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -18875,17 +19019,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.BOOLEAN_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonBooleanLiteral" ):
                 listener.enterPythonBooleanLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonBooleanLiteral" ):
                 listener.exitPythonBooleanLiteral(self)
 
 
     class PythonCharacterLiteralContext(Python_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -18894,17 +19038,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.CHAR_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonCharacterLiteral" ):
                 listener.enterPythonCharacterLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonCharacterLiteral" ):
                 listener.exitPythonCharacterLiteral(self)
 
 
     class PythonTextLiteralContext(Python_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -18913,17 +19057,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.TEXT_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonTextLiteral" ):
                 listener.enterPythonTextLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonTextLiteral" ):
                 listener.exitPythonTextLiteral(self)
 
 
     class PythonDecimalLiteralContext(Python_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Python_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -18932,11 +19076,11 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.DECIMAL_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPythonDecimalLiteral" ):
                 listener.enterPythonDecimalLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPythonDecimalLiteral" ):
                 listener.exitPythonDecimalLiteral(self)
 
 
@@ -18947,37 +19091,38 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 356, self.RULE_python_literal_expression)
         try:
             self.state = 2082
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.INTEGER_LITERAL]:
                 localctx = OParser.PythonIntegerLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 2077
                 localctx.t = self.match(OParser.INTEGER_LITERAL)
-
+                pass
             elif token in [OParser.DECIMAL_LITERAL]:
                 localctx = OParser.PythonDecimalLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 2078
                 localctx.t = self.match(OParser.DECIMAL_LITERAL)
-
+                pass
             elif token in [OParser.TEXT_LITERAL]:
                 localctx = OParser.PythonTextLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 2079
                 localctx.t = self.match(OParser.TEXT_LITERAL)
-
+                pass
             elif token in [OParser.BOOLEAN_LITERAL]:
                 localctx = OParser.PythonBooleanLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 2080
                 localctx.t = self.match(OParser.BOOLEAN_LITERAL)
-
+                pass
             elif token in [OParser.CHAR_LITERAL]:
                 localctx = OParser.PythonCharacterLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
                 self.state = 2081
                 localctx.t = self.match(OParser.CHAR_LITERAL)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -19053,11 +19198,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_python_identifier
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterPython_identifier" ):
                 listener.enterPython_identifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitPython_identifier" ):
                 listener.exitPython_identifier(self)
 
 
@@ -19074,7 +19219,9 @@ class OParser ( AbstractParser ):
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.SELF - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.THIS - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)))) != 0)):
                 self._errHandler.recoverInline(self)
-            self.consume()
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -19101,7 +19248,7 @@ class OParser ( AbstractParser ):
 
     class JavaReturnStatementContext(Java_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_statementContext
             super().__init__(parser)
             self.exp = None # Java_expressionContext
             self.copyFrom(ctx)
@@ -19115,17 +19262,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaReturnStatement" ):
                 listener.enterJavaReturnStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaReturnStatement" ):
                 listener.exitJavaReturnStatement(self)
 
 
     class JavaStatementContext(Java_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_statementContext
             super().__init__(parser)
             self.exp = None # Java_expressionContext
             self.copyFrom(ctx)
@@ -19137,11 +19284,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaStatement" ):
                 listener.enterJavaStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaStatement" ):
                 listener.exitJavaStatement(self)
 
 
@@ -19152,6 +19299,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 360, self.RULE_java_statement)
         try:
             self.state = 2093
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.RETURN]:
                 localctx = OParser.JavaReturnStatementContext(self, localctx)
@@ -19162,7 +19310,7 @@ class OParser ( AbstractParser ):
                 localctx.exp = self.java_expression(0)
                 self.state = 2088
                 self.match(OParser.SEMI)
-
+                pass
             elif token in [OParser.LPAR, OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.READ, OParser.SELF, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.BOOLEAN_LITERAL, OParser.CHAR_LITERAL, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER, OParser.NATIVE_IDENTIFIER, OParser.DOLLAR_IDENTIFIER, OParser.TEXT_LITERAL, OParser.INTEGER_LITERAL, OParser.DECIMAL_LITERAL]:
                 localctx = OParser.JavaStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
@@ -19170,7 +19318,7 @@ class OParser ( AbstractParser ):
                 localctx.exp = self.java_expression(0)
                 self.state = 2091
                 self.match(OParser.SEMI)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -19199,7 +19347,7 @@ class OParser ( AbstractParser ):
 
     class JavaSelectorExpressionContext(Java_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_expressionContext
             super().__init__(parser)
             self.parent = None # Java_expressionContext
             self.child = None # Java_selector_expressionContext
@@ -19213,17 +19361,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaSelectorExpression" ):
                 listener.enterJavaSelectorExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaSelectorExpression" ):
                 listener.exitJavaSelectorExpression(self)
 
 
     class JavaPrimaryExpressionContext(Java_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_expressionContext
             super().__init__(parser)
             self.exp = None # Java_primary_expressionContext
             self.copyFrom(ctx)
@@ -19233,11 +19381,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaPrimaryExpression" ):
                 listener.enterJavaPrimaryExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaPrimaryExpression" ):
                 listener.exitJavaPrimaryExpression(self)
 
 
@@ -19317,11 +19465,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_java_primary_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJava_primary_expression" ):
                 listener.enterJava_primary_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJava_primary_expression" ):
                 listener.exitJava_primary_expression(self)
 
 
@@ -19333,6 +19481,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 364, self.RULE_java_primary_expression)
         try:
             self.state = 2110
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,182,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
@@ -19387,11 +19536,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_java_this_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJava_this_expression" ):
                 listener.enterJava_this_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJava_this_expression" ):
                 listener.exitJava_this_expression(self)
 
 
@@ -19431,11 +19580,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_java_new_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJava_new_expression" ):
                 listener.enterJava_new_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJava_new_expression" ):
                 listener.exitJava_new_expression(self)
 
 
@@ -19477,7 +19626,7 @@ class OParser ( AbstractParser ):
 
     class JavaItemExpressionContext(Java_selector_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_selector_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_selector_expressionContext
             super().__init__(parser)
             self.exp = None # Java_item_expressionContext
             self.copyFrom(ctx)
@@ -19487,17 +19636,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaItemExpression" ):
                 listener.enterJavaItemExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaItemExpression" ):
                 listener.exitJavaItemExpression(self)
 
 
     class JavaMethodExpressionContext(Java_selector_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_selector_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_selector_expressionContext
             super().__init__(parser)
             self.exp = None # Java_method_expressionContext
             self.copyFrom(ctx)
@@ -19509,11 +19658,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaMethodExpression" ):
                 listener.enterJavaMethodExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaMethodExpression" ):
                 listener.exitJavaMethodExpression(self)
 
 
@@ -19524,6 +19673,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 370, self.RULE_java_selector_expression)
         try:
             self.state = 2120
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.DOT]:
                 localctx = OParser.JavaMethodExpressionContext(self, localctx)
@@ -19532,13 +19682,13 @@ class OParser ( AbstractParser ):
                 self.match(OParser.DOT)
                 self.state = 2118
                 localctx.exp = self.java_method_expression()
-
+                pass
             elif token in [OParser.LBRAK]:
                 localctx = OParser.JavaItemExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 2119
                 localctx.exp = self.java_item_expression()
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -19576,11 +19726,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_java_method_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJava_method_expression" ):
                 listener.enterJava_method_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJava_method_expression" ):
                 listener.exitJava_method_expression(self)
 
 
@@ -19598,6 +19748,7 @@ class OParser ( AbstractParser ):
             self.state = 2123
             self.match(OParser.LPAR)
             self.state = 2125
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.SELF - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.THIS - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.BOOLEAN_LITERAL - 129)) | (1 << (OParser.CHAR_LITERAL - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)) | (1 << (OParser.NATIVE_IDENTIFIER - 129)) | (1 << (OParser.DOLLAR_IDENTIFIER - 129)) | (1 << (OParser.TEXT_LITERAL - 129)) | (1 << (OParser.INTEGER_LITERAL - 129)) | (1 << (OParser.DECIMAL_LITERAL - 129)))) != 0):
                 self.state = 2124
@@ -19631,7 +19782,7 @@ class OParser ( AbstractParser ):
 
     class JavaArgumentListItemContext(Java_argumentsContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_argumentsContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_argumentsContext
             super().__init__(parser)
             self.items = None # Java_argumentsContext
             self.item = None # Java_expressionContext
@@ -19647,17 +19798,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaArgumentListItem" ):
                 listener.enterJavaArgumentListItem(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaArgumentListItem" ):
                 listener.exitJavaArgumentListItem(self)
 
 
     class JavaArgumentListContext(Java_argumentsContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_argumentsContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_argumentsContext
             super().__init__(parser)
             self.item = None # Java_expressionContext
             self.copyFrom(ctx)
@@ -19667,11 +19818,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaArgumentList" ):
                 listener.enterJavaArgumentList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaArgumentList" ):
                 listener.exitJavaArgumentList(self)
 
 
@@ -19744,11 +19895,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_java_item_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJava_item_expression" ):
                 listener.enterJava_item_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJava_item_expression" ):
                 listener.exitJava_item_expression(self)
 
 
@@ -19795,11 +19946,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_java_parenthesis_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJava_parenthesis_expression" ):
                 listener.enterJava_parenthesis_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJava_parenthesis_expression" ):
                 listener.exitJava_parenthesis_expression(self)
 
 
@@ -19842,7 +19993,7 @@ class OParser ( AbstractParser ):
 
     class JavaIdentifierContext(Java_identifier_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_identifier_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_identifier_expressionContext
             super().__init__(parser)
             self.name = None # Java_identifierContext
             self.copyFrom(ctx)
@@ -19852,17 +20003,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaIdentifier" ):
                 listener.enterJavaIdentifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaIdentifier" ):
                 listener.exitJavaIdentifier(self)
 
 
     class JavaChildIdentifierContext(Java_identifier_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_identifier_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_identifier_expressionContext
             super().__init__(parser)
             self.parent = None # Java_identifier_expressionContext
             self.name = None # Java_identifierContext
@@ -19878,11 +20029,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaChildIdentifier" ):
                 listener.enterJavaChildIdentifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaChildIdentifier" ):
                 listener.exitJavaChildIdentifier(self)
 
 
@@ -19951,7 +20102,7 @@ class OParser ( AbstractParser ):
 
     class JavaClassIdentifierContext(Java_class_identifier_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_class_identifier_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_class_identifier_expressionContext
             super().__init__(parser)
             self.klass = None # Java_identifier_expressionContext
             self.copyFrom(ctx)
@@ -19961,17 +20112,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaClassIdentifier" ):
                 listener.enterJavaClassIdentifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaClassIdentifier" ):
                 listener.exitJavaClassIdentifier(self)
 
 
     class JavaChildClassIdentifierContext(Java_class_identifier_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_class_identifier_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_class_identifier_expressionContext
             super().__init__(parser)
             self.parent = None # Java_class_identifier_expressionContext
             self.name = None # Token
@@ -19984,11 +20135,11 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.DOLLAR_IDENTIFIER, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaChildClassIdentifier" ):
                 listener.enterJavaChildClassIdentifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaChildClassIdentifier" ):
                 listener.exitJavaChildClassIdentifier(self)
 
 
@@ -20056,7 +20207,7 @@ class OParser ( AbstractParser ):
 
     class JavaBooleanLiteralContext(Java_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -20065,17 +20216,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.BOOLEAN_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaBooleanLiteral" ):
                 listener.enterJavaBooleanLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaBooleanLiteral" ):
                 listener.exitJavaBooleanLiteral(self)
 
 
     class JavaCharacterLiteralContext(Java_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -20084,17 +20235,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.CHAR_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaCharacterLiteral" ):
                 listener.enterJavaCharacterLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaCharacterLiteral" ):
                 listener.exitJavaCharacterLiteral(self)
 
 
     class JavaIntegerLiteralContext(Java_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -20103,17 +20254,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.INTEGER_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaIntegerLiteral" ):
                 listener.enterJavaIntegerLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaIntegerLiteral" ):
                 listener.exitJavaIntegerLiteral(self)
 
 
     class JavaTextLiteralContext(Java_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -20122,17 +20273,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.TEXT_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaTextLiteral" ):
                 listener.enterJavaTextLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaTextLiteral" ):
                 listener.exitJavaTextLiteral(self)
 
 
     class JavaDecimalLiteralContext(Java_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Java_literal_expressionContext
             super().__init__(parser)
             self.t = None # Token
             self.copyFrom(ctx)
@@ -20141,11 +20292,11 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.DECIMAL_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJavaDecimalLiteral" ):
                 listener.enterJavaDecimalLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJavaDecimalLiteral" ):
                 listener.exitJavaDecimalLiteral(self)
 
 
@@ -20156,37 +20307,38 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 384, self.RULE_java_literal_expression)
         try:
             self.state = 2174
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.INTEGER_LITERAL]:
                 localctx = OParser.JavaIntegerLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 2169
                 localctx.t = self.match(OParser.INTEGER_LITERAL)
-
+                pass
             elif token in [OParser.DECIMAL_LITERAL]:
                 localctx = OParser.JavaDecimalLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 2170
                 localctx.t = self.match(OParser.DECIMAL_LITERAL)
-
+                pass
             elif token in [OParser.TEXT_LITERAL]:
                 localctx = OParser.JavaTextLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 2171
                 localctx.t = self.match(OParser.TEXT_LITERAL)
-
+                pass
             elif token in [OParser.BOOLEAN_LITERAL]:
                 localctx = OParser.JavaBooleanLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 2172
                 localctx.t = self.match(OParser.BOOLEAN_LITERAL)
-
+                pass
             elif token in [OParser.CHAR_LITERAL]:
                 localctx = OParser.JavaCharacterLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
                 self.state = 2173
                 localctx.t = self.match(OParser.CHAR_LITERAL)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -20262,11 +20414,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_java_identifier
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterJava_identifier" ):
                 listener.enterJava_identifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitJava_identifier" ):
                 listener.exitJava_identifier(self)
 
 
@@ -20283,7 +20435,9 @@ class OParser ( AbstractParser ):
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)) | (1 << (OParser.NATIVE_IDENTIFIER - 129)) | (1 << (OParser.DOLLAR_IDENTIFIER - 129)))) != 0)):
                 self._errHandler.recoverInline(self)
-            self.consume()
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -20310,7 +20464,7 @@ class OParser ( AbstractParser ):
 
     class CSharpReturnStatementContext(Csharp_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_statementContext
             super().__init__(parser)
             self.exp = None # Csharp_expressionContext
             self.copyFrom(ctx)
@@ -20324,17 +20478,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpReturnStatement" ):
                 listener.enterCSharpReturnStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpReturnStatement" ):
                 listener.exitCSharpReturnStatement(self)
 
 
     class CSharpStatementContext(Csharp_statementContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_statementContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_statementContext
             super().__init__(parser)
             self.exp = None # Csharp_expressionContext
             self.copyFrom(ctx)
@@ -20346,11 +20500,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpStatement" ):
                 listener.enterCSharpStatement(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpStatement" ):
                 listener.exitCSharpStatement(self)
 
 
@@ -20361,6 +20515,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 388, self.RULE_csharp_statement)
         try:
             self.state = 2185
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.RETURN]:
                 localctx = OParser.CSharpReturnStatementContext(self, localctx)
@@ -20371,7 +20526,7 @@ class OParser ( AbstractParser ):
                 localctx.exp = self.csharp_expression(0)
                 self.state = 2180
                 self.match(OParser.SEMI)
-
+                pass
             elif token in [OParser.LPAR, OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.READ, OParser.SELF, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.BOOLEAN_LITERAL, OParser.CHAR_LITERAL, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER, OParser.DOLLAR_IDENTIFIER, OParser.TEXT_LITERAL, OParser.INTEGER_LITERAL, OParser.DECIMAL_LITERAL]:
                 localctx = OParser.CSharpStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
@@ -20379,7 +20534,7 @@ class OParser ( AbstractParser ):
                 localctx.exp = self.csharp_expression(0)
                 self.state = 2183
                 self.match(OParser.SEMI)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -20408,7 +20563,7 @@ class OParser ( AbstractParser ):
 
     class CSharpSelectorExpressionContext(Csharp_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_expressionContext
             super().__init__(parser)
             self.parent = None # Csharp_expressionContext
             self.child = None # Csharp_selector_expressionContext
@@ -20422,17 +20577,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpSelectorExpression" ):
                 listener.enterCSharpSelectorExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpSelectorExpression" ):
                 listener.exitCSharpSelectorExpression(self)
 
 
     class CSharpPrimaryExpressionContext(Csharp_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_expressionContext
             super().__init__(parser)
             self.exp = None # Csharp_primary_expressionContext
             self.copyFrom(ctx)
@@ -20442,11 +20597,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpPrimaryExpression" ):
                 listener.enterCSharpPrimaryExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpPrimaryExpression" ):
                 listener.exitCSharpPrimaryExpression(self)
 
 
@@ -20526,11 +20681,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_csharp_primary_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCsharp_primary_expression" ):
                 listener.enterCsharp_primary_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCsharp_primary_expression" ):
                 listener.exitCsharp_primary_expression(self)
 
 
@@ -20542,6 +20697,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 392, self.RULE_csharp_primary_expression)
         try:
             self.state = 2202
+            self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,191,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
@@ -20596,11 +20752,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_csharp_this_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCsharp_this_expression" ):
                 listener.enterCsharp_this_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCsharp_this_expression" ):
                 listener.exitCsharp_this_expression(self)
 
 
@@ -20640,11 +20796,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_csharp_new_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCsharp_new_expression" ):
                 listener.enterCsharp_new_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCsharp_new_expression" ):
                 listener.exitCsharp_new_expression(self)
 
 
@@ -20686,7 +20842,7 @@ class OParser ( AbstractParser ):
 
     class CSharpMethodExpressionContext(Csharp_selector_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_selector_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_selector_expressionContext
             super().__init__(parser)
             self.exp = None # Csharp_method_expressionContext
             self.copyFrom(ctx)
@@ -20698,17 +20854,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpMethodExpression" ):
                 listener.enterCSharpMethodExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpMethodExpression" ):
                 listener.exitCSharpMethodExpression(self)
 
 
     class CSharpItemExpressionContext(Csharp_selector_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_selector_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_selector_expressionContext
             super().__init__(parser)
             self.exp = None # Csharp_item_expressionContext
             self.copyFrom(ctx)
@@ -20718,11 +20874,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpItemExpression" ):
                 listener.enterCSharpItemExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpItemExpression" ):
                 listener.exitCSharpItemExpression(self)
 
 
@@ -20733,6 +20889,7 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 398, self.RULE_csharp_selector_expression)
         try:
             self.state = 2212
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.DOT]:
                 localctx = OParser.CSharpMethodExpressionContext(self, localctx)
@@ -20741,13 +20898,13 @@ class OParser ( AbstractParser ):
                 self.match(OParser.DOT)
                 self.state = 2210
                 localctx.exp = self.csharp_method_expression()
-
+                pass
             elif token in [OParser.LBRAK]:
                 localctx = OParser.CSharpItemExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 2211
                 localctx.exp = self.csharp_item_expression()
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -20785,11 +20942,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_csharp_method_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCsharp_method_expression" ):
                 listener.enterCsharp_method_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCsharp_method_expression" ):
                 listener.exitCsharp_method_expression(self)
 
 
@@ -20807,6 +20964,7 @@ class OParser ( AbstractParser ):
             self.state = 2215
             self.match(OParser.LPAR)
             self.state = 2217
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.SELF - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.THIS - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.BOOLEAN_LITERAL - 129)) | (1 << (OParser.CHAR_LITERAL - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)) | (1 << (OParser.DOLLAR_IDENTIFIER - 129)) | (1 << (OParser.TEXT_LITERAL - 129)) | (1 << (OParser.INTEGER_LITERAL - 129)) | (1 << (OParser.DECIMAL_LITERAL - 129)))) != 0):
                 self.state = 2216
@@ -20840,7 +20998,7 @@ class OParser ( AbstractParser ):
 
     class CSharpArgumentListContext(Csharp_argumentsContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_argumentsContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_argumentsContext
             super().__init__(parser)
             self.item = None # Csharp_expressionContext
             self.copyFrom(ctx)
@@ -20850,17 +21008,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpArgumentList" ):
                 listener.enterCSharpArgumentList(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpArgumentList" ):
                 listener.exitCSharpArgumentList(self)
 
 
     class CSharpArgumentListItemContext(Csharp_argumentsContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_argumentsContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_argumentsContext
             super().__init__(parser)
             self.items = None # Csharp_argumentsContext
             self.item = None # Csharp_expressionContext
@@ -20876,11 +21034,11 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpArgumentListItem" ):
                 listener.enterCSharpArgumentListItem(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpArgumentListItem" ):
                 listener.exitCSharpArgumentListItem(self)
 
 
@@ -20953,11 +21111,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_csharp_item_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCsharp_item_expression" ):
                 listener.enterCsharp_item_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCsharp_item_expression" ):
                 listener.exitCsharp_item_expression(self)
 
 
@@ -21004,11 +21162,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_csharp_parenthesis_expression
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCsharp_parenthesis_expression" ):
                 listener.enterCsharp_parenthesis_expression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCsharp_parenthesis_expression" ):
                 listener.exitCsharp_parenthesis_expression(self)
 
 
@@ -21051,7 +21209,7 @@ class OParser ( AbstractParser ):
 
     class CSharpIdentifierContext(Csharp_identifier_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_identifier_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_identifier_expressionContext
             super().__init__(parser)
             self.name = None # Csharp_identifierContext
             self.copyFrom(ctx)
@@ -21061,17 +21219,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpIdentifier" ):
                 listener.enterCSharpIdentifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpIdentifier" ):
                 listener.exitCSharpIdentifier(self)
 
 
     class CSharpChildIdentifierContext(Csharp_identifier_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_identifier_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_identifier_expressionContext
             super().__init__(parser)
             self.parent = None # Csharp_identifier_expressionContext
             self.name = None # Csharp_identifierContext
@@ -21087,17 +21245,17 @@ class OParser ( AbstractParser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpChildIdentifier" ):
                 listener.enterCSharpChildIdentifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpChildIdentifier" ):
                 listener.exitCSharpChildIdentifier(self)
 
 
     class CSharpPromptoIdentifierContext(Csharp_identifier_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_identifier_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_identifier_expressionContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -21105,11 +21263,11 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.DOLLAR_IDENTIFIER, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpPromptoIdentifier" ):
                 listener.enterCSharpPromptoIdentifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpPromptoIdentifier" ):
                 listener.exitCSharpPromptoIdentifier(self)
 
 
@@ -21124,6 +21282,7 @@ class OParser ( AbstractParser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 2243
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.DOLLAR_IDENTIFIER]:
                 localctx = OParser.CSharpPromptoIdentifierContext(self, localctx)
@@ -21132,14 +21291,14 @@ class OParser ( AbstractParser ):
 
                 self.state = 2241
                 self.match(OParser.DOLLAR_IDENTIFIER)
-
+                pass
             elif token in [OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.READ, OParser.TEST, OParser.WRITE, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER]:
                 localctx = OParser.CSharpIdentifierContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 2242
                 localctx.name = self.csharp_identifier()
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -21193,7 +21352,7 @@ class OParser ( AbstractParser ):
 
     class CSharpBooleanLiteralContext(Csharp_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_literal_expressionContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -21201,17 +21360,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.BOOLEAN_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpBooleanLiteral" ):
                 listener.enterCSharpBooleanLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpBooleanLiteral" ):
                 listener.exitCSharpBooleanLiteral(self)
 
 
     class CSharpIntegerLiteralContext(Csharp_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_literal_expressionContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -21219,17 +21378,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.INTEGER_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpIntegerLiteral" ):
                 listener.enterCSharpIntegerLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpIntegerLiteral" ):
                 listener.exitCSharpIntegerLiteral(self)
 
 
     class CSharpDecimalLiteralContext(Csharp_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_literal_expressionContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -21237,17 +21396,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.DECIMAL_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpDecimalLiteral" ):
                 listener.enterCSharpDecimalLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpDecimalLiteral" ):
                 listener.exitCSharpDecimalLiteral(self)
 
 
     class CSharpCharacterLiteralContext(Csharp_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_literal_expressionContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -21255,17 +21414,17 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.CHAR_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpCharacterLiteral" ):
                 listener.enterCSharpCharacterLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpCharacterLiteral" ):
                 listener.exitCSharpCharacterLiteral(self)
 
 
     class CSharpTextLiteralContext(Csharp_literal_expressionContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_literal_expressionContext)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a OParser.Csharp_literal_expressionContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -21273,11 +21432,11 @@ class OParser ( AbstractParser ):
             return self.getToken(OParser.TEXT_LITERAL, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCSharpTextLiteral" ):
                 listener.enterCSharpTextLiteral(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCSharpTextLiteral" ):
                 listener.exitCSharpTextLiteral(self)
 
 
@@ -21288,37 +21447,38 @@ class OParser ( AbstractParser ):
         self.enterRule(localctx, 410, self.RULE_csharp_literal_expression)
         try:
             self.state = 2258
+            self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [OParser.INTEGER_LITERAL]:
                 localctx = OParser.CSharpIntegerLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 2253
                 self.match(OParser.INTEGER_LITERAL)
-
+                pass
             elif token in [OParser.DECIMAL_LITERAL]:
                 localctx = OParser.CSharpDecimalLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 2254
                 self.match(OParser.DECIMAL_LITERAL)
-
+                pass
             elif token in [OParser.TEXT_LITERAL]:
                 localctx = OParser.CSharpTextLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 2255
                 self.match(OParser.TEXT_LITERAL)
-
+                pass
             elif token in [OParser.BOOLEAN_LITERAL]:
                 localctx = OParser.CSharpBooleanLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 2256
                 self.match(OParser.BOOLEAN_LITERAL)
-
+                pass
             elif token in [OParser.CHAR_LITERAL]:
                 localctx = OParser.CSharpCharacterLiteralContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
                 self.state = 2257
                 self.match(OParser.CHAR_LITERAL)
-
+                pass
             else:
                 raise NoViableAltException(self)
 
@@ -21388,11 +21548,11 @@ class OParser ( AbstractParser ):
             return OParser.RULE_csharp_identifier
 
         def enterRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "enterCsharp_identifier" ):
                 listener.enterCsharp_identifier(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if isinstance( listener, OParserListener ):
+            if hasattr( listener, "exitCsharp_identifier" ):
                 listener.exitCsharp_identifier(self)
 
 
@@ -21409,7 +21569,9 @@ class OParser ( AbstractParser ):
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)))) != 0)):
                 self._errHandler.recoverInline(self)
-            self.consume()
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -21732,6 +21894,7 @@ class OParser ( AbstractParser ):
             if predIndex == 60:
                 return self.precpred(self._ctx, 1)
          
+
 
 
 
