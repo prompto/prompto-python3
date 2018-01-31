@@ -1,5 +1,5 @@
 from datetime import date, time, datetime, timedelta
-
+from uuid import UUID
 from collections import Iterator
 
 from prompto.declaration.AnyNativeCategoryDeclaration import AnyNativeCategoryDeclaration
@@ -15,6 +15,7 @@ from prompto.type.ListType import ListType
 from prompto.type.TimeType import TimeType
 from prompto.type.DateTimeType import DateTimeType
 from prompto.type.PeriodType import PeriodType
+from prompto.type.UUIDType import UUIDType
 from prompto.type.AnyType import AnyType
 from prompto.value.Document import Document
 from prompto.value.IteratorValue import IteratorValue
@@ -36,6 +37,7 @@ class PythonClassType(CategoryType):
                          datetime.__name__: DateTimeType.instance,
                          timedelta.__name__: PeriodType.instance,
                          Period.__name__: PeriodType.instance,
+                         UUID.__name__: UUIDType.instance,
                          object.__name__: AnyType.instance
                         }
 
