@@ -33,4 +33,7 @@ class TestCore(BaseEParserTest):
     def testTime(self):
         self.runTests("core/time.pec")
 
+    def testUtils(self):
+        self.runTests("core/utils.pec")
+
 

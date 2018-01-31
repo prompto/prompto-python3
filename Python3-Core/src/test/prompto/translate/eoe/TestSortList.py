@@ -8,11 +8,11 @@ class TestSortList(BaseEParserTest):
     def testSortBooleans(self):
         self.compareResourceEOE("sortList/sortBooleans.pec")
 
-    def testSortDates(self):
-        self.compareResourceEOE("sortList/sortDates.pec")
-
     def testSortDateTimes(self):
         self.compareResourceEOE("sortList/sortDateTimes.pec")
+
+    def testSortDates(self):
+        self.compareResourceEOE("sortList/sortDates.pec")
 
     def testSortDecimals(self):
         self.compareResourceEOE("sortList/sortDecimals.pec")
@@ -20,11 +20,11 @@ class TestSortList(BaseEParserTest):
     def testSortDescBooleans(self):
         self.compareResourceEOE("sortList/sortDescBooleans.pec")
 
-    def testSortDescDates(self):
-        self.compareResourceEOE("sortList/sortDescDates.pec")
-
     def testSortDescDateTimes(self):
         self.compareResourceEOE("sortList/sortDescDateTimes.pec")
+
+    def testSortDescDates(self):
+        self.compareResourceEOE("sortList/sortDescDates.pec")
 
     def testSortDescDecimals(self):
         self.compareResourceEOE("sortList/sortDescDecimals.pec")

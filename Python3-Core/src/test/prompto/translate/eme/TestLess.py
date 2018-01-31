@@ -17,6 +17,18 @@ class TestLess(BaseEParserTest):
     def testLtDecimal(self):
         self.compareResourceEME("less/ltDecimal.pec")
 
+    def testLtInteger(self):
+        self.compareResourceEME("less/ltInteger.pec")
+
+    def testLtText(self):
+        self.compareResourceEME("less/ltText.pec")
+
+    def testLtTime(self):
+        self.compareResourceEME("less/ltTime.pec")
+
+    def testLtVersion(self):
+        self.compareResourceEME("less/ltVersion.pec")
+
     def testLteCharacter(self):
         self.compareResourceEME("less/lteCharacter.pec")
 
@@ -37,17 +49,5 @@ class TestLess(BaseEParserTest):
 
     def testLteTime(self):
         self.compareResourceEME("less/lteTime.pec")
-
-    def testLtInteger(self):
-        self.compareResourceEME("less/ltInteger.pec")
-
-    def testLtText(self):
-        self.compareResourceEME("less/ltText.pec")
-
-    def testLtTime(self):
-        self.compareResourceEME("less/ltTime.pec")
-
-    def testLtVersion(self):
-        self.compareResourceEME("less/ltVersion.pec")
 
 

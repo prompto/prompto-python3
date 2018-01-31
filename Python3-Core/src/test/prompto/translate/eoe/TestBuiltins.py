@@ -50,14 +50,14 @@ class TestBuiltins(BaseEParserTest):
     def testDateTimeSecond(self):
         self.compareResourceEOE("builtins/dateTimeSecond.pec")
 
-    def testDateTimeText(self):
-        self.compareResourceEOE("builtins/dateTimeText.pec")
-
     def testDateTimeTZName(self):
         self.compareResourceEOE("builtins/dateTimeTZName.pec")
 
     def testDateTimeTZOffset(self):
         self.compareResourceEOE("builtins/dateTimeTZOffset.pec")
+
+    def testDateTimeText(self):
+        self.compareResourceEOE("builtins/dateTimeText.pec")
 
     def testDateTimeYear(self):
         self.compareResourceEOE("builtins/dateTimeYear.pec")

@@ -22,6 +22,18 @@ class TestGreater(BaseOParserTest):
     def testGtDecimal(self):
         self.checkOutput("greater/gtDecimal.poc")
 
+    def testGtInteger(self):
+        self.checkOutput("greater/gtInteger.poc")
+
+    def testGtText(self):
+        self.checkOutput("greater/gtText.poc")
+
+    def testGtTime(self):
+        self.checkOutput("greater/gtTime.poc")
+
+    def testGtVersion(self):
+        self.checkOutput("greater/gtVersion.poc")
+
     def testGteCharacter(self):
         self.checkOutput("greater/gteCharacter.poc")
 
@@ -42,17 +54,5 @@ class TestGreater(BaseOParserTest):
 
     def testGteTime(self):
         self.checkOutput("greater/gteTime.poc")
-
-    def testGtInteger(self):
-        self.checkOutput("greater/gtInteger.poc")
-
-    def testGtText(self):
-        self.checkOutput("greater/gtText.poc")
-
-    def testGtTime(self):
-        self.checkOutput("greater/gtTime.poc")
-
-    def testGtVersion(self):
-        self.checkOutput("greater/gtVersion.poc")
 
 

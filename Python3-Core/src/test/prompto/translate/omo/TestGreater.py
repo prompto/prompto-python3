@@ -17,6 +17,18 @@ class TestGreater(BaseOParserTest):
     def testGtDecimal(self):
         self.compareResourceOMO("greater/gtDecimal.poc")
 
+    def testGtInteger(self):
+        self.compareResourceOMO("greater/gtInteger.poc")
+
+    def testGtText(self):
+        self.compareResourceOMO("greater/gtText.poc")
+
+    def testGtTime(self):
+        self.compareResourceOMO("greater/gtTime.poc")
+
+    def testGtVersion(self):
+        self.compareResourceOMO("greater/gtVersion.poc")
+
     def testGteCharacter(self):
         self.compareResourceOMO("greater/gteCharacter.poc")
 
@@ -37,17 +49,5 @@ class TestGreater(BaseOParserTest):
 
     def testGteTime(self):
         self.compareResourceOMO("greater/gteTime.poc")
-
-    def testGtInteger(self):
-        self.compareResourceOMO("greater/gtInteger.poc")
-
-    def testGtText(self):
-        self.compareResourceOMO("greater/gtText.poc")
-
-    def testGtTime(self):
-        self.compareResourceOMO("greater/gtTime.poc")
-
-    def testGtVersion(self):
-        self.compareResourceOMO("greater/gtVersion.poc")
 
 

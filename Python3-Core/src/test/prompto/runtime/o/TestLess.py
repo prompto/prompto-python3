@@ -22,6 +22,18 @@ class TestLess(BaseOParserTest):
     def testLtDecimal(self):
         self.checkOutput("less/ltDecimal.poc")
 
+    def testLtInteger(self):
+        self.checkOutput("less/ltInteger.poc")
+
+    def testLtText(self):
+        self.checkOutput("less/ltText.poc")
+
+    def testLtTime(self):
+        self.checkOutput("less/ltTime.poc")
+
+    def testLtVersion(self):
+        self.checkOutput("less/ltVersion.poc")
+
     def testLteCharacter(self):
         self.checkOutput("less/lteCharacter.poc")
 
@@ -42,17 +54,5 @@ class TestLess(BaseOParserTest):
 
     def testLteTime(self):
         self.checkOutput("less/lteTime.poc")
-
-    def testLtInteger(self):
-        self.checkOutput("less/ltInteger.poc")
-
-    def testLtText(self):
-        self.checkOutput("less/ltText.poc")
-
-    def testLtTime(self):
-        self.checkOutput("less/ltTime.poc")
-
-    def testLtVersion(self):
-        self.checkOutput("less/ltVersion.poc")
 
 

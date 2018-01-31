@@ -266,83 +266,84 @@ def serializedATN():
         buf.write("\u017e\u0180\u0182\u0184\u0186\u0188\u018a\u018c\u018e")
         buf.write("\u0190\u0192\u0194\u0196\u0198\u019a\u019c\u019e\2\13")
         buf.write("\3\2\36\37\4\2\u008d\u008d\u00a1\u00a1\4\2\u0089\u0089")
-        buf.write("\u0091\u0091\4\2HHYY\4\2##ss\b\2\609\u0083\u0083\u0090")
-        buf.write("\u0090\u009a\u009a\u009f\u00a1\u00a3\u00a3\b\2\609\u0083")
-        buf.write("\u0083\u0089\u0089\u0090\u0091\u009a\u009a\u009f\u00a1")
-        buf.write("\7\2\609\u0083\u0083\u0090\u0090\u009a\u009a\u009f\u00a3")
-        buf.write("\7\2\609\u0083\u0083\u0090\u0090\u009a\u009a\u009f\u00a1")
-        buf.write("\2\u0960\2\u01a0\3\2\2\2\4\u01b1\3\2\2\2\6\u01ba\3\2\2")
-        buf.write("\2\b\u01c0\3\2\2\2\n\u01c6\3\2\2\2\f\u01dc\3\2\2\2\16")
-        buf.write("\u01ec\3\2\2\2\20\u01f6\3\2\2\2\22\u0207\3\2\2\2\24\u020a")
-        buf.write("\3\2\2\2\26\u0217\3\2\2\2\30\u0220\3\2\2\2\32\u022a\3")
-        buf.write("\2\2\2\34\u0233\3\2\2\2\36\u023d\3\2\2\2 \u024e\3\2\2")
-        buf.write("\2\"\u0260\3\2\2\2$\u0266\3\2\2\2&\u0273\3\2\2\2(\u0281")
-        buf.write("\3\2\2\2*\u0291\3\2\2\2,\u02a1\3\2\2\2.\u02b3\3\2\2\2")
-        buf.write("\60\u02b6\3\2\2\2\62\u02c9\3\2\2\2\64\u02e0\3\2\2\2\66")
-        buf.write("\u02e2\3\2\2\28\u02fe\3\2\2\2:\u0300\3\2\2\2<\u0306\3")
-        buf.write("\2\2\2>\u030c\3\2\2\2@\u0328\3\2\2\2B\u032a\3\2\2\2D\u0337")
-        buf.write("\3\2\2\2F\u0343\3\2\2\2H\u0349\3\2\2\2J\u0355\3\2\2\2")
-        buf.write("L\u036a\3\2\2\2N\u036e\3\2\2\2P\u03a2\3\2\2\2R\u03a4\3")
-        buf.write("\2\2\2T\u03a7\3\2\2\2V\u03ad\3\2\2\2X\u03b9\3\2\2\2Z\u03bb")
-        buf.write("\3\2\2\2\\\u03cb\3\2\2\2^\u03e4\3\2\2\2`\u0456\3\2\2\2")
-        buf.write("b\u045a\3\2\2\2d\u045c\3\2\2\2f\u046f\3\2\2\2h\u0471\3")
-        buf.write("\2\2\2j\u0476\3\2\2\2l\u047d\3\2\2\2n\u0485\3\2\2\2p\u04c5")
-        buf.write("\3\2\2\2r\u04c7\3\2\2\2t\u04e0\3\2\2\2v\u04e2\3\2\2\2")
-        buf.write("x\u04ee\3\2\2\2z\u04f8\3\2\2\2|\u04fc\3\2\2\2~\u0507\3")
-        buf.write("\2\2\2\u0080\u0509\3\2\2\2\u0082\u050e\3\2\2\2\u0084\u0511")
-        buf.write("\3\2\2\2\u0086\u0516\3\2\2\2\u0088\u0524\3\2\2\2\u008a")
-        buf.write("\u052e\3\2\2\2\u008c\u0532\3\2\2\2\u008e\u0534\3\2\2\2")
-        buf.write("\u0090\u053d\3\2\2\2\u0092\u0546\3\2\2\2\u0094\u0558\3")
-        buf.write("\2\2\2\u0096\u055b\3\2\2\2\u0098\u0564\3\2\2\2\u009a\u056c")
-        buf.write("\3\2\2\2\u009c\u0574\3\2\2\2\u009e\u0586\3\2\2\2\u00a0")
-        buf.write("\u0597\3\2\2\2\u00a2\u05a8\3\2\2\2\u00a4\u05aa\3\2\2\2")
-        buf.write("\u00a6\u05ad\3\2\2\2\u00a8\u05b1\3\2\2\2\u00aa\u05b6\3")
-        buf.write("\2\2\2\u00ac\u05b8\3\2\2\2\u00ae\u05c2\3\2\2\2\u00b0\u05c7")
-        buf.write("\3\2\2\2\u00b2\u05c9\3\2\2\2\u00b4\u05cb\3\2\2\2\u00b6")
-        buf.write("\u05cd\3\2\2\2\u00b8\u05cf\3\2\2\2\u00ba\u05d1\3\2\2\2")
-        buf.write("\u00bc\u05de\3\2\2\2\u00be\u05e2\3\2\2\2\u00c0\u05e4\3")
-        buf.write("\2\2\2\u00c2\u05e9\3\2\2\2\u00c4\u05ee\3\2\2\2\u00c6\u05f0")
-        buf.write("\3\2\2\2\u00c8\u05fe\3\2\2\2\u00ca\u060c\3\2\2\2\u00cc")
-        buf.write("\u060e\3\2\2\2\u00ce\u061a\3\2\2\2\u00d0\u0626\3\2\2\2")
-        buf.write("\u00d2\u0628\3\2\2\2\u00d4\u062c\3\2\2\2\u00d6\u0637\3")
-        buf.write("\2\2\2\u00d8\u063b\3\2\2\2\u00da\u064d\3\2\2\2\u00dc\u0655")
-        buf.write("\3\2\2\2\u00de\u0661\3\2\2\2\u00e0\u0663\3\2\2\2\u00e2")
-        buf.write("\u0665\3\2\2\2\u00e4\u0678\3\2\2\2\u00e6\u067a\3\2\2\2")
-        buf.write("\u00e8\u0681\3\2\2\2\u00ea\u0688\3\2\2\2\u00ec\u0691\3")
-        buf.write("\2\2\2\u00ee\u069a\3\2\2\2\u00f0\u06a3\3\2\2\2\u00f2\u06ba")
-        buf.write("\3\2\2\2\u00f4\u06cb\3\2\2\2\u00f6\u06cd\3\2\2\2\u00f8")
-        buf.write("\u06d9\3\2\2\2\u00fa\u06db\3\2\2\2\u00fc\u06dd\3\2\2\2")
-        buf.write("\u00fe\u06e3\3\2\2\2\u0100\u06ea\3\2\2\2\u0102\u06ed\3")
-        buf.write("\2\2\2\u0104\u06f6\3\2\2\2\u0106\u06fe\3\2\2\2\u0108\u070a")
-        buf.write("\3\2\2\2\u010a\u0712\3\2\2\2\u010c\u071f\3\2\2\2\u010e")
-        buf.write("\u0721\3\2\2\2\u0110\u0725\3\2\2\2\u0112\u0733\3\2\2\2")
-        buf.write("\u0114\u0735\3\2\2\2\u0116\u073a\3\2\2\2\u0118\u073f\3")
-        buf.write("\2\2\2\u011a\u0747\3\2\2\2\u011c\u0758\3\2\2\2\u011e\u075a")
-        buf.write("\3\2\2\2\u0120\u075d\3\2\2\2\u0122\u0760\3\2\2\2\u0124")
-        buf.write("\u0763\3\2\2\2\u0126\u0766\3\2\2\2\u0128\u0769\3\2\2\2")
-        buf.write("\u012a\u076b\3\2\2\2\u012c\u076d\3\2\2\2\u012e\u076f\3")
-        buf.write("\2\2\2\u0130\u0771\3\2\2\2\u0132\u0773\3\2\2\2\u0134\u0775")
-        buf.write("\3\2\2\2\u0136\u077e\3\2\2\2\u0138\u0780\3\2\2\2\u013a")
-        buf.write("\u0791\3\2\2\2\u013c\u0793\3\2\2\2\u013e\u0795\3\2\2\2")
-        buf.write("\u0140\u079d\3\2\2\2\u0142\u079f\3\2\2\2\u0144\u07a6\3")
-        buf.write("\2\2\2\u0146\u07b1\3\2\2\2\u0148\u07b5\3\2\2\2\u014a\u07b9")
-        buf.write("\3\2\2\2\u014c\u07c0\3\2\2\2\u014e\u07c2\3\2\2\2\u0150")
-        buf.write("\u07c7\3\2\2\2\u0152\u07c9\3\2\2\2\u0154\u07d8\3\2\2\2")
-        buf.write("\u0156\u07da\3\2\2\2\u0158\u07e2\3\2\2\2\u015a\u07e4\3")
-        buf.write("\2\2\2\u015c\u07f1\3\2\2\2\u015e\u07f3\3\2\2\2\u0160\u07fe")
-        buf.write("\3\2\2\2\u0162\u080e\3\2\2\2\u0164\u0815\3\2\2\2\u0166")
-        buf.write("\u0824\3\2\2\2\u0168\u0826\3\2\2\2\u016a\u082f\3\2\2\2")
-        buf.write("\u016c\u0831\3\2\2\2\u016e\u0840\3\2\2\2\u0170\u0842\3")
-        buf.write("\2\2\2\u0172\u0844\3\2\2\2\u0174\u084a\3\2\2\2\u0176\u084c")
-        buf.write("\3\2\2\2\u0178\u0853\3\2\2\2\u017a\u085e\3\2\2\2\u017c")
-        buf.write("\u0862\3\2\2\2\u017e\u0866\3\2\2\2\u0180\u0871\3\2\2\2")
-        buf.write("\u0182\u0880\3\2\2\2\u0184\u0882\3\2\2\2\u0186\u088b\3")
-        buf.write("\2\2\2\u0188\u088d\3\2\2\2\u018a\u089c\3\2\2\2\u018c\u089e")
-        buf.write("\3\2\2\2\u018e\u08a0\3\2\2\2\u0190\u08a6\3\2\2\2\u0192")
-        buf.write("\u08a8\3\2\2\2\u0194\u08af\3\2\2\2\u0196\u08ba\3\2\2\2")
-        buf.write("\u0198\u08be\3\2\2\2\u019a\u08c5\3\2\2\2\u019c\u08d4\3")
-        buf.write("\2\2\2\u019e\u08d6\3\2\2\2\u01a0\u01a1\7_\2\2\u01a1\u01a2")
-        buf.write("\7Q\2\2\u01a2\u01a7\5\u00b6\\\2\u01a3\u01a4\7\22\2\2\u01a4")
+        buf.write("\u0091\u0091\4\2HHYY\4\2##ss\f\2\609??vvyy\u0083\u0083")
+        buf.write("\u0089\u0089\u0090\u0090\u009a\u009a\u009f\u00a1\u00a3")
+        buf.write("\u00a3\n\2\609??vvyy\u0083\u0083\u0090\u0091\u009a\u009a")
+        buf.write("\u009f\u00a1\13\2\609??vvyy\u0083\u0083\u0089\u0089\u0090")
+        buf.write("\u0090\u009a\u009a\u009f\u00a3\13\2\609??vvyy\u0083\u0083")
+        buf.write("\u0089\u0089\u0090\u0090\u009a\u009a\u009f\u00a1\2\u0960")
+        buf.write("\2\u01a0\3\2\2\2\4\u01b1\3\2\2\2\6\u01ba\3\2\2\2\b\u01c0")
+        buf.write("\3\2\2\2\n\u01c6\3\2\2\2\f\u01dc\3\2\2\2\16\u01ec\3\2")
+        buf.write("\2\2\20\u01f6\3\2\2\2\22\u0207\3\2\2\2\24\u020a\3\2\2")
+        buf.write("\2\26\u0217\3\2\2\2\30\u0220\3\2\2\2\32\u022a\3\2\2\2")
+        buf.write("\34\u0233\3\2\2\2\36\u023d\3\2\2\2 \u024e\3\2\2\2\"\u0260")
+        buf.write("\3\2\2\2$\u0266\3\2\2\2&\u0273\3\2\2\2(\u0281\3\2\2\2")
+        buf.write("*\u0291\3\2\2\2,\u02a1\3\2\2\2.\u02b3\3\2\2\2\60\u02b6")
+        buf.write("\3\2\2\2\62\u02c9\3\2\2\2\64\u02e0\3\2\2\2\66\u02e2\3")
+        buf.write("\2\2\28\u02fe\3\2\2\2:\u0300\3\2\2\2<\u0306\3\2\2\2>\u030c")
+        buf.write("\3\2\2\2@\u0328\3\2\2\2B\u032a\3\2\2\2D\u0337\3\2\2\2")
+        buf.write("F\u0343\3\2\2\2H\u0349\3\2\2\2J\u0355\3\2\2\2L\u036a\3")
+        buf.write("\2\2\2N\u036e\3\2\2\2P\u03a2\3\2\2\2R\u03a4\3\2\2\2T\u03a7")
+        buf.write("\3\2\2\2V\u03ad\3\2\2\2X\u03b9\3\2\2\2Z\u03bb\3\2\2\2")
+        buf.write("\\\u03cb\3\2\2\2^\u03e4\3\2\2\2`\u0456\3\2\2\2b\u045a")
+        buf.write("\3\2\2\2d\u045c\3\2\2\2f\u046f\3\2\2\2h\u0471\3\2\2\2")
+        buf.write("j\u0476\3\2\2\2l\u047d\3\2\2\2n\u0485\3\2\2\2p\u04c5\3")
+        buf.write("\2\2\2r\u04c7\3\2\2\2t\u04e0\3\2\2\2v\u04e2\3\2\2\2x\u04ee")
+        buf.write("\3\2\2\2z\u04f8\3\2\2\2|\u04fc\3\2\2\2~\u0507\3\2\2\2")
+        buf.write("\u0080\u0509\3\2\2\2\u0082\u050e\3\2\2\2\u0084\u0511\3")
+        buf.write("\2\2\2\u0086\u0516\3\2\2\2\u0088\u0524\3\2\2\2\u008a\u052e")
+        buf.write("\3\2\2\2\u008c\u0532\3\2\2\2\u008e\u0534\3\2\2\2\u0090")
+        buf.write("\u053d\3\2\2\2\u0092\u0546\3\2\2\2\u0094\u0558\3\2\2\2")
+        buf.write("\u0096\u055b\3\2\2\2\u0098\u0564\3\2\2\2\u009a\u056c\3")
+        buf.write("\2\2\2\u009c\u0574\3\2\2\2\u009e\u0586\3\2\2\2\u00a0\u0597")
+        buf.write("\3\2\2\2\u00a2\u05a8\3\2\2\2\u00a4\u05aa\3\2\2\2\u00a6")
+        buf.write("\u05ad\3\2\2\2\u00a8\u05b1\3\2\2\2\u00aa\u05b6\3\2\2\2")
+        buf.write("\u00ac\u05b8\3\2\2\2\u00ae\u05c2\3\2\2\2\u00b0\u05c7\3")
+        buf.write("\2\2\2\u00b2\u05c9\3\2\2\2\u00b4\u05cb\3\2\2\2\u00b6\u05cd")
+        buf.write("\3\2\2\2\u00b8\u05cf\3\2\2\2\u00ba\u05d1\3\2\2\2\u00bc")
+        buf.write("\u05de\3\2\2\2\u00be\u05e2\3\2\2\2\u00c0\u05e4\3\2\2\2")
+        buf.write("\u00c2\u05e9\3\2\2\2\u00c4\u05ee\3\2\2\2\u00c6\u05f0\3")
+        buf.write("\2\2\2\u00c8\u05fe\3\2\2\2\u00ca\u060c\3\2\2\2\u00cc\u060e")
+        buf.write("\3\2\2\2\u00ce\u061a\3\2\2\2\u00d0\u0626\3\2\2\2\u00d2")
+        buf.write("\u0628\3\2\2\2\u00d4\u062c\3\2\2\2\u00d6\u0637\3\2\2\2")
+        buf.write("\u00d8\u063b\3\2\2\2\u00da\u064d\3\2\2\2\u00dc\u0655\3")
+        buf.write("\2\2\2\u00de\u0661\3\2\2\2\u00e0\u0663\3\2\2\2\u00e2\u0665")
+        buf.write("\3\2\2\2\u00e4\u0678\3\2\2\2\u00e6\u067a\3\2\2\2\u00e8")
+        buf.write("\u0681\3\2\2\2\u00ea\u0688\3\2\2\2\u00ec\u0691\3\2\2\2")
+        buf.write("\u00ee\u069a\3\2\2\2\u00f0\u06a3\3\2\2\2\u00f2\u06ba\3")
+        buf.write("\2\2\2\u00f4\u06cb\3\2\2\2\u00f6\u06cd\3\2\2\2\u00f8\u06d9")
+        buf.write("\3\2\2\2\u00fa\u06db\3\2\2\2\u00fc\u06dd\3\2\2\2\u00fe")
+        buf.write("\u06e3\3\2\2\2\u0100\u06ea\3\2\2\2\u0102\u06ed\3\2\2\2")
+        buf.write("\u0104\u06f6\3\2\2\2\u0106\u06fe\3\2\2\2\u0108\u070a\3")
+        buf.write("\2\2\2\u010a\u0712\3\2\2\2\u010c\u071f\3\2\2\2\u010e\u0721")
+        buf.write("\3\2\2\2\u0110\u0725\3\2\2\2\u0112\u0733\3\2\2\2\u0114")
+        buf.write("\u0735\3\2\2\2\u0116\u073a\3\2\2\2\u0118\u073f\3\2\2\2")
+        buf.write("\u011a\u0747\3\2\2\2\u011c\u0758\3\2\2\2\u011e\u075a\3")
+        buf.write("\2\2\2\u0120\u075d\3\2\2\2\u0122\u0760\3\2\2\2\u0124\u0763")
+        buf.write("\3\2\2\2\u0126\u0766\3\2\2\2\u0128\u0769\3\2\2\2\u012a")
+        buf.write("\u076b\3\2\2\2\u012c\u076d\3\2\2\2\u012e\u076f\3\2\2\2")
+        buf.write("\u0130\u0771\3\2\2\2\u0132\u0773\3\2\2\2\u0134\u0775\3")
+        buf.write("\2\2\2\u0136\u077e\3\2\2\2\u0138\u0780\3\2\2\2\u013a\u0791")
+        buf.write("\3\2\2\2\u013c\u0793\3\2\2\2\u013e\u0795\3\2\2\2\u0140")
+        buf.write("\u079d\3\2\2\2\u0142\u079f\3\2\2\2\u0144\u07a6\3\2\2\2")
+        buf.write("\u0146\u07b1\3\2\2\2\u0148\u07b5\3\2\2\2\u014a\u07b9\3")
+        buf.write("\2\2\2\u014c\u07c0\3\2\2\2\u014e\u07c2\3\2\2\2\u0150\u07c7")
+        buf.write("\3\2\2\2\u0152\u07c9\3\2\2\2\u0154\u07d8\3\2\2\2\u0156")
+        buf.write("\u07da\3\2\2\2\u0158\u07e2\3\2\2\2\u015a\u07e4\3\2\2\2")
+        buf.write("\u015c\u07f1\3\2\2\2\u015e\u07f3\3\2\2\2\u0160\u07fe\3")
+        buf.write("\2\2\2\u0162\u080e\3\2\2\2\u0164\u0815\3\2\2\2\u0166\u0824")
+        buf.write("\3\2\2\2\u0168\u0826\3\2\2\2\u016a\u082f\3\2\2\2\u016c")
+        buf.write("\u0831\3\2\2\2\u016e\u0840\3\2\2\2\u0170\u0842\3\2\2\2")
+        buf.write("\u0172\u0844\3\2\2\2\u0174\u084a\3\2\2\2\u0176\u084c\3")
+        buf.write("\2\2\2\u0178\u0853\3\2\2\2\u017a\u085e\3\2\2\2\u017c\u0862")
+        buf.write("\3\2\2\2\u017e\u0866\3\2\2\2\u0180\u0871\3\2\2\2\u0182")
+        buf.write("\u0880\3\2\2\2\u0184\u0882\3\2\2\2\u0186\u088b\3\2\2\2")
+        buf.write("\u0188\u088d\3\2\2\2\u018a\u089c\3\2\2\2\u018c\u089e\3")
+        buf.write("\2\2\2\u018e\u08a0\3\2\2\2\u0190\u08a6\3\2\2\2\u0192\u08a8")
+        buf.write("\3\2\2\2\u0194\u08af\3\2\2\2\u0196\u08ba\3\2\2\2\u0198")
+        buf.write("\u08be\3\2\2\2\u019a\u08c5\3\2\2\2\u019c\u08d4\3\2\2\2")
+        buf.write("\u019e\u08d6\3\2\2\2\u01a0\u01a1\7_\2\2\u01a1\u01a2\7")
+        buf.write("Q\2\2\u01a2\u01a7\5\u00b6\\\2\u01a3\u01a4\7\22\2\2\u01a4")
         buf.write("\u01a5\5\u00dco\2\u01a5\u01a6\7\23\2\2\u01a6\u01a8\3\2")
         buf.write("\2\2\u01a7\u01a3\3\2\2\2\u01a7\u01a8\3\2\2\2\u01a8\u01ab")
         buf.write("\3\2\2\2\u01a9\u01aa\7c\2\2\u01aa\u01ac\5\u00b6\\\2\u01ab")
@@ -16835,7 +16836,7 @@ class OParser ( AbstractParser ):
                 self.state = 1911
                 self.match(OParser.SEMI)
                 pass
-            elif token in [OParser.LPAR, OParser.LBRAK, OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.READ, OParser.SELF, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.BOOLEAN_LITERAL, OParser.CHAR_LITERAL, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER, OParser.DOLLAR_IDENTIFIER, OParser.TEXT_LITERAL, OParser.INTEGER_LITERAL, OParser.DECIMAL_LITERAL]:
+            elif token in [OParser.LPAR, OParser.LBRAK, OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.UUID, OParser.NONE, OParser.NULL, OParser.READ, OParser.SELF, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.BOOLEAN_LITERAL, OParser.CHAR_LITERAL, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER, OParser.DOLLAR_IDENTIFIER, OParser.TEXT_LITERAL, OParser.INTEGER_LITERAL, OParser.DECIMAL_LITERAL]:
                 localctx = OParser.JavascriptStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1913
@@ -17325,7 +17326,7 @@ class OParser ( AbstractParser ):
             self.state = 1952
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.SELF - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.THIS - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.BOOLEAN_LITERAL - 129)) | (1 << (OParser.CHAR_LITERAL - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)) | (1 << (OParser.DOLLAR_IDENTIFIER - 129)) | (1 << (OParser.TEXT_LITERAL - 129)) | (1 << (OParser.INTEGER_LITERAL - 129)) | (1 << (OParser.DECIMAL_LITERAL - 129)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.LBRAK) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.UUID))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (OParser.NONE - 116)) | (1 << (OParser.NULL - 116)) | (1 << (OParser.READ - 116)) | (1 << (OParser.SELF - 116)) | (1 << (OParser.TEST - 116)) | (1 << (OParser.THIS - 116)) | (1 << (OParser.WRITE - 116)) | (1 << (OParser.BOOLEAN_LITERAL - 116)) | (1 << (OParser.CHAR_LITERAL - 116)) | (1 << (OParser.SYMBOL_IDENTIFIER - 116)) | (1 << (OParser.TYPE_IDENTIFIER - 116)) | (1 << (OParser.VARIABLE_IDENTIFIER - 116)) | (1 << (OParser.DOLLAR_IDENTIFIER - 116)) | (1 << (OParser.TEXT_LITERAL - 116)) | (1 << (OParser.INTEGER_LITERAL - 116)) | (1 << (OParser.DECIMAL_LITERAL - 116)))) != 0):
                 self.state = 1951
                 localctx.args = self.javascript_arguments(0)
 
@@ -17801,6 +17802,9 @@ class OParser ( AbstractParser ):
         def VERSION(self):
             return self.getToken(OParser.VERSION, 0)
 
+        def UUID(self):
+            return self.getToken(OParser.UUID, 0)
+
         def READ(self):
             return self.getToken(OParser.READ, 0)
 
@@ -17809,6 +17813,15 @@ class OParser ( AbstractParser ):
 
         def TEST(self):
             return self.getToken(OParser.TEST, 0)
+
+        def SELF(self):
+            return self.getToken(OParser.SELF, 0)
+
+        def NONE(self):
+            return self.getToken(OParser.NONE, 0)
+
+        def NULL(self):
+            return self.getToken(OParser.NULL, 0)
 
         def getRuleIndex(self):
             return OParser.RULE_javascript_identifier
@@ -17833,7 +17846,7 @@ class OParser ( AbstractParser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 1984
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)) | (1 << (OParser.DOLLAR_IDENTIFIER - 129)))) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.UUID))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (OParser.NONE - 116)) | (1 << (OParser.NULL - 116)) | (1 << (OParser.READ - 116)) | (1 << (OParser.SELF - 116)) | (1 << (OParser.TEST - 116)) | (1 << (OParser.WRITE - 116)) | (1 << (OParser.SYMBOL_IDENTIFIER - 116)) | (1 << (OParser.TYPE_IDENTIFIER - 116)) | (1 << (OParser.VARIABLE_IDENTIFIER - 116)) | (1 << (OParser.DOLLAR_IDENTIFIER - 116)))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -17921,7 +17934,7 @@ class OParser ( AbstractParser ):
                 self.state = 1987
                 localctx.exp = self.python_expression(0)
                 pass
-            elif token in [OParser.LPAR, OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.READ, OParser.SELF, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.BOOLEAN_LITERAL, OParser.CHAR_LITERAL, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER, OParser.DOLLAR_IDENTIFIER, OParser.TEXT_LITERAL, OParser.INTEGER_LITERAL, OParser.DECIMAL_LITERAL]:
+            elif token in [OParser.LPAR, OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.UUID, OParser.NONE, OParser.NULL, OParser.READ, OParser.SELF, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.BOOLEAN_LITERAL, OParser.CHAR_LITERAL, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER, OParser.DOLLAR_IDENTIFIER, OParser.TEXT_LITERAL, OParser.INTEGER_LITERAL, OParser.DECIMAL_LITERAL]:
                 localctx = OParser.PythonStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1988
@@ -18402,7 +18415,7 @@ class OParser ( AbstractParser ):
             self.state = 2021
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.SELF - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.THIS - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.BOOLEAN_LITERAL - 129)) | (1 << (OParser.CHAR_LITERAL - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)) | (1 << (OParser.DOLLAR_IDENTIFIER - 129)) | (1 << (OParser.TEXT_LITERAL - 129)) | (1 << (OParser.INTEGER_LITERAL - 129)) | (1 << (OParser.DECIMAL_LITERAL - 129)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.UUID))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (OParser.NONE - 116)) | (1 << (OParser.NULL - 116)) | (1 << (OParser.READ - 116)) | (1 << (OParser.SELF - 116)) | (1 << (OParser.TEST - 116)) | (1 << (OParser.THIS - 116)) | (1 << (OParser.WRITE - 116)) | (1 << (OParser.BOOLEAN_LITERAL - 116)) | (1 << (OParser.CHAR_LITERAL - 116)) | (1 << (OParser.SYMBOL_IDENTIFIER - 116)) | (1 << (OParser.TYPE_IDENTIFIER - 116)) | (1 << (OParser.VARIABLE_IDENTIFIER - 116)) | (1 << (OParser.DOLLAR_IDENTIFIER - 116)) | (1 << (OParser.TEXT_LITERAL - 116)) | (1 << (OParser.INTEGER_LITERAL - 116)) | (1 << (OParser.DECIMAL_LITERAL - 116)))) != 0):
                 self.state = 2020
                 localctx.args = self.python_argument_list()
 
@@ -18931,7 +18944,7 @@ class OParser ( AbstractParser ):
                 self.state = 2065
                 self.match(OParser.DOLLAR_IDENTIFIER)
                 pass
-            elif token in [OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.READ, OParser.SELF, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER]:
+            elif token in [OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.UUID, OParser.NONE, OParser.NULL, OParser.READ, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER]:
                 localctx = OParser.PythonIdentifierContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
@@ -19179,6 +19192,9 @@ class OParser ( AbstractParser ):
         def VERSION(self):
             return self.getToken(OParser.VERSION, 0)
 
+        def UUID(self):
+            return self.getToken(OParser.UUID, 0)
+
         def READ(self):
             return self.getToken(OParser.READ, 0)
 
@@ -19188,11 +19204,14 @@ class OParser ( AbstractParser ):
         def TEST(self):
             return self.getToken(OParser.TEST, 0)
 
-        def SELF(self):
-            return self.getToken(OParser.SELF, 0)
-
         def THIS(self):
             return self.getToken(OParser.THIS, 0)
+
+        def NONE(self):
+            return self.getToken(OParser.NONE, 0)
+
+        def NULL(self):
+            return self.getToken(OParser.NULL, 0)
 
         def getRuleIndex(self):
             return OParser.RULE_python_identifier
@@ -19217,7 +19236,7 @@ class OParser ( AbstractParser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 2084
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.SELF - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.THIS - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)))) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.UUID))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (OParser.NONE - 116)) | (1 << (OParser.NULL - 116)) | (1 << (OParser.READ - 116)) | (1 << (OParser.TEST - 116)) | (1 << (OParser.THIS - 116)) | (1 << (OParser.WRITE - 116)) | (1 << (OParser.SYMBOL_IDENTIFIER - 116)) | (1 << (OParser.TYPE_IDENTIFIER - 116)) | (1 << (OParser.VARIABLE_IDENTIFIER - 116)))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -19311,7 +19330,7 @@ class OParser ( AbstractParser ):
                 self.state = 2088
                 self.match(OParser.SEMI)
                 pass
-            elif token in [OParser.LPAR, OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.READ, OParser.SELF, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.BOOLEAN_LITERAL, OParser.CHAR_LITERAL, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER, OParser.NATIVE_IDENTIFIER, OParser.DOLLAR_IDENTIFIER, OParser.TEXT_LITERAL, OParser.INTEGER_LITERAL, OParser.DECIMAL_LITERAL]:
+            elif token in [OParser.LPAR, OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.UUID, OParser.NONE, OParser.NULL, OParser.READ, OParser.SELF, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.BOOLEAN_LITERAL, OParser.CHAR_LITERAL, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER, OParser.NATIVE_IDENTIFIER, OParser.DOLLAR_IDENTIFIER, OParser.TEXT_LITERAL, OParser.INTEGER_LITERAL, OParser.DECIMAL_LITERAL]:
                 localctx = OParser.JavaStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 2090
@@ -19750,7 +19769,7 @@ class OParser ( AbstractParser ):
             self.state = 2125
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.SELF - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.THIS - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.BOOLEAN_LITERAL - 129)) | (1 << (OParser.CHAR_LITERAL - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)) | (1 << (OParser.NATIVE_IDENTIFIER - 129)) | (1 << (OParser.DOLLAR_IDENTIFIER - 129)) | (1 << (OParser.TEXT_LITERAL - 129)) | (1 << (OParser.INTEGER_LITERAL - 129)) | (1 << (OParser.DECIMAL_LITERAL - 129)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.UUID))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (OParser.NONE - 116)) | (1 << (OParser.NULL - 116)) | (1 << (OParser.READ - 116)) | (1 << (OParser.SELF - 116)) | (1 << (OParser.TEST - 116)) | (1 << (OParser.THIS - 116)) | (1 << (OParser.WRITE - 116)) | (1 << (OParser.BOOLEAN_LITERAL - 116)) | (1 << (OParser.CHAR_LITERAL - 116)) | (1 << (OParser.SYMBOL_IDENTIFIER - 116)) | (1 << (OParser.TYPE_IDENTIFIER - 116)) | (1 << (OParser.VARIABLE_IDENTIFIER - 116)) | (1 << (OParser.NATIVE_IDENTIFIER - 116)) | (1 << (OParser.DOLLAR_IDENTIFIER - 116)) | (1 << (OParser.TEXT_LITERAL - 116)) | (1 << (OParser.INTEGER_LITERAL - 116)) | (1 << (OParser.DECIMAL_LITERAL - 116)))) != 0):
                 self.state = 2124
                 localctx.args = self.java_arguments(0)
 
@@ -20401,6 +20420,9 @@ class OParser ( AbstractParser ):
         def VERSION(self):
             return self.getToken(OParser.VERSION, 0)
 
+        def UUID(self):
+            return self.getToken(OParser.UUID, 0)
+
         def READ(self):
             return self.getToken(OParser.READ, 0)
 
@@ -20409,6 +20431,15 @@ class OParser ( AbstractParser ):
 
         def TEST(self):
             return self.getToken(OParser.TEST, 0)
+
+        def SELF(self):
+            return self.getToken(OParser.SELF, 0)
+
+        def NONE(self):
+            return self.getToken(OParser.NONE, 0)
+
+        def NULL(self):
+            return self.getToken(OParser.NULL, 0)
 
         def getRuleIndex(self):
             return OParser.RULE_java_identifier
@@ -20433,7 +20464,7 @@ class OParser ( AbstractParser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 2176
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)) | (1 << (OParser.NATIVE_IDENTIFIER - 129)) | (1 << (OParser.DOLLAR_IDENTIFIER - 129)))) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.UUID))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (OParser.NONE - 116)) | (1 << (OParser.NULL - 116)) | (1 << (OParser.READ - 116)) | (1 << (OParser.SELF - 116)) | (1 << (OParser.TEST - 116)) | (1 << (OParser.WRITE - 116)) | (1 << (OParser.SYMBOL_IDENTIFIER - 116)) | (1 << (OParser.TYPE_IDENTIFIER - 116)) | (1 << (OParser.VARIABLE_IDENTIFIER - 116)) | (1 << (OParser.NATIVE_IDENTIFIER - 116)) | (1 << (OParser.DOLLAR_IDENTIFIER - 116)))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -20527,7 +20558,7 @@ class OParser ( AbstractParser ):
                 self.state = 2180
                 self.match(OParser.SEMI)
                 pass
-            elif token in [OParser.LPAR, OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.READ, OParser.SELF, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.BOOLEAN_LITERAL, OParser.CHAR_LITERAL, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER, OParser.DOLLAR_IDENTIFIER, OParser.TEXT_LITERAL, OParser.INTEGER_LITERAL, OParser.DECIMAL_LITERAL]:
+            elif token in [OParser.LPAR, OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.UUID, OParser.NONE, OParser.NULL, OParser.READ, OParser.SELF, OParser.TEST, OParser.THIS, OParser.WRITE, OParser.BOOLEAN_LITERAL, OParser.CHAR_LITERAL, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER, OParser.DOLLAR_IDENTIFIER, OParser.TEXT_LITERAL, OParser.INTEGER_LITERAL, OParser.DECIMAL_LITERAL]:
                 localctx = OParser.CSharpStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 2182
@@ -20966,7 +20997,7 @@ class OParser ( AbstractParser ):
             self.state = 2217
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.SELF - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.THIS - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.BOOLEAN_LITERAL - 129)) | (1 << (OParser.CHAR_LITERAL - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)) | (1 << (OParser.DOLLAR_IDENTIFIER - 129)) | (1 << (OParser.TEXT_LITERAL - 129)) | (1 << (OParser.INTEGER_LITERAL - 129)) | (1 << (OParser.DECIMAL_LITERAL - 129)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.LPAR) | (1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.UUID))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (OParser.NONE - 116)) | (1 << (OParser.NULL - 116)) | (1 << (OParser.READ - 116)) | (1 << (OParser.SELF - 116)) | (1 << (OParser.TEST - 116)) | (1 << (OParser.THIS - 116)) | (1 << (OParser.WRITE - 116)) | (1 << (OParser.BOOLEAN_LITERAL - 116)) | (1 << (OParser.CHAR_LITERAL - 116)) | (1 << (OParser.SYMBOL_IDENTIFIER - 116)) | (1 << (OParser.TYPE_IDENTIFIER - 116)) | (1 << (OParser.VARIABLE_IDENTIFIER - 116)) | (1 << (OParser.DOLLAR_IDENTIFIER - 116)) | (1 << (OParser.TEXT_LITERAL - 116)) | (1 << (OParser.INTEGER_LITERAL - 116)) | (1 << (OParser.DECIMAL_LITERAL - 116)))) != 0):
                 self.state = 2216
                 localctx.args = self.csharp_arguments(0)
 
@@ -21292,7 +21323,7 @@ class OParser ( AbstractParser ):
                 self.state = 2241
                 self.match(OParser.DOLLAR_IDENTIFIER)
                 pass
-            elif token in [OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.READ, OParser.TEST, OParser.WRITE, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER]:
+            elif token in [OParser.BOOLEAN, OParser.CHARACTER, OParser.TEXT, OParser.INTEGER, OParser.DECIMAL, OParser.DATE, OParser.TIME, OParser.DATETIME, OParser.PERIOD, OParser.VERSION, OParser.UUID, OParser.NONE, OParser.NULL, OParser.READ, OParser.SELF, OParser.TEST, OParser.WRITE, OParser.SYMBOL_IDENTIFIER, OParser.TYPE_IDENTIFIER, OParser.VARIABLE_IDENTIFIER]:
                 localctx = OParser.CSharpIdentifierContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
@@ -21535,6 +21566,9 @@ class OParser ( AbstractParser ):
         def VERSION(self):
             return self.getToken(OParser.VERSION, 0)
 
+        def UUID(self):
+            return self.getToken(OParser.UUID, 0)
+
         def READ(self):
             return self.getToken(OParser.READ, 0)
 
@@ -21543,6 +21577,15 @@ class OParser ( AbstractParser ):
 
         def TEST(self):
             return self.getToken(OParser.TEST, 0)
+
+        def SELF(self):
+            return self.getToken(OParser.SELF, 0)
+
+        def NONE(self):
+            return self.getToken(OParser.NONE, 0)
+
+        def NULL(self):
+            return self.getToken(OParser.NULL, 0)
 
         def getRuleIndex(self):
             return OParser.RULE_csharp_identifier
@@ -21567,7 +21610,7 @@ class OParser ( AbstractParser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 2260
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION))) != 0) or ((((_la - 129)) & ~0x3f) == 0 and ((1 << (_la - 129)) & ((1 << (OParser.READ - 129)) | (1 << (OParser.TEST - 129)) | (1 << (OParser.WRITE - 129)) | (1 << (OParser.SYMBOL_IDENTIFIER - 129)) | (1 << (OParser.TYPE_IDENTIFIER - 129)) | (1 << (OParser.VARIABLE_IDENTIFIER - 129)))) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << OParser.BOOLEAN) | (1 << OParser.CHARACTER) | (1 << OParser.TEXT) | (1 << OParser.INTEGER) | (1 << OParser.DECIMAL) | (1 << OParser.DATE) | (1 << OParser.TIME) | (1 << OParser.DATETIME) | (1 << OParser.PERIOD) | (1 << OParser.VERSION) | (1 << OParser.UUID))) != 0) or ((((_la - 116)) & ~0x3f) == 0 and ((1 << (_la - 116)) & ((1 << (OParser.NONE - 116)) | (1 << (OParser.NULL - 116)) | (1 << (OParser.READ - 116)) | (1 << (OParser.SELF - 116)) | (1 << (OParser.TEST - 116)) | (1 << (OParser.WRITE - 116)) | (1 << (OParser.SYMBOL_IDENTIFIER - 116)) | (1 << (OParser.TYPE_IDENTIFIER - 116)) | (1 << (OParser.VARIABLE_IDENTIFIER - 116)))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)

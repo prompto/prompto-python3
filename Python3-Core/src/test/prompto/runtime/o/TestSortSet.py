@@ -13,11 +13,11 @@ class TestSortSet(BaseOParserTest):
     def testSortBooleans(self):
         self.checkOutput("sortSet/sortBooleans.poc")
 
-    def testSortDates(self):
-        self.checkOutput("sortSet/sortDates.poc")
-
     def testSortDateTimes(self):
         self.checkOutput("sortSet/sortDateTimes.poc")
+
+    def testSortDates(self):
+        self.checkOutput("sortSet/sortDates.poc")
 
     def testSortDecimals(self):
         self.checkOutput("sortSet/sortDecimals.poc")
@@ -25,11 +25,11 @@ class TestSortSet(BaseOParserTest):
     def testSortDescBooleans(self):
         self.checkOutput("sortSet/sortDescBooleans.poc")
 
-    def testSortDescDates(self):
-        self.checkOutput("sortSet/sortDescDates.poc")
-
     def testSortDescDateTimes(self):
         self.checkOutput("sortSet/sortDescDateTimes.poc")
+
+    def testSortDescDates(self):
+        self.checkOutput("sortSet/sortDescDates.poc")
 
     def testSortDescDecimals(self):
         self.checkOutput("sortSet/sortDescDecimals.poc")

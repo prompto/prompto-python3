@@ -17,6 +17,18 @@ class TestGreater(BaseEParserTest):
     def testGtDecimal(self):
         self.compareResourceEOE("greater/gtDecimal.pec")
 
+    def testGtInteger(self):
+        self.compareResourceEOE("greater/gtInteger.pec")
+
+    def testGtText(self):
+        self.compareResourceEOE("greater/gtText.pec")
+
+    def testGtTime(self):
+        self.compareResourceEOE("greater/gtTime.pec")
+
+    def testGtVersion(self):
+        self.compareResourceEOE("greater/gtVersion.pec")
+
     def testGteCharacter(self):
         self.compareResourceEOE("greater/gteCharacter.pec")
 
@@ -37,17 +49,5 @@ class TestGreater(BaseEParserTest):
 
     def testGteTime(self):
         self.compareResourceEOE("greater/gteTime.pec")
-
-    def testGtInteger(self):
-        self.compareResourceEOE("greater/gtInteger.pec")
-
-    def testGtText(self):
-        self.compareResourceEOE("greater/gtText.pec")
-
-    def testGtTime(self):
-        self.compareResourceEOE("greater/gtTime.pec")
-
-    def testGtVersion(self):
-        self.compareResourceEOE("greater/gtVersion.pec")
 
 

@@ -17,6 +17,18 @@ class TestLess(BaseOParserTest):
     def testLtDecimal(self):
         self.compareResourceOEO("less/ltDecimal.poc")
 
+    def testLtInteger(self):
+        self.compareResourceOEO("less/ltInteger.poc")
+
+    def testLtText(self):
+        self.compareResourceOEO("less/ltText.poc")
+
+    def testLtTime(self):
+        self.compareResourceOEO("less/ltTime.poc")
+
+    def testLtVersion(self):
+        self.compareResourceOEO("less/ltVersion.poc")
+
     def testLteCharacter(self):
         self.compareResourceOEO("less/lteCharacter.poc")
 
@@ -37,17 +49,5 @@ class TestLess(BaseOParserTest):
 
     def testLteTime(self):
         self.compareResourceOEO("less/lteTime.poc")
-
-    def testLtInteger(self):
-        self.compareResourceOEO("less/ltInteger.poc")
-
-    def testLtText(self):
-        self.compareResourceOEO("less/ltText.poc")
-
-    def testLtTime(self):
-        self.compareResourceOEO("less/ltTime.poc")
-
-    def testLtVersion(self):
-        self.compareResourceOEO("less/ltVersion.poc")
 
 
