@@ -17,9 +17,6 @@ class TestInternet(BaseEParserTest):
     def testHtml(self):
         self.runTests("internet/html.pec")
 
-    def testServer(self):
-        self.runTests("internet/server.pec")
-
     def testUrl(self):
         self.runTests("internet/url.pec")
 
