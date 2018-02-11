@@ -10,6 +10,9 @@ class TestFilter(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testFilterFromCursor(self):
+        self.checkOutput("filter/filterFromCursor.pec")
+
     def testFilterFromList(self):
         self.checkOutput("filter/filterFromList.pec")
 

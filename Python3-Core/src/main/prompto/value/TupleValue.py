@@ -4,11 +4,11 @@ from prompto.error.InternalError import InternalError
 from prompto.literal.Literal import Literal
 from prompto.type.TupleType import TupleType
 from prompto.value.BaseValueList import BaseValueList
+from prompto.value.IFilterable import IFilterable
 from prompto.value.SetValue import SetValue
 
 
-
-class TupleValue ( BaseValueList ):
+class TupleValue ( BaseValueList, IFilterable ):
 
     def __init__(self, mutable, items=None, item = None):
         super().__init__(TupleType(), items)

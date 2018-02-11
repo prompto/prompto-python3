@@ -5,6 +5,9 @@ class TestFilter(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testFilterFromCursor(self):
+        self.compareResourceEOE("filter/filterFromCursor.pec")
+
     def testFilterFromList(self):
         self.compareResourceEOE("filter/filterFromList.pec")
 

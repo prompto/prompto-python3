@@ -4,12 +4,8 @@ from prompto.expression.IExpression import IExpression
 from prompto.parser.Section import Section
 from prompto.runtime.TransientVariable import TransientVariable
 from prompto.type.BooleanType import BooleanType
-from prompto.type.ListType import ListType
-from prompto.type.TupleType import TupleType
-from prompto.type.SetType import SetType
-from prompto.value.ListValue import ListValue
-from prompto.value.TupleValue import TupleValue
-from prompto.value.SetValue import SetValue
+from prompto.type.IterableType import IterableType
+from prompto.value.IFilterable import IFilterable
 from prompto.error.SyntaxError import SyntaxError
 
 
@@ -53,8 +49,8 @@ class FilteredExpression(Section, IExpression):
 
     def check(self, context):
         listType = self.source.check(context)
-        if not isinstance(listType, (ListType, TupleType, SetType)):
-            raise SyntaxError("Expecting a collection type as data source !")
+        if not isinstance(listType, IterableType):
+            raise SyntaxError("Expecting an iterable type as data source !")
         local = context.newChildContext()
         local.registerValue(TransientVariable(self.itemName, listType.getItemType()))
         filterType = self.predicate.check(local)
@@ -62,15 +58,17 @@ class FilteredExpression(Section, IExpression):
             raise SyntaxError("Filtering expression must return a boolean !")
         return listType
 
+
+
     def interpret(self, context):
         listType = self.source.check(context)
-        if not isinstance(listType, (ListType, TupleType, SetType)):
-            raise InternalError("Illegal source type: " + listType.getName())
+        if not isinstance(listType, IterableType):
+            raise InternalError("Illegal source type: " + listType.typeName)
         itemType = listType.getItemType()
         items = self.source.interpret(context)
         if items is None:
             raise NullReferenceError()
-        if not isinstance(items, (ListValue, TupleValue, SetValue)):
+        if not isinstance(items, IFilterable):
             raise InternalError("Illegal fetch source: " + str(items))
         local = context.newChildContext()
         item = TransientVariable(self.itemName, itemType)

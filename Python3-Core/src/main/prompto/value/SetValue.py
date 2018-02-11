@@ -3,10 +3,11 @@ from prompto.error.InternalError import InternalError
 from prompto.error.SyntaxError import SyntaxError
 from prompto.value.BaseValue import BaseValue
 from prompto.value.IContainer import IContainer
+from prompto.value.IFilterable import IFilterable
 from prompto.value.Integer import Integer
 from io import StringIO
 
-class SetValue(BaseValue, IContainer):
+class SetValue(BaseValue, IContainer, IFilterable):
 
     def __init__(self, itemType, items = None):
         from prompto.type.SetType import SetType

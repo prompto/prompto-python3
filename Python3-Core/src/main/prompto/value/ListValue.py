@@ -2,10 +2,11 @@ from io import StringIO
 
 from prompto.error.InternalError import InternalError
 from prompto.value.BaseValueList import BaseValueList
+from prompto.value.IFilterable import IFilterable
 from prompto.value.Integer import Integer
 from prompto.error.SyntaxError import SyntaxError
 
-class ListValue(BaseValueList):
+class ListValue(BaseValueList, IFilterable):
 
     def __init__(self, itemType, items = None, item = None, mutable = False):
         from prompto.type.ListType import ListType
