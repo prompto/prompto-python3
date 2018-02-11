@@ -766,7 +766,7 @@ class OPromptoBuilder(OParserListener):
 
     def exitCallableRoot(self, ctx:OParser.CallableRootContext):
         name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, UnresolvedIdentifier(name))
+        self.setNodeValue(ctx, name)
 
 
 
