@@ -409,9 +409,30 @@ class MPromptoBuilder(MParserListener):
 
 
 
+    def exitCallableMemberSelector(self, ctx:MParser.CallableMemberSelectorContext):
+        name = self.getNodeValue(ctx.name)
+        self.setNodeValue(ctx, MemberSelector(name))
+
+
+
+    def exitCallableItemSelector(self, ctx:MParser.CallableItemSelectorContext):
+        exp = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, ItemSelector(exp))
+
+
+
     def exitCallableRoot(self, ctx:MParser.CallableRootContext):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, UnresolvedIdentifier(name))
+
+
+
+    def exitCallableSelector(self, ctx:MParser.CallableSelectorContext):
+        parent = self.getNodeValue(ctx.parent)
+        select = self.getNodeValue(ctx.select)
+        select.setParent(parent)
+        self.setNodeValue(ctx, select)
+
 
 
     def exitCastExpression(self, ctx:MParser.CastExpressionContext):

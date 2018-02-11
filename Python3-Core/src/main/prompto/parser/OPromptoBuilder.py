@@ -751,17 +751,24 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, MethodSelector(name, parent))
 
 
+
     def exitCallableMemberSelector(self, ctx:OParser.CallableMemberSelectorContext):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, MemberSelector(name))
+
+
 
     def exitCallableItemSelector(self, ctx:OParser.CallableItemSelectorContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, ItemSelector(exp))
 
+
+
     def exitCallableRoot(self, ctx:OParser.CallableRootContext):
         name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, name)
+        self.setNodeValue(ctx, UnresolvedIdentifier(name))
+
+
 
     def exitCallableSelector(self, ctx:OParser.CallableSelectorContext):
         parent = self.getNodeValue(ctx.parent)
@@ -1784,7 +1791,7 @@ class OPromptoBuilder(OParserListener):
 
 
     def exitCursorType(self, ctx: OParser.CursorTypeContext):
-        raise "not implemented"
+        raise Exception("not implemented")
 
 
 
