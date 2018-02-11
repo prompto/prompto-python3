@@ -119,6 +119,9 @@ class TestBuiltins(BaseEParserTest):
     def testTextCount(self):
         self.compareResourceEOE("builtins/textCount.pec")
 
+    def testTextEndsWith(self):
+        self.compareResourceEOE("builtins/textEndsWith.pec")
+
     def testTextLowercase(self):
         self.compareResourceEOE("builtins/textLowercase.pec")
 
@@ -130,6 +133,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testTextSplit(self):
         self.compareResourceEOE("builtins/textSplit.pec")
+
+    def testTextStartsWith(self):
+        self.compareResourceEOE("builtins/textStartsWith.pec")
 
     def testTextText(self):
         self.compareResourceEOE("builtins/textText.pec")

@@ -118,6 +118,9 @@ class TestBuiltins(BaseEParserTest):
     def testTextCount(self):
         self.checkOutput("builtins/textCount.pec")
 
+    def testTextEndsWith(self):
+        self.checkOutput("builtins/textEndsWith.pec")
+
     def testTextLowercase(self):
         self.checkOutput("builtins/textLowercase.pec")
 
@@ -129,6 +132,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testTextSplit(self):
         self.checkOutput("builtins/textSplit.pec")
+
+    def testTextStartsWith(self):
+        self.checkOutput("builtins/textStartsWith.pec")
 
     def testTextText(self):
         self.checkOutput("builtins/textText.pec")

@@ -80,7 +80,11 @@ class TextType(NativeType):
             return value  # TODO for now
 
     def getMemberMethods(self, context, name):
-        if name == "toLowerCase":
+        if name == "startsWith":
+            return [StartsWithMethodDeclaration()]
+        elif name == "endsWith":
+            return [EndsWithMethodDeclaration()]
+        elif name == "toLowerCase":
             return [ToLowerCaseMethodDeclaration()]
         elif name == "toUpperCase":
             return [ToUpperCaseMethodDeclaration()]
@@ -99,6 +103,49 @@ class TextType(NativeType):
 
 
 TextType.instance = TextType()
+
+class StartsWithMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self):
+        from prompto.argument.CategoryArgument import CategoryArgument
+        VALUE_ARGUMENT = CategoryArgument(TextType.instance, "value")
+        super().__init__("startsWith", VALUE_ARGUMENT)
+
+
+    def interpret(self, context):
+        from prompto.value.Boolean import Boolean
+        value = self.getValue(context).value
+        find = context.getValue("value").value
+        startsWith = value.startswith(find)
+        return Boolean.ValueOf(startsWith)
+
+
+    def check(self, context):
+        from prompto.type.BooleanType import BooleanType
+        return BooleanType.instance
+
+
+class EndsWithMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self):
+        from prompto.argument.CategoryArgument import CategoryArgument
+        VALUE_ARGUMENT = CategoryArgument(TextType.instance, "value")
+        super().__init__("endsWith", VALUE_ARGUMENT)
+
+
+    def interpret(self, context):
+        from prompto.value.Boolean import Boolean
+        value = self.getValue(context).value
+        find = context.getValue("value").value
+        endsWith = value.endswith(find)
+        return Boolean.ValueOf(endsWith)
+
+
+    def check(self, context):
+        from prompto.type.BooleanType import BooleanType
+        return BooleanType.instance
+
+
 
 
 class SplitMethodDeclaration(BuiltInMethodDeclaration):
