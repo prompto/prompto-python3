@@ -32,6 +32,7 @@ class ListValue(BaseValueList, IFilterable):
         else:
             return super().Add(context, value)
 
+
     def Multiply(self, context, value):
         if isinstance(value, Integer):
             count = value.IntegerValue()

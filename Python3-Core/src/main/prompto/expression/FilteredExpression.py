@@ -31,6 +31,8 @@ class FilteredExpression(Section, IExpression):
         writer.append(" where ")
         self.predicate.toDialect(writer)
 
+
+
     def toEDialect(self, writer):
         self.toMDialect(writer)
 

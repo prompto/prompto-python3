@@ -6,11 +6,12 @@ from prompto.type.TupleType import TupleType
 from prompto.value.BaseValueList import BaseValueList
 from prompto.value.IFilterable import IFilterable
 from prompto.value.SetValue import SetValue
+from prompto.error.SyntaxError import SyntaxError
 
 
 class TupleValue ( BaseValueList, IFilterable ):
 
-    def __init__(self, mutable, items=None, item = None):
+    def __init__(self, mutable, items = None, item = None):
         super().__init__(TupleType(), items)
         self.mutable = mutable
         if item is not None:
