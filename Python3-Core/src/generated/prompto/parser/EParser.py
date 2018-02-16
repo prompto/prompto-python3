@@ -622,62 +622,62 @@ def serializedATN():
         buf.write("\3\2\2\2\u041d\u0416\3\2\2\2\u041d\u0417\3\2\2\2\u041d")
         buf.write("\u0418\3\2\2\2\u041d\u0419\3\2\2\2\u041d\u041a\3\2\2\2")
         buf.write("\u041d\u041b\3\2\2\2\u041d\u041c\3\2\2\2\u041e\u0488\3")
-        buf.write("\2\2\2\u041f\u0420\f*\2\2\u0420\u0421\5\u0132\u009a\2")
-        buf.write("\u0421\u0422\5X-+\u0422\u0487\3\2\2\2\u0423\u0424\f)\2")
-        buf.write("\2\u0424\u0425\5\u0134\u009b\2\u0425\u0426\5X-*\u0426")
-        buf.write("\u0487\3\2\2\2\u0427\u0428\f(\2\2\u0428\u0429\5\u0138")
-        buf.write("\u009d\2\u0429\u042a\5X-)\u042a\u0487\3\2\2\2\u042b\u042c")
-        buf.write("\f\'\2\2\u042c\u042d\5\u0136\u009c\2\u042d\u042e\5X-(")
-        buf.write("\u042e\u0487\3\2\2\2\u042f\u0430\f&\2\2\u0430\u0431\t")
-        buf.write("\2\2\2\u0431\u0487\5X-\'\u0432\u0433\f%\2\2\u0433\u0434")
-        buf.write("\7*\2\2\u0434\u0487\5X-&\u0435\u0436\f$\2\2\u0436\u0437")
-        buf.write("\7+\2\2\u0437\u0487\5X-%\u0438\u0439\f#\2\2\u0439\u043a")
-        buf.write("\7(\2\2\u043a\u0487\5X-$\u043b\u043c\f\"\2\2\u043c\u043d")
-        buf.write("\7)\2\2\u043d\u0487\5X-#\u043e\u043f\f\37\2\2\u043f\u0440")
-        buf.write("\7-\2\2\u0440\u0487\5X- \u0441\u0442\f\36\2\2\u0442\u0443")
-        buf.write("\7,\2\2\u0443\u0487\5X-\37\u0444\u0445\f\35\2\2\u0445")
-        buf.write("\u0446\7\61\2\2\u0446\u0487\5X-\36\u0447\u0448\f\34\2")
-        buf.write("\2\u0448\u0449\7\u0082\2\2\u0449\u0487\5X-\35\u044a\u044b")
-        buf.write("\f\33\2\2\u044b\u044c\7I\2\2\u044c\u0487\5X-\34\u044d")
-        buf.write("\u044e\f\32\2\2\u044e\u044f\7o\2\2\u044f\u0450\5X-\2\u0450")
-        buf.write("\u0451\7a\2\2\u0451\u0452\5X-\33\u0452\u0487\3\2\2\2\u0453")
-        buf.write("\u0454\f\30\2\2\u0454\u0455\7p\2\2\u0455\u0487\5X-\31")
-        buf.write("\u0456\u0457\f\27\2\2\u0457\u0458\7X\2\2\u0458\u0487\5")
-        buf.write("X-\30\u0459\u045a\f\26\2\2\u045a\u045b\7X\2\2\u045b\u045c")
-        buf.write("\7G\2\2\u045c\u0487\5X-\27\u045d\u045e\f\25\2\2\u045e")
-        buf.write("\u045f\7X\2\2\u045f\u0460\7J\2\2\u0460\u0487\5X-\26\u0461")
-        buf.write("\u0462\f\24\2\2\u0462\u0463\7{\2\2\u0463\u0464\7p\2\2")
-        buf.write("\u0464\u0487\5X-\25\u0465\u0466\f\23\2\2\u0466\u0467\7")
-        buf.write("{\2\2\u0467\u0468\7X\2\2\u0468\u0487\5X-\24\u0469\u046a")
-        buf.write("\f\22\2\2\u046a\u046b\7{\2\2\u046b\u046c\7X\2\2\u046c")
-        buf.write("\u046d\7G\2\2\u046d\u0487\5X-\23\u046e\u046f\f\21\2\2")
-        buf.write("\u046f\u0470\7{\2\2\u0470\u0471\7X\2\2\u0471\u0472\7J")
-        buf.write("\2\2\u0472\u0487\5X-\22\u0473\u0474\f\3\2\2\u0474\u0475")
-        buf.write("\7l\2\2\u0475\u0476\7`\2\2\u0476\u0477\5\u00ba^\2\u0477")
-        buf.write("\u0478\7p\2\2\u0478\u0479\5X-\4\u0479\u0487\3\2\2\2\u047a")
-        buf.write("\u047b\f!\2\2\u047b\u047c\7s\2\2\u047c\u047d\7{\2\2\u047d")
-        buf.write("\u0487\5\u011a\u008e\2\u047e\u047f\f \2\2\u047f\u0480")
-        buf.write("\7s\2\2\u0480\u0487\5\u011a\u008e\2\u0481\u0482\f\31\2")
-        buf.write("\2\u0482\u0483\7K\2\2\u0483\u0487\5\u00ccg\2\u0484\u0485")
-        buf.write("\f\n\2\2\u0485\u0487\5p9\2\u0486\u041f\3\2\2\2\u0486\u0423")
-        buf.write("\3\2\2\2\u0486\u0427\3\2\2\2\u0486\u042b\3\2\2\2\u0486")
-        buf.write("\u042f\3\2\2\2\u0486\u0432\3\2\2\2\u0486\u0435\3\2\2\2")
-        buf.write("\u0486\u0438\3\2\2\2\u0486\u043b\3\2\2\2\u0486\u043e\3")
-        buf.write("\2\2\2\u0486\u0441\3\2\2\2\u0486\u0444\3\2\2\2\u0486\u0447")
-        buf.write("\3\2\2\2\u0486\u044a\3\2\2\2\u0486\u044d\3\2\2\2\u0486")
-        buf.write("\u0453\3\2\2\2\u0486\u0456\3\2\2\2\u0486\u0459\3\2\2\2")
-        buf.write("\u0486\u045d\3\2\2\2\u0486\u0461\3\2\2\2\u0486\u0465\3")
-        buf.write("\2\2\2\u0486\u0469\3\2\2\2\u0486\u046e\3\2\2\2\u0486\u0473")
-        buf.write("\3\2\2\2\u0486\u047a\3\2\2\2\u0486\u047e\3\2\2\2\u0486")
-        buf.write("\u0481\3\2\2\2\u0486\u0484\3\2\2\2\u0487\u048a\3\2\2\2")
-        buf.write("\u0488\u0486\3\2\2\2\u0488\u0489\3\2\2\2\u0489Y\3\2\2")
-        buf.write("\2\u048a\u0488\3\2\2\2\u048b\u048c\b.\1\2\u048c\u048d")
-        buf.write("\5\u00b8]\2\u048d\u0492\3\2\2\2\u048e\u048f\f\3\2\2\u048f")
-        buf.write("\u0491\5\\/\2\u0490\u048e\3\2\2\2\u0491\u0494\3\2\2\2")
-        buf.write("\u0492\u0490\3\2\2\2\u0492\u0493\3\2\2\2\u0493[\3\2\2")
-        buf.write("\2\u0494\u0492\3\2\2\2\u0495\u0496\6/!\3\u0496\u0497\7")
-        buf.write("\25\2\2\u0497\u0498\5\u00b8]\2\u0498]\3\2\2\2\u0499\u049a")
-        buf.write("\7r\2\2\u049a\u049b\7\21\2\2\u049b\u049c\5\u00ba^\2\u049c")
+        buf.write("\2\2\2\u041f\u0420\f*\2\2\u0420\u0421\7I\2\2\u0421\u0487")
+        buf.write("\5X-+\u0422\u0423\f)\2\2\u0423\u0424\7\u0082\2\2\u0424")
+        buf.write("\u0487\5X-*\u0425\u0426\f(\2\2\u0426\u0427\5\u0132\u009a")
+        buf.write("\2\u0427\u0428\5X-)\u0428\u0487\3\2\2\2\u0429\u042a\f")
+        buf.write("\'\2\2\u042a\u042b\5\u0134\u009b\2\u042b\u042c\5X-(\u042c")
+        buf.write("\u0487\3\2\2\2\u042d\u042e\f&\2\2\u042e\u042f\5\u0138")
+        buf.write("\u009d\2\u042f\u0430\5X-\'\u0430\u0487\3\2\2\2\u0431\u0432")
+        buf.write("\f%\2\2\u0432\u0433\5\u0136\u009c\2\u0433\u0434\5X-&\u0434")
+        buf.write("\u0487\3\2\2\2\u0435\u0436\f$\2\2\u0436\u0437\t\2\2\2")
+        buf.write("\u0437\u0487\5X-%\u0438\u0439\f#\2\2\u0439\u043a\7*\2")
+        buf.write("\2\u043a\u0487\5X-$\u043b\u043c\f\"\2\2\u043c\u043d\7")
+        buf.write("+\2\2\u043d\u0487\5X-#\u043e\u043f\f!\2\2\u043f\u0440")
+        buf.write("\7(\2\2\u0440\u0487\5X-\"\u0441\u0442\f \2\2\u0442\u0443")
+        buf.write("\7)\2\2\u0443\u0487\5X-!\u0444\u0445\f\35\2\2\u0445\u0446")
+        buf.write("\7-\2\2\u0446\u0487\5X-\36\u0447\u0448\f\34\2\2\u0448")
+        buf.write("\u0449\7,\2\2\u0449\u0487\5X-\35\u044a\u044b\f\33\2\2")
+        buf.write("\u044b\u044c\7\61\2\2\u044c\u0487\5X-\34\u044d\u044e\f")
+        buf.write("\32\2\2\u044e\u044f\7o\2\2\u044f\u0450\5X-\2\u0450\u0451")
+        buf.write("\7a\2\2\u0451\u0452\5X-\33\u0452\u0487\3\2\2\2\u0453\u0454")
+        buf.write("\f\30\2\2\u0454\u0455\7p\2\2\u0455\u0487\5X-\31\u0456")
+        buf.write("\u0457\f\27\2\2\u0457\u0458\7X\2\2\u0458\u0487\5X-\30")
+        buf.write("\u0459\u045a\f\26\2\2\u045a\u045b\7X\2\2\u045b\u045c\7")
+        buf.write("G\2\2\u045c\u0487\5X-\27\u045d\u045e\f\25\2\2\u045e\u045f")
+        buf.write("\7X\2\2\u045f\u0460\7J\2\2\u0460\u0487\5X-\26\u0461\u0462")
+        buf.write("\f\24\2\2\u0462\u0463\7{\2\2\u0463\u0464\7p\2\2\u0464")
+        buf.write("\u0487\5X-\25\u0465\u0466\f\23\2\2\u0466\u0467\7{\2\2")
+        buf.write("\u0467\u0468\7X\2\2\u0468\u0487\5X-\24\u0469\u046a\f\22")
+        buf.write("\2\2\u046a\u046b\7{\2\2\u046b\u046c\7X\2\2\u046c\u046d")
+        buf.write("\7G\2\2\u046d\u0487\5X-\23\u046e\u046f\f\21\2\2\u046f")
+        buf.write("\u0470\7{\2\2\u0470\u0471\7X\2\2\u0471\u0472\7J\2\2\u0472")
+        buf.write("\u0487\5X-\22\u0473\u0474\f\3\2\2\u0474\u0475\7l\2\2\u0475")
+        buf.write("\u0476\7`\2\2\u0476\u0477\5\u00ba^\2\u0477\u0478\7p\2")
+        buf.write("\2\u0478\u0479\5X-\4\u0479\u0487\3\2\2\2\u047a\u047b\f")
+        buf.write("\37\2\2\u047b\u047c\7s\2\2\u047c\u047d\7{\2\2\u047d\u0487")
+        buf.write("\5\u011a\u008e\2\u047e\u047f\f\36\2\2\u047f\u0480\7s\2")
+        buf.write("\2\u0480\u0487\5\u011a\u008e\2\u0481\u0482\f\31\2\2\u0482")
+        buf.write("\u0483\7K\2\2\u0483\u0487\5\u00ccg\2\u0484\u0485\f\n\2")
+        buf.write("\2\u0485\u0487\5p9\2\u0486\u041f\3\2\2\2\u0486\u0422\3")
+        buf.write("\2\2\2\u0486\u0425\3\2\2\2\u0486\u0429\3\2\2\2\u0486\u042d")
+        buf.write("\3\2\2\2\u0486\u0431\3\2\2\2\u0486\u0435\3\2\2\2\u0486")
+        buf.write("\u0438\3\2\2\2\u0486\u043b\3\2\2\2\u0486\u043e\3\2\2\2")
+        buf.write("\u0486\u0441\3\2\2\2\u0486\u0444\3\2\2\2\u0486\u0447\3")
+        buf.write("\2\2\2\u0486\u044a\3\2\2\2\u0486\u044d\3\2\2\2\u0486\u0453")
+        buf.write("\3\2\2\2\u0486\u0456\3\2\2\2\u0486\u0459\3\2\2\2\u0486")
+        buf.write("\u045d\3\2\2\2\u0486\u0461\3\2\2\2\u0486\u0465\3\2\2\2")
+        buf.write("\u0486\u0469\3\2\2\2\u0486\u046e\3\2\2\2\u0486\u0473\3")
+        buf.write("\2\2\2\u0486\u047a\3\2\2\2\u0486\u047e\3\2\2\2\u0486\u0481")
+        buf.write("\3\2\2\2\u0486\u0484\3\2\2\2\u0487\u048a\3\2\2\2\u0488")
+        buf.write("\u0486\3\2\2\2\u0488\u0489\3\2\2\2\u0489Y\3\2\2\2\u048a")
+        buf.write("\u0488\3\2\2\2\u048b\u048c\b.\1\2\u048c\u048d\5\u00b8")
+        buf.write("]\2\u048d\u0492\3\2\2\2\u048e\u048f\f\3\2\2\u048f\u0491")
+        buf.write("\5\\/\2\u0490\u048e\3\2\2\2\u0491\u0494\3\2\2\2\u0492")
+        buf.write("\u0490\3\2\2\2\u0492\u0493\3\2\2\2\u0493[\3\2\2\2\u0494")
+        buf.write("\u0492\3\2\2\2\u0495\u0496\6/!\3\u0496\u0497\7\25\2\2")
+        buf.write("\u0497\u0498\5\u00b8]\2\u0498]\3\2\2\2\u0499\u049a\7r")
+        buf.write("\2\2\u049a\u049b\7\21\2\2\u049b\u049c\5\u00ba^\2\u049c")
         buf.write("\u049d\5`\61\2\u049d_\3\2\2\2\u049e\u049f\6\61\"\3\u049f")
         buf.write("a\3\2\2\2\u04a0\u04a1\b\62\1\2\u04a1\u04a2\5\u0100\u0081")
         buf.write("\2\u04a2\u04a7\3\2\2\2\u04a3\u04a4\f\3\2\2\u04a4\u04a6")
@@ -8026,7 +8026,7 @@ class EParser ( AbstractParser ):
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,54,self._ctx)
                     if la_ == 1:
-                        localctx = EParser.MultiplyExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
+                        localctx = EParser.AndExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
                         self.state = 1053
@@ -8034,89 +8034,83 @@ class EParser ( AbstractParser ):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 40)")
                         self.state = 1054
-                        self.multiply()
+                        self.match(EParser.AND)
                         self.state = 1055
                         localctx.right = self.expression(41)
                         pass
 
                     elif la_ == 2:
-                        localctx = EParser.DivideExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
+                        localctx = EParser.OrExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
-                        self.state = 1057
+                        self.state = 1056
                         if not self.precpred(self._ctx, 39):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 39)")
+                        self.state = 1057
+                        self.match(EParser.OR)
                         self.state = 1058
-                        self.divide()
-                        self.state = 1059
                         localctx.right = self.expression(40)
                         pass
 
                     elif la_ == 3:
-                        localctx = EParser.ModuloExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
+                        localctx = EParser.MultiplyExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
-                        self.state = 1061
+                        self.state = 1059
                         if not self.precpred(self._ctx, 38):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 38)")
-                        self.state = 1062
-                        self.modulo()
-                        self.state = 1063
+                        self.state = 1060
+                        self.multiply()
+                        self.state = 1061
                         localctx.right = self.expression(39)
                         pass
 
                     elif la_ == 4:
-                        localctx = EParser.IntDivideExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
+                        localctx = EParser.DivideExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
-                        self.state = 1065
+                        self.state = 1063
                         if not self.precpred(self._ctx, 37):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 37)")
-                        self.state = 1066
-                        self.idivide()
-                        self.state = 1067
+                        self.state = 1064
+                        self.divide()
+                        self.state = 1065
                         localctx.right = self.expression(38)
                         pass
 
                     elif la_ == 5:
-                        localctx = EParser.AddExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
+                        localctx = EParser.ModuloExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
-                        self.state = 1069
+                        self.state = 1067
                         if not self.precpred(self._ctx, 36):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 36)")
-                        self.state = 1070
-                        localctx.op = self._input.LT(1)
-                        _la = self._input.LA(1)
-                        if not(_la==EParser.PLUS or _la==EParser.MINUS):
-                            localctx.op = self._errHandler.recoverInline(self)
-                        else:
-                            self._errHandler.reportMatch(self)
-                            self.consume()
-                        self.state = 1071
+                        self.state = 1068
+                        self.modulo()
+                        self.state = 1069
                         localctx.right = self.expression(37)
                         pass
 
                     elif la_ == 6:
-                        localctx = EParser.LessThanExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
+                        localctx = EParser.IntDivideExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
-                        self.state = 1072
+                        self.state = 1071
                         if not self.precpred(self._ctx, 35):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 35)")
+                        self.state = 1072
+                        self.idivide()
                         self.state = 1073
-                        self.match(EParser.LT)
-                        self.state = 1074
                         localctx.right = self.expression(36)
                         pass
 
                     elif la_ == 7:
-                        localctx = EParser.LessThanOrEqualExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
+                        localctx = EParser.AddExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
                         self.state = 1075
@@ -8124,13 +8118,19 @@ class EParser ( AbstractParser ):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 34)")
                         self.state = 1076
-                        self.match(EParser.LTE)
+                        localctx.op = self._input.LT(1)
+                        _la = self._input.LA(1)
+                        if not(_la==EParser.PLUS or _la==EParser.MINUS):
+                            localctx.op = self._errHandler.recoverInline(self)
+                        else:
+                            self._errHandler.reportMatch(self)
+                            self.consume()
                         self.state = 1077
                         localctx.right = self.expression(35)
                         pass
 
                     elif la_ == 8:
-                        localctx = EParser.GreaterThanExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
+                        localctx = EParser.LessThanExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
                         self.state = 1078
@@ -8138,13 +8138,13 @@ class EParser ( AbstractParser ):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 33)")
                         self.state = 1079
-                        self.match(EParser.GT)
+                        self.match(EParser.LT)
                         self.state = 1080
                         localctx.right = self.expression(34)
                         pass
 
                     elif la_ == 9:
-                        localctx = EParser.GreaterThanOrEqualExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
+                        localctx = EParser.LessThanOrEqualExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
                         self.state = 1081
@@ -8152,41 +8152,41 @@ class EParser ( AbstractParser ):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 32)")
                         self.state = 1082
-                        self.match(EParser.GTE)
+                        self.match(EParser.LTE)
                         self.state = 1083
                         localctx.right = self.expression(33)
                         pass
 
                     elif la_ == 10:
-                        localctx = EParser.EqualsExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
+                        localctx = EParser.GreaterThanExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
                         self.state = 1084
-                        if not self.precpred(self._ctx, 29):
+                        if not self.precpred(self._ctx, 31):
                             from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 29)")
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 31)")
                         self.state = 1085
-                        self.match(EParser.EQ)
+                        self.match(EParser.GT)
                         self.state = 1086
-                        localctx.right = self.expression(30)
+                        localctx.right = self.expression(32)
                         pass
 
                     elif la_ == 11:
-                        localctx = EParser.NotEqualsExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
+                        localctx = EParser.GreaterThanOrEqualExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
                         self.state = 1087
-                        if not self.precpred(self._ctx, 28):
+                        if not self.precpred(self._ctx, 30):
                             from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 28)")
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 30)")
                         self.state = 1088
-                        self.match(EParser.LTGT)
+                        self.match(EParser.GTE)
                         self.state = 1089
-                        localctx.right = self.expression(29)
+                        localctx.right = self.expression(31)
                         pass
 
                     elif la_ == 12:
-                        localctx = EParser.RoughlyEqualsExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
+                        localctx = EParser.EqualsExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
                         self.state = 1090
@@ -8194,13 +8194,13 @@ class EParser ( AbstractParser ):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 27)")
                         self.state = 1091
-                        self.match(EParser.TILDE)
+                        self.match(EParser.EQ)
                         self.state = 1092
                         localctx.right = self.expression(28)
                         pass
 
                     elif la_ == 13:
-                        localctx = EParser.OrExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
+                        localctx = EParser.NotEqualsExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
                         self.state = 1093
@@ -8208,13 +8208,13 @@ class EParser ( AbstractParser ):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 26)")
                         self.state = 1094
-                        self.match(EParser.OR)
+                        self.match(EParser.LTGT)
                         self.state = 1095
                         localctx.right = self.expression(27)
                         pass
 
                     elif la_ == 14:
-                        localctx = EParser.AndExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
+                        localctx = EParser.RoughlyEqualsExpressionContext(self, EParser.ExpressionContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
                         self.state = 1096
@@ -8222,7 +8222,7 @@ class EParser ( AbstractParser ):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 25)")
                         self.state = 1097
-                        self.match(EParser.AND)
+                        self.match(EParser.TILDE)
                         self.state = 1098
                         localctx.right = self.expression(26)
                         pass
@@ -8398,9 +8398,9 @@ class EParser ( AbstractParser ):
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
                         self.state = 1144
-                        if not self.precpred(self._ctx, 31):
+                        if not self.precpred(self._ctx, 29):
                             from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 31)")
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 29)")
                         self.state = 1145
                         self.match(EParser.IS)
                         self.state = 1146
@@ -8414,9 +8414,9 @@ class EParser ( AbstractParser ):
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expression)
                         self.state = 1148
-                        if not self.precpred(self._ctx, 30):
+                        if not self.precpred(self._ctx, 28):
                             from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 30)")
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 28)")
                         self.state = 1149
                         self.match(EParser.IS)
                         self.state = 1150
@@ -22521,11 +22521,11 @@ class EParser ( AbstractParser ):
          
 
             if predIndex == 11:
-                return self.precpred(self._ctx, 29)
+                return self.precpred(self._ctx, 31)
          
 
             if predIndex == 12:
-                return self.precpred(self._ctx, 28)
+                return self.precpred(self._ctx, 30)
          
 
             if predIndex == 13:
@@ -22581,11 +22581,11 @@ class EParser ( AbstractParser ):
          
 
             if predIndex == 26:
-                return self.precpred(self._ctx, 31)
+                return self.precpred(self._ctx, 29)
          
 
             if predIndex == 27:
-                return self.precpred(self._ctx, 30)
+                return self.precpred(self._ctx, 28)
          
 
             if predIndex == 28:
