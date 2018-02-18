@@ -82,13 +82,12 @@ class NativeInstance(BaseValue, IInstance):
             context.registerValue(Variable(attrName, decl.getType()))
             context.setValue(attrName, value)
             value = setter.interpret(context)
-        value = value.convertToPython()
-        setattr(self.instance, attrName, value)
+        setattr(self.instance, attrName, value.convertToPython())
         if self.storable is not None:
             decl = context.getRegisteredDeclaration(AttributeDeclaration, attrName)
             if decl.storable:
                 # TODO convert object graph if(value instanceof IInstance)
-                self.storable.setData(attrName, value)
+                self.storable.setData(attrName, value.getStorableData())
 
     def __getattr__(self, item):
         return getattr(self.instance, item)
