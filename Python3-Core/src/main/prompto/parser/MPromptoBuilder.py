@@ -593,7 +593,7 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitCursorType(self, ctx: MParser.CursorTypeContext):
-        raise "not implemented"
+        raise SyntaxError("not implemented")
 
 
 
@@ -630,23 +630,6 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, ConstructorExpression(typ, args))
 
 
-
-    def exitContainsAllExpression(self, ctx:MParser.ContainsAllExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.CONTAINS_ALL, right))
-
-
-    def exitContainsAnyExpression(self, ctx:MParser.ContainsAnyExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.CONTAINS_ANY, right))
-
-
-    def exitContainsExpression(self, ctx:MParser.ContainsExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.CONTAINS, right))
 
     def exitCsharp_primary_expression(self, ctx:MParser.Csharp_primary_expressionContext):
         exp = self.getNodeValue(ctx.getChild(0))
@@ -1681,24 +1664,6 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, typ)
 
 
-    def exitNotContainsAllExpression(self, ctx:MParser.NotContainsAllExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_CONTAINS_ALL, right))
-
-
-    def exitNotContainsAnyExpression(self, ctx:MParser.NotContainsAnyExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_CONTAINS_ANY, right))
-
-
-    def exitNotContainsExpression(self, ctx:MParser.NotContainsExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_CONTAINS, right))
-
-
     def exitNotEqualsExpression(self, ctx:MParser.NotEqualsExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
@@ -1714,6 +1679,47 @@ class MPromptoBuilder(MParserListener):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_IN, right))
+
+
+    def exitHasAllExpression(self, ctx: MParser.HasAllExpressionContext):
+        left = self.getNodeValue(ctx.left)
+        right = self.getNodeValue(ctx.right)
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS_ALL, right))
+
+
+
+    def exitNotHasAllExpression(self, ctx: MParser.NotHasAllExpressionContext):
+        left = self.getNodeValue(ctx.left)
+        right = self.getNodeValue(ctx.right)
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS_ALL, right))
+
+
+
+    def exitHasAnyExpression(self, ctx: MParser.HasAnyExpressionContext):
+        left = self.getNodeValue(ctx.left)
+        right = self.getNodeValue(ctx.right)
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS_ANY, right))
+
+
+
+    def exitNotHasAnyExpression(self, ctx: MParser.NotHasAnyExpressionContext):
+        left = self.getNodeValue(ctx.left)
+        right = self.getNodeValue(ctx.right)
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_CONTAINS_ANY, right))
+
+
+
+    def exitContainsExpression(self, ctx: MParser.ContainsExpressionContext):
+        left = self.getNodeValue(ctx.left)
+        right = self.getNodeValue(ctx.right)
+        self.setNodeValue(ctx, EqualsExpression(left, EqOp.CONTAINS, right))
+
+
+
+    def exitNotContainsExpression(self, ctx: MParser.NotContainsExpressionContext):
+        left = self.getNodeValue(ctx.left)
+        right = self.getNodeValue(ctx.right)
+        self.setNodeValue(ctx, EqualsExpression(left, EqOp.NOT_CONTAINS, right))
 
 
     def exitNullLiteral(self, ctx:MParser.NullLiteralContext):

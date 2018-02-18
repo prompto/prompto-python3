@@ -1893,31 +1893,44 @@ class EPromptoBuilder(EParserListener):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_IN, right))
-    
 
-    
-    def exitContainsAllExpression(self, ctx:EParser.ContainsAllExpressionContext):
+
+
+    def exitHasExpression(self, ctx: EParser.HasExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.CONTAINS_ALL, right))
-    
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS, right))
 
-    
-    def exitNotContainsAllExpression(self, ctx:EParser.NotContainsAllExpressionContext):
+
+
+    def exitNotHasExpression(self, ctx: EParser.NotHasExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_CONTAINS_ALL, right))
-    
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS, right))
 
-    
-    def exitContainsAnyExpression(self, ctx:EParser.ContainsAnyExpressionContext):
+
+    def exitHasAllExpression(self, ctx:EParser.HasAllExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.CONTAINS_ANY, right))
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS_ALL, right))
     
 
     
-    def exitNotContainsAnyExpression(self, ctx:EParser.NotContainsAnyExpressionContext):
+    def exitNotHasAllExpression(self, ctx:EParser.NotHasAllExpressionContext):
+        left = self.getNodeValue(ctx.left)
+        right = self.getNodeValue(ctx.right)
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS_ALL, right))
+    
+
+    
+    def exitHasAnyExpression(self, ctx:EParser.HasAnyExpressionContext):
+        left = self.getNodeValue(ctx.left)
+        right = self.getNodeValue(ctx.right)
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS_ANY, right))
+    
+
+    
+    def exitNotHasAnyExpression(self, ctx:EParser.NotHasAnyExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_CONTAINS_ANY, right))
@@ -1927,14 +1940,14 @@ class EPromptoBuilder(EParserListener):
     def exitContainsExpression(self, ctx:EParser.ContainsExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.CONTAINS, right))
+        self.setNodeValue(ctx, EqualsExpression(left, EqOp.CONTAINS, right))
     
 
     
     def exitNotContainsExpression(self, ctx:EParser.NotContainsExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_CONTAINS, right))
+        self.setNodeValue(ctx, EqualsExpression(left, EqOp.NOT_CONTAINS, right))
     
 
     

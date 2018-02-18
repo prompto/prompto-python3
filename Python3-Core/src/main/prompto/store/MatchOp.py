@@ -4,6 +4,7 @@ class MatchOp(Enum):
     EQUALS = "EQUALS"
     ROUGHLY = "ROUGHLY"
     CONTAINS = "CONTAINS"
-    CONTAINED = "CONTAINED"
+    HAS = "HAS"
+    IN = "IN"
     GREATER = "GREATER"
     LESSER = "LESSER"

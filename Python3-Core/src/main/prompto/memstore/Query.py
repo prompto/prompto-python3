@@ -95,8 +95,10 @@ class MatchesPredicate(object):
             return self.matchesROUGHLY
         elif self.match is MatchOp.CONTAINS:
             return self.matchesCONTAINS
-        elif self.match is MatchOp.CONTAINED:
-            return self.matchesCONTAINED
+        elif self.match is MatchOp.HAS:
+            return self.matchesHAS
+        elif self.match is MatchOp.IN:
+            return self.matchesIN
         elif self.match is MatchOp.GREATER:
             return self.matchesGREATER
         elif self.match is MatchOp.LESSER:
@@ -130,12 +132,22 @@ class MatchesPredicate(object):
         if isinstance(data, str) and isinstance(self.value, str):
             return self.value in data
         elif isinstance(data, (list, set, tuple)):
+            for item in data:
+                if self.matchesCONTAINS(item):
+                    return True
+            return False
+        else:
+            return False
+
+
+    def matchesHAS(self, data):
+        if isinstance(data, (list, set, tuple)):
             return self.value in data
         else:
             return False
 
 
-    def matchesCONTAINED(self, data):
+    def matchesIN(self, data):
         if isinstance(data, str) and isinstance(self.value, str):
             return data in self.value
         elif isinstance(self.value, (list, set, tuple)):

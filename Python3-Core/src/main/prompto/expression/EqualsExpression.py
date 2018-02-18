@@ -8,6 +8,9 @@ from prompto.runtime.LinkedValue import LinkedValue
 from prompto.runtime.LinkedVariable import LinkedVariable
 from prompto.store.MatchOp import MatchOp
 from prompto.type.BooleanType import BooleanType
+from prompto.type.CharacterType import CharacterType
+from prompto.type.ContainerType import ContainerType
+from prompto.type.TextType import TextType
 from prompto.utils.CodeWriter import CodeWriter
 from prompto.value.Boolean import Boolean
 from prompto.value.IInstance import IInstance
@@ -41,8 +44,15 @@ class EqualsExpression ( IExpression ):
         self.right.toDialect(writer)
 
     def check(self, context):
-        self.left.check(context)
-        self.right.check(context)
+        lt = self.left.check(context)
+        rt = self.right.check(context)
+        if self.operator in [EqOp.CONTAINS, EqOp.NOT_CONTAINS]:
+            if isinstance(lt, ContainerType):
+                lt = lt.itemType
+            if isinstance(rt, ContainerType):
+                rt = rt.itemType
+            if lt is not TextType.instance or rt not in [TextType.instance, CharacterType.instance]:
+                raise SyntaxError("'contains' only operates on textual values!")
         return BooleanType.instance # can compare all objects
 
     def interpret(self, context):
@@ -67,9 +77,21 @@ class EqualsExpression ( IExpression ):
             equal = self.areEqual(context,lval,rval)
         elif self.operator is EqOp.NOT_EQUALS:
             equal = not self.areEqual(context,lval,rval)
+        elif self.operator is EqOp.CONTAINS:
+            equal = self.contains(context, lval, rval)
+        elif self.operator is EqOp.NOT_CONTAINS:
+            equal = not self.contains(context, lval, rval)
         else:
             equal = self.roughly(context,lval,rval)
         return Boolean.ValueOf(equal)
+
+
+    def contains(self, context, lval, rval):
+        if isinstance(lval, IValue):
+            return lval.Contains(context, rval)
+        else:
+            return self.areEqual(context,lval,rval)
+
 
     def roughly(self, context, lval, rval):
         if self.operator is EqOp.ROUGHLY and isinstance(lval, IValue):
@@ -153,10 +175,14 @@ class EqualsExpression ( IExpression ):
     def getMatchOp(self):
         if self.operator is EqOp.EQUALS:
             return MatchOp.EQUALS
-        elif self.operator is EqOp.ROUGHLY:
-            return MatchOp.ROUGHLY
         elif self.operator is EqOp.NOT_EQUALS:
             return MatchOp.EQUALS
+        elif self.operator is EqOp.ROUGHLY:
+            return MatchOp.ROUGHLY
+        elif self.operator is EqOp.CONTAINS:
+            return MatchOp.CONTAINS
+        elif self.operator is EqOp.NOT_CONTAINS:
+            return MatchOp.CONTAINS
         else:
             raise Exception("Not supported:" + str(self.operator))
 

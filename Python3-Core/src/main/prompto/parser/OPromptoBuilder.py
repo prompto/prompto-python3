@@ -1858,51 +1858,51 @@ class OPromptoBuilder(OParserListener):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_IN, right))
-    
 
-    
-    def exitContainsAllExpression(self, ctx:OParser.ContainsAllExpressionContext):
+
+
+    def exitHasAllExpression(self, ctx: OParser.HasAllExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.CONTAINS_ALL, right))
-    
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS_ALL, right))
 
-    
-    def exitNotContainsAllExpression(self, ctx:OParser.NotContainsAllExpressionContext):
+
+
+    def exitNotHasAllExpression(self, ctx: OParser.NotHasAllExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_CONTAINS_ALL, right))
-    
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS_ALL, right))
 
-    
-    def exitContainsAnyExpression(self, ctx:OParser.ContainsAnyExpressionContext):
+
+
+    def exitHasAnyExpression(self, ctx: OParser.HasAnyExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.CONTAINS_ANY, right))
-    
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS_ANY, right))
 
-    
-    def exitNotContainsAnyExpression(self, ctx:OParser.NotContainsAnyExpressionContext):
+
+
+    def exitNotHasAnyExpression(self, ctx: OParser.NotHasAnyExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_CONTAINS_ANY, right))
-    
 
-    
-    def exitContainsExpression(self, ctx:OParser.ContainsExpressionContext):
+
+
+    def exitContainsExpression(self, ctx: OParser.ContainsExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.CONTAINS, right))
-    
+        self.setNodeValue(ctx, EqualsExpression(left, EqOp.CONTAINS, right))
 
-    
-    def exitNotContainsExpression(self, ctx:OParser.NotContainsExpressionContext):
+
+
+    def exitNotContainsExpression(self, ctx: OParser.NotContainsExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_CONTAINS, right))
-    
+        self.setNodeValue(ctx, EqualsExpression(left, EqOp.NOT_CONTAINS, right))
 
-    
+
+
     def exitDivideExpression(self, ctx:OParser.DivideExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)

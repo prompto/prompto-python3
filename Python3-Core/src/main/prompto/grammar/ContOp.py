@@ -1,12 +1,12 @@
 class ContOp(object):
     IN = None
-    CONTAINS = None
-    CONTAINS_ALL = None
-    CONTAINS_ANY = None
+    HAS = None
+    HAS_ALL = None
+    HAS_ANY = None
     NOT_IN = None
-    NOT_CONTAINS = None
-    NOT_CONTAINS_ALL = None
-    NOT_CONTAINS_ANY = None
+    NOT_HAS = None
+    NOT_HAS_ALL = None
+    NOT_HAS_ANY = None
 
     def __init__(self, name):
         self.name = name
@@ -16,11 +16,11 @@ class ContOp(object):
 
 
 ContOp.IN = ContOp("IN")
-ContOp.CONTAINS = ContOp("CONTAINS")
-ContOp.CONTAINS_ALL = ContOp("CONTAINS_ALL")
-ContOp.CONTAINS_ANY = ContOp("CONTAINS_ANY")
+ContOp.HAS = ContOp("HAS")
+ContOp.HAS_ALL = ContOp("HAS_ALL")
+ContOp.HAS_ANY = ContOp("HAS_ANY")
 ContOp.NOT_IN = ContOp("NOT_IN")
-ContOp.NOT_CONTAINS = ContOp("NOT_CONTAINS")
-ContOp.NOT_CONTAINS_ALL = ContOp("NOT_CONTAINS_ALL")
-ContOp.NOT_CONTAINS_ANY = ContOp("NOT_CONTAINS_ANY")
+ContOp.NOT_HAS = ContOp("NOT_HAS")
+ContOp.NOT_HAS_ALL = ContOp("NOT_HAS_ALL")
+ContOp.NOT_HAS_ANY = ContOp("NOT_HAS_ANY")
 

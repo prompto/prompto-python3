@@ -40,7 +40,7 @@ class ContainsExpression(IExpression):
         rt = self.right.check(context)
         if self.operator in [ContOp.IN, ContOp.NOT_IN]:
             return rt.checkContains(context, lt)
-        elif self.operator in [ContOp.CONTAINS, ContOp.NOT_CONTAINS]:
+        elif self.operator in [ContOp.HAS, ContOp.NOT_HAS]:
             return lt.checkContains(context, rt)
         else:
             return lt.checkContainsAllOrAny(context, rt)
@@ -58,17 +58,17 @@ class ContainsExpression(IExpression):
                     result = False
                 elif isinstance(rval, IContainer):
                     result = rval.hasItem(context, lval)
-            elif self.operator in [ContOp.CONTAINS, ContOp.NOT_CONTAINS]:
+            elif self.operator in [ContOp.HAS, ContOp.NOT_HAS]:
                 if lval is NullValue.instance:
                     result = False
                 elif isinstance(lval, IContainer):
                     result = lval.hasItem(context, rval)
-            elif self.operator in [ContOp.CONTAINS_ALL, ContOp.NOT_CONTAINS_ALL]:
+            elif self.operator in [ContOp.HAS_ALL, ContOp.NOT_HAS_ALL]:
                 if lval is NullValue.instance or rval is NullValue.instance:
                     result = False
                 elif isinstance(lval, IContainer) and isinstance(rval, IContainer):
                     result = self.containsAll(context, lval, rval)
-            elif self.operator in [ContOp.CONTAINS_ANY, ContOp.NOT_CONTAINS_ANY]:
+            elif self.operator in [ContOp.HAS_ANY, ContOp.NOT_HAS_ANY]:
                 if lval is NullValue.instance or rval is NullValue.instance:
                     result = False
                 elif isinstance(lval, IContainer) and isinstance(rval, IContainer):
@@ -156,17 +156,12 @@ class ContainsExpression(IExpression):
             if reversed is None:
                 raise SyntaxError("Cannot reverse " + self.operator)
             return self.getMatchOp(context, valueType, fieldType, reversed, False)
-        if (fieldType is TextType.instance or valueType is CharacterType.instance) and \
-            (valueType is TextType.instance or valueType is CharacterType.instance):
-            if operator in [ContOp.CONTAINS, ContOp.NOT_CONTAINS]:
-                return MatchOp.CONTAINS
-        if isinstance(valueType, ContainerType):
-            if operator in [ContOp.IN, ContOp.NOT_IN]:
-                return MatchOp.CONTAINED
-        if isinstance(fieldType, ContainerType):
-            if operator in [ContOp.CONTAINS, ContOp.NOT_CONTAINS]:
-                return MatchOp.CONTAINS
-        raise SyntaxError("Unsupported operator: " + str(operator))
+        if operator in [ContOp.HAS, ContOp.NOT_HAS]:
+            return MatchOp.HAS
+        elif operator in [ContOp.IN, ContOp.NOT_IN]:
+            return MatchOp.IN
+        else:
+            raise SyntaxError("Unsupported operator: " + str(operator))
 
 
 

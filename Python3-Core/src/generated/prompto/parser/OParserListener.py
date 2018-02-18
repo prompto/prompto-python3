@@ -683,21 +683,30 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#HasAnyExpression.
+    def enterHasAnyExpression(self, ctx:OParser.HasAnyExpressionContext):
+        pass
+
+    # Exit a parse tree produced by OParser#HasAnyExpression.
+    def exitHasAnyExpression(self, ctx:OParser.HasAnyExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#HasExpression.
+    def enterHasExpression(self, ctx:OParser.HasExpressionContext):
+        pass
+
+    # Exit a parse tree produced by OParser#HasExpression.
+    def exitHasExpression(self, ctx:OParser.HasExpressionContext):
+        pass
+
+
     # Enter a parse tree produced by OParser#TernaryExpression.
     def enterTernaryExpression(self, ctx:OParser.TernaryExpressionContext):
         pass
 
     # Exit a parse tree produced by OParser#TernaryExpression.
     def exitTernaryExpression(self, ctx:OParser.TernaryExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by OParser#ContainsAllExpression.
-    def enterContainsAllExpression(self, ctx:OParser.ContainsAllExpressionContext):
-        pass
-
-    # Exit a parse tree produced by OParser#ContainsAllExpression.
-    def exitContainsAllExpression(self, ctx:OParser.ContainsAllExpressionContext):
         pass
 
 
@@ -773,12 +782,30 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#NotHasAnyExpression.
+    def enterNotHasAnyExpression(self, ctx:OParser.NotHasAnyExpressionContext):
+        pass
+
+    # Exit a parse tree produced by OParser#NotHasAnyExpression.
+    def exitNotHasAnyExpression(self, ctx:OParser.NotHasAnyExpressionContext):
+        pass
+
+
     # Enter a parse tree produced by OParser#AndExpression.
     def enterAndExpression(self, ctx:OParser.AndExpressionContext):
         pass
 
     # Exit a parse tree produced by OParser#AndExpression.
     def exitAndExpression(self, ctx:OParser.AndExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#NotHasExpression.
+    def enterNotHasExpression(self, ctx:OParser.NotHasExpressionContext):
+        pass
+
+    # Exit a parse tree produced by OParser#NotHasExpression.
+    def exitNotHasExpression(self, ctx:OParser.NotHasExpressionContext):
         pass
 
 
@@ -791,12 +818,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#NotContainsAnyExpression.
-    def enterNotContainsAnyExpression(self, ctx:OParser.NotContainsAnyExpressionContext):
+    # Enter a parse tree produced by OParser#NotHasAllExpression.
+    def enterNotHasAllExpression(self, ctx:OParser.NotHasAllExpressionContext):
         pass
 
-    # Exit a parse tree produced by OParser#NotContainsAnyExpression.
-    def exitNotContainsAnyExpression(self, ctx:OParser.NotContainsAnyExpressionContext):
+    # Exit a parse tree produced by OParser#NotHasAllExpression.
+    def exitNotHasAllExpression(self, ctx:OParser.NotHasAllExpressionContext):
         pass
 
 
@@ -935,12 +962,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#NotContainsAllExpression.
-    def enterNotContainsAllExpression(self, ctx:OParser.NotContainsAllExpressionContext):
+    # Enter a parse tree produced by OParser#HasAllExpression.
+    def enterHasAllExpression(self, ctx:OParser.HasAllExpressionContext):
         pass
 
-    # Exit a parse tree produced by OParser#NotContainsAllExpression.
-    def exitNotContainsAllExpression(self, ctx:OParser.NotContainsAllExpressionContext):
+    # Exit a parse tree produced by OParser#HasAllExpression.
+    def exitHasAllExpression(self, ctx:OParser.HasAllExpressionContext):
         pass
 
 
@@ -959,15 +986,6 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#CastExpression.
     def exitCastExpression(self, ctx:OParser.CastExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by OParser#ContainsAnyExpression.
-    def enterContainsAnyExpression(self, ctx:OParser.ContainsAnyExpressionContext):
-        pass
-
-    # Exit a parse tree produced by OParser#ContainsAnyExpression.
-    def exitContainsAnyExpression(self, ctx:OParser.ContainsAnyExpressionContext):
         pass
 
 
