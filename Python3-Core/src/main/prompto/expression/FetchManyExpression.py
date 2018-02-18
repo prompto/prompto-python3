@@ -124,7 +124,7 @@ class FetchManyExpression(Section, IExpression):
         builder.setLast(self.interpretLimit(context, self.last))
         if self.typ is not None:
             info = AttributeInfo("category", TypeFamily.TEXT, True, None)
-            builder.verify(info, MatchOp.CONTAINS, self.typ.typeName)
+            builder.verify(info, MatchOp.HAS, self.typ.typeName)
         if self.predicate is not None:
             self.predicate.interpretQuery(context, builder)
         if self.typ is not None and self.predicate is not None:

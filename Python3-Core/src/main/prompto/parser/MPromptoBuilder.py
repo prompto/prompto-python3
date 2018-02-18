@@ -1705,7 +1705,7 @@ class MPromptoBuilder(MParserListener):
     def exitNotHasAnyExpression(self, ctx: MParser.NotHasAnyExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_CONTAINS_ANY, right))
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS_ANY, right))
 
 
 

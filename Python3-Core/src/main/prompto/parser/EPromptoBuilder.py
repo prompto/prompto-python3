@@ -1833,7 +1833,7 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitCursorType(self, ctx:EParser.CursorTypeContext):
-        raise "not implemented"
+        raise SyntaxError("not implemented")
 
 
     def exitSwitch_case_statement_list(self, ctx:EParser.Switch_case_statement_listContext):
@@ -1933,7 +1933,7 @@ class EPromptoBuilder(EParserListener):
     def exitNotHasAnyExpression(self, ctx:EParser.NotHasAnyExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_CONTAINS_ANY, right))
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS_ANY, right))
     
 
     

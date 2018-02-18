@@ -13,6 +13,7 @@ class Text(BaseValue, ISliceable, IMultiplyable):
         super(Text, self).__init__(TextType.instance)
         self.value = value
 
+
     def convertToPython(self):
         return self.value
 
@@ -121,14 +122,24 @@ class Text(BaseValue, ISliceable, IMultiplyable):
             raise IndexOutOfRangeError()
         return value
 
+
     def Roughly(self, context, value):
         from prompto.value.Character import Character
-        if isinstance(value, Character) or  isinstance(value, Text):
+        if isinstance(value, (Character, Text)):
             if len(self.value)!=len(value.value):
                 return False
             return self.value.lower()==value.value.lower()
         else:
             return False
+
+
+    def Contains(self, context, value):
+        from prompto.value.Character import Character
+        if isinstance(value, (Text, Character)):
+            return self.value.index(value.value) >= 0
+        else:
+            return False
+
 
     def __str__(self):
         return self.value

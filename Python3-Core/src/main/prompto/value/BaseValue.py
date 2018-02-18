@@ -30,6 +30,9 @@ class BaseValue(IValue):
     def CompareTo(self, context, value):
         raise Exception("Compare not supported by " + type(self).__name__)
 
+    def Contains(self, context, value):
+        raise Exception("Contains not supported by " + type(self).__name__)
+
     def getMemberValue(self, context, name, autoCreate=False):
         from prompto.value.Text import Text
         if "text" == name:
