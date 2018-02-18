@@ -5,8 +5,8 @@ from prompto.value.NativeInstance import NativeInstance
 
 class NativeResource(NativeInstance, IResource):
 
-    def __init__(self, declaration):
-        super(NativeResource, self).__init__(declaration)
+    def __init__(self, context, declaration):
+        super(NativeResource, self).__init__(context, declaration)
 
     def isReadable(self):
         return self.instance.isReadable()

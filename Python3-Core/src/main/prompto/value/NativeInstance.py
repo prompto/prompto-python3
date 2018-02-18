@@ -14,10 +14,13 @@ activeSetters = threading.local()
 
 class NativeInstance(BaseValue, IInstance):
 
-    def __init__(self, declaration, instance=None):
+    def __init__(self, context, declaration, instance=None):
         super(NativeInstance, self).__init__(CategoryType(declaration.name))
         self.declaration = declaration
-        self.storable = DataStore.instance.newStorable() if declaration.storable else None
+        self.storable = None
+        if declaration.storable:
+            categories = declaration.collectCategories(context)
+            self.storable = DataStore.instance.newStorable(categories)
         self.instance = self.makeInstance() if instance is None else instance
 
     def convertToPython(self):
@@ -79,12 +82,13 @@ class NativeInstance(BaseValue, IInstance):
             context.registerValue(Variable(attrName, decl.getType()))
             context.setValue(attrName, value)
             value = setter.interpret(context)
-        setattr(self.instance, attrName, value.convertToPython())
+        value = value.convertToPython()
+        setattr(self.instance, attrName, value)
         if self.storable is not None:
             decl = context.getRegisteredDeclaration(AttributeDeclaration, attrName)
             if decl.storable:
                 # TODO convert object graph if(value instanceof IInstance)
-                self.storable.setMember(context, attrName, value)
+                self.storable.setData(attrName, value)
 
     def __getattr__(self, item):
         return getattr(self.instance, item)

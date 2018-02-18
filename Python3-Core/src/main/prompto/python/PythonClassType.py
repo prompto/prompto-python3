@@ -101,7 +101,7 @@ class PythonClassType(CategoryType):
         from prompto.value.NativeInstance import NativeInstance
         decl = context.getNativeBinding(klass)
         if decl is not None:
-            return NativeInstance(decl, value)
+            return NativeInstance(context, decl, value)
         else:
             return None
 

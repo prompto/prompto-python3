@@ -14,7 +14,7 @@ class NativeResourceDeclaration(NativeCategoryDeclaration):
         return ResourceType(self.name)
 
     def newInstance(self, context):
-        return NativeResource(self)
+        return NativeResource(context, self)
 
     def checkConstructorContext(self, context):
         if not isinstance(context, ResourceContext):
