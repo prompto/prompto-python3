@@ -21,7 +21,7 @@ class NativeCategoryDeclaration ( ConcreteCategoryDeclaration ):
 
     def newInstance(self, context):
         from prompto.value.NativeInstance import NativeInstance
-        return NativeInstance(self)
+        return NativeInstance(context, self)
 
     def getBoundedClass(self, fail:bool):
         if self.boundedClass is None:
