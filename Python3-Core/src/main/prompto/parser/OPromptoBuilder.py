@@ -933,13 +933,22 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, stmt)
     
 
-    def exitConstructor_expression(self, ctx:OParser.Constructor_expressionContext):
+    def exitConstructorFrom(self, ctx: OParser.ConstructorFromContext):
+        typ = self.getNodeValue(ctx.typ)
+        copyFrom = self.getNodeValue(ctx.copyExp)
+        args = self.getNodeValue(ctx.args)
+        self.setNodeValue(ctx, ConstructorExpression(typ, copyFrom, args, True))
+
+
+    def exitConstructorNoFrom(self, ctx: OParser.ConstructorNoFromContext):
         typ = self.getNodeValue(ctx.typ)
         args = self.getNodeValue(ctx.args)
-        if args is None:
-            args = ArgumentAssignmentList()
-        self.setNodeValue(ctx, ConstructorExpression(typ, args))
-    
+        self.setNodeValue(ctx, ConstructorExpression(typ, None, args, True))
+
+
+    def exitCopy_from(self, ctx:OParser.Copy_fromContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.exp))
+
 
     def exitAssertion(self, ctx:OParser.AssertionContext):
         exp = self.getNodeValue(ctx.exp)
@@ -1860,6 +1869,20 @@ class OPromptoBuilder(OParserListener):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_IN, right))
+
+
+
+    def exitHasExpression(self, ctx: OParser.HasExpressionContext):
+        left = self.getNodeValue(ctx.left)
+        right = self.getNodeValue(ctx.right)
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS, right))
+
+
+
+    def exitNotHasExpression(self, ctx: OParser.NotHasExpressionContext):
+        left = self.getNodeValue(ctx.left)
+        right = self.getNodeValue(ctx.right)
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS, right))
 
 
 

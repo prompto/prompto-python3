@@ -14,6 +14,9 @@ class TestPredicate(BaseEParserTest):
     def testGreater(self):
         self.compareResourceEME("predicate/greater.pec")
 
+    def testHasItem(self):
+        self.compareResourceEME("predicate/hasItem.pec")
+
     def testInList(self):
         self.compareResourceEME("predicate/inList.pec")
 

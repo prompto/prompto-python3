@@ -12,21 +12,15 @@ from prompto.error.NotMutableError import NotMutableError
 
 class ConstructorExpression(IExpression):
 
-    def __init__(self, itype:IType, assignments:ArgumentAssignmentList):
-        self.copyFrom = None
+    def __init__(self, itype:IType, copyFrom:IExpression, assignments:ArgumentAssignmentList, checked:bool):
         self.mutable = False
         self.itype = itype
-        self.setAssignments(assignments)
+        self.copyFrom = copyFrom
+        self.assignments = assignments
+        self.checked = checked
 
     def getType(self):
         return self.itype
-
-    def setAssignments(self, assignments:ArgumentAssignmentList):
-        self.assignments = assignments
-        # in OOPS, first anonymous argument is copyFrom
-        if assignments is not None and len(assignments)>0 and assignments[0].getArgument() is None:
-            self.copyFrom = assignments[0].getExpression()
-            self.assignments.pop(0)
 
     def getAssignments(self):
         return self.assignments
@@ -52,6 +46,15 @@ class ConstructorExpression(IExpression):
                 sb.write(str(self.assignments))
             return sb.getvalue()
 
+    def toDialect(self, writer):
+        from prompto.declaration.CategoryDeclaration import CategoryDeclaration
+        cd = writer.context.getRegisteredDeclaration(CategoryDeclaration, self.itype.typeName)
+        if cd is None:
+            raise SyntaxError("Unknown category " + self.itype.typeName)
+        self.checkFirstHomonym(writer.context, cd)
+        super().toDialect(writer)
+
+
     def toEDialect(self, writer):
         self.itype.toDialect(writer)
         if self.copyFrom is not None:
@@ -62,17 +65,37 @@ class ConstructorExpression(IExpression):
         if self.assignments is not None:
             self.assignments.toDialect(writer)
 
+
     def toODialect(self, writer):
         self.itype.toDialect(writer)
         assignments = ArgumentAssignmentList()
         if self.copyFrom is not None:
-            assignments.append(ArgumentAssignment(None, self.copyFrom))
+            from prompto.argument.AttributeArgument import AttributeArgument
+            assignments.append(ArgumentAssignment(AttributeArgument("from"), self.copyFrom))
         if self.assignments is not None:
             assignments.extend(self.assignments)
         assignments.toDialect(writer)
 
+
     def toMDialect(self, writer):
         self.toODialect(writer)
+
+
+    def checkFirstHomonym(self, context, decl):
+        if self.checked:
+            return
+        if self.assignments is not None and len(self.assignments)>0:
+            assign = self.assignments[0]
+            if assign.argument is None:
+                from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
+                from prompto.expression.InstanceExpression import InstanceExpression
+                name = assign.expression.name if isinstance(assign.expression, (UnresolvedIdentifier, InstanceExpression)) else None
+                if name is not None and decl.hasAttribute(context, name):
+                    from prompto.argument.AttributeArgument import AttributeArgument
+                    assign.argument = AttributeArgument(name)
+                    assign.expression = None
+        self.checked = True
+
 
     def check(self, context:Context):
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
@@ -80,7 +103,7 @@ class ConstructorExpression(IExpression):
         cd = context.getRegisteredDeclaration(CategoryDeclaration, self.itype.typeName)
         if cd is None:
             raise SyntaxError("Unknown category " + self.itype.typeName)
-        itype = cd.getType(context)
+        self.checkFirstHomonym(context, cd)
         cd.checkConstructorContext(context)
         if self.copyFrom is not None:
             cft = self.copyFrom.check(context)
@@ -92,15 +115,18 @@ class ConstructorExpression(IExpression):
                     raise SyntaxError("\"" + assignment.getName() +
                         "\" is not an attribute of " + self.itype.typeName)
                 assignment.check(context)
-        return itype
+        return cd.getType(context)
 
     def interpret(self, context:Context):
+        from prompto.declaration.CategoryDeclaration import CategoryDeclaration
+        cd = context.getRegisteredDeclaration(CategoryDeclaration, self.itype.typeName)
+        if cd is None:
+            raise SyntaxError("Unknown category " + self.itype.typeName)
+        self.checkFirstHomonym(context, cd)
         instance = self.itype.newInstance(context)
         instance.mutable = True
         if self.copyFrom is not None:
             copyObj = self.copyFrom.interpret(context)
-            from prompto.declaration.CategoryDeclaration import CategoryDeclaration
-            cd = context.getRegisteredDeclaration(CategoryDeclaration, self.itype.typeName)
             if isinstance(copyObj, IInstance):
                 for name in copyObj.getMemberNames():
                     if cd.hasAttribute(context, name):

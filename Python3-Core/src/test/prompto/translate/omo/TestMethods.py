@@ -26,8 +26,8 @@ class TestMethods(BaseOParserTest):
     def testExtended(self):
         self.compareResourceOMO("methods/extended.poc")
 
-    def testImplicit(self):
-        self.compareResourceOMO("methods/implicit.poc")
+    def testImplicitMember(self):
+        self.compareResourceOMO("methods/implicitMember.poc")
 
     def testMember(self):
         self.compareResourceOMO("methods/member.poc")

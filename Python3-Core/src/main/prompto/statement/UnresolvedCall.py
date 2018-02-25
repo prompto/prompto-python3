@@ -69,7 +69,7 @@ class UnresolvedCall(SimpleStatement):
         if decl is None:
             raise SyntaxError("Unknown name:" + name)
         if isinstance(decl, CategoryDeclaration):
-            return ConstructorExpression(CategoryType(name), self.assignments)
+            return ConstructorExpression(CategoryType(name), None, self.assignments, False)
         else:
             return MethodCall(MethodSelector(name), self.assignments)
 

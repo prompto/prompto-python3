@@ -624,11 +624,21 @@ class MPromptoBuilder(MParserListener):
 
 
 
-    def exitConstructor_expression(self, ctx:MParser.Constructor_expressionContext):
+    def exitConstructorFrom(self, ctx: MParser.ConstructorFromContext):
+        typ = self.getNodeValue(ctx.typ)
+        copyFrom = self.getNodeValue(ctx.copyExp)
+        args = self.getNodeValue(ctx.args)
+        self.setNodeValue(ctx, ConstructorExpression(typ, copyFrom, args, True))
+
+
+    def exitConstructorNoFrom(self, ctx: MParser.ConstructorNoFromContext):
         typ = self.getNodeValue(ctx.typ)
         args = self.getNodeValue(ctx.args)
-        self.setNodeValue(ctx, ConstructorExpression(typ, args))
+        self.setNodeValue(ctx, ConstructorExpression(typ, None, args, True))
 
+
+    def exitCopy_from(self, ctx:MParser.Copy_fromContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.exp))
 
 
     def exitCsharp_primary_expression(self, ctx:MParser.Csharp_primary_expressionContext):
@@ -1677,10 +1687,25 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, NotExpression(exp))
 
 
+
     def exitNotInExpression(self, ctx:MParser.NotInExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_IN, right))
+
+
+    def exitHasExpression(self, ctx: MParser.HasExpressionContext):
+        left = self.getNodeValue(ctx.left)
+        right = self.getNodeValue(ctx.right)
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS, right))
+
+
+
+    def exitNotHasExpression(self, ctx: MParser.NotHasExpressionContext):
+        left = self.getNodeValue(ctx.left)
+        right = self.getNodeValue(ctx.right)
+        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS, right))
+
 
 
     def exitHasAllExpression(self, ctx: MParser.HasAllExpressionContext):

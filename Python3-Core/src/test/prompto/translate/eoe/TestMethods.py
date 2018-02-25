@@ -26,8 +26,11 @@ class TestMethods(BaseEParserTest):
     def testExtended(self):
         self.compareResourceEOE("methods/extended.pec")
 
-    def testImplicit(self):
-        self.compareResourceEOE("methods/implicit.pec")
+    def testHomonym(self):
+        self.compareResourceEOE("methods/homonym.pec")
+
+    def testImplicitMember(self):
+        self.compareResourceEOE("methods/implicitMember.pec")
 
     def testMember(self):
         self.compareResourceEOE("methods/member.pec")

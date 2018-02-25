@@ -31,8 +31,8 @@ class TestMethods(BaseOParserTest):
     def testExtended(self):
         self.checkOutput("methods/extended.poc")
 
-    def testImplicit(self):
-        self.checkOutput("methods/implicit.poc")
+    def testImplicitMember(self):
+        self.checkOutput("methods/implicitMember.poc")
 
     def testMember(self):
         self.checkOutput("methods/member.poc")

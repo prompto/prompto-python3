@@ -22,8 +22,8 @@ class TestParserFiles ( BaseEParserTest ):
         self.assertIsNotNone(stmts)
         self.assertEquals(6,len(stmts))
 
-    def testImplicit(self):
-        stmts = self.parseResource("methods/implicit.pec")
+    def testImplicitMember(self):
+        stmts = self.parseResource("methods/implicitMember.pec")
         self.assertIsNotNone(stmts)
         self.assertEquals(6,len(stmts))
 

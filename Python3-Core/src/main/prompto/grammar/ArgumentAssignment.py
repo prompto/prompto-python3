@@ -1,5 +1,4 @@
 from prompto.grammar.IDialectElement import IDialectElement
-from prompto.grammar.INamedValue import *
 from prompto.runtime.Variable import *
 from prompto.type.VoidType import *
 from prompto.value.ContextualExpression import *
@@ -20,7 +19,8 @@ class ArgumentAssignment(IDialectElement):
         return self.argument.getName()
 
     def getExpression(self):
-        return self.expression
+        from prompto.expression.InstanceExpression import InstanceExpression
+        return self.expression if self.expression is not None else InstanceExpression(self.argument.name)
 
     def setExpression(self, expression):
         self.expression = expression
@@ -32,22 +32,32 @@ class ArgumentAssignment(IDialectElement):
             return str(self.expression) + " as " + self.argument.getName()
 
     def toODialect(self, writer):
-        if self.argument is not None:
+        if self.expression is None:
             writer.append(self.argument.getName())
-            writer.append(" = ")
-        self.expression.toDialect(writer)
+        else:
+            if self.argument is not None:
+                writer.append(self.argument.getName())
+                writer.append(" = ")
+            self.expression.toDialect(writer)
+
 
     def toMDialect(self, writer):
-        if self.argument is not None:
+        if self.expression is None:
             writer.append(self.argument.getName())
-            writer.append(" = ")
-        self.expression.toDialect(writer)
+        else:
+            if self.argument is not None:
+                writer.append(self.argument.getName())
+                writer.append(" = ")
+            self.expression.toDialect(writer)
 
     def toEDialect(self, writer):
-        self.expression.toDialect(writer)
-        if self.argument is not None:
-            writer.append(" as ")
+        if self.expression is None:
             writer.append(self.argument.getName())
+        else:
+            self.expression.toDialect(writer)
+            if self.argument is not None:
+                writer.append(" as ")
+                writer.append(self.argument.getName())
 
     def __eq__(self, obj):
         if id(obj) == id(self):
@@ -61,19 +71,19 @@ class ArgumentAssignment(IDialectElement):
     def check(self, context):
         actual = context.getRegisteredValue(INamedValue, self.argument.getName())
         if actual is None:
-            actualType = self.expression.check(context)
+            actualType = self.getExpression().check(context)
             context.registerValue(Variable(self.argument.getName(), actualType))
         else:
             # need to check type compatibility
             actualType = actual.getType(context)
-            newType = self.expression.check(context)
+            newType = self.getExpression().check(context)
             actualType.checkAssignableFrom(context, newType)
         return VoidType.instance
 
     def interpret(self, context):
         if context.getRegisteredValue(INamedValue, self.argument.getName()) is None:
-            context.registerValue(Variable(self.argument.getName(), self.expression))
-        context.setValue(self.argument.getName(), self.expression.interpret(context))
+            context.registerValue(Variable(self.argument.getName(), self.getExpression()))
+        context.setValue(self.argument.getName(), self.getExpression().interpret(context))
         return None
 
     def resolve(self, context, methodDeclaration, checkInstance):
@@ -104,5 +114,5 @@ class ArgumentAssignment(IDialectElement):
             argument = declaration.getArguments().find(self.getName())
         if argument is None:
             raise SyntaxError("Method has no argument:" + self.getName())
-        expression = ContextualExpression(context, self.expression)
+        expression = ContextualExpression(context, self.getExpression())
         return ArgumentAssignment(argument, expression)

@@ -19,6 +19,9 @@ class TestPredicate(BaseEParserTest):
     def testGreater(self):
         self.checkOutput("predicate/greater.pec")
 
+    def testHasItem(self):
+        self.checkOutput("predicate/hasItem.pec")
+
     def testInList(self):
         self.checkOutput("predicate/inList.pec")
 

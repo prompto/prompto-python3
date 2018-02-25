@@ -980,27 +980,26 @@ class EPromptoBuilder(EParserListener):
 
     def exitConstructorFrom(self, ctx:EParser.ConstructorFromContext):
         typ = self.getNodeValue(ctx.typ)
+        copyFrom = self.getNodeValue(ctx.copyExp)
         args = self.getNodeValue(ctx.args)
-        if args is None:
-            args = ArgumentAssignmentList()
-        firstArg = self.getNodeValue(ctx.firstArg)
-        args.insert(0, ArgumentAssignment(None, firstArg))
         arg = self.getNodeValue(ctx.arg)
         if arg is not None:
+            if args is None:
+                args = ArgumentAssignmentList()
             args.append(arg)
-        self.setNodeValue(ctx, ConstructorExpression(typ, args))
+        self.setNodeValue(ctx, ConstructorExpression(typ, copyFrom, args, True))
     
 
     
     def exitConstructorNoFrom(self, ctx:EParser.ConstructorNoFromContext):
         typ = self.getNodeValue(ctx.typ)
         args = self.getNodeValue(ctx.args)
-        if args is None:
-            args = ArgumentAssignmentList()
         arg = self.getNodeValue(ctx.arg)
         if arg is not None:
+            if args is None:
+                args = ArgumentAssignmentList()
             args.append(arg)
-        self.setNodeValue(ctx, ConstructorExpression(typ, args))
+        self.setNodeValue(ctx, ConstructorExpression(typ, None, args, True))
     
 
     def exitAssertion(self, ctx:EParser.AssertionContext):
