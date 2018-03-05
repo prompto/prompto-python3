@@ -431,7 +431,7 @@ def serializedATN():
         buf.write("\7d\2\2\u02bd|\3\2\2\2\u02be\u02bf\7K\2\2\u02bf\u02c0")
         buf.write("\7o\2\2\u02c0\u02c1\7c\2\2\u02c1\u02c2\7i\2\2\u02c2\u02c3")
         buf.write("\7g\2\2\u02c3~\3\2\2\2\u02c4\u02c5\7W\2\2\u02c5\u02c6")
-        buf.write("\7W\2\2\u02c6\u02c7\7K\2\2\u02c7\u02c8\7F\2\2\u02c8\u0080")
+        buf.write("\7w\2\2\u02c6\u02c7\7k\2\2\u02c7\u02c8\7f\2\2\u02c8\u0080")
         buf.write("\3\2\2\2\u02c9\u02ca\7K\2\2\u02ca\u02cb\7v\2\2\u02cb\u02cc")
         buf.write("\7g\2\2\u02cc\u02cd\7t\2\2\u02cd\u02ce\7c\2\2\u02ce\u02cf")
         buf.write("\7v\2\2\u02cf\u02d0\7q\2\2\u02d0\u02d1\7t\2\2\u02d1\u0082")
@@ -987,7 +987,7 @@ class ELexer(Lexer):
             "'~'", "'<-'", "'->'", "'Boolean'", "'Character'", "'Text'", 
             "'Integer'", "'Decimal'", "'Date'", "'Time'", "'DateTime'", 
             "'Period'", "'Version'", "'Method'", "'Code'", "'Document'", 
-            "'Blob'", "'Image'", "'UUID'", "'Iterator'", "'Cursor'", "'abstract'", 
+            "'Blob'", "'Image'", "'Uuid'", "'Iterator'", "'Cursor'", "'abstract'", 
             "'all'", "'always'", "'and'", "'any'", "'as'", "'attr'", "'attribute'", 
             "'attributes'", "'bindings'", "'break'", "'by'", "'case'", "'catch'", 
             "'category'", "'class'", "'close'", "'contains'", "'def'", "'default'", 

@@ -424,7 +424,7 @@ def serializedATN():
         buf.write("\7d\2\2\u02b1x\3\2\2\2\u02b2\u02b3\7K\2\2\u02b3\u02b4")
         buf.write("\7o\2\2\u02b4\u02b5\7c\2\2\u02b5\u02b6\7i\2\2\u02b6\u02b7")
         buf.write("\7g\2\2\u02b7z\3\2\2\2\u02b8\u02b9\7W\2\2\u02b9\u02ba")
-        buf.write("\7W\2\2\u02ba\u02bb\7K\2\2\u02bb\u02bc\7F\2\2\u02bc|\3")
+        buf.write("\7w\2\2\u02ba\u02bb\7k\2\2\u02bb\u02bc\7f\2\2\u02bc|\3")
         buf.write("\2\2\2\u02bd\u02be\7K\2\2\u02be\u02bf\7v\2\2\u02bf\u02c0")
         buf.write("\7g\2\2\u02c0\u02c1\7t\2\2\u02c1\u02c2\7c\2\2\u02c2\u02c3")
         buf.write("\7v\2\2\u02c3\u02c4\7q\2\2\u02c4\u02c5\7t\2\2\u02c5~\3")
@@ -975,7 +975,7 @@ class OLexer(Lexer):
             "'<='", "'<>'", "'='", "'!='", "'=='", "'~='", "'~'", "'<-'", 
             "'->'", "'Boolean'", "'Character'", "'Text'", "'Integer'", "'Decimal'", 
             "'Date'", "'Time'", "'DateTime'", "'Period'", "'Version'", "'Method'", 
-            "'Code'", "'Document'", "'Blob'", "'Image'", "'UUID'", "'Iterator'", 
+            "'Code'", "'Document'", "'Blob'", "'Image'", "'Uuid'", "'Iterator'", 
             "'Cursor'", "'abstract'", "'all'", "'always'", "'and'", "'any'", 
             "'as'", "'attr'", "'attribute'", "'attributes'", "'bindings'", 
             "'break'", "'by'", "'case'", "'catch'", "'category'", "'class'", 
