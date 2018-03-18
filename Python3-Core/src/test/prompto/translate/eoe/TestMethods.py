@@ -26,6 +26,9 @@ class TestMethods(BaseEParserTest):
     def testExtended(self):
         self.compareResourceEOE("methods/extended.pec")
 
+    def testGlobal(self):
+        self.compareResourceEOE("methods/global.pec")
+
     def testHomonym(self):
         self.compareResourceEOE("methods/homonym.pec")
 
