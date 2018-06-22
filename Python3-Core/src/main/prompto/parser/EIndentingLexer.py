@@ -2,7 +2,7 @@ from antlr4 import *
 from antlr4.Token import CommonToken
 from prompto.parser.ELexer import ELexer
 from prompto.parser.Dialect import Dialect
-from prompto.parser.Utils import extractTokenNames
+from prompto.parser.ParserUtils import extractTokenNames
 
 class EIndentingLexer(ELexer):
 

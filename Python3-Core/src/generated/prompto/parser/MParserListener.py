@@ -692,6 +692,15 @@ class MParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MParser#JsxExpression.
+    def enterJsxExpression(self, ctx:MParser.JsxExpressionContext):
+        pass
+
+    # Exit a parse tree produced by MParser#JsxExpression.
+    def exitJsxExpression(self, ctx:MParser.JsxExpressionContext):
+        pass
+
+
     # Enter a parse tree produced by MParser#NotExpression.
     def enterNotExpression(self, ctx:MParser.NotExpressionContext):
         pass
@@ -2537,6 +2546,15 @@ class MParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MParser#keyword.
+    def enterKeyword(self, ctx:MParser.KeywordContext):
+        pass
+
+    # Exit a parse tree produced by MParser#keyword.
+    def exitKeyword(self, ctx:MParser.KeywordContext):
+        pass
+
+
     # Enter a parse tree produced by MParser#new_token.
     def enterNew_token(self, ctx:MParser.New_tokenContext):
         pass
@@ -3515,6 +3533,204 @@ class MParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by MParser#csharp_identifier.
     def exitCsharp_identifier(self, ctx:MParser.Csharp_identifierContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#jsx_expression.
+    def enterJsx_expression(self, ctx:MParser.Jsx_expressionContext):
+        pass
+
+    # Exit a parse tree produced by MParser#jsx_expression.
+    def exitJsx_expression(self, ctx:MParser.Jsx_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#JsxSelfClosing.
+    def enterJsxSelfClosing(self, ctx:MParser.JsxSelfClosingContext):
+        pass
+
+    # Exit a parse tree produced by MParser#JsxSelfClosing.
+    def exitJsxSelfClosing(self, ctx:MParser.JsxSelfClosingContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#JsxElement.
+    def enterJsxElement(self, ctx:MParser.JsxElementContext):
+        pass
+
+    # Exit a parse tree produced by MParser#JsxElement.
+    def exitJsxElement(self, ctx:MParser.JsxElementContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#jsx_fragment.
+    def enterJsx_fragment(self, ctx:MParser.Jsx_fragmentContext):
+        pass
+
+    # Exit a parse tree produced by MParser#jsx_fragment.
+    def exitJsx_fragment(self, ctx:MParser.Jsx_fragmentContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#jsx_fragment_start.
+    def enterJsx_fragment_start(self, ctx:MParser.Jsx_fragment_startContext):
+        pass
+
+    # Exit a parse tree produced by MParser#jsx_fragment_start.
+    def exitJsx_fragment_start(self, ctx:MParser.Jsx_fragment_startContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#jsx_fragment_end.
+    def enterJsx_fragment_end(self, ctx:MParser.Jsx_fragment_endContext):
+        pass
+
+    # Exit a parse tree produced by MParser#jsx_fragment_end.
+    def exitJsx_fragment_end(self, ctx:MParser.Jsx_fragment_endContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#jsx_self_closing.
+    def enterJsx_self_closing(self, ctx:MParser.Jsx_self_closingContext):
+        pass
+
+    # Exit a parse tree produced by MParser#jsx_self_closing.
+    def exitJsx_self_closing(self, ctx:MParser.Jsx_self_closingContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#jsx_opening.
+    def enterJsx_opening(self, ctx:MParser.Jsx_openingContext):
+        pass
+
+    # Exit a parse tree produced by MParser#jsx_opening.
+    def exitJsx_opening(self, ctx:MParser.Jsx_openingContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#jsx_closing.
+    def enterJsx_closing(self, ctx:MParser.Jsx_closingContext):
+        pass
+
+    # Exit a parse tree produced by MParser#jsx_closing.
+    def exitJsx_closing(self, ctx:MParser.Jsx_closingContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#jsx_element_name.
+    def enterJsx_element_name(self, ctx:MParser.Jsx_element_nameContext):
+        pass
+
+    # Exit a parse tree produced by MParser#jsx_element_name.
+    def exitJsx_element_name(self, ctx:MParser.Jsx_element_nameContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#jsx_identifier.
+    def enterJsx_identifier(self, ctx:MParser.Jsx_identifierContext):
+        pass
+
+    # Exit a parse tree produced by MParser#jsx_identifier.
+    def exitJsx_identifier(self, ctx:MParser.Jsx_identifierContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#jsx_hyphen_identifier.
+    def enterJsx_hyphen_identifier(self, ctx:MParser.Jsx_hyphen_identifierContext):
+        pass
+
+    # Exit a parse tree produced by MParser#jsx_hyphen_identifier.
+    def exitJsx_hyphen_identifier(self, ctx:MParser.Jsx_hyphen_identifierContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#hyphen_identifier.
+    def enterHyphen_identifier(self, ctx:MParser.Hyphen_identifierContext):
+        pass
+
+    # Exit a parse tree produced by MParser#hyphen_identifier.
+    def exitHyphen_identifier(self, ctx:MParser.Hyphen_identifierContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#identifier_or_keyword.
+    def enterIdentifier_or_keyword(self, ctx:MParser.Identifier_or_keywordContext):
+        pass
+
+    # Exit a parse tree produced by MParser#identifier_or_keyword.
+    def exitIdentifier_or_keyword(self, ctx:MParser.Identifier_or_keywordContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#jsx_attribute.
+    def enterJsx_attribute(self, ctx:MParser.Jsx_attributeContext):
+        pass
+
+    # Exit a parse tree produced by MParser#jsx_attribute.
+    def exitJsx_attribute(self, ctx:MParser.Jsx_attributeContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#JsxLiteral.
+    def enterJsxLiteral(self, ctx:MParser.JsxLiteralContext):
+        pass
+
+    # Exit a parse tree produced by MParser#JsxLiteral.
+    def exitJsxLiteral(self, ctx:MParser.JsxLiteralContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#JsxValue.
+    def enterJsxValue(self, ctx:MParser.JsxValueContext):
+        pass
+
+    # Exit a parse tree produced by MParser#JsxValue.
+    def exitJsxValue(self, ctx:MParser.JsxValueContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#jsx_children.
+    def enterJsx_children(self, ctx:MParser.Jsx_childrenContext):
+        pass
+
+    # Exit a parse tree produced by MParser#jsx_children.
+    def exitJsx_children(self, ctx:MParser.Jsx_childrenContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#JsxText.
+    def enterJsxText(self, ctx:MParser.JsxTextContext):
+        pass
+
+    # Exit a parse tree produced by MParser#JsxText.
+    def exitJsxText(self, ctx:MParser.JsxTextContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#JsxChild.
+    def enterJsxChild(self, ctx:MParser.JsxChildContext):
+        pass
+
+    # Exit a parse tree produced by MParser#JsxChild.
+    def exitJsxChild(self, ctx:MParser.JsxChildContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#JsxCode.
+    def enterJsxCode(self, ctx:MParser.JsxCodeContext):
+        pass
+
+    # Exit a parse tree produced by MParser#JsxCode.
+    def exitJsxCode(self, ctx:MParser.JsxCodeContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#jsx_text.
+    def enterJsx_text(self, ctx:MParser.Jsx_textContext):
+        pass
+
+    # Exit a parse tree produced by MParser#jsx_text.
+    def exitJsx_text(self, ctx:MParser.Jsx_textContext):
         pass
 
 

@@ -1,6 +1,6 @@
 from prompto.parser.OLexer import OLexer
 from prompto.parser.Dialect import Dialect
-from prompto.parser.Utils import extractTokenNames
+from prompto.parser.ParserUtils import extractTokenNames
 
 
 class ONamingLexer(OLexer):

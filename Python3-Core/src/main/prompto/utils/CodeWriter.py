@@ -33,32 +33,46 @@ class CodeWriter(object):
     def append(self, s):
         self.indenter.appendTabsIfRequired(s)
         self.file.write(s)
+        return self
 
-    def __str__(self):
-        return self.file.getvalue()
 
     def trimLast(self, count):
         len = self.file.tell()
         self.file.seek(len-count)
         self.file.truncate()
+        return self
+
 
     def indent(self):
         self.indenter.indent()
+        return self
+
 
     def dedent(self):
         self.indenter.dedent()
+        return self
+
 
     def newLine(self):
         self.append('\n')
+        return self
+
+
+    def __str__(self):
+        return self.file.getvalue()
+
 
     def isGlobalContext(self):
         return self.context.isGlobalContext()
 
+
     def newLocalWriter(self):
         return CodeWriter(self.dialect, self.context.newLocalContext(), self.file, self.indenter)
 
+
     def newInstanceWriter(self, typ):
         return CodeWriter(self.dialect, self.context.newInstanceContext(None, typ), self.file, self.indenter)
+
 
     def newMemberWriter(self):
         local = self.context.newLocalContext()
