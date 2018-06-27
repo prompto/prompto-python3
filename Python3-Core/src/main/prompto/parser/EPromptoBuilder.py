@@ -24,6 +24,7 @@ from prompto.declaration.AbstractMethodDeclaration import AbstractMethodDeclarat
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
 from prompto.declaration.ConcreteMethodDeclaration import ConcreteMethodDeclaration
+from prompto.declaration.ConcreteWidgetDeclaration import ConcreteWidgetDeclaration
 from prompto.declaration.DeclarationList import DeclarationList
 from prompto.declaration.EnumeratedCategoryDeclaration import EnumeratedCategoryDeclaration
 from prompto.declaration.EnumeratedNativeDeclaration import EnumeratedNativeDeclaration
@@ -210,6 +211,7 @@ from prompto.type.DateType import DateType
 from prompto.type.DecimalType import DecimalType
 from prompto.type.DictType import DictType
 from prompto.type.DocumentType import DocumentType
+from prompto.type.HtmlType import HtmlType
 from prompto.type.IntegerType import IntegerType
 from prompto.type.IteratorType import IteratorType
 from prompto.type.ListType import ListType
@@ -546,6 +548,11 @@ class EPromptoBuilder(EParserListener):
 
 
 
+    def exitHtmlType(self, ctx:EParser.HtmlTypeContext):
+        self.setNodeValue(ctx, HtmlType.instance)
+
+
+
     def exitThisExpression(self, ctx:EParser.ThisExpressionContext):
         self.setNodeValue(ctx, ThisExpression())
 
@@ -675,11 +682,24 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, ccd)
     
 
-    
+    def exitConcrete_widget_declaration(self, ctx:EParser.Concrete_category_declarationContext):
+        name = self.getNodeValue(ctx.name)
+        derived = self.getNodeValue(ctx.derived)
+        methods = self.getNodeValue(ctx.methods)
+        ccd = ConcreteWidgetDeclaration(name, derived, methods)
+        self.setNodeValue(ctx, ccd)
+
+
+
     def exitConcreteCategoryDeclaration(self, ctx:EParser.ConcreteCategoryDeclarationContext):
         decl = self.getNodeValue(ctx.decl)
         self.setNodeValue(ctx, decl)
-    
+
+
+
+    def exitConcreteWidgetDeclaration(self, ctx: EParser.ConcreteWidgetDeclarationContext):
+        decl = self.getNodeValue(ctx.decl)
+        self.setNodeValue(ctx, decl)
 
 
     def exitType_identifier(self, ctx:EParser.Type_identifierContext):
@@ -1419,6 +1439,8 @@ class EPromptoBuilder(EParserListener):
             ctx_ = ctx.method_declaration()
         if ctx_ is None:
             ctx_ = ctx.resource_declaration()
+        if ctx_ is None:
+            ctx_ = ctx.widget_declaration()
         decl = self.getNodeValue(ctx_)
         if decl is not None:
             decl.comments = stmts

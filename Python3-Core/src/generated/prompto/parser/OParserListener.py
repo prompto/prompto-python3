@@ -53,6 +53,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#concrete_widget_declaration.
+    def enterConcrete_widget_declaration(self, ctx:OParser.Concrete_widget_declarationContext):
+        pass
+
+    # Exit a parse tree produced by OParser#concrete_widget_declaration.
+    def exitConcrete_widget_declaration(self, ctx:OParser.Concrete_widget_declarationContext):
+        pass
+
+
     # Enter a parse tree produced by OParser#concrete_category_declaration.
     def enterConcrete_category_declaration(self, ctx:OParser.Concrete_category_declarationContext):
         pass
@@ -1628,6 +1637,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#HtmlType.
+    def enterHtmlType(self, ctx:OParser.HtmlTypeContext):
+        pass
+
+    # Exit a parse tree produced by OParser#HtmlType.
+    def exitHtmlType(self, ctx:OParser.HtmlTypeContext):
+        pass
+
+
     # Enter a parse tree produced by OParser#category_type.
     def enterCategory_type(self, ctx:OParser.Category_typeContext):
         pass
@@ -1679,6 +1697,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#SingletonCategoryDeclaration.
     def exitSingletonCategoryDeclaration(self, ctx:OParser.SingletonCategoryDeclarationContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#ConcreteWidgetDeclaration.
+    def enterConcreteWidgetDeclaration(self, ctx:OParser.ConcreteWidgetDeclarationContext):
+        pass
+
+    # Exit a parse tree produced by OParser#ConcreteWidgetDeclaration.
+    def exitConcreteWidgetDeclaration(self, ctx:OParser.ConcreteWidgetDeclarationContext):
         pass
 
 
@@ -2678,6 +2705,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#lfp.
     def exitLfp(self, ctx:OParser.LfpContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#native_widget_declaration.
+    def enterNative_widget_declaration(self, ctx:OParser.Native_widget_declarationContext):
+        pass
+
+    # Exit a parse tree produced by OParser#native_widget_declaration.
+    def exitNative_widget_declaration(self, ctx:OParser.Native_widget_declarationContext):
         pass
 
 

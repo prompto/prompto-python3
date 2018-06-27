@@ -1,4 +1,6 @@
 from prompto.jsx.IJsxExpression import IJsxExpression
+from prompto.type.JsxType import JsxType
+
 
 class JsxElementBase(IJsxExpression):
 
