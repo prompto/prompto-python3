@@ -20,6 +20,10 @@ from prompto.csharp.CSharpNativeCategoryBinding import CSharpNativeCategoryBindi
 from prompto.csharp.CSharpStatement import CSharpStatement
 from prompto.csharp.CSharpTextLiteral import CSharpTextLiteral
 from prompto.csharp.CSharpThisExpression import CSharpThisExpression
+from prompto.css.CssCode import CssCode
+from prompto.css.CssExpression import CssExpression
+from prompto.css.CssField import CssField
+from prompto.css.CssText import CssText
 from prompto.declaration.AbstractMethodDeclaration import AbstractMethodDeclaration
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
@@ -144,19 +148,12 @@ from prompto.literal.TupleLiteral import TupleLiteral
 from prompto.literal.UUIDLiteral import UUIDLiteral
 from prompto.literal.VersionLiteral import VersionLiteral
 from prompto.parser.Dialect import Dialect
-
 from prompto.jsx.JsxSelfClosing import JsxSelfClosing
-
 from prompto.jsx.JsxElement import JsxElement
-
 from prompto.jsx.JsxAttribute import JsxAttribute
-
 from prompto.jsx.JsxLiteral import JsxLiteral
-
 from prompto.jsx.JsxText import JsxText
-
 from prompto.jsx.JsxExpression import JsxExpression
-
 from prompto.jsx.JsxCode import JsxCode
 from prompto.parser import ParserUtils
 from prompto.parser.EParser import EParser
@@ -2683,3 +2680,27 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, JsxSelfClosing(name, attributes))
 
 
+    def exitCssExpression(self, ctx: EParser.CssExpressionContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.exp))
+
+
+    def exitCss_expression(self, ctx: EParser.Css_expressionContext):
+        exp = CssExpression()
+        [ exp.addField(self.getNodeValue(cx)) for cx in ctx.css_field() ]
+        self.setNodeValue(ctx, exp)
+
+
+    def exitCss_field(self, ctx: EParser.Css_fieldContext):
+        name = ctx.name.getText()
+        value = self.getNodeValue(ctx.value)
+        self.setNodeValue(ctx, CssField(name, value))
+
+
+    def exitCssText(self, ctx: EParser.CssTextContext):
+        text = ctx.text.getText()
+        self.setNodeValue(ctx, CssText(text))
+
+
+    def exitCssValue(self, ctx: EParser.CssValueContext):
+        exp = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, CssCode(exp))

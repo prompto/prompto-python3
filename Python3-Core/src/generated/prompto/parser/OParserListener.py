@@ -683,6 +683,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#x_expression.
+    def enterX_expression(self, ctx:OParser.X_expressionContext):
+        pass
+
+    # Exit a parse tree produced by OParser#x_expression.
+    def exitX_expression(self, ctx:OParser.X_expressionContext):
+        pass
+
+
     # Enter a parse tree produced by OParser#IntDivideExpression.
     def enterIntDivideExpression(self, ctx:OParser.IntDivideExpressionContext):
         pass
@@ -995,6 +1004,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#InstanceExpression.
     def exitInstanceExpression(self, ctx:OParser.InstanceExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#CssExpression.
+    def enterCssExpression(self, ctx:OParser.CssExpressionContext):
+        pass
+
+    # Exit a parse tree produced by OParser#CssExpression.
+    def exitCssExpression(self, ctx:OParser.CssExpressionContext):
         pass
 
 
@@ -1724,6 +1742,33 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#method_identifier.
     def exitMethod_identifier(self, ctx:OParser.Method_identifierContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#identifier_or_keyword.
+    def enterIdentifier_or_keyword(self, ctx:OParser.Identifier_or_keywordContext):
+        pass
+
+    # Exit a parse tree produced by OParser#identifier_or_keyword.
+    def exitIdentifier_or_keyword(self, ctx:OParser.Identifier_or_keywordContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#nospace_hyphen_identifier_or_keyword.
+    def enterNospace_hyphen_identifier_or_keyword(self, ctx:OParser.Nospace_hyphen_identifier_or_keywordContext):
+        pass
+
+    # Exit a parse tree produced by OParser#nospace_hyphen_identifier_or_keyword.
+    def exitNospace_hyphen_identifier_or_keyword(self, ctx:OParser.Nospace_hyphen_identifier_or_keywordContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#nospace_identifier_or_keyword.
+    def enterNospace_identifier_or_keyword(self, ctx:OParser.Nospace_identifier_or_keywordContext):
+        pass
+
+    # Exit a parse tree produced by OParser#nospace_identifier_or_keyword.
+    def exitNospace_identifier_or_keyword(self, ctx:OParser.Nospace_identifier_or_keywordContext):
         pass
 
 
@@ -3707,33 +3752,6 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#jsx_hyphen_identifier.
-    def enterJsx_hyphen_identifier(self, ctx:OParser.Jsx_hyphen_identifierContext):
-        pass
-
-    # Exit a parse tree produced by OParser#jsx_hyphen_identifier.
-    def exitJsx_hyphen_identifier(self, ctx:OParser.Jsx_hyphen_identifierContext):
-        pass
-
-
-    # Enter a parse tree produced by OParser#hyphen_identifier.
-    def enterHyphen_identifier(self, ctx:OParser.Hyphen_identifierContext):
-        pass
-
-    # Exit a parse tree produced by OParser#hyphen_identifier.
-    def exitHyphen_identifier(self, ctx:OParser.Hyphen_identifierContext):
-        pass
-
-
-    # Enter a parse tree produced by OParser#identifier_or_keyword.
-    def enterIdentifier_or_keyword(self, ctx:OParser.Identifier_or_keywordContext):
-        pass
-
-    # Exit a parse tree produced by OParser#identifier_or_keyword.
-    def exitIdentifier_or_keyword(self, ctx:OParser.Identifier_or_keywordContext):
-        pass
-
-
     # Enter a parse tree produced by OParser#jsx_attribute.
     def enterJsx_attribute(self, ctx:OParser.Jsx_attributeContext):
         pass
@@ -3803,6 +3821,60 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#jsx_text.
     def exitJsx_text(self, ctx:OParser.Jsx_textContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#css_expression.
+    def enterCss_expression(self, ctx:OParser.Css_expressionContext):
+        pass
+
+    # Exit a parse tree produced by OParser#css_expression.
+    def exitCss_expression(self, ctx:OParser.Css_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#css_field.
+    def enterCss_field(self, ctx:OParser.Css_fieldContext):
+        pass
+
+    # Exit a parse tree produced by OParser#css_field.
+    def exitCss_field(self, ctx:OParser.Css_fieldContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#css_identifier.
+    def enterCss_identifier(self, ctx:OParser.Css_identifierContext):
+        pass
+
+    # Exit a parse tree produced by OParser#css_identifier.
+    def exitCss_identifier(self, ctx:OParser.Css_identifierContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#CssValue.
+    def enterCssValue(self, ctx:OParser.CssValueContext):
+        pass
+
+    # Exit a parse tree produced by OParser#CssValue.
+    def exitCssValue(self, ctx:OParser.CssValueContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#CssText.
+    def enterCssText(self, ctx:OParser.CssTextContext):
+        pass
+
+    # Exit a parse tree produced by OParser#CssText.
+    def exitCssText(self, ctx:OParser.CssTextContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#css_text.
+    def enterCss_text(self, ctx:OParser.Css_textContext):
+        pass
+
+    # Exit a parse tree produced by OParser#css_text.
+    def exitCss_text(self, ctx:OParser.Css_textContext):
         pass
 
 
