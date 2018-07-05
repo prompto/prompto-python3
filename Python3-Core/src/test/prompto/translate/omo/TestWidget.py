@@ -8,4 +8,7 @@ class TestWidget(BaseOParserTest):
     def testMinimal(self):
         self.compareResourceOMO("widget/minimal.poc")
 
+    def testNative(self):
+        self.compareResourceOMO("widget/native.poc")
+
 

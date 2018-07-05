@@ -13,4 +13,7 @@ class TestWidget(BaseOParserTest):
     def testMinimal(self):
         self.checkOutput("widget/minimal.poc")
 
+    def testNative(self):
+        self.checkOutput("widget/native.poc")
+
 

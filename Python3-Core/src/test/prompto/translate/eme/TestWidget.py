@@ -8,4 +8,7 @@ class TestWidget(BaseEParserTest):
     def testMinimal(self):
         self.compareResourceEME("widget/minimal.pec")
 
+    def testNative(self):
+        self.compareResourceEME("widget/native.pec")
+
 

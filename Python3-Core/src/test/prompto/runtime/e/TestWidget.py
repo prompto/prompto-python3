@@ -13,4 +13,7 @@ class TestWidget(BaseEParserTest):
     def testMinimal(self):
         self.checkOutput("widget/minimal.pec")
 
+    def testNative(self):
+        self.checkOutput("widget/native.pec")
+
 

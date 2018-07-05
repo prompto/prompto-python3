@@ -22,6 +22,9 @@ class TestNative(BaseEParserTest):
     def testCategory(self):
         self.checkOutput("native/category.pec")
 
+    def testCategoryReturn(self):
+        self.checkOutput("native/categoryReturn.pec")
+
     def testMethod(self):
         self.checkOutput("native/method.pec")
 

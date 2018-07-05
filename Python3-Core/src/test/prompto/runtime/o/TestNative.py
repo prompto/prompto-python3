@@ -13,6 +13,9 @@ class TestNative(BaseOParserTest):
     def testCategory(self):
         self.checkOutput("native/category.poc")
 
+    def testCategoryReturn(self):
+        self.checkOutput("native/categoryReturn.poc")
+
     def testMethod(self):
         self.checkOutput("native/method.poc")
 

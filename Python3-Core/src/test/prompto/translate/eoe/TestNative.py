@@ -17,6 +17,9 @@ class TestNative(BaseEParserTest):
     def testCategory(self):
         self.compareResourceEOE("native/category.pec")
 
+    def testCategoryReturn(self):
+        self.compareResourceEOE("native/categoryReturn.pec")
+
     def testMethod(self):
         self.compareResourceEOE("native/method.pec")
 

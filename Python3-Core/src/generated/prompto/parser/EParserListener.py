@@ -62,6 +62,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#native_widget_declaration.
+    def enterNative_widget_declaration(self, ctx:EParser.Native_widget_declarationContext):
+        pass
+
+    # Exit a parse tree produced by EParser#native_widget_declaration.
+    def exitNative_widget_declaration(self, ctx:EParser.Native_widget_declarationContext):
+        pass
+
+
     # Enter a parse tree produced by EParser#concrete_category_declaration.
     def enterConcrete_category_declaration(self, ctx:EParser.Concrete_category_declarationContext):
         pass
@@ -1808,6 +1817,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#NativeWidgetDeclaration.
+    def enterNativeWidgetDeclaration(self, ctx:EParser.NativeWidgetDeclarationContext):
+        pass
+
+    # Exit a parse tree produced by EParser#NativeWidgetDeclaration.
+    def exitNativeWidgetDeclaration(self, ctx:EParser.NativeWidgetDeclarationContext):
+        pass
+
+
     # Enter a parse tree produced by EParser#type_identifier_list.
     def enterType_identifier_list(self, ctx:EParser.Type_identifier_listContext):
         pass
@@ -2813,15 +2831,6 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#modulo.
     def exitModulo(self, ctx:EParser.ModuloContext):
-        pass
-
-
-    # Enter a parse tree produced by EParser#native_widget_declaration.
-    def enterNative_widget_declaration(self, ctx:EParser.Native_widget_declarationContext):
-        pass
-
-    # Exit a parse tree produced by EParser#native_widget_declaration.
-    def exitNative_widget_declaration(self, ctx:EParser.Native_widget_declarationContext):
         pass
 
 

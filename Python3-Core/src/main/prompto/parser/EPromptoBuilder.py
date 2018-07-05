@@ -38,6 +38,7 @@ from prompto.declaration.NativeGetterMethodDeclaration import NativeGetterMethod
 from prompto.declaration.NativeMethodDeclaration import NativeMethodDeclaration
 from prompto.declaration.NativeResourceDeclaration import NativeResourceDeclaration
 from prompto.declaration.NativeSetterMethodDeclaration import NativeSetterMethodDeclaration
+from prompto.declaration.NativeWidgetDeclaration import NativeWidgetDeclaration
 from prompto.declaration.OperatorMethodDeclaration import OperatorMethodDeclaration
 from prompto.declaration.SetterMethodDeclaration import SetterMethodDeclaration
 from prompto.declaration.SingletonCategoryDeclaration import SingletonCategoryDeclaration
@@ -695,6 +696,11 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitConcreteWidgetDeclaration(self, ctx: EParser.ConcreteWidgetDeclarationContext):
+        decl = self.getNodeValue(ctx.decl)
+        self.setNodeValue(ctx, decl)
+
+
+    def exitNativeWidgetDeclaration(self, ctx: EParser.NativeWidgetDeclarationContext):
         decl = self.getNodeValue(ctx.decl)
         self.setNodeValue(ctx, decl)
 
@@ -1595,6 +1601,15 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, decl)
 
     
+    def exitNative_widget_declaration(self, ctx:EParser.Native_widget_declarationContext):
+        name = self.getNodeValue(ctx.name)
+        bindings = self.getNodeValue(ctx.bindings)
+        methods = self.getNodeValue(ctx.methods)
+        decl = NativeWidgetDeclaration(name, bindings, methods)
+        self.setNodeValue(ctx, decl)
+
+
+
     def exitNativeCategoryDeclaration(self, ctx:EParser.NativeCategoryDeclarationContext):
         decl = self.getNodeValue(ctx.decl)
         self.setNodeValue(ctx, decl)

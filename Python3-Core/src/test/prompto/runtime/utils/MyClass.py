@@ -18,6 +18,9 @@ class MyClass(object):
     def printDisplay(self):
         print(self.display,end='')
 
+    def getDisplay(self):
+        return self.display
+
     @staticmethod
     def boolValue():
         return True

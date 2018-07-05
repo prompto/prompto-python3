@@ -8,6 +8,9 @@ class TestNative(BaseOParserTest):
     def testCategory(self):
         self.compareResourceOMO("native/category.poc")
 
+    def testCategoryReturn(self):
+        self.compareResourceOMO("native/categoryReturn.poc")
+
     def testMethod(self):
         self.compareResourceOMO("native/method.poc")
 
