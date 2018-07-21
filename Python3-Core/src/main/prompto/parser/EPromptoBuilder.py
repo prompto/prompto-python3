@@ -2498,7 +2498,7 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitJavascript_category_binding(self, ctx:EParser.Javascript_category_bindingContext):
-        identifier = ctx.identifier().getText()
+        identifier = ".".join([cx.getText() for cx in ctx.identifier()])
         module = self.getNodeValue(ctx.javascript_module())
         map = JavaScriptNativeCategoryBinding(identifier, module)
         self.setNodeValue(ctx, map)
