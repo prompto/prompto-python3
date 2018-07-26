@@ -68,7 +68,7 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
         try:
             local = context.newLocalContext()
             self.registerArguments(local)
-            assignmentsList = ArgumentAssignmentList(list_=assignments)
+            assignmentsList = ArgumentAssignmentList(items=assignments)
             for argument in self.arguments:
                 assignment = assignmentsList.find(argument.getName())
                 toRemove = assignment

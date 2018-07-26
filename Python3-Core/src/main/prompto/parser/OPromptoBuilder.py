@@ -853,7 +853,7 @@ class OPromptoBuilder(OParserListener):
 
     def exitArgumentAssignmentList(self, ctx:OParser.ArgumentAssignmentListContext):
         item = self.getNodeValue(ctx.item)
-        items = ArgumentAssignmentList(item=item)
+        items = ArgumentAssignmentList(items=[item])
         self.setNodeValue(ctx, items)
     
 

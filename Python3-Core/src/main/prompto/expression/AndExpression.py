@@ -29,7 +29,7 @@ class AndExpression ( IExpression ):
         lt = self.left.check(context)
         rt = self.right.check(context)
         if not isinstance(lt, BooleanType) or not isinstance(rt, BooleanType):
-            raise SyntaxError("Cannot combine " + lt.getName() + " and " + rt.getName())
+            raise SyntaxError("Cannot combine " + lt.typeName + " and " + rt.typeName)
         return BooleanType.instance
 
     def interpret(self, context):

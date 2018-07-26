@@ -1,16 +1,37 @@
 from io import StringIO
+
+from prompto.argument.AttributeArgument import AttributeArgument
+from prompto.expression.AndExpression import AndExpression
+from prompto.grammar.ArgumentAssignment import ArgumentAssignment
 from prompto.grammar.IDialectElement import IDialectElement
 
 
 class ArgumentAssignmentList(list, IDialectElement):
 
-    def __init__(self, list_=None, item=None):
-        if list_ == None:
+    def __init__(self, items=None):
+        if items == None:
             super(ArgumentAssignmentList, self).__init__()
         else:
-            super(ArgumentAssignmentList, self).__init__(list_)
-        if item != None:
-            self.append(item)
+            super(ArgumentAssignmentList, self).__init__(items)
+
+    # post - fix expression priority for final assignment in E dialect
+    # 'xyz with a and b as c' should read 'xyz with a, b as c' NOT 'xyz with (a and b) as c'
+    def checkLastAnd(self):
+        assignment = self[-1]
+        if assignment is not None and assignment.getArgument() is not None and isinstance(assignment.getExpression(), AndExpression):
+            _and = assignment.getExpression()
+            from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
+            if isinstance(_and.left, UnresolvedIdentifier):
+                name = _and.left.name
+                if name[0].islower():
+                    del self[-1]
+                    # add AttributeArgument
+                    argument = AttributeArgument(name)
+                    attribute = ArgumentAssignment(argument, None)
+                    self.append(attribute)
+                    # fix last assignment
+                    assignment.setExpression( _and.right)
+                    self.append(assignment)
 
     def find(self, name):
         for assignment in self:
@@ -18,11 +39,13 @@ class ArgumentAssignmentList(list, IDialectElement):
                 return assignment
         return None
 
+
     def makeAssignments(self, context, declaration):
         assignments = ArgumentAssignmentList()
         for assignment in self:
             assignments.append(assignment.makeAssignment(context, declaration))
         return assignments
+
 
     def __str__(self):
         li = self

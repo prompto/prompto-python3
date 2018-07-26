@@ -861,6 +861,8 @@ class EPromptoBuilder(EParserListener):
         item = self.getNodeValue(ctx.item)
         if item is not None:
             items.append(item)
+        else:
+            items.checkLastAnd()
         self.setNodeValue(ctx, items)
     
 
@@ -870,13 +872,15 @@ class EPromptoBuilder(EParserListener):
         item = self.getNodeValue(ctx.item)
         if item is not None:
             items.append(item)
+        else:
+            items.checkLastAnd()
         self.setNodeValue(ctx, items)
     
 
     
     def exitArgumentAssignmentList(self, ctx:EParser.ArgumentAssignmentListContext):
         item = self.getNodeValue(ctx.item)
-        items = ArgumentAssignmentList(item=item)
+        items = ArgumentAssignmentList(items=[item])
         self.setNodeValue(ctx, items)
     
 

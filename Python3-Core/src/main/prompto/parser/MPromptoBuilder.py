@@ -322,7 +322,7 @@ class MPromptoBuilder(MParserListener):
 
     def exitArgumentAssignmentList(self, ctx:MParser.ArgumentAssignmentListContext):
         item = self.getNodeValue(ctx.item)
-        items = ArgumentAssignmentList(item=item)
+        items = ArgumentAssignmentList(items=[item])
         self.setNodeValue(ctx, items)
 
 
