@@ -22,7 +22,7 @@ class MethodSelector(MemberSelector):
         if self.parent is None:
             writer.append(self.name)
         else:
-            super(MethodSelector, self).toDialect(writer)
+            super(MethodSelector, self).parentAndMemberToDialect(writer)
 
     def getCandidates(self, context:Context, checkInstance:bool):
         if self.parent is None:
@@ -32,26 +32,26 @@ class MethodSelector(MemberSelector):
 
     def getGlobalCandidates(self, context:Context):
         from prompto.runtime.Context import MethodDeclarationMap
-        methods = []
+        methods = set()
         # if called from a member method, could be a member method called without this/self
         if isinstance(context.getParentContext(), InstanceContext):
             from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
             typ = context.getParentContext().instanceType
             cd = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, typ.typeName)
             if cd is not None:
-                members = cd.getMemberMethods(context, self.name)
+                members = cd.getMemberMethodsMap(context, self.name)
                 if members is not None:
-                    methods.extend(members)
-        globs = context.getRegisteredDeclaration(MethodDeclarationMap, self.name)
-        if globs is not None:
-            methods.extend(globs.values())
+                    methods.update(members.values())
+        globals = context.getRegisteredDeclaration(MethodDeclarationMap, self.name)
+        if globals is not None:
+            methods.update(globals.values())
         return methods
 
 
     def getMemberCandidates(self, context:Context, checkInstance:bool):
         parentType = self.checkParentType(context, checkInstance)
-        return parentType.getMemberMethods(context, self.name)
-
+        methods = parentType.getMemberMethods(context, self.name)
+        return set(methods)
 
 
     def checkParentType(self, context:Context, checkInstance:bool):

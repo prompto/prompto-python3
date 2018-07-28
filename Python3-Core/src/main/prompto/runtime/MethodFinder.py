@@ -23,7 +23,7 @@ class MethodFinder(object):
         if len(compatibles) == 0:
             raise SyntaxError("No matching prototype for:" + str(self.methodCall))
         elif len(compatibles) == 1:
-            return compatibles[0]
+            return compatibles.pop()
         else:
             return self.findMostSpecific(compatibles, checkInstance)
 
@@ -89,12 +89,12 @@ class MethodFinder(object):
 
 
     def filterCompatible(self, candidates, checkInstance):
-        compatibles = []
+        compatibles = set()
         for declaration in candidates:
             try:
                 args = self.methodCall.makeAssignments(self.context, declaration)
                 if declaration.isAssignableTo(self.context, args, checkInstance):
-                    compatibles.append(declaration)
+                    compatibles.add(declaration)
             except SyntaxError:
                 # OK
                 pass

@@ -273,7 +273,7 @@ class OPromptoBuilder(OParserListener):
 
     def exitTypeIdentifier(self, ctx:OParser.TypeIdentifierContext):
         name = self.getNodeValue(ctx.type_identifier())
-        self.setNodeValue(ctx, UnresolvedIdentifier(name))
+        self.setNodeValue(ctx, UnresolvedIdentifier(name, Dialect.O))
     
 
     
@@ -782,7 +782,7 @@ class OPromptoBuilder(OParserListener):
 
     def exitMethodName(self, ctx:OParser.MethodNameContext):
         name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, UnresolvedIdentifier(name))
+        self.setNodeValue(ctx, UnresolvedIdentifier(name, Dialect.O))
 
 
 

@@ -70,11 +70,13 @@ class CodeWriter(object):
         return CodeWriter(self.dialect, self.context.newLocalContext(), self.file, self.indenter)
 
 
+    def newChildWriter(self):
+        return CodeWriter(self.dialect, self.context.newChildContext(), self.file, self.indenter)
+
+
     def newInstanceWriter(self, typ):
         return CodeWriter(self.dialect, self.context.newInstanceContext(None, typ), self.file, self.indenter)
 
 
     def newMemberWriter(self):
-        local = self.context.newLocalContext()
-        local.setParentContext(self.context)
-        return CodeWriter(self.dialect, local, self.file, self.indenter)
+        return CodeWriter(self.dialect, self.context.newChildContext(), self.file, self.indenter)

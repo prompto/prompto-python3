@@ -65,8 +65,8 @@ class InstanceExpression(IExpression):
         else:
             named = context.getRegistered(self.name)
             if isinstance(named, MethodDeclarationMap):
-                for decl in named.values():
-                    return ClosureValue(context, MethodType(decl))
+                decl = named.getFirst()
+                return ClosureValue(context, MethodType(decl))
             else:
                 raise SyntaxError("No value or method with name:" + self.name)
 

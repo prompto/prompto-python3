@@ -3,6 +3,7 @@ from prompto.error.NullReferenceError import NullReferenceError
 from prompto.expression.IExpression import IExpression
 from prompto.parser.Section import Section
 from prompto.runtime.TransientVariable import TransientVariable
+from prompto.runtime.Variable import Variable
 from prompto.type.BooleanType import BooleanType
 from prompto.type.IterableType import IterableType
 from prompto.value.IFilterable import IFilterable
@@ -21,6 +22,14 @@ class FilteredExpression(Section, IExpression):
 
     def __str__(self):
         return "fetch any " + self.itemName + " from " + str(self.source) + " where " + str(self.predicate)
+
+
+    def toDialect(self, writer):
+        writer = writer.newChildWriter()
+        sourceType = self.source.check(writer.context)
+        itemType = sourceType.itemType
+        writer.context.registerValue(Variable(self.itemName, itemType))
+        super().toDialect(writer)
 
 
 
@@ -53,9 +62,9 @@ class FilteredExpression(Section, IExpression):
         listType = self.source.check(context)
         if not isinstance(listType, IterableType):
             raise SyntaxError("Expecting an iterable type as data source !")
-        local = context.newChildContext()
-        local.registerValue(TransientVariable(self.itemName, listType.getItemType()))
-        filterType = self.predicate.check(local)
+        child = context.newChildContext()
+        child.registerValue(TransientVariable(self.itemName, listType.getItemType()))
+        filterType = self.predicate.check(child)
         if filterType is not BooleanType.instance:
             raise SyntaxError("Filtering expression must return a boolean !")
         return listType
@@ -72,7 +81,7 @@ class FilteredExpression(Section, IExpression):
             raise NullReferenceError()
         if not isinstance(items, IFilterable):
             raise InternalError("Illegal fetch source: " + str(items))
-        local = context.newChildContext()
+        child = context.newChildContext()
         item = TransientVariable(self.itemName, itemType)
-        local.registerValue(item)
-        return items.filter(local, self.itemName, self.predicate)
+        child.registerValue(item)
+        return items.filter(child, self.itemName, self.predicate)

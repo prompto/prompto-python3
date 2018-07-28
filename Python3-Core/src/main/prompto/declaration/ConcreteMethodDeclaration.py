@@ -1,15 +1,18 @@
-from prompto.argument.CategoryArgument import *
-from prompto.argument.CodeArgument import *
+from prompto.argument.CategoryArgument import CategoryArgument
+from prompto.argument.CodeArgument import CodeArgument
 from prompto.declaration.BaseMethodDeclaration import BaseMethodDeclaration
-from prompto.type.DictType import *
-from prompto.type.TextType import *
-from prompto.type.VoidType import *
+from prompto.statement.StatementList import StatementList
+from prompto.type.DictType import DictType
+from prompto.type.TextType import TextType
+from prompto.type.VoidType import VoidType
 
 
 class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
 
     def __init__(self, name, arguments, returnType, statements):
         super(ConcreteMethodDeclaration, self).__init__(name, arguments, returnType)
+        if statements is None:
+            statements = StatementList()
         self.statements = statements
 
     def getStatements(self):
@@ -76,6 +79,7 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
     def toDialect(self, writer):
         if writer.isGlobalContext():
             writer = writer.newLocalWriter()
+        self.registerArguments(writer.context)
         super(ConcreteMethodDeclaration, self).toDialect(writer)
 
     def toMDialect(self, writer):

@@ -8,6 +8,8 @@ from prompto.runtime.IContext import IContext
 from prompto.runtime.LinkedValue import LinkedValue
 from prompto.runtime.Variable import Variable
 from prompto.type.DecimalType import DecimalType
+from prompto.type.MethodType import MethodType
+from prompto.value.ClosureValue import ClosureValue
 from prompto.value.ContextualExpression import ContextualExpression
 from prompto.value.Decimal import Decimal
 from prompto.value.ExpressionValue import ExpressionValue
@@ -177,6 +179,7 @@ class Context(IContext):
             raise SyntaxError("Duplicate name: \"" + declaration.getName() + "\"")
         self.declarations[declaration.getName()] = declaration
 
+
     def registerMethodDeclaration(self, declaration):
         actual = self.getRegistered(declaration.getName())
         if actual is not None and not isinstance(actual, MethodDeclarationMap):
@@ -184,7 +187,8 @@ class Context(IContext):
         if actual is None:
             actual = MethodDeclarationMap(declaration.getName())
             self.declarations[declaration.getName()] = actual
-        actual.register(declaration, self)
+        actual.register(declaration)
+
 
     def registerTestDeclaration(self, declaration):
         actual = self.tests.get(declaration.name, None)
@@ -192,8 +196,10 @@ class Context(IContext):
             raise SyntaxError("Duplicate test: \"" + declaration.name + "\"")
         self.tests[declaration.name] = declaration
 
+
     def hasTests(self):
         return len(self.tests)>0
+
 
     def getRegisteredValue(self, klass, name):
         context = self.contextForValue(name)
@@ -201,6 +207,7 @@ class Context(IContext):
             return None
         else:
             return context.readRegisteredValue(klass, name)
+
 
     def readRegisteredValue(self, klass, name):
         actual = self.instances.get(name, None)
@@ -375,6 +382,26 @@ class InstanceContext(Context):
         self.instance = instance
         self.instanceType = itype if itype is not None else instance.itype
 
+
+    def getRegistered(self, name):
+        actual = super().getRegistered(name)
+        if actual is not None:
+            return actual
+        decl = self.getDeclaration()
+        methods = decl.getMemberMethodsMap(self, name)
+        return methods if len(methods)>0 else None
+
+
+    def getRegisteredDeclaration(self, klass, name):
+        if klass is MethodDeclarationMap:
+            decl = self.getDeclaration()
+            if decl is not None:
+                methods = decl.getMemberMethodsMap(self, name)
+                if methods is not None and len(methods) > 0:
+                    return methods
+        return super().getRegisteredDeclaration(klass, name)
+
+
     def readRegisteredValue(self, klass, name):
         actual = self.instances.get(name, None)
         # not very pure, but avoids a lot of complexity when registering a value
@@ -385,16 +412,19 @@ class InstanceContext(Context):
             self.instances[name] = actual
         return actual
 
+
     def contextForValue(self, name):
         # params and variables have precedence over members
         # so first look in context values
         context = super(InstanceContext, self).contextForValue(name)
         if context is not None:
             return context
-        elif self.getDeclaration().hasAttribute(self, name):
+        decl = self.getDeclaration()
+        if decl.hasAttribute(self, name) or decl.hasMethod(self, name):
             return self
         else:
             return None
+
 
     def getDeclaration(self):
         if self.instance is not None:
@@ -403,16 +433,16 @@ class InstanceContext(Context):
             from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
             return self.getRegisteredDeclaration(ConcreteCategoryDeclaration, self.instanceType.typeName)
 
-    def readValue(self, name):
-        value = self.instance.getMemberValue(self.calling, name)
-        if value is None:
-            return None
-        if isinstance(value, IExpression):
-            return ContextualExpression(self, value)
-        else:
-            decl = self.getRegisteredDeclaration(AttributeDeclaration, name)
-            return ExpressionValue(decl.getType(), value)
 
+    def readValue(self, name):
+        decl = self.getDeclaration()
+        if decl.hasAttribute(self, name):
+            return self.instance.getMemberValue(self.calling, name)
+        elif decl.hasMethod(self, name):
+            method = decl.getMemberMethodsMap(self, name).getFirst()
+            return ClosureValue(self, MethodType(method))
+        else:
+            return None
 
 
     def writeValue(self, name, value):
@@ -440,7 +470,7 @@ class MethodDeclarationMap(dict, IDeclaration):
 
 
 
-    def register(self, declaration, context):
+    def register(self, declaration):
         proto = declaration.getProto()
         if self.get(proto, None) is not None:
             raise SyntaxError("Duplicate prototype for name: \"" + declaration.name + "\"")
@@ -448,7 +478,7 @@ class MethodDeclarationMap(dict, IDeclaration):
 
 
 
-    def registerIfMissing(self, declaration, context):
+    def registerIfMissing(self, declaration):
         proto = declaration.getProto()
         if self.get(proto, None) is None:
             self[proto] = declaration

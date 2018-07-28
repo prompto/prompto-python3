@@ -275,7 +275,7 @@ class EPromptoBuilder(EParserListener):
 
     def exitIdentifierExpression(self, ctx:EParser.IdentifierExpressionContext):
         name = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, UnresolvedIdentifier(name))
+        self.setNodeValue(ctx, UnresolvedIdentifier(name, Dialect.E))
 
 
     def exitTypeIdentifier(self, ctx:EParser.TypeIdentifierContext):
@@ -297,7 +297,7 @@ class EPromptoBuilder(EParserListener):
 
     def exitUnresolvedIdentifier(self, ctx:EParser.UnresolvedIdentifierContext):
         name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, UnresolvedIdentifier(name))
+        self.setNodeValue(ctx, UnresolvedIdentifier(name, Dialect.E))
 
 
     def exitUnresolvedSelector(self, ctx:EParser.UnresolvedSelectorContext):
@@ -307,7 +307,6 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, selector)
     
 
-    
     def exitUnresolved_selector(self, ctx:EParser.Unresolved_selectorContext):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, MemberSelector(name))

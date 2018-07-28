@@ -75,7 +75,7 @@ class UnresolvedCall(SimpleStatement):
 
     def resolveUnresolvedMember(self, context:InstanceContext, name:str):
         decl = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, context.instanceType.typeName)
-        methods = decl.getMemberMethods(context, name)
+        methods = decl.getMemberMethodsMap(context, name)
         if methods is not None and len(methods)>0:
             return methods
         else:

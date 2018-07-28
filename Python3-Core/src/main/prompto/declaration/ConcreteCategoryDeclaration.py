@@ -50,7 +50,7 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         if self.derivedFrom is None:
             return False
         for ancestor in self.derivedFrom:
-            if self.ancestorHasAttribute(ancestor,context,name):
+            if self.ancestorHasAttribute(ancestor, context, name):
                 return True
         return False
 
@@ -62,6 +62,30 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
             return False
         return actual.hasAttribute(context, name)
 
+
+    def hasMethod(self, context, name):
+        self.registerMethods(context)
+        if self.methodsMap.get(name) is not None:
+            return True
+        if self.hasDerivedMethod(context,name):
+            return True
+        return False
+
+
+    def hasDerivedMethod(self, context, name):
+        if self.derivedFrom is None:
+            return False
+        for ancestor in self.derivedFrom:
+            if self.ancestorHasMethod(ancestor,context,name):
+                return True
+        return False
+
+
+    def ancestorHasMethod(self, ancestor, context, name):
+        actual = context.getRegisteredDeclaration(CategoryDeclaration, ancestor)
+        if actual is None:
+            return False
+        return actual.hasMethod(context, name)
 
 
     def getAllAttributes(self, context):
@@ -126,7 +150,7 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
             if actual is None:
                 actual = MethodDeclarationMap(method.getName())
                 self.methodsMap[method.getName()] = actual
-            actual.register(method,context)
+            actual.register(method)
 
 
 
@@ -216,21 +240,25 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
                 return method
         return None
 
+
     def findAncestorSetter(self, ancestor, context, attrName):
         actual = context.getRegisteredDeclaration(IDeclaration, ancestor)
         if actual is None or not isinstance(actual, ConcreteCategoryDeclaration):
             return None
         return actual.findSetter(context, attrName)
 
-    def getMemberMethods(self, context, name):
+
+    def getMemberMethodsMap(self, context, name):
         self.registerMethods(context)
-        result = MethodDeclarationMap(name)
-        self.registerMemberMethods(context,result)
-        return result.values()
+        methods = MethodDeclarationMap(name)
+        self.registerMemberMethods(context, methods)
+        return methods
+
 
     def registerMemberMethods(self, context, result):
-        self.registerSelfMemberMethods(context,result)
-        self.registerDerivedMemberMethods(context,result)
+        self.registerSelfMemberMethods(context, result)
+        self.registerDerivedMemberMethods(context, result)
+
 
     def registerSelfMemberMethods(self, context, result):
         if self.methodsMap is None:
@@ -241,7 +269,7 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         if not isinstance(actual, MethodDeclarationMap):
             raise SyntaxError("Not a member method!")
         for method in actual.values():
-            result.registerIfMissing(method, context)
+            result.registerIfMissing(method)
 
     def registerDerivedMemberMethods(self, context, result):
         if self.derivedFrom is None:
@@ -302,12 +330,12 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
 
     def getOperatorMethod(self, context, operator, type):
         methodName = "operator_" + operator.name
-        methods = self.getMemberMethods(context, methodName)
+        methods = self.getMemberMethodsMap(context, methodName)
         if methods is None:
             return None
         # find best candidate
         candidate = None
-        for method in methods:
+        for method in methods.values():
             potential = method.arguments[0].getType(context)
             if not potential.isAssignableFrom(context, type):
                 continue

@@ -45,7 +45,7 @@ class CategoryDeclaration(BaseDeclaration):
         return None if self.attributes is None else set(self.attributes)
 
 
-    def hasMethod(self, context, key, object_):
+    def hasMethod(self, context, key):
         return False
 
 

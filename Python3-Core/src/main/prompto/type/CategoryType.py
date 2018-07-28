@@ -7,10 +7,12 @@ from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.ArgumentAssignment import ArgumentAssignment
 from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
 from prompto.grammar.Operator import Operator
+from prompto.parser.Dialect import Dialect
 from prompto.runtime.Score import Score
 from prompto.store.DataStore import DataStore
 from prompto.store.Store import IStored
 from prompto.store.TypeFamily import TypeFamily
+from prompto.type.MethodType import MethodType
 from prompto.type.TextType import TextType
 from prompto.type.BaseType import BaseType
 from prompto.type.IType import IType
@@ -152,6 +154,9 @@ class CategoryType(BaseType):
                     return ad.getType(context)
             elif "text" == name:
                 return TextType.instance
+            elif dd.hasMethod(context, name):
+                method = dd.getMemberMethods(context, name).getFirst()
+                return MethodType(method)
             else:
                 raise SyntaxError("No attribute:" + name + " in category:" + self.typeName)
         else:
@@ -244,23 +249,26 @@ class CategoryType(BaseType):
             return Score.WORSE
         return Score.SIMILAR  # should never happen
 
+
     def newInstance(self, context):
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
         decl = context.getRegisteredDeclaration(CategoryDeclaration, self.typeName)
         return decl.newInstance(context)
 
+
     def sort(self, context, source, desc, key):
         if key is None:
-            key = UnresolvedIdentifier("key")
+            key = UnresolvedIdentifier("key", Dialect.M)
         decl = self.getDeclaration(context)
         if decl.hasAttribute(context, str(key)):
             return self.sortByAttribute(context, source, desc, str(key))
-        elif decl.hasMethod(context, str(key), None):
+        elif decl.hasMethod(context, str(key)):
             return self.sortByClassMethod(context, source, desc, str(key))
         elif self.globalMethodExists(context, source, str(key)):
             return self.sortByGlobalMethod(context, source, desc, str(key))
         else:
             return self.sortByExpression(context, source, desc, key)
+
 
     def sortByExpression(self, context, source, desc, exp):
 
@@ -270,6 +278,7 @@ class CategoryType(BaseType):
 
         return sorted(source, key=keyGetter, reverse=desc)
 
+
     def sortByAttribute(self, context, source, desc, name):
 
         def keyGetter(o):
@@ -277,8 +286,10 @@ class CategoryType(BaseType):
 
         return sorted(source, key=keyGetter, reverse=desc)
 
+
     def sortByClassMethod(self, context, source, name):
         return None
+
 
     def globalMethodExists(self, context, source, name):
         from prompto.statement.MethodCall import MethodCall
@@ -293,6 +304,7 @@ class CategoryType(BaseType):
         except PromptoError:
             return False
 
+
     def sortByGlobalMethod(self, context, source, desc, name):
         from prompto.statement.MethodCall import MethodCall
         from prompto.runtime.MethodFinder import MethodFinder
@@ -303,6 +315,7 @@ class CategoryType(BaseType):
         finder = MethodFinder(context, proto)
         method = finder.findMethod(True)
         return self.doSortByGlobalMethod(context, source, desc, proto, method)
+
 
     def doSortByGlobalMethod(self, context, source, desc, method, declaration):
 
@@ -339,4 +352,4 @@ class CategoryType(BaseType):
         if not isinstance(cd, ConcreteCategoryDeclaration):
             raise SyntaxError("Unknown category:" + self.typeName)
         else:
-            return cd.getMemberMethods(context, name)
+            return cd.getMemberMethodsMap(context, name).values()

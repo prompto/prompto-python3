@@ -77,6 +77,13 @@ class SwitchErrorStatement(BaseSwitchStatement):
         context.setValue(self.errorName, error)
         return error
 
+
+    def toDialect(self, writer):
+        writer = writer.newLocalWriter()
+        writer.context.registerValue(ErrorVariable(self.errorName))
+        super().toDialect(writer)
+
+
     def toODialect(self, writer):
         writer.append("try (")
         writer.append(self.errorName)
@@ -101,6 +108,8 @@ class SwitchErrorStatement(BaseSwitchStatement):
             writer.dedent()
             writer.append("}")
         writer.newLine()
+
+
 
     def toMDialect(self, writer):
         writer.append("try ")

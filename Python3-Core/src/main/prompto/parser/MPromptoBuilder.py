@@ -445,7 +445,7 @@ class MPromptoBuilder(MParserListener):
 
     def exitCallableRoot(self, ctx:MParser.CallableRootContext):
         name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, UnresolvedIdentifier(name))
+        self.setNodeValue(ctx, UnresolvedIdentifier(name, Dialect.M))
 
 
 
@@ -1086,7 +1086,7 @@ class MPromptoBuilder(MParserListener):
 
     def exitIdentifierExpression(self, ctx:MParser.IdentifierExpressionContext):
         name = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, UnresolvedIdentifier(name))
+        self.setNodeValue(ctx, UnresolvedIdentifier(name, Dialect.M))
 
 
     def exitIf_statement(self, ctx:MParser.If_statementContext):
@@ -1594,7 +1594,7 @@ class MPromptoBuilder(MParserListener):
 
     def exitMethodName(self, ctx:MParser.MethodNameContext):
         name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, UnresolvedIdentifier(name))
+        self.setNodeValue(ctx, UnresolvedIdentifier(name, Dialect.M))
 
 
     def exitMethodParent(self, ctx:MParser.MethodParentContext):
