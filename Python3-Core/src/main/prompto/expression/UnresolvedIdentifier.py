@@ -1,9 +1,12 @@
 from prompto.declaration.EnumeratedNativeDeclaration import EnumeratedNativeDeclaration
+from prompto.declaration.IDeclaration import IDeclaration
 from prompto.expression.ConstructorExpression import ConstructorExpression
 from prompto.expression.InstanceExpression import InstanceExpression
+from prompto.expression.IExpression import IExpression
 from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.SymbolExpression import SymbolExpression
 from prompto.expression.TypeExpression import TypeExpression
+from prompto.parser.Dialect import Dialect
 from prompto.type.NativeType import NativeType
 
 
