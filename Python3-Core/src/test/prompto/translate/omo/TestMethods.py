@@ -20,6 +20,9 @@ class TestMethods(BaseOParserTest):
     def testExplicit(self):
         self.compareResourceOMO("methods/explicit.poc")
 
+    def testExplicitMember(self):
+        self.compareResourceOMO("methods/explicitMember.poc")
+
     def testExpressionWith(self):
         self.compareResourceOMO("methods/expressionWith.poc")
 

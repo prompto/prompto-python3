@@ -20,6 +20,9 @@ class TestMethods(BaseEParserTest):
     def testExplicit(self):
         self.compareResourceEME("methods/explicit.pec")
 
+    def testExplicitMember(self):
+        self.compareResourceEME("methods/explicitMember.pec")
+
     def testExpressionWith(self):
         self.compareResourceEME("methods/expressionWith.pec")
 

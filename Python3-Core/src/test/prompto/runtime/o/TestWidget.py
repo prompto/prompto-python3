@@ -16,4 +16,7 @@ class TestWidget(BaseOParserTest):
     def testNative(self):
         self.checkOutput("widget/native.poc")
 
+    def testWithEvent(self):
+        self.checkOutput("widget/withEvent.poc")
+
 

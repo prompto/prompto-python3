@@ -25,6 +25,9 @@ class TestMethods(BaseEParserTest):
     def testExplicit(self):
         self.checkOutput("methods/explicit.pec")
 
+    def testExplicitMember(self):
+        self.checkOutput("methods/explicitMember.pec")
+
     def testExpressionWith(self):
         self.checkOutput("methods/expressionWith.pec")
 
