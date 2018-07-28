@@ -155,7 +155,7 @@ class CategoryType(BaseType):
             elif "text" == name:
                 return TextType.instance
             elif dd.hasMethod(context, name):
-                method = dd.getMemberMethods(context, name).getFirst()
+                method = dd.getMemberMethodsMap(context, name).getFirst()
                 return MethodType(method)
             else:
                 raise SyntaxError("No attribute:" + name + " in category:" + self.typeName)
