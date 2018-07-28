@@ -1,6 +1,6 @@
 from prompto.declaration.EnumeratedNativeDeclaration import EnumeratedNativeDeclaration
 from prompto.expression.ConstructorExpression import ConstructorExpression
-from prompto.expression.InstanceExpression import *
+from prompto.expression.InstanceExpression import InstanceExpression
 from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.SymbolExpression import SymbolExpression
 from prompto.expression.TypeExpression import TypeExpression
@@ -37,7 +37,6 @@ class UnresolvedIdentifier(IExpression):
 
     def checkMember(self, context):
         return self.resolveAndCheck(context, True)
-
 
 
     def interpret(self, context):
@@ -82,6 +81,7 @@ class UnresolvedIdentifier(IExpression):
         else:
             return self.resolveConstructor(context)
 
+
     def resolveSymbol(self, context):
         if self.name.isupper():
             return SymbolExpression(self.name)
@@ -106,6 +106,7 @@ class UnresolvedIdentifier(IExpression):
                     return TypeExpression(type)
         return None
 
+
     def resolveConstructor(self, context):
         from prompto.type.CategoryType import CategoryType
         try:
@@ -114,6 +115,7 @@ class UnresolvedIdentifier(IExpression):
             return ctor
         except SyntaxError as e:
             return None
+
 
     def resolveMethodCall(self, context):
         if not self.dialect is Dialect.E:
@@ -126,6 +128,7 @@ class UnresolvedIdentifier(IExpression):
             return method
         except SyntaxError:
             return None
+
 
     def resolveInstance(self, context):
         try:

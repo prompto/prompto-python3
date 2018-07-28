@@ -407,8 +407,8 @@ class InstanceContext(Context):
         # not very pure, but avoids a lot of complexity when registering a value
         if actual is None:
             attr = self.getRegisteredDeclaration(AttributeDeclaration, name)
-            itype = attr.getType()
-            actual = Variable(name, itype)
+            typ = attr.getType()
+            actual = Variable(name, typ)
             self.instances[name] = actual
         return actual
 

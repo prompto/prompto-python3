@@ -55,12 +55,31 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         return False
 
 
-
     def ancestorHasAttribute(self, ancestor, context, name):
         actual = context.getRegisteredDeclaration(CategoryDeclaration, ancestor)
         if actual is None:
             return False
         return actual.hasAttribute(context, name)
+
+
+    def getAllAttributes(self, context):
+        all = set()
+        more = super(ConcreteCategoryDeclaration, self).getAllAttributes(context)
+        if more is not None:
+            all = more
+        if self.derivedFrom is not None:
+            for name in self.derivedFrom:
+                names = self.getAncestorAttributes(context, name)
+                if names is not None:
+                    all = all.union(names)
+        return None if len(all)==0 else all
+
+
+
+    def getAncestorAttributes(self, context, ancestor):
+        decl = context.getRegisteredDeclaration(CategoryDeclaration, ancestor)
+        return None if decl is None else decl.getAllAttributes(context)
+
 
 
     def hasMethod(self, context, name):
@@ -88,31 +107,10 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         return actual.hasMethod(context, name)
 
 
-    def getAllAttributes(self, context):
-        all = set()
-        more = super(ConcreteCategoryDeclaration, self).getAllAttributes(context)
-        if more is not None:
-            all = more
-        if self.derivedFrom is not None:
-            for name in self.derivedFrom:
-                names = self.getAncestorAttributes(context, name)
-                if names is not None:
-                    all = all.union(names)
-        return None if len(all)==0 else all
-
-
-
-    def getAncestorAttributes(self, context, ancestor):
-        decl = context.getRegisteredDeclaration(CategoryDeclaration, ancestor)
-        return None if decl is None else decl.getAllAttributes(context)
-
-
-
     def check(self, context):
         self.checkDerived(context)
         self.checkMethods(context)
         return super(ConcreteCategoryDeclaration, self).check(context)
-
 
 
     def registerMethods(self, context):
@@ -124,13 +122,11 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
                     self.registerMethodDeclaration(method,context)
 
 
-
     def checkMethods(self, context):
         self.registerMethods(context)
         if self.methods is not None:
             for method in self.methods:
                 method.checkMember(self, context)
-
 
 
     def registerMethodDeclaration(self, method, context):
@@ -153,14 +149,12 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
             actual.register(method)
 
 
-
     def checkDerived(self, context):
         if self.derivedFrom is not None:
             for category in self.derivedFrom:
                 cd = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, category)
                 if cd is None:
                     raise SyntaxError("Unknown category: \"" + category + "\"")
-
 
 
     def isDerivedFrom(self, context, categoryType):
@@ -174,7 +168,6 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         return False
 
 
-
     def isAncestorDerivedFrom(self, ancestor, context, categoryType):
         actual = context.getRegisteredDeclaration(IDeclaration, ancestor)
         if actual is None and not isinstance(actual, CategoryDeclaration):
@@ -182,10 +175,8 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         return actual.isDerivedFrom(context, categoryType)
 
 
-
     def newInstance(self, context):
         return ConcreteInstance(context, self)
-
 
 
     def findGetter(self, context, attrName):
@@ -199,7 +190,6 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         return self.findDerivedGetter(context, attrName)
 
 
-
     def findDerivedGetter(self, context, attrName):
         if self.derivedFrom is None:
             return None
@@ -210,13 +200,11 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         return None
 
 
-
     def findAncestorGetter(self, ancestor, context, attrName):
         actual = context.getRegisteredDeclaration(IDeclaration, ancestor)
         if actual is None or not isinstance(actual, ConcreteCategoryDeclaration):
             return None
         return actual.findGetter(context, attrName)
-
 
 
     def findSetter(self, context, attrName):
@@ -228,7 +216,6 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         if method is not None:
             raise SyntaxError("Not a setter method!")
         return self.findDerivedSetter(context,attrName)
-
 
 
     def findDerivedSetter(self, context, attrName):

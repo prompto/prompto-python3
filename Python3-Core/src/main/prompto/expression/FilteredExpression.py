@@ -32,7 +32,6 @@ class FilteredExpression(Section, IExpression):
         super().toDialect(writer)
 
 
-
     def toMDialect(self, writer):
         self.source.toDialect(writer)
         writer.append(" filtered with ")

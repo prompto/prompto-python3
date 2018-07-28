@@ -16,8 +16,10 @@ class MemberSelector (SelectorExpression):
     def getName(self):
         return self.name
 
+
     def __str__(self):
         return str(self.parent) + "." + self.name
+
 
     def toDialect(self, writer):
         if writer.dialect == Dialect.E:
@@ -62,20 +64,23 @@ class MemberSelector (SelectorExpression):
         else:
             return instance.getMemberValue(context, self.name, True)
 
+
     def interpretTypeMember(self, context, parent):
        if isinstance(parent, TypeExpression):
            return parent.getMemberValue(context, self.name)
        else:
            return None
 
+
     def interpretSingleton(self, context, parent):
-        from prompto.type.EnumeratedCategoryType import EnumeratedCategoryType
         from prompto.type.CategoryType import CategoryType
+        from prompto.type.EnumeratedCategoryType import EnumeratedCategoryType
         if isinstance(parent, TypeExpression) and isinstance(parent.type, CategoryType) and not isinstance(parent.type, EnumeratedCategoryType):
             instance = context.loadSingleton(parent.type)
             if instance is not None:
                 return instance.getMemberValue(context, self.name, False)
         return None
+
 
     def resolveParent(self, context):
         if isinstance(self.parent, UnresolvedIdentifier):

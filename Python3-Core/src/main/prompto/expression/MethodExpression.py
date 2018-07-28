@@ -39,7 +39,6 @@ class MethodExpression(IExpression):
                 raise SyntaxError("No method with name:" + self.name)
 
 
-
     def toDialect(self, writer):
         if writer.dialect is Dialect.E:
             writer.append("Method: ")
