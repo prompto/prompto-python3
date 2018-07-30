@@ -1304,6 +1304,15 @@ class MParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MParser#annotation.
+    def enterAnnotation(self, ctx:MParser.AnnotationContext):
+        pass
+
+    # Exit a parse tree produced by MParser#annotation.
+    def exitAnnotation(self, ctx:MParser.AnnotationContext):
+        pass
+
+
     # Enter a parse tree produced by MParser#resource_declaration.
     def enterResource_declaration(self, ctx:MParser.Resource_declarationContext):
         pass
