@@ -7,6 +7,7 @@ class BaseDeclaration ( Section, IDeclaration ):
 		super().__init__()
 		self.name = name
 		self.comments = None
-		
+		self.annotations = None
+
 	def getName(self):
 		return self.name

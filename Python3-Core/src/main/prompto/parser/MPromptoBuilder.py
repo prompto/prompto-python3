@@ -83,6 +83,7 @@ from prompto.expression.TernaryExpression import TernaryExpression
 from prompto.expression.ThisExpression import ThisExpression
 from prompto.expression.TypeExpression import TypeExpression
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
+from prompto.grammar.Annotation import Annotation
 from prompto.grammar.ArgumentAssignment import ArgumentAssignment
 from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
 from prompto.grammar.ArgumentList import ArgumentList
@@ -289,6 +290,17 @@ class MPromptoBuilder(MParserListener):
         right = self.getNodeValue(ctx.right)
         exp = PlusExpression(left, right) if ctx.op.type == MParser.PLUS else SubtractExpression(left, right)
         self.setNodeValue(ctx, exp)
+
+
+    def exitAnnotation_constructor(self, ctx: MParser.Annotation_constructorContext):
+        name = self.getNodeValue(ctx.name)
+        exp = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, Annotation(name, exp))
+
+
+    def exitAnnotation_identifier(self, ctx: MParser.Annotation_identifierContext):
+        name = ctx.getText()
+        self.setNodeValue(ctx, name)
 
 
     def exitAndExpression(self, ctx:MParser.AndExpressionContext):
@@ -812,9 +824,12 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitDeclaration(self, ctx:MParser.DeclarationContext):
-        stmts = None
+        comments = None
         if ctx.comment_statement() is not None:
-            stmts = [ self.getNodeValue(ctx_) for ctx_ in ctx.comment_statement() ]
+            comments = [ self.getNodeValue(ctx_) for ctx_ in ctx.comment_statement() ]
+        annotations = None
+        if ctx.annotation_constructor() is not None:
+            annotations = [ self.getNodeValue(ctx_) for ctx_ in ctx.annotation_constructor() ]
         ctx_ = ctx.attribute_declaration()
         if ctx_ is None:
             ctx_ = ctx.category_declaration()
@@ -828,7 +843,8 @@ class MPromptoBuilder(MParserListener):
             ctx_ = ctx.widget_declaration()
         decl = self.getNodeValue(ctx_)
         if decl is not None:
-            decl.comments = stmts
+            decl.comments = comments
+            decl.annotations = annotations
             self.setNodeValue(ctx, decl)
 
 

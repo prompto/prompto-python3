@@ -59,5 +59,8 @@ class DeclarationList(list):
             if declaration.comments is not None:
                 for comment in declaration.comments:
                     comment.toDialect(writer)
+            if declaration.annotations is not None:
+                for annotation in declaration.annotations:
+                    annotation.toDialect(writer)
             declaration.toDialect(writer)
             writer.newLine()

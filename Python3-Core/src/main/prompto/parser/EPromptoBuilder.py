@@ -83,6 +83,7 @@ from prompto.expression.ThisExpression import ThisExpression
 from prompto.expression.TypeExpression import TypeExpression
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.expression.UnresolvedSelector import UnresolvedSelector
+from prompto.grammar.Annotation import Annotation
 from prompto.grammar.ArgumentAssignment import ArgumentAssignment
 from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
 from prompto.grammar.ArgumentList import ArgumentList
@@ -1433,9 +1434,12 @@ class EPromptoBuilder(EParserListener):
     
 
     def exitDeclaration(self, ctx:EParser.DeclarationContext):
-        stmts = None
+        comments = None
         if ctx.comment_statement() is not None:
-            stmts = [ self.getNodeValue(ctx_) for ctx_ in ctx.comment_statement() ]
+            comments = [ self.getNodeValue(ctx_) for ctx_ in ctx.comment_statement() ]
+        annotations = None
+        if ctx.annotation_constructor() is not None:
+            annotations = [ self.getNodeValue(ctx_) for ctx_ in ctx.annotation_constructor() ]
         ctx_ = ctx.attribute_declaration()
         if ctx_ is None:
             ctx_ = ctx.category_declaration()
@@ -1449,7 +1453,8 @@ class EPromptoBuilder(EParserListener):
             ctx_ = ctx.widget_declaration()
         decl = self.getNodeValue(ctx_)
         if decl is not None:
-            decl.comments = stmts
+            decl.comments = comments
+            decl.annotations = annotations
             self.setNodeValue(ctx, decl)
 
 
@@ -2024,12 +2029,24 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, ModuloExpression(left, right))
     
 
-    
+    def exitAnnotation_constructor(self, ctx:EParser.Annotation_constructorContext):
+        name = self.getNodeValue(ctx.name)
+        exp = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, Annotation(name, exp))
+
+
+    def exitAnnotation_identifier(self, ctx:EParser.Annotation_identifierContext):
+        name = ctx.getText()
+        self.setNodeValue(ctx, name)
+
+
+
     def exitAndExpression(self, ctx:EParser.AndExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, AndExpression(left, right))
-    
+
+
 
     def exitNullLiteral(self, ctx:EParser.NullLiteralContext):
         self.setNodeValue(ctx, NullLiteral.instance)
