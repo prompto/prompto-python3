@@ -1,5 +1,6 @@
 from prompto.expression.IExpression import IExpression
 from prompto.error.SyntaxError import SyntaxError
+from prompto.type.AnyType import AnyType
 from prompto.type.CategoryType import CategoryType
 from prompto.type.DecimalType import DecimalType
 from prompto.type.IntegerType import IntegerType
@@ -7,16 +8,25 @@ from prompto.value.Decimal import Decimal
 from prompto.value.Integer import Integer
 
 
+def anify(itype):
+    if isinstance(itype, CategoryType) and itype.typeName == "Any":
+        return AnyType.instance
+    else:
+        return itype
+
 class CastExpression (IExpression):
+
 
     def __init__(self, expression, itype):
         self.expression = expression
-        self.itype = itype
-
+        self.itype = anify(itype)
 
 
     def check(self, context):
-        actual = self.expression.check(context)
+        actual = anify(self.expression.check(context))
+        # check any
+        if actual == AnyType.instance:
+            return self.itype
         # check upcast
         if self.itype.isAssignableFrom(context, actual):
             return self.itype
