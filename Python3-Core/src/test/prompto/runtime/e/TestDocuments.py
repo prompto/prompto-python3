@@ -16,16 +16,19 @@ class TestDocuments(BaseEParserTest):
     def testDeepItem(self):
         self.checkOutput("documents/deepItem.pec")
 
-    def testDeepVariable(self):
-        self.checkOutput("documents/deepVariable.pec")
+    def testDeepMember(self):
+        self.checkOutput("documents/deepMember.pec")
 
     def testItem(self):
         self.checkOutput("documents/item.pec")
 
+    def testLiteral(self):
+        self.checkOutput("documents/literal.pec")
+
+    def testMember(self):
+        self.checkOutput("documents/member.pec")
+
     def testNamedItem(self):
         self.checkOutput("documents/namedItem.pec")
-
-    def testVariable(self):
-        self.checkOutput("documents/variable.pec")
 
 

@@ -1,58 +1,42 @@
 from prompto.literal.DictEntryList import DictEntryList
+from prompto.literal.DocEntryList import DocEntryList
 from prompto.literal.Literal import Literal
 from prompto.type.MissingType import MissingType
 from prompto.type.TextType import TextType
 from prompto.value.Dictionary import Dictionary
 from prompto.error.SyntaxError import SyntaxError
 from prompto.utils.TypeUtils import inferElementType
+from prompto.value.Document import Document
 
-class DictLiteral(Literal):
+
+class DocumentLiteral(Literal):
     # we can only compute keys by evaluating key expressions
     # so we can't just inherit from dict
     # so we keep the full entry list.
-    def __init__(self, mutable, entries=None):
+    def __init__(self, entries=None):
         if entries is None:
-            entries = DictEntryList()
-        super().__init__("<:>", Dictionary(MissingType.instance, mutable))
-        self.mutable = mutable
+            entries = DocEntryList()
+        super().__init__("{}", Document())
         self.entries = entries
-        self.itemType = None
 
 
     def toDialect(self, writer):
-        if self.mutable:
-            writer.append("mutable ")
         self.entries.toDialect(writer)
 
 
     def check(self, context):
-        from prompto.type.DictType import DictType
-        if self.itemType is None:
-            self.itemType = self.inferElementType(context)
-        return DictType(self.itemType)
-
-
-
-    def inferElementType(self, context):
-        if len(self.entries) == 0:
-            return MissingType.instance
-        keyTypes = [e.getKey().check(context) for e in self.entries]
-        for keyType in keyTypes:
-            if keyType != TextType.instance:
-                raise SyntaxError("Illegal key type: " + keyType.toString())
-        expressions = [e.getValue() for e in self.entries]
-        return inferElementType(context, expressions)
-
+        from prompto.type.DocumentType import DocumentType
+        return DocumentType.instance
 
 
     def interpret(self, context):
         if len(self.entries) > 0:
             self.check(context)
-            value = dict()
+            doc = Document()
             for e in self.entries:
                 key = e.getKey().interpret(context)
                 val = e.getValue().interpret(context)
-                value[key.value] = val
-            return Dictionary(self.itemType, self.mutable, value=value)
+                doc.setMember(context, key.value, val)
+            return doc
         else:
             return self.value

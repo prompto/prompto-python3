@@ -13,13 +13,16 @@ class TestDocuments(BaseOParserTest):
     def testDeepItem(self):
         self.checkOutput("documents/deepItem.poc")
 
-    def testDeepVariable(self):
-        self.checkOutput("documents/deepVariable.poc")
+    def testDeepMember(self):
+        self.checkOutput("documents/deepMember.poc")
 
     def testItem(self):
         self.checkOutput("documents/item.poc")
 
-    def testVariable(self):
-        self.checkOutput("documents/variable.poc")
+    def testLiteral(self):
+        self.checkOutput("documents/literal.poc")
+
+    def testMember(self):
+        self.checkOutput("documents/member.poc")
 
 

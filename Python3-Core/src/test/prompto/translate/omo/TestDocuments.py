@@ -8,13 +8,16 @@ class TestDocuments(BaseOParserTest):
     def testDeepItem(self):
         self.compareResourceOMO("documents/deepItem.poc")
 
-    def testDeepVariable(self):
-        self.compareResourceOMO("documents/deepVariable.poc")
+    def testDeepMember(self):
+        self.compareResourceOMO("documents/deepMember.poc")
 
     def testItem(self):
         self.compareResourceOMO("documents/item.poc")
 
-    def testVariable(self):
-        self.compareResourceOMO("documents/variable.poc")
+    def testLiteral(self):
+        self.compareResourceOMO("documents/literal.poc")
+
+    def testMember(self):
+        self.compareResourceOMO("documents/member.poc")
 
 

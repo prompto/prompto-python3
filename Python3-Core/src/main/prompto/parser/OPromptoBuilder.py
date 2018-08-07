@@ -137,6 +137,8 @@ from prompto.literal.DecimalLiteral import DecimalLiteral
 from prompto.literal.DictEntry import DictEntry
 from prompto.literal.DictEntryList import DictEntryList
 from prompto.literal.DictLiteral import DictLiteral
+from prompto.literal.DocEntryList import DocEntryList
+from prompto.literal.DocumentLiteral import DocumentLiteral
 from prompto.literal.HexaLiteral import HexaLiteral
 from prompto.literal.IntegerLiteral import IntegerLiteral, MinIntegerLiteral, MaxIntegerLiteral
 from prompto.literal.ListLiteral import ListLiteral
@@ -2188,9 +2190,15 @@ class OPromptoBuilder(OParserListener):
     
     def exitDocumentType(self, ctx:OParser.DocumentTypeContext):
         self.setNodeValue(ctx, DocumentType.instance)
-    
 
-    
+
+
+    def exitDocument_literal(self, ctx:OParser.Document_literalContext):
+        entries = self.getNodeValue(ctx.dict_entry_list())
+        items = DocEntryList(entries=entries)
+        self.setNodeValue(ctx, DocumentLiteral(items))
+
+
     def exitFetchOne (self, ctx:OParser.FetchOneContext):
         category = self.getNodeValue(ctx.typ)
         predicate = self.getNodeValue(ctx.predicate)

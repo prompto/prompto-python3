@@ -137,6 +137,8 @@ from prompto.literal.DecimalLiteral import DecimalLiteral
 from prompto.literal.DictEntry import DictEntry
 from prompto.literal.DictEntryList import DictEntryList
 from prompto.literal.DictLiteral import DictLiteral
+from prompto.literal.DocEntryList import DocEntryList
+from prompto.literal.DocumentLiteral import DocumentLiteral
 from prompto.literal.HexaLiteral import HexaLiteral
 from prompto.literal.IntegerLiteral import IntegerLiteral, MinIntegerLiteral, MaxIntegerLiteral
 from prompto.literal.ListLiteral import ListLiteral
@@ -913,6 +915,11 @@ class MPromptoBuilder(MParserListener):
     def exitDocumentType(self, ctx:MParser.DocumentTypeContext):
         self.setNodeValue(ctx, DocumentType.instance)
 
+
+    def exitDocument_literal(self, ctx:MParser.Document_literalContext):
+        entries = self.getNodeValue(ctx.dict_entry_list())
+        items = DocEntryList(entries=entries)
+        self.setNodeValue(ctx, DocumentLiteral(items))
 
 
     def exitDoWhileStatement(self, ctx:MParser.DoWhileStatementContext):

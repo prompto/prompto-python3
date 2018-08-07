@@ -3,7 +3,7 @@ from io import StringIO
 class DictEntryList ( list ):
 
     def __init__(self, entry = None):
-        super(DictEntryList, self).__init__()
+        super().__init__()
         if entry is not None:
             self.append(entry)
 

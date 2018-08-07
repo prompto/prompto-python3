@@ -11,16 +11,19 @@ class TestDocuments(BaseEParserTest):
     def testDeepItem(self):
         self.compareResourceEME("documents/deepItem.pec")
 
-    def testDeepVariable(self):
-        self.compareResourceEME("documents/deepVariable.pec")
+    def testDeepMember(self):
+        self.compareResourceEME("documents/deepMember.pec")
 
     def testItem(self):
         self.compareResourceEME("documents/item.pec")
 
+    def testLiteral(self):
+        self.compareResourceEME("documents/literal.pec")
+
+    def testMember(self):
+        self.compareResourceEME("documents/member.pec")
+
     def testNamedItem(self):
         self.compareResourceEME("documents/namedItem.pec")
-
-    def testVariable(self):
-        self.compareResourceEME("documents/variable.pec")
 
 
