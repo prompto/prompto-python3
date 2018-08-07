@@ -98,7 +98,7 @@ class TestCheck(BaseOParserTest):
 
     def testDict(self):
         stmts = self.parseString("method testMethod (Text value) {" +
-                                 "dict = { \"john\":123, \"jim\":345 };" +
+                                 "dict = < \"john\":123, \"jim\":345 >;" +
                                  "elem = dict[\"john\"]; }")
         stmts.register(self.context)
         stmts.check(self.context)

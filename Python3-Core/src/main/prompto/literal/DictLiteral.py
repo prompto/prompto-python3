@@ -13,7 +13,7 @@ class DictLiteral(Literal):
     def __init__(self, mutable, entries=None):
         if entries is None:
             entries = DictEntryList()
-        super().__init__(str(entries), Dictionary(MissingType.instance, mutable))
+        super().__init__("<:>", Dictionary(MissingType.instance, mutable))
         self.mutable = mutable
         self.entries = entries
         self.itemType = None

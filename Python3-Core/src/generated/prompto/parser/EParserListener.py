@@ -2564,6 +2564,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#document_literal.
+    def enterDocument_literal(self, ctx:EParser.Document_literalContext):
+        pass
+
+    # Exit a parse tree produced by EParser#document_literal.
+    def exitDocument_literal(self, ctx:EParser.Document_literalContext):
+        pass
+
+
     # Enter a parse tree produced by EParser#expression_tuple.
     def enterExpression_tuple(self, ctx:EParser.Expression_tupleContext):
         pass

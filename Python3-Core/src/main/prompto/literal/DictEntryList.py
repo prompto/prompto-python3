@@ -9,7 +9,7 @@ class DictEntryList ( list ):
 
     def __str__(self):
         with StringIO() as sb:
-            sb.write('{')
+            sb.write('<')
             for item in self:
                 sb.write(str(item))
                 sb.write(", ")
@@ -17,14 +17,19 @@ class DictEntryList ( list ):
             if slen>2:
                 sb.truncate(slen-2)
                 sb.seek(slen-2)
-            sb.write('}')
+            else:
+                sb.write(':')
+            sb.write('>')
             return sb.getvalue()
 
+
     def toDialect(self, writer):
-        writer.append('{')
+        writer.append('<')
         if len(self)>0:
             for entry in self:
                 entry.toDialect(writer)
                 writer.append(", ")
             writer.trimLast(2)
-        writer.append('}')
+        else:
+            writer.append(':')
+        writer.append('>')

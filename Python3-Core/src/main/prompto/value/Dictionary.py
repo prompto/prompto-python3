@@ -102,7 +102,7 @@ class Dictionary(BaseValue, IContainer):
 
     def __str__(self):
         with StringIO() as sb:
-            sb.write("{")
+            sb.write("<")
             for k, v in self.value.items():
                 sb.write('"')
                 sb.write(k)
@@ -113,7 +113,9 @@ class Dictionary(BaseValue, IContainer):
             if len > 2:
                 sb.seek(len - 2)
                 sb.truncate(len - 2)
-            sb.write("}")
+            else:
+                sb.write(":")
+            sb.write(">")
             return sb.getvalue()
 
     def getKeys(self):

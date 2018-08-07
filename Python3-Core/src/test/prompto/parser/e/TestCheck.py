@@ -90,7 +90,7 @@ class TestCheck(BaseEParserTest):
 
     def testDict(self):
         stmts = self.parseString("define testMethod as method receiving Text value doing:\r\n" +
-                                 "\tdict = { \"john\":123, \"jim\":345 }\r\n" +
+                                 "\tdict = < \"john\":123, \"jim\":345 >\r\n" +
                                  "\telem = dict[\"john\"]\r\n")
         stmts.register(self.context)
         stmts.check(self.context)

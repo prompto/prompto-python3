@@ -13,7 +13,7 @@ class DictType ( ContainerType ):
 
     def __init__(self, itemType):
         super(DictType, self).__init__(TypeFamily.DICTIONARY, itemType)
-        self.typeName = itemType.typeName + "{}"
+        self.typeName = itemType.typeName + "<:>"
 
 
     def isAssignableFrom(self, context, other):

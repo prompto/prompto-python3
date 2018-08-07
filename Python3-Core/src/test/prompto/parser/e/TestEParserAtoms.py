@@ -428,22 +428,22 @@ class TestParserAtoms(unittest.TestCase):
 
 
     def testEmptyDictLiteral(self):
-        statement = "{}"
+        statement = "<:>"
         literal = self.parse(statement, ECleverParser.literal_expression)
         self.assertIsNotNone(literal)
         self.assertIsInstance(literal, DictLiteral)
-        self.assertEquals("{}", str(literal))
+        self.assertEquals("<:>", str(literal))
 
 
 
     def testSimpleDictLiteral(self):
-        statement = "{ \"john\" : 1234, eric : 5678 }"
+        statement = "< \"john\" : 1234, eric : 5678 >"
         literal = self.parse(statement, ECleverParser.literal_expression)
         self.assertIsNotNone(literal)
         self.assertIsInstance(literal, DictLiteral)
         writer = CodeWriter(Dialect.E, Context.newGlobalContext())
         literal.toDialect(writer)
-        self.assertEquals('{"john":1234, eric:5678}', str(writer))
+        self.assertEquals('<"john":1234, eric:5678>', str(writer))
 
 
 
