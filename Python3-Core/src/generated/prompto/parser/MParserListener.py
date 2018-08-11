@@ -1844,6 +1844,15 @@ class MParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MParser#any_identifier.
+    def enterAny_identifier(self, ctx:MParser.Any_identifierContext):
+        pass
+
+    # Exit a parse tree produced by MParser#any_identifier.
+    def exitAny_identifier(self, ctx:MParser.Any_identifierContext):
+        pass
+
+
     # Enter a parse tree produced by MParser#argument_list.
     def enterArgument_list(self, ctx:MParser.Argument_listContext):
         pass
@@ -2489,6 +2498,24 @@ class MParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by MParser#dict_entry.
     def exitDict_entry(self, ctx:MParser.Dict_entryContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#DictKeyIdentifier.
+    def enterDictKeyIdentifier(self, ctx:MParser.DictKeyIdentifierContext):
+        pass
+
+    # Exit a parse tree produced by MParser#DictKeyIdentifier.
+    def exitDictKeyIdentifier(self, ctx:MParser.DictKeyIdentifierContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#DictKeyText.
+    def enterDictKeyText(self, ctx:MParser.DictKeyTextContext):
+        pass
+
+    # Exit a parse tree produced by MParser#DictKeyText.
+    def exitDictKeyText(self, ctx:MParser.DictKeyTextContext):
         pass
 
 

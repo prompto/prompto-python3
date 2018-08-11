@@ -14,6 +14,5 @@ class DictEntry(object):
         return str(self.key) + ':' + str(self.value)
 
     def toDialect(self, writer):
-        self.key.toDialect(writer)
-        writer.append(':')
+        writer.append(str(self.key)).append(':')
         self.value.toDialect(writer)

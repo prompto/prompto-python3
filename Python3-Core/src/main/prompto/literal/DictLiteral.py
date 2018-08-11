@@ -36,10 +36,6 @@ class DictLiteral(Literal):
     def inferElementType(self, context):
         if len(self.entries) == 0:
             return MissingType.instance
-        keyTypes = [e.getKey().check(context) for e in self.entries]
-        for keyType in keyTypes:
-            if keyType != TextType.instance:
-                raise SyntaxError("Illegal key type: " + keyType.toString())
         expressions = [e.getValue() for e in self.entries]
         return inferElementType(context, expressions)
 
@@ -50,7 +46,7 @@ class DictLiteral(Literal):
             self.check(context)
             value = dict()
             for e in self.entries:
-                key = e.getKey().interpret(context)
+                key = e.getKey().asText()
                 val = e.getValue().interpret(context)
                 value[key.value] = val
             return Dictionary(self.itemType, self.mutable, value=value)

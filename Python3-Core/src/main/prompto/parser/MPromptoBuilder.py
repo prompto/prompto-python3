@@ -136,7 +136,9 @@ from prompto.literal.DateTimeLiteral import DateTimeLiteral
 from prompto.literal.DecimalLiteral import DecimalLiteral
 from prompto.literal.DictEntry import DictEntry
 from prompto.literal.DictEntryList import DictEntryList
+from prompto.literal.DictIdentifierKey import DictIdentifierKey
 from prompto.literal.DictLiteral import DictLiteral
+from prompto.literal.DictTextKey import DictTextKey
 from prompto.literal.DocEntryList import DocEntryList
 from prompto.literal.DocumentLiteral import DocumentLiteral
 from prompto.literal.HexaLiteral import HexaLiteral
@@ -887,6 +889,18 @@ class MPromptoBuilder(MParserListener):
         items = self.getNodeValue(ctx.dict_entry_list())
         value = DictLiteral(mutable, items)
         self.setNodeValue(ctx, value)
+
+
+
+    def exitDictKeyIdentifier(self, ctx:MParser.DictKeyIdentifierContext):
+        name = ctx.name.getText()
+        self.setNodeValue(ctx, DictIdentifierKey(name))
+
+
+
+    def exitDictKeyText(self, ctx:MParser.DictKeyTextContext):
+        name = ctx.name.text
+        self.setNodeValue(ctx, DictTextKey(name))
 
 
 

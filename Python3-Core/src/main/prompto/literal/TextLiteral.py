@@ -1,13 +1,12 @@
 from prompto.literal.Literal import *
 from prompto.type.TextType import *
-
+from prompto.utils.StringUtils import unescape
 
 class TextLiteral(Literal):
 
     def __init__(self, text):
         from prompto.value.Text import Text
-        c = compile(text, "__no_file__", mode='eval')
-        s = eval(c)
+        s = unescape(text)
         value = Text(s)
         super().__init__(text, value)
 

@@ -1,11 +1,5 @@
-from prompto.literal.DictEntryList import DictEntryList
 from prompto.literal.DocEntryList import DocEntryList
 from prompto.literal.Literal import Literal
-from prompto.type.MissingType import MissingType
-from prompto.type.TextType import TextType
-from prompto.value.Dictionary import Dictionary
-from prompto.error.SyntaxError import SyntaxError
-from prompto.utils.TypeUtils import inferElementType
 from prompto.value.Document import Document
 
 
@@ -34,7 +28,7 @@ class DocumentLiteral(Literal):
             self.check(context)
             doc = Document()
             for e in self.entries:
-                key = e.getKey().interpret(context)
+                key = e.getKey().asText()
                 val = e.getValue().interpret(context)
                 doc.setMember(context, key.value, val)
             return doc
