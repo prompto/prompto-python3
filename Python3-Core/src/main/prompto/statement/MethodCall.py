@@ -107,8 +107,8 @@ class MethodCall(SimpleStatement):
     def requiresInvoke(self, writer):
         if writer.dialect is not Dialect.E:
             return False
-        if self.assignments is None or len(self.assignments) == 0:
-            return True
+        if self.assignments is not None and len(self.assignments) > 0:
+            return False
         try:
             finder = MethodFinder(writer.context, self)
             declaration = finder.findMethod(False)
