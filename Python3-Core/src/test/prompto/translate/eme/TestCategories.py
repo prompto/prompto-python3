@@ -5,6 +5,9 @@ class TestCategories(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testAnyAsParameter(self):
+        self.compareResourceEME("categories/anyAsParameter.pec")
+
     def testComposed(self):
         self.compareResourceEME("categories/composed.pec")
 

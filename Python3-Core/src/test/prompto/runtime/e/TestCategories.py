@@ -10,6 +10,9 @@ class TestCategories(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testAnyAsParameter(self):
+        self.checkOutput("categories/anyAsParameter.pec")
+
     def testComposed(self):
         self.checkOutput("categories/composed.pec")
 
