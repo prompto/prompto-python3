@@ -1304,6 +1304,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#jsx_ws.
+    def enterJsx_ws(self, ctx:OParser.Jsx_wsContext):
+        pass
+
+    # Exit a parse tree produced by OParser#jsx_ws.
+    def exitJsx_ws(self, ctx:OParser.Jsx_wsContext):
+        pass
+
+
     # Enter a parse tree produced by OParser#FullDeclarationList.
     def enterFullDeclarationList(self, ctx:OParser.FullDeclarationListContext):
         pass

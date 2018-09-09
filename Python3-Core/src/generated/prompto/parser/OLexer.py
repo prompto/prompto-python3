@@ -810,7 +810,7 @@ def serializedATN():
         buf.write("\u05a7\u05a9\u05d0\u05d3\u05da\u05dd\u05e1\u05e6\u05ec")
         buf.write("\u05f1\u05fb\u05fd\u0604\u0618\u061a\u061c\u061e\u0636")
         buf.write("\u063b\u063e\u0641\u0646\u0649\u064e\u0652\u0657\u065d")
-        buf.write("\u0663\u0669\u066f\u0675\u067c\u0681\u0693\u0695\3\b\2")
+        buf.write("\u0663\u0669\u066f\u0675\u067c\u0681\u0693\u0695\3\2\3")
         buf.write("\2")
         return buf.getvalue()
 
