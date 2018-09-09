@@ -2527,7 +2527,7 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitJsxElement(self, ctx: MParser.JsxElementContext):
-        elem = self.getNodeValue(ctx.jsx)
+        elem = self.getNodeValue(ctx.opening)
         children = self.getNodeValue(ctx.children_)
         elem.setChildren(children)
         self.setNodeValue(ctx, elem)
