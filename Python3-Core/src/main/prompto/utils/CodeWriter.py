@@ -30,6 +30,11 @@ class CodeWriter(object):
         self.indenter = indenter if indenter is not None else Indenter(self.file)
 
 
+    def appendRaw(self, s):
+        self.file.write(s)
+        return self
+
+
     def append(self, s):
         self.indenter.appendTabsIfRequired(s)
         self.file.write(s)

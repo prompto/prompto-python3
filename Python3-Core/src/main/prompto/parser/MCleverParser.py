@@ -25,11 +25,17 @@ class MCleverParser(MParser):
 
 
     def parse(self):
-        tree = self.declaration_list()
+        return self.doParse(self.declaration_list, True)
+
+
+    def equalToken(self):
+        return MParser.EQ
+
+
+    def doParse(self, rule, addLF):
+        self.getTokenStream().tokenSource.addLF = addLF
+        tree = rule()
         builder = MPromptoBuilder(self)
         walker = ParseTreeWalker()
         walker.walk(builder, tree)
         return builder.getNodeValue(tree)
-
-    def equalToken(self):
-        return MParser.EQ

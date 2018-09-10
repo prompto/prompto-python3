@@ -10,6 +10,7 @@ class OCleverParser(OParser):
 
     def __init__(self, path=None, stream=None, text=None):
         self.path = path
+        chars = None
         if stream is not None:
             bytes = stream.read()
             data = codecs.decode(bytes)
@@ -24,11 +25,16 @@ class OCleverParser(OParser):
 
 
     def parse(self):
-        tree = self.declaration_list()
+        return self.doParse(self.declaration_list)
+
+
+    def equalToken(self):
+        return OParser.EQ
+
+
+    def doParse(self, rule):
+        tree = rule()
         builder = OPromptoBuilder(self)
         walker = ParseTreeWalker()
         walker.walk(builder, tree)
         return builder.getNodeValue(tree)
-
-    def equalToken(self):
-        return OParser.EQ
