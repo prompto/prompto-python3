@@ -23,7 +23,7 @@ class TestParserJsx(BaseEParserTest):
         parser = ECleverParser(text=jsx)
         stmt = parser.doParse(parser.return_statement, True)
         self.assertIsNotNone(stmt.expression)
-        writer = CodeWriter(Dialect.M, Context.newGlobalContext())
+        writer = CodeWriter(Dialect.E, Context.newGlobalContext())
         stmt.toDialect(writer)
         out = str(writer)
         self.assertEquals(jsx, out)

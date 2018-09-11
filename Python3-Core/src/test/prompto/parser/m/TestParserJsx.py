@@ -13,7 +13,7 @@ class TestParserJsx(BaseMParserTest):
         parser = MCleverParser(text=jsx)
         stmt = parser.doParse(parser.return_statement, True)
         self.assertIsNotNone(stmt.expression)
-        writer = CodeWriter(Dialect.E, Context.newGlobalContext())
+        writer = CodeWriter(Dialect.M, Context.newGlobalContext())
         stmt.toDialect(writer)
         out = str(writer)
         self.assertEquals(jsx, out)
