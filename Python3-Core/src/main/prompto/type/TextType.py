@@ -98,6 +98,8 @@ class TextType(NativeType):
             return [SplitMethodDeclaration()]
         elif name == "trim":
             return [TrimMethodDeclaration()]
+        elif name == "indexOf":
+            return [IndexOfMethodDeclaration()]
         else:
             return super().getMemberMethods(context, name)
 
@@ -225,6 +227,7 @@ class ToLowerCaseMethodDeclaration(BuiltInMethodDeclaration):
         value = self.getValue(context).getStorableData()
         return Text(value.lower())
 
+
     def check(self, context):
         return TextType.instance
 
@@ -236,12 +239,10 @@ class ToUpperCaseMethodDeclaration(BuiltInMethodDeclaration):
         super().__init__("toUpperCase")
 
 
-
     def interpret(self, context):
         from prompto.value.Text import Text
         value = self.getValue(context).getStorableData()
         return Text(value.upper())
-
 
 
     def check(self, context):
@@ -255,12 +256,10 @@ class ToCapitalizedMethodDeclaration(BuiltInMethodDeclaration):
         super().__init__("toCapitalized")
 
 
-
     def interpret(self, context):
         from prompto.value.Text import Text
         value = self.getValue(context).getStorableData()
         return Text(value.title())
-
 
 
     def check(self, context):
@@ -273,15 +272,34 @@ class TrimMethodDeclaration(BuiltInMethodDeclaration):
         super().__init__("trim")
 
 
-
     def interpret(self, context):
         from prompto.value.Text import Text
         value = self.getValue(context).getStorableData()
         return Text(value.strip())
 
 
-
     def check(self, context):
         return TextType.instance
+
+
+class IndexOfMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self):
+        from prompto.argument.CategoryArgument import CategoryArgument
+        VALUE_ARGUMENT = CategoryArgument(TextType.instance, "value")
+        super().__init__("indexOf", VALUE_ARGUMENT)
+
+
+    def interpret(self, context):
+        from prompto.value.Integer import Integer
+        value = self.getValue(context).value
+        find = context.getValue("value").value
+        index = value.index(find)
+        return Integer(index + 1)
+
+
+    def check(self, context):
+        from prompto.type.IntegerType import IntegerType
+        return IntegerType.instance
 
 

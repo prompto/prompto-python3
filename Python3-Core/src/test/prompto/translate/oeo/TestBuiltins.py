@@ -71,6 +71,9 @@ class TestBuiltins(BaseOParserTest):
     def testTextCount(self):
         self.compareResourceOEO("builtins/textCount.poc")
 
+    def testTextIndexOf(self):
+        self.compareResourceOEO("builtins/textIndexOf.poc")
+
     def testTextLowercase(self):
         self.compareResourceOEO("builtins/textLowercase.poc")
 

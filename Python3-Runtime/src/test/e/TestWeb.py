@@ -15,6 +15,9 @@ class TestWeb(BaseEParserTest):
     def testEvents(self):
         self.runTests("web/events.pec")
 
+    def testReact(self):
+        self.runTests("web/react.pec")
+
     def testUtils(self):
         self.runTests("web/utils.pec")
 

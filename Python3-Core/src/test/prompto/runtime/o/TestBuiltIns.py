@@ -70,6 +70,9 @@ class TestBuiltins(BaseOParserTest):
     def testTextCount(self):
         self.checkOutput("builtins/textCount.poc")
 
+    def testTextIndexOf(self):
+        self.checkOutput("builtins/textIndexOf.poc")
+
     def testTextLowercase(self):
         self.checkOutput("builtins/textLowercase.poc")
 
