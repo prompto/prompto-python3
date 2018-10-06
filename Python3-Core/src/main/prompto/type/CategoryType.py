@@ -146,7 +146,9 @@ class CategoryType(BaseType):
         if isinstance(dd, EnumeratedNativeDeclaration):
             return dd.type.checkMember(context, name)
         elif isinstance(dd, CategoryDeclaration):
-            if dd.hasAttribute(context, name):
+            if dd.storable and "dbId" == name:
+                return AnyType.instance
+            elif dd.hasAttribute(context, name):
                 ad = context.getRegisteredDeclaration(AttributeDeclaration, name)
                 if ad is None:
                     raise SyntaxError("Missing atttribute:" + name)
