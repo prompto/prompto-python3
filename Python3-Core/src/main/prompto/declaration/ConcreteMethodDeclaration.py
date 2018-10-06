@@ -20,7 +20,8 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
 
 
     def checkMember(self, category, context):
-        pass  # TODO
+        context = context.newInstanceContext(None, category.getType(context), False)
+        return self.checkChild(context)
 
     def check(self, context, nativeOnly = False):
         if self.canBeChecked(context):

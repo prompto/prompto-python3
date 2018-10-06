@@ -23,9 +23,14 @@ class NativeMethodDeclaration(ConcreteMethodDeclaration):
         return value
 
 
-    def check(self, context):
+    def check(self, context, nativeOnly = True):
         checked = self.fullCheck(context, True)
         return checked if self.returnType is None else self.returnType
+
+
+    def checkMember(self, category, context):
+        context = context.newInstanceContext(None, category.getType(context), False)
+        return self.checkChild(context, True)
 
 
     def toMDialect(self, writer):
