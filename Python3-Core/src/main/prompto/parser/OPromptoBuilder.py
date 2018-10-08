@@ -2481,7 +2481,7 @@ class OPromptoBuilder(OParserListener):
 
 
     def exitJavascript_category_binding(self, ctx:OParser.Javascript_category_bindingContext):
-        identifier = ".".join([cx.getText() for cx in ctx.identifier()])
+        identifier = ".".join([cx.getText() for cx in ctx.javascript_identifier()])
         module = self.getNodeValue(ctx.javascript_module())
         map = JavaScriptNativeCategoryBinding(identifier, module)
         self.setNodeValue(ctx, map)
