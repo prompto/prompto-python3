@@ -320,6 +320,14 @@ class MPromptoBuilder(MParserListener):
         return (not isinstance(tree, TerminalNode)) or tree.symbol.type != MLexer.INDENT
 
 
+    def readAnnotations(self, contexts):
+        return [ self.getNodeValue(ctx_) for ctx_ in contexts ]
+
+
+    def readComments(self, contexts):
+        return [ self.getNodeValue(ctx_) for ctx_ in contexts ]
+
+
     def exitAbstract_method_declaration(self, ctx:MParser.Abstract_method_declarationContext):
         typ = self.getNodeValue(ctx.typ)
         name = self.getNodeValue(ctx.name)
@@ -574,8 +582,14 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitMember_method_declaration(self, ctx:MParser.Member_method_declarationContext):
-        decl = self.getNodeValue(ctx.getChild(0))
-        self.setNodeValue(ctx, decl)
+        comments = self.readComments(ctx.comment_statement())
+        annotations = self.readAnnotations(ctx.annotation_constructor())
+        ctx_ = ctx.children[ctx.getChildCount()-1]
+        decl = self.getNodeValue(ctx_)
+        if decl is not None:
+            decl.comments = comments
+            decl.annotations = annotations
+            self.setNodeValue(ctx, decl)
 
 
 
@@ -867,23 +881,9 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitDeclaration(self, ctx:MParser.DeclarationContext):
-        comments = None
-        if ctx.comment_statement() is not None:
-            comments = [ self.getNodeValue(ctx_) for ctx_ in ctx.comment_statement() ]
-        annotations = None
-        if ctx.annotation_constructor() is not None:
-            annotations = [ self.getNodeValue(ctx_) for ctx_ in ctx.annotation_constructor() ]
-        ctx_ = ctx.attribute_declaration()
-        if ctx_ is None:
-            ctx_ = ctx.category_declaration()
-        if ctx_ is None:
-            ctx_ = ctx.enum_declaration()
-        if ctx_ is None:
-            ctx_ = ctx.method_declaration()
-        if ctx_ is None:
-            ctx_ = ctx.resource_declaration()
-        if ctx_ is None:
-            ctx_ = ctx.widget_declaration()
+        comments = self.readComments(ctx.comment_statement())
+        annotations = self.readAnnotations(ctx.annotation_constructor())
+        ctx_ = ctx.children[ctx.getChildCount()-1]
         decl = self.getNodeValue(ctx_)
         if decl is not None:
             decl.comments = comments

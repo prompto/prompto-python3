@@ -8,4 +8,7 @@ class TestAnnotations(BaseOParserTest):
     def testCallback(self):
         self.compareResourceOMO("annotations/callback.poc")
 
+    def testCategory(self):
+        self.compareResourceOMO("annotations/category.poc")
+
 

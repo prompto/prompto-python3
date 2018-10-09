@@ -310,6 +310,12 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
             writer.append("pass\n")
         else:
             for decl in self.methods:
+                if decl.comments is not None:
+                    for comment in decl.comments:
+                        comment.toDialect(writer)
+                if decl.annotations is not None:
+                    for annotation in decl.annotations:
+                        annotation.toDialect(writer)
                 w = writer.newMemberWriter()
                 decl.toDialect(w)
                 writer.newLine()

@@ -8,4 +8,7 @@ class TestAnnotations(BaseEParserTest):
     def testCallback(self):
         self.compareResourceEOE("annotations/callback.pec")
 
+    def testCategory(self):
+        self.compareResourceEOE("annotations/category.pec")
+
 

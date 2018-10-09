@@ -130,12 +130,24 @@ class CategoryDeclaration(BaseDeclaration):
         writer.indent()
         for decl in methods:
             writer.newLine()
+            if decl.comments is not None:
+                for comment in decl.comments:
+                    comment.toDialect(writer)
+            if decl.annotations is not None:
+                for annotation in decl.annotations:
+                    annotation.toDialect(writer)
             w = writer.newMemberWriter()
             decl.toDialect(w)
         writer.dedent()
 
     def methodsToODialect(self, writer, methods):
         for decl in methods:
+            if decl.comments is not None:
+                for comment in decl.comments:
+                    comment.toDialect(writer)
+            if decl.annotations is not None:
+                for annotation in decl.annotations:
+                    annotation.toDialect(writer)
             w = writer.newMemberWriter()
             decl.toDialect(w)
             writer.newLine()
