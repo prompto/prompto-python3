@@ -11,6 +11,9 @@ class TestCast(BaseOParserTest):
     def testCastChild(self):
         self.compareResourceOMO("cast/castChild.poc")
 
+    def testCastMethod(self):
+        self.compareResourceOMO("cast/castMethod.poc")
+
     def testCastMissing(self):
         self.compareResourceOMO("cast/castMissing.poc")
 

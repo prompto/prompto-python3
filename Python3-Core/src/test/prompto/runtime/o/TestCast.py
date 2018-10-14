@@ -16,6 +16,9 @@ class TestCast(BaseOParserTest):
     def testCastChild(self):
         self.checkOutput("cast/castChild.poc")
 
+    def testCastMethod(self):
+        self.checkOutput("cast/castMethod.poc")
+
     def testCastMissing(self):
         self.checkOutput("cast/castMissing.poc")
 

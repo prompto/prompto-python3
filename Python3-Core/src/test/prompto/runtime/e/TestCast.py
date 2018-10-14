@@ -31,6 +31,9 @@ class TestCast(BaseEParserTest):
     def testCastInteger(self):
         self.checkOutput("cast/castInteger.pec")
 
+    def testCastMethod(self):
+        self.checkOutput("cast/castMethod.pec")
+
     def testCastMissing(self):
         self.checkOutput("cast/castMissing.pec")
 
