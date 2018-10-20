@@ -203,9 +203,9 @@ class TestParserAtoms(unittest.TestCase):
         statement = "print with \"person\" + p.name as value"
         mc = self.parse(statement,ECleverParser.method_call_statement)
         self.assertIsNotNone(mc)
-        self.assertEquals("print",mc.getCaller().getName())
-        self.assertIsNotNone(mc.getAssignments())
-        as_ = mc.getAssignments()[0]
+        self.assertEquals("print",mc.caller.getName())
+        self.assertIsNotNone(mc.assignments)
+        as_ = mc.assignments[0]
         self.assertEquals("value",as_.getName())
         exp = as_.getExpression()
         self.assertIsInstance(exp, PlusExpression)
