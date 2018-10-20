@@ -29,6 +29,7 @@ class Context(IContext):
         context.debugger = None
         return context
 
+
     def __init__(self):
         self.globals = None
         self.calling = None
@@ -40,14 +41,18 @@ class Context(IContext):
         self.values = dict()
         self.nativeBindings = dict()
 
+
     def isGlobalContext(self):
         return id(self) == id(self.globals)
+
 
     def setDebugger(self, debugger):
         self.debugger = debugger
 
+
     def getDebugger(self):
         return self.debugger
+
 
     def __str__(self):
         with StringIO() as sb:
@@ -68,8 +73,10 @@ class Context(IContext):
             sb.write("}")
             return sb.getvalue()
 
+
     def getCallingContext(self):
         return self.calling
+
 
     def getParentMostContext(self):
         if self.parent is None:
@@ -77,11 +84,23 @@ class Context(IContext):
         else:
             return self.parent.getParentMostContext()
 
+
+    def getClosestInstanceContext(self):
+        if self.parent is None:
+            return None
+        elif isinstance(self.parent, InstanceContext):
+            return self.parent
+        else:
+            return self.parent.getClosestInstanceContext()
+
+
     def getParentContext(self):
         return self.parent
 
+
     def setParentContext(self, parent):
         self.parent = parent
+
 
     def newResourceContext(self):
         context = ResourceContext()
@@ -91,6 +110,7 @@ class Context(IContext):
         context.debugger = self.debugger
         return context
 
+
     def newLocalContext(self):
         context = Context()
         context.globals = self.globals
@@ -99,6 +119,7 @@ class Context(IContext):
         context.debugger = self.debugger
         return context
 
+
     def newDocumentContext(self, doc, isChild:bool):
         context = DocumentContext(doc)
         context.globals = self.globals
@@ -106,6 +127,7 @@ class Context(IContext):
         context.parent = self if isChild else None
         context.debugger = self.debugger
         return context
+
 
     def newInstanceContext(self, instance, typ, isChild:bool = False):
         context = InstanceContext(instance, typ)
@@ -133,6 +155,7 @@ class Context(IContext):
         context.debugger = self.debugger
         return context
 
+
     def findAttribute(self, name):
         return self.getRegisteredDeclaration(AttributeDeclaration, name)
 
@@ -146,6 +169,7 @@ class Context(IContext):
                 if isinstance(decl, AttributeDeclaration):
                     list.append(decl)
             return list
+
 
     def getRegistered(self, name):
         # resolve upwards, since local names override global ones
@@ -161,6 +185,7 @@ class Context(IContext):
             return self.globals.getRegistered(name)
         return None
 
+
     def getRegisteredDeclaration(self, klass, name):
         # resolve upwards, since local names override global ones
         actual = self.declarations.get(name, None)
@@ -172,6 +197,17 @@ class Context(IContext):
             return actual
         else:
             return None
+
+
+    def getLocalDeclaration(self, klass, name):
+        actual = self.declarations.get(name, None)
+        if actual is not None:
+            return actual if isinstance(actual, klass) else None
+        elif self.parent is not None:
+            return self.parent.getLocalDeclaration(klass, name)
+        else:
+            return None
+
 
     def registerDeclaration(self, declaration):
         actual = self.getRegistered(declaration.getName())
@@ -216,6 +252,7 @@ class Context(IContext):
         else:
             return None
 
+
     def registerValue(self, decl, checkDuplicate = True):
         if checkDuplicate:
             # only explore current context
@@ -224,12 +261,14 @@ class Context(IContext):
                 raise SyntaxError("Duplicate name: \"" + decl.getName() + "\"")
         self.instances[decl.getName()] = decl
 
+
     def registerNativeBinding(self, klass, decl):
         if self is self.globals:
             # use id since klass may change between register and get
             self.nativeBindings[id(klass)] = decl
         else:
             self.globals.registerNativeBinding(klass, decl)
+
 
     def getNativeBinding(self, klass):
         if self is self.globals:
@@ -243,14 +282,12 @@ class Context(IContext):
         return self.contextForValue(name) is not None
 
 
-
     def getValue(self, name):
         context = self.contextForValue(name)
         if context is None:
             # context = self.contextForValue(name)
             raise SyntaxError(name + " is not defined")
         return context.readValue(name)
-
 
 
     def readValue(self, name):
@@ -262,11 +299,13 @@ class Context(IContext):
         else:
             return value
 
+
     def setValue(self, name, value):
         context = self.contextForValue(name)
         if context is None:
             raise SyntaxError(name + " is not defined")
         context.writeValue(name, value)
+
 
     def writeValue(self, name, value):
         value = self.autocast(name, value)
@@ -276,12 +315,14 @@ class Context(IContext):
         else:
             self.values[name] = value
 
+
     def autocast(self, name, value):
         if isinstance(value, Integer):
             actual = self.instances.get(name)
             if actual.getType(self) is DecimalType.instance:
                 value = Decimal(value.DecimalValue())
         return value
+
 
     def contextForValue(self, name):
         # resolve upwards, since local names override global ones
@@ -293,6 +334,7 @@ class Context(IContext):
         if id(self) != id(self.globals):
             return self.globals.contextForValue(name)
         return None
+
 
     def loadSingleton(self, type):
         if self is self.globals:
@@ -312,21 +354,26 @@ class Context(IContext):
         else:
             return self.globals.loadSingleton(type)
 
+
     def enterMethod(self, method):
         if self.debugger is not None:
             self.debugger.enterMethod(self, method)
+
 
     def leaveMethod(self, method):
         if self.debugger is not None:
             self.debugger.leaveMethod(self, method)
 
+
     def enterStatement(self, statement):
         if self.debugger is not None:
             self.debugger.enterStatement(self, statement)
 
+
     def leaveStatement(self, statement):
         if self.debugger is not None:
             self.debugger.leaveStatement(self, statement)
+
 
     def terminated(self):
         if self.debugger is not None:
@@ -356,10 +403,8 @@ class DocumentContext(Context):
             return self
 
 
-
     def readValue(self, name):
         return self.document.getMemberValue(self.calling, name)
-
 
 
     def writeValue(self, name, value):
@@ -458,7 +503,6 @@ class MethodDeclarationMap(dict, IDeclaration):
         self.name = name
 
 
-
     def getName(self):
         return self.name
 
@@ -469,13 +513,11 @@ class MethodDeclarationMap(dict, IDeclaration):
             return method
 
 
-
     def register(self, declaration):
         proto = declaration.getProto()
         if self.get(proto, None) is not None:
             raise SyntaxError("Duplicate prototype for name: \"" + declaration.name + "\"")
         self[proto] = declaration
-
 
 
     def registerIfMissing(self, declaration):

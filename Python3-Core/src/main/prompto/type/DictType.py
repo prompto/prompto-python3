@@ -1,6 +1,7 @@
 from prompto.type.BooleanType import BooleanType
 from prompto.type.ContainerType import ContainerType
 from prompto.type.EntryType import EntryType
+from prompto.type.IType import IType
 from prompto.type.IntegerType import IntegerType
 from prompto.type.ListType import ListType
 from prompto.type.SetType import SetType
@@ -18,7 +19,7 @@ class DictType ( ContainerType ):
 
     def isAssignableFrom(self, context, other):
         return super().isAssignableFrom(context, other) or \
-               (isinstance(other, DictType) and self.itemType.isAssignableFrom(context, other.getItemType()))
+               (isinstance(other, DictType) and self.itemType.isAssignableFrom(context, other.itemType))
 
 
     def __eq__(self, obj):
@@ -28,16 +29,14 @@ class DictType ( ContainerType ):
             return False
         if not isinstance(obj, DictType):
             return False
-        return self.getItemType()==obj.getItemType()
-
+        return self.itemType==obj.itemType
 
 
     def checkAdd(self, context, other, tryReverse):
-        if isinstance(other, DictType) and self.getItemType()==other.getItemType():
+        if isinstance(other, DictType) and self.itemType==other.itemType:
             return self
         else:
             return super(DictType, self).checkAdd(context, other, tryReverse)
-
 
 
     def checkContains(self, context, other):
@@ -47,10 +46,8 @@ class DictType ( ContainerType ):
             return super(DictType, self).checkContains(context, other)
 
 
-
     def checkContainsAllOrAny(self, context, other):
         return BooleanType.instance
-
 
 
     def checkItem(self, context, other):
@@ -60,9 +57,9 @@ class DictType ( ContainerType ):
             return super(DictType, self).checkItem(context,other)
 
 
-
     def checkIterator(self, context):
         return EntryType(self.itemType)
+
 
     def checkMember(self, context, name):
         if "count"==name:
@@ -73,3 +70,6 @@ class DictType ( ContainerType ):
             return ListType(self.itemType)
         else:
             return super(DictType, self).checkMember(context, name)
+
+    def withItemType(self, itemType:IType):
+        return DictType(itemType)

@@ -12,7 +12,7 @@ class CollectionSwitchCase ( SwitchCase ):
     def checkSwitchType(self, context, itype):
         selfType = self.expression.check(context)
         if isinstance(selfType, ContainerType):
-            selfType = selfType.getItemType()
+            selfType = selfType.itemType
         if not itype.isAssignableFrom(context, selfType):
             raise SyntaxError("Cannot assign:" + selfType.getName() + " to:" + itype.getName())
 

@@ -11,11 +11,12 @@ class AbstractMethodDeclaration(BaseMethodDeclaration):
     def checkMember(self, category, context):
         pass  # TODO
 
-    def check(self, context):
+    def check(self, context, isStart:bool):
         if self.arguments is not None:
             self.arguments.check(context)
-        local = context.newLocalContext()
-        self.registerArguments(local)
+        if isStart:
+            local = context.newLocalContext()
+            self.registerArguments(local)
         return self.returnType
 
     def interpret(self, context):

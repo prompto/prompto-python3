@@ -62,7 +62,7 @@ class FilteredExpression(Section, IExpression):
         if not isinstance(listType, IterableType):
             raise SyntaxError("Expecting an iterable type as data source !")
         child = context.newChildContext()
-        child.registerValue(TransientVariable(self.itemName, listType.getItemType()))
+        child.registerValue(TransientVariable(self.itemName, listType.itemType))
         filterType = self.predicate.check(child)
         if filterType is not BooleanType.instance:
             raise SyntaxError("Filtering expression must return a boolean !")
@@ -74,7 +74,7 @@ class FilteredExpression(Section, IExpression):
         listType = self.source.check(context)
         if not isinstance(listType, IterableType):
             raise InternalError("Illegal source type: " + listType.typeName)
-        itemType = listType.getItemType()
+        itemType = listType.itemType
         items = self.source.interpret(context)
         if items is None:
             raise NullReferenceError()

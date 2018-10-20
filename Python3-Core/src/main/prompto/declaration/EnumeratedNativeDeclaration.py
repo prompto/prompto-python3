@@ -23,7 +23,7 @@ class EnumeratedNativeDeclaration ( BaseDeclaration, IEnumeratedDeclaration ):
         for s in self.symbols:
             s.register(context)
 
-    def check(self, context):
+    def check(self, context, isStart:bool):
         for s in self.symbols:
             s.check(context)
         return self.type

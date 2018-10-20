@@ -10,7 +10,7 @@ class TestMethodDeclaration(BaseDeclaration):
         self.assertions = exps
         self.error = error
 
-    def check(self, context):
+    def check(self, context, isStart:bool):
         # TODO
         return VoidType.instance
     

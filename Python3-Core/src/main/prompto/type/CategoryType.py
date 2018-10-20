@@ -125,7 +125,7 @@ class CategoryType(BaseType):
                 context = context.newInstanceContext(None, self)
                 local = context.newChildContext()
                 method.registerArguments(local)
-                return method.check(local)
+                return method.check(local, False)
             except SyntaxError as e:
                 # ok to pass, will try reverse
                 pass
@@ -323,7 +323,7 @@ class CategoryType(BaseType):
     def doSortByGlobalMethod(self, context, source, desc, method, declaration):
 
         def keyGetter(o):
-            assignment = method.getAssignments()[0]
+            assignment = method.assignments[0]
             assignment.setExpression(ExpressionValue(self, o))
             return method.interpret(context)
 

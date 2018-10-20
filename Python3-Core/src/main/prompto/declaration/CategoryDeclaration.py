@@ -1,10 +1,7 @@
 from prompto.declaration.BaseDeclaration import BaseDeclaration
-from prompto.type.CategoryType import *
 from prompto.error.SyntaxError import SyntaxError
 from prompto.utils.TypeUtils import fieldToValue
-from prompto.value.Document import Document
 from prompto.type.CategoryType import CategoryType
-from prompto.error.InternalError import InternalError
 
 class CategoryDeclaration(BaseDeclaration):
 
@@ -13,17 +10,21 @@ class CategoryDeclaration(BaseDeclaration):
         self.attributes = attributes
         self.storable = False
 
+
     def setAttributes(self, attributes):
         self.attributes = attributes
 
+
     def getAttributes(self):
         return self.attributes
+
 
     def register(self, context):
         context.registerDeclaration(self)
         self.registerMethods(context)
 
-    def check(self, context):
+
+    def check(self, context, isStart):
         from prompto.declaration.AttributeDeclaration import AttributeDeclaration
         if self.attributes is not None:
             for attribute in self.attributes:
@@ -61,6 +62,7 @@ class CategoryDeclaration(BaseDeclaration):
         # nothing to do
         pass
 
+
     def newInstanceFromStored(self, context, stored):
         instance = self.newInstance(context)
         instance.mutable = True
@@ -88,16 +90,14 @@ class CategoryDeclaration(BaseDeclaration):
             return
         data = stored.getData(name)
         if data is not None:
-            value = decl.typ.convertPythonValueToPromptoValue(context, data, None)
+            value = decl.itype.convertPythonValueToPromptoValue(context, data, None)
             if value is not None:
                 instance.setMember(context, name, value)
-
 
 
     def toDialect(self, writer):
         writer = writer.newInstanceWriter(self.getType(writer.context))
         super().toDialect(writer)
-
 
 
     def protoToEDialect(self, writer, hasMethods, hasBindings):
@@ -126,6 +126,7 @@ class CategoryDeclaration(BaseDeclaration):
                 writer.append(" with bindings:")
         writer.newLine()
 
+
     def methodsToEDialect(self, writer, methods):
         writer.indent()
         for decl in methods:
@@ -140,6 +141,7 @@ class CategoryDeclaration(BaseDeclaration):
             decl.toDialect(w)
         writer.dedent()
 
+
     def methodsToODialect(self, writer, methods):
         for decl in methods:
             if decl.comments is not None:
@@ -151,6 +153,7 @@ class CategoryDeclaration(BaseDeclaration):
             w = writer.newMemberWriter()
             decl.toDialect(w)
             writer.newLine()
+
 
     def allToODialect(self, writer, hasBody):
         if self.storable:
@@ -174,9 +177,11 @@ class CategoryDeclaration(BaseDeclaration):
         else:
             writer.append(';')
 
+
     def categoryExtensionToODialect(self, writer):
         # by default no extension
         pass
+
 
     def protoToMDialect(self, writer,  derivedFrom):
         if self.storable:

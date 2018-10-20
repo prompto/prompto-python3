@@ -74,5 +74,10 @@ class DocumentType ( NativeType ):
         else:
             raise Exception(str(type(node)))
 
+
+    def withItemType(self, itemType:IType):
+        return self
+
+
 DocumentType.instance = DocumentType()
 

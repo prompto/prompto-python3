@@ -80,9 +80,9 @@ class BaseParserTest(unittest.TestCase):
         return open(file, mode)
 
     def loadResource(self, resourceName):
-        stmts = self.parseResource(resourceName)
-        stmts.register(self.context)
-        stmts.check(self.context)
+        decls = self.parseResource(resourceName)
+        decls.register(self.context)
+        decls.check(self.context)
 
     def parseResource(self, resourceName):
         raise Exception("You must override parseResource")

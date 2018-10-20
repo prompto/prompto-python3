@@ -7,21 +7,25 @@ from prompto.type.ContainerType import ContainerType
 
 class AttributeDeclaration ( BaseDeclaration ):
 
-    def __init__(self, name, typ, constraint=None, indexTypes=None):
+    def __init__(self, name, itype, constraint=None, indexTypes=None):
         super(AttributeDeclaration, self).__init__(name)
-        self.typ = typ
+        self.itype = itype
         self.constraint = constraint
         self.indexTypes = indexTypes
         self.storable = False
 
+
     def getType(self, context = None):
-        return self.typ
+        return self.itype
+
 
     def getConstraint(self):
         return self.constraint
 
+
     def __str__(self):
-        return self.getName() + ':' + str(self.typ)
+        return self.getName() + ':' + str(self.itype)
+
 
     def toEDialect(self, writer):
             writer.append("define ")
@@ -29,7 +33,7 @@ class AttributeDeclaration ( BaseDeclaration ):
             writer.append(" as ")
             if self.storable:
                 writer.append(" storable")
-            self.typ.toDialect(writer)
+            self.itype.toDialect(writer)
             writer.append(" attribute")
             if self.constraint is not None:
                 self.constraint.toDialect(writer)
@@ -39,14 +43,13 @@ class AttributeDeclaration ( BaseDeclaration ):
                 writer.append(" index")
 
 
-
     def toODialect(self, writer):
             if self.storable:
                 writer.append("storable ")
             writer.append("attribute ")
             writer.append(self.getName())
             writer.append(" : ")
-            self.typ.toDialect(writer)
+            self.itype.toDialect(writer)
             if self.constraint is not None:
                 self.constraint.toDialect(writer)
             if self.indexTypes is not None:
@@ -58,14 +61,13 @@ class AttributeDeclaration ( BaseDeclaration ):
             writer.append(';')
 
 
-
     def toMDialect(self, writer):
             if self.storable:
                 writer.append("storable ")
             writer.append("attr ")
             writer.append(self.getName())
             writer.append(" ( ")
-            self.typ.toDialect(writer)
+            self.itype.toDialect(writer)
             writer.append(" ):\n")
             writer.indent()
             if self.constraint is not None:
@@ -80,15 +82,19 @@ class AttributeDeclaration ( BaseDeclaration ):
                 writer.append("pass")
             writer.dedent()
 
+
     def register(self, context):
         context.registerDeclaration(self)
 
-    def check(self, context):
-        self.typ.checkExists(context)
-        return self.typ
+
+    def check(self, context, isStart:bool):
+        self.itype.checkExists(context)
+        return self.itype
+
 
     def setConstraint(self, constraint):
         self.constraint = constraint
+
 
     def checkValue(self, context, value):
         if isinstance(value, IExpression):
@@ -100,7 +106,7 @@ class AttributeDeclaration ( BaseDeclaration ):
 
 
     def getAttributeInfo(self):
-        collection = isinstance(self.typ, ContainerType)
-        family = self.typ.itemType.family if collection else self.typ.family
+        collection = isinstance(self.itype, ContainerType)
+        family = self.itype.itemType.family if collection else self.itype.family
         return AttributeInfo(self.name, family, collection, self.indexTypes)
 

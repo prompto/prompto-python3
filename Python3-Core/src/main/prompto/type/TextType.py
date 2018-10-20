@@ -122,7 +122,7 @@ class StartsWithMethodDeclaration(BuiltInMethodDeclaration):
         return Boolean.ValueOf(startsWith)
 
 
-    def check(self, context):
+    def check(self, context, isStart=False):
         from prompto.type.BooleanType import BooleanType
         return BooleanType.instance
 
@@ -143,7 +143,7 @@ class EndsWithMethodDeclaration(BuiltInMethodDeclaration):
         return Boolean.ValueOf(endsWith)
 
 
-    def check(self, context):
+    def check(self, context, isStart=False):
         from prompto.type.BooleanType import BooleanType
         return BooleanType.instance
 
@@ -168,7 +168,7 @@ class SplitMethodDeclaration(BuiltInMethodDeclaration):
         return ListValue(TextType.instance, parts, mutable = False)
 
 
-    def check(self, context):
+    def check(self, context, isStart=False):
         from prompto.type.ListType import ListType
         return ListType(TextType.instance)
 
@@ -191,7 +191,7 @@ class ReplaceMethodDeclaration(BuiltInMethodDeclaration):
         return Text(value)
 
 
-    def check(self, context):
+    def check(self, context, isStart=False):
         return TextType.instance
 
 
@@ -213,7 +213,7 @@ class ReplaceAllMethodDeclaration(BuiltInMethodDeclaration):
         return Text(value)
 
 
-    def check(self, context):
+    def check(self, context, isStart=False):
         return TextType.instance
 
 class ToLowerCaseMethodDeclaration(BuiltInMethodDeclaration):
@@ -228,7 +228,7 @@ class ToLowerCaseMethodDeclaration(BuiltInMethodDeclaration):
         return Text(value.lower())
 
 
-    def check(self, context):
+    def check(self, context, isStart=False):
         return TextType.instance
 
 
@@ -245,7 +245,7 @@ class ToUpperCaseMethodDeclaration(BuiltInMethodDeclaration):
         return Text(value.upper())
 
 
-    def check(self, context):
+    def check(self, context, isStart=False):
         return TextType.instance
 
 
@@ -262,7 +262,7 @@ class ToCapitalizedMethodDeclaration(BuiltInMethodDeclaration):
         return Text(value.title())
 
 
-    def check(self, context):
+    def check(self, context, isStart=False):
         return TextType.instance
 
 
@@ -278,7 +278,7 @@ class TrimMethodDeclaration(BuiltInMethodDeclaration):
         return Text(value.strip())
 
 
-    def check(self, context):
+    def check(self, context, isStart=False):
         return TextType.instance
 
 
@@ -298,7 +298,7 @@ class IndexOfMethodDeclaration(BuiltInMethodDeclaration):
         return Integer(index + 1)
 
 
-    def check(self, context):
+    def check(self, context, isStart=False):
         from prompto.type.IntegerType import IntegerType
         return IntegerType.instance
 

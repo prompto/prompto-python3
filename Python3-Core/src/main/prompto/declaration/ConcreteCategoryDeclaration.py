@@ -107,10 +107,10 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         return actual.hasMethod(context, name)
 
 
-    def check(self, context):
+    def check(self, context, isStart:bool):
         self.checkDerived(context)
         self.checkMethods(context)
-        return super(ConcreteCategoryDeclaration, self).check(context)
+        return super(ConcreteCategoryDeclaration, self).check(context, isStart)
 
 
     def registerMethods(self, context):

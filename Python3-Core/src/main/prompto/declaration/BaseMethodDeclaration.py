@@ -15,6 +15,7 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
         self.arguments = arguments if arguments is not None else ArgumentList()
         self.returnType = returnType
         self.memberOf = None
+        self.closureOf = None
 
     def getSignature(self, dialect):
         with StringIO() as sb:

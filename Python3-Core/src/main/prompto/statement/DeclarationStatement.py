@@ -1,11 +1,10 @@
 from prompto.declaration.ConcreteMethodDeclaration import ConcreteMethodDeclaration
-from prompto.declaration.ClosureDeclaration import ClosureDeclaration
+from prompto.declaration.IMethodDeclaration import IMethodDeclaration
 from prompto.runtime.Variable import Variable
 from prompto.statement.BaseStatement import BaseStatement
 from prompto.type.MethodType import MethodType
 from prompto.type.VoidType import VoidType
 from prompto.value.ClosureValue import ClosureValue
-from prompto.value.ExpressionValue import ExpressionValue
 from prompto.error.SyntaxError import SyntaxError
 
 
@@ -14,13 +13,14 @@ class DeclarationStatement(BaseStatement):
     def __init__(self, declaration):
         super(DeclarationStatement, self).__init__()
         self.declaration = declaration
+        if isinstance(declaration, IMethodDeclaration):
+            declaration.declarationOf = self
 
-    def getDeclaration(self):
-        return self.declaration
 
     def __str__(self):
         # TODO Auto-generated method stub
         return self.declaration.toString()
+
 
     def check(self, context):
         if isinstance(self.declaration, ConcreteMethodDeclaration):
@@ -29,6 +29,7 @@ class DeclarationStatement(BaseStatement):
         else:
             raise SyntaxError("Unsupported:" + type(self.declaration).__name__)
         return VoidType.instance
+
 
     def interpret(self, context):
         if isinstance(self.declaration, ConcreteMethodDeclaration):
@@ -40,6 +41,7 @@ class DeclarationStatement(BaseStatement):
             return None
         else:
             raise SyntaxError("Unsupported:" + type(self.declaration).__name__)
+
 
     def toDialect(self, writer):
         if isinstance(self.declaration, ConcreteMethodDeclaration):

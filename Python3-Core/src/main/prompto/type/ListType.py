@@ -2,7 +2,7 @@ from prompto.type.AnyType import AnyType
 from prompto.type.BooleanType import BooleanType
 from prompto.type.ContainerType import ContainerType
 from prompto.store.TypeFamily import TypeFamily
-
+from prompto.type.IType import IType
 
 
 class ListType(ContainerType):
@@ -14,7 +14,8 @@ class ListType(ContainerType):
 
     def isAssignableFrom(self, context, other):
         return super().isAssignableFrom(context, other) or \
-               (isinstance(other, ListType) and self.itemType.isAssignableFrom(context, other.getItemType()))
+               (isinstance(other, ListType) and self.itemType.isAssignableFrom(context, other.itemType))
+
 
     def __eq__(self, obj):
         if id(obj) == id(self):
@@ -23,14 +24,16 @@ class ListType(ContainerType):
             return False
         if not isinstance(obj, ListType):
             return False
-        return self.getItemType() == obj.getItemType()
+        return self.itemType == obj.itemType
+
 
     def checkAdd(self, context, other, tryReverse):
         from prompto.type.SetType import SetType
-        if isinstance(other, (ListType, SetType)) and self.getItemType() == other.getItemType():
+        if isinstance(other, (ListType, SetType)) and self.itemType == other.itemType:
             return self
         else:
             return super(ListType, self).checkAdd(context, other, tryReverse)
+
 
     def checkItem(self, context, other):
         from prompto.type.IntegerType import IntegerType
@@ -39,8 +42,10 @@ class ListType(ContainerType):
         else:
             return super(ListType, self).checkItem(context, other)
 
+
     def checkSlice(self, context):
         return self
+
 
     def checkMultiply(self, context, other, tryReverse):
         from prompto.type.IntegerType import IntegerType
@@ -48,11 +53,14 @@ class ListType(ContainerType):
             return self
         return super(ListType, self).checkMultiply(context, other, tryReverse)
 
+
     def checkContainsAllOrAny(self, context, other):
         return BooleanType.instance
 
+
     def checkIterator(self, context):
         return self.itemType
+
 
     def checkMember(self, context, name):
         from prompto.type.IntegerType import IntegerType
@@ -61,6 +69,7 @@ class ListType(ContainerType):
         else:
             return super(ListType, self).checkMember(context, name)
 
+
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         if isinstance(value, (list, set, tuple)):
             items = [self.itemType.convertPythonValueToPromptoValue(context, item, returnType) for item in value]
@@ -68,3 +77,7 @@ class ListType(ContainerType):
             return ListValue(self.itemType, items=items)
         else:
             return super(ListType, self).convertPythonValueToPromptoValue(context, value, returnType)
+
+
+    def withItemType(self, itemType:IType):
+        return ListType(itemType)

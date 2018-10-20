@@ -7,10 +7,12 @@ from prompto.expression.IExpression import IExpression
 from prompto.expression.MethodSelector import MethodSelector
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
+from prompto.grammar.INamed import INamed
 from prompto.runtime.Context import Context, InstanceContext
 from prompto.statement.MethodCall import MethodCall
 from prompto.statement.SimpleStatement import SimpleStatement
 from prompto.type.CategoryType import CategoryType
+from prompto.type.MethodType import MethodType
 from prompto.utils.CodeWriter import CodeWriter
 
 
@@ -22,11 +24,6 @@ class UnresolvedCall(SimpleStatement):
         self.caller = caller
         self.assignments = assignments
 
-    def getCaller(self):
-        return self.caller
-
-    def getAssignments(self):
-        return self.assignments
 
     def toDialect(self, writer):
         try:
@@ -37,8 +34,10 @@ class UnresolvedCall(SimpleStatement):
             if self.assignments is not None:
                 self.assignments.toDialect(writer)
 
+
     def check(self, context:Context):
         return self.resolveAndCheck(context)
+
 
     def interpret(self, context:Context):
         if self.resolved is None:
@@ -50,6 +49,7 @@ class UnresolvedCall(SimpleStatement):
         self.resolve(context)
         return self.resolved.check(context)
 
+
     def resolve(self, context:Context):
         if self.resolved is None:
             if isinstance(self.caller, UnresolvedIdentifier):
@@ -58,13 +58,24 @@ class UnresolvedCall(SimpleStatement):
                 self.resolved = self.resolveMember(context)
         return self.resolved
 
+
     def resolveUnresolvedIdentifier(self, context:Context):
-        name = self.caller.getName()
+        name = self.caller.name
         # if this happens in the context of a member method, then we need to check for category members first
-        if isinstance(context.getParentContext(), InstanceContext):
-            decl = self.resolveUnresolvedMember(context.getParentContext(), name)
+        instance = context.getClosestInstanceContext()
+        if instance is not None:
+            decl = self.resolveUnresolvedMember(instance, name)
             if decl is not None:
                 return MethodCall(MethodSelector(name), self.assignments)
+        # it could be a reference to a local closure
+        named = context.getRegisteredValue(INamed, name)
+        if named is not None:
+            itype = named.getType(context)
+            if isinstance(itype, MethodType):
+                call = MethodCall(MethodSelector(name), self.assignments)
+                call.variableName = name
+                return call
+        # can only be global then
         decl = context.getRegisteredDeclaration(IDeclaration, name)
         if decl is None:
             raise SyntaxError("Unknown name:" + name)
@@ -72,6 +83,7 @@ class UnresolvedCall(SimpleStatement):
             return ConstructorExpression(CategoryType(name), None, self.assignments, False)
         else:
             return MethodCall(MethodSelector(name), self.assignments)
+
 
     def resolveUnresolvedMember(self, context:InstanceContext, name:str):
         decl = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, context.instanceType.typeName)
@@ -83,9 +95,10 @@ class UnresolvedCall(SimpleStatement):
 
 
     def resolveMember(self, context:Context):
-        parent = self.caller.getParent()
-        name = self.caller.getName()
+        parent = self.caller.parent
+        name = self.caller.name
         return MethodCall(MethodSelector(name, parent), self.assignments)
+
 
     def interpretAssert(self, context, testMethodDeclaration):
         self.resolve(context)

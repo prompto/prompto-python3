@@ -16,7 +16,16 @@ class StatementList(list):
         if statement is not None:
             self.append(statement)
 
-    def check(self, context, returnType, nativeOnly=False):
+
+    def check(self, context, returnType):
+        return self.checkStatements(context, returnType, False)
+
+
+    def checkNative(self, context, returnType):
+        return self.checkStatements(context, returnType, True)
+
+
+    def checkStatements(self, context, returnType, nativeOnly):
         if returnType == VoidType.instance:
             for statement in self:
                 if nativeOnly and not isinstance(statement, Python3NativeCall):
@@ -43,6 +52,7 @@ class StatementList(list):
                 return returnType
             else:
                 return itype
+
 
     def interpret(self, context):
         try:

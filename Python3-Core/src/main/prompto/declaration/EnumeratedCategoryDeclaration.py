@@ -22,8 +22,8 @@ class EnumeratedCategoryDeclaration ( ConcreteCategoryDeclaration, IEnumeratedDe
         for symbol in self.symbols:
             context.registerValue(symbol)
 
-    def check(self, context):
-        super(EnumeratedCategoryDeclaration, self).check(context)
+    def check(self, context, isStart:bool):
+        super(EnumeratedCategoryDeclaration, self).check(context, isStart)
         for s in self.symbols:
             s.check(context) # TODO
         return self.getType(context)

@@ -14,6 +14,12 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
         if statements is None:
             statements = StatementList()
         self.statements = statements
+        self.declarationOf = None
+        from prompto.statement.DeclarationStatement import DeclarationStatement
+        for statement in statements:
+            if isinstance(statement, DeclarationStatement):
+                statement.declaration.closureOf = self
+
 
     def getStatements(self):
         return self.statements
@@ -23,17 +29,20 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
         context = context.newInstanceContext(None, category.getType(context), False)
         return self.checkChild(context)
 
-    def check(self, context, nativeOnly = False):
+
+    def check(self, context, isStart):
         if self.canBeChecked(context):
-            return self.fullCheck(context, nativeOnly)
+            return self.fullCheck(context, isStart)
         else:
             return VoidType.instance
+
 
     def canBeChecked(self, context):
         if context.isGlobalContext():
             return not self.mustBeBeCheckedInCallContext(context)
         else:
             return True
+
 
     def mustBeBeCheckedInCallContext(self, context):
         # if at least one argument is 'Code'
@@ -44,20 +53,23 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
                 return True
         return False
 
-    def fullCheck(self, context, nativeOnly=False):
-        if context.isGlobalContext():
+
+    def fullCheck(self, context, isStart):
+        if isStart:
             context = context.newLocalContext()
             self.registerArguments(context)
         if self.arguments is not None:
             self.arguments.check(context)
-        return self.statements.check(context, self.returnType, nativeOnly)
+        return self.statements.check(context, self.returnType)
 
-    def checkChild(self, context, nativeOnly = False):
+
+    def checkChild(self, context):
         if self.arguments is not None:
             self.arguments.check(context)
         child = context.newChildContext()
         self.registerArguments(child)
-        return self.statements.check(child, self.returnType, nativeOnly)
+        return self.statements.check(child, self.returnType)
+
 
     def interpret(self, context):
         context.enterMethod(self)
@@ -65,6 +77,7 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
             return self.statements.interpret(context)
         finally:
             context.leaveMethod(self)
+
 
     def isEligibleAsMain(self):
         if self.arguments is None or self.arguments.isEmpty():
@@ -74,14 +87,16 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
             if isinstance(arg, CategoryArgument):
                 itype = arg.getType()
                 if isinstance(itype, DictType):
-                    return itype.getItemType()==TextType.instance
+                    return itype.itemType==TextType.instance
         return super(ConcreteMethodDeclaration, self).isEligibleAsMain()
+
 
     def toDialect(self, writer):
         if writer.isGlobalContext():
             writer = writer.newLocalWriter()
         self.registerArguments(writer.context)
         super(ConcreteMethodDeclaration, self).toDialect(writer)
+
 
     def toMDialect(self, writer):
         writer.append("def ")
@@ -97,6 +112,7 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
         self.statements.toDialect(writer)
         writer.dedent()
 
+
     def toEDialect(self, writer):
         writer.append("define ")
         writer.append(self.name)
@@ -110,6 +126,7 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
         writer.indent()
         self.statements.toDialect(writer)
         writer.dedent()
+
 
     def toODialect(self, writer):
         if self.returnType is not None and self.returnType is not VoidType.instance:

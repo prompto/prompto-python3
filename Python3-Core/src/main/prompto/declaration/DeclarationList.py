@@ -42,7 +42,7 @@ class DeclarationList(list):
 
     def check(self, context):
         for declaration in self:
-            declaration.check(context)
+            declaration.check(context, True)
 
     def findMain(self):
         for declaration in self:
