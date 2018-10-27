@@ -17,6 +17,9 @@ class TestBuiltins(BaseEParserTest):
     def testCharText(self):
         self.compareResourceEOE("builtins/charText.pec")
 
+    def testCursorToList(self):
+        self.compareResourceEOE("builtins/cursorToList.pec")
+
     def testDateDayOfMonth(self):
         self.compareResourceEOE("builtins/dateDayOfMonth.pec")
 

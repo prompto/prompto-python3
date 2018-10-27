@@ -22,6 +22,9 @@ class TestBuiltins(BaseEParserTest):
     def testCharText(self):
         self.checkOutput("builtins/charText.pec")
 
+    def testCursorToList(self):
+        self.checkOutput("builtins/cursorToList.pec")
+
     def testDateDayOfMonth(self):
         self.checkOutput("builtins/dateDayOfMonth.pec")
 

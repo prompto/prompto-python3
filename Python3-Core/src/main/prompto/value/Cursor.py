@@ -9,6 +9,8 @@ from prompto.value.IFilterable import IFilterable
 from prompto.value.IIterable import IIterable
 from prompto.value.Integer import Integer
 from prompto.store.InvalidValueError import InvalidValueError
+from prompto.value.ListValue import ListValue
+
 
 class Cursor(BaseValue, IIterable, IFilterable):
 
@@ -79,6 +81,12 @@ class Cursor(BaseValue, IIterable, IFilterable):
 
     def filter(self, context, itemName, filter):
         return FilteredCursor(self, context, itemName, filter)
+
+
+
+    def toListValue(self, context):
+        items = [ item for item in self.getIterator(context)]
+        return ListValue(self.itype.itemType, items=items)
 
 
 class FilteredCursor(Cursor):

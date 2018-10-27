@@ -1,8 +1,9 @@
+from prompto.declaration.BuiltInMethodDeclaration import BuiltInMethodDeclaration
 from prompto.type.IType import IType
 from prompto.type.IterableType import IterableType
 from prompto.type.IntegerType import IntegerType
 from prompto.store.TypeFamily import TypeFamily
-
+from prompto.type.ListType import ListType
 
 
 class CursorType(IterableType):
@@ -40,3 +41,26 @@ class CursorType(IterableType):
 
     def withItemType(self, itemType:IType):
         return CursorType(itemType)
+
+
+    def getMemberMethods(self, context, name):
+        if name == "toList":
+            return [ToListMethodDeclaration(self.itemType)]
+        else:
+            return super().getMemberMethods(context, name)
+
+
+class ToListMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self, itemType):
+        super().__init__("toList")
+        self.itemType = itemType
+
+
+    def interpret(self, context):
+        value = self.getValue(context)
+        return value.toListValue(context)
+
+
+    def check(self, context, isStart=False):
+        return ListType(self.itemType)
