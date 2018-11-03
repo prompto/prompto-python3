@@ -434,7 +434,12 @@ class InstanceContext(Context):
             return actual
         decl = self.getDeclaration()
         methods = decl.getMemberMethodsMap(self, name)
-        return methods if len(methods)>0 else None
+        if methods is not None and len(methods)>0:
+            return methods
+        elif decl.hasAttribute(self, name):
+            return self.getRegisteredDeclaration(AttributeDeclaration, name)
+        else:
+            return None
 
 
     def getRegisteredDeclaration(self, klass, name):
