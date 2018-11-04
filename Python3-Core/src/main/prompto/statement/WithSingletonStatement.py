@@ -32,7 +32,7 @@ class WithSingletonStatement(BaseStatement):
         writer.append("with (")
         self.type.toDialect(writer)
         writer.append(")")
-        oneLine = len(self.instructions)==1 and isinstance(self.instructions[0], SimpleStatement)
+        oneLine = len(self.instructions)==1 and self.instructions[0].isSimple()
         if not oneLine:
             writer.append(" {")
         writer.newLine()

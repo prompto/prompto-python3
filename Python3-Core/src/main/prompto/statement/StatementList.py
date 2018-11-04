@@ -95,7 +95,7 @@ class StatementList(list):
     def toDialect(self, writer):
         for statement in self:
             statement.toDialect(writer)
-            if isinstance(statement, SimpleStatement):
+            if statement.isSimple():
                 if writer.dialect is Dialect.O and not isinstance(statement, NativeCall):
                     writer.append(';')
                 writer.newLine()

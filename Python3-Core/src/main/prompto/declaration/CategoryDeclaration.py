@@ -39,7 +39,10 @@ class CategoryDeclaration(BaseDeclaration):
 
 
     def hasAttribute(self, context, name):
-        return self.attributes is not None and name in self.attributes
+        if name == "dbId":
+            return self.storable
+        else:
+            return self.attributes is not None and name in self.attributes
 
 
     def getAllAttributes(self, context):

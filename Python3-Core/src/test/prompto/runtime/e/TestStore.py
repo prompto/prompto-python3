@@ -10,6 +10,9 @@ class TestStore(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testAsyncStore(self):
+        self.checkOutput("store/asyncStore.pec")
+
     def testDeleteRecords(self):
         self.checkOutput("store/deleteRecords.pec")
 

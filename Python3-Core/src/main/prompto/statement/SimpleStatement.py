@@ -3,4 +3,5 @@ from prompto.statement.BaseStatement import BaseStatement
 
 class SimpleStatement ( BaseStatement ):
 
-    pass
+    def isSimple(self):
+        return True

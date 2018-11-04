@@ -5,6 +5,9 @@ class TestStore(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testAsyncStore(self):
+        self.compareResourceEOE("store/asyncStore.pec")
+
     def testDeleteRecords(self):
         self.compareResourceEOE("store/deleteRecords.pec")
 

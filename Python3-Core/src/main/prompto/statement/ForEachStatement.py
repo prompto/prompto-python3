@@ -114,7 +114,7 @@ class ForEachStatement(BaseStatement):
         writer.append(" in ")
         self.source.toDialect(writer)
         writer.append(")")
-        oneLine = len(self.statements) == 1 and isinstance(self.statements[0], SimpleStatement)
+        oneLine = len(self.statements) == 1 and self.statements[0].isSimple()
         if not oneLine:
             writer.append(" {")
         writer.newLine()
