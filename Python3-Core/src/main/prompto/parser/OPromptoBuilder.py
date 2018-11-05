@@ -189,6 +189,8 @@ from prompto.statement.CollectionSwitchCase import CollectionSwitchCase
 from prompto.statement.CommentStatement import CommentStatement
 from prompto.statement.DeclarationStatement import DeclarationStatement
 from prompto.statement.DoWhileStatement import DoWhileStatement
+from prompto.statement.FetchManyStatement import FetchManyStatement
+from prompto.statement.FetchOneStatement import FetchOneStatement
 from prompto.statement.FlushStatement import FlushStatement
 from prompto.statement.ForEachStatement import ForEachStatement
 from prompto.statement.IfStatement import IfElement, IfStatement, IfElementList
