@@ -1064,6 +1064,10 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, items)
 
 
+    def exitFetchStatement(self, ctx: MParser.FetchStatementContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.stmt))
+
+
     def exitFetchMany (self, ctx:MParser.FetchManyContext):
         category = self.getNodeValue(ctx.typ)
         predicate = self.getNodeValue(ctx.predicate)

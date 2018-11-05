@@ -2221,6 +2221,10 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, DocumentLiteral(items))
 
 
+    def exitFetchStatement(self, ctx:OParser.FetchStatementContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.stmt))
+
+
     def exitFetchMany (self, ctx:OParser.FetchManyContext):
         category = self.getNodeValue(ctx.typ)
         predicate = self.getNodeValue(ctx.predicate)
