@@ -2221,13 +2221,6 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, DocumentLiteral(items))
 
 
-    def exitFetchOne (self, ctx:OParser.FetchOneContext):
-        category = self.getNodeValue(ctx.typ)
-        predicate = self.getNodeValue(ctx.predicate)
-        self.setNodeValue(ctx, FetchOneExpression(category, predicate))
-
-
-
     def exitFetchMany (self, ctx:OParser.FetchManyContext):
         category = self.getNodeValue(ctx.typ)
         predicate = self.getNodeValue(ctx.predicate)
@@ -2236,6 +2229,30 @@ class OPromptoBuilder(OParserListener):
         orderBy = self.getNodeValue(ctx.orderby)
         self.setNodeValue(ctx, FetchManyExpression(category, predicate, start, stop, orderBy))
 
+
+    def exitFetchManyAsync(self, ctx:OParser.FetchManyAsyncContext):
+        category = self.getNodeValue(ctx.typ)
+        predicate = self.getNodeValue(ctx.predicate)
+        start = self.getNodeValue(ctx.xstart)
+        stop = self.getNodeValue(ctx.xstop)
+        orderBy = self.getNodeValue(ctx.orderby)
+        name = self.getNodeValue(ctx.name)
+        stmts = self.getNodeValue(ctx.stmts)
+        self.setNodeValue(ctx, FetchManyStatement(category, predicate, start, stop, orderBy, name, stmts))
+
+
+    def exitFetchOne (self, ctx:OParser.FetchOneContext):
+        category = self.getNodeValue(ctx.typ)
+        predicate = self.getNodeValue(ctx.predicate)
+        self.setNodeValue(ctx, FetchOneExpression(category, predicate))
+
+
+    def exitFetchOneAsync(self, ctx:OParser.FetchOneAsyncContext):
+        category = self.getNodeValue(ctx.typ)
+        predicate = self.getNodeValue(ctx.predicate)
+        name = self.getNodeValue(ctx.name)
+        stmts = self.getNodeValue(ctx.stmts)
+        self.setNodeValue(ctx, FetchOneStatement(category, predicate, name, stmts))
 
 
     def exitFiltered_list_expression(self, ctx:OParser.Filtered_list_expressionContext):

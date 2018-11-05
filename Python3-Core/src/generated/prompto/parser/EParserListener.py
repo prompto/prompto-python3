@@ -314,6 +314,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#FetchStatement.
+    def enterFetchStatement(self, ctx:EParser.FetchStatementContext):
+        pass
+
+    # Exit a parse tree produced by EParser#FetchStatement.
+    def exitFetchStatement(self, ctx:EParser.FetchStatementContext):
+        pass
+
+
     # Enter a parse tree produced by EParser#FlushStatement.
     def enterFlushStatement(self, ctx:EParser.FlushStatementContext):
         pass
@@ -737,6 +746,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#FetchExpression.
+    def enterFetchExpression(self, ctx:EParser.FetchExpressionContext):
+        pass
+
+    # Exit a parse tree produced by EParser#FetchExpression.
+    def exitFetchExpression(self, ctx:EParser.FetchExpressionContext):
+        pass
+
+
     # Enter a parse tree produced by EParser#NotHasExpression.
     def enterNotHasExpression(self, ctx:EParser.NotHasExpressionContext):
         pass
@@ -896,15 +914,6 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#TernaryExpression.
     def exitTernaryExpression(self, ctx:EParser.TernaryExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by EParser#FetchStoreExpression.
-    def enterFetchStoreExpression(self, ctx:EParser.FetchStoreExpressionContext):
-        pass
-
-    # Exit a parse tree produced by EParser#FetchStoreExpression.
-    def exitFetchStoreExpression(self, ctx:EParser.FetchStoreExpressionContext):
         pass
 
 
@@ -1247,6 +1256,24 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#FetchMany.
     def exitFetchMany(self, ctx:EParser.FetchManyContext):
+        pass
+
+
+    # Enter a parse tree produced by EParser#FetchOneAsync.
+    def enterFetchOneAsync(self, ctx:EParser.FetchOneAsyncContext):
+        pass
+
+    # Exit a parse tree produced by EParser#FetchOneAsync.
+    def exitFetchOneAsync(self, ctx:EParser.FetchOneAsyncContext):
+        pass
+
+
+    # Enter a parse tree produced by EParser#FetchManyAsync.
+    def enterFetchManyAsync(self, ctx:EParser.FetchManyAsyncContext):
+        pass
+
+    # Exit a parse tree produced by EParser#FetchManyAsync.
+    def exitFetchManyAsync(self, ctx:EParser.FetchManyAsyncContext):
         pass
 
 

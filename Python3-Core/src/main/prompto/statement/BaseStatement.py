@@ -1,6 +1,11 @@
+from prompto.grammar.IDialectElement import IDialectElement
 from prompto.parser.Section import Section
-from prompto.statement.IStatement import IStatement
 
 
-class BaseStatement ( Section, IStatement ):
-    pass
+class BaseStatement ( Section, IDialectElement ):
+
+    def canReturn(self):
+        return False
+
+    def isSimple(self):
+        return False

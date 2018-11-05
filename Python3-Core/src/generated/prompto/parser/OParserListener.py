@@ -323,6 +323,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#FetchStatement.
+    def enterFetchStatement(self, ctx:OParser.FetchStatementContext):
+        pass
+
+    # Exit a parse tree produced by OParser#FetchStatement.
+    def exitFetchStatement(self, ctx:OParser.FetchStatementContext):
+        pass
+
+
     # Enter a parse tree produced by OParser#FlushStatement.
     def enterFlushStatement(self, ctx:OParser.FlushStatementContext):
         pass
@@ -1157,6 +1166,24 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#FetchMany.
     def exitFetchMany(self, ctx:OParser.FetchManyContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#FetchOneAsync.
+    def enterFetchOneAsync(self, ctx:OParser.FetchOneAsyncContext):
+        pass
+
+    # Exit a parse tree produced by OParser#FetchOneAsync.
+    def exitFetchOneAsync(self, ctx:OParser.FetchOneAsyncContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#FetchManyAsync.
+    def enterFetchManyAsync(self, ctx:OParser.FetchManyAsyncContext):
+        pass
+
+    # Exit a parse tree produced by OParser#FetchManyAsync.
+    def exitFetchManyAsync(self, ctx:OParser.FetchManyAsyncContext):
         pass
 
 
