@@ -1,6 +1,7 @@
 from prompto.expression.FetchOneExpression import FetchOneExpression
 from prompto.parser.Dialect import Dialect
 from prompto.runtime.Variable import Variable
+from prompto.type.VoidType import VoidType
 
 
 class FetchOneStatement(FetchOneExpression):
@@ -24,7 +25,7 @@ class FetchOneStatement(FetchOneExpression):
         context = context.newChildContext()
         context.registerValue(Variable(self.name, self.typ))
         self.stmts.check(context, None)
-        return None
+        return VoidType.instance
 
 
     def interpret(self, context):
