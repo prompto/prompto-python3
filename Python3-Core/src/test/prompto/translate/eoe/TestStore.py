@@ -5,8 +5,11 @@ class TestStore(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
-    def testAsyncFetch(self):
-        self.compareResourceEOE("store/asyncFetch.pec")
+    def testAsyncFetchMany(self):
+        self.compareResourceEOE("store/asyncFetchMany.pec")
+
+    def testAsyncFetchOne(self):
+        self.compareResourceEOE("store/asyncFetchOne.pec")
 
     def testAsyncStore(self):
         self.compareResourceEOE("store/asyncStore.pec")
