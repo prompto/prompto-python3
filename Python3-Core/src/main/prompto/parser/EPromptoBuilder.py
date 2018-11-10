@@ -337,7 +337,7 @@ class EPromptoBuilder(EParserListener):
     def exitMethodCallExpression(self, ctx:EParser.MethodCallExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         args = self.getNodeValue(ctx.args)
-        call = UnresolvedCall(exp, args)
+        call = UnresolvedCall(exp, args, None)
         self.setNodeValue(ctx, call)
 
 
@@ -944,7 +944,6 @@ class EPromptoBuilder(EParserListener):
         item = self.getNodeValue(ctx.item)
         items = ArgumentAssignmentList(items=[item])
         self.setNodeValue(ctx, items)
-    
 
     
     def exitArgumentAssignmentListItem(self, ctx:EParser.ArgumentAssignmentListItemContext):
@@ -952,24 +951,21 @@ class EPromptoBuilder(EParserListener):
         items = self.getNodeValue(ctx.items)
         items.append(item)
         self.setNodeValue(ctx, items)
-    
 
     
     def exitUnresolvedWithArgsStatement(self, ctx:EParser.UnresolvedWithArgsStatementContext):
         exp = self.getNodeValue(ctx.exp)
         args = self.getNodeValue(ctx.args)
-        self.setNodeValue(ctx, UnresolvedCall(exp, args))
-    
+        stmts = self.getNodeValue(ctx.stmts)
+        self.setNodeValue(ctx, UnresolvedCall(exp, args, stmts))
 
 
     def exitUUIDType(self, ctx:EParser.UUIDTypeContext):
         self.setNodeValue(ctx, UUIDType.instance)
 
 
-
     def exitUUIDLiteral(self, ctx:EParser.UUIDLiteralContext):
         self.setNodeValue(ctx, UUIDLiteral(ctx.t.text))
-
 
 
     def exitAddExpression(self, ctx:EParser.AddExpressionContext):
@@ -979,11 +975,9 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, exp)
 
 
-
     def exitNative_member_method_declaration(self, ctx:EParser.Native_member_method_declarationContext):
         decl = self.getNodeValue(ctx.getChild(0))
         self.setNodeValue(ctx, decl)
-
 
 
     def exitNative_member_method_declaration_list(self, ctx:EParser.Native_member_method_declaration_listContext):

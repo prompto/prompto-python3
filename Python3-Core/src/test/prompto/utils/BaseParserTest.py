@@ -260,7 +260,7 @@ class BaseParserTest(unittest.TestCase):
     def assertEquivalent(self, expected, actual):
         expected = self.removeWhitespace(expected).replace("modulo","%")
         actual = self.removeWhitespace(actual).replace("modulo","%")
-        self.assertEquals(expected, actual)
+        self.assertEqual(expected, actual)
 
     def removeWhitespace(self, s):
         return s.replace(" ", "").replace("\t", "").replace("\n", "")

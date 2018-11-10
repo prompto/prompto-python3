@@ -67,4 +67,7 @@ class TestMethods(BaseEParserTest):
     def testSpecified(self):
         self.checkOutput("methods/specified.pec")
 
+    def testVoidAsync(self):
+        self.checkOutput("methods/voidAsync.pec")
+
 

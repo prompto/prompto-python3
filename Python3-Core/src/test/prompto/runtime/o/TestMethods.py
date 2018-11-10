@@ -58,4 +58,7 @@ class TestMethods(BaseOParserTest):
     def testSpecified(self):
         self.checkOutput("methods/specified.poc")
 
+    def testVoidAsync(self):
+        self.checkOutput("methods/voidAsync.poc")
+
 

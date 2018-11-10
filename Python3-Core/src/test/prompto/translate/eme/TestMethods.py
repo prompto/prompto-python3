@@ -68,4 +68,7 @@ class TestMethods(BaseEParserTest):
     def testSpecified(self):
         self.compareResourceEME("methods/specified.pec")
 
+    def testVoidAsync(self):
+        self.compareResourceEME("methods/voidAsync.pec")
+
 

@@ -8,41 +8,75 @@ from prompto.expression.MethodSelector import MethodSelector
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
 from prompto.grammar.INamed import INamed
+from prompto.parser.Dialect import Dialect
 from prompto.runtime.Context import Context, InstanceContext
+from prompto.statement.BaseStatement import BaseStatement
 from prompto.statement.MethodCall import MethodCall
-from prompto.statement.SimpleStatement import SimpleStatement
+from prompto.statement.StatementList import StatementList
 from prompto.type.CategoryType import CategoryType
 from prompto.type.MethodType import MethodType
+from prompto.type.VoidType import VoidType
 from prompto.utils.CodeWriter import CodeWriter
 
 
-class UnresolvedCall(SimpleStatement):
+class UnresolvedCall(BaseStatement):
 
-    def __init__(self, caller:IExpression, assignments:ArgumentAssignmentList):
+    def __init__(self, caller:IExpression, assignments:ArgumentAssignmentList, andThen:StatementList):
         super().__init__()
         self.resolved = None
         self.caller = caller
         self.assignments = assignments
+        self.andThen = andThen
+
+
+    def isSimple(self):
+        return self.andThen is None
 
 
     def toDialect(self, writer):
         try:
             self.resolve(writer.context)
             self.resolved.toDialect(writer)
+            self.andThenToDialect(writer)
         except:
             self.caller.toDialect(writer)
             if self.assignments is not None:
                 self.assignments.toDialect(writer)
+            self.andThenToDialect(writer)
+
+
+    def andThenToDialect(self, writer):
+        if self.andThen is not None:
+            writer.append(" then")
+            if writer.dialect is Dialect.O:
+                writer.append(" {")
+            else:
+                writer.append(":")
+            writer = writer.newLine().indent()
+            self.andThen.toDialect(writer)
+            writer = writer.dedent()
+            if writer.dialect is Dialect.O:
+                writer.append("}")
 
 
     def check(self, context:Context):
-        return self.resolveAndCheck(context)
+        result = self.resolveAndCheck(context)
+        if self.andThen is None:
+            return result
+        else:
+            self.andThen.check(context, VoidType.instance)
+            return VoidType.instance
 
 
     def interpret(self, context:Context):
         if self.resolved is None:
             self.resolveAndCheck(context)
-        return self.resolved.interpret(context)
+        result = self.resolved.interpret(context)
+        if self.andThen is None:
+            return result
+        else:
+            self.andThen.interpret(context)
+            return None
 
 
     def resolveAndCheck(self, context:Context):

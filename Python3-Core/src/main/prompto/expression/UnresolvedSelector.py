@@ -84,7 +84,7 @@ class UnresolvedSelector(SelectorExpression):
             if isinstance(resolvedParent, UnresolvedIdentifier):
                 resolvedParent.checkMember(context)
                 resolvedParent = resolvedParent.resolved
-            method = UnresolvedCall(MethodSelector(self.name, resolvedParent), None)
+            method = UnresolvedCall(MethodSelector(self.name, resolvedParent), None, None)
             method.check(context)
             return method
         except SyntaxError:

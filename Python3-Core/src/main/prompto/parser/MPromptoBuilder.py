@@ -1639,11 +1639,9 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, MaxIntegerLiteral())
 
 
-
     def exitMemberInstance(self, ctx:MParser.MemberInstanceContext):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, MemberInstance(None, name))
-
 
 
     def exitMemberSelector(self, ctx:MParser.MemberSelectorContext):
@@ -1651,12 +1649,16 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, MemberSelector(name))
 
 
-
     def exitMethod_call(self, ctx:MParser.Method_callContext):
         method = self.getNodeValue(ctx.method)
         args = self.getNodeValue(ctx.args)
-        self.setNodeValue(ctx, UnresolvedCall(method, args))
+        self.setNodeValue(ctx, UnresolvedCall(method, args, None))
 
+
+    def exitMethod_call_statement(self, ctx:MParser.Method_call_statementContext):
+        call = self.getNodeValue(ctx.method)
+        call.andThen = self.getNodeValue(ctx.stmts)
+        self.setNodeValue(ctx, call)
 
 
     def exitMethod_declaration(self, ctx:MParser.Method_declarationContext):
@@ -1664,11 +1666,9 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, value)
 
 
-
     def exitMethod_identifier(self, ctx:MParser.Method_identifierContext):
         stmt = self.getNodeValue(ctx.getChild(0))
         self.setNodeValue(ctx, stmt)
-
 
 
     def exitMethod_expression(self, ctx:MParser.Method_expressionContext):
@@ -1676,11 +1676,9 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, exp)
 
 
-
     def exitMethodCallStatement(self, ctx:MParser.MethodCallStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, stmt)
-
 
 
     def exitMethodExpression(self, ctx:MParser.MethodExpressionContext):

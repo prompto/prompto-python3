@@ -458,6 +458,15 @@ class MParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MParser#method_call_statement.
+    def enterMethod_call_statement(self, ctx:MParser.Method_call_statementContext):
+        pass
+
+    # Exit a parse tree produced by MParser#method_call_statement.
+    def exitMethod_call_statement(self, ctx:MParser.Method_call_statementContext):
+        pass
+
+
     # Enter a parse tree produced by MParser#MethodName.
     def enterMethodName(self, ctx:MParser.MethodNameContext):
         pass

@@ -844,7 +844,6 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, name)
 
 
-
     def exitCallableSelector(self, ctx:OParser.CallableSelectorContext):
         parent = self.getNodeValue(ctx.parent)
         select = self.getNodeValue(ctx.select)
@@ -852,12 +851,16 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, select)
 
 
-
     def exitMethod_call(self, ctx:OParser.Method_callContext):
         selector = self.getNodeValue(ctx.method)
         args = self.getNodeValue(ctx.args)
-        self.setNodeValue(ctx, UnresolvedCall(selector, args))
+        self.setNodeValue(ctx, UnresolvedCall(selector, args, None))
     
+
+    def exitMethod_call_statement(self, ctx:OParser.Method_call_statementContext):
+        call = self.getNodeValue(ctx.method)
+        call.andThen = self.getNodeValue(ctx.stmts)
+        self.setNodeValue(ctx, call)
 
 
     def exitMethod_declaration(self, ctx:OParser.Method_declarationContext):
@@ -865,11 +868,9 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, value)
 
 
-
     def exitMethod_identifier(self, ctx:OParser.Method_identifierContext):
         stmt = self.getNodeValue(ctx.getChild(0))
         self.setNodeValue(ctx, stmt)
-
 
 
     def exitArgument_assignment(self, ctx:OParser.Argument_assignmentContext):
@@ -877,7 +878,8 @@ class OPromptoBuilder(OParserListener):
         exp = self.getNodeValue(ctx.exp)
         arg = UnresolvedArgument(name)
         self.setNodeValue(ctx, ArgumentAssignment(arg, exp))
-    
+
+
     def exitExpressionAssignmentList(self, ctx:OParser.ExpressionAssignmentListContext):
         exp = self.getNodeValue(ctx.exp)
         items = ArgumentAssignmentList()

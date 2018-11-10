@@ -59,4 +59,8 @@ class TestMethods(BaseOParserTest):
     def testSpecified(self):
         self.compareResourceOEO("methods/specified.poc")
 
+    def testVoidAsync(self):
+        self.maxDiff = None
+        self.compareResourceOEO("methods/voidAsync.poc")
+
 
