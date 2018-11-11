@@ -8,7 +8,7 @@ from prompto.statement.UnresolvedCall import UnresolvedCall
 from prompto.type.VoidType import VoidType
 
 
-class AsynchronousCall(UnresolvedCall):
+class RemoteCall(UnresolvedCall):
 
     def __init__(self, caller:IExpression, assignments:ArgumentAssignmentList, resultName:str, andThen:StatementList):
         super().__init__(caller, assignments)

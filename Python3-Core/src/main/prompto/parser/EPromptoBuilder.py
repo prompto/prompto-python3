@@ -184,7 +184,7 @@ from prompto.python.PythonTextLiteral import PythonTextLiteral
 from prompto.statement.AssignInstanceStatement import AssignInstanceStatement
 from prompto.statement.AssignTupleStatement import AssignTupleStatement
 from prompto.statement.AssignVariableStatement import AssignVariableStatement
-from prompto.statement.AsynchronousCall import AsynchronousCall
+from prompto.statement.RemoteCall import RemoteCall
 from prompto.statement.AtomicSwitchCase import AtomicSwitchCase
 from prompto.statement.BreakStatement import BreakStatement
 from prompto.statement.CollectionSwitchCase import CollectionSwitchCase
@@ -960,7 +960,7 @@ class EPromptoBuilder(EParserListener):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
         if name is not None or stmts is not None:
-            self.setNodeValue(ctx, AsynchronousCall(exp, args, name, stmts))
+            self.setNodeValue(ctx, RemoteCall(exp, args, name, stmts))
         else:
             self.setNodeValue(ctx, UnresolvedCall(exp, args))
 
