@@ -68,6 +68,9 @@ class TestMethods(BaseEParserTest):
     def testSpecified(self):
         self.compareResourceEOE("methods/specified.pec")
 
+    def testTextAsync(self):
+        self.compareResourceEOE("methods/textAsync.pec")
+
     def testVoidAsync(self):
         self.compareResourceEOE("methods/voidAsync.pec")
 

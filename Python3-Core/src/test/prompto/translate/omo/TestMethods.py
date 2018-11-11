@@ -59,6 +59,9 @@ class TestMethods(BaseOParserTest):
     def testSpecified(self):
         self.compareResourceOMO("methods/specified.poc")
 
+    def testTextAsync(self):
+        self.compareResourceOMO("methods/textAsync.poc")
+
     def testVoidAsync(self):
         self.compareResourceOMO("methods/voidAsync.poc")
 

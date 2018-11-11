@@ -184,6 +184,7 @@ from prompto.python.PythonTextLiteral import PythonTextLiteral
 from prompto.statement.AssignInstanceStatement import AssignInstanceStatement
 from prompto.statement.AssignTupleStatement import AssignTupleStatement
 from prompto.statement.AssignVariableStatement import AssignVariableStatement
+from prompto.statement.AsynchronousCall import AsynchronousCall
 from prompto.statement.AtomicSwitchCase import AtomicSwitchCase
 from prompto.statement.BreakStatement import BreakStatement
 from prompto.statement.CollectionSwitchCase import CollectionSwitchCase
@@ -337,7 +338,7 @@ class EPromptoBuilder(EParserListener):
     def exitMethodCallExpression(self, ctx:EParser.MethodCallExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         args = self.getNodeValue(ctx.args)
-        call = UnresolvedCall(exp, args, None)
+        call = UnresolvedCall(exp, args)
         self.setNodeValue(ctx, call)
 
 
@@ -956,8 +957,12 @@ class EPromptoBuilder(EParserListener):
     def exitUnresolvedWithArgsStatement(self, ctx:EParser.UnresolvedWithArgsStatementContext):
         exp = self.getNodeValue(ctx.exp)
         args = self.getNodeValue(ctx.args)
+        name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
-        self.setNodeValue(ctx, UnresolvedCall(exp, args, stmts))
+        if name is not None or stmts is not None:
+            self.setNodeValue(ctx, AsynchronousCall(exp, args, name, stmts))
+        else:
+            self.setNodeValue(ctx, UnresolvedCall(exp, args))
 
 
     def exitUUIDType(self, ctx:EParser.UUIDTypeContext):
