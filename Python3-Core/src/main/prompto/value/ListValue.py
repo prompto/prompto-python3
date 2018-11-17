@@ -33,6 +33,17 @@ class ListValue(BaseValueList, IFilterable):
             return super().Add(context, value)
 
 
+    def Subtract(self, context, value):
+        from prompto.value.SetValue import SetValue
+        if isinstance(value, ListValue):
+            setValue = SetValue(self.itype.itemType)
+            value = setValue.Add(context, value)
+        if isinstance(value, SetValue):
+            return self.remove(value)
+        else:
+            return super().Add(context, value)
+
+
     def Multiply(self, context, value):
         if isinstance(value, Integer):
             count = value.IntegerValue()

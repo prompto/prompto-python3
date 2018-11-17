@@ -13,7 +13,7 @@ class SetType(ContainerType):
 
     def isAssignableFrom(self, context, other):
         return super().isAssignableFrom(context, other) or \
-               (isinstance(other, SetType) and self.itemType.isAssignableFrom(context, other.getItemType()))
+               (isinstance(other, SetType) and self.itemType.isAssignableFrom(context, other.itemType))
 
 
     def __eq__(self, obj):
@@ -32,6 +32,14 @@ class SetType(ContainerType):
             return self
         else:
             return super().checkAdd(context, other, tryReverse)
+
+
+    def checkSubstract(self, context, other):
+        from prompto.type.ListType import ListType
+        if isinstance(other, (ListType, SetType)) and self.itemType == other.itemType:
+            return self
+        else:
+            return super().checkSubstract(context, other)
 
 
     def checkItem(self, context, other):

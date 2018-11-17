@@ -59,20 +59,49 @@ class SetValue(BaseValue, IContainer, IFilterable):
             return sb.getvalue()
 
     def Add(self, context, value):
-        if isinstance(value, IContainer):
+        from prompto.value.ListValue import ListValue
+        if isinstance(value, (ListValue, SetValue)):
             return self.merge(value.items)
         else:
-            raise SyntaxError("Illegal: " + self.itype.name + " + " + type(value).__name__)
+            raise SyntaxError("Illegal: " + self.itype.typeName + " + " + type(value).__name__)
 
 
     def merge(self, items):
-        data = set()
-        data |= self.items
-        if isinstance(items, set):
-            data |= items
+        if(len(items)==0):
+            return self
         else:
-            data |= set(items)
-        return SetValue(self.itype.itemType, data)
+            data = set()
+            data |= self.items
+            if isinstance(items, set):
+                data |= items
+            else:
+                data |= set(items)
+            return SetValue(self.itype.itemType, data)
+
+
+    def Subtract(self, context, value):
+        from prompto.value.ListValue import ListValue
+        if isinstance(value, ListValue):
+            setValue = SetValue(self.itype.itemType)
+            value = setValue.Add(context, value)
+        if isinstance(value, SetValue):
+            return self.remove(value.items)
+        else:
+            return super().Subtract(context, value)
+
+
+    def remove(self, items):
+        if(len(items)==0):
+            return self
+        else:
+            data = set()
+            data |= self.items
+            if isinstance(items, set):
+                data -= items
+            else:
+                data -= set(items)
+            return SetValue(self.itype.itemType, data)
+
 
     def filter(self, context, itemName, filter):
         result = set()

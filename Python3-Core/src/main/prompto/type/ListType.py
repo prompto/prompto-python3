@@ -35,6 +35,14 @@ class ListType(ContainerType):
             return super(ListType, self).checkAdd(context, other, tryReverse)
 
 
+    def checkSubstract(self, context, other):
+        from prompto.type.SetType import SetType
+        if isinstance(other, (ListType, SetType)) and self.itemType == other.itemType:
+            return self
+        else:
+            return super(ListType, self).checkSubstract(context, other)
+
+
     def checkItem(self, context, other):
         from prompto.type.IntegerType import IntegerType
         if other == IntegerType.instance:

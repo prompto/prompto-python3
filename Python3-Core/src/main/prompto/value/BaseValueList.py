@@ -55,6 +55,13 @@ class BaseValueList(BaseValue, ISliceable):
             result.extend(other.items)
             return self.newInstance(result)
 
+    def remove(self, other):
+        if(len(other.items)==0):
+            return self
+        else:
+            result = filter(lambda item: not item in other.items, self.items)
+            return self.newInstance(result)
+
     def hasItem(self, context, lval):
         for item in self.items:
             if item == lval:
