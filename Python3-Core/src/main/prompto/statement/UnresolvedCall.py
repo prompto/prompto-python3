@@ -54,12 +54,20 @@ class UnresolvedCall(BaseStatement):
 
 
     def resolve(self, context:Context):
+        from prompto.expression.UnresolvedSelector import UnresolvedSelector
         if self.resolved is None:
             if isinstance(self.caller, UnresolvedIdentifier):
                 self.resolved = self.resolveUnresolvedIdentifier(context)
+            elif isinstance(self.caller, UnresolvedSelector):
+                self.resolved = self.resolveUnresolvedSelector(context)
             else:
                 self.resolved = self.resolveMember(context)
         return self.resolved
+
+
+    def resolveUnresolvedSelector(self, context:Context):
+        self.caller.resolveMethod(context, self.assignments)
+        return self.caller.resolved
 
 
     def resolveUnresolvedIdentifier(self, context:Context):
