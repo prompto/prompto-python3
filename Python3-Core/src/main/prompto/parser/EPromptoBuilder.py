@@ -336,7 +336,7 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitMethodCallExpression(self, ctx:EParser.MethodCallExpressionContext):
-        exp = self.getNodeValue(ctx.exp)
+        exp = self.getNodeValue(ctx.exp1) if ctx.exp2 is None else self.getNodeValue(ctx.exp2)
         args = self.getNodeValue(ctx.args)
         call = UnresolvedCall(exp, args)
         self.setNodeValue(ctx, call)
