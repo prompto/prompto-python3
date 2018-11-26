@@ -611,7 +611,7 @@ def serializedATN():
         buf.write("\u038a\5B\"\2\u038a\u038b\7\25\2\2\u038b\u038c\5\u00c4")
         buf.write("c\2\u038c\u038e\3\2\2\2\u038d\u0388\3\2\2\2\u038d\u0389")
         buf.write("\3\2\2\2\u038eA\3\2\2\2\u038f\u0390\b\"\1\2\u0390\u0391")
-        buf.write("\5\u00ccg\2\u0391\u0396\3\2\2\2\u0392\u0393\f\3\2\2\u0393")
+        buf.write("\5f\64\2\u0391\u0396\3\2\2\2\u0392\u0393\f\3\2\2\u0393")
         buf.write("\u0395\5D#\2\u0394\u0392\3\2\2\2\u0395\u0398\3\2\2\2\u0396")
         buf.write("\u0394\3\2\2\2\u0396\u0397\3\2\2\2\u0397C\3\2\2\2\u0398")
         buf.write("\u0396\3\2\2\2\u0399\u039a\7\25\2\2\u039a\u03a0\5\u00ce")
@@ -5690,11 +5690,11 @@ class MParser ( AbstractParser ):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a MParser.Callable_parentContext
             super().__init__(parser)
-            self.name = None # IdentifierContext
+            self.exp = None # Instance_expressionContext
             self.copyFrom(ctx)
 
-        def identifier(self):
-            return self.getTypedRuleContext(MParser.IdentifierContext,0)
+        def instance_expression(self):
+            return self.getTypedRuleContext(MParser.Instance_expressionContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
@@ -5721,7 +5721,7 @@ class MParser ( AbstractParser ):
             _prevctx = localctx
 
             self.state = 910
-            localctx.name = self.identifier()
+            localctx.exp = self.instance_expression(0)
             self._ctx.stop = self._input.LT(-1)
             self.state = 916
             self._errHandler.sync(self)

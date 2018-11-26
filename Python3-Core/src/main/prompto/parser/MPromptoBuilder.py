@@ -510,8 +510,7 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitCallableRoot(self, ctx:MParser.CallableRootContext):
-        name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, UnresolvedIdentifier(name, Dialect.M))
+        self.setNodeValue(ctx, self.getNodeValue(ctx.exp))
 
 
 

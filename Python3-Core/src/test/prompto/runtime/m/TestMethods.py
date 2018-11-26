@@ -10,6 +10,9 @@ class TestMethods(BaseMParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testExpressionMember(self):
+        self.checkOutput("methods/expressionMember.pmc")
+
     def testTextAsync(self):
         self.checkOutput("methods/textAsync.pmc")
 

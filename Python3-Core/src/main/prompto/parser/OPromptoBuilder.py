@@ -841,8 +841,7 @@ class OPromptoBuilder(OParserListener):
 
 
     def exitCallableRoot(self, ctx:OParser.CallableRootContext):
-        name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, name)
+        self.setNodeValue(ctx, self.getNodeValue(ctx.exp))
 
 
     def exitCallableSelector(self, ctx:OParser.CallableSelectorContext):
