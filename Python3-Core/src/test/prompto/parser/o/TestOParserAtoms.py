@@ -1,4 +1,5 @@
 import unittest
+from datetime import datetime
 
 from prompto.argument.ExtendedArgument import ExtendedArgument
 from prompto.declaration.NativeMethodDeclaration import *
@@ -335,6 +336,7 @@ class TestParserAtoms(unittest.TestCase):
         self.assertEquals("'2012-10-09'", literal.text)
         self.assertEquals(date(2012, 10, 9), literal.getValue().getValue())
 
+
     def testSimpleTime(self):
         statement = "'15:03:10'"
         literal = self.parse(statement, OParser.literal_expression)
@@ -342,6 +344,7 @@ class TestParserAtoms(unittest.TestCase):
         self.assertIsInstance(literal, TimeLiteral)
         self.assertEquals("'15:03:10'", literal.text)
         self.assertEquals(time(15, 3, 10), literal.getValue().getValue())
+
 
     def testDateTime(self):
         statement = "'2012-10-09T15:18:17'"
@@ -351,6 +354,7 @@ class TestParserAtoms(unittest.TestCase):
         self.assertEquals("'2012-10-09T15:18:17'", literal.text)
         self.assertEquals(datetime(2012, 10, 9, 15, 18, 17), literal.getValue().getValue())
 
+
     def testDateTimeWithMillis(self):
         statement = "'2012-10-09T15:18:17.487'"
         literal = self.parse(statement, OParser.literal_expression)
@@ -358,6 +362,7 @@ class TestParserAtoms(unittest.TestCase):
         self.assertIsInstance(literal, DateTimeLiteral)
         self.assertEquals("'2012-10-09T15:18:17.487'", literal.text)
         self.assertEquals(datetime(2012, 10, 9, 15, 18, 17, 487000), literal.getValue().getValue())
+
 
     def testDateTimeWithTZ(self):
         statement = "'2012-10-09T15:18:17+02:00'"
@@ -371,6 +376,7 @@ class TestParserAtoms(unittest.TestCase):
         actual = literal.getValue().getValue()
         #self.assertTrue(expected.isEqual(actual))
 
+
     def testPeriod(self):
         statement = "'P3Y'"
         literal = self.parse(statement, OParser.literal_expression)
@@ -378,6 +384,7 @@ class TestParserAtoms(unittest.TestCase):
         self.assertIsInstance(literal, PeriodLiteral)
         self.assertEquals("'P3Y'", literal.text)
         self.assertEquals(3, literal.getValue().years)
+
 
     def testNativeSymbol(self):
         statement = 'ENTITY_1 = "1";'
