@@ -1063,25 +1063,25 @@ def serializedATN():
         buf.write("g\2\u077d\u077f\5\u00f2z\2\u077e\u077d\3\2\2\2\u077e\u077f")
         buf.write("\3\2\2\2\u077f\u00f1\3\2\2\2\u0780\u0781\7o\2\2\u0781")
         buf.write("\u0782\5\u0146\u00a4\2\u0782\u0783\7\21\2\2\u0783\u0788")
-        buf.write("\5\u00ccg\2\u0784\u0785\7\25\2\2\u0785\u0787\5\u00ccg")
-        buf.write("\2\u0786\u0784\3\2\2\2\u0787\u078a\3\2\2\2\u0788\u0786")
-        buf.write("\3\2\2\2\u0788\u0789\3\2\2\2\u0789\u00f3\3\2\2\2\u078a")
-        buf.write("\u0788\3\2\2\2\u078b\u0790\5\u016e\u00b8\2\u078c\u078d")
-        buf.write("\7\25\2\2\u078d\u078f\5\u016e\u00b8\2\u078e\u078c\3\2")
-        buf.write("\2\2\u078f\u0792\3\2\2\2\u0790\u078e\3\2\2\2\u0790\u0791")
-        buf.write("\3\2\2\2\u0791\u0794\3\2\2\2\u0792\u0790\3\2\2\2\u0793")
-        buf.write("\u0795\5\u00f6|\2\u0794\u0793\3\2\2\2\u0794\u0795\3\2")
-        buf.write("\2\2\u0795\u00f5\3\2\2\2\u0796\u0797\7o\2\2\u0797\u0798")
-        buf.write("\5\u0146\u00a4\2\u0798\u079a\7\21\2\2\u0799\u079b\7%\2")
-        buf.write("\2\u079a\u0799\3\2\2\2\u079a\u079b\3\2\2\2\u079b\u079c")
-        buf.write("\3\2\2\2\u079c\u07a1\5\u016e\u00b8\2\u079d\u079e\7%\2")
-        buf.write("\2\u079e\u07a0\5\u016e\u00b8\2\u079f\u079d\3\2\2\2\u07a0")
-        buf.write("\u07a3\3\2\2\2\u07a1\u079f\3\2\2\2\u07a1\u07a2\3\2\2\2")
-        buf.write("\u07a2\u07a6\3\2\2\2\u07a3\u07a1\3\2\2\2\u07a4\u07a5\7")
-        buf.write("\25\2\2\u07a5\u07a7\5\u016e\u00b8\2\u07a6\u07a4\3\2\2")
-        buf.write("\2\u07a6\u07a7\3\2\2\2\u07a7\u00f7\3\2\2\2\u07a8\u07ad")
-        buf.write("\5\u00ceh\2\u07a9\u07aa\7\23\2\2\u07aa\u07ac\5\u00ceh")
-        buf.write("\2\u07ab\u07a9\3\2\2\2\u07ac\u07af\3\2\2\2\u07ad\u07ab")
+        buf.write("\5\u0188\u00c5\2\u0784\u0785\7\25\2\2\u0785\u0787\5\u0188")
+        buf.write("\u00c5\2\u0786\u0784\3\2\2\2\u0787\u078a\3\2\2\2\u0788")
+        buf.write("\u0786\3\2\2\2\u0788\u0789\3\2\2\2\u0789\u00f3\3\2\2\2")
+        buf.write("\u078a\u0788\3\2\2\2\u078b\u0790\5\u016e\u00b8\2\u078c")
+        buf.write("\u078d\7\25\2\2\u078d\u078f\5\u016e\u00b8\2\u078e\u078c")
+        buf.write("\3\2\2\2\u078f\u0792\3\2\2\2\u0790\u078e\3\2\2\2\u0790")
+        buf.write("\u0791\3\2\2\2\u0791\u0794\3\2\2\2\u0792\u0790\3\2\2\2")
+        buf.write("\u0793\u0795\5\u00f6|\2\u0794\u0793\3\2\2\2\u0794\u0795")
+        buf.write("\3\2\2\2\u0795\u00f5\3\2\2\2\u0796\u0797\7o\2\2\u0797")
+        buf.write("\u0798\5\u0146\u00a4\2\u0798\u079a\7\21\2\2\u0799\u079b")
+        buf.write("\7%\2\2\u079a\u0799\3\2\2\2\u079a\u079b\3\2\2\2\u079b")
+        buf.write("\u079c\3\2\2\2\u079c\u07a1\5\u016e\u00b8\2\u079d\u079e")
+        buf.write("\7%\2\2\u079e\u07a0\5\u016e\u00b8\2\u079f\u079d\3\2\2")
+        buf.write("\2\u07a0\u07a3\3\2\2\2\u07a1\u079f\3\2\2\2\u07a1\u07a2")
+        buf.write("\3\2\2\2\u07a2\u07a6\3\2\2\2\u07a3\u07a1\3\2\2\2\u07a4")
+        buf.write("\u07a5\7\25\2\2\u07a5\u07a7\5\u016e\u00b8\2\u07a6\u07a4")
+        buf.write("\3\2\2\2\u07a6\u07a7\3\2\2\2\u07a7\u00f7\3\2\2\2\u07a8")
+        buf.write("\u07ad\5\u00ceh\2\u07a9\u07aa\7\23\2\2\u07aa\u07ac\5\u00ce")
+        buf.write("h\2\u07ab\u07a9\3\2\2\2\u07ac\u07af\3\2\2\2\u07ad\u07ab")
         buf.write("\3\2\2\2\u07ad\u07ae\3\2\2\2\u07ae\u00f9\3\2\2\2\u07af")
         buf.write("\u07ad\3\2\2\2\u07b0\u07b5\5\u00d0i\2\u07b1\u07b2\7\23")
         buf.write("\2\2\u07b2\u07b4\5\u00d0i\2\u07b3\u07b1\3\2\2\2\u07b4")
@@ -15576,11 +15576,11 @@ class EParser ( AbstractParser ):
         def COLON(self):
             return self.getToken(EParser.COLON, 0)
 
-        def identifier(self, i:int=None):
+        def python_identifier(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(EParser.IdentifierContext)
+                return self.getTypedRuleContexts(EParser.Python_identifierContext)
             else:
-                return self.getTypedRuleContext(EParser.IdentifierContext,i)
+                return self.getTypedRuleContext(EParser.Python_identifierContext,i)
 
 
         def DOT(self, i:int=None):
@@ -15616,7 +15616,7 @@ class EParser ( AbstractParser ):
             self.state = 1920
             self.match(EParser.COLON)
             self.state = 1921
-            self.identifier()
+            self.python_identifier()
             self.state = 1926
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,146,self._ctx)
@@ -15625,7 +15625,7 @@ class EParser ( AbstractParser ):
                     self.state = 1922
                     self.match(EParser.DOT)
                     self.state = 1923
-                    self.identifier() 
+                    self.python_identifier() 
                 self.state = 1928
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,146,self._ctx)
