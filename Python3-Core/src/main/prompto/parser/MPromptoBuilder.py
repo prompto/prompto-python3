@@ -2025,7 +2025,7 @@ class MPromptoBuilder(MParserListener):
 
     def exitPython_module(self, ctx:MParser.Python_moduleContext):
         ids = []
-        for ic in ctx.identifier():
+        for ic in ctx.python_identifier():
             ids.append(ic.getText())
         module = PythonModule(ids)
         self.setNodeValue(ctx, module)

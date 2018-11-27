@@ -1416,7 +1416,7 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitPython_module(self, ctx:EParser.Python_moduleContext):
-        ids = [c.getText() for c in ctx.identifier()]
+        ids = [c.getText() for c in ctx.python_identifier()]
         module = PythonModule(ids)
         self.setNodeValue(ctx, module)
 

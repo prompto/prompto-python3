@@ -1345,7 +1345,7 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, PythonNativeCall(stmt, module))
 
     def exitPython_module(self, ctx:OParser.Python_moduleContext):
-        ids = [c.getText() for c in ctx.identifier()]
+        ids = [c.getText() for c in ctx.python_identifier()]
         module = PythonModule(ids)
         self.setNodeValue(ctx, module)
 
