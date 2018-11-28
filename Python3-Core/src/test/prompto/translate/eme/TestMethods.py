@@ -17,6 +17,9 @@ class TestMethods(BaseEParserTest):
     def testE_as_e_bug(self):
         self.compareResourceEME("methods/e_as_e_bug.pec")
 
+    def testEmpty(self):
+        self.compareResourceEME("methods/empty.pec")
+
     def testExplicit(self):
         self.compareResourceEME("methods/explicit.pec")
 

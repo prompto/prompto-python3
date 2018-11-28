@@ -22,9 +22,6 @@ class TestJsx(BaseOParserTest):
     def testDotName(self):
         self.checkOutput("jsx/dotName.poc")
 
-    def testEmpty(self):
-        self.checkOutput("jsx/empty.poc")
-
     def testEmptyAttribute(self):
         self.checkOutput("jsx/emptyAttribute.poc")
 

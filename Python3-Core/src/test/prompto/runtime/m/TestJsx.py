@@ -22,9 +22,6 @@ class TestJsx(BaseMParserTest):
     def testDotName(self):
         self.checkOutput("jsx/dotName.pmc")
 
-    def testEmpty(self):
-        self.checkOutput("jsx/empty.pmc")
-
     def testEmptyAttribute(self):
         self.checkOutput("jsx/emptyAttribute.pmc")
 

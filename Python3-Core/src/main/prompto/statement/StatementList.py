@@ -93,9 +93,13 @@ class StatementList(list):
         return None
 
     def toDialect(self, writer):
-        for statement in self:
-            statement.toDialect(writer)
-            if statement.isSimple():
-                if writer.dialect is Dialect.O and not isinstance(statement, NativeCall):
-                    writer.append(';')
-                writer.newLine()
+        if len(self) == 0:
+            if writer.dialect is Dialect.E or writer.dialect is Dialect.M:
+                writer.append("pass").newLine()
+        else:
+            for statement in self:
+                statement.toDialect(writer)
+                if statement.isSimple():
+                    if writer.dialect is Dialect.O and not isinstance(statement, NativeCall):
+                        writer.append(';')
+                    writer.newLine()
