@@ -32,11 +32,11 @@ class StoreStatement(BaseStatement):
             self.itemsToDialect(self.to_add, writer)
         if self.andThen is not None:
             if writer.dialect is Dialect.O:
-                writer.append("then {").newLine().indent()
+                writer.append(" then {").newLine().indent()
                 self.andThen.toDialect(writer)
                 writer.dedent().append("}")
             else:
-                writer.append("then:").newLine().indent()
+                writer.append(" then:").newLine().indent()
                 self.andThen.toDialect(writer)
                 writer.dedent()
 
