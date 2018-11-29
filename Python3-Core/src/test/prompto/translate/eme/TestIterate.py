@@ -8,6 +8,9 @@ class TestIterate(BaseEParserTest):
     def testForEachCategoryList(self):
         self.compareResourceEME("iterate/forEachCategoryList.pec")
 
+    def testForEachExpression(self):
+        self.compareResourceEME("iterate/forEachExpression.pec")
+
     def testForEachIntegerList(self):
         self.compareResourceEME("iterate/forEachIntegerList.pec")
 

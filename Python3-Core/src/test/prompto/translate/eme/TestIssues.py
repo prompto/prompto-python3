@@ -8,4 +8,7 @@ class TestIssues(BaseEParserTest):
     def testMinimal(self):
         self.compareResourceEME("issues/minimal.pec")
 
+    def testWidget(self):
+        self.compareResourceEME("issues/widget.pec")
+
 

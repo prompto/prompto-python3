@@ -10,6 +10,9 @@ class TestIterate(BaseOParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testForEachExpression(self):
+        self.checkOutput("iterate/forEachExpression.poc")
+
     def testForEachIntegerList(self):
         self.checkOutput("iterate/forEachIntegerList.poc")
 

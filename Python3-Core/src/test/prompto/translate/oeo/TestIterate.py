@@ -5,6 +5,9 @@ class TestIterate(BaseOParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testForEachExpression(self):
+        self.compareResourceOEO("iterate/forEachExpression.poc")
+
     def testForEachIntegerList(self):
         self.compareResourceOEO("iterate/forEachIntegerList.poc")
 
