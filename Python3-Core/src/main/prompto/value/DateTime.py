@@ -90,9 +90,13 @@ class DateTime(BaseValue):
     def minus(self, period):
         td = timedelta(weeks=period.weeks, days=period.days, hours=period.hours, minutes=period.minutes,
                        seconds=period.seconds, milliseconds=period.millis)
-        month = self.value.month - period.months
-        year = self.value.year - period.years - int(month / 12)
-        month %= 12
+        year = self.value.year - period.years
+        if period.months != 0:
+            month = self.value.month - period.months
+            month %= 12
+            year -= int(month / 12)
+        else:
+            month = self.value.month
         value = self.value.replace(year=year, month=month) - td
         return DateTime(value)
 
