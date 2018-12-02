@@ -1,3 +1,6 @@
+from prompto.grammar.ArgumentAssignment import ArgumentAssignment
+from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
+from prompto.literal.TextLiteral import TextLiteral
 from prompto.type.IType import IType
 from prompto.type.MissingType import MissingType
 from prompto.type.NullType import NullType
@@ -5,6 +8,7 @@ from prompto.type.TextType import TextType
 from prompto.type.AnyType import AnyType
 from prompto.type.NativeType import NativeType
 from prompto.store.TypeFamily import TypeFamily
+from prompto.value.ExpressionValue import ExpressionValue
 from prompto.value.NullValue import NullValue
 from prompto.value.Boolean import Boolean
 from prompto.value.Decimal import Decimal
@@ -77,6 +81,63 @@ class DocumentType ( NativeType ):
 
     def withItemType(self, itemType:IType):
         return self
+
+
+    def sort(self, context, source, desc, key):
+        if key is None:
+            key = TextLiteral('"key"')
+        if self.globalMethodExists(context, str(key)):
+            return self.sortByGlobalMethod(context, source, desc, str(key))
+        elif isinstance(key, TextLiteral):
+            return self.sortByEntry(context, source, desc, key.getValue().getStorableData())
+        else:
+            return self.sortByExpression(context, source, desc, key)
+
+
+    def globalMethodExists(self, context, name):
+        from prompto.runtime.Context import MethodDeclarationMap
+        methods = context.getRegisteredDeclaration(MethodDeclarationMap, name)
+        if methods is None:
+            return False
+        else:
+            return methods.get(self.typeName, None)
+
+
+    def sortByGlobalMethod(self, context, source, desc, name):
+        from prompto.statement.MethodCall import MethodCall
+        from prompto.value.Document import Document
+        exp = ExpressionValue(self, Document())
+        arg = ArgumentAssignment(None, exp)
+        args = ArgumentAssignmentList(items=[arg])
+        from prompto.expression.MethodSelector import MethodSelector
+        call = MethodCall(MethodSelector(name), args)
+        return self.doSortByGlobalMethod(context, source, desc, call)
+
+
+    def doSortByGlobalMethod(self, context, source, desc, call):
+
+        def keyGetter(o):
+            assignment = call.assignments[0]
+            assignment.setExpression(ExpressionValue(self, o))
+            return call.interpret(context)
+
+        return sorted(source, key=keyGetter, reverse=desc)
+
+
+    def sortByEntry(self, context, source, desc, name):
+
+        def keyGetter(o):
+            return o.getMemberValue(context, name)
+
+        return sorted(source, key=keyGetter, reverse=desc)
+
+    def sortByExpression(self, context, source, desc, exp):
+
+        def keyGetter(o):
+            co = context.newDocumentContext(o, False)
+            return exp.interpret(co)
+
+        return sorted(source, key=keyGetter, reverse=desc)
 
 
 DocumentType.instance = DocumentType()

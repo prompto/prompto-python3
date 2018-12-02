@@ -50,6 +50,18 @@ class TestSortList(BaseEParserTest):
     def testSortDescTimes(self):
         self.compareResourceEOE("sortList/sortDescTimes.pec")
 
+    def testSortDocumentExpressions(self):
+        self.compareResourceEOE("sortList/sortDocumentExpressions.pec")
+
+    def testSortDocumentKeys(self):
+        self.compareResourceEOE("sortList/sortDocumentKeys.pec")
+
+    def testSortDocumentMethods(self):
+        self.compareResourceEOE("sortList/sortDocumentMethods.pec")
+
+    def testSortDocumentNames(self):
+        self.compareResourceEOE("sortList/sortDocumentNames.pec")
+
     def testSortExpressions(self):
         self.compareResourceEOE("sortList/sortExpressions.pec")
 

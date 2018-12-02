@@ -83,5 +83,9 @@ class CodeWriter(object):
         return CodeWriter(self.dialect, self.context.newInstanceContext(None, typ), self.file, self.indenter)
 
 
+    def newDocumentWriter(self):
+        return CodeWriter(self.dialect, self.context.newDocumentContext(None, False), self.file, self.indenter)
+
+
     def newMemberWriter(self):
         return CodeWriter(self.dialect, self.context.newChildContext(), self.file, self.indenter)

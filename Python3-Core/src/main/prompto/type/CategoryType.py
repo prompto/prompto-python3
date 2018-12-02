@@ -266,8 +266,8 @@ class CategoryType(BaseType):
         if decl.hasAttribute(context, str(key)):
             return self.sortByAttribute(context, source, desc, str(key))
         elif decl.hasMethod(context, str(key)):
-            return self.sortByClassMethod(context, source, desc, str(key))
-        elif self.globalMethodExists(context, source, str(key)):
+            return self.sortByMemberMethod(context, source, desc, str(key))
+        elif self.globalMethodExists(context, str(key)):
             return self.sortByGlobalMethod(context, source, desc, str(key))
         else:
             return self.sortByExpression(context, source, desc, key)
@@ -290,11 +290,11 @@ class CategoryType(BaseType):
         return sorted(source, key=keyGetter, reverse=desc)
 
 
-    def sortByClassMethod(self, context, source, name):
+    def sortByMemberMethod(self, context, source, desc, name):
         return None
 
 
-    def globalMethodExists(self, context, source, name):
+    def globalMethodExists(self, context, name):
         from prompto.statement.MethodCall import MethodCall
         from prompto.runtime.MethodFinder import MethodFinder
         try:
@@ -310,22 +310,19 @@ class CategoryType(BaseType):
 
     def sortByGlobalMethod(self, context, source, desc, name):
         from prompto.statement.MethodCall import MethodCall
-        from prompto.runtime.MethodFinder import MethodFinder
         exp = ExpressionValue(self, self.newInstance(context))
         arg = ArgumentAssignment(None, exp)
         args = ArgumentAssignmentList(items=[arg])
-        proto = MethodCall(MethodSelector(name), args)
-        finder = MethodFinder(context, proto)
-        method = finder.findMethod(True)
-        return self.doSortByGlobalMethod(context, source, desc, proto, method)
+        call = MethodCall(MethodSelector(name), args)
+        return self.doSortByGlobalMethod(context, source, desc, call)
 
 
-    def doSortByGlobalMethod(self, context, source, desc, method, declaration):
+    def doSortByGlobalMethod(self, context, source, desc, call):
 
         def keyGetter(o):
-            assignment = method.assignments[0]
+            assignment = call.assignments[0]
             assignment.setExpression(ExpressionValue(self, o))
-            return method.interpret(context)
+            return call.interpret(context)
 
         return sorted(source, key=keyGetter, reverse=desc)
 

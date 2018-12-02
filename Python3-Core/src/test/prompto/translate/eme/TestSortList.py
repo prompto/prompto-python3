@@ -50,6 +50,18 @@ class TestSortList(BaseEParserTest):
     def testSortDescTimes(self):
         self.compareResourceEME("sortList/sortDescTimes.pec")
 
+    def testSortDocumentExpressions(self):
+        self.compareResourceEME("sortList/sortDocumentExpressions.pec")
+
+    def testSortDocumentKeys(self):
+        self.compareResourceEME("sortList/sortDocumentKeys.pec")
+
+    def testSortDocumentMethods(self):
+        self.compareResourceEME("sortList/sortDocumentMethods.pec")
+
+    def testSortDocumentNames(self):
+        self.compareResourceEME("sortList/sortDocumentNames.pec")
+
     def testSortExpressions(self):
         self.compareResourceEME("sortList/sortExpressions.pec")
 

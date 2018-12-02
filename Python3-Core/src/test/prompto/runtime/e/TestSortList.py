@@ -55,6 +55,18 @@ class TestSortList(BaseEParserTest):
     def testSortDescTimes(self):
         self.checkOutput("sortList/sortDescTimes.pec")
 
+    def testSortDocumentExpressions(self):
+        self.checkOutput("sortList/sortDocumentExpressions.pec")
+
+    def testSortDocumentKeys(self):
+        self.checkOutput("sortList/sortDocumentKeys.pec")
+
+    def testSortDocumentMethods(self):
+        self.checkOutput("sortList/sortDocumentMethods.pec")
+
+    def testSortDocumentNames(self):
+        self.checkOutput("sortList/sortDocumentNames.pec")
+
     def testSortExpressions(self):
         self.checkOutput("sortList/sortExpressions.pec")
 

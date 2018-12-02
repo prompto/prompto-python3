@@ -50,6 +50,18 @@ class TestSortList(BaseOParserTest):
     def testSortDescTimes(self):
         self.compareResourceOMO("sortList/sortDescTimes.poc")
 
+    def testSortDocumentExpressions(self):
+        self.compareResourceOMO("sortList/sortDocumentExpressions.poc")
+
+    def testSortDocumentKeys(self):
+        self.compareResourceOMO("sortList/sortDocumentKeys.poc")
+
+    def testSortDocumentMethods(self):
+        self.compareResourceOMO("sortList/sortDocumentMethods.poc")
+
+    def testSortDocumentNames(self):
+        self.compareResourceOMO("sortList/sortDocumentNames.poc")
+
     def testSortExpressions(self):
         self.compareResourceOMO("sortList/sortExpressions.poc")
 
