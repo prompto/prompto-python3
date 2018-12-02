@@ -1,14 +1,12 @@
-from datetime import date, datetime, timedelta
-
 from prompto.value.BaseValue import BaseValue
-from prompto.value.Integer import Integer
-from prompto.value.Period import Period
 from prompto.error.SyntaxError import SyntaxError
 
 class Version ( BaseValue ):
 
     @staticmethod
     def Parse(text):
+        if text[0]=='v':
+            text = text[1:]
         d1 = text.find('.')
         major = int(text[0:d1])
         d2 = text.find('.', d1 + 1)
