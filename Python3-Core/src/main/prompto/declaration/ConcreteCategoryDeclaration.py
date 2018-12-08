@@ -351,7 +351,7 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
     def doCollectCategories(self, context, set_, list_):
         if self.derivedFrom is not None:
             for cat in self.derivedFrom:
-                cd = context.getRegisteredDeclaration(cat)
+                cd = context.getRegisteredDeclaration(CategoryDeclaration, cat)
                 cd.doCollectCategories(context, set_, list_)
         if not self.name in set_:
             set_.add(self.name)
