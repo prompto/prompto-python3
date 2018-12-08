@@ -129,14 +129,18 @@ class ConstructorExpression(IExpression):
             copyObj = self.copyFrom.interpret(context)
             if isinstance(copyObj, IInstance):
                 for name in copyObj.getMemberNames():
-                    if cd.hasAttribute(context, name):
+                    if name == "dbId":
+                        continue
+                    elif cd.hasAttribute(context, name):
                         value = copyObj.getMemberValue(context, name)
                         if value is not None and value.mutable and not self.itype.mutable:
                             raise NotMutableError()
                         instance.setMember(context, name, value)
             elif isinstance(copyObj, Document):
                 for name in copyObj.getMemberNames():
-                    if cd.hasAttribute(context, name):
+                    if name == "dbId":
+                        continue
+                    elif cd.hasAttribute(context, name):
                         value = copyObj.getMemberValue(context, name)
                         if value is not None and value.mutable and not self.itype.mutable:
                             raise NotMutableError()
