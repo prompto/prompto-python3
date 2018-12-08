@@ -32,7 +32,7 @@ class AttributeDeclaration ( BaseDeclaration ):
             writer.append(self.getName())
             writer.append(" as ")
             if self.storable:
-                writer.append(" storable")
+                writer.append("storable ")
             self.itype.toDialect(writer)
             writer.append(" attribute")
             if self.constraint is not None:
