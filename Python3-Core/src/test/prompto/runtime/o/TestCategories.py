@@ -25,4 +25,7 @@ class TestCategories(BaseOParserTest):
     def testCopyFromDocument(self):
         self.checkOutput("categories/copyFromDocument.poc")
 
+    def testCopyFromStored(self):
+        self.checkOutput("categories/copyFromStored.poc")
+
 

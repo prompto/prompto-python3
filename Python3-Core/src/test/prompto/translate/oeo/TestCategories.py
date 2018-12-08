@@ -20,4 +20,7 @@ class TestCategories(BaseOParserTest):
     def testCopyFromDocument(self):
         self.compareResourceOEO("categories/copyFromDocument.poc")
 
+    def testCopyFromStored(self):
+        self.compareResourceOEO("categories/copyFromStored.poc")
+
 

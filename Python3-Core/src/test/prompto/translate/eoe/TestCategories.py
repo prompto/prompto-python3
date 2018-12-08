@@ -26,4 +26,7 @@ class TestCategories(BaseEParserTest):
     def testCopyFromDocument(self):
         self.compareResourceEOE("categories/copyFromDocument.pec")
 
+    def testCopyFromStored(self):
+        self.compareResourceEOE("categories/copyFromStored.pec")
+
 

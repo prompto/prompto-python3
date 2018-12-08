@@ -31,4 +31,7 @@ class TestCategories(BaseEParserTest):
     def testCopyFromDocument(self):
         self.checkOutput("categories/copyFromDocument.pec")
 
+    def testCopyFromStored(self):
+        self.checkOutput("categories/copyFromStored.pec")
+
 
