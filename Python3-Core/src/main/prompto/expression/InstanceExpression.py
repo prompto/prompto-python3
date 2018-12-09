@@ -1,9 +1,12 @@
-from prompto.argument.IArgument import *
+from prompto.argument.IArgument import IArgument
+from prompto.declaration.AttributeDeclaration import AttributeDeclaration
+from prompto.declaration.IDeclaration import IDeclaration
+from prompto.expression.IExpression import IExpression
 from prompto.parser.Dialect import Dialect
-from prompto.runtime.Context import *
+from prompto.runtime.Context import MethodDeclarationMap
 from prompto.runtime.LinkedVariable import LinkedVariable
-from prompto.runtime.Variable import *
-from prompto.type.MethodType import *
+from prompto.runtime.Variable import Variable
+from prompto.type.MethodType import MethodType
 from prompto.value.ClosureValue import ClosureValue
 
 
