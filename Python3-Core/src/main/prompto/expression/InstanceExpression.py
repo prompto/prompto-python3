@@ -8,7 +8,7 @@ from prompto.runtime.LinkedVariable import LinkedVariable
 from prompto.runtime.Variable import Variable
 from prompto.type.MethodType import MethodType
 from prompto.value.ClosureValue import ClosureValue
-
+from prompto.error.SyntaxError import SyntaxError
 
 class InstanceExpression(IExpression):
 
