@@ -7,23 +7,26 @@ from prompto.type.MethodType import *
 from prompto.value.ClosureValue import ClosureValue
 
 
-
 class InstanceExpression(IExpression):
 
     def __init__(self, name):
         super(InstanceExpression, self).__init__()
         self.name = name
 
+
     def getName(self):
         return self.name
 
+
     def __str__(self):
         return self.name
+
 
     def toDialect(self, writer, requireMethod = True):
         if requireMethod and self.requiresMethod(writer):
             writer.append("Method: ")
         writer.append(self.name)
+
 
     def requiresMethod(self, writer):
         if writer.dialect is not Dialect.E:
@@ -33,9 +36,12 @@ class InstanceExpression(IExpression):
             return True
         return False
 
+
     def check(self, context):
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
         named = context.getRegistered(self.name)
+        if named is None:
+            named = context.getRegisteredDeclaration(IDeclaration, self.name)
         if named is None:
             raise SyntaxError("Unknown identifier:" + self.name)
         elif isinstance(named, Variable):  # local variable
