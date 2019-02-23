@@ -5,6 +5,7 @@ from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.ConstructorExpression import ConstructorExpression
 from prompto.expression.IExpression import IExpression
 from prompto.expression.MethodSelector import MethodSelector
+from prompto.expression.SelectorExpression import SelectorExpression
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
 from prompto.grammar.INamed import INamed
@@ -119,3 +120,13 @@ class UnresolvedCall(BaseStatement):
             writer = CodeWriter(self.dialect, context)
             self.resolved.toDialect(writer)
             raise SyntaxError("Cannot test '" + str(writer) + "'")
+
+
+    def setParent(self, parent):
+        if parent is not None:
+            if isinstance(self.caller, UnresolvedIdentifier):
+                self.caller = MethodSelector(self.caller.name, parent)
+            elif isinstance(self.caller, SelectorExpression):
+                self.caller.parent = parent
+            else:
+                raise Exception("Should never happen!")
