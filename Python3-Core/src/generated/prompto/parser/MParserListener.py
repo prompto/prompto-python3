@@ -449,12 +449,12 @@ class MParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MParser#method_call.
-    def enterMethod_call(self, ctx:MParser.Method_callContext):
+    # Enter a parse tree produced by MParser#method_call_expression.
+    def enterMethod_call_expression(self, ctx:MParser.Method_call_expressionContext):
         pass
 
-    # Exit a parse tree produced by MParser#method_call.
-    def exitMethod_call(self, ctx:MParser.Method_callContext):
+    # Exit a parse tree produced by MParser#method_call_expression.
+    def exitMethod_call_expression(self, ctx:MParser.Method_call_expressionContext):
         pass
 
 
@@ -464,60 +464,6 @@ class MParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by MParser#method_call_statement.
     def exitMethod_call_statement(self, ctx:MParser.Method_call_statementContext):
-        pass
-
-
-    # Enter a parse tree produced by MParser#MethodName.
-    def enterMethodName(self, ctx:MParser.MethodNameContext):
-        pass
-
-    # Exit a parse tree produced by MParser#MethodName.
-    def exitMethodName(self, ctx:MParser.MethodNameContext):
-        pass
-
-
-    # Enter a parse tree produced by MParser#MethodParent.
-    def enterMethodParent(self, ctx:MParser.MethodParentContext):
-        pass
-
-    # Exit a parse tree produced by MParser#MethodParent.
-    def exitMethodParent(self, ctx:MParser.MethodParentContext):
-        pass
-
-
-    # Enter a parse tree produced by MParser#CallableSelector.
-    def enterCallableSelector(self, ctx:MParser.CallableSelectorContext):
-        pass
-
-    # Exit a parse tree produced by MParser#CallableSelector.
-    def exitCallableSelector(self, ctx:MParser.CallableSelectorContext):
-        pass
-
-
-    # Enter a parse tree produced by MParser#CallableRoot.
-    def enterCallableRoot(self, ctx:MParser.CallableRootContext):
-        pass
-
-    # Exit a parse tree produced by MParser#CallableRoot.
-    def exitCallableRoot(self, ctx:MParser.CallableRootContext):
-        pass
-
-
-    # Enter a parse tree produced by MParser#CallableMemberSelector.
-    def enterCallableMemberSelector(self, ctx:MParser.CallableMemberSelectorContext):
-        pass
-
-    # Exit a parse tree produced by MParser#CallableMemberSelector.
-    def exitCallableMemberSelector(self, ctx:MParser.CallableMemberSelectorContext):
-        pass
-
-
-    # Enter a parse tree produced by MParser#CallableItemSelector.
-    def enterCallableItemSelector(self, ctx:MParser.CallableItemSelectorContext):
-        pass
-
-    # Exit a parse tree produced by MParser#CallableItemSelector.
-    def exitCallableItemSelector(self, ctx:MParser.CallableItemSelectorContext):
         pass
 
 
@@ -881,15 +827,6 @@ class MParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MParser#MethodExpression.
-    def enterMethodExpression(self, ctx:MParser.MethodExpressionContext):
-        pass
-
-    # Exit a parse tree produced by MParser#MethodExpression.
-    def exitMethodExpression(self, ctx:MParser.MethodExpressionContext):
-        pass
-
-
     # Enter a parse tree produced by MParser#GreaterThanOrEqualExpression.
     def enterGreaterThanOrEqualExpression(self, ctx:MParser.GreaterThanOrEqualExpressionContext):
         pass
@@ -1034,6 +971,51 @@ class MParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MParser#MethodExpression.
+    def enterMethodExpression(self, ctx:MParser.MethodExpressionContext):
+        pass
+
+    # Exit a parse tree produced by MParser#MethodExpression.
+    def exitMethodExpression(self, ctx:MParser.MethodExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#ParenthesisExpression.
+    def enterParenthesisExpression(self, ctx:MParser.ParenthesisExpressionContext):
+        pass
+
+    # Exit a parse tree produced by MParser#ParenthesisExpression.
+    def exitParenthesisExpression(self, ctx:MParser.ParenthesisExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#LiteralExpression.
+    def enterLiteralExpression(self, ctx:MParser.LiteralExpressionContext):
+        pass
+
+    # Exit a parse tree produced by MParser#LiteralExpression.
+    def exitLiteralExpression(self, ctx:MParser.LiteralExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#IdentifierExpression.
+    def enterIdentifierExpression(self, ctx:MParser.IdentifierExpressionContext):
+        pass
+
+    # Exit a parse tree produced by MParser#IdentifierExpression.
+    def exitIdentifierExpression(self, ctx:MParser.IdentifierExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#ThisExpression.
+    def enterThisExpression(self, ctx:MParser.ThisExpressionContext):
+        pass
+
+    # Exit a parse tree produced by MParser#ThisExpression.
+    def exitThisExpression(self, ctx:MParser.ThisExpressionContext):
+        pass
+
+
     # Enter a parse tree produced by MParser#SelectorExpression.
     def enterSelectorExpression(self, ctx:MParser.SelectorExpressionContext):
         pass
@@ -1067,6 +1049,15 @@ class MParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by MParser#MemberSelector.
     def exitMemberSelector(self, ctx:MParser.MemberSelectorContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#MethodSelector.
+    def enterMethodSelector(self, ctx:MParser.MethodSelectorContext):
+        pass
+
+    # Exit a parse tree produced by MParser#MethodSelector.
+    def exitMethodSelector(self, ctx:MParser.MethodSelectorContext):
         pass
 
 
@@ -2417,42 +2408,6 @@ class MParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by MParser#literal_list_literal.
     def exitLiteral_list_literal(self, ctx:MParser.Literal_list_literalContext):
-        pass
-
-
-    # Enter a parse tree produced by MParser#ParenthesisExpression.
-    def enterParenthesisExpression(self, ctx:MParser.ParenthesisExpressionContext):
-        pass
-
-    # Exit a parse tree produced by MParser#ParenthesisExpression.
-    def exitParenthesisExpression(self, ctx:MParser.ParenthesisExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by MParser#LiteralExpression.
-    def enterLiteralExpression(self, ctx:MParser.LiteralExpressionContext):
-        pass
-
-    # Exit a parse tree produced by MParser#LiteralExpression.
-    def exitLiteralExpression(self, ctx:MParser.LiteralExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by MParser#IdentifierExpression.
-    def enterIdentifierExpression(self, ctx:MParser.IdentifierExpressionContext):
-        pass
-
-    # Exit a parse tree produced by MParser#IdentifierExpression.
-    def exitIdentifierExpression(self, ctx:MParser.IdentifierExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by MParser#ThisExpression.
-    def enterThisExpression(self, ctx:MParser.ThisExpressionContext):
-        pass
-
-    # Exit a parse tree produced by MParser#ThisExpression.
-    def exitThisExpression(self, ctx:MParser.ThisExpressionContext):
         pass
 
 

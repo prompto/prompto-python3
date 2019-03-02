@@ -132,12 +132,12 @@ class TestParserAtoms(unittest.TestCase):
 
     def testMethodCallExpression(self):
         statement = "print (\"person\" + p.name );"
-        ac = self.parse(statement, OParser.method_call)
+        ac = self.parse(statement, OParser.method_call_statement)
         self.assertIsNotNone(ac)
 
     def testMethodCallWith(self):
-        statement = "print(value = \"person\" + p.name)"
-        mc = self.parse(statement, OParser.method_call)
+        statement = "print(value = \"person\" + p.name);"
+        mc = self.parse(statement, OParser.method_call_statement)
         self.assertIsNotNone(mc)
         self.assertEquals("print", mc.caller.name)
         self.assertIsNotNone(mc.assignments)
@@ -147,6 +147,7 @@ class TestParserAtoms(unittest.TestCase):
         self.assertIsInstance(exp, PlusExpression)
         writer = CodeWriter(Dialect.O, Context.newGlobalContext())
         mc.toDialect(writer)
+        writer.append(';')
         self.assertEquals(statement, str(writer))
 
     def testMethod1Parameter1Statement(self):

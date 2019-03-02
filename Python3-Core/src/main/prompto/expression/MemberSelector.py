@@ -1,4 +1,5 @@
 from prompto.error.NullReferenceError import NullReferenceError
+from prompto.expression.ParenthesisExpression import ParenthesisExpression
 from prompto.expression.SelectorExpression import SelectorExpression
 from prompto.expression.TypeExpression import TypeExpression
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
@@ -23,9 +24,18 @@ class MemberSelector (SelectorExpression):
 
     def toDialect(self, writer):
         if writer.dialect == Dialect.E:
-            type = self.check(writer.context)
-            if isinstance(type, MethodType):
-                writer.append("Method: ")
+            self.toEDialect(writer)
+        else:
+            self.toOMDialect(writer)
+
+    def toEDialect(self, writer):
+        type = self.check(writer.context)
+        if isinstance(type, MethodType):
+            writer.append("Method: ")
+        self.parentAndMemberToDialect(writer)
+
+
+    def toOMDialect(self, writer):
         self.parentAndMemberToDialect(writer)
 
 
@@ -34,13 +44,36 @@ class MemberSelector (SelectorExpression):
             self.resolveParent(writer.context)
         except:
             pass # ignore
-        self.parent.toDialect(writer)
+        if writer.dialect == Dialect.E:
+            self.parentToEDialect(writer)
+        else:
+            self.parentToOMDialect(writer)
         writer.append(".")
         writer.append(self.name)
+
+
+    def parentToEDialect(self, writer):
+        from prompto.statement.UnresolvedCall import UnresolvedCall
+        if isinstance(self.parent, UnresolvedCall):
+            writer.append('(')
+            self.parent.toDialect(writer)
+            writer.append(')')
+        else:
+            self.parent.toDialect(writer)
+
+
+    def parentToOMDialect(self, writer):
+        from prompto.statement.UnresolvedCall import UnresolvedCall
+        if isinstance(self.parent, ParenthesisExpression) and isinstance(self.parent.expression, UnresolvedCall):
+            self.parent.expression.toDialect(writer)
+        else:
+            self.parent.toDialect(writer)
+
 
     def check(self, context):
         parentType = self.checkParent(context)
         return parentType.checkMember(context, self.name)
+
 
     def interpret(self, context):
         # resolve parent to keep clarity
