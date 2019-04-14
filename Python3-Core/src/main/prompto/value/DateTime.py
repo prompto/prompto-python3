@@ -71,6 +71,12 @@ class DateTime(BaseValue):
         elif "tzName" == name:
             from prompto.value.Text import Text
             return Text("Z")  # self.value.getZone().toTimeZone().getDisplayName())
+        elif "date" == name:
+            from prompto.value.Date import Date
+            return Date(years=self.value.year, months=self.value.month, days=self.value.day)
+        elif "time" == name:
+            from prompto.value.Time import Time
+            return Time(hours=self.value.hour, minutes=self.value.minute, seconds=self.value.second, millis=self.value.microsecond // 1000)
         else:
             return super().getMemberValue(context, name, autoCreate)
 

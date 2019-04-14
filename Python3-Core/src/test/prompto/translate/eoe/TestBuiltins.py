@@ -32,6 +32,9 @@ class TestBuiltins(BaseEParserTest):
     def testDateText(self):
         self.compareResourceEOE("builtins/dateText.pec")
 
+    def testDateTimeDate(self):
+        self.compareResourceEOE("builtins/dateTimeDate.pec")
+
     def testDateTimeDayOfMonth(self):
         self.compareResourceEOE("builtins/dateTimeDayOfMonth.pec")
 
@@ -61,6 +64,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testDateTimeText(self):
         self.compareResourceEOE("builtins/dateTimeText.pec")
+
+    def testDateTimeTime(self):
+        self.compareResourceEOE("builtins/dateTimeTime.pec")
 
     def testDateTimeYear(self):
         self.compareResourceEOE("builtins/dateTimeYear.pec")

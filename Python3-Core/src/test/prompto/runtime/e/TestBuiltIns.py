@@ -37,6 +37,9 @@ class TestBuiltins(BaseEParserTest):
     def testDateText(self):
         self.checkOutput("builtins/dateText.pec")
 
+    def testDateTimeDate(self):
+        self.checkOutput("builtins/dateTimeDate.pec")
+
     def testDateTimeDayOfMonth(self):
         self.checkOutput("builtins/dateTimeDayOfMonth.pec")
 
@@ -60,6 +63,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testDateTimeText(self):
         self.checkOutput("builtins/dateTimeText.pec")
+
+    def testDateTimeTime(self):
+        self.checkOutput("builtins/dateTimeTime.pec")
 
     def testDateTimeYear(self):
         self.checkOutput("builtins/dateTimeYear.pec")

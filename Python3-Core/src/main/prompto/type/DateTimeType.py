@@ -1,7 +1,9 @@
 from datetime import datetime
+
+from prompto.type.DateType import DateType
 from prompto.type.NativeType import NativeType
 from prompto.store.TypeFamily import TypeFamily
-
+from prompto.type.TimeType import TimeType
 
 
 class DateTimeType(NativeType):
@@ -71,6 +73,10 @@ class DateTimeType(NativeType):
             return IntegerType.instance
         elif "tzName" == name:
             return TextType.instance
+        elif "date" == name:
+            return DateType.instance
+        elif "time" == name:
+            return TimeType.instance
         else:
             return super(DateTimeType, self).checkMember(context, name)
 
