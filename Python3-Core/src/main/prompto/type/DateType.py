@@ -1,7 +1,11 @@
+from prompto.store.TypeFamily import TypeFamily
+from prompto.type.BooleanType import BooleanType
 from prompto.type.IType import IType
-from prompto.type.TimeType import *
-from prompto.value.Date import *
-from prompto.value.DateRange import *
+from prompto.type.NativeType import NativeType
+from prompto.type.PeriodType import PeriodType
+from prompto.type.RangeType import RangeType
+from prompto.value.Date import Date
+from prompto.value.DateRange import DateRange
 
 
 class DateType(NativeType):
@@ -25,6 +29,7 @@ class DateType(NativeType):
             return super(DateType, self).checkSubstract(context, other)
 
     def checkCompare(self, context, other):
+        from prompto.type.DateTimeType import DateTimeType
         if isinstance(other, DateType):
             return BooleanType.instance
         elif isinstance(other, DateTimeType):
@@ -61,6 +66,7 @@ class DateType(NativeType):
 
 
     def isAssignableFrom(self, context, other:IType):
+        from prompto.type.DateTimeType import DateTimeType
         return super().isAssignableFrom(context, other) or \
             other == DateTimeType.instance
 
