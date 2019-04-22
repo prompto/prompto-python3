@@ -44,6 +44,7 @@ from prompto.declaration.OperatorMethodDeclaration import OperatorMethodDeclarat
 from prompto.declaration.SetterMethodDeclaration import SetterMethodDeclaration
 from prompto.declaration.SingletonCategoryDeclaration import SingletonCategoryDeclaration
 from prompto.declaration.TestMethodDeclaration import TestMethodDeclaration
+from prompto.expression.InstanceExpression import InstanceExpression
 from prompto.expression.MutableExpression import MutableExpression
 from prompto.expression.PlusExpression import PlusExpression
 from prompto.expression.AndExpression import AndExpression
@@ -1711,7 +1712,8 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitMutableSelectableExpression(self, ctx: MParser.MutableSelectableExpressionContext):
-        self.setNodeValue(ctx, self.getNodeValue(ctx.exp))
+        name = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, InstanceExpression(name))
 
 
     def exitMutableSelectorExpression(self, ctx: MParser.MutableSelectorExpressionContext):
