@@ -20,3 +20,8 @@ class MutableExpression(IExpression):
         sourceType = self.check(context)
         ctor = ConstructorExpression(sourceType, self.source, None, True)
         return ctor.interpret(context)
+
+
+    def toDialect(self, writer):
+        writer.append("mutable ")
+        self.source.toDialect(writer)
