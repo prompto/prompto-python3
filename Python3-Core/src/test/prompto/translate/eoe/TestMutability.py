@@ -29,8 +29,14 @@ class TestMutability(BaseEParserTest):
     def testMutableArgument(self):
         self.compareResourceEOE("mutability/mutableArgument.pec")
 
+    def testMutableChild(self):
+        self.compareResourceEOE("mutability/mutableChild.pec")
+
     def testMutableDict(self):
         self.compareResourceEOE("mutability/mutableDict.pec")
+
+    def testMutableInstance(self):
+        self.compareResourceEOE("mutability/mutableInstance.pec")
 
     def testMutableList(self):
         self.compareResourceEOE("mutability/mutableList.pec")

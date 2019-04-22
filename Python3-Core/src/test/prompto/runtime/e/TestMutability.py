@@ -34,8 +34,14 @@ class TestMutability(BaseEParserTest):
     def testMutableArgument(self):
         self.checkOutput("mutability/mutableArgument.pec")
 
+    def testMutableChild(self):
+        self.checkOutput("mutability/mutableChild.pec")
+
     def testMutableDict(self):
         self.checkOutput("mutability/mutableDict.pec")
+
+    def testMutableInstance(self):
+        self.checkOutput("mutability/mutableInstance.pec")
 
     def testMutableList(self):
         self.checkOutput("mutability/mutableList.pec")

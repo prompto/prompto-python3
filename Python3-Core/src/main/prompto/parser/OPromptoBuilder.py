@@ -44,6 +44,7 @@ from prompto.declaration.OperatorMethodDeclaration import OperatorMethodDeclarat
 from prompto.declaration.SetterMethodDeclaration import SetterMethodDeclaration
 from prompto.declaration.SingletonCategoryDeclaration import SingletonCategoryDeclaration
 from prompto.declaration.TestMethodDeclaration import TestMethodDeclaration
+from prompto.expression.MutableExpression import MutableExpression
 from prompto.expression.PlusExpression import PlusExpression
 from prompto.expression.AndExpression import AndExpression
 from prompto.expression.BlobExpression import BlobExpression
@@ -2112,6 +2113,21 @@ class OPromptoBuilder(OParserListener):
         typ.mutable = ctx.MUTABLE() is not None
         self.setNodeValue(ctx, typ)
 
+
+    def exitMutableInstanceExpression(self, ctx:OParser.MutableInstanceExpressionContext):
+        source = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, MutableExpression(source))
+
+
+    def exitMutableSelectableExpression(self, ctx:OParser.MutableSelectableExpressionContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.exp))
+
+
+    def exitMutableSelectorExpression(self, ctx:OParser.MutableSelectorExpressionContext):
+        parent = self.getNodeValue(ctx.parent)
+        selector = self.getNodeValue(ctx.selector)
+        selector.parent = parent
+        self.setNodeValue(ctx, selector)
 
 
     def exitMinusExpression(self, ctx:OParser.MinusExpressionContext):

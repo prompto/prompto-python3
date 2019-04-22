@@ -44,6 +44,8 @@ from prompto.declaration.OperatorMethodDeclaration import OperatorMethodDeclarat
 from prompto.declaration.SetterMethodDeclaration import SetterMethodDeclaration
 from prompto.declaration.SingletonCategoryDeclaration import SingletonCategoryDeclaration
 from prompto.declaration.TestMethodDeclaration import TestMethodDeclaration
+from prompto.expression.InstanceExpression import InstanceExpression
+from prompto.expression.MutableExpression import MutableExpression
 from prompto.expression.PlusExpression import PlusExpression
 from prompto.expression.AndExpression import AndExpression
 from prompto.expression.BlobExpression import BlobExpression
@@ -2181,23 +2183,37 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, typ)
 
 
+    def exitMutableInstanceExpression(self, ctx:EParser.MutableInstanceExpressionContext):
+        source = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, MutableExpression(source))
+
+
+    def exitMutableSelectableExpression(self, ctx:EParser.MutableSelectableExpressionContext):
+        name = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, InstanceExpression(name))
+
+
+    def exitMutableSelectorExpression(self, ctx:EParser.MutableSelectorExpressionContext):
+        parent = self.getNodeValue(ctx.parent)
+        selector = self.getNodeValue(ctx.selector)
+        selector.parent = parent
+        self.setNodeValue(ctx, selector)
+
+
     def exitMinusExpression(self, ctx:EParser.MinusExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, MinusExpression(exp))
-    
 
     
     def exitNotExpression(self, ctx:EParser.NotExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, NotExpression(exp))
-    
 
     
     def exitWhile_statement(self, ctx:EParser.While_statementContext):
         exp = self.getNodeValue(ctx.exp)
         stmts = self.getNodeValue(ctx.stmts)
         self.setNodeValue(ctx, WhileStatement(exp, stmts))
-    
 
     
     def exitDo_while_statement(self, ctx:EParser.Do_while_statementContext):
@@ -2212,9 +2228,11 @@ class EPromptoBuilder(EParserListener):
         methods = self.getNodeValue(ctx.methods)
         self.setNodeValue(ctx, SingletonCategoryDeclaration(name, attrs, methods))
 
+
     def exitSingletonCategoryDeclaration(self, ctx:EParser.SingletonCategoryDeclarationContext):
         decl = self.getNodeValue(ctx.decl)
         self.setNodeValue(ctx, decl)
+
 
     def exitSliceFirstAndLast(self, ctx:EParser.SliceFirstAndLastContext):
         first = self.getNodeValue(ctx.first)

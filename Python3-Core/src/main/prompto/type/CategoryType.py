@@ -25,10 +25,10 @@ from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 
 class CategoryType(BaseType):
 
-    def __init__(self, name, family = TypeFamily.CATEGORY):
+    def __init__(self, typeName, family = TypeFamily.CATEGORY, mutable = False):
         super(CategoryType, self).__init__(family)
-        self.typeName = name
-        self.mutable = False
+        self.typeName = typeName
+        self.mutable = mutable
 
     def __eq__(self, obj):
         if obj is None:
