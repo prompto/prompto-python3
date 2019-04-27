@@ -3,16 +3,13 @@ from io import StringIO
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 from prompto.declaration.IDeclaration import IDeclaration
 from prompto.error.InternalError import InternalError
-from prompto.expression.IExpression import IExpression
 from prompto.runtime.IContext import IContext
 from prompto.runtime.LinkedValue import LinkedValue
 from prompto.runtime.Variable import Variable
 from prompto.type.DecimalType import DecimalType
 from prompto.type.MethodType import MethodType
 from prompto.value.ClosureValue import ClosureValue
-from prompto.value.ContextualExpression import ContextualExpression
 from prompto.value.Decimal import Decimal
-from prompto.value.ExpressionValue import ExpressionValue
 from prompto.value.ConcreteInstance import ConcreteInstance
 from prompto.error.SyntaxError import SyntaxError
 from prompto.value.Integer import Integer

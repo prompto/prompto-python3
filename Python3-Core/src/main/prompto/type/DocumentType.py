@@ -1,3 +1,4 @@
+from prompto.expression.ValueExpression import ValueExpression
 from prompto.grammar.ArgumentAssignment import ArgumentAssignment
 from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
 from prompto.literal.TextLiteral import TextLiteral
@@ -8,7 +9,6 @@ from prompto.type.TextType import TextType
 from prompto.type.AnyType import AnyType
 from prompto.type.NativeType import NativeType
 from prompto.store.TypeFamily import TypeFamily
-from prompto.value.ExpressionValue import ExpressionValue
 from prompto.value.NullValue import NullValue
 from prompto.value.Boolean import Boolean
 from prompto.value.Decimal import Decimal
@@ -106,7 +106,7 @@ class DocumentType ( NativeType ):
     def sortByGlobalMethod(self, context, source, desc, name):
         from prompto.statement.MethodCall import MethodCall
         from prompto.value.Document import Document
-        exp = ExpressionValue(self, Document())
+        exp = ValueExpression(self, Document())
         arg = ArgumentAssignment(None, exp)
         args = ArgumentAssignmentList(items=[arg])
         from prompto.expression.MethodSelector import MethodSelector
@@ -118,7 +118,7 @@ class DocumentType ( NativeType ):
 
         def keyGetter(o):
             assignment = call.assignments[0]
-            assignment.setExpression(ExpressionValue(self, o))
+            assignment.setExpression(ValueExpression(self, o))
             return call.interpret(context)
 
         return sorted(source, key=keyGetter, reverse=desc)

@@ -1,6 +1,7 @@
 from prompto.declaration.IEnumeratedDeclaration import IEnumeratedDeclaration
 from prompto.error.PromptoError import PromptoError
 from prompto.error.SyntaxError import SyntaxError
+from prompto.expression.ValueExpression import ValueExpression
 from prompto.expression.MethodSelector import MethodSelector
 from prompto.expression.Symbol import Symbol
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
@@ -19,7 +20,6 @@ from prompto.type.IType import IType
 from prompto.type.NullType import NullType
 from prompto.type.AnyType import AnyType
 from prompto.type.MissingType import MissingType
-from prompto.value.ExpressionValue import ExpressionValue
 from prompto.declaration.IDeclaration import IDeclaration
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 
@@ -298,7 +298,7 @@ class CategoryType(BaseType):
         from prompto.statement.MethodCall import MethodCall
         from prompto.runtime.MethodFinder import MethodFinder
         try:
-            exp = ExpressionValue(self, self.newInstance(context))
+            exp = ValueExpression(self, self.newInstance(context))
             arg = ArgumentAssignment(None, exp)
             args = ArgumentAssignmentList(items=[arg])
             proto = MethodCall(MethodSelector(name), args)
@@ -310,7 +310,7 @@ class CategoryType(BaseType):
 
     def sortByGlobalMethod(self, context, source, desc, name):
         from prompto.statement.MethodCall import MethodCall
-        exp = ExpressionValue(self, self.newInstance(context))
+        exp = ValueExpression(self, self.newInstance(context))
         arg = ArgumentAssignment(None, exp)
         args = ArgumentAssignmentList(items=[arg])
         call = MethodCall(MethodSelector(name), args)
@@ -321,7 +321,7 @@ class CategoryType(BaseType):
 
         def keyGetter(o):
             assignment = call.assignments[0]
-            assignment.setExpression(ExpressionValue(self, o))
+            assignment.setExpression(ValueExpression(self, o))
             return call.interpret(context)
 
         return sorted(source, key=keyGetter, reverse=desc)

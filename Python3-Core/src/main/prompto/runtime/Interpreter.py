@@ -1,6 +1,7 @@
 from prompto.argument.ITypedArgument import ITypedArgument
 from prompto.argument.UnresolvedArgument import UnresolvedArgument
 from prompto.error.SyntaxError import SyntaxError
+from prompto.expression.ValueExpression import ValueExpression
 from prompto.expression.MethodSelector import MethodSelector
 from prompto.grammar.ArgumentAssignment import ArgumentAssignment
 from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
@@ -10,9 +11,7 @@ from prompto.statement.MethodCall import MethodCall
 from prompto.type.DictType import DictType
 from prompto.type.TextType import TextType
 from prompto.utils import CmdLineParser
-from prompto.utils.ArgsParser import ArgsParser
 from prompto.value.Dictionary import Dictionary
-from prompto.value.ExpressionValue import ExpressionValue
 from prompto.value.Text import Text
 
 
@@ -65,7 +64,7 @@ class Interpreter(object):
             for key, value in args:
                 valueArgs[Text(key)] = Text(value)
             dict_ = Dictionary(TextType.instance, False, value=valueArgs)
-            return ExpressionValue(Interpreter.argsType, dict_)
+            return ValueExpression(Interpreter.argsType, dict_)
         except:
             # TODO
             return DictLiteral(False)

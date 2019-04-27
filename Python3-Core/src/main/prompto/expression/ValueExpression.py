@@ -2,7 +2,7 @@ from prompto.value.BaseValue import BaseValue
 from prompto.expression.IExpression import IExpression
 
 
-class ExpressionValue(BaseValue, IExpression):
+class ValueExpression(BaseValue, IExpression):
 
     def __init__(self, type, value):
         super().__init__(type)
