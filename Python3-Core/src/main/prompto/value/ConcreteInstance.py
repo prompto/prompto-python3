@@ -1,3 +1,4 @@
+import copy
 import threading
 from io import StringIO
 
@@ -7,12 +8,12 @@ from prompto.grammar.Operator import Operator
 from prompto.store.DataStore import DataStore
 from prompto.type.DecimalType import DecimalType
 from prompto.utils.TypeUtils import fieldToValue
+from prompto.value.BaseValue import BaseValue
 from prompto.value.Decimal import Decimal
 from prompto.value.Integer import Integer
 from prompto.value.IInstance import IInstance
 from prompto.value.IMultiplyable import IMultiplyable
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
-from prompto.value.ExpressionValue import *
 from prompto.runtime.Variable import Variable
 from prompto.error.SyntaxError import SyntaxError
 from prompto.error.NotMutableError import NotMutableError
@@ -38,6 +39,12 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         self.mutable = False
         self.values = dict()
 
+    def toMutable(self):
+        from prompto.type.CategoryType import CategoryType
+        result = copy.copy(self)
+        result.itype = CategoryType(self.itype.typeName, True)
+        result.mutable = True
+        return result
 
     def getDeclaration(self):
         return self.declaration
