@@ -44,6 +44,7 @@ from prompto.declaration.OperatorMethodDeclaration import OperatorMethodDeclarat
 from prompto.declaration.SetterMethodDeclaration import SetterMethodDeclaration
 from prompto.declaration.SingletonCategoryDeclaration import SingletonCategoryDeclaration
 from prompto.declaration.TestMethodDeclaration import TestMethodDeclaration
+from prompto.expression.ArrowExpression import ArrowExpression
 from prompto.expression.InstanceExpression import InstanceExpression
 from prompto.expression.MutableExpression import MutableExpression
 from prompto.expression.PlusExpression import PlusExpression
@@ -247,18 +248,22 @@ class MPromptoBuilder(MParserListener):
         self.path = parser.path
         self.nodeValues = dict()
 
+
     def getNodeValue(self, node:ParseTree) -> object:
         return self.nodeValues.get(node, None)
+
 
     def setNodeValue(self, node:ParseTree, value:object):
         self.nodeValues[node] = value
         if isinstance(value, Section):
             self.buildSection(node, value)
 
+
     def buildSection(self, node:ParserRuleContext, section:Section):
         first = self.findFirstValidToken(node.start.tokenIndex)
         last = self.findLastValidToken(node.stop.tokenIndex)
         section.setFrom(self.path, first, last, Dialect.M)
+
 
     def findFirstValidToken(self, idx:int):
         if idx == -1:  # happens because input.index() is called before any other read operation (bug?)
@@ -270,6 +275,7 @@ class MPromptoBuilder(MParserListener):
             idx += 1
         return None
 
+
     def findLastValidToken(self, idx:int):
         if idx == -1:  # happens because input.index() is called before any other read operation (bug?)
             idx = 0
@@ -279,6 +285,7 @@ class MPromptoBuilder(MParserListener):
                 return token
             idx -= 1
         return None
+
 
     def readValidToken(self, idx:int):
         token = self.input.tokens[idx]
@@ -307,7 +314,7 @@ class MPromptoBuilder(MParserListener):
         return "".join([token.text for token in hidden])
 
 
-    def getJsxWhiteSpace(self, ctx):
+    def getWhiteSpacePlus(self, ctx):
         if ctx.children is None:
             return None
         within = "".join([child.getText() for child in filter(self.isNotIndent, ctx.children)])
@@ -2624,7 +2631,7 @@ class MPromptoBuilder(MParserListener):
     def exitJsx_attribute(self, ctx: MParser.Jsx_attributeContext):
         name = self.getNodeValue(ctx.name)
         value = self.getNodeValue(ctx.value)
-        suite = self.getJsxWhiteSpace(ctx.jsx_ws())
+        suite = self.getWhiteSpacePlus(ctx.ws_plus())
         self.setNodeValue(ctx, JsxAttribute(name, value, suite))
 
 
@@ -2654,7 +2661,7 @@ class MPromptoBuilder(MParserListener):
 
     def exitJsx_opening(self, ctx: MParser.Jsx_openingContext):
         name = self.getNodeValue(ctx.name)
-        suite = self.getJsxWhiteSpace(ctx.jsx_ws())
+        suite = self.getWhiteSpacePlus(ctx.ws_plus())
         attributes = [ self.getNodeValue(cx) for cx in ctx.jsx_attribute() ]
         self.setNodeValue(ctx, JsxElement(name, suite, attributes, None))
 
@@ -2666,7 +2673,7 @@ class MPromptoBuilder(MParserListener):
 
     def exitJsx_self_closing(self, ctx: MParser.Jsx_self_closingContext):
         name = self.getNodeValue(ctx.name)
-        suite = self.getJsxWhiteSpace(ctx.jsx_ws())
+        suite = self.getWhiteSpacePlus(ctx.ws_plus())
         attributes = [ self.getNodeValue(cx) for cx in ctx.jsx_attribute() ]
         self.setNodeValue(ctx, JsxSelfClosing(name, suite, attributes, None))
 

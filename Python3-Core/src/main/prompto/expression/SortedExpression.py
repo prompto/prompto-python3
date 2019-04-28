@@ -1,9 +1,11 @@
 from prompto.error.InternalError import InternalError
 from prompto.error.NullReferenceError import NullReferenceError
 from prompto.error.SyntaxError import SyntaxError
+from prompto.expression.ArrowExpression import ArrowExpression
 from prompto.expression.IExpression import IExpression
 from prompto.expression.InstanceExpression import InstanceExpression
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
+from prompto.runtime.Variable import Variable
 from prompto.type.CategoryType import CategoryType
 from prompto.type.DocumentType import DocumentType
 from prompto.type.ListType import ListType
@@ -63,7 +65,9 @@ class SortedExpression(IExpression):
         writer.append("(")
         self.source.toDialect(writer)
         if self.key is not None:
-            writer = self.contextualizeWriter(writer)
+            typ = self.source.check(writer.context)
+            itemType = typ.itemType
+            writer = self.contextualizeWriter(writer, itemType)
             writer.append(", key = ")
             self.key.toDialect(writer)
         writer.append(")")
@@ -75,24 +79,29 @@ class SortedExpression(IExpression):
             writer.append("descending ")
         self.source.toDialect(writer)
         if self.key is not None:
-            writer = self.contextualizeWriter(writer)
-            writer.append(" with ")
+            typ = self.source.check(writer.context)
+            itemType = typ.itemType
+            local = self.contextualizeWriter(writer, itemType)
+            local.append(" with ")
             keyExp = self.key
             if isinstance(keyExp, UnresolvedIdentifier):
                 try:
                     keyExp = keyExp.resolve(writer.context, False)
                 except:
                     pass # TODO add warning
-            if isinstance(keyExp, InstanceExpression):
-                keyExp.toDialect(writer, False)
+            if isinstance(keyExp, ArrowExpression):
+                for arg in keyExp.args:
+                    param = Variable(arg, itemType)
+                    local.context.registerValue(param)
+                keyExp.toDialect(local)
+            elif isinstance(keyExp, InstanceExpression):
+                keyExp.toDialect(local, False)
             else:
-                keyExp.toDialect(writer)
+                keyExp.toDialect(local)
             writer.append(" as key")
 
 
-    def contextualizeWriter(self, writer):
-        typ = self.source.check(writer.context)
-        itemType = typ.itemType
+    def contextualizeWriter(self, writer, itemType):
         if isinstance(itemType, CategoryType):
             return writer.newInstanceWriter(itemType)
         elif isinstance(itemType, DocumentType):

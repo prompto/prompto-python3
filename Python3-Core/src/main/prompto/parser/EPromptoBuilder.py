@@ -44,6 +44,7 @@ from prompto.declaration.OperatorMethodDeclaration import OperatorMethodDeclarat
 from prompto.declaration.SetterMethodDeclaration import SetterMethodDeclaration
 from prompto.declaration.SingletonCategoryDeclaration import SingletonCategoryDeclaration
 from prompto.declaration.TestMethodDeclaration import TestMethodDeclaration
+from prompto.expression.ArrowExpression import ArrowExpression
 from prompto.expression.InstanceExpression import InstanceExpression
 from prompto.expression.MutableExpression import MutableExpression
 from prompto.expression.PlusExpression import PlusExpression
@@ -244,18 +245,22 @@ class EPromptoBuilder(EParserListener):
         self.path = parser.path
         self.nodeValues = dict()
 
+
     def getNodeValue(self, node:ParseTree):
         return self.nodeValues.get(node, None)
+
 
     def setNodeValue(self, node:ParseTree, value:object):
         self.nodeValues[node] = value
         if isinstance(value, Section):
             self.buildSection(node, value)
 
+
     def buildSection(self, node:ParserRuleContext, section:Section):
         first = self.findFirstValidToken(node.start.tokenIndex)
         last = self.findLastValidToken(node.stop.tokenIndex)
         section.setFrom(self.path, first, last, Dialect.E)
+
 
     def findFirstValidToken(self, idx:int):
         if idx == -1: # happens because input.index() is called before any other read operation (bug?)
@@ -267,6 +272,7 @@ class EPromptoBuilder(EParserListener):
             idx += 1
         return None
 
+
     def findLastValidToken(self, idx:int):
         if idx == -1: # happens because input.index() is called before any other read operation (bug?)
             idx = 0
@@ -276,6 +282,7 @@ class EPromptoBuilder(EParserListener):
                 return token
             idx -= 1
         return None
+
 
     def readValidToken(self, idx:int):
         token = self.input.tokens[idx]
@@ -291,17 +298,20 @@ class EPromptoBuilder(EParserListener):
         hidden = self.input.getHiddenTokensToLeft(token.tokenIndex)
         return self.getHiddenTokensText(hidden)
 
+
     def getHiddenTokensAfter(self, node):
         token = node if isinstance(node, Token) else node.symbol
         hidden = self.input.getHiddenTokensToRight(token.tokenIndex)
         return self.getHiddenTokensText(hidden)
+
 
     def getHiddenTokensText(self, hidden):
         if hidden is None or len(hidden)==0:
             return None
         return "".join([token.text for token in hidden])
 
-    def getJsxWhiteSpace(self, ctx):
+
+    def getWhiteSpacePlus(self, ctx):
         if ctx.children is None:
             return None
         within = "".join([child.getText() for child in filter(self.isNotIndent, ctx.children)])
@@ -314,6 +324,7 @@ class EPromptoBuilder(EParserListener):
         if after is not None:
             within = within + after
         return within
+
 
     def isNotIndent(self, tree):
         return (not isinstance(tree, TerminalNode)) or tree.symbol.type != ELexer.INDENT
@@ -2812,7 +2823,7 @@ class EPromptoBuilder(EParserListener):
     def exitJsx_attribute(self, ctx: EParser.Jsx_attributeContext):
         name = self.getNodeValue(ctx.name)
         value = self.getNodeValue(ctx.value)
-        suite = self.getJsxWhiteSpace(ctx.jsx_ws())
+        suite = self.getWhiteSpacePlus(ctx.ws_plus())
         self.setNodeValue(ctx, JsxAttribute(name, value, suite))
 
 
@@ -2842,7 +2853,7 @@ class EPromptoBuilder(EParserListener):
 
     def exitJsx_opening(self, ctx: EParser.Jsx_openingContext):
         name = self.getNodeValue(ctx.name)
-        suite = self.getJsxWhiteSpace(ctx.jsx_ws())
+        suite = self.getWhiteSpacePlus(ctx.ws_plus())
         attributes = [ self.getNodeValue(cx) for cx in ctx.jsx_attribute() ]
         self.setNodeValue(ctx, JsxElement(name, suite, attributes, None))
 
@@ -2854,7 +2865,7 @@ class EPromptoBuilder(EParserListener):
 
     def exitJsx_self_closing(self, ctx: EParser.Jsx_self_closingContext):
         name = self.getNodeValue(ctx.name)
-        suite = self.getJsxWhiteSpace(ctx.jsx_ws())
+        suite = self.getWhiteSpacePlus(ctx.ws_plus())
         attributes = [ self.getNodeValue(cx) for cx in ctx.jsx_attribute() ]
         self.setNodeValue(ctx, JsxSelfClosing(name, suite, attributes, None))
 
