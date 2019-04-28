@@ -16,6 +16,7 @@ class CharacterType(NativeType):
     def __init__(self):
         super().__init__(TypeFamily.CHARACTER)
 
+
     def checkMember(self, context, name):
         from prompto.type.IntegerType import IntegerType
         if "codePoint" == name:
@@ -33,32 +34,35 @@ class CharacterType(NativeType):
         else:
             return super().checkMultiply(context, other, tryReverse)
 
+
     def checkCompare(self, context, other):
         if isinstance(other, CharacterType) or isinstance(other, TextType):
             return BooleanType.instance
         return super().checkCompare(context, other)
+
 
     def checkRange(self, context, other):
         if isinstance(other, CharacterType):
             return RangeType(self)
         return super().checkRange(context, other)
 
+
     def newRange(self, left, right):
         if isinstance(left, Character) and isinstance(right, Character):
             return CharacterRange(left, right)
         return super().newRange(left, right)
 
-    def sort(self, context, list_, desc):
-        return sorted(list_, reverse=desc)
 
     def toString(self, value):
         return "'" + str(value) + "'"
+
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         if isinstance(value, str):
             return Character(value)
         else:
             return value  # TODO for now
+
 
     def nativeCast(self, context, value):
         if isinstance(value.itype, TextType) and len(value.value)>=1:

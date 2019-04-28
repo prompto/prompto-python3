@@ -68,10 +68,6 @@ class TextType(NativeType):
         return self
 
 
-    def sort(self, context, list_, desc):
-        return sorted(list_, reverse=desc)
-
-
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         from prompto.value.Text import Text
         if isinstance(value, str):
