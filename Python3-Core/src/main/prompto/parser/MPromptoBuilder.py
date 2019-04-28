@@ -341,6 +341,39 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, AbstractMethodDeclaration(name, args, typ))
 
 
+    def exitArrow_prefix(self, ctx: MParser.Arrow_prefixContext):
+        args = self.getNodeValue(ctx.arrow_args())
+        argsSuite = self.getHiddenTokensBefore(ctx.EGT())
+        arrowSuite = self.getHiddenTokensAfter(ctx.EGT())
+        self.setNodeValue(ctx, ArrowExpression(args, argsSuite, arrowSuite))
+
+
+    def exitArrowExpression(self, ctx: MParser.ArrowExpressionContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.exp))
+
+
+    def exitArrowExpressionBody(self, ctx: MParser.ArrowExpressionBodyContext):
+        arrow = self.getNodeValue(ctx.arrow_prefix())
+        exp = self.getNodeValue(ctx.expression())
+        arrow.setExpression(exp)
+        self.setNodeValue(ctx, arrow)
+
+
+    def exitArrowListArg(self, ctx: MParser.ArrowListArgContext):
+        list = self.getNodeValue(ctx.variable_identifier_list())
+        self.setNodeValue(ctx, list)
+
+
+    def exitArrowSingleArg(self, ctx: MParser.ArrowSingleArgContext):
+        arg = self.getNodeValue(ctx.variable_identifier())
+        self.setNodeValue(ctx, IdentifierList(arg))
+
+
+    def exitArrowStatementsBody(self, ctx: MParser.ArrowStatementsBodyContext):
+        arrow = self.getNodeValue(ctx.arrow_prefix())
+        stmts = self.getNodeValue(ctx.statement_list())
+        arrow.statements = stmts
+        self.setNodeValue(ctx, arrow)
 
     def exitAddExpression(self, ctx:MParser.AddExpressionContext):
         left = self.getNodeValue(ctx.left)
@@ -2257,7 +2290,6 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, items)
 
 
-
     def exitSetter_method_declaration(self, ctx:MParser.Setter_method_declarationContext):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
@@ -2297,10 +2329,8 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, slice)
 
 
-
     def exitStoreStatement (self, ctx:MParser.StoreStatementContext):
         self.setNodeValue(ctx, self.getNodeValue(ctx.stmt))
-
 
 
     def exitStore_statement (self, ctx:MParser.Store_statementContext):
@@ -2311,13 +2341,16 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, stmt)
 
 
-
     def exitSorted_expression(self, ctx:MParser.Sorted_expressionContext):
         source = self.getNodeValue(ctx.source)
         desc = ctx.DESC() is not None
         key = self.getNodeValue(ctx.key)
         self.setNodeValue(ctx, SortedExpression(source, desc, key))
 
+
+    def exitSorted_key(self, ctx: MParser.Sorted_keyContext):
+        exp = self.getNodeValue(ctx.getChild(0))
+        self.setNodeValue(ctx, exp)
 
 
     def exitStatement_list(self, ctx:MParser.Statement_listContext):
@@ -2326,7 +2359,6 @@ class MPromptoBuilder(MParserListener):
             item = self.getNodeValue(rule)
             items.append(item)
         self.setNodeValue(ctx, items)
-
 
 
     def exitSwitch_statement(self, ctx:MParser.Switch_statementContext):
@@ -2372,9 +2404,9 @@ class MPromptoBuilder(MParserListener):
         exp = TernaryExpression(condition, ifTrue, ifFalse)
         self.setNodeValue(ctx, exp)
 
+
     def exitTextLiteral(self, ctx:MParser.TextLiteralContext):
         self.setNodeValue(ctx, TextLiteral(ctx.t.text))
-
 
 
     def exitTest_method_declaration(self, ctx:MParser.Test_method_declarationContext):
@@ -2386,30 +2418,24 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, TestMethodDeclaration(name, stmts, exps, error))
 
 
-
     def exitTextType(self, ctx:MParser.TextTypeContext):
         self.setNodeValue(ctx, TextType.instance)
-
 
 
     def exitHtmlType(self, ctx:MParser.HtmlTypeContext):
         self.setNodeValue(ctx, HtmlType.instance)
 
 
-
     def exitThisExpression(self, ctx:MParser.ThisExpressionContext):
         self.setNodeValue(ctx, ThisExpression())
-
 
 
     def exitTimeLiteral(self, ctx:MParser.TimeLiteralContext):
         self.setNodeValue(ctx, TimeLiteral(ctx.t.text))
 
 
-
     def exitTimeType(self, ctx:MParser.TimeTypeContext):
         self.setNodeValue(ctx, TimeType.instance)
-
 
 
     def exitTry_statement(self, ctx:MParser.Try_statementContext):
@@ -2438,7 +2464,6 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, value)
 
 
-
     def exitSet_literal(self, ctx:MParser.Set_literalContext):
         items = self.getNodeValue(ctx.expression_list())
         items = items if items is not None else []
@@ -2446,10 +2471,8 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, value)
 
 
-
     def exitType_identifier(self, ctx:MParser.Type_identifierContext):
         self.setNodeValue(ctx, ctx.getText())
-
 
 
     def exitTyped_argument(self, ctx:MParser.Typed_argumentContext):
@@ -2461,7 +2484,6 @@ class MPromptoBuilder(MParserListener):
         arg = CategoryArgument(typ, name) if attrs is None else ExtendedArgument(typ, name, attrs)
         arg.defaultExpression = exp
         self.setNodeValue(ctx, arg)
-
 
 
     def exitTypeIdentifier(self, ctx:MParser.TypeIdentifierContext):
@@ -2477,20 +2499,16 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, items)
 
 
-
     def exitUUIDType(self, ctx:MParser.UUIDTypeContext):
         self.setNodeValue(ctx, UUIDType.instance)
-
 
 
     def exitUUIDLiteral(self, ctx:MParser.UUIDLiteralContext):
         self.setNodeValue(ctx, UUIDLiteral(ctx.t.text))
 
 
-
     def exitValue_token(self, ctx:MParser.Value_tokenContext):
         self.setNodeValue(ctx, ctx.getText())
-
 
 
     def exitAttribute_identifier(self, ctx:MParser.Attribute_identifierContext):
@@ -2504,7 +2522,6 @@ class MPromptoBuilder(MParserListener):
     def exitVariableIdentifier(self, ctx:MParser.VariableIdentifierContext):
         name = self.getNodeValue(ctx.variable_identifier())
         self.setNodeValue(ctx, name)
-
 
 
     def exitAttribute_identifier_list(self, ctx:MParser.Attribute_identifier_listContext):
@@ -2521,7 +2538,6 @@ class MPromptoBuilder(MParserListener):
             item = self.getNodeValue(c)
             items.append(item)
         self.setNodeValue(ctx, items)
-
 
 
     def exitWhile_statement(self, ctx:MParser.While_statementContext):

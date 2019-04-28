@@ -12,6 +12,9 @@ class TestCore(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testAbstract(self):
+        self.runTests("core/abstract.pec")
+
     def testAny(self):
         self.runTests("core/any.pec")
 

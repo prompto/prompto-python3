@@ -11,7 +11,6 @@ from prompto.type.SetType import SetType
 from prompto.type.TupleType import TupleType
 from prompto.value.ListValue import ListValue
 from prompto.value.SetValue import SetValue
-from prompto.value.TupleValue import TupleValue
 
 
 class SortedExpression(IExpression):
@@ -36,22 +35,17 @@ class SortedExpression(IExpression):
 
     def interpret(self, context):
         itype = self.source.check(context)
-        if not isinstance(itype, (ListType, TupleType, SetType)):
+        if not isinstance(itype, (ListType, SetType)):
             raise SyntaxError("Unsupported type: " + itype)
         o = self.source.interpret(context)
         if o is None:
             raise NullReferenceError()
-        if not isinstance(o, (ListValue, TupleValue, SetValue)):
+        if not isinstance(o, (ListValue, SetValue)):
             raise InternalError("Unexpected type:" + type(o).__name__)
         items = o.getIterator(context)
-        itemType = itype.itemType
-        if isinstance(itemType, CategoryType):
-            items = itemType.sort(context, items, self.desc, self.key)
-        elif itemType is DocumentType.instance:
-            items = itemType.sort(context, items, self.desc, self.key)
-        else:
-            items = itemType.sort(context, items, self.desc)
-        return ListValue(itemType, items=items)
+        getter = itype.itemType.getSortKeyReader(context, self.key)
+        list = sorted(items, key=getter, reverse=self.desc)
+        return ListValue(itype.itemType, items=list)
 
 
     def setKey(self, key):

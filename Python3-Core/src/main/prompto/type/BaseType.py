@@ -22,6 +22,7 @@ class BaseType(IType):
     def __ne__(self, obj):
         return not self == obj
 
+
     def __str__(self):
         return self.typeName
 
@@ -30,10 +31,8 @@ class BaseType(IType):
         writer.append(self.typeName)
 
 
-
     def getMemberMethods(selfself, context, name):
         return []
-
 
 
     def checkAdd(self, context, other, tryReverse):
@@ -140,30 +139,20 @@ class BaseType(IType):
         raise SyntaxError("Cannot create range of " + self.typeName + " and " + other.typeName)
 
 
-
     def newRange(self, left, right):
         raise SyntaxError("Cannot create range of " + self.typeName)
-
 
 
     def toString(self, value):
         return str(value)
 
 
-
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         raise Exception("Unsupported!")
 
 
-
-    def sort(self, context, source, desc, key=None):
-        raise Exception("Unsupported!")
-
-
-
     def readJSONValue(self, context, node, parts):
         raise Exception("Unsupported!")
-
 
 
     def isAssignableFrom(self, context, other:IType):
@@ -174,9 +163,10 @@ class BaseType(IType):
             or self.typeName == other.typeName
 
 
-
     def checkAssignableFrom(self, context, other):
         if not self.isAssignableFrom(context, other):
             raise SyntaxError("Type: " + self.typeName + " is not compatible with: " + other.typeName)
 
 
+    def getSortKeyReader(self, context, expression):
+        raise Exception("Unsupported!")

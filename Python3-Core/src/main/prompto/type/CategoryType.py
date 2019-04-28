@@ -259,39 +259,50 @@ class CategoryType(BaseType):
         return decl.newInstance(context)
 
 
-    def sort(self, context, source, desc, key):
+    def getSortKeyReader(self, context, key):
         if key is None:
             key = UnresolvedIdentifier("key", Dialect.M)
         decl = self.getDeclaration(context)
         if decl.hasAttribute(context, str(key)):
-            return self.sortByAttribute(context, source, desc, str(key))
+            return self.getAttributeSortKeyReader(context, str(key))
         elif decl.hasMethod(context, str(key)):
-            return self.sortByMemberMethod(context, source, desc, str(key))
+            return self.getMemberMethodSortKeyReader(context, str(key))
         elif self.globalMethodExists(context, str(key)):
-            return self.sortByGlobalMethod(context, source, desc, str(key))
+            return self.getGlobalMethodSortKeyReader(context, str(key))
         else:
-            return self.sortByExpression(context, source, desc, key)
+            return self.getExpressionSortKeyReader(context, key)
 
 
-    def sortByExpression(self, context, source, desc, exp):
+    def getAttributeSortKeyReader(self, context, name):
+        return lambda o: o.getMemberValue(context, name)
+
+
+    def getMemberMethodSortKeyReader(self, context, name):
+        return None # TODO
+
+
+    def getGlobalMethodSortKeyReader(self, context, name):
+        from prompto.statement.MethodCall import MethodCall
+        exp = ValueExpression(self, self.newInstance(context))
+        arg = ArgumentAssignment(None, exp)
+        args = ArgumentAssignmentList(items=[arg])
+        call = MethodCall(MethodSelector(name), args)
+
+        def keyGetter(o):
+            assignment = call.assignments[0]
+            assignment.setExpression(ValueExpression(self, o))
+            return call.interpret(context)
+
+        return keyGetter
+
+
+    def getExpressionSortKeyReader(self, context, exp):
 
         def keyGetter(o):
             co = context.newInstanceContext(o, None)
             return exp.interpret(co)
 
-        return sorted(source, key=keyGetter, reverse=desc)
-
-
-    def sortByAttribute(self, context, source, desc, name):
-
-        def keyGetter(o):
-            return o.getMemberValue(context, name)
-
-        return sorted(source, key=keyGetter, reverse=desc)
-
-
-    def sortByMemberMethod(self, context, source, desc, name):
-        return None
+        return keyGetter
 
 
     def globalMethodExists(self, context, name):
@@ -306,26 +317,6 @@ class CategoryType(BaseType):
             return finder.findMethod(True) is not None
         except PromptoError:
             return False
-
-
-    def sortByGlobalMethod(self, context, source, desc, name):
-        from prompto.statement.MethodCall import MethodCall
-        exp = ValueExpression(self, self.newInstance(context))
-        arg = ArgumentAssignment(None, exp)
-        args = ArgumentAssignmentList(items=[arg])
-        call = MethodCall(MethodSelector(name), args)
-        return self.doSortByGlobalMethod(context, source, desc, call)
-
-
-    def doSortByGlobalMethod(self, context, source, desc, call):
-
-        def keyGetter(o):
-            assignment = call.assignments[0]
-            assignment.setExpression(ValueExpression(self, o))
-            return call.interpret(context)
-
-        return sorted(source, key=keyGetter, reverse=desc)
-
 
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):

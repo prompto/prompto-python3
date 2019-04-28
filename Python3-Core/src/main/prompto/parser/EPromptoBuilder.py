@@ -975,6 +975,41 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, UUIDLiteral(ctx.t.text))
 
 
+    def exitArrow_prefix(self, ctx: EParser.Arrow_prefixContext):
+        args = self.getNodeValue(ctx.arrow_args())
+        argsSuite = self.getHiddenTokensBefore(ctx.EGT())
+        arrowSuite = self.getHiddenTokensAfter(ctx.EGT())
+        self.setNodeValue(ctx, ArrowExpression(args, argsSuite, arrowSuite))
+
+
+    def exitArrowExpression(self, ctx: EParser.ArrowExpressionContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.exp))
+
+
+    def exitArrowExpressionBody(self, ctx: EParser.ArrowExpressionBodyContext):
+        arrow = self.getNodeValue(ctx.arrow_prefix())
+        exp = self.getNodeValue(ctx.expression())
+        arrow.setExpression(exp)
+        self.setNodeValue(ctx, arrow)
+
+
+    def exitArrowListArg(self, ctx: EParser.ArrowListArgContext):
+        list = self.getNodeValue(ctx.variable_identifier_list())
+        self.setNodeValue(ctx, list)
+
+
+    def exitArrowSingleArg(self, ctx: EParser.ArrowSingleArgContext):
+        arg = self.getNodeValue(ctx.variable_identifier())
+        self.setNodeValue(ctx, IdentifierList(arg))
+
+
+    def exitArrowStatementsBody(self, ctx: EParser.ArrowStatementsBodyContext):
+        arrow = self.getNodeValue(ctx.arrow_prefix())
+        stmts = self.getNodeValue(ctx.statement_list())
+        arrow.statements = stmts
+        self.setNodeValue(ctx, arrow)
+
+
     def exitAddExpression(self, ctx:EParser.AddExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
@@ -2269,15 +2304,18 @@ class EPromptoBuilder(EParserListener):
         desc = ctx.DESC() is not None
         key = self.getNodeValue(ctx.key)
         self.setNodeValue(ctx, SortedExpression(source, desc, key))
-    
 
-    
+
+    def exitSorted_key(self, ctx: EParser.Sorted_keyContext):
+        exp = self.getNodeValue(ctx.getChild(0))
+        self.setNodeValue(ctx, exp)
+
+
     def exitSortedExpression(self, ctx:EParser.SortedExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
     
 
-    
     def exitDocumentExpression(self, ctx:EParser.DocumentExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
@@ -2289,10 +2327,8 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, DocumentExpression(exp))
     
 
-    
     def exitDocumentType(self, ctx:EParser.DocumentTypeContext):
         self.setNodeValue(ctx, DocumentType.instance)
-
 
 
     def exitDocument_literal(self, ctx:EParser.Document_literalContext):
