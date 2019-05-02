@@ -10,16 +10,22 @@ class TestArrow(BaseOParserTest):
     def tearDown(self):
         Out.restore()
 
-    def testSort1(self):
-        self.checkOutput("arrow/sort1.poc")
+    def testSortCategory1Arg(self):
+        self.checkOutput("arrow/sortCategory1Arg.poc")
 
-    def testSort1_desc(self):
-        self.checkOutput("arrow/sort1_desc.poc")
+    def testSortCategory2Args(self):
+        self.checkOutput("arrow/sortCategory2Args.poc")
 
-    def testSort2(self):
-        self.checkOutput("arrow/sort2.poc")
+    def testSortText1Arg(self):
+        self.checkOutput("arrow/sortText1Arg.poc")
 
-    def testSort2_desc(self):
-        self.checkOutput("arrow/sort2_desc.poc")
+    def testSortText1ArgDesc(self):
+        self.checkOutput("arrow/sortText1ArgDesc.poc")
+
+    def testSortText2Args(self):
+        self.checkOutput("arrow/sortText2Args.poc")
+
+    def testSortText2ArgsDesc(self):
+        self.checkOutput("arrow/sortText2ArgsDesc.poc")
 
 

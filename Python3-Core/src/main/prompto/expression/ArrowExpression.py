@@ -23,14 +23,14 @@ class ArrowExpression ( IExpression ):
         self.statements = StatementList(stmt)
 
 
-    def getNativeSortKeyReader(self, context, itemType):
+    def getSortKeyReader(self, context, itemType):
         if len(self.args) == 1:
-            return self.getNativeSortKeyReader1Arg(context, itemType)
+            return self.getSortKeyReader1Arg(context, itemType)
         elif len(self.args) == 2:
-            return self.getNativeSortKeyReader2Args(context, itemType)
+            return self.getSortKeyReader2Args(context, itemType)
 
 
-    def getNativeSortKeyReader1Arg(self, context, itemType):
+    def getSortKeyReader1Arg(self, context, itemType):
 
         def keyGetter(o):
             local = self.registerArrowArgs(context.newLocalContext(), itemType)
@@ -40,7 +40,7 @@ class ArrowExpression ( IExpression ):
         return keyGetter
 
 
-    def getNativeSortKeyReader2Args(self, context, itemType):
+    def getSortKeyReader2Args(self, context, itemType):
         local = self.registerArrowArgs(context.newLocalContext(), itemType)
         return lambda o: ItemProxy(local, o, self)
 

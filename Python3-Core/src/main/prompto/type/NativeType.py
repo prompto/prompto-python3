@@ -58,7 +58,7 @@ class NativeType ( BaseType ):
 
     def getSortKeyReader(self, context, expression):
         if isinstance(expression, ArrowExpression):
-            return expression.getNativeSortKeyReader(context, self)
+            return expression.getSortKeyReader(context, self)
         else:
             return None
 

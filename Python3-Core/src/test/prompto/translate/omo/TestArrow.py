@@ -5,16 +5,22 @@ class TestArrow(BaseOParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
-    def testSort1(self):
-        self.compareResourceOMO("arrow/sort1.poc")
+    def testSortCategory1Arg(self):
+        self.compareResourceOMO("arrow/sortCategory1Arg.poc")
 
-    def testSort1_desc(self):
-        self.compareResourceOMO("arrow/sort1_desc.poc")
+    def testSortCategory2Args(self):
+        self.compareResourceOMO("arrow/sortCategory2Args.poc")
 
-    def testSort2(self):
-        self.compareResourceOMO("arrow/sort2.poc")
+    def testSortText1Arg(self):
+        self.compareResourceOMO("arrow/sortText1Arg.poc")
 
-    def testSort2_desc(self):
-        self.compareResourceOMO("arrow/sort2_desc.poc")
+    def testSortText1ArgDesc(self):
+        self.compareResourceOMO("arrow/sortText1ArgDesc.poc")
+
+    def testSortText2Args(self):
+        self.compareResourceOMO("arrow/sortText2Args.poc")
+
+    def testSortText2ArgsDesc(self):
+        self.compareResourceOMO("arrow/sortText2ArgsDesc.poc")
 
 
