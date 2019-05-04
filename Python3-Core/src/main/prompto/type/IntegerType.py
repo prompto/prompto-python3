@@ -101,10 +101,6 @@ class IntegerType(NativeType):
         return super(IntegerType, self).newRange(left, right)
 
 
-    def sort(self, context, source, desc, key=None):
-        return sorted(source, reverse=desc)
-
-
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         if isinstance(value, Number):
             return Integer(int(value))

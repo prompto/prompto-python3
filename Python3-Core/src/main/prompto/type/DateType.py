@@ -71,10 +71,6 @@ class DateType(NativeType):
             other == DateTimeType.instance
 
 
-    def sort(self, context, source, desc):
-        return sorted(source, reverse=desc)
-
-
     def toString(self, value):
         return "'" + value.toString() + "'"
 

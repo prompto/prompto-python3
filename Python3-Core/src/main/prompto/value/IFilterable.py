@@ -1,4 +1,4 @@
 class IFilterable( object ):
 
-    def filter(self, context, itemName, filter):
+    def filter(self, predicate):
         raise Exception("Not implemented!")

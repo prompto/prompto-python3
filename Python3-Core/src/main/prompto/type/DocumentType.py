@@ -83,15 +83,15 @@ class DocumentType ( NativeType ):
         return self
 
 
-    def sort(self, context, source, desc, key):
+    def getSortKeyReader(self, context, key):
         if key is None:
             key = TextLiteral('"key"')
         if self.globalMethodExists(context, str(key)):
-            return self.sortByGlobalMethod(context, source, desc, str(key))
+            return self.getGlobalMethodSortKeyReader(context, str(key))
         elif isinstance(key, TextLiteral):
-            return self.sortByEntry(context, source, desc, key.getValue().getStorableData())
+            return self.getEntrySortKeyReader(context, key.getValue().getStorableData())
         else:
-            return self.sortByExpression(context, source, desc, key)
+            return self.getExpressionSortKeyReader(context, key)
 
 
     def globalMethodExists(self, context, name):
@@ -103,7 +103,7 @@ class DocumentType ( NativeType ):
             return methods.get(self.typeName, None)
 
 
-    def sortByGlobalMethod(self, context, source, desc, name):
+    def getGlobalMethodSortKeyReader(self, context, name):
         from prompto.statement.MethodCall import MethodCall
         from prompto.value.Document import Document
         exp = ValueExpression(self, Document())
@@ -111,33 +111,26 @@ class DocumentType ( NativeType ):
         args = ArgumentAssignmentList(items=[arg])
         from prompto.expression.MethodSelector import MethodSelector
         call = MethodCall(MethodSelector(name), args)
-        return self.doSortByGlobalMethod(context, source, desc, call)
-
-
-    def doSortByGlobalMethod(self, context, source, desc, call):
 
         def keyGetter(o):
             assignment = call.assignments[0]
             assignment.setExpression(ValueExpression(self, o))
             return call.interpret(context)
 
-        return sorted(source, key=keyGetter, reverse=desc)
+        return keyGetter
 
 
-    def sortByEntry(self, context, source, desc, name):
+    def getEntrySortKeyReader(self, context, name):
+        return lambda o: o.getMemberValue(context, name)
 
-        def keyGetter(o):
-            return o.getMemberValue(context, name)
 
-        return sorted(source, key=keyGetter, reverse=desc)
-
-    def sortByExpression(self, context, source, desc, exp):
+    def getExpressionSortKeyReader(self, context, exp):
 
         def keyGetter(o):
             co = context.newDocumentContext(o, False)
             return exp.interpret(co)
 
-        return sorted(source, key=keyGetter, reverse=desc)
+        return keyGetter
 
 
 DocumentType.instance = DocumentType()

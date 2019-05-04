@@ -17,9 +17,6 @@ class VersionType(NativeType):
         else:
             return super(VersionType, self).checkCompare(context, other)
 
-    def sort(self, context, source, desc):
-        return sorted(source, reverse=desc)
-
 
     def toString(self, value):
         return "'" + value.toString() + "'"

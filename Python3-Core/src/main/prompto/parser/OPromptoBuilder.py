@@ -44,6 +44,7 @@ from prompto.declaration.OperatorMethodDeclaration import OperatorMethodDeclarat
 from prompto.declaration.SetterMethodDeclaration import SetterMethodDeclaration
 from prompto.declaration.SingletonCategoryDeclaration import SingletonCategoryDeclaration
 from prompto.declaration.TestMethodDeclaration import TestMethodDeclaration
+from prompto.expression.ArrowExpression import ArrowExpression
 from prompto.expression.MutableExpression import MutableExpression
 from prompto.expression.PlusExpression import PlusExpression
 from prompto.expression.AndExpression import AndExpression
@@ -283,9 +284,17 @@ class OPromptoBuilder(OParserListener):
             return None
  
 
+    def getHiddenTokensBefore(self, node):
+        return self.getHiddenTokens(node, self.input.getHiddenTokensToLeft)
+
+
     def getHiddenTokensAfter(self, node):
+        return self.getHiddenTokens(node, self.input.getHiddenTokensToRight)
+
+
+    def getHiddenTokens(self, node, fetcher):
         token = node if isinstance(node, Token) else node.symbol
-        hidden = self.input.getHiddenTokensToRight(token.tokenIndex)
+        hidden = fetcher(token.tokenIndex)
         if hidden is None or len(hidden) == 0:
             return None
         return "".join([token.text for token in hidden])
@@ -801,12 +810,10 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, arg)
 
 
-
     def exitCodeArgument(self, ctx:OParser.CodeArgumentContext):
         arg = self.getNodeValue(ctx.arg)
         self.setNodeValue(ctx, arg)
     
-
 
     def exitArgument_list(self, ctx:OParser.Argument_listContext):
         items = ArgumentList()
@@ -815,7 +822,6 @@ class OPromptoBuilder(OParserListener):
             items.append(item)
         self.setNodeValue(ctx, items)
     
-
 
     def exitMethod_call_expression(self, ctx:OParser.Method_call_expressionContext):
         name = self.getNodeValue(ctx.name)
@@ -872,7 +878,42 @@ class OPromptoBuilder(OParserListener):
         items = self.getNodeValue(ctx.items)
         items.append(item)
         self.setNodeValue(ctx, items)
-    
+
+
+    def exitArrow_prefix(self, ctx:OParser.Arrow_prefixContext):
+        args = self.getNodeValue (ctx.arrow_args())
+        argsSuite = self.getHiddenTokensBefore(ctx.EGT())
+        arrowSuite = self.getHiddenTokensAfter(ctx.EGT())
+        self.setNodeValue(ctx, ArrowExpression(args, argsSuite, arrowSuite))
+
+
+    def exitArrowExpression(self, ctx:OParser.ArrowExpressionContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.exp))
+
+
+    def exitArrowExpressionBody(self, ctx:OParser.ArrowExpressionBodyContext):
+        arrow = self.getNodeValue(ctx.arrow_prefix())
+        exp = self.getNodeValue(ctx.expression())
+        arrow.setExpression(exp)
+        self.setNodeValue(ctx, arrow)
+
+
+    def exitArrowListArg(self, ctx:OParser.ArrowListArgContext):
+        list = self.getNodeValue(ctx.variable_identifier_list())
+        self.setNodeValue(ctx, list)
+
+
+    def exitArrowSingleArg(self, ctx:OParser.ArrowSingleArgContext):
+        arg = self.getNodeValue(ctx.variable_identifier())
+        self.setNodeValue(ctx, IdentifierList(arg))
+
+
+    def exitArrowStatementsBody(self, ctx:OParser.ArrowStatementsBodyContext):
+        arrow = self.getNodeValue(ctx.arrow_prefix())
+        stmts = self.getNodeValue(ctx.statement_list())
+        arrow.statements = stmts
+        self.setNodeValue(ctx, arrow)
+
 
     def exitAddExpression(self, ctx:OParser.AddExpressionContext):
         left = self.getNodeValue(ctx.left)
@@ -896,11 +937,9 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, items)
 
 
-
     def exitCurlyCategoryMethodList(self, ctx:OParser.CurlyCategoryMethodListContext):
         items = self.getNodeValue(ctx.items)
         self.setNodeValue(ctx, items)
-
 
 
     def exitCurlyStatementList(self, ctx:OParser.CurlyStatementListContext):
@@ -917,14 +956,12 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, items)
 
 
-
     def exitSetter_method_declaration(self, ctx:OParser.Setter_method_declarationContext):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
         self.setNodeValue(ctx, SetterMethodDeclaration(name, stmts))
     
 
-    
     def exitGetter_method_declaration(self, ctx:OParser.Getter_method_declarationContext):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
@@ -2201,9 +2238,13 @@ class OPromptoBuilder(OParserListener):
         desc = ctx.DESC() is not None
         key = self.getNodeValue(ctx.key)
         self.setNodeValue(ctx, SortedExpression(source, desc, key))
-    
 
-    
+
+    def exitSorted_key(self, ctx:OParser.Sorted_keyContext):
+        exp = self.getNodeValue(ctx.getChild(0))
+        self.setNodeValue(ctx, exp)
+
+
     def exitDocument_expression(self, ctx:OParser.Document_expressionContext):
         exp = self.getNodeValue(ctx.expression())
         self.setNodeValue(ctx, DocumentExpression(exp))

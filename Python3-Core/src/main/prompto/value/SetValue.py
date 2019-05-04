@@ -14,18 +14,23 @@ class SetValue(BaseValue, IContainer, IFilterable):
         super().__init__( SetType(itemType))
         self.items = items if items is not None else set()
 
+
     def isEmpty(self):
         return len(self.items)==0
 
+
     def __len__(self):
         return len(self.items)
+
 
     def getIterator(self, context=None):
         for item in self.items:
             yield item
 
+
     def hasItem(self, context, item):
         return item in self.items
+
 
     def getItem(self, context, index):
         if isinstance(index, Integer):
@@ -57,6 +62,7 @@ class SetValue(BaseValue, IContainer, IFilterable):
                 sb.seek(len-2)
             sb.write(">")
             return sb.getvalue()
+
 
     def Add(self, context, value):
         from prompto.value.ListValue import ListValue
@@ -103,17 +109,11 @@ class SetValue(BaseValue, IContainer, IFilterable):
             return SetValue(self.itype.itemType, data)
 
 
-    def filter(self, context, itemName, filter):
-        result = set()
-        for o in self.getIterator(context):
-            context.setValue(itemName, o)
-            test = filter.interpret(context)
-            from prompto.value.Boolean import Boolean
-            if not isinstance(test, Boolean):
-                raise InternalError("Illegal test result: " + test)
-            if test.getValue():
-                result.add(o)
+    def filter(self, predicate):
+        items = filter(predicate, self.items)
+        result = set(items)
         return SetValue(self.itype.itemType, result)
+
 
     def getMemberValue(self, context, name, autoCreate=False):
         if "count" == name:

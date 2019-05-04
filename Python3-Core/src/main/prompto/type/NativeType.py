@@ -1,3 +1,4 @@
+from prompto.expression.ArrowExpression import ArrowExpression
 from prompto.type.BaseType import BaseType
 
 
@@ -38,16 +39,26 @@ class NativeType ( BaseType ):
                 ]
         return cls.ALL
 
+
     def __init__(self, family):
         super().__init__(family)
+
 
     def checkUnique(self, context):
         pass
 
+
     def checkExists(self, context):
         pass
+
 
     def isMoreSpecificThan(self, context, other):
         return False
 
+
+    def getSortKeyReader(self, context, expression):
+        if isinstance(expression, ArrowExpression):
+            return expression.getSortKeyReader(context, self)
+        else:
+            return None
 

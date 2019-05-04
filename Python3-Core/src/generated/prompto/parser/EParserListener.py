@@ -737,6 +737,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#ArrowExpression.
+    def enterArrowExpression(self, ctx:EParser.ArrowExpressionContext):
+        pass
+
+    # Exit a parse tree produced by EParser#ArrowExpression.
+    def exitArrowExpression(self, ctx:EParser.ArrowExpressionContext):
+        pass
+
+
     # Enter a parse tree produced by EParser#MethodCallExpression.
     def enterMethodCallExpression(self, ctx:EParser.MethodCallExpressionContext):
         pass
@@ -1448,12 +1457,12 @@ class EParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EParser#jsx_ws.
-    def enterJsx_ws(self, ctx:EParser.Jsx_wsContext):
+    # Enter a parse tree produced by EParser#ws_plus.
+    def enterWs_plus(self, ctx:EParser.Ws_plusContext):
         pass
 
-    # Exit a parse tree produced by EParser#jsx_ws.
-    def exitJsx_ws(self, ctx:EParser.Jsx_wsContext):
+    # Exit a parse tree produced by EParser#ws_plus.
+    def exitWs_plus(self, ctx:EParser.Ws_plusContext):
         pass
 
 
@@ -2759,6 +2768,60 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#IsOtherExpression.
     def exitIsOtherExpression(self, ctx:EParser.IsOtherExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by EParser#ArrowExpressionBody.
+    def enterArrowExpressionBody(self, ctx:EParser.ArrowExpressionBodyContext):
+        pass
+
+    # Exit a parse tree produced by EParser#ArrowExpressionBody.
+    def exitArrowExpressionBody(self, ctx:EParser.ArrowExpressionBodyContext):
+        pass
+
+
+    # Enter a parse tree produced by EParser#ArrowStatementsBody.
+    def enterArrowStatementsBody(self, ctx:EParser.ArrowStatementsBodyContext):
+        pass
+
+    # Exit a parse tree produced by EParser#ArrowStatementsBody.
+    def exitArrowStatementsBody(self, ctx:EParser.ArrowStatementsBodyContext):
+        pass
+
+
+    # Enter a parse tree produced by EParser#arrow_prefix.
+    def enterArrow_prefix(self, ctx:EParser.Arrow_prefixContext):
+        pass
+
+    # Exit a parse tree produced by EParser#arrow_prefix.
+    def exitArrow_prefix(self, ctx:EParser.Arrow_prefixContext):
+        pass
+
+
+    # Enter a parse tree produced by EParser#ArrowSingleArg.
+    def enterArrowSingleArg(self, ctx:EParser.ArrowSingleArgContext):
+        pass
+
+    # Exit a parse tree produced by EParser#ArrowSingleArg.
+    def exitArrowSingleArg(self, ctx:EParser.ArrowSingleArgContext):
+        pass
+
+
+    # Enter a parse tree produced by EParser#ArrowListArg.
+    def enterArrowListArg(self, ctx:EParser.ArrowListArgContext):
+        pass
+
+    # Exit a parse tree produced by EParser#ArrowListArg.
+    def exitArrowListArg(self, ctx:EParser.ArrowListArgContext):
+        pass
+
+
+    # Enter a parse tree produced by EParser#sorted_key.
+    def enterSorted_key(self, ctx:EParser.Sorted_keyContext):
+        pass
+
+    # Exit a parse tree produced by EParser#sorted_key.
+    def exitSorted_key(self, ctx:EParser.Sorted_keyContext):
         pass
 
 
