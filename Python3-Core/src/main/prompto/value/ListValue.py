@@ -74,17 +74,9 @@ class ListValue(BaseValueList, IFilterable):
             sb.write("]")
             return sb.getvalue()
 
-    def filter(self, context, itemName, filter):
-        result = ListValue(self.itype.itemType)
-        for o in self.getIterator(context):
-            context.setValue(itemName, o)
-            test = filter.interpret(context)
-            from prompto.value.Boolean import Boolean
-            if not isinstance(test, Boolean):
-                raise InternalError("Illegal test result: " + test)
-            if test.getValue():
-                result.append(o)
-        return result
+    def filter(self, predicate):
+        items = filter(predicate, self.items)
+        return ListValue(self.itype.itemType, items)
 
 
     def collectStorables(self, list):

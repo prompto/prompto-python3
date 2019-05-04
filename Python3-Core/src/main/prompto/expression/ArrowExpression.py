@@ -1,4 +1,5 @@
 from prompto.expression.IExpression import IExpression
+from prompto.parser.Dialect import Dialect
 from prompto.runtime.Variable import Variable
 from prompto.error.SyntaxError import SyntaxError
 from functools import total_ordering
@@ -23,12 +24,53 @@ class ArrowExpression ( IExpression ):
         self.statements = StatementList(stmt)
 
 
+    def getFilter(self, context, itemType):
+        from prompto.value.Boolean import Boolean
+        if len(self.args) != 1:
+            raise SyntaxError("Expecting 1 parameter only!")
+        local = self.registerArrowArgs(context.newLocalContext(), itemType)
+        def filter(o):
+            local.setValue(self.args[0], o)
+            result = self.statements.interpret(local)
+            if isinstance(result, Boolean):
+                return result.value
+            else:
+                raise SyntaxError("Expecting a Boolean result!")
+        return filter
+
+
+    def registerArrowArgs(self, context, itemType):
+        for arg in self.args:
+            context.registerValue(Variable(arg, itemType))
+        return context
+
+
+    def filterToDialect(self, writer, source):
+        if len(self.args) != 1:
+            raise SyntaxError("Expecting 1 parameter only!")
+        sourceType = source.check(writer.context)
+        itemType = sourceType.itemType
+        writer = writer.newChildWriter()
+        self.registerArrowArgs(writer.context, itemType)
+        if writer.dialect in [ Dialect.E, Dialect.M ]:
+            source.toDialect(writer)
+            writer.append(" filtered where ")
+            self.toDialect(writer)
+        elif writer.dialect == Dialect.O:
+            writer.append("filtered (")
+            source.toDialect(writer)
+            writer.append(") where (")
+            self.toDialect(writer)
+            writer.append(")")
+
+
     def getSortKeyReader(self, context, itemType):
         if len(self.args) == 1:
             return self.getSortKeyReader1Arg(context, itemType)
         elif len(self.args) == 2:
             return self.getSortKeyReader2Args(context, itemType)
-
+        else:
+            raise SyntaxError("Expecting 1 or 2 parameters only!")
 
     def getSortKeyReader1Arg(self, context, itemType):
 
@@ -43,12 +85,6 @@ class ArrowExpression ( IExpression ):
     def getSortKeyReader2Args(self, context, itemType):
         local = self.registerArrowArgs(context.newLocalContext(), itemType)
         return lambda o: ItemProxy(local, o, self)
-
-
-    def registerArrowArgs(self, context, itemType):
-        for arg in self.args:
-            context.registerValue(Variable(arg, itemType))
-        return context
 
 
     def toDialect(self, writer:CodeWriter):
