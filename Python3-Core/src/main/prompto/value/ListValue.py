@@ -75,7 +75,7 @@ class ListValue(BaseValueList, IFilterable):
             return sb.getvalue()
 
     def filter(self, predicate):
-        items = filter(predicate, self.items)
+        items = list(filter(predicate, self.items))
         return ListValue(self.itype.itemType, items)
 
 
