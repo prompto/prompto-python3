@@ -32,8 +32,8 @@ class ArrowExpression ( IExpression ):
 
     def getSortKeyReader1Arg(self, context, itemType):
 
+        local = self.registerArrowArgs(context.newLocalContext(), itemType)
         def keyGetter(o):
-            local = self.registerArrowArgs(context.newLocalContext(), itemType)
             local.setValue(self.args[0], o)
             return self.statements.interpret(local)
 

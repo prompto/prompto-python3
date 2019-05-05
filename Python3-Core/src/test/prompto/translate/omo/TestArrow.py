@@ -5,6 +5,12 @@ class TestArrow(BaseOParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testFilterFromList(self):
+        self.compareResourceOMO("arrow/filterFromList.poc")
+
+    def testFilterFromSet(self):
+        self.compareResourceOMO("arrow/filterFromSet.poc")
+
     def testSortCategory1Arg(self):
         self.compareResourceOMO("arrow/sortCategory1Arg.poc")
 
