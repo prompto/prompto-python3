@@ -107,8 +107,3 @@ class FilteredExpression(Section, IExpression):
             return self.predicate
         else:
             raise SyntaxError("Expecting an arrow expression!")
-
-
-        #child = context.newChildContext()
-        #item = TransientVariable(self.itemName, itemType)
-        #child.registerValue(item)
