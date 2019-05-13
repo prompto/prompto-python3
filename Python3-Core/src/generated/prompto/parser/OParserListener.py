@@ -1376,6 +1376,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#repl.
+    def enterRepl(self, ctx:OParser.ReplContext):
+        pass
+
+    # Exit a parse tree produced by OParser#repl.
+    def exitRepl(self, ctx:OParser.ReplContext):
+        pass
+
+
     # Enter a parse tree produced by OParser#FullDeclarationList.
     def enterFullDeclarationList(self, ctx:OParser.FullDeclarationListContext):
         pass

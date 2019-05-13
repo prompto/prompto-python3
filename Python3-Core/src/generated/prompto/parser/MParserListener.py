@@ -1349,6 +1349,15 @@ class MParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MParser#repl.
+    def enterRepl(self, ctx:MParser.ReplContext):
+        pass
+
+    # Exit a parse tree produced by MParser#repl.
+    def exitRepl(self, ctx:MParser.ReplContext):
+        pass
+
+
     # Enter a parse tree produced by MParser#FullDeclarationList.
     def enterFullDeclarationList(self, ctx:MParser.FullDeclarationListContext):
         pass
