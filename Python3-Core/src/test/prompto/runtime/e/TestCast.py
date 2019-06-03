@@ -49,7 +49,7 @@ class TestCast(BaseEParserTest):
     def testIsAText(self):
         self.checkOutput("cast/isAText.pec")
 
-    def testNullisNotAText(self):
-        self.checkOutput("cast/nullisNotAText.pec")
+    def testNullIsNotAText(self):
+        self.checkOutput("cast/nullIsNotAText.pec")
 
 

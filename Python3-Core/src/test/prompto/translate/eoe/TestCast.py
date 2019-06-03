@@ -44,7 +44,7 @@ class TestCast(BaseEParserTest):
     def testIsAText(self):
         self.compareResourceEOE("cast/isAText.pec")
 
-    def testNullisNotAText(self):
-        self.compareResourceEOE("cast/nullisNotAText.pec")
+    def testNullIsNotAText(self):
+        self.compareResourceEOE("cast/nullIsNotAText.pec")
 
 
