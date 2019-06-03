@@ -14,4 +14,7 @@ class TestLogic(BaseOParserTest):
     def testOrBoolean(self):
         self.compareResourceOMO("logic/orBoolean.poc")
 
+    def testRightSkipped(self):
+        self.compareResourceOMO("logic/rightSkipped.poc")
+
 

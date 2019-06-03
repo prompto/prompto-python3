@@ -19,4 +19,7 @@ class TestLogic(BaseOParserTest):
     def testOrBoolean(self):
         self.checkOutput("logic/orBoolean.poc")
 
+    def testRightSkipped(self):
+        self.checkOutput("logic/rightSkipped.poc")
+
 

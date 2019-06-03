@@ -14,4 +14,7 @@ class TestLogic(BaseEParserTest):
     def testOrBoolean(self):
         self.compareResourceEME("logic/orBoolean.pec")
 
+    def testRightSkipped(self):
+        self.compareResourceEME("logic/rightSkipped.pec")
+
 

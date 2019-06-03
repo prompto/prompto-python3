@@ -34,23 +34,23 @@ class AndExpression ( IExpression ):
 
     def interpret(self, context):
         lval = self.left.interpret(context)
+        if not isinstance(lval, Boolean):
+            raise SyntaxError("Illegal: " + type(lval).__name__ + " and ..., expected a Boolean ")
+        if lval is Boolean.FALSE:
+            return lval
         rval = self.right.interpret(context)
-        return self.interpretValue(context, lval, rval)
-
-    def interpretValue(self, context, lval, rval):
-        if isinstance(lval, Boolean):
-            if isinstance(rval, Boolean):
-                return Boolean.ValueOf(lval.getValue() and rval.getValue())
-            else:
-                raise SyntaxError("Illegal: Boolean and " + type(rval).__name__)
-        else:
-            raise SyntaxError("Illegal: " + type(lval).__name__ + " + " + type(rval).__name__)
+        if not isinstance(rval, Boolean):
+            raise SyntaxError("Illegal: Boolean and " + type(rval).__name__)
+        return rval
 
     def interpretAssert(self, context, test):
         lval = self.left.interpret(context)
-        rval = self.right.interpret(context)
-        result = self.interpretValue(context, lval, rval)
-        if result is Boolean.TRUE:
+        if not isinstance(lval, Boolean):
+            raise SyntaxError("Illegal: " + type(lval).__name__ + " and ..., expected a Boolean ")
+        rval = lval
+        if lval is Boolean.TRUE:
+            rval = self.right.interpret(context)
+        if rval is Boolean.TRUE:
             return True
         writer = CodeWriter(test.dialect, context)
         self.toDialect(writer)
