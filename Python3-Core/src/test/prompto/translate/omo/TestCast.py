@@ -26,4 +26,7 @@ class TestCast(BaseOParserTest):
     def testIsAText(self):
         self.compareResourceOMO("cast/isAText.poc")
 
+    def testNullIsNotAText(self):
+        self.compareResourceOMO("cast/nullIsNotAText.poc")
+
 

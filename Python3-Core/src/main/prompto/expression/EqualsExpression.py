@@ -10,6 +10,7 @@ from prompto.store.MatchOp import MatchOp
 from prompto.type.BooleanType import BooleanType
 from prompto.type.CharacterType import CharacterType
 from prompto.type.ContainerType import ContainerType
+from prompto.type.NullType import NullType
 from prompto.type.TextType import TextType
 from prompto.utils.CodeWriter import CodeWriter
 from prompto.value.Boolean import Boolean
@@ -110,6 +111,8 @@ class EqualsExpression ( IExpression ):
     def isA(self, context, lval, rval):
         if isinstance(lval, IValue) and isinstance(rval, TypeValue):
             actual = lval.GetType(context)
+            if actual is NullType.instance:
+                return False
             toCheck = rval.value
             return toCheck.isAssignableFrom(context, actual)
         else:

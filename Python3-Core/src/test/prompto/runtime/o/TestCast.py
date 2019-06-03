@@ -31,4 +31,7 @@ class TestCast(BaseOParserTest):
     def testIsAText(self):
         self.checkOutput("cast/isAText.poc")
 
+    def testNullIsNotAText(self):
+        self.checkOutput("cast/nullIsNotAText.poc")
+
 
