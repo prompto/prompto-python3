@@ -55,6 +55,9 @@ class TestContains(BaseOParserTest):
     def testInText(self):
         self.checkOutput("contains/inText.poc")
 
+    def testInTextEnum(self):
+        self.checkOutput("contains/inTextEnum.poc")
+
     def testInTimeRange(self):
         self.checkOutput("contains/inTimeRange.poc")
 

@@ -67,6 +67,9 @@ class TestContains(BaseEParserTest):
     def testInText(self):
         self.checkOutput("contains/inText.pec")
 
+    def testInTextEnum(self):
+        self.checkOutput("contains/inTextEnum.pec")
+
     def testInTimeRange(self):
         self.checkOutput("contains/inTimeRange.pec")
 

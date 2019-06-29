@@ -50,6 +50,9 @@ class TestContains(BaseOParserTest):
     def testInText(self):
         self.compareResourceOMO("contains/inText.poc")
 
+    def testInTextEnum(self):
+        self.compareResourceOMO("contains/inTextEnum.poc")
+
     def testInTimeRange(self):
         self.compareResourceOMO("contains/inTimeRange.poc")
 
