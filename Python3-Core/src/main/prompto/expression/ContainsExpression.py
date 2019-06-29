@@ -5,9 +5,6 @@ from prompto.expression.MemberSelector import MemberSelector
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.ContOp import ContOp
 from prompto.store.MatchOp import MatchOp
-from prompto.type.CharacterType import CharacterType
-from prompto.type.ContainerType import ContainerType
-from prompto.type.TextType import TextType
 from prompto.value.Boolean import Boolean
 from prompto.value.IContainer import IContainer
 from prompto.utils.CodeWriter import CodeWriter
