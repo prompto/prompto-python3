@@ -20,6 +20,8 @@ class FetchOneExpression(Section, IExpression):
     def toEDialect (self, writer):
         writer.append ("fetch one ")
         if self.typ:
+            if self.typ.mutable:
+                writer.append("mutable ")
             writer.append (self.typ.typeName)
             writer.append(" ")
         writer.append (" where ")
@@ -29,6 +31,8 @@ class FetchOneExpression(Section, IExpression):
         writer.append ("fetch one ")
         if self.typ:
             writer.append("(")
+            if self.typ.mutable:
+                writer.append("mutable ")
             writer.append (self.typ.typeName)
             writer.append(") ")
         writer.append ("where (")
@@ -38,6 +42,8 @@ class FetchOneExpression(Section, IExpression):
     def toMDialect (self, writer):
         writer.append ("fetch one ")
         if self.typ:
+            if self.typ.mutable:
+                writer.append("mutable ")
             writer.append (self.typ.typeName)
             writer.append(" ")
         writer.append (" where ")
