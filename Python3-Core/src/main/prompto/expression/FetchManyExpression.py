@@ -26,6 +26,8 @@ class FetchManyExpression(Section, IExpression):
         if self.first is None:
             writer.append("all ")
         if self.typ is not None:
+            if self.typ.mutable:
+                writer.append("mutable ")
             writer.append(self.typ.typeName)
         if self.first is not None:
             self.first.toDialect(writer)
@@ -44,6 +46,8 @@ class FetchManyExpression(Section, IExpression):
             writer.append("all ")
         if self.typ is not None:
             writer.append("( ")
+            if self.typ.mutable:
+                writer.append("mutable ")
             writer.append(self.typ.typeName)
             writer.append(" ) ")
         if self.first is not None:
@@ -73,6 +77,8 @@ class FetchManyExpression(Section, IExpression):
         writer.append(" ( ")
         if self.typ is not None:
             writer.append(" ")
+            if self.typ.mutable:
+                writer.append("mutable ")
             writer.append(self.typ.typeName)
             writer.append(" ")
         writer.append(" ) ")

@@ -62,6 +62,9 @@ class TestContains(BaseEParserTest):
     def testInText(self):
         self.compareResourceEME("contains/inText.pec")
 
+    def testInTextEnum(self):
+        self.compareResourceEME("contains/inTextEnum.pec")
+
     def testInTimeRange(self):
         self.compareResourceEME("contains/inTimeRange.pec")
 

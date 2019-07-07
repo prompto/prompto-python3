@@ -8,8 +8,15 @@ class EnumeratedCategoryDeclaration ( ConcreteCategoryDeclaration, IEnumeratedDe
         super(EnumeratedCategoryDeclaration, self).__init__(name)
         self.symbols = None
 
+
     def getSymbols(self):
         return self.symbols
+
+
+    def getSymbol(self, name):
+        matches = list(filter(lambda s: s.getName()==name, self.symbols))
+        return matches[0] if len(matches) > 0 else None
+
 
     def setSymbols(self, symbols):
         self.symbols = symbols
@@ -17,16 +24,19 @@ class EnumeratedCategoryDeclaration ( ConcreteCategoryDeclaration, IEnumeratedDe
         for s in symbols:
             s.setType(type)
 
+
     def register(self, context):
         context.registerDeclaration(self)
         for symbol in self.symbols:
             context.registerValue(symbol)
+
 
     def check(self, context, isStart:bool):
         super(EnumeratedCategoryDeclaration, self).check(context, isStart)
         for s in self.symbols:
             s.check(context) # TODO
         return self.getType(context)
+
 
     def getType(self, context):
         return EnumeratedCategoryType(self.name)
@@ -57,6 +67,7 @@ class EnumeratedCategoryDeclaration ( ConcreteCategoryDeclaration, IEnumeratedDe
         writer.dedent()
         writer.append("}\n")
 
+
     def toEDialect(self, writer):
         writer.append("define ")
         writer.append(self.name)
@@ -80,6 +91,7 @@ class EnumeratedCategoryDeclaration ( ConcreteCategoryDeclaration, IEnumeratedDe
             symbol.toDialect(writer)
             writer.append("\n")
         writer.dedent()
+
 
     def toMDialect(self, writer):
         writer.append("enum ")

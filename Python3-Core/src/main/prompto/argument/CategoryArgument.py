@@ -29,9 +29,8 @@ class CategoryArgument(BaseArgument, ITypedArgument):
             and self.getName() == obj.getName()
 
     def register(self, context):
-        from prompto.grammar.INamedValue import INamedValue
-        actual = context.getRegisteredValue(INamedValue, self.name)
-        if actual is not None:
+        actual = context.contextForValue(self.name)
+        if actual is self:
             raise SyntaxError("Duplicate argument: \"" + self.name + "\"")
         context.registerValue(self)
         if self.defaultExpression is not None:
