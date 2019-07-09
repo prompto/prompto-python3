@@ -123,7 +123,7 @@ class EqualsExpression ( IExpression ):
             name = self.readLeftName()
             if name is not None:
                 value = context.getRegisteredValue(INamedValue, name)
-                type = self.right.type
+                type = self.right.typ
                 local = context.newChildContext()
                 value = LinkedVariable(type, value)
                 local.registerValue(value, False)
