@@ -1430,6 +1430,42 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#annotation_argument.
+    def enterAnnotation_argument(self, ctx:OParser.Annotation_argumentContext):
+        pass
+
+    # Exit a parse tree produced by OParser#annotation_argument.
+    def exitAnnotation_argument(self, ctx:OParser.Annotation_argumentContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#annotation_argument_name.
+    def enterAnnotation_argument_name(self, ctx:OParser.Annotation_argument_nameContext):
+        pass
+
+    # Exit a parse tree produced by OParser#annotation_argument_name.
+    def exitAnnotation_argument_name(self, ctx:OParser.Annotation_argument_nameContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#AnnotationLiteralValue.
+    def enterAnnotationLiteralValue(self, ctx:OParser.AnnotationLiteralValueContext):
+        pass
+
+    # Exit a parse tree produced by OParser#AnnotationLiteralValue.
+    def exitAnnotationLiteralValue(self, ctx:OParser.AnnotationLiteralValueContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#AnnotationTypeValue.
+    def enterAnnotationTypeValue(self, ctx:OParser.AnnotationTypeValueContext):
+        pass
+
+    # Exit a parse tree produced by OParser#AnnotationTypeValue.
+    def exitAnnotationTypeValue(self, ctx:OParser.AnnotationTypeValueContext):
+        pass
+
+
     # Enter a parse tree produced by OParser#resource_declaration.
     def enterResource_declaration(self, ctx:OParser.Resource_declarationContext):
         pass

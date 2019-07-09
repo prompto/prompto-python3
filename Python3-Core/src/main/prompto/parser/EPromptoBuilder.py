@@ -2131,21 +2131,44 @@ class EPromptoBuilder(EParserListener):
 
     def exitAnnotation_constructor(self, ctx:EParser.Annotation_constructorContext):
         name = self.getNodeValue(ctx.name)
+        args = DictEntryList()
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, Annotation(name, exp))
+        if exp is not None:
+            args.append(DictEntry(None, exp))
+        for argCtx in ctx.annotation_argument():
+            arg = self.getNodeValue(argCtx)
+            args.append(arg)
+        self.setNodeValue(ctx, Annotation(name, args))
+
+
+    def exitAnnotation_argument(self, ctx:EParser.Annotation_argumentContext):
+        name = self.getNodeValue(ctx.name)
+        exp = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, DictEntry(name, exp))
 
 
     def exitAnnotation_identifier(self, ctx:EParser.Annotation_identifierContext):
-        name = ctx.getText()
-        self.setNodeValue(ctx, name)
+        self.setNodeValue(ctx, ctx.getText())
 
+
+    def exitAnnotation_argument_name(self, ctx:EParser.Annotation_argument_nameContext):
+       self.setNodeValue(ctx, ctx.getText())
+
+
+    def exitAnnotationLiteralValue(self, ctx:EParser.AnnotationLiteralValueContext):
+        exp = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, exp)
+
+
+    def exitAnnotationTypeValue(self, ctx:EParser.AnnotationTypeValueContext):
+        typ = self.getNodeValue(ctx.typ)
+        self.setNodeValue(ctx, TypeExpression(typ))
 
 
     def exitAndExpression(self, ctx:EParser.AndExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, AndExpression(left, right))
-
 
 
     def exitNullLiteral(self, ctx:EParser.NullLiteralContext):

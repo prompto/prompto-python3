@@ -2015,12 +2015,10 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS_ANY, right))
 
 
-
     def exitContainsExpression(self, ctx: OParser.ContainsExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, EqualsExpression(left, EqOp.CONTAINS, right))
-
 
 
     def exitNotContainsExpression(self, ctx: OParser.NotContainsExpressionContext):
@@ -2029,32 +2027,58 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, EqualsExpression(left, EqOp.NOT_CONTAINS, right))
 
 
-
     def exitDivideExpression(self, ctx:OParser.DivideExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, DivideExpression(left, right))
     
 
-    
     def exitIntDivideExpression(self, ctx:OParser.IntDivideExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, IntDivideExpression(left, right))
     
 
-    
     def exitModuloExpression(self, ctx:OParser.ModuloExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, ModuloExpression(left, right))
 
 
-    def exitAnnotation_constructor(self, ctx: OParser.Annotation_constructorContext):
+    def exitAnnotation_constructor(self, ctx:OParser.Annotation_constructorContext):
+        name = self.getNodeValue(ctx.name)
+        args = DictEntryList()
+        exp = self.getNodeValue(ctx.exp)
+        if exp is not None:
+            args.append(DictEntry(None, exp))
+        for argCtx in ctx.annotation_argument():
+            arg = self.getNodeValue(argCtx)
+            args.append(arg)
+        self.setNodeValue(ctx, Annotation(name, args))
+
+
+    def exitAnnotation_argument(self, ctx:OParser.Annotation_argumentContext):
         name = self.getNodeValue(ctx.name)
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, Annotation(name, exp))
+        self.setNodeValue(ctx, DictEntry(name, exp))
 
+
+    def exitAnnotation_identifier(self, ctx:OParser.Annotation_identifierContext):
+        self.setNodeValue(ctx, ctx.getText())
+
+
+    def exitAnnotation_argument_name(self, ctx:OParser.Annotation_argument_nameContext):
+       self.setNodeValue(ctx, ctx.getText())
+
+
+    def exitAnnotationLiteralValue(self, ctx:OParser.AnnotationLiteralValueContext):
+        exp = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, exp)
+
+
+    def exitAnnotationTypeValue(self, ctx:OParser.AnnotationTypeValueContext):
+        typ = self.getNodeValue(ctx.typ)
+        self.setNodeValue(ctx, TypeExpression(typ))
 
     def exitAnnotation_identifier(self, ctx: OParser.Annotation_identifierContext):
         name = ctx.getText()

@@ -1547,6 +1547,42 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#annotation_argument.
+    def enterAnnotation_argument(self, ctx:EParser.Annotation_argumentContext):
+        pass
+
+    # Exit a parse tree produced by EParser#annotation_argument.
+    def exitAnnotation_argument(self, ctx:EParser.Annotation_argumentContext):
+        pass
+
+
+    # Enter a parse tree produced by EParser#annotation_argument_name.
+    def enterAnnotation_argument_name(self, ctx:EParser.Annotation_argument_nameContext):
+        pass
+
+    # Exit a parse tree produced by EParser#annotation_argument_name.
+    def exitAnnotation_argument_name(self, ctx:EParser.Annotation_argument_nameContext):
+        pass
+
+
+    # Enter a parse tree produced by EParser#AnnotationLiteralValue.
+    def enterAnnotationLiteralValue(self, ctx:EParser.AnnotationLiteralValueContext):
+        pass
+
+    # Exit a parse tree produced by EParser#AnnotationLiteralValue.
+    def exitAnnotationLiteralValue(self, ctx:EParser.AnnotationLiteralValueContext):
+        pass
+
+
+    # Enter a parse tree produced by EParser#AnnotationTypeValue.
+    def enterAnnotationTypeValue(self, ctx:EParser.AnnotationTypeValueContext):
+        pass
+
+    # Exit a parse tree produced by EParser#AnnotationTypeValue.
+    def exitAnnotationTypeValue(self, ctx:EParser.AnnotationTypeValueContext):
+        pass
+
+
     # Enter a parse tree produced by EParser#resource_declaration.
     def enterResource_declaration(self, ctx:EParser.Resource_declarationContext):
         pass

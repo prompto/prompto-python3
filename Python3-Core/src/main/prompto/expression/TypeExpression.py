@@ -6,20 +6,25 @@ from prompto.value.TypeValue import TypeValue
 
 class TypeExpression(IExpression):
 
-    def __init__(self, type:IType):
-        self.type = type
+    def __init__(self, typ:IType):
+        self.typ = typ
+
 
     def __str__(self):
-        return str(self.type)
+        return str(self.typ)
+
 
     def check(self, context:Context):
-        return self.type
+        return self.typ
+
 
     def interpret(self, context:Context):
-        return TypeValue(self.type)
+        return TypeValue(self.typ)
+
 
     def getMemberValue(self, context, name):
-        return self.type.getMemberValue(context, name)
+        return self.typ.getMemberValue(context, name)
+
 
     def toDialect(self, writer):
-        self.type.toDialect(writer)
+        writer.append(str(self.typ))

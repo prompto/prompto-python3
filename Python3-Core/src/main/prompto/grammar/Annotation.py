@@ -1,14 +1,20 @@
 class Annotation(object):
 
-    def __init__(self, name, expression):
+    def __init__(self, name, arguments):
         self.name = name
-        self.expression = expression
+        self.arguments = arguments
 
 
     def toDialect(self, writer):
         writer.append(self.name)
-        if self.expression is not None:
+        if self.arguments is not None and len(self.arguments) > 0:
             writer.append("(")
-            self.expression.toDialect(writer)
+            for entry in self.arguments:
+                if entry.key is not None:
+                    writer.append(entry.key)
+                    writer.append(" = ")
+                entry.value.toDialect(writer)
+                writer.append(", ")
+            writer.trimLast(len(", "))
             writer.append(")")
         writer.newLine()
