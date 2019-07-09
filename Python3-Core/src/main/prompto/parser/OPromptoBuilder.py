@@ -2080,10 +2080,6 @@ class OPromptoBuilder(OParserListener):
         typ = self.getNodeValue(ctx.typ)
         self.setNodeValue(ctx, TypeExpression(typ))
 
-    def exitAnnotation_identifier(self, ctx: OParser.Annotation_identifierContext):
-        name = ctx.getText()
-        self.setNodeValue(ctx, name)
-
 
     def exitAndExpression(self, ctx:OParser.AndExpressionContext):
         left = self.getNodeValue(ctx.left)
