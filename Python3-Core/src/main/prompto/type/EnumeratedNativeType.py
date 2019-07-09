@@ -57,14 +57,14 @@ class SymbolOfMethodDeclaration(BuiltInMethodDeclaration):
         from prompto.argument.CategoryArgument import CategoryArgument
         NAME_ARGUMENT = CategoryArgument(TextType.instance, "name")
         super(SymbolOfMethodDeclaration, self).__init__("symbolOf", NAME_ARGUMENT)
-        self.type = enumType
+        self.enumType = enumType
 
 
     def interpret(self, context):
         from prompto.declaration.EnumeratedNativeDeclaration import EnumeratedNativeDeclaration
-        decl = context.getRegisteredDeclaration(IDeclaration, self.type.typeName)
+        decl = context.getRegisteredDeclaration(IDeclaration, self.enumType.typeName)
         if not isinstance(decl, EnumeratedNativeDeclaration):
-            raise SyntaxError(self.type.typeName + " is not an enumerated type!")
+            raise SyntaxError(self.enumType.typeName + " is not an enumerated type!")
         symbolName = context.getValue("name").value
         return decl.getSymbol(symbolName)
 

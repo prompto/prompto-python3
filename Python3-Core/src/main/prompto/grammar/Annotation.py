@@ -1,15 +1,15 @@
 class Annotation(object):
 
-    def __init__(self, name, arguments):
+    def __init__(self, name, entries):
         self.name = name
-        self.arguments = arguments
+        self.entries = entries
 
 
     def toDialect(self, writer):
         writer.append(self.name)
-        if self.arguments is not None and len(self.arguments) > 0:
+        if self.entries is not None and len(self.entries) > 0:
             writer.append("(")
-            for entry in self.arguments:
+            for entry in self.entries:
                 if entry.key is not None:
                     writer.append(entry.key)
                     writer.append(" = ")

@@ -145,7 +145,7 @@ class CategoryType(BaseType):
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
         from prompto.declaration.EnumeratedNativeDeclaration import EnumeratedNativeDeclaration
         if isinstance(dd, EnumeratedNativeDeclaration):
-            return dd.type.checkMember(context, name)
+            return dd.typ.checkMember(context, name)
         elif isinstance(dd, CategoryDeclaration):
             if dd.storable and "dbId" == name:
                 return AnyType.instance

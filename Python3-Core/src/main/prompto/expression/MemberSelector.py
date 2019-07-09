@@ -108,8 +108,8 @@ class MemberSelector (SelectorExpression):
     def interpretSingleton(self, context, parent):
         from prompto.type.CategoryType import CategoryType
         from prompto.type.EnumeratedCategoryType import EnumeratedCategoryType
-        if isinstance(parent, TypeExpression) and isinstance(parent.type, CategoryType) and not isinstance(parent.type, EnumeratedCategoryType):
-            instance = context.loadSingleton(parent.type)
+        if isinstance(parent, TypeExpression) and isinstance(parent.typ, CategoryType) and not isinstance(parent.typ, EnumeratedCategoryType):
+            instance = context.loadSingleton(parent.typ)
             if instance is not None:
                 return instance.getMemberValue(context, self.name, False)
         return None
