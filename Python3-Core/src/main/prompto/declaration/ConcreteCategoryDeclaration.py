@@ -121,7 +121,7 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
 
     def check(self, context, isStart:bool):
         self.checkDerived(context)
-        self.processAnnotations((context, False))
+        self.processAnnotations(context, False)
         self.checkMethods(context)
         return super(ConcreteCategoryDeclaration, self).check(context, isStart)
 
