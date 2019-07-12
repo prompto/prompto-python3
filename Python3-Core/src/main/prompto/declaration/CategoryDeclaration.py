@@ -61,6 +61,10 @@ class CategoryDeclaration(BaseDeclaration):
         return None
 
 
+    def isAWidget(self, context):
+        return False
+
+
     def checkConstructorContext(self, context):
         # nothing to do
         pass
@@ -100,7 +104,19 @@ class CategoryDeclaration(BaseDeclaration):
 
     def toDialect(self, writer):
         writer = writer.newInstanceWriter(self.getType(writer.context))
+        self.processAnnotations(writer.context, True)
         super().toDialect(writer)
+
+
+    def processAnnotations(self, context, processDerivedFrom):
+        if processDerivedFrom:
+            derivedFrom = self.getDerivedFrom()
+            if derivedFrom is not None:
+                for name in derivedFrom:
+                    decl = context.getRegisteredDeclaration(CategoryDeclaration, name)
+                    decl.processAnnotations(context, True)
+        if self.annotations is not None:
+            [ann.processCategory(context, self) for ann  in self.annotations]
 
 
     def protoToEDialect(self, writer, hasMethods, hasBindings):

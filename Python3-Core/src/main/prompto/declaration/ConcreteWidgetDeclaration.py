@@ -23,3 +23,6 @@ class ConcreteWidgetDeclaration ( ConcreteCategoryDeclaration ):
     def categoryTypeToMDialect(self, writer):
         writer.append("widget")
 
+
+    def isAWidget(self, context):
+        return True

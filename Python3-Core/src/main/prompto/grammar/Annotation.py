@@ -1,3 +1,6 @@
+from prompto.processor.AnnotationProcessor import AnnotationProcessor
+
+
 class Annotation(object):
 
     def __init__(self, name, entries):
@@ -18,3 +21,17 @@ class Annotation(object):
             writer.trimLast(len(", "))
             writer.append(")")
         writer.newLine()
+
+
+    def processCategory(self, context, declaration):
+        processor = AnnotationProcessor.forName(self.name)
+        if processor is not None:
+            processor.processCategory(self, context, declaration)
+
+
+    def getArgument(self, name):
+        if self.entries is not None:
+            for entry in self.entries:
+                if entry.key == name:
+                    return entry.value
+        return None

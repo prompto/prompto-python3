@@ -16,17 +16,29 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         self.methods = None
         self.methodsMap = None
 
+
     def setDerivedFrom(self, derivedFrom):
         self.derivedFrom = derivedFrom
+
 
     def getDerivedFrom(self):
         return self.derivedFrom
 
+
+    def isAWidget(self, context):
+        if self.derivedFrom is None or len(self.derivedFrom) != 1:
+            return False
+        parent = context.getRegisteredDeclaration(CategoryDeclaration, self.derivedFrom[0])
+        return parent.isAWidget(context)
+
+
     def setMethods(self, methods):
         self.methods = methods
 
+
     def getMethods(self):
         return self.methods
+
 
     def __str__(self):
         sb = StringIO(self.getName())
@@ -109,6 +121,7 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
 
     def check(self, context, isStart:bool):
         self.checkDerived(context)
+        self.processAnnotations((context, False))
         self.checkMethods(context)
         return super(ConcreteCategoryDeclaration, self).check(context, isStart)
 
@@ -282,27 +295,37 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         else:
             self.derivedFrom.toDialect(writer, True)
 
+
     def toODialect(self, writer):
         hasMethods = self.methods is not None and len(self.methods)>0
         self.allToODialect(writer, hasMethods)
 
+
     def categoryTypeToODialect(self, writer):
-        writer.append("category")
+        if self.isAWidget(writer.context):
+            writer.append("widget")
+        else:
+            writer.append("category")
+
 
     def categoryExtensionToODialect(self, writer):
         if self.derivedFrom is not None:
             writer.append(" extends ")
             self.derivedFrom.toDialect(writer, True)
 
+
     def bodyToODialect(self, writer):
         self.methodsToODialect(writer, self.methods)
+
 
     def toMDialect(self, writer):
         self.protoToMDialect(writer, self.derivedFrom)
         self.methodsToMDialect(writer)
 
+
     def categoryTypeToMDialect(self, writer):
         writer.append("class")
+
 
     def methodsToMDialect(self, writer):
         writer.indent()
@@ -320,6 +343,7 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
                 decl.toDialect(w)
                 writer.newLine()
         writer.dedent()
+
 
     def getOperatorMethod(self, context, operator, type):
         methodName = "operator_" + operator.name
