@@ -3,6 +3,7 @@ from prompto.argument.CodeArgument import CodeArgument
 from prompto.declaration.BaseMethodDeclaration import BaseMethodDeclaration
 from prompto.statement.StatementList import StatementList
 from prompto.type.DictType import DictType
+from prompto.type.IType import IType
 from prompto.type.TextType import TextType
 from prompto.type.VoidType import VoidType
 
@@ -23,11 +24,6 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
 
     def getStatements(self):
         return self.statements
-
-
-    def checkMember(self, category, context):
-        context = context.newInstanceContext(None, category.getType(context), False)
-        return self.checkChild(context)
 
 
     def check(self, context, isStart):
@@ -60,15 +56,19 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
             self.registerArguments(context)
         if self.arguments is not None:
             self.arguments.check(context)
-        return self.statements.check(context, self.returnType)
+        return self.checkStatements(context, self.returnType)
 
 
     def checkChild(self, context):
         if self.arguments is not None:
             self.arguments.check(context)
-        child = context.newChildContext()
-        self.registerArguments(child)
-        return self.statements.check(child, self.returnType)
+        context = context.newChildContext()
+        self.registerArguments(context)
+        return self.checkStatements(context, self.returnType)
+
+
+    def checkStatements(self, context, returnType: IType):
+        return self.statements.check(context, returnType)
 
 
     def interpret(self, context):

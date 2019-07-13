@@ -23,14 +23,8 @@ class NativeMethodDeclaration(ConcreteMethodDeclaration):
         return value
 
 
-    def check(self, context, isStart:bool):
-        if isStart:
-            context = context.newLocalContext()
-            self.registerArguments(context)
-        if self.arguments is not None:
-            self.arguments.check(context)
-        checked = self.statements.checkNative(context, self.returnType)
-        return checked if self.returnType is None else self.returnType
+    def checkStatements(self, context, returnType: IType):
+        return self.statements.checkNative(context, returnType)
 
 
     def checkMember(self, category, context):
