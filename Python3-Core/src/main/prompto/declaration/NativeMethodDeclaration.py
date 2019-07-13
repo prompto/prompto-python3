@@ -27,16 +27,6 @@ class NativeMethodDeclaration(ConcreteMethodDeclaration):
         return self.statements.checkNative(context, returnType)
 
 
-    def checkMember(self, category, context):
-        context = context.newInstanceContext(None, category.getType(context), False)
-        if self.arguments is not None:
-            self.arguments.check(context)
-        child = context.newChildContext()
-        self.registerArguments(child)
-        checked = self.statements.checkNative(child, self.returnType)
-        return checked if self.returnType is None else self.returnType
-
-
     def toMDialect(self, writer):
         writer.append("def ")
         if self.memberOf is None:
