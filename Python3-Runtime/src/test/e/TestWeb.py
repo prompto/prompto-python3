@@ -8,6 +8,7 @@ class TestWeb(BaseEParserTest):
         Out.init()
         self.coreContext = None
         self.loadDependency("web")
+        self.loadDependency("core")
     
     def tearDown(self):
         Out.restore()

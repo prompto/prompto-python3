@@ -10,6 +10,9 @@ class TestFilter(BaseOParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testFilterFromIterable(self):
+        self.checkOutput("filter/filterFromIterable.poc")
+
     def testFilterFromList(self):
         self.checkOutput("filter/filterFromList.poc")
 
