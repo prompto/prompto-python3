@@ -1,4 +1,6 @@
 from prompto.declaration.GetterMethodDeclaration import GetterMethodDeclaration
+from prompto.type.IType import IType
+
 
 class NativeGetterMethodDeclaration(GetterMethodDeclaration):
 
@@ -20,3 +22,7 @@ class NativeGetterMethodDeclaration(GetterMethodDeclaration):
             if self.returnType.nativeCast:
                 value = self.returnType.nativeCast(context, value)
         return value
+
+
+    def checkStatements(self, context, returnType: IType):
+        return self.statements.checkNative(context, returnType)
