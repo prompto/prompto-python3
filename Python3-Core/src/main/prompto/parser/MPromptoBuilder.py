@@ -1703,7 +1703,7 @@ class MPromptoBuilder(MParserListener):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
         if name is not None or stmts is not None:
-            self.setNodeValue(ctx, RemoteCall(call.caller, call.assignments, name, stmts))
+            self.setNodeValue(ctx, RemoteCall(call.caller, call.arguments, name, stmts))
         else:
             self.setNodeValue(ctx, call)
 

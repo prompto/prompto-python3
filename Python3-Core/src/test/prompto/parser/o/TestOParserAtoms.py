@@ -140,10 +140,10 @@ class TestParserAtoms(unittest.TestCase):
         mc = self.parse(statement, OParser.method_call_statement)
         self.assertIsNotNone(mc)
         self.assertEquals("print", mc.caller.name)
-        self.assertIsNotNone(mc.assignments)
-        ass = mc.assignments[0]
-        self.assertEquals("value", ass.getName())
-        exp = ass.getExpression()
+        self.assertIsNotNone(mc.arguments)
+        arg = mc.arguments[0]
+        self.assertEquals("value", arg.getName())
+        exp = arg.getExpression()
         self.assertIsInstance(exp, PlusExpression)
         writer = CodeWriter(Dialect.O, Context.newGlobalContext())
         mc.toDialect(writer)

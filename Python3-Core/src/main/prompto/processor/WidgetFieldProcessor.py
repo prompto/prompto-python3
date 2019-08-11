@@ -15,8 +15,8 @@ class WidgetFieldProcessor(AnnotationProcessor):
 
 
     def doProcessCategory(self, annotation, context, declaration):
-        fieldName = annotation.getParameter("name")
-        fieldType = annotation.getParameter("type")
+        fieldName = annotation.getArgument("name")
+        fieldType = annotation.getArgument("type")
         if not isinstance(fieldName, TextLiteral):
             raise SyntaxError("WidgetField requires a Text value for argument 'name'")
         elif not isinstance(fieldType, TypeExpression):

@@ -78,7 +78,7 @@ class ArgumentList(list, IDialectElement):
     def toEDialect(self, writer):
         idx = 0
         # anonymous argument before 'with'
-        if len(self)>0 and self[0].argument is None:
+        if len(self)>0 and self[0].parameter is None:
             writer.append(' ')
             self[idx].toDialect(writer)
             idx += 1
