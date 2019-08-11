@@ -17,34 +17,35 @@ class ArgumentList(list, IDialectElement):
     # post - fix expression priority for final assignment in E dialect
     # 'xyz with a and b as c' should read 'xyz with a, b as c' NOT 'xyz with (a and b) as c'
     def checkLastAnd(self):
-        assignment = self[-1]
-        if assignment is not None and assignment.getParameter() is not None and isinstance(assignment.getExpression(), AndExpression):
-            _and = assignment.getExpression()
+        argument = self[-1]
+        if argument is not None and argument.getParameter() is not None and isinstance(argument.getExpression(), AndExpression):
+            _and = argument.getExpression()
             from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
             if isinstance(_and.left, UnresolvedIdentifier):
                 name = _and.left.name
                 if name[0].islower():
                     del self[-1]
                     # add AttributeArgument
-                    argument = AttributeParameter(name)
-                    attribute = Argument(argument, None)
+                    parameter = AttributeParameter(name)
+                    attribute = Argument(parameter, None)
                     self.append(attribute)
                     # fix last assignment
-                    assignment.setExpression( _and.right)
-                    self.append(assignment)
+                    argument.setExpression( _and.right)
+                    self.append(argument)
+
 
     def find(self, name):
-        for assignment in self:
-            if name == assignment.getName():
-                return assignment
+        for argument in self:
+            if name == argument.getName():
+                return argument
         return None
 
 
     def makeAssignments(self, context, declaration):
-        assignments = ArgumentList()
-        for assignment in self:
-            assignments.append(assignment.makeArgument(context, declaration))
-        return assignments
+        arguments = ArgumentList()
+        for argument in self:
+            arguments.append(argument.makeArgument(context, declaration))
+        return arguments
 
 
     def __str__(self):
@@ -73,6 +74,7 @@ class ArgumentList(list, IDialectElement):
                     sb.write(str(li[idx]))
             return sb.getvalue()
 
+
     def toEDialect(self, writer):
         idx = 0
         # anonymous argument before 'with'
@@ -94,6 +96,7 @@ class ArgumentList(list, IDialectElement):
                 writer.append(" and ")
                 self[idx].toDialect(writer)
 
+
     def toODialect(self, writer):
         writer.append("(")
         for arg in self:
@@ -102,6 +105,7 @@ class ArgumentList(list, IDialectElement):
         if len(self)>0:
             writer.trimLast(2)
         writer.append(")")
+
 
     def toMDialect(self, writer):
         self.toODialect(writer)

@@ -110,15 +110,15 @@ class Argument(IDialectElement):
 
 
     def makeArgument(self, context, declaration):
-        argument = self.parameter
+        parameter = self.parameter
         # when 1st argument, can be unnamed
-        if argument is None:
+        if parameter is None:
             if len(declaration.getArguments()) == 0:
                 raise SyntaxError("Method has no argument")
-            argument = declaration.getArguments()[0]
+            parameter = declaration.getArguments()[0]
         else:
-            argument = declaration.getArguments().find(self.getName())
-        if argument is None:
+            parameter = declaration.getArguments().find(self.getName())
+        if parameter is None:
             raise SyntaxError("Method has no argument:" + self.getName())
         expression = ContextualExpression(context, self.getExpression())
-        return Argument(argument, expression)
+        return Argument(parameter, expression)
