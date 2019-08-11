@@ -1,4 +1,4 @@
-from prompto.argument.IArgument import IArgument
+from prompto.param.IParameter import IParameter
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 from prompto.declaration.IDeclaration import IDeclaration
 from prompto.expression.IExpression import IExpression
@@ -51,7 +51,7 @@ class InstanceExpression(IExpression):
             return named.getType(context)
         elif isinstance(named, LinkedVariable):  # linked variable
             return named.getType(context)
-        elif isinstance(named, IArgument):  # named argument
+        elif isinstance(named, IParameter):  # named argument
             return named.getType(context)
         elif isinstance(named, CategoryDeclaration):  # any p with x
             return named.getType(context)

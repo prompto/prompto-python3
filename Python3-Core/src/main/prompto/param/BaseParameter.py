@@ -1,4 +1,4 @@
-from prompto.argument.IArgument import IArgument
+from prompto.param.IParameter import IParameter
 from prompto.type.DecimalType import DecimalType
 from prompto.type.IntegerType import IntegerType
 from prompto.value.Decimal import Decimal
@@ -6,7 +6,7 @@ from prompto.value.Integer import Integer
 
 
 
-class BaseArgument ( IArgument ) :
+class BaseParameter (IParameter) :
 
     def __init__(self, name):
         self.name = name

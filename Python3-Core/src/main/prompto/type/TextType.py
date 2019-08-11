@@ -105,8 +105,8 @@ TextType.instance = TextType()
 class StartsWithMethodDeclaration(BuiltInMethodDeclaration):
 
     def __init__(self):
-        from prompto.argument.CategoryArgument import CategoryArgument
-        VALUE_ARGUMENT = CategoryArgument(TextType.instance, "value")
+        from prompto.param.CategoryParameter import CategoryParameter
+        VALUE_ARGUMENT = CategoryParameter(TextType.instance, "value")
         super().__init__("startsWith", VALUE_ARGUMENT)
 
 
@@ -126,8 +126,8 @@ class StartsWithMethodDeclaration(BuiltInMethodDeclaration):
 class EndsWithMethodDeclaration(BuiltInMethodDeclaration):
 
     def __init__(self):
-        from prompto.argument.CategoryArgument import CategoryArgument
-        VALUE_ARGUMENT = CategoryArgument(TextType.instance, "value")
+        from prompto.param.CategoryParameter import CategoryParameter
+        VALUE_ARGUMENT = CategoryParameter(TextType.instance, "value")
         super().__init__("endsWith", VALUE_ARGUMENT)
 
 
@@ -149,9 +149,9 @@ class EndsWithMethodDeclaration(BuiltInMethodDeclaration):
 class SplitMethodDeclaration(BuiltInMethodDeclaration):
 
     def __init__(self):
-        from prompto.argument.CategoryArgument import CategoryArgument
+        from prompto.param.CategoryParameter import CategoryParameter
         from prompto.literal.TextLiteral import TextLiteral
-        SINGLE_SPACE_ARGUMENT = CategoryArgument(TextType.instance, "separator", TextLiteral('" "'))
+        SINGLE_SPACE_ARGUMENT = CategoryParameter(TextType.instance, "separator", TextLiteral('" "'))
         super().__init__("split", SINGLE_SPACE_ARGUMENT)
 
 
@@ -172,9 +172,9 @@ class SplitMethodDeclaration(BuiltInMethodDeclaration):
 class ReplaceMethodDeclaration(BuiltInMethodDeclaration):
 
     def __init__(self):
-        from prompto.argument.CategoryArgument import CategoryArgument
-        TO_REPLACE_ARGUMENT = CategoryArgument(TextType.instance, "toReplace")
-        REPLACE_WITH_ARGUMENT = CategoryArgument(TextType.instance, "replaceWith")
+        from prompto.param.CategoryParameter import CategoryParameter
+        TO_REPLACE_ARGUMENT = CategoryParameter(TextType.instance, "toReplace")
+        REPLACE_WITH_ARGUMENT = CategoryParameter(TextType.instance, "replaceWith")
         super().__init__("replace", TO_REPLACE_ARGUMENT, REPLACE_WITH_ARGUMENT)
 
 
@@ -194,9 +194,9 @@ class ReplaceMethodDeclaration(BuiltInMethodDeclaration):
 class ReplaceAllMethodDeclaration(BuiltInMethodDeclaration):
 
     def __init__(self):
-        from prompto.argument.CategoryArgument import CategoryArgument
-        TO_REPLACE_ARGUMENT = CategoryArgument(TextType.instance, "toReplace")
-        REPLACE_WITH_ARGUMENT = CategoryArgument(TextType.instance, "replaceWith")
+        from prompto.param.CategoryParameter import CategoryParameter
+        TO_REPLACE_ARGUMENT = CategoryParameter(TextType.instance, "toReplace")
+        REPLACE_WITH_ARGUMENT = CategoryParameter(TextType.instance, "replaceWith")
         super().__init__("replaceAll", TO_REPLACE_ARGUMENT, REPLACE_WITH_ARGUMENT)
 
 
@@ -281,8 +281,8 @@ class TrimMethodDeclaration(BuiltInMethodDeclaration):
 class IndexOfMethodDeclaration(BuiltInMethodDeclaration):
 
     def __init__(self):
-        from prompto.argument.CategoryArgument import CategoryArgument
-        VALUE_ARGUMENT = CategoryArgument(TextType.instance, "value")
+        from prompto.param.CategoryParameter import CategoryParameter
+        VALUE_ARGUMENT = CategoryParameter(TextType.instance, "value")
         super().__init__("indexOf", VALUE_ARGUMENT)
 
 

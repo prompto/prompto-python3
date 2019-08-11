@@ -70,8 +70,8 @@ class ConstructorExpression(IExpression):
         self.itype.toDialect(writer)
         assignments = ArgumentAssignmentList()
         if self.copyFrom is not None:
-            from prompto.argument.AttributeArgument import AttributeArgument
-            assignments.append(ArgumentAssignment(AttributeArgument("from"), self.copyFrom))
+            from prompto.param.AttributeParameter import AttributeParameter
+            assignments.append(ArgumentAssignment(AttributeParameter("from"), self.copyFrom))
         if self.assignments is not None:
             assignments.extend(self.assignments)
         assignments.toDialect(writer)
@@ -91,8 +91,8 @@ class ConstructorExpression(IExpression):
                 from prompto.expression.InstanceExpression import InstanceExpression
                 name = assign.expression.name if isinstance(assign.expression, (UnresolvedIdentifier, InstanceExpression)) else None
                 if name is not None and decl.hasAttribute(context, name):
-                    from prompto.argument.AttributeArgument import AttributeArgument
-                    assign.argument = AttributeArgument(name)
+                    from prompto.param.AttributeParameter import AttributeParameter
+                    assign.argument = AttributeParameter(name)
                     assign.expression = None
         self.checked = True
 

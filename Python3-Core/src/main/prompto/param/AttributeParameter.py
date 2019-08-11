@@ -1,13 +1,13 @@
-from prompto.argument.BaseArgument import BaseArgument
-from prompto.argument.INamedArgument import INamedArgument
+from prompto.param.BaseParameter import BaseParameter
+from prompto.param.INamedParameter import INamedParameter
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 from prompto.declaration.IDeclaration import IDeclaration
 
 
-class AttributeArgument ( BaseArgument, INamedArgument ):
+class AttributeParameter (BaseParameter, INamedParameter):
 
     def __init__(self, name):
-        super(AttributeArgument, self).__init__(name)
+        super(AttributeParameter, self).__init__(name)
 
     def getSignature(self, dialect):
         return self.getName()
@@ -23,7 +23,7 @@ class AttributeArgument ( BaseArgument, INamedArgument ):
             return True
         if obj is None:
             return False
-        if not isinstance(obj, AttributeArgument):
+        if not isinstance(obj, AttributeParameter):
             return False
         return self.getName()==obj.getName()
 

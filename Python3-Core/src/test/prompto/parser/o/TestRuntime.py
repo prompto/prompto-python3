@@ -2,7 +2,7 @@ import sys
 
 from antlr4 import ParseTreeWalker
 
-from prompto.argument.CategoryArgument import CategoryArgument
+from prompto.param.CategoryParameter import CategoryParameter
 from prompto.literal.TextLiteral import TextLiteral
 from prompto.parser.OCleverParser import OCleverParser
 from prompto.parser.OPromptoBuilder import OPromptoBuilder
@@ -29,7 +29,7 @@ class TestNative(BaseOParserTest):
         walker.walk(builder, tree)
         statement = builder.getNodeValue(tree)
         context = Context.newGlobalContext()
-        arg = CategoryArgument(TextType.instance, "value")
+        arg = CategoryParameter(TextType.instance, "value")
         arg.register(context)
         context.setValue("value", TextLiteral("\"test\"")) # StringLiteral trims enclosing quotes
         result = statement.interpret(context, None, None)

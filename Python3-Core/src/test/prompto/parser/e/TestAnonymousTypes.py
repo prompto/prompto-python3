@@ -1,5 +1,5 @@
-from prompto.argument.CategoryArgument import CategoryArgument
-from prompto.argument.ExtendedArgument import ExtendedArgument
+from prompto.param.CategoryParameter import CategoryParameter
+from prompto.param.ExtendedParameter import ExtendedParameter
 from prompto.grammar.IdentifierList import IdentifierList
 from prompto.parser.e.BaseEParserTest import BaseEParserTest
 from prompto.type.AnyType import AnyType
@@ -29,7 +29,7 @@ class TestAnonymousTypes(BaseEParserTest):
 
     def testAnonymousAnyType(self):
         # any x
-        argument = CategoryArgument(AnyType.instance, "x")
+        argument = CategoryParameter(AnyType.instance, "x")
         argument.register(self.context)
         st = argument.getType(self.context)
         self.assertIsInstance(st, AnyType)
@@ -50,7 +50,7 @@ class TestAnonymousTypes(BaseEParserTest):
     def testAnonymousAnyTypeWithAttribute(self):
         # any x with attribute: name
         list = IdentifierList("name")
-        argument = ExtendedArgument(AnyType.instance, "x", list)
+        argument = ExtendedParameter(AnyType.instance, "x", list)
         argument.register(self.context)
         st = argument.getType(self.context)
         self.assertIsInstance(st, CategoryType)
@@ -72,7 +72,7 @@ class TestAnonymousTypes(BaseEParserTest):
 
     def testAnonymousCategoryType(self):
         # Root x
-        argument = CategoryArgument(CategoryType("Root"), "x")
+        argument = CategoryParameter(CategoryType("Root"), "x")
         argument.register(self.context)
         st = argument.getType(self.context)
         self.assertIsInstance(st, CategoryType)
@@ -95,7 +95,7 @@ class TestAnonymousTypes(BaseEParserTest):
     def testAnonymousCategoryTypeWithAttribute(self):
         # Root x with attribute: name
         list = IdentifierList("name")
-        argument = ExtendedArgument(CategoryType("Root"), "test", list)
+        argument = ExtendedParameter(CategoryType("Root"), "test", list)
         argument.register(self.context)
         st = argument.getType(self.context)
         self.assertIsInstance(st, CategoryType)

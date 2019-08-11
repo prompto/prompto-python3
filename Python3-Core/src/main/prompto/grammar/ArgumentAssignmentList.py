@@ -1,6 +1,6 @@
 from io import StringIO
 
-from prompto.argument.AttributeArgument import AttributeArgument
+from prompto.param.AttributeParameter import AttributeParameter
 from prompto.expression.AndExpression import AndExpression
 from prompto.grammar.ArgumentAssignment import ArgumentAssignment
 from prompto.grammar.IDialectElement import IDialectElement
@@ -26,7 +26,7 @@ class ArgumentAssignmentList(list, IDialectElement):
                 if name[0].islower():
                     del self[-1]
                     # add AttributeArgument
-                    argument = AttributeArgument(name)
+                    argument = AttributeParameter(name)
                     attribute = ArgumentAssignment(argument, None)
                     self.append(attribute)
                     # fix last assignment

@@ -10,14 +10,14 @@ class ExecutionError(PromptoError):
         from prompto.expression.ConstructorExpression import ConstructorExpression
         from prompto.grammar.ArgumentAssignment import ArgumentAssignment
         from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
-        from prompto.argument.UnresolvedArgument import UnresolvedArgument
+        from prompto.param.UnresolvedParameter import UnresolvedParameter
         from prompto.literal.TextLiteral import TextLiteral
         from prompto.type.CategoryType import CategoryType
         exp = self.getExpression(context)
         if exp is None:
             args = ArgumentAssignmentList()
-            args.add(ArgumentAssignment(UnresolvedArgument("name"), TextLiteral(type(self).__name__)))
-            args.add(ArgumentAssignment(UnresolvedArgument("text"), TextLiteral(self.message)))
+            args.add(ArgumentAssignment(UnresolvedParameter("name"), TextLiteral(type(self).__name__)))
+            args.add(ArgumentAssignment(UnresolvedParameter("text"), TextLiteral(self.message)))
             exp = ConstructorExpression(CategoryType("Error"), args)
         if context.getRegisteredValue(object, errorName) is None:
             from prompto.runtime.ErrorVariable import ErrorVariable

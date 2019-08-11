@@ -54,8 +54,8 @@ class EnumeratedNativeType ( BaseType ):
 class SymbolOfMethodDeclaration(BuiltInMethodDeclaration):
 
     def __init__(self, enumType):
-        from prompto.argument.CategoryArgument import CategoryArgument
-        NAME_ARGUMENT = CategoryArgument(TextType.instance, "name")
+        from prompto.param.CategoryParameter import CategoryParameter
+        NAME_ARGUMENT = CategoryParameter(TextType.instance, "name")
         super(SymbolOfMethodDeclaration, self).__init__("symbolOf", NAME_ARGUMENT)
         self.enumType = enumType
 

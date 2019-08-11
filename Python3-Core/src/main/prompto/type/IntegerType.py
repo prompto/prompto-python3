@@ -120,9 +120,9 @@ IntegerType.instance = IntegerType()
 class FormatMethodDeclaration(BuiltInMethodDeclaration):
 
     def __init__(self):
-        from prompto.argument.CategoryArgument import CategoryArgument
+        from prompto.param.CategoryParameter import CategoryParameter
         from prompto.literal.TextLiteral import TextLiteral
-        FORMAT_ARGUMENT = CategoryArgument(TextType.instance, "format", TextLiteral('"format"'))
+        FORMAT_ARGUMENT = CategoryParameter(TextType.instance, "format", TextLiteral('"format"'))
         super().__init__("format", FORMAT_ARGUMENT)
 
 

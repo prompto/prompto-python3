@@ -1,11 +1,11 @@
-from prompto.argument.CategoryArgument import CategoryArgument
+from prompto.param.CategoryParameter import CategoryParameter
 from prompto.error.SyntaxError import SyntaxError
 
 
 
-class ExtendedArgument(CategoryArgument):
+class ExtendedParameter(CategoryParameter):
     def __init__(self, itype, name, attributes):
-        super(ExtendedArgument, self).__init__(itype, name)
+        super(ExtendedParameter, self).__init__(itype, name)
         self.attributes = attributes
 
 
@@ -35,7 +35,7 @@ class ExtendedArgument(CategoryArgument):
             return True
         if obj is None:
             return False
-        if not isinstance(obj, ExtendedArgument):
+        if not isinstance(obj, ExtendedParameter):
             return False
         return self.getType() == obj.getType() \
                and self.getName() == obj.getName() \

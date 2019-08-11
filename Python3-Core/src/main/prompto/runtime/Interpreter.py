@@ -1,5 +1,5 @@
-from prompto.argument.ITypedArgument import ITypedArgument
-from prompto.argument.UnresolvedArgument import UnresolvedArgument
+from prompto.param.ITypedParameter import ITypedParameter
+from prompto.param.UnresolvedParameter import UnresolvedParameter
 from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.ValueExpression import ValueExpression
 from prompto.expression.MethodSelector import MethodSelector
@@ -52,7 +52,7 @@ class Interpreter(object):
         if len(method.getArguments()) == 1:
             name = method.getArguments()[0].getName()
             value = Interpreter.parseCmdLineArgs(cmdLineArgs)
-            assignments.append(ArgumentAssignment(UnresolvedArgument(name), value))
+            assignments.append(ArgumentAssignment(UnresolvedParameter(name), value))
         return assignments
 
 
@@ -111,7 +111,7 @@ class Interpreter(object):
         if len(arguments) != 1:
             return False
         arg = arguments[0]
-        if not isinstance(arg, ITypedArgument):
+        if not isinstance(arg, ITypedParameter):
             return False
         return arg.getType() == Interpreter.argsType
 
@@ -124,7 +124,7 @@ class Interpreter(object):
             return False
         idx = 0
         for argument in arguments:
-            if not isinstance(argument, ITypedArgument):
+            if not isinstance(argument, ITypedParameter):
                 return False
             argType = argTypes[idx]
             idx += 1

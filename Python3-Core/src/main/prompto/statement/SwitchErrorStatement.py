@@ -1,4 +1,4 @@
-from prompto.argument.UnresolvedArgument import UnresolvedArgument
+from prompto.param.UnresolvedParameter import UnresolvedParameter
 from prompto.error.ExecutionError import ExecutionError
 from prompto.expression.ConstructorExpression import ConstructorExpression
 from prompto.expression.IExpression import IExpression
@@ -66,8 +66,8 @@ class SwitchErrorStatement(BaseSwitchStatement):
         if error == None:
             ctor = ConstructorExpression(CategoryType("Error"), None)
             args = ArgumentAssignmentList()
-            args.append(ArgumentAssignment(UnresolvedArgument("name"), TextLiteral(type(e).__name__)))
-            args.append(ArgumentAssignment(UnresolvedArgument("text"), TextLiteral(e.getMessage())))
+            args.append(ArgumentAssignment(UnresolvedParameter("name"), TextLiteral(type(e).__name__)))
+            args.append(ArgumentAssignment(UnresolvedParameter("text"), TextLiteral(e.getMessage())))
             ctor.setAssignments(args)
             error = ctor
         if context.getRegisteredValue(INamedValue, self.errorName) == None:

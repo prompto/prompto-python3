@@ -1,11 +1,11 @@
-from prompto.argument.BaseArgument import BaseArgument
-from prompto.argument.ITypedArgument import ITypedArgument
+from prompto.param.BaseParameter import BaseParameter
+from prompto.param.ITypedParameter import ITypedParameter
 from prompto.error.SyntaxError import SyntaxError
 
-class CategoryArgument(BaseArgument, ITypedArgument):
+class CategoryParameter(BaseParameter, ITypedParameter):
 
     def __init__(self, itype, name, default=None):
-        super(CategoryArgument, self).__init__(name)
+        super(CategoryParameter, self).__init__(name)
         self.itype = itype
         self.defaultExpression = default
 
@@ -23,7 +23,7 @@ class CategoryArgument(BaseArgument, ITypedArgument):
             return True
         if obj is None:
             return False
-        if not isinstance(obj, CategoryArgument):
+        if not isinstance(obj, CategoryParameter):
             return False
         return self.getType() == obj.getType() \
             and self.getName() == obj.getName()
@@ -46,7 +46,7 @@ class CategoryArgument(BaseArgument, ITypedArgument):
     def toDialect(self, writer):
         if self.mutable:
             writer.append("mutable ")
-        super(CategoryArgument, self).toDialect(writer)
+        super(CategoryParameter, self).toDialect(writer)
         if self.defaultExpression is not None:
             writer.append(" = ")
             self.defaultExpression.toDialect(writer)

@@ -1,5 +1,5 @@
-from prompto.argument.CategoryArgument import CategoryArgument
-from prompto.argument.CodeArgument import CodeArgument
+from prompto.param.CategoryParameter import CategoryParameter
+from prompto.param.CodeParameter import CodeParameter
 from prompto.declaration.BaseMethodDeclaration import BaseMethodDeclaration
 from prompto.statement.StatementList import StatementList
 from prompto.type.DictType import DictType
@@ -45,7 +45,7 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
         if self.arguments is None:
             return False
         for arg in self.arguments:
-            if isinstance(arg, CodeArgument):
+            if isinstance(arg, CodeParameter):
                 return True
         return False
 
@@ -84,7 +84,7 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
             return True
         if self.arguments.size()==1:
             arg = self.arguments[0]
-            if isinstance(arg, CategoryArgument):
+            if isinstance(arg, CategoryParameter):
                 itype = arg.getType()
                 if isinstance(itype, DictType):
                     return itype.itemType==TextType.instance

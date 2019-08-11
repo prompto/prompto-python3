@@ -1,16 +1,16 @@
-from prompto.argument.AttributeArgument import AttributeArgument
-from prompto.argument.INamedArgument import INamedArgument
-from prompto.argument.MethodArgument import MethodArgument
+from prompto.param.AttributeParameter import AttributeParameter
+from prompto.param.INamedParameter import INamedParameter
+from prompto.param.MethodParameter import MethodParameter
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 from prompto.declaration.IDeclaration import IDeclaration
 from prompto.error.SyntaxError import SyntaxError
 from prompto.runtime.Context import MethodDeclarationMap
 
 
-class UnresolvedArgument ( INamedArgument ):
+class UnresolvedParameter (INamedParameter):
 
     def __init__(self, name):
-        super(UnresolvedArgument, self).__init__()
+        super(UnresolvedParameter, self).__init__()
         self.name = name
         self.defaultValue = None
         self.resolved = None
@@ -53,8 +53,8 @@ class UnresolvedArgument ( INamedArgument ):
             return
         named = context.getRegisteredDeclaration(IDeclaration, self.name)
         if isinstance(named, AttributeDeclaration):
-            self.resolved = AttributeArgument(self.name)
+            self.resolved = AttributeParameter(self.name)
         elif isinstance(named, MethodDeclarationMap):
-            self.resolved = MethodArgument(self.name)
+            self.resolved = MethodParameter(self.name)
         else:
             raise SyntaxError("Unknown identifier:" + self.name)

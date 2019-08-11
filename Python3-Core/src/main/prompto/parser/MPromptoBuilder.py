@@ -3,9 +3,9 @@ from curses.ascii import SP
 from antlr4 import ParserRuleContext, Token
 from antlr4.tree.Tree import ParseTree, TerminalNode
 
-from prompto.argument.CategoryArgument import CategoryArgument
-from prompto.argument.CodeArgument import CodeArgument
-from prompto.argument.UnresolvedArgument import UnresolvedArgument
+from prompto.param.CategoryParameter import CategoryParameter
+from prompto.param.CodeParameter import CodeParameter
+from prompto.param.UnresolvedParameter import UnresolvedParameter
 from prompto.constraint.MatchingCollectionConstraint import MatchingCollectionConstraint
 from prompto.constraint.MatchingExpressionConstraint import MatchingExpressionConstraint
 from prompto.constraint.MatchingPatternConstraint import MatchingPatternConstraint
@@ -449,7 +449,7 @@ class MPromptoBuilder(MParserListener):
     def exitArgument_assignment(self, ctx:MParser.Argument_assignmentContext):
         name = self.getNodeValue(ctx.name)
         exp = self.getNodeValue(ctx.exp)
-        arg = UnresolvedArgument(name)
+        arg = UnresolvedParameter(name)
         item = ArgumentAssignment(arg, exp)
         self.setNodeValue(ctx, item)
 
@@ -684,7 +684,7 @@ class MPromptoBuilder(MParserListener):
 
     def exitCode_argument(self, ctx:MParser.Code_argumentContext):
         name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, CodeArgument(name))
+        self.setNodeValue(ctx, CodeParameter(name))
 
 
     def exitCode_type(self, ctx:MParser.Code_typeContext):
@@ -1790,7 +1790,7 @@ class MPromptoBuilder(MParserListener):
 
     def exitNamed_argument(self, ctx:MParser.Named_argumentContext):
         name = self.getNodeValue(ctx.variable_identifier())
-        arg = UnresolvedArgument(name)
+        arg = UnresolvedParameter(name)
         exp = self.getNodeValue(ctx.literal_expression())
         arg.defaultExpression = exp
         self.setNodeValue(ctx, arg)
@@ -2512,8 +2512,8 @@ class MPromptoBuilder(MParserListener):
         name = self.getNodeValue(ctx.name)
         attrs = self.getNodeValue(ctx.attrs)
         exp = self.getNodeValue(ctx.value)
-        from prompto.argument.ExtendedArgument import ExtendedArgument
-        arg = CategoryArgument(typ, name) if attrs is None else ExtendedArgument(typ, name, attrs)
+        from prompto.param.ExtendedParameter import ExtendedParameter
+        arg = CategoryParameter(typ, name) if attrs is None else ExtendedParameter(typ, name, attrs)
         arg.defaultExpression = exp
         self.setNodeValue(ctx, arg)
 

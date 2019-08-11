@@ -1,13 +1,13 @@
-from prompto.argument.BaseArgument import BaseArgument
-from prompto.argument.ITypedArgument import ITypedArgument
+from prompto.param.BaseParameter import BaseParameter
+from prompto.param.ITypedParameter import ITypedParameter
 from prompto.grammar.INamedValue import INamedValue
 from prompto.type.CodeType import CodeType
 from prompto.error.SyntaxError import SyntaxError
 
-class CodeArgument ( BaseArgument, ITypedArgument ):
+class CodeParameter (BaseParameter, ITypedParameter):
 
     def __init__(self, name):
-        super(CodeArgument, self).__init__(name)
+        super(CodeParameter, self).__init__(name)
 
     def getType(self, context=None):
         return CodeType.instance
@@ -31,7 +31,7 @@ class CodeArgument ( BaseArgument, ITypedArgument ):
             return True
         if obj is None:
             return False
-        if not isinstance(obj, CodeArgument):
+        if not isinstance(obj, CodeParameter):
             return False
         return self.name==obj.name
 
