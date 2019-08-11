@@ -5,74 +5,77 @@ from prompto.value.ContextualExpression import *
 from prompto.value.IInstance import *
 from prompto.error.SyntaxError import SyntaxError
 
-class ArgumentAssignment(IDialectElement):
+class Argument(IDialectElement):
 
-    def __init__(self, argument, expression):
-        super(ArgumentAssignment, self).__init__()
-        self.argument = argument
+    def __init__(self, parameter, expression):
+        super(Argument, self).__init__()
+        self.parameter = parameter
         self.expression = expression
 
-    def getArgument(self):
-        return self.argument
+    def getParameter(self):
+        return self.parameter
 
     def getName(self):
-        return self.argument.getName()
+        return self.parameter.getName()
 
     def getExpression(self):
         from prompto.expression.InstanceExpression import InstanceExpression
-        return self.expression if self.expression is not None else InstanceExpression(self.argument.name)
+        return self.expression if self.expression is not None else InstanceExpression(self.parameter.name)
 
     def setExpression(self, expression):
         self.expression = expression
 
     def __str__(self):
-        if self.argument is None:
+        if self.parameter is None:
             return str(self.expression)
         else:
-            return str(self.expression) + " as " + self.argument.getName()
+            return str(self.expression) + " as " + self.parameter.getName()
 
     def toODialect(self, writer):
         if self.expression is None:
-            writer.append(self.argument.getName())
+            writer.append(self.parameter.getName())
         else:
-            if self.argument is not None:
-                writer.append(self.argument.getName())
+            if self.parameter is not None:
+                writer.append(self.parameter.getName())
                 writer.append(" = ")
             self.expression.toDialect(writer)
 
 
     def toMDialect(self, writer):
         if self.expression is None:
-            writer.append(self.argument.getName())
+            writer.append(self.parameter.getName())
         else:
-            if self.argument is not None:
-                writer.append(self.argument.getName())
+            if self.parameter is not None:
+                writer.append(self.parameter.getName())
                 writer.append(" = ")
             self.expression.toDialect(writer)
 
+
     def toEDialect(self, writer):
         if self.expression is None:
-            writer.append(self.argument.getName())
+            writer.append(self.parameter.getName())
         else:
             self.expression.toDialect(writer)
-            if self.argument is not None:
+            if self.parameter is not None:
                 writer.append(" as ")
-                writer.append(self.argument.getName())
+                writer.append(self.parameter.getName())
+
 
     def __eq__(self, obj):
         if id(obj) == id(self):
             return True
         if obj is None:
             return False
-        if not isinstance(obj, ArgumentAssignment):
+        if not isinstance(obj, Argument):
             return False
-        return self.getArgument() == obj.getArgument() and self.getExpression() == obj.getExpression()
+        return self.getParameter() == obj.getParameter() and self.getExpression() == obj.getExpression()
+
 
     def check(self, context):
-        actual = context.getRegisteredValue(INamedValue, self.argument.getName())
+        actual = context.getRegisteredValue(INamedValue, self.parameter.getName())
         if actual is None:
             actualType = self.getExpression().check(context)
-            context.registerValue(Variable(self.argument.getName(), actualType))
+            context.registerValue(Variable(self.parameter.getName(), actualType))
         else:
             # need to check type compatibility
             actualType = actual.getType(context)
@@ -80,16 +83,18 @@ class ArgumentAssignment(IDialectElement):
             actualType.checkAssignableFrom(context, newType)
         return VoidType.instance
 
+
     def interpret(self, context):
-        if context.getRegisteredValue(INamedValue, self.argument.getName()) is None:
-            context.registerValue(Variable(self.argument.getName(), self.getExpression()))
-        context.setValue(self.argument.getName(), self.getExpression().interpret(context))
+        if context.getRegisteredValue(INamedValue, self.parameter.getName()) is None:
+            context.registerValue(Variable(self.parameter.getName(), self.getExpression()))
+        context.setValue(self.parameter.getName(), self.getExpression().interpret(context))
         return None
+
 
     def resolve(self, context, methodDeclaration, checkInstance):
         from prompto.type.CategoryType import CategoryType
         # since we support implicit members, it's time to resolve them
-        name = self.argument.getName()
+        name = self.parameter.getName()
         expression = self.getExpression()
         argument = methodDeclaration.getArguments().find(name)
         required = argument.getType(context)
@@ -103,8 +108,9 @@ class ArgumentAssignment(IDialectElement):
             expression = MemberSelector(name, expression)
         return expression
 
-    def makeAssignment(self, context, declaration):
-        argument = self.argument
+
+    def makeArgument(self, context, declaration):
+        argument = self.parameter
         # when 1st argument, can be unnamed
         if argument is None:
             if len(declaration.getArguments()) == 0:
@@ -115,4 +121,4 @@ class ArgumentAssignment(IDialectElement):
         if argument is None:
             raise SyntaxError("Method has no argument:" + self.getName())
         expression = ContextualExpression(context, self.getExpression())
-        return ArgumentAssignment(argument, expression)
+        return Argument(argument, expression)

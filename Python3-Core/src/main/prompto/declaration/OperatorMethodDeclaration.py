@@ -1,12 +1,12 @@
 from prompto.declaration.ConcreteMethodDeclaration import ConcreteMethodDeclaration
-from prompto.grammar.ArgumentList import ArgumentList
+from prompto.param.ParameterList import ParameterList
 from prompto.expression.IExpression import IExpression
 from prompto.type.VoidType import VoidType
 
 class OperatorMethodDeclaration(ConcreteMethodDeclaration, IExpression):
 
     def __init__(self, operator, arg, returnType, stmts):
-        super().__init__("operator_" + operator.name, ArgumentList(arg), returnType, stmts)
+        super().__init__("operator_" + operator.name, ParameterList(arg), returnType, stmts)
         self.operator = operator
 
     def checkMember(self, declaration, context):

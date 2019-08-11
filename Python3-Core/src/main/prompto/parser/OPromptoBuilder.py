@@ -68,7 +68,6 @@ from prompto.expression.ItemSelector import ItemSelector
 from prompto.expression.IteratorExpression import IteratorExpression
 from prompto.expression.MemberSelector import MemberSelector
 from prompto.expression.MethodExpression import MethodExpression
-from prompto.expression.MethodSelector import MethodSelector
 from prompto.expression.MinusExpression import MinusExpression
 from prompto.expression.ModuloExpression import ModuloExpression
 from prompto.expression.MultiplyExpression import MultiplyExpression
@@ -88,9 +87,9 @@ from prompto.expression.TypeExpression import TypeExpression
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.expression.UnresolvedSelector import UnresolvedSelector
 from prompto.grammar.Annotation import Annotation
-from prompto.grammar.ArgumentAssignment import ArgumentAssignment
-from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
+from prompto.grammar.Argument import Argument
 from prompto.grammar.ArgumentList import ArgumentList
+from prompto.param.ParameterList import ParameterList
 from prompto.grammar.CategorySymbolList import CategorySymbolList
 from prompto.grammar.CmpOp import CmpOp
 from prompto.grammar.ContOp import ContOp
@@ -816,7 +815,7 @@ class OPromptoBuilder(OParserListener):
     
 
     def exitArgument_list(self, ctx:OParser.Argument_listContext):
-        items = ArgumentList()
+        items = ParameterList()
         for rule in ctx.argument():
             item = self.getNodeValue(rule)
             items.append(item)
@@ -857,19 +856,19 @@ class OPromptoBuilder(OParserListener):
         name = self.getNodeValue(ctx.name)
         exp = self.getNodeValue(ctx.exp)
         arg = UnresolvedParameter(name)
-        self.setNodeValue(ctx, ArgumentAssignment(arg, exp))
+        self.setNodeValue(ctx, Argument(arg, exp))
 
 
     def exitExpressionAssignmentList(self, ctx:OParser.ExpressionAssignmentListContext):
         exp = self.getNodeValue(ctx.exp)
-        items = ArgumentAssignmentList()
-        items.insert(0, ArgumentAssignment(None, exp))
+        items = ArgumentList()
+        items.insert(0, Argument(None, exp))
         self.setNodeValue(ctx, items)
 
 
     def exitArgumentAssignmentList(self, ctx:OParser.ArgumentAssignmentListContext):
         item = self.getNodeValue(ctx.item)
-        items = ArgumentAssignmentList(items=[item])
+        items = ArgumentList(items=[item])
         self.setNodeValue(ctx, items)
     
 

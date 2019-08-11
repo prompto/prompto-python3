@@ -1,7 +1,7 @@
 from io import StringIO
 from prompto.expression.IExpression import IExpression
-from prompto.grammar.ArgumentAssignment import ArgumentAssignment
-from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
+from prompto.grammar.Argument import Argument
+from prompto.grammar.ArgumentList import ArgumentList
 from prompto.runtime.Context import Context
 from prompto.type.DocumentType import DocumentType
 from prompto.type.IType import IType
@@ -12,7 +12,7 @@ from prompto.error.NotMutableError import NotMutableError
 
 class ConstructorExpression(IExpression):
 
-    def __init__(self, itype:IType, copyFrom:IExpression, assignments:ArgumentAssignmentList, checked:bool):
+    def __init__(self, itype:IType, copyFrom:IExpression, assignments:ArgumentList, checked:bool):
         self.mutable = False
         self.itype = itype
         self.copyFrom = copyFrom
@@ -68,10 +68,10 @@ class ConstructorExpression(IExpression):
 
     def toODialect(self, writer):
         self.itype.toDialect(writer)
-        assignments = ArgumentAssignmentList()
+        assignments = ArgumentList()
         if self.copyFrom is not None:
             from prompto.param.AttributeParameter import AttributeParameter
-            assignments.append(ArgumentAssignment(AttributeParameter("from"), self.copyFrom))
+            assignments.append(Argument(AttributeParameter("from"), self.copyFrom))
         if self.assignments is not None:
             assignments.extend(self.assignments)
         assignments.toDialect(writer)
@@ -86,13 +86,13 @@ class ConstructorExpression(IExpression):
             return
         if self.assignments is not None and len(self.assignments)>0:
             assign = self.assignments[0]
-            if assign.argument is None:
+            if assign.parameter is None:
                 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
                 from prompto.expression.InstanceExpression import InstanceExpression
                 name = assign.expression.name if isinstance(assign.expression, (UnresolvedIdentifier, InstanceExpression)) else None
                 if name is not None and decl.hasAttribute(context, name):
                     from prompto.param.AttributeParameter import AttributeParameter
-                    assign.argument = AttributeParameter(name)
+                    assign.parameter = AttributeParameter(name)
                     assign.expression = None
         self.checked = True
 

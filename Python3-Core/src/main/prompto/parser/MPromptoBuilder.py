@@ -1,5 +1,3 @@
-from curses.ascii import SP
-
 from antlr4 import ParserRuleContext, Token
 from antlr4.tree.Tree import ParseTree, TerminalNode
 
@@ -68,7 +66,6 @@ from prompto.expression.ItemSelector import ItemSelector
 from prompto.expression.IteratorExpression import IteratorExpression
 from prompto.expression.MemberSelector import MemberSelector
 from prompto.expression.MethodExpression import MethodExpression
-from prompto.expression.MethodSelector import MethodSelector
 from prompto.expression.MinusExpression import MinusExpression
 from prompto.expression.ModuloExpression import ModuloExpression
 from prompto.expression.MultiplyExpression import MultiplyExpression
@@ -88,9 +85,9 @@ from prompto.expression.TypeExpression import TypeExpression
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.expression.UnresolvedSelector import UnresolvedSelector
 from prompto.grammar.Annotation import Annotation
-from prompto.grammar.ArgumentAssignment import ArgumentAssignment
-from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
+from prompto.grammar.Argument import Argument
 from prompto.grammar.ArgumentList import ArgumentList
+from prompto.param.ParameterList import ParameterList
 from prompto.grammar.CategorySymbolList import CategorySymbolList
 from prompto.grammar.CmpOp import CmpOp
 from prompto.grammar.ContOp import ContOp
@@ -450,13 +447,13 @@ class MPromptoBuilder(MParserListener):
         name = self.getNodeValue(ctx.name)
         exp = self.getNodeValue(ctx.exp)
         arg = UnresolvedParameter(name)
-        item = ArgumentAssignment(arg, exp)
+        item = Argument(arg, exp)
         self.setNodeValue(ctx, item)
 
 
     def exitArgumentAssignmentList(self, ctx:MParser.ArgumentAssignmentListContext):
         item = self.getNodeValue(ctx.item)
-        items = ArgumentAssignmentList(items=[item])
+        items = ArgumentList(items=[item])
         self.setNodeValue(ctx, items)
 
 
@@ -468,7 +465,7 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitArgument_list(self, ctx:MParser.Argument_listContext):
-        items = ArgumentList()
+        items = ParameterList()
         for rule in ctx.argument():
             item = self.getNodeValue(rule)
             items.append(item)
@@ -1102,8 +1099,8 @@ class MPromptoBuilder(MParserListener):
 
     def exitExpressionAssignmentList(self, ctx:MParser.ExpressionAssignmentListContext):
         exp = self.getNodeValue(ctx.exp)
-        items = ArgumentAssignmentList()
-        items.append(ArgumentAssignment(None, exp))
+        items = ArgumentList()
+        items.append(Argument(None, exp))
         self.setNodeValue(ctx, items)
 
 

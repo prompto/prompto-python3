@@ -4,15 +4,15 @@ import os
 from prompto.declaration.BaseDeclaration import *
 from prompto.declaration.IMethodDeclaration import IMethodDeclaration
 from prompto.error.SyntaxError import SyntaxError
-from prompto.grammar.ArgumentAssignment import ArgumentAssignment
+from prompto.grammar.Argument import Argument
 
 
 class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
 
     def __init__(self, name, arguments, returnType=None):
         super().__init__(name)
-        from prompto.grammar.ArgumentList import ArgumentList
-        self.arguments = arguments if arguments is not None else ArgumentList()
+        from prompto.param.ParameterList import ParameterList
+        self.arguments = arguments if arguments is not None else ParameterList()
         self.returnType = returnType
         self.memberOf = None
         self.closureOf = None
@@ -65,18 +65,18 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
             raise Exception(e)
 
     def isAssignableTo(self, context, assignments, checkInstance):
-        from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
+        from prompto.grammar.ArgumentList import ArgumentList
         try:
             local = context.newLocalContext()
             self.registerArguments(local)
-            assignmentsList = ArgumentAssignmentList(items=assignments)
+            assignmentsList = ArgumentList(items=assignments)
             for argument in self.arguments:
                 assignment = assignmentsList.find(argument.getName())
                 toRemove = assignment
                 if assignment is None:  # missing argument
                     if argument.defaultExpression is None:
                         return False
-                    assignment = ArgumentAssignment(argument, argument.defaultExpression)
+                    assignment = Argument(argument, argument.defaultExpression)
                 if not self.isArgAssignableTo(local, argument, assignment, checkInstance):
                     return False
                 if toRemove is not None:

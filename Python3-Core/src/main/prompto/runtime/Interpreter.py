@@ -3,8 +3,8 @@ from prompto.param.UnresolvedParameter import UnresolvedParameter
 from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.ValueExpression import ValueExpression
 from prompto.expression.MethodSelector import MethodSelector
-from prompto.grammar.ArgumentAssignment import ArgumentAssignment
-from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
+from prompto.grammar.Argument import Argument
+from prompto.grammar.ArgumentList import ArgumentList
 from prompto.literal.DictLiteral import DictLiteral
 from prompto.runtime.Context import MethodDeclarationMap
 from prompto.statement.MethodCall import MethodCall
@@ -48,11 +48,11 @@ class Interpreter(object):
 
     @staticmethod
     def buildAssignments(method, cmdLineArgs):
-        assignments = ArgumentAssignmentList()
+        assignments = ArgumentList()
         if len(method.getArguments()) == 1:
             name = method.getArguments()[0].getName()
             value = Interpreter.parseCmdLineArgs(cmdLineArgs)
-            assignments.append(ArgumentAssignment(UnresolvedParameter(name), value))
+            assignments.append(Argument(UnresolvedParameter(name), value))
         return assignments
 
 

@@ -3,7 +3,7 @@ from prompto.declaration.IDeclaration import IDeclaration
 from prompto.runtime.Context import MethodDeclarationMap
 from prompto.statement.SimpleStatement import SimpleStatement
 from prompto.declaration.ConcreteMethodDeclaration import *
-from prompto.grammar.ArgumentAssignmentList import *
+from prompto.grammar.ArgumentList import *
 from prompto.runtime.MethodFinder import *
 from prompto.declaration.ClosureDeclaration import ClosureDeclaration
 from prompto.value.ClosureValue import ClosureValue
@@ -56,7 +56,7 @@ class MethodCall(SimpleStatement):
             declaration.registerArguments(local)
             for assignment in assignments:
                 expression = assignment.resolve(local, declaration, True)
-                value = assignment.getArgument().checkValue(parent, expression)
+                value = assignment.getParameter().checkValue(parent, expression)
                 local.setValue(assignment.getName(), value)
             return declaration.check(local, False)
         except PromptoError as e:
@@ -65,7 +65,7 @@ class MethodCall(SimpleStatement):
 
     def makeAssignments(self, context, declaration):
         if self.assignments == None:
-            return ArgumentAssignmentList()
+            return ArgumentList()
         else:
             return self.assignments.makeAssignments(context, declaration)
 
@@ -77,7 +77,7 @@ class MethodCall(SimpleStatement):
         assignments = self.makeAssignments(context, declaration)
         for assignment in assignments:
             expression = assignment.resolve(local, declaration, True)
-            argument = assignment.getArgument()
+            argument = assignment.getParameter()
             value = argument.checkValue(context, expression)
             if value is not None and argument.mutable and not value.mutable:
                 from prompto.error.NotMutableError import NotMutableError

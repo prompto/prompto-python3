@@ -6,8 +6,8 @@ from prompto.expression.ValueExpression import ValueExpression
 from prompto.expression.MethodSelector import MethodSelector
 from prompto.expression.Symbol import Symbol
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
-from prompto.grammar.ArgumentAssignment import ArgumentAssignment
-from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
+from prompto.grammar.Argument import Argument
+from prompto.grammar.ArgumentList import ArgumentList
 from prompto.grammar.Operator import Operator
 from prompto.parser.Dialect import Dialect
 from prompto.runtime.Score import Score
@@ -287,8 +287,8 @@ class CategoryType(BaseType):
     def getGlobalMethodSortKeyReader(self, context, name):
         from prompto.statement.MethodCall import MethodCall
         exp = ValueExpression(self, self.newInstance(context))
-        arg = ArgumentAssignment(None, exp)
-        args = ArgumentAssignmentList(items=[arg])
+        arg = Argument(None, exp)
+        args = ArgumentList(items=[arg])
         call = MethodCall(MethodSelector(name), args)
 
         def keyGetter(o):
@@ -313,8 +313,8 @@ class CategoryType(BaseType):
         from prompto.runtime.MethodFinder import MethodFinder
         try:
             exp = ValueExpression(self, self.newInstance(context))
-            arg = ArgumentAssignment(None, exp)
-            args = ArgumentAssignmentList(items=[arg])
+            arg = Argument(None, exp)
+            args = ArgumentList(items=[arg])
             proto = MethodCall(MethodSelector(name), args)
             finder = MethodFinder(context, proto)
             return finder.findMethod(True) is not None

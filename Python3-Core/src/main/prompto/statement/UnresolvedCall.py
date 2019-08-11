@@ -7,7 +7,7 @@ from prompto.expression.IExpression import IExpression
 from prompto.expression.MethodSelector import MethodSelector
 from prompto.expression.SelectorExpression import SelectorExpression
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
-from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
+from prompto.grammar.ArgumentList import ArgumentList
 from prompto.grammar.INamed import INamed
 from prompto.runtime.Context import Context, InstanceContext
 from prompto.statement.BaseStatement import BaseStatement
@@ -19,7 +19,7 @@ from prompto.utils.CodeWriter import CodeWriter
 
 class UnresolvedCall(BaseStatement):
 
-    def __init__(self, caller:IExpression, assignments:ArgumentAssignmentList):
+    def __init__(self, caller:IExpression, assignments:ArgumentList):
         super().__init__()
         self.resolved = None
         self.caller = caller

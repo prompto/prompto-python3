@@ -1,6 +1,6 @@
 from prompto.expression.ValueExpression import ValueExpression
-from prompto.grammar.ArgumentAssignment import ArgumentAssignment
-from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
+from prompto.grammar.Argument import Argument
+from prompto.grammar.ArgumentList import ArgumentList
 from prompto.literal.TextLiteral import TextLiteral
 from prompto.type.IType import IType
 from prompto.type.MissingType import MissingType
@@ -107,8 +107,8 @@ class DocumentType ( NativeType ):
         from prompto.statement.MethodCall import MethodCall
         from prompto.value.Document import Document
         exp = ValueExpression(self, Document())
-        arg = ArgumentAssignment(None, exp)
-        args = ArgumentAssignmentList(items=[arg])
+        arg = Argument(None, exp)
+        args = ArgumentList(items=[arg])
         from prompto.expression.MethodSelector import MethodSelector
         call = MethodCall(MethodSelector(name), args)
 

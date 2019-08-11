@@ -1,5 +1,5 @@
 from prompto.expression.IExpression import IExpression
-from prompto.grammar.ArgumentAssignmentList import ArgumentAssignmentList
+from prompto.grammar.ArgumentList import ArgumentList
 from prompto.parser.Dialect import Dialect
 from prompto.runtime.Context import Context
 from prompto.runtime.Variable import Variable
@@ -10,7 +10,7 @@ from prompto.type.VoidType import VoidType
 
 class RemoteCall(UnresolvedCall):
 
-    def __init__(self, caller:IExpression, assignments:ArgumentAssignmentList, resultName:str, andThen:StatementList):
+    def __init__(self, caller:IExpression, assignments:ArgumentList, resultName:str, andThen:StatementList):
         super().__init__(caller, assignments)
         self.resultName = resultName
         self.andThen = andThen

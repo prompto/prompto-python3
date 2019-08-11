@@ -1,13 +1,13 @@
 from prompto.declaration.BaseMethodDeclaration import BaseMethodDeclaration
 from prompto.error.InternalError import InternalError
-from prompto.grammar.ArgumentList import ArgumentList
+from prompto.param.ParameterList import ParameterList
 
 
 
 class BuiltInMethodDeclaration(BaseMethodDeclaration):
 
     def __init__(self, name, *args):
-        argsList = None if len(args) == 0 else ArgumentList(*args)
+        argsList = None if len(args) == 0 else ParameterList(*args)
         super().__init__(name, argsList)
 
 
