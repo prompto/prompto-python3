@@ -41,7 +41,7 @@ class ArgumentList(list, IDialectElement):
         return None
 
 
-    def makeAssignments(self, context, declaration):
+    def makeArguments(self, context, declaration):
         arguments = ArgumentList()
         for argument in self:
             arguments.append(argument.makeArgument(context, declaration))

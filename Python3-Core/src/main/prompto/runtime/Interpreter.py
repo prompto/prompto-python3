@@ -39,21 +39,21 @@ class Interpreter(object):
     def interpret(context, methodName, cmdLineArgs):
         try:
             method = Interpreter.locateMethod(context, methodName, cmdLineArgs)
-            assignments = Interpreter.buildAssignments(method, cmdLineArgs)
-            call = MethodCall(MethodSelector(methodName), assignments)
+            arguments = Interpreter.buildArguments(method, cmdLineArgs)
+            call = MethodCall(MethodSelector(methodName), arguments)
             call.interpret(context)
         finally:
             context.terminated()
 
 
     @staticmethod
-    def buildAssignments(method, cmdLineArgs):
-        assignments = ArgumentList()
+    def buildArguments(method, cmdLineArgs):
+        arguments = ArgumentList()
         if len(method.getArguments()) == 1:
             name = method.getArguments()[0].getName()
             value = Interpreter.parseCmdLineArgs(cmdLineArgs)
-            assignments.append(Argument(UnresolvedParameter(name), value))
-        return assignments
+            arguments.append(Argument(UnresolvedParameter(name), value))
+        return arguments
 
 
     @staticmethod

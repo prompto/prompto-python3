@@ -113,8 +113,8 @@ class DocumentType ( NativeType ):
         call = MethodCall(MethodSelector(name), args)
 
         def keyGetter(o):
-            assignment = call.assignments[0]
-            assignment.setExpression(ValueExpression(self, o))
+            argument = call.arguments[0]
+            argument.setExpression(ValueExpression(self, o))
             return call.interpret(context)
 
         return keyGetter

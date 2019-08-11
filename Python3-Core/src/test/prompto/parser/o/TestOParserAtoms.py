@@ -203,7 +203,7 @@ class TestParserAtoms(unittest.TestCase):
         statement = "Company(id=1, name=\"IBM\")"
         c = self.parse(statement, OParser.constructor_expression)
         self.assertIsNotNone(c)
-        l = c.getAssignments()
+        l = c.getArguments()
         self.assertIsNotNone(l)
         self.assertEquals(2, len(l))
         a = l[0]

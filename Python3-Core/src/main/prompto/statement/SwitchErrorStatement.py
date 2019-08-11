@@ -68,7 +68,7 @@ class SwitchErrorStatement(BaseSwitchStatement):
             args = ArgumentList()
             args.append(Argument(UnresolvedParameter("name"), TextLiteral(type(e).__name__)))
             args.append(Argument(UnresolvedParameter("text"), TextLiteral(e.getMessage())))
-            ctor.setAssignments(args)
+            ctor.setArguments(args)
             error = ctor
         if context.getRegisteredValue(INamedValue, self.errorName) == None:
             context.registerValue(ErrorVariable(self.errorName))

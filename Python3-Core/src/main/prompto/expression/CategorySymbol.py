@@ -7,16 +7,16 @@ from prompto.expression.Symbol import Symbol
 
 class CategorySymbol(Symbol, IExpression):
 
-    def __init__(self, symbol, assignments):
+    def __init__(self, symbol, arguments):
         super(CategorySymbol, self).__init__(symbol)
-        self.assignments = assignments
+        self.arguments = arguments
         self.instance = None
         self.itype = None
 
     def toDialect(self, writer):
         writer.append(self.symbol)
         writer.append(" ")
-        self.assignments.toDialect(writer)
+        self.arguments.toDialect(writer)
 
 
     def setType(self, itype):
@@ -25,16 +25,16 @@ class CategorySymbol(Symbol, IExpression):
     def getType(self, context=None):
         return self.itype
 
-    def setAssignments(self, assignments):
-        self.assignments = assignments
+    def setArguments(self, arguments):
+        self.arguments = arguments
 
-    def getAssignments(self):
-        return self.assignments
+    def getArguments(self):
+        return self.arguments
 
     def __str__(self):
         with StringIO() as sb:
-            if len(self.assignments)>0:
-                sb.write(str(self.assignments))
+            if len(self.arguments)>0:
+                sb.write(str(self.arguments))
             else:
                 sb.write(self.itype.typeName)
             return sb.getvalue()
@@ -44,13 +44,13 @@ class CategorySymbol(Symbol, IExpression):
         cd = context.getRegisteredDeclaration(EnumeratedCategoryDeclaration, self.itype.typeName)
         if cd is None:
             raise SyntaxError("Unknown category " + self.itype.typeName)
-        if self.assignments is not None:
+        if self.arguments is not None:
             context = context.newLocalContext()
-            for assignment in self.assignments:
-                if not cd.hasAttribute(context, assignment.getName()):
-                    raise SyntaxError("\"" + assignment.getName() + \
+            for argument in self.arguments:
+                if not cd.hasAttribute(context, argument.getName()):
+                    raise SyntaxError("\"" + argument.getName() + \
                                       "\" is not an attribute of " + self.itype.typeName)
-                assignment.check(context)
+                argument.check(context)
         return self.itype
 
 
@@ -63,11 +63,11 @@ class CategorySymbol(Symbol, IExpression):
             from prompto.value.Text import Text
             instance = self.itype.newInstance(context)
             instance.mutable = True
-            if self.assignments != None:
+            if self.arguments != None:
                 context = context.newLocalContext()
-                for assignment in self.assignments:
-                    value = assignment.getExpression().interpret(context)
-                    instance.setMember(context, assignment.getName(), value)
+                for argument in self.arguments:
+                    value = argument.getExpression().interpret(context)
+                    instance.setMember(context, argument.getName(), value)
             instance.setMember(context, "name", Text(self.symbol))
             instance.mutable = False
             self.instance = instance

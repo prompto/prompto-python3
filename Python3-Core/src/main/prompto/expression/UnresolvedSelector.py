@@ -65,9 +65,9 @@ class UnresolvedSelector(SelectorExpression):
         return self.resolved
 
 
-    def resolveMethod(self, context, assignments):
+    def resolveMethod(self, context, arguments):
         if self.resolved is None:
-            self.resolved = self.tryResolveMethod(context, assignments)
+            self.resolved = self.tryResolveMethod(context, arguments)
 
 
     def tryResolveMember(self, context):
@@ -79,13 +79,13 @@ class UnresolvedSelector(SelectorExpression):
             return None
 
 
-    def tryResolveMethod(self, context, assignments):
+    def tryResolveMethod(self, context, arguments):
         try:
             resolvedParent = self.parent
             if isinstance(resolvedParent, UnresolvedIdentifier):
                 resolvedParent.checkMember(context)
                 resolvedParent = resolvedParent.resolved
-            method = UnresolvedCall(MethodSelector(self.name, resolvedParent), assignments)
+            method = UnresolvedCall(MethodSelector(self.name, resolvedParent), arguments)
             method.check(context)
             return method
         except SyntaxError:

@@ -54,8 +54,8 @@ class MethodFinder(object):
             d1.registerArguments(s1)
             s2 = self.context.newLocalContext()
             d2.registerArguments(s2)
-            las1 = self.methodCall.makeAssignments(self.context, d1)
-            las2 = self.methodCall.makeAssignments(self.context, d2)
+            las1 = self.methodCall.makeArguments(self.context, d1)
+            las2 = self.methodCall.makeArguments(self.context, d2)
             for as1, as2 in itertools.zip_longest(las1, las2):
                 ar1 = d1.getArguments().find(as1.getName())
                 ar2 = d2.getArguments().find(as2.getName())
@@ -92,7 +92,7 @@ class MethodFinder(object):
         compatibles = set()
         for declaration in candidates:
             try:
-                args = self.methodCall.makeAssignments(self.context, declaration)
+                args = self.methodCall.makeArguments(self.context, declaration)
                 if declaration.isAssignableTo(self.context, args, checkInstance):
                     compatibles.add(declaration)
             except SyntaxError:

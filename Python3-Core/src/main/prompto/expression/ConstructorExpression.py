@@ -12,24 +12,29 @@ from prompto.error.NotMutableError import NotMutableError
 
 class ConstructorExpression(IExpression):
 
-    def __init__(self, itype:IType, copyFrom:IExpression, assignments:ArgumentList, checked:bool):
+    def __init__(self, itype:IType, copyFrom:IExpression, arguments:ArgumentList, checked:bool):
         self.mutable = False
         self.itype = itype
         self.copyFrom = copyFrom
-        self.assignments = assignments
+        self.arguments = arguments
         self.checked = checked
+
 
     def getType(self):
         return self.itype
 
-    def getAssignments(self):
-        return self.assignments
+
+    def getArguments(self):
+        return self.arguments
+
 
     def setCopyFrom(self, copyFrom:IExpression):
         self.copyFrom = copyFrom
 
+
     def getCopyFrom(self):
         return self.copyFrom
+
 
     def __str__(self):
         with StringIO() as sb:
@@ -41,10 +46,11 @@ class ConstructorExpression(IExpression):
                 sb.write("(from:")
                 sb.write(str(self.copyFrom))
                 sb.write(") ")
-            if self.assignments is not None:
+            if self.arguments is not None:
                 sb.write("with ")
-                sb.write(str(self.assignments))
+                sb.write(str(self.arguments))
             return sb.getvalue()
+
 
     def toDialect(self, writer):
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
@@ -60,21 +66,21 @@ class ConstructorExpression(IExpression):
         if self.copyFrom is not None:
             writer.append(" from ")
             writer.append(str(self.copyFrom))
-            if self.assignments is not None and len(self.assignments)>0:
+            if self.arguments is not None and len(self.arguments)>0:
                 writer.append(",")
-        if self.assignments is not None:
-            self.assignments.toDialect(writer)
+        if self.arguments is not None:
+            self.arguments.toDialect(writer)
 
 
     def toODialect(self, writer):
         self.itype.toDialect(writer)
-        assignments = ArgumentList()
+        arguments = ArgumentList()
         if self.copyFrom is not None:
             from prompto.param.AttributeParameter import AttributeParameter
-            assignments.append(Argument(AttributeParameter("from"), self.copyFrom))
-        if self.assignments is not None:
-            assignments.extend(self.assignments)
-        assignments.toDialect(writer)
+            arguments.append(Argument(AttributeParameter("from"), self.copyFrom))
+        if self.arguments is not None:
+            arguments.extend(self.arguments)
+        arguments.toDialect(writer)
 
 
     def toMDialect(self, writer):
@@ -84,16 +90,16 @@ class ConstructorExpression(IExpression):
     def checkFirstHomonym(self, context, decl):
         if self.checked:
             return
-        if self.assignments is not None and len(self.assignments)>0:
-            assign = self.assignments[0]
-            if assign.parameter is None:
+        if self.arguments is not None and len(self.arguments)>0:
+            argument = self.arguments[0]
+            if argument.parameter is None:
                 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
                 from prompto.expression.InstanceExpression import InstanceExpression
-                name = assign.expression.name if isinstance(assign.expression, (UnresolvedIdentifier, InstanceExpression)) else None
+                name = argument.expression.name if isinstance(argument.expression, (UnresolvedIdentifier, InstanceExpression)) else None
                 if name is not None and decl.hasAttribute(context, name):
                     from prompto.param.AttributeParameter import AttributeParameter
-                    assign.parameter = AttributeParameter(name)
-                    assign.expression = None
+                    argument.parameter = AttributeParameter(name)
+                    argument.expression = None
         self.checked = True
 
 
@@ -109,13 +115,14 @@ class ConstructorExpression(IExpression):
             cft = self.copyFrom.check(context)
             if not isinstance(cft, (CategoryType, DocumentType)):
                 raise SyntaxError("Cannot copy from " + cft.getName())
-        if self.assignments is not None:
-            for assignment in self.assignments:
-                if not cd.hasAttribute(context, assignment.getName()):
-                    raise SyntaxError("\"" + assignment.getName() +
+        if self.arguments is not None:
+            for argument in self.arguments:
+                if not cd.hasAttribute(context, argument.getName()):
+                    raise SyntaxError("\"" + argument.getName() +
                         "\" is not an attribute of " + self.itype.typeName)
-                assignment.check(context)
+                argument.check(context)
         return cd.getType(context)
+
 
     def interpret(self, context:Context):
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
@@ -146,11 +153,11 @@ class ConstructorExpression(IExpression):
                             raise NotMutableError()
                         # TODO convert to attribute type
                         instance.setMember(context, name, value)
-        if self.assignments is not None:
-            for assignment in self.assignments:
-                value = assignment.getExpression().interpret(context)
+        if self.arguments is not None:
+            for argument in self.arguments:
+                value = argument.getExpression().interpret(context)
                 if value is not None and value.mutable and not self.itype.mutable:
                     raise NotMutableError()
-                instance.setMember(context, assignment.getName(), value)
+                instance.setMember(context, argument.getName(), value)
         instance.mutable = self.itype.mutable
         return instance

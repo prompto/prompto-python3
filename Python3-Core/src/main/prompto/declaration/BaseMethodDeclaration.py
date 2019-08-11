@@ -64,60 +64,64 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
         except SyntaxError as e:
             raise Exception(e)
 
-    def isAssignableTo(self, context, assignments, checkInstance):
+    def isAssignableTo(self, context, arguments, checkInstance):
         from prompto.grammar.ArgumentList import ArgumentList
         try:
             local = context.newLocalContext()
             self.registerArguments(local)
-            assignmentsList = ArgumentList(items=assignments)
+            argumentsList = ArgumentList(items=arguments)
             for argument in self.arguments:
-                assignment = assignmentsList.find(argument.getName())
-                toRemove = assignment
-                if assignment is None:  # missing argument
+                found = argumentsList.find(argument.getName())
+                toRemove = found
+                if found is None:  # missing argument
                     if argument.defaultExpression is None:
                         return False
-                    assignment = Argument(argument, argument.defaultExpression)
-                if not self.isArgAssignableTo(local, argument, assignment, checkInstance):
+                    found = Argument(argument, argument.defaultExpression)
+                if not self.isArgAssignableTo(local, argument, found, checkInstance):
                     return False
                 if toRemove is not None:
-                    assignmentsList.remove(toRemove)
-            return len(assignmentsList)==0
+                    argumentsList.remove(toRemove)
+            return len(argumentsList)==0
         except SyntaxError:
             return False
 
-    def isArgAssignableTo(self, context, argument, assignment, checkInstance):
-        from prompto.grammar.Specificity import Specificity
-        return self.computeSpecificity(context, argument, assignment, checkInstance) != Specificity.INCOMPATIBLE
 
-    def computeSpecificity(self, context, argument, assignment, checkInstance):
+    def isArgAssignableTo(self, context, parameter, argument, checkInstance):
+        from prompto.grammar.Specificity import Specificity
+        return self.computeSpecificity(context, parameter, argument, checkInstance) != Specificity.INCOMPATIBLE
+
+
+    def computeSpecificity(self, context, parameter, argument, checkInstance):
         from prompto.error.PromptoError import PromptoError
         from prompto.grammar.Specificity import Specificity
         from prompto.type.CategoryType import CategoryType
         from prompto.value.IInstance import IInstance
 
         try:
-            required = argument.getType(context)
-            actual = assignment.getExpression().check(context)
+            required = parameter.getType(context)
+            actual = argument.getExpression().check(context)
             # retrieve actual runtime type
             if checkInstance and isinstance(actual, CategoryType):
-                value = assignment.getExpression().interpret(context.getCallingContext())
+                value = argument.getExpression().interpret(context.getCallingContext())
                 if isinstance(value, IInstance):
                     actual = value.getType()
             if actual == required:
                 return Specificity.EXACT
             if required.isAssignableFrom(context, actual):
                 return Specificity.INHERITED
-            actual = assignment.resolve(context, self, checkInstance).check(context)
+            actual = argument.resolve(context, self, checkInstance).check(context)
             if required.isAssignableFrom(context, actual):
                 return Specificity.RESOLVED
         except PromptoError:
             pass
         return Specificity.INCOMPATIBLE
 
+
     def interpret(self, context):
         from prompto.error.InternalError import InternalError
 
         raise InternalError("Should never get there!")
+
 
     def isEligibleAsMain(self):
         return False

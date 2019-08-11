@@ -19,11 +19,11 @@ from prompto.utils.CodeWriter import CodeWriter
 
 class UnresolvedCall(BaseStatement):
 
-    def __init__(self, caller:IExpression, assignments:ArgumentList):
+    def __init__(self, caller:IExpression, arguments:ArgumentList):
         super().__init__()
         self.resolved = None
         self.caller = caller
-        self.assignments = assignments
+        self.arguments = arguments
 
 
     def isSimple(self):
@@ -36,8 +36,8 @@ class UnresolvedCall(BaseStatement):
             self.resolved.toDialect(writer)
         except:
             self.caller.toDialect(writer)
-            if self.assignments is not None:
-                self.assignments.toDialect(writer)
+            if self.arguments is not None:
+                self.arguments.toDialect(writer)
 
 
     def check(self, context:Context):
@@ -67,7 +67,7 @@ class UnresolvedCall(BaseStatement):
 
 
     def resolveUnresolvedSelector(self, context:Context):
-        self.caller.resolveMethod(context, self.assignments)
+        self.caller.resolveMethod(context, self.arguments)
         return self.caller.resolved
 
 
@@ -78,13 +78,13 @@ class UnresolvedCall(BaseStatement):
         if instance is not None:
             decl = self.resolveUnresolvedMember(instance, name)
             if decl is not None:
-                return MethodCall(MethodSelector(name), self.assignments)
+                return MethodCall(MethodSelector(name), self.arguments)
         # it could be a reference to a local closure
         named = context.getRegisteredValue(INamed, name)
         if named is not None:
             itype = named.getType(context)
             if isinstance(itype, MethodType):
-                call = MethodCall(MethodSelector(name), self.assignments)
+                call = MethodCall(MethodSelector(name), self.arguments)
                 call.variableName = name
                 return call
         # can only be global then
@@ -92,9 +92,9 @@ class UnresolvedCall(BaseStatement):
         if decl is None:
             raise SyntaxError("Unknown name:" + name)
         if isinstance(decl, CategoryDeclaration):
-            return ConstructorExpression(CategoryType(name), None, self.assignments, False)
+            return ConstructorExpression(CategoryType(name), None, self.arguments, False)
         else:
-            return MethodCall(MethodSelector(name), self.assignments)
+            return MethodCall(MethodSelector(name), self.arguments)
 
 
     def resolveUnresolvedMember(self, context:InstanceContext, name:str):
@@ -109,7 +109,7 @@ class UnresolvedCall(BaseStatement):
     def resolveMember(self, context:Context):
         parent = self.caller.parent
         name = self.caller.name
-        return MethodCall(MethodSelector(name, parent), self.assignments)
+        return MethodCall(MethodSelector(name, parent), self.arguments)
 
 
     def interpretAssert(self, context, testMethodDeclaration):

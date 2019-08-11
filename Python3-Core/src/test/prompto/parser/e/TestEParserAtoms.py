@@ -281,7 +281,7 @@ class TestParserAtoms(unittest.TestCase):
         statement = "Company with 1 as id, \"IBM\" as name"
         c = self.parse(statement,ECleverParser.constructor_expression)
         self.assertIsNotNone(c)
-        l = c.getAssignments()
+        l = c.getArguments()
         self.assertIsNotNone(l)
         self.assertEquals(2, len(l))
         a = l[0]
@@ -302,7 +302,7 @@ class TestParserAtoms(unittest.TestCase):
         statement = "Company with 1 as id and \"IBM\" as name"
         c = self.parse(statement,ECleverParser.constructor_expression)
         self.assertIsNotNone(c)
-        l = c.getAssignments()
+        l = c.getArguments()
         self.assertIsNotNone(l)
         self.assertEquals(2, len(l))
         a = l[0]

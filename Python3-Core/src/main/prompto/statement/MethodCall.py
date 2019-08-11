@@ -13,14 +13,14 @@ from prompto.utils.CodeWriter import CodeWriter
 
 class MethodCall(SimpleStatement):
 
-    def __init__(self, selector, assignments=None):
+    def __init__(self, selector, arguments=None):
         super().__init__()
         self.selector = selector
-        self.assignments = assignments
+        self.arguments = arguments
 
 
     def __str__(self):
-        suffix = str(self.assignments) if self.assignments != None else ""
+        suffix = str(self.arguments) if self.arguments != None else ""
         return str(self.selector) + suffix
 
 
@@ -52,37 +52,37 @@ class MethodCall(SimpleStatement):
 
     def fullCheck(self, declaration, parent, local):
         try:
-            assignments = self.makeAssignments(parent, declaration)
+            arguments = self.makeArguments(parent, declaration)
             declaration.registerArguments(local)
-            for assignment in assignments:
-                expression = assignment.resolve(local, declaration, True)
-                value = assignment.getParameter().checkValue(parent, expression)
-                local.setValue(assignment.getName(), value)
+            for argument in arguments:
+                expression = argument.resolve(local, declaration, True)
+                value = argument.getParameter().checkValue(parent, expression)
+                local.setValue(argument.getName(), value)
             return declaration.check(local, False)
         except PromptoError as e:
             raise SyntaxError(e.message)
 
 
-    def makeAssignments(self, context, declaration):
-        if self.assignments == None:
+    def makeArguments(self, context, declaration):
+        if self.arguments == None:
             return ArgumentList()
         else:
-            return self.assignments.makeAssignments(context, declaration)
+            return self.arguments.makeArguments(context, declaration)
 
 
     def interpret(self, context):
         declaration = self.findDeclaration(context)
         local = self.selector.newLocalContext(context, declaration)
         declaration.registerArguments(local)
-        assignments = self.makeAssignments(context, declaration)
-        for assignment in assignments:
-            expression = assignment.resolve(local, declaration, True)
-            argument = assignment.getParameter()
-            value = argument.checkValue(context, expression)
-            if value is not None and argument.mutable and not value.mutable:
+        arguments = self.makeArguments(context, declaration)
+        for argument in arguments:
+            expression = argument.resolve(local, declaration, True)
+            parameter = argument.getParameter()
+            value = parameter.checkValue(context, expression)
+            if value is not None and parameter.mutable and not value.mutable:
                 from prompto.error.NotMutableError import NotMutableError
                 raise NotMutableError()
-            local.setValue(assignment.getName(), value)
+            local.setValue(argument.getName(), value)
         return declaration.interpret(local)
 
 
@@ -111,14 +111,14 @@ class MethodCall(SimpleStatement):
         if self.requiresInvoke(writer):
             writer.append("invoke: ")
         self.selector.toDialect(writer)
-        if self.assignments is not None:
-            self.assignments.toDialect(writer)
+        if self.arguments is not None:
+            self.arguments.toDialect(writer)
         elif writer.dialect is not Dialect.E:
             writer.append("()")
 
 
     def requiresInvoke(self, writer):
-        if writer.dialect is not Dialect.E or (self.assignments is not None and len(self.assignments) > 0):
+        if writer.dialect is not Dialect.E or (self.arguments is not None and len(self.arguments) > 0):
             return False
         try:
             finder = MethodFinder(writer.context, self)

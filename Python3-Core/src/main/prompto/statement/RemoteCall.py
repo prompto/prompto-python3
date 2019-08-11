@@ -10,8 +10,8 @@ from prompto.type.VoidType import VoidType
 
 class RemoteCall(UnresolvedCall):
 
-    def __init__(self, caller:IExpression, assignments:ArgumentList, resultName:str, andThen:StatementList):
-        super().__init__(caller, assignments)
+    def __init__(self, caller:IExpression, arguments:ArgumentList, resultName:str, andThen:StatementList):
+        super().__init__(caller, arguments)
         self.resultName = resultName
         self.andThen = andThen
 
