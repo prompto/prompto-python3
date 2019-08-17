@@ -1,7 +1,9 @@
+from numbers import Number
+
+from prompto.type.BooleanType import BooleanType
 from prompto.type.IType import IType
-from prompto.type.IntegerType import *
-from prompto.type.NativeType import *
-from prompto.value.Decimal import *
+from prompto.type.NativeType import NativeType
+from prompto.value.Decimal import Decimal
 from prompto.store.TypeFamily import TypeFamily
 
 

@@ -354,7 +354,7 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         # find best candidate
         candidate = None
         for method in methods.values():
-            potential = method.arguments[0].getType(context)
+            potential = method.parameters[0].getType(context)
             if not potential.isAssignableFrom(context, type):
                 continue
             if candidate is None:

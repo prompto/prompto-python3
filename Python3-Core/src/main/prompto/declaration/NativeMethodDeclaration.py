@@ -33,7 +33,7 @@ class NativeMethodDeclaration(ConcreteMethodDeclaration):
             writer.append("native ")
         writer.append(self.name)
         writer.append(" (")
-        self.arguments.toDialect(writer)
+        self.parameters.toDialect(writer)
         writer.append(")")
         if self.returnType is not None and self.returnType is not VoidType.instance:
             writer.append("->")
@@ -53,7 +53,7 @@ class NativeMethodDeclaration(ConcreteMethodDeclaration):
         writer.append("method ")
         writer.append(self.name)
         writer.append(" (")
-        self.arguments.toDialect(writer)
+        self.parameters.toDialect(writer)
         writer.append(") {\n")
         writer.indent()
         for stmt in self.statements:
@@ -70,7 +70,7 @@ class NativeMethodDeclaration(ConcreteMethodDeclaration):
         if self.memberOf is None:
             writer.append("native ")
         writer.append("method ")
-        self.arguments.toDialect(writer)
+        self.parameters.toDialect(writer)
         if self.returnType is not None and self.returnType is not VoidType.instance:
             writer.append("returning ")
             self.returnType.toDialect(writer)

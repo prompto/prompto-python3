@@ -15,14 +15,18 @@ class UnresolvedParameter (INamedParameter):
         self.defaultValue = None
         self.resolved = None
 
+
     def getSignature(self, dialect):
         return self.getName()
+
 
     def getName(self):
         return self.name
 
+
     def __str__(self):
         return self.name
+
 
     def toDialect(self, writer):
         writer.append(self.name)
@@ -30,23 +34,29 @@ class UnresolvedParameter (INamedParameter):
             writer.append(" = ")
             self.defaultValue.toDialect(writer)
 
+
     def check(self, context):
         self.resolveAndCheck(context)
 
+
     def getProto(self):
         return self.name
+
 
     def getType(self, context):
         self.resolveAndCheck(context)
         return self.resolved.getType(context)
 
+
     def register(self, context):
         self.resolveAndCheck(context)
         self.resolved.register(context)
 
+
     def checkValue(self, context, value):
         self.resolveAndCheck(context)
         return self.resolved.checkValue(context, value)
+
 
     def resolveAndCheck(self, context):
         if self.resolved is not None:

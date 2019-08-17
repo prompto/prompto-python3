@@ -233,6 +233,6 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         context = context.newInstanceContext(self, None)
         local = context.newChildContext()
         decl.registerArguments(local)
-        arg = decl.arguments[0]
+        arg = decl.parameters[0]
         local.setValue(arg.name, value)
         return decl.interpret(local)

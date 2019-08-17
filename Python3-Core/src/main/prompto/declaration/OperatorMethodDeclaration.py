@@ -17,7 +17,7 @@ class OperatorMethodDeclaration(ConcreteMethodDeclaration, IExpression):
         writer.append("def operator ")
         writer.append(self.operator.token)
         writer.append(" (")
-        self.arguments.toDialect(writer)
+        self.parameters.toDialect(writer)
         writer.append(")")
         if self.returnType is not None and self.returnType is not VoidType.instance:
             writer.append("->")
@@ -31,7 +31,7 @@ class OperatorMethodDeclaration(ConcreteMethodDeclaration, IExpression):
         writer.append("define ")
         writer.append(self.operator.token)
         writer.append(" as operator ")
-        self.arguments.toDialect(writer)
+        self.parameters.toDialect(writer)
         if self.returnType is not None and self.returnType is not VoidType.instance:
             writer.append("returning ")
             self.returnType.toDialect(writer)
@@ -48,7 +48,7 @@ class OperatorMethodDeclaration(ConcreteMethodDeclaration, IExpression):
         writer.append("operator ")
         writer.append(self.operator.token)
         writer.append(" (")
-        self.arguments.toDialect(writer)
+        self.parameters.toDialect(writer)
         writer.append(") {\n")
         writer.indent()
         self.statements.toDialect(writer)

@@ -1,5 +1,5 @@
-from prompto.literal.Literal import *
-from prompto.type.TextType import *
+from prompto.literal.Literal import Literal
+from prompto.type.TextType import TextType
 from prompto.utils.StringUtils import unescape
 
 class TextLiteral(Literal):

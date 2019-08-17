@@ -1,5 +1,6 @@
 from prompto.grammar.IDialectElement import IDialectElement
 from prompto.runtime.Variable import *
+from prompto.type.MethodType import MethodType
 from prompto.type.VoidType import *
 from prompto.value.ContextualExpression import *
 from prompto.value.IInstance import *
@@ -93,17 +94,19 @@ class Argument(IDialectElement):
 
     def resolve(self, context, methodDeclaration, checkInstance):
         from prompto.type.CategoryType import CategoryType
+        from prompto.expression.ArrowExpression import ArrowExpression
         # since we support implicit members, it's time to resolve them
         name = self.parameter.getName()
         expression = self.getExpression()
         argument = methodDeclaration.getArguments().find(name)
-        required = argument.getType(context)
-        actual = expression.check(context.getCallingContext())
-        if checkInstance and isinstance(actual, CategoryType):
+        requiredType = argument.getType(context)
+        checkArrow = isinstance(requiredType, MethodType) and isinstance(expression, ContextualExpression) and isinstance(expression.expression, ArrowExpression)
+        actualType = requiredType.checkArrowExpression(expression) if checkArrow else expression.check(context.getCallingContext())
+        if checkInstance and isinstance(actualType, CategoryType):
             value = expression.interpret(context.getCallingContext())
             if isinstance(value, IInstance):
-                actual = value.getType()
-        if not required.isAssignableFrom(context, actual) and isinstance(actual, CategoryType):
+                actualType = value.getType()
+        if not requiredType.isAssignableFrom(context, actualType) and isinstance(actualType, CategoryType):
             from prompto.expression.MemberSelector import MemberSelector
             expression = MemberSelector(name, expression)
         return expression

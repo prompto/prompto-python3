@@ -1,5 +1,6 @@
 from prompto.expression.IExpression import IExpression
 from prompto.parser.Dialect import Dialect
+from prompto.runtime.Context import Context
 from prompto.runtime.Variable import Variable
 from prompto.error.SyntaxError import SyntaxError
 from functools import total_ordering
@@ -15,6 +16,23 @@ class ArrowExpression ( IExpression ):
         self.argsSuite = argsSuite
         self.arrowSuite = arrowSuite
         self.statements = None
+
+
+    def __str__(self):
+        return self.toString(Context.newGlobalContext())
+
+
+    def toString(self, context: Context):
+        try:
+            writer = CodeWriter(Dialect.E, context)
+            self.toDialect(writer)
+            return writer.__str__()
+        except:
+            return ""
+
+
+    def interpret(self, context):
+        return self.statements.interpret(context)
 
 
     def setExpression(self, expression):

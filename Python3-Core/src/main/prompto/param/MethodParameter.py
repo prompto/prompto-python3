@@ -1,22 +1,31 @@
+from prompto.expression.ArrowExpression import ArrowExpression
 from prompto.param.BaseParameter import BaseParameter
 from prompto.param.INamedParameter import INamedParameter
 from prompto.grammar.INamedValue import INamedValue
+from prompto.runtime.Context import Context
 from prompto.type.MethodType import MethodType
 from prompto.error.SyntaxError import SyntaxError
+from prompto.value.ArrowValue import ArrowValue
+from prompto.value.ContextualExpression import ContextualExpression
+
 
 class MethodParameter (BaseParameter, INamedParameter):
 
     def __init__(self, name):
         super(MethodParameter, self).__init__(name)
 
+
     def getSignature(self, dialect):
         return self.getName()
+
 
     def __str__(self):
         return self.getName()
 
+
     def getProto(self):
         return self.getName()
+
 
     def __eq__(self, obj):
         if id(obj)==id(self):
@@ -27,20 +36,36 @@ class MethodParameter (BaseParameter, INamedParameter):
             return False
         return self.getName()==obj.getName()
 
+
     def register(self, context):
         actual = context.getRegisteredValue(INamedValue, self.name)
         if actual is not None:
             raise SyntaxError("Duplicate argument: \"" + self.name + "\"")
         context.registerValue(self)
 
+
     def check(self, context):
         actual = context.getRegisteredValue(INamedValue, context)
         if actual is None:
             raise SyntaxError("Unknown method: \"" + self.name + "\"")
 
+
+    def checkValue(self, context, expression):
+        isArrow = isinstance(expression, ContextualExpression) and isinstance(expression.expression, ArrowExpression)
+        if isArrow:
+            return self.checkArrowValue(context, expression)
+        else:
+            return super().checkValue(context, expression)
+
+
+    def checkArrowValue(self, context: Context, expression: ContextualExpression):
+        return ArrowValue(self.getDeclaration(context), expression.calling, expression.expression) # TODO check
+
+
     def getType(self, context):
         method = self.getDeclaration(context)
         return MethodType(method)
+
 
     def getDeclaration(self, context):
         from prompto.runtime.Context import MethodDeclarationMap

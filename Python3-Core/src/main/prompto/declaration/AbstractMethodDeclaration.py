@@ -12,8 +12,8 @@ class AbstractMethodDeclaration(BaseMethodDeclaration):
         pass  # TODO
 
     def check(self, context, isStart:bool):
-        if self.arguments is not None:
-            self.arguments.check(context)
+        if self.parameters is not None:
+            self.parameters.check(context)
         if isStart:
             local = context.newLocalContext()
             self.registerArguments(local)
@@ -26,7 +26,7 @@ class AbstractMethodDeclaration(BaseMethodDeclaration):
         writer.append("abstract def ")
         writer.append(self.name)
         writer.append(" (")
-        self.arguments.toDialect(writer)
+        self.parameters.toDialect(writer)
         writer.append(")")
         if self.returnType is not None and self.returnType is not VoidType.instance:
             writer.append("->")
@@ -40,14 +40,14 @@ class AbstractMethodDeclaration(BaseMethodDeclaration):
         writer.append("method ")
         writer.append(self.name)
         writer.append(" (")
-        self.arguments.toDialect(writer)
+        self.parameters.toDialect(writer)
         writer.append(");")
 
     def toEDialect(self, writer):
         writer.append("define ")
         writer.append(self.name)
         writer.append(" as abstract method ")
-        self.arguments.toDialect(writer)
+        self.parameters.toDialect(writer)
         if self.returnType is not None and self.returnType is not VoidType.instance:
             writer.append("returning ")
             self.returnType.toDialect(writer)

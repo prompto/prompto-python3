@@ -5,14 +5,16 @@ from prompto.declaration.BaseDeclaration import *
 from prompto.declaration.IMethodDeclaration import IMethodDeclaration
 from prompto.error.SyntaxError import SyntaxError
 from prompto.grammar.Argument import Argument
+from prompto.type.MethodType import MethodType
+from prompto.value.ContextualExpression import ContextualExpression
 
 
 class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
 
-    def __init__(self, name, arguments, returnType=None):
+    def __init__(self, name, parameters, returnType=None):
         super().__init__(name)
         from prompto.param.ParameterList import ParameterList
-        self.arguments = arguments if arguments is not None else ParameterList()
+        self.parameters = parameters if parameters is not None else ParameterList()
         self.returnType = returnType
         self.memberOf = None
         self.closureOf = None
@@ -22,10 +24,10 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
             try:
                 sb.write(self.getName())
                 sb.write('(')
-                for arg in self.arguments:
+                for arg in self.parameters:
                     sb.write(arg.getSignature(dialect))
                     sb.write(", ")
-                if self.arguments.size() > 0:
+                if self.parameters.size() > 0:
                     sb.seek(-2, os.SEEK_CUR)  # strip ", "
                 sb.write(')')
                 return sb.getvalue()
@@ -34,11 +36,11 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
 
 
     def __str__(self):
-        return self.getName() + ":(" + str(self.arguments) + ')'
+        return self.getName() + ":(" + str(self.parameters) + ')'
 
     def getProto(self):
         with StringIO() as sb:
-            for arg in self.arguments:
+            for arg in self.parameters:
                 sb.write(arg.getProto())
                 sb.write('/')
             val = sb.getvalue()
@@ -47,7 +49,7 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
         return val
 
     def getArguments(self):
-        return self.arguments
+        return self.parameters
 
     def getReturnType(self):
         return self.returnType
@@ -56,7 +58,7 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
         context.registerMethodDeclaration(self)
 
     def registerArguments(self, context):
-        self.arguments.register(context)
+        self.parameters.register(context)
 
     def getType(self, context):
         try:
@@ -70,7 +72,7 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
             local = context.newLocalContext()
             self.registerArguments(local)
             argumentsList = ArgumentList(items=arguments)
-            for argument in self.arguments:
+            for argument in self.parameters:
                 found = argumentsList.find(argument.getName())
                 toRemove = found
                 if found is None:  # missing argument
@@ -96,21 +98,24 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
         from prompto.grammar.Specificity import Specificity
         from prompto.type.CategoryType import CategoryType
         from prompto.value.IInstance import IInstance
+        from prompto.expression.ArrowExpression import ArrowExpression
 
         try:
-            required = parameter.getType(context)
-            actual = argument.getExpression().check(context)
+            requiredType = parameter.getType(context)
+            expression = argument.getExpression()
+            checkArrow = isinstance(requiredType, MethodType) and isinstance(expression, ContextualExpression) and isinstance(expression.expression, ArrowExpression)
+            actualType = requiredType.checkArrowExpression(expression) if checkArrow else expression.check(context)
             # retrieve actual runtime type
-            if checkInstance and isinstance(actual, CategoryType):
+            if checkInstance and isinstance(actualType, CategoryType):
                 value = argument.getExpression().interpret(context.getCallingContext())
                 if isinstance(value, IInstance):
-                    actual = value.getType()
-            if actual == required:
+                    actualType = value.getType()
+            if actualType == requiredType:
                 return Specificity.EXACT
-            if required.isAssignableFrom(context, actual):
+            if requiredType.isAssignableFrom(context, actualType):
                 return Specificity.INHERITED
-            actual = argument.resolve(context, self, checkInstance).check(context)
-            if required.isAssignableFrom(context, actual):
+            actualType = argument.resolve(context, self, checkInstance).check(context)
+            if requiredType.isAssignableFrom(context, actualType):
                 return Specificity.RESOLVED
         except PromptoError:
             pass

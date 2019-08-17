@@ -10,6 +10,9 @@ class TestArrow(BaseOParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testArrowArgument(self):
+        self.checkOutput("arrow/arrowArgument.poc")
+
     def testFilterFromList(self):
         self.checkOutput("arrow/filterFromList.poc")
 

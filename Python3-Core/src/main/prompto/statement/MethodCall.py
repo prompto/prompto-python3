@@ -1,4 +1,5 @@
 from prompto.declaration.AbstractMethodDeclaration import AbstractMethodDeclaration
+from prompto.declaration.ArrowDeclaration import ArrowDeclaration
 from prompto.declaration.IDeclaration import IDeclaration
 from prompto.runtime.Context import MethodDeclarationMap
 from prompto.statement.SimpleStatement import SimpleStatement
@@ -6,6 +7,7 @@ from prompto.declaration.ConcreteMethodDeclaration import *
 from prompto.grammar.ArgumentList import *
 from prompto.runtime.MethodFinder import *
 from prompto.declaration.ClosureDeclaration import ClosureDeclaration
+from prompto.value.ArrowValue import ArrowValue
 from prompto.value.ClosureValue import ClosureValue
 from prompto.value.Boolean import Boolean
 from prompto.parser.Dialect import Dialect
@@ -101,6 +103,8 @@ class MethodCall(SimpleStatement):
             o = context.getValue(self.selector.getName())
             if isinstance(o, ClosureValue):
                 return ClosureDeclaration(o)
+            elif isinstance(o, ArrowValue):
+                return ArrowDeclaration(o)
         except PromptoError:
             pass
         finder = MethodFinder(context, self)

@@ -1,4 +1,3 @@
-from prompto.expression.ArrowExpression import ArrowExpression
 from prompto.type.BaseType import BaseType
 
 
@@ -57,6 +56,7 @@ class NativeType ( BaseType ):
 
 
     def getSortKeyReader(self, context, expression):
+        from prompto.expression.ArrowExpression import ArrowExpression
         if isinstance(expression, ArrowExpression):
             return expression.getSortKeyReader(context, self)
         else:

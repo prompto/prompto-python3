@@ -2,7 +2,7 @@ from prompto.declaration.IDeclaration import IDeclaration
 from prompto.type.BaseType import BaseType
 from prompto.error.SyntaxError import SyntaxError
 from prompto.store.TypeFamily import TypeFamily
-
+from prompto.value.ContextualExpression import ContextualExpression
 
 
 class MethodType(BaseType):
@@ -11,6 +11,7 @@ class MethodType(BaseType):
         super(MethodType, self).__init__(TypeFamily.METHOD)
         self.method = method
         self.typeName = method.name
+
 
     def __eq__(self, obj):
         if id(obj) == id(self):
@@ -21,10 +22,12 @@ class MethodType(BaseType):
             return False
         return self.method.getProto() == obj.method.getProto()
 
+
     def checkUnique(self, context):
         actual = context.getRegisteredDeclaration(IDeclaration, self.typeName)
         if actual is not None:
             raise SyntaxError("Duplicate name: \"" + self.typeName + "\"")
+
 
     def checkExists(self, context):
         pass
@@ -33,3 +36,7 @@ class MethodType(BaseType):
     def isMoreSpecificThan(self, context, other):
         # TODO Auto-generated method stub
         return False
+
+
+    def checkArrowExpression(self, expression: ContextualExpression):
+        return self

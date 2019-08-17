@@ -1,11 +1,16 @@
 from numbers import Number
-from prompto.type.CharacterType import *
+
+from prompto.declaration.BuiltInMethodDeclaration import BuiltInMethodDeclaration
+from prompto.type.BooleanType import BooleanType
+from prompto.type.NativeType import NativeType
+from prompto.type.CharacterType import CharacterType
 from prompto.type.IType import IType
-from prompto.type.ListType import *
-from prompto.type.PeriodType import *
-from prompto.type.RangeType import *
-from prompto.type.TextType import *
-from prompto.value.IntegerRange import *
+from prompto.type.ListType import ListType
+from prompto.type.PeriodType import PeriodType
+from prompto.type.RangeType import RangeType
+from prompto.type.TextType import TextType
+from prompto.value.Integer import Integer
+from prompto.value.IntegerRange import IntegerRange
 from prompto.store.TypeFamily import TypeFamily
 
 
