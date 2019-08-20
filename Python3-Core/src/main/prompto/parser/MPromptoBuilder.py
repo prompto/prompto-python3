@@ -1,6 +1,7 @@
 from antlr4 import ParserRuleContext, Token
 from antlr4.tree.Tree import ParseTree, TerminalNode
 
+from prompto.literal.TypeLiteral import TypeLiteral
 from prompto.param.CategoryParameter import CategoryParameter
 from prompto.param.CodeParameter import CodeParameter
 from prompto.param.UnresolvedParameter import UnresolvedParameter
@@ -549,7 +550,7 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitBooleanLiteral(self, ctx:MParser.BooleanLiteralContext):
-        self.setNodeValue(ctx, BooleanLiteral(ctx.t.text))
+        self.setNodeValue(ctx, BooleanLiteral(ctx.getText()))
 
 
 
@@ -650,7 +651,7 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitCharacterLiteral(self, ctx:MParser.CharacterLiteralContext):
-        self.setNodeValue(ctx, CharacterLiteral(ctx.t.text))
+        self.setNodeValue(ctx, CharacterLiteral(ctx.getText()))
 
 
     def exitCharacterType(self, ctx:MParser.CharacterTypeContext):
@@ -899,11 +900,11 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitDateLiteral(self, ctx:MParser.DateLiteralContext):
-        self.setNodeValue(ctx, DateLiteral(ctx.t.text))
+        self.setNodeValue(ctx, DateLiteral(ctx.getText()))
 
 
     def exitDateTimeLiteral(self, ctx:MParser.DateTimeLiteralContext):
-        self.setNodeValue(ctx, DateTimeLiteral(ctx.t.text))
+        self.setNodeValue(ctx, DateTimeLiteral(ctx.getText()))
 
 
     def exitDateTimeType(self, ctx:MParser.DateTimeTypeContext):
@@ -915,7 +916,7 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitDecimalLiteral(self, ctx:MParser.DecimalLiteralContext):
-        self.setNodeValue(ctx, DecimalLiteral(ctx.t.text))
+        self.setNodeValue(ctx, DecimalLiteral(ctx.getText()))
 
 
     def exitDecimalType(self, ctx:MParser.DecimalTypeContext):
@@ -1218,7 +1219,7 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitHexadecimalLiteral(self, ctx:MParser.HexadecimalLiteralContext):
-        self.setNodeValue(ctx, HexaLiteral(ctx.t.text))
+        self.setNodeValue(ctx, HexaLiteral(ctx.getText()))
 
 
     def exitIdentifierExpression(self, ctx:MParser.IdentifierExpressionContext):
@@ -1262,7 +1263,7 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitIntegerLiteral(self, ctx:MParser.IntegerLiteralContext):
-        self.setNodeValue(ctx, IntegerLiteral(ctx.t.text))
+        self.setNodeValue(ctx, IntegerLiteral(ctx.getText()))
 
 
 
@@ -2037,7 +2038,7 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitPeriodLiteral(self, ctx:MParser.PeriodLiteralContext):
-        self.setNodeValue(ctx, PeriodLiteral(ctx.t.text))
+        self.setNodeValue(ctx, PeriodLiteral(ctx.getText()))
 
 
 
@@ -2047,7 +2048,7 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitVersionLiteral(self, ctx: MParser.VersionLiteralContext):
-        self.setNodeValue(ctx, VersionLiteral(ctx.t.text))
+        self.setNodeValue(ctx, VersionLiteral(ctx.getText()))
 
 
 
@@ -2435,7 +2436,7 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitTextLiteral(self, ctx:MParser.TextLiteralContext):
-        self.setNodeValue(ctx, TextLiteral(ctx.t.text))
+        self.setNodeValue(ctx, TextLiteral(ctx.getText()))
 
 
     def exitTest_method_declaration(self, ctx:MParser.Test_method_declarationContext):
@@ -2460,7 +2461,7 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitTimeLiteral(self, ctx:MParser.TimeLiteralContext):
-        self.setNodeValue(ctx, TimeLiteral(ctx.t.text))
+        self.setNodeValue(ctx, TimeLiteral(ctx.getText()))
 
 
     def exitTimeType(self, ctx:MParser.TimeTypeContext):
@@ -2504,6 +2505,29 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, ctx.getText())
 
 
+    def exitType_identifier_list(self, ctx:MParser.Type_identifier_listContext):
+        items = IdentifierList()
+        for rule in ctx.type_identifier():
+            item = self.getNodeValue(rule)
+            items.append(item)
+        self.setNodeValue(ctx, items)
+
+
+    def exitType_literal(self, ctx:MParser.Type_literalContext):
+        typ = self.getNodeValue(ctx.typedef())
+        self.setNodeValue(ctx, TypeLiteral(typ))
+
+
+    def exitTypeIdentifier(self, ctx: MParser.TypeIdentifierContext):
+        name = self.getNodeValue(ctx.type_identifier())
+        self.setNodeValue(ctx, name)
+
+
+    def exitTypeLiteral(self, ctx:MParser.TypeLiteralContext):
+        typ = self.getNodeValue(ctx.type_literal())
+        self.setNodeValue(ctx, typ)
+
+
     def exitTyped_argument(self, ctx:MParser.Typed_argumentContext):
         typ = self.getNodeValue(ctx.typ)
         name = self.getNodeValue(ctx.name)
@@ -2515,25 +2539,12 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, arg)
 
 
-    def exitTypeIdentifier(self, ctx:MParser.TypeIdentifierContext):
-        name = self.getNodeValue(ctx.type_identifier())
-        self.setNodeValue(ctx, name)
-
-
-    def exitType_identifier_list(self, ctx:MParser.Type_identifier_listContext):
-        items = IdentifierList()
-        for rule in ctx.type_identifier():
-            item = self.getNodeValue(rule)
-            items.append(item)
-        self.setNodeValue(ctx, items)
-
-
     def exitUUIDType(self, ctx:MParser.UUIDTypeContext):
         self.setNodeValue(ctx, UUIDType.instance)
 
 
     def exitUUIDLiteral(self, ctx:MParser.UUIDLiteralContext):
-        self.setNodeValue(ctx, UUIDLiteral(ctx.t.text))
+        self.setNodeValue(ctx, UUIDLiteral(ctx.getText()))
 
 
     def exitValue_token(self, ctx:MParser.Value_tokenContext):

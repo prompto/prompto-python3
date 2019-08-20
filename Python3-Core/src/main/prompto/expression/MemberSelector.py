@@ -59,7 +59,7 @@ class MemberSelector (SelectorExpression):
             self.parent.toDialect(writer)
             writer.append(')')
         else:
-            self.parent.toDialect(writer)
+            self.parent.parentToDialect(writer)
 
 
     def parentToOMDialect(self, writer):
@@ -67,7 +67,7 @@ class MemberSelector (SelectorExpression):
         if isinstance(self.parent, ParenthesisExpression) and isinstance(self.parent.expression, UnresolvedCall):
             self.parent.expression.toDialect(writer)
         else:
-            self.parent.toDialect(writer)
+            self.parent.parentToDialect(writer)
 
 
     def check(self, context):
@@ -78,41 +78,11 @@ class MemberSelector (SelectorExpression):
     def interpret(self, context):
         # resolve parent to keep clarity
         parent = self.resolveParent(context)
-        # special case for singletons
-        value = self.interpretSingleton(context, parent)
-        if value is not None:
-            return value
-        # special case for 'static' type members (like Enum.symbols, Type.name etc...)
-        value = self.interpretTypeMember(context, parent)
-        if value is not None:
-            return value
-        # finally resolve instance member
-        return self.interpretInstanceMember(context, parent)
-
-
-    def interpretInstanceMember(self, context, parent):
         instance = parent.interpret(context)
         if instance is None or instance is NullValue.instance:
             raise NullReferenceError()
         else:
             return instance.getMemberValue(context, self.name, True)
-
-
-    def interpretTypeMember(self, context, parent):
-       if isinstance(parent, TypeExpression):
-           return parent.getMemberValue(context, self.name)
-       else:
-           return None
-
-
-    def interpretSingleton(self, context, parent):
-        from prompto.type.CategoryType import CategoryType
-        from prompto.type.EnumeratedCategoryType import EnumeratedCategoryType
-        if isinstance(parent, TypeExpression) and isinstance(parent.typ, CategoryType) and not isinstance(parent.typ, EnumeratedCategoryType):
-            instance = context.loadSingleton(parent.typ)
-            if instance is not None:
-                return instance.getMemberValue(context, self.name, False)
-        return None
 
 
     def resolveParent(self, context):

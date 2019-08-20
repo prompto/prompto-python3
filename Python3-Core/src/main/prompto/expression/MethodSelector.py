@@ -136,16 +136,24 @@ class MethodSelector(MemberSelector):
 
 
     def newInstanceContext(self, context:Context):
+        from prompto.type.CategoryType import CategoryType
+        from prompto.value.ConcreteInstance import ConcreteInstance
+        from prompto.value.NativeInstance import NativeInstance
+        from prompto.declaration.SingletonCategoryDeclaration import SingletonCategoryDeclaration
+
         value = self.parent.interpret(context)
         if value is None or value is NullValue.instance:
             from prompto.error.NullReferenceError import NullReferenceError
             raise NullReferenceError()
-        from prompto.type.CategoryType import CategoryType
-        if isinstance(value, TypeValue) and isinstance(value.value, CategoryType):
-            value = context.loadSingleton(value.value)
-        from prompto.value.ConcreteInstance import ConcreteInstance
-        from prompto.value.NativeInstance import NativeInstance
-        if isinstance(value, (ConcreteInstance, NativeInstance)):
+        if isinstance(value, TypeValue):
+            typ = value.value
+            if isinstance(typ, CategoryType):
+                decl = typ.getDeclaration(context)
+                if isinstance(decl, SingletonCategoryDeclaration):
+                    value = context.loadSingleton(value.value)
+        if isinstance(value, TypeValue):
+            return context.newChildContext()
+        elif isinstance(value, (ConcreteInstance, NativeInstance)):
             context = context.newInstanceContext(value, None)
             return context.newChildContext()
         else:

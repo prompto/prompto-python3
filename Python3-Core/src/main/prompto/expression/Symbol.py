@@ -9,17 +9,24 @@ class Symbol ( Section , INamedValue):
         self.symbol = symbol
         self.mutable = False
 
+
     def getSymbol(self):
         return self.symbol
+
 
     def getName(self):
         return self.symbol
 
+
     def register(self, context):
         context.registerValue(self)
+
 
     def getStorableData(self):
         return self.symbol
 
+
     def collectStorables(self, storables):
         pass
+
+

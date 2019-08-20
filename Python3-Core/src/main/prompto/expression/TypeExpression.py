@@ -1,6 +1,7 @@
 from prompto.expression.IExpression import IExpression
 from prompto.runtime.Context import Context
 from prompto.type.IType import IType
+from prompto.type.TypeType import TypeType
 from prompto.value.TypeValue import TypeValue
 
 
@@ -15,7 +16,7 @@ class TypeExpression(IExpression):
 
 
     def check(self, context:Context):
-        return self.typ
+        return TypeType(self.typ)
 
 
     def interpret(self, context:Context):
@@ -23,7 +24,7 @@ class TypeExpression(IExpression):
 
 
     def getMemberValue(self, context, name):
-        return self.typ.getMemberValue(context, name)
+        return self.typ.getStaticMemberValue(context, name)
 
 
     def toDialect(self, writer):

@@ -2,6 +2,7 @@ from antlr4 import Token
 from antlr4.ParserRuleContext import ParserRuleContext
 from antlr4.tree.Tree import ParseTree
 
+from prompto.literal.TypeLiteral import TypeLiteral
 from prompto.param.CategoryParameter import CategoryParameter
 from prompto.param.CodeParameter import CodeParameter
 from prompto.param.ExtendedParameter import ExtendedParameter
@@ -334,7 +335,7 @@ class OPromptoBuilder(OParserListener):
 
 
     def exitBooleanLiteral(self, ctx:OParser.BooleanLiteralContext):
-        self.setNodeValue(ctx, BooleanLiteral(ctx.t.text))
+        self.setNodeValue(ctx, BooleanLiteral(ctx.getText()))
     
 
     
@@ -354,32 +355,32 @@ class OPromptoBuilder(OParserListener):
 
     
     def exitIntegerLiteral(self, ctx:OParser.IntegerLiteralContext):
-        self.setNodeValue(ctx, IntegerLiteral(ctx.t.text))
+        self.setNodeValue(ctx, IntegerLiteral(ctx.getText()))
     
 
     
     def exitDecimalLiteral(self, ctx:OParser.DecimalLiteralContext):
-        self.setNodeValue(ctx, DecimalLiteral(ctx.t.text))
+        self.setNodeValue(ctx, DecimalLiteral(ctx.getText()))
     
 
     
     def exitHexadecimalLiteral(self, ctx:OParser.HexadecimalLiteralContext):
-        self.setNodeValue(ctx, HexaLiteral(ctx.t.text))
+        self.setNodeValue(ctx, HexaLiteral(ctx.getText()))
     
 
     
     def exitCharacterLiteral(self, ctx:OParser.CharacterLiteralContext):
-        self.setNodeValue(ctx, CharacterLiteral(ctx.t.text))
+        self.setNodeValue(ctx, CharacterLiteral(ctx.getText()))
     
 
     
     def exitDateLiteral(self, ctx:OParser.DateLiteralContext):
-        self.setNodeValue(ctx, DateLiteral(ctx.t.text))
+        self.setNodeValue(ctx, DateLiteral(ctx.getText()))
     
 
     
     def exitDateTimeLiteral(self, ctx:OParser.DateTimeLiteralContext):
-        self.setNodeValue(ctx, DateTimeLiteral(ctx.t.text))
+        self.setNodeValue(ctx, DateTimeLiteral(ctx.getText()))
     
 
 
@@ -402,17 +403,17 @@ class OPromptoBuilder(OParserListener):
 
 
     def exitTextLiteral(self, ctx:OParser.TextLiteralContext):
-        self.setNodeValue(ctx, TextLiteral(ctx.t.text))
+        self.setNodeValue(ctx, TextLiteral(ctx.getText()))
     
 
     
     def exitTimeLiteral(self, ctx:OParser.TimeLiteralContext):
-        self.setNodeValue(ctx, TimeLiteral(ctx.t.text))
+        self.setNodeValue(ctx, TimeLiteral(ctx.getText()))
     
 
     
     def exitPeriodLiteral(self, ctx:OParser.PeriodLiteralContext):
-        self.setNodeValue(ctx, PeriodLiteral(ctx.t.text))
+        self.setNodeValue(ctx, PeriodLiteral(ctx.getText()))
 
 
 
@@ -422,7 +423,7 @@ class OPromptoBuilder(OParserListener):
 
 
     def exitVersionLiteral(self, ctx: OParser.VersionLiteralContext):
-        self.setNodeValue(ctx, VersionLiteral(ctx.t.text))
+        self.setNodeValue(ctx, VersionLiteral(ctx.getText()))
 
 
 
@@ -731,7 +732,17 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, items)
 
 
-    
+    def exitTypeLiteral(self, ctx:OParser.TypeLiteralContext):
+        typ = self.getNodeValue(ctx.type_literal())
+        self.setNodeValue(ctx, typ)
+
+
+    def exitType_literal(self, ctx:OParser.Type_literalContext):
+        typ = self.getNodeValue(ctx.typedef())
+        self.setNodeValue(ctx, TypeLiteral(typ))
+
+
+
     def exitInstanceExpression(self, ctx:OParser.InstanceExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
@@ -1704,7 +1715,7 @@ class OPromptoBuilder(OParserListener):
 
 
     def exitUUIDLiteral(self, ctx:OParser.UUIDLiteralContext):
-        self.setNodeValue(ctx, UUIDLiteral(ctx.t.text))
+        self.setNodeValue(ctx, UUIDLiteral(ctx.getText()))
 
 
     

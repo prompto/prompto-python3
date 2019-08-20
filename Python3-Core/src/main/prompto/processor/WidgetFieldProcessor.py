@@ -1,5 +1,6 @@
 from prompto.expression.TypeExpression import TypeExpression
 from prompto.literal.TextLiteral import TextLiteral
+from prompto.literal.TypeLiteral import TypeLiteral
 from prompto.processor.AnnotationProcessor import AnnotationProcessor
 from prompto.error.SyntaxError import SyntaxError
 from prompto.runtime.Variable import Variable
@@ -19,7 +20,7 @@ class WidgetFieldProcessor(AnnotationProcessor):
         fieldType = annotation.getArgument("type")
         if not isinstance(fieldName, TextLiteral):
             raise SyntaxError("WidgetField requires a Text value for argument 'name'")
-        elif not isinstance(fieldType, TypeExpression):
+        elif not isinstance(fieldType, (TypeExpression, TypeLiteral)):
             raise SyntaxError("WidgetField requires a Type value for argument 'type'")
         else:
             name = str(fieldName)

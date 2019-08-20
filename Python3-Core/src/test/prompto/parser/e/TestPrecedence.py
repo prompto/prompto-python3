@@ -18,19 +18,19 @@ class TestPrecedence(BaseEParserTest):
         exp = self.parseExpression("1-2-3-4")
         context = Context.newGlobalContext()
         value = exp.interpret(context)
-        self.assertEquals(-8, value.IntegerValue())
+        self.assertEqual(-8, value.IntegerValue())
 
     def test2Plus3Minuses(self):
         exp = self.parseExpression("1+2-3+4-5-6")
         context = Context.newGlobalContext()
         value = exp.interpret(context)
-        self.assertEquals(-7, value.IntegerValue())
+        self.assertEqual(-7, value.IntegerValue())
 
     def test1Star1Plus(self):
         exp = self.parseExpression("1*2+3")
         context = Context.newGlobalContext()
         value = exp.interpret(context)
-        self.assertEquals(5, value.IntegerValue())
+        self.assertEqual(5, value.IntegerValue())
 
     def parseExpression(self, exp):
         parser = ECleverParser(text=exp)

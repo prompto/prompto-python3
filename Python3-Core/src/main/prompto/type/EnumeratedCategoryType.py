@@ -13,16 +13,22 @@ class EnumeratedCategoryType ( CategoryType ):
     def __init__(self, name):
         super(EnumeratedCategoryType, self).__init__(name, TypeFamily.ENUMERATED)
 
+
     def checkMember(self, context, name):
-        if "symbols"==name:
-            return ListType(self)
-        elif "name"==name:
+        if "name"==name:
             return TextType.instance
         else:
             return super(EnumeratedCategoryType, self).checkMember(context, name)
 
 
-    def getMemberValue(self, context:Context, name:str):
+    def checkStaticMember(self, context, name):
+        if "symbols"==name:
+            return ListType(self)
+        else:
+            return super(EnumeratedCategoryType, self).checkMember(context, name)
+
+
+    def getStaticMemberValue(self, context:Context, name:str):
         from prompto.declaration.EnumeratedCategoryDeclaration import EnumeratedCategoryDeclaration
         decl = context.getRegisteredDeclaration(IDeclaration, self.typeName)
         if not isinstance (decl, EnumeratedCategoryDeclaration):
@@ -33,11 +39,11 @@ class EnumeratedCategoryType ( CategoryType ):
             raise SyntaxError("Unknown member:" + name)
 
 
-    def getMemberMethods(self, context, name):
+    def getStaticMemberMethods(self, context, name):
         if name == "symbolOf":
             return [SymbolOfMethodDeclaration(self)]
         else:
-            return super(EnumeratedCategoryType, self).getMemberMethods(context, name)
+            return []
 
 
 class SymbolOfMethodDeclaration(BuiltInMethodDeclaration):

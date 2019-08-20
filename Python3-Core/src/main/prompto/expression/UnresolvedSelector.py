@@ -72,7 +72,11 @@ class UnresolvedSelector(SelectorExpression):
 
     def tryResolveMember(self, context):
         try:
-            member = MemberSelector(self.name, self.parent)
+            resolvedParent = self.parent
+            if isinstance(resolvedParent, UnresolvedIdentifier):
+                resolvedParent.checkMember(context)
+                resolvedParent = resolvedParent.resolved
+            member = MemberSelector(self.name, resolvedParent)
             member.check(context)
             return member
         except SyntaxError:

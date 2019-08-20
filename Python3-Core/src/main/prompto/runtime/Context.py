@@ -331,23 +331,23 @@ class Context(IContext):
         return None
 
 
-    def loadSingleton(self, type):
+    def loadSingleton(self, typ):
         if self is self.globals:
-            value = self.values.get(type.typeName, None)
+            value = self.values.get(typ.typeName, None)
             if value is None:
                 from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
-                decl = self.declarations.get(type.typeName, None)
+                decl = self.declarations.get(typ.typeName, None)
                 if not isinstance(decl, ConcreteCategoryDeclaration):
-                    raise InternalError("No such singleton:" + type.typeName)
+                    raise InternalError("No such singleton:" + typ.typeName)
                 value = ConcreteInstance(self, decl)
                 value.mutable = True # a singleton is protected by "with x do", so always mutable in that context
-                self.values[type.typeName] = value
+                self.values[typ.typeName] = value
             if isinstance(value, ConcreteInstance):
                 return value
             else:
                 raise InternalError("Not a concrete instance:" + str(value))
         else:
-            return self.globals.loadSingleton(type)
+            return self.globals.loadSingleton(typ)
 
 
     def enterMethod(self, method):

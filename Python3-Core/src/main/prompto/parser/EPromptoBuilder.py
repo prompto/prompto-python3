@@ -2,6 +2,7 @@ from antlr4 import TerminalNode, Token
 from antlr4.ParserRuleContext import ParserRuleContext
 from antlr4.tree.Tree import ParseTree
 
+from prompto.literal.TypeLiteral import TypeLiteral
 from prompto.param.CategoryParameter import CategoryParameter
 from prompto.param.CodeParameter import CodeParameter
 from prompto.param.ExtendedParameter import ExtendedParameter
@@ -396,7 +397,7 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitBooleanLiteral(self, ctx:EParser.BooleanLiteralContext):
-        self.setNodeValue(ctx, BooleanLiteral(ctx.t.text))
+        self.setNodeValue(ctx, BooleanLiteral(ctx.getText()))
     
 
 
@@ -416,32 +417,32 @@ class EPromptoBuilder(EParserListener):
 
     
     def exitIntegerLiteral(self, ctx:EParser.IntegerLiteralContext):
-        self.setNodeValue(ctx, IntegerLiteral(ctx.t.text))
+        self.setNodeValue(ctx, IntegerLiteral(ctx.getText()))
     
 
     
     def exitDecimalLiteral(self, ctx:EParser.DecimalLiteralContext):
-        self.setNodeValue(ctx, DecimalLiteral(ctx.t.text))
+        self.setNodeValue(ctx, DecimalLiteral(ctx.getText()))
     
 
     
     def exitHexadecimalLiteral(self, ctx:EParser.HexadecimalLiteralContext):
-        self.setNodeValue(ctx, HexaLiteral(ctx.t.text))
+        self.setNodeValue(ctx, HexaLiteral(ctx.getText()))
     
 
     
     def exitCharacterLiteral(self, ctx:EParser.CharacterLiteralContext):
-        self.setNodeValue(ctx, CharacterLiteral(ctx.t.text))
+        self.setNodeValue(ctx, CharacterLiteral(ctx.getText()))
     
 
     
     def exitDateLiteral(self, ctx:EParser.DateLiteralContext):
-        self.setNodeValue(ctx, DateLiteral(ctx.t.text))
+        self.setNodeValue(ctx, DateLiteral(ctx.getText()))
     
 
     
     def exitDateTimeLiteral(self, ctx:EParser.DateTimeLiteralContext):
-        self.setNodeValue(ctx, DateTimeLiteral(ctx.t.text))
+        self.setNodeValue(ctx, DateTimeLiteral(ctx.getText()))
     
 
 
@@ -464,17 +465,17 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitTextLiteral(self, ctx:EParser.TextLiteralContext):
-        self.setNodeValue(ctx, TextLiteral(ctx.t.text))
+        self.setNodeValue(ctx, TextLiteral(ctx.getText()))
     
 
     
     def exitTimeLiteral(self, ctx:EParser.TimeLiteralContext):
-        self.setNodeValue(ctx, TimeLiteral(ctx.t.text))
+        self.setNodeValue(ctx, TimeLiteral(ctx.getText()))
     
 
     
     def exitPeriodLiteral(self, ctx:EParser.PeriodLiteralContext):
-        self.setNodeValue(ctx, PeriodLiteral(ctx.t.text))
+        self.setNodeValue(ctx, PeriodLiteral(ctx.getText()))
     
 
 
@@ -484,7 +485,7 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitVersionLiteral(self, ctx: EParser.VersionLiteralContext):
-        self.setNodeValue(ctx, VersionLiteral(ctx.t.text))
+        self.setNodeValue(ctx, VersionLiteral(ctx.getText()))
 
 
 
@@ -783,9 +784,26 @@ class EPromptoBuilder(EParserListener):
 
     def exitType_identifier(self, ctx:EParser.Type_identifierContext):
         self.setNodeValue(ctx, ctx.getText())
-    
 
-    
+
+    def exitType_identifier_list(self, ctx: EParser.Type_identifier_listContext):
+        items = IdentifierList()
+        for rule in ctx.type_identifier():
+            item = self.getNodeValue(rule)
+            items.append(item)
+        self.setNodeValue(ctx, items)
+
+
+    def exitTypeLiteral(self, ctx:EParser.TypeLiteralContext):
+        typ = self.getNodeValue(ctx.type_literal())
+        self.setNodeValue(ctx, typ)
+
+
+    def exitType_literal(self, ctx:EParser.Type_literalContext):
+        typ = self.getNodeValue(ctx.typedef())
+        self.setNodeValue(ctx, TypeLiteral(typ))
+
+
     def exitDerivedList(self, ctx:EParser.DerivedListContext):
         items = self.getNodeValue(ctx.items)
         self.setNodeValue(ctx, items)
@@ -800,15 +818,6 @@ class EPromptoBuilder(EParserListener):
     
 
 
-    def exitType_identifier_list(self, ctx:EParser.Type_identifier_listContext):
-        items = IdentifierList()
-        for rule in ctx.type_identifier():
-            item = self.getNodeValue(rule)
-            items.append(item)
-        self.setNodeValue(ctx, items)
-    
-
-    
     def exitInstanceExpression(self, ctx:EParser.InstanceExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
@@ -983,7 +992,7 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitUUIDLiteral(self, ctx:EParser.UUIDLiteralContext):
-        self.setNodeValue(ctx, UUIDLiteral(ctx.t.text))
+        self.setNodeValue(ctx, UUIDLiteral(ctx.getText()))
 
 
     def exitArrow_prefix(self, ctx: EParser.Arrow_prefixContext):
@@ -1144,6 +1153,8 @@ class EPromptoBuilder(EParserListener):
             if args is None:
                 args = ArgumentList()
             args.append(arg)
+        elif args is not None:
+            args.checkLastAnd()
         self.setNodeValue(ctx, ConstructorExpression(typ, copyFrom, args, True))
     
 
@@ -2677,13 +2688,11 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, map)
 
     def exitJavascriptCharacterLiteral(self, ctx:EParser.JavascriptCharacterLiteralContext):
-        text = ctx.t.text
-        self.setNodeValue(ctx, JavaScriptCharacterLiteral(text))
+        self.setNodeValue(ctx, JavaScriptCharacterLiteral(ctx.t.text))
 
 
     def exitJavascript_identifier(self, ctx:EParser.Javascript_identifierContext):
-        name = ctx.getText()
-        self.setNodeValue(ctx, name)
+        self.setNodeValue(ctx, ctx.getText())
 
 
     def exitJavascript_this_expression(self, ctx:EParser.Javascript_this_expressionContext):

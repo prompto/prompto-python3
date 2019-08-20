@@ -16,7 +16,7 @@ class TestParserJsx(BaseEParserTest):
         writer = CodeWriter(Dialect.E, Context.newGlobalContext())
         stmt.toDialect(writer)
         out = str(writer)
-        self.assertEquals(jsx, out)
+        self.assertEqual(jsx, out)
 
     def testCanParseAndTranslateMultilineAttributes(self):
         jsx = "return <a \n\tx=\"abc\"\n\ty=\"def\"\n\tz=\"stuff\" />"
@@ -26,4 +26,4 @@ class TestParserJsx(BaseEParserTest):
         writer = CodeWriter(Dialect.E, Context.newGlobalContext())
         stmt.toDialect(writer)
         out = str(writer)
-        self.assertEquals(jsx, out)
+        self.assertEqual(jsx, out)

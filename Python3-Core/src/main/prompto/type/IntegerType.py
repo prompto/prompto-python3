@@ -21,6 +21,7 @@ class IntegerType(NativeType):
     def __init__(self):
         super(IntegerType, self).__init__(TypeFamily.INTEGER)
 
+
     def isAssignableFrom(self, context, other:IType):
         from prompto.type.DecimalType import DecimalType
         return super().isAssignableFrom(context, other) or \

@@ -20,3 +20,6 @@ class IDialectElement(object):
 
     def toMDialect(self, writer):
         raise Exception("You must override toMDialect in " + type(self).__name__)
+
+    def parentToDialect(self, writer):
+        self.toDialect(writer)

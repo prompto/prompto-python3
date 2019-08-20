@@ -1,10 +1,18 @@
 from prompto.type.IType import IType
-from prompto.type.MissingType import MissingType
+from prompto.type.TypeType import TypeType
 from prompto.value.BaseValue import BaseValue
 
 
 class TypeValue(BaseValue):
 
     def __init__(self, value:IType):
-        super().__init__(MissingType.instance)  # TODO check that this is ok
+        super().__init__(TypeType(value))
         self.value = value
+
+
+    def getMemberValue(self, context, name, autoCreate):
+        return self.value.getStaticMemberValue(context, name)
+
+
+    def __str__(self):
+        return self.value.typeName

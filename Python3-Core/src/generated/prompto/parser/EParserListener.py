@@ -1484,6 +1484,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#type_literal.
+    def enterType_literal(self, ctx:EParser.Type_literalContext):
+        pass
+
+    # Exit a parse tree produced by EParser#type_literal.
+    def exitType_literal(self, ctx:EParser.Type_literalContext):
+        pass
+
+
     # Enter a parse tree produced by EParser#null_literal.
     def enterNull_literal(self, ctx:EParser.Null_literalContext):
         pass
@@ -2615,6 +2624,15 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#UUIDLiteral.
     def exitUUIDLiteral(self, ctx:EParser.UUIDLiteralContext):
+        pass
+
+
+    # Enter a parse tree produced by EParser#TypeLiteral.
+    def enterTypeLiteral(self, ctx:EParser.TypeLiteralContext):
+        pass
+
+    # Exit a parse tree produced by EParser#TypeLiteral.
+    def exitTypeLiteral(self, ctx:EParser.TypeLiteralContext):
         pass
 
 

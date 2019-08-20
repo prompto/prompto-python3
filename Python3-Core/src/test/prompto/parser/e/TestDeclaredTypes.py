@@ -29,7 +29,7 @@ class TestDeclaredTypes(BaseEParserTest):
 
     def testBooleanType(self):
         st = BooleanType.instance
-        self.assertEquals(st, BooleanType.instance)
+        self.assertEqual(st, BooleanType.instance)
         self.assertTrue(isAssignableTo(self.context, st, BooleanType.instance))
         self.assertFalse(isAssignableTo(self.context, st, IntegerType.instance))
         self.assertFalse(isAssignableTo(self.context, st, DecimalType.instance))
@@ -44,7 +44,7 @@ class TestDeclaredTypes(BaseEParserTest):
 
     def testIntegerType(self):
         st = IntegerType.instance
-        self.assertEquals(st, IntegerType.instance)
+        self.assertEqual(st, IntegerType.instance)
         self.assertFalse(isAssignableTo(self.context, st, BooleanType.instance))
         self.assertTrue(isAssignableTo(self.context, st, IntegerType.instance))
         self.assertTrue(isAssignableTo(self.context, st, DecimalType.instance))
@@ -59,7 +59,7 @@ class TestDeclaredTypes(BaseEParserTest):
 
     def testDecimalType(self):
         st = DecimalType.instance
-        self.assertEquals(st, DecimalType.instance)
+        self.assertEqual(st, DecimalType.instance)
         self.assertFalse(isAssignableTo(self.context, st, BooleanType.instance))
         self.assertTrue(isAssignableTo(self.context, st, IntegerType.instance))
         self.assertTrue(isAssignableTo(self.context, st, DecimalType.instance))
@@ -74,7 +74,7 @@ class TestDeclaredTypes(BaseEParserTest):
 
     def testTestType(self):
         st = TextType.instance
-        self.assertEquals(st, TextType.instance)
+        self.assertEqual(st, TextType.instance)
         self.assertFalse(isAssignableTo(self.context, st, BooleanType.instance))
         self.assertFalse(isAssignableTo(self.context, st, IntegerType.instance))
         self.assertFalse(isAssignableTo(self.context, st, DecimalType.instance))
@@ -89,7 +89,7 @@ class TestDeclaredTypes(BaseEParserTest):
 
     def testDateType(self):
         st = DateType.instance
-        self.assertEquals(st, DateType.instance)
+        self.assertEqual(st, DateType.instance)
         self.assertFalse(isAssignableTo(self.context, st, BooleanType.instance))
         self.assertFalse(isAssignableTo(self.context, st, IntegerType.instance))
         self.assertFalse(isAssignableTo(self.context, st, DecimalType.instance))
@@ -104,7 +104,7 @@ class TestDeclaredTypes(BaseEParserTest):
 
     def testDateTimeType(self):
         st = DateTimeType.instance
-        self.assertEquals(st, DateTimeType.instance)
+        self.assertEqual(st, DateTimeType.instance)
         self.assertFalse(isAssignableTo(self.context, st, BooleanType.instance))
         self.assertFalse(isAssignableTo(self.context, st, IntegerType.instance))
         self.assertFalse(isAssignableTo(self.context, st, DecimalType.instance))
@@ -119,7 +119,7 @@ class TestDeclaredTypes(BaseEParserTest):
 
     def testMissingType(self):
         st = MissingType.instance
-        self.assertEquals(st, MissingType.instance)
+        self.assertEqual(st, MissingType.instance)
         self.assertFalse(isAssignableTo(self.context, st, BooleanType.instance))
         self.assertFalse(isAssignableTo(self.context, st, IntegerType.instance))
         self.assertFalse(isAssignableTo(self.context, st, DecimalType.instance))
@@ -134,7 +134,7 @@ class TestDeclaredTypes(BaseEParserTest):
 
     def testRootCategoryType(self):
         st = CategoryType("Root")
-        self.assertEquals(st, CategoryType("Root"))
+        self.assertEqual(st, CategoryType("Root"))
         self.assertFalse(isAssignableTo(self.context, st, BooleanType.instance))
         self.assertFalse(isAssignableTo(self.context, st, IntegerType.instance))
         self.assertFalse(isAssignableTo(self.context, st, DecimalType.instance))
@@ -149,7 +149,7 @@ class TestDeclaredTypes(BaseEParserTest):
 
     def testDerivedCategoryType(self):
         st = CategoryType("Derived")
-        self.assertEquals(st, CategoryType("Derived"))
+        self.assertEqual(st, CategoryType("Derived"))
         self.assertFalse(isAssignableTo(self.context, st, BooleanType.instance))
         self.assertFalse(isAssignableTo(self.context, st, IntegerType.instance))
         self.assertFalse(isAssignableTo(self.context, st, DecimalType.instance))
@@ -164,7 +164,7 @@ class TestDeclaredTypes(BaseEParserTest):
 
     def testUnrelatedCategoryType(self):
         st = CategoryType("Unrelated")
-        self.assertEquals(st, CategoryType("Unrelated"))
+        self.assertEqual(st, CategoryType("Unrelated"))
         self.assertFalse(isAssignableTo(self.context, st, BooleanType.instance))
         self.assertFalse(isAssignableTo(self.context, st, IntegerType.instance))
         self.assertFalse(isAssignableTo(self.context, st, DecimalType.instance))

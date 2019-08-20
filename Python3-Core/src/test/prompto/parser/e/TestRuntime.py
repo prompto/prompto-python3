@@ -39,11 +39,11 @@ class TestNative(BaseEParserTest):
         context.setValue("value", TextLiteral('"test"'))  # StringLiteral trims enclosing quotes
         result = statement.interpret(context, None, None) # no module
         self.assertIsNone(result)
-        self.assertEquals("test", Out.read())
+        self.assertEqual("test", Out.read())
 
     def testReturn(self):
         self.runResource("native/return.pec")
-        self.assertEquals(sys.platform, Out.read())
+        self.assertEqual(sys.platform, Out.read())
 
     def testDateTimeTZName(self):
         self.runResource("builtins/dateTimeTZName.pec")

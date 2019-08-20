@@ -35,6 +35,10 @@ class BaseType(IType):
         return []
 
 
+    def getStaticMemberMethods(selfself, context, name):
+        return []
+
+
     def checkAdd(self, context, other, tryReverse):
         from prompto.type.EnumeratedNativeType import EnumeratedNativeType
         if isinstance(other, EnumeratedNativeType):
@@ -125,6 +129,10 @@ class BaseType(IType):
             return TextType.instance
         else:
             raise SyntaxError("Cannot read member from " + self.typeName)
+
+
+    def checkStaticMember(self, context, name):
+        raise SyntaxError("Cannot read member from " + self.typeName)
 
 
     def checkSlice(self, context):
