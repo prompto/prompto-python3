@@ -10,7 +10,7 @@ class TypeValue(BaseValue):
         self.value = value
 
 
-    def getMemberValue(self, context, name, autoCreate):
+    def getMemberValue(self, context, name, autoCreate=False):
         return self.value.getStaticMemberValue(context, name)
 
 
