@@ -939,16 +939,16 @@ class EPromptoBuilder(EParserListener):
     
     def exitArgumentAssignmentListExpression(self, ctx:EParser.ArgumentAssignmentListExpressionContext):
         exp = self.getNodeValue(ctx.exp)
-        items = self.getNodeValue(ctx.items)
-        if items is None:
-            items = ArgumentList()
-        items.insert(0, Argument(None, exp))
-        item = self.getNodeValue(ctx.item)
-        if item is not None:
-            items.append(item)
+        args = self.getNodeValue(ctx.items)
+        if args is None:
+            args = ArgumentList()
+        args.insert(0, Argument(None, exp))
+        arg = self.getNodeValue(ctx.item)
+        if arg is not None:
+            args.append(arg)
         else:
-            items.checkLastAnd()
-        self.setNodeValue(ctx, items)
+            args.checkLastAnd()
+        self.setNodeValue(ctx, args)
     
 
     
@@ -1167,6 +1167,8 @@ class EPromptoBuilder(EParserListener):
             if args is None:
                 args = ArgumentList()
             args.append(arg)
+        elif args is not None:
+            args.checkLastAnd()
         self.setNodeValue(ctx, ConstructorExpression(typ, None, args, True))
     
 
