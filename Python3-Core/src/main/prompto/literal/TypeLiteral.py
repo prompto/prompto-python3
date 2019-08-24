@@ -24,7 +24,7 @@ class TypeLiteral(Section, IExpression):
 
     def toDialect(self, writer:CodeWriter):
         if writer.dialect is Dialect.E:
-            writer.append("type: ")
+            writer.append("Type: ")
         self.typ.toDialect(writer)
 
     def parentToDialect(self, writer:CodeWriter):
