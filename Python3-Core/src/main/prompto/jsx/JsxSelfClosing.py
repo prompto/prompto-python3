@@ -3,8 +3,8 @@ from prompto.jsx.JsxElementBase import JsxElementBase
 
 class JsxSelfClosing(JsxElementBase):
 
-    def __init__(self, name, nameSuite, attributes, openingSuite):
-        super(JsxSelfClosing, self).__init__(name, attributes)
+    def __init__(self, name, nameSuite, properties, openingSuite):
+        super(JsxSelfClosing, self).__init__(name, properties)
         self.nameSuite = nameSuite
         self.openingSuite = openingSuite
 
@@ -13,10 +13,10 @@ class JsxSelfClosing(JsxElementBase):
         writer.append("<").append(self.name)
         if self.nameSuite is not None:
             writer.append(self.nameSuite)
-        elif(len(self.attributes)>0):
+        elif(len(self.properties) > 0):
             writer.append(" ")
-        for attribute in self.attributes:
-           attribute.toDialect(writer)
+        for prop in self.properties:
+           prop.toDialect(writer)
         writer.append("/>")
         if self.openingSuite is not None:
             writer.append(self.openingSuite)

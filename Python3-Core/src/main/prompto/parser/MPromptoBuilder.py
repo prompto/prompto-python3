@@ -164,7 +164,7 @@ from prompto.jsx.JsxLiteral import JsxLiteral
 
 from prompto.jsx.JsxSelfClosing import JsxSelfClosing
 
-from prompto.jsx.JsxAttribute import JsxAttribute
+from prompto.jsx.JsxProperty import JsxProperty
 
 from prompto.jsx.JsxExpression import JsxExpression
 
@@ -2665,7 +2665,7 @@ class MPromptoBuilder(MParserListener):
         name = self.getNodeValue(ctx.name)
         value = self.getNodeValue(ctx.value)
         suite = self.getWhiteSpacePlus(ctx.ws_plus())
-        self.setNodeValue(ctx, JsxAttribute(name, value, suite))
+        self.setNodeValue(ctx, JsxProperty(name, value, suite))
 
 
     def exitJsx_children(self, ctx: MParser.Jsx_childrenContext):

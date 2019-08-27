@@ -20,9 +20,9 @@ class JsxElement(JsxElementBase):
         writer.append("<").append(self.name)
         if self.nameSuite is not None:
             writer.appendRaw(self.nameSuite)
-        elif(len(self.attributes)>0):
+        elif(len(self.properties) > 0):
             writer.append(" ")
-        for attribute in self.attributes:
+        for attribute in self.properties:
             attribute.toDialect(writer)
         writer.append(">")
         if self.openingSuite is not None:

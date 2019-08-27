@@ -1,7 +1,7 @@
-class JsxAttribute(object):
+class JsxProperty(object):
 
 	def __init__(self, name, value, suite):
-		super(JsxAttribute, self).__init__()
+		super(JsxProperty, self).__init__()
 		self.name = name
 		self.value = value
 		self.suite = suite
