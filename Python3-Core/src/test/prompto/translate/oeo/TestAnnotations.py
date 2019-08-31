@@ -11,6 +11,12 @@ class TestAnnotations(BaseOParserTest):
     def testReactWidgetProps2(self):
         self.compareResourceOEO("annotations/ReactWidgetProps2.poc")
 
+    def testWidgetChildProps1(self):
+        self.compareResourceOEO("annotations/WidgetChildProps1.poc")
+
+    def testWidgetChildProps2(self):
+        self.compareResourceOEO("annotations/WidgetChildProps2.poc")
+
     def testWidgetField(self):
         self.compareResourceOEO("annotations/WidgetField.poc")
 
@@ -19,6 +25,12 @@ class TestAnnotations(BaseOParserTest):
 
     def testWidgetProps2(self):
         self.compareResourceOEO("annotations/WidgetProps2.poc")
+
+    def testWidgetProps3(self):
+        self.compareResourceOEO("annotations/WidgetProps3.poc")
+
+    def testWidgetProps4(self):
+        self.compareResourceOEO("annotations/WidgetProps4.poc")
 
     def testCallback(self):
         self.compareResourceOEO("annotations/callback.poc")
