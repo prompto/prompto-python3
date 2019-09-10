@@ -943,7 +943,7 @@ def serializedATN():
         buf.write("\3\2\2\2\u0653\u0656\3\2\2\2\u0654\u0652\3\2\2\2\u0654")
         buf.write("\u0655\3\2\2\2\u0655\u0657\3\2\2\2\u0656\u0654\3\2\2\2")
         buf.write("\u0657\u0658\7\4\2\2\u0658\u0095\3\2\2\2\u0659\u065a\7")
-        buf.write("I\2\2\u065a\u065b\7\21\2\2\u065b\u065c\5\u00c0a\2\u065c")
+        buf.write("I\2\2\u065a\u065b\7\21\2\2\u065b\u065c\5\u00f0y\2\u065c")
         buf.write("\u0097\3\2\2\2\u065d\u065e\7\u0081\2\2\u065e\u0099\3\2")
         buf.write("\2\2\u065f\u0663\5\u00a0Q\2\u0660\u0663\58\35\2\u0661")
         buf.write("\u0663\5\\/\2\u0662\u065f\3\2\2\2\u0662\u0660\3\2\2\2")
@@ -12030,8 +12030,8 @@ class EParser ( AbstractParser ):
         def COLON(self):
             return self.getToken(EParser.COLON, 0)
 
-        def typedef(self):
-            return self.getTypedRuleContext(EParser.TypedefContext,0)
+        def category_or_any_type(self):
+            return self.getTypedRuleContext(EParser.Category_or_any_typeContext,0)
 
 
         def getRuleIndex(self):
@@ -12059,7 +12059,7 @@ class EParser ( AbstractParser ):
             self.state = 1624
             self.match(EParser.COLON)
             self.state = 1625
-            self.typedef(0)
+            self.category_or_any_type()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
