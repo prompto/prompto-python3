@@ -23,6 +23,9 @@ class TestAnnotations(BaseOParserTest):
     def testWidgetProps1(self):
         self.compareResourceOEO("annotations/WidgetProps1.poc")
 
+    def testWidgetProps10(self):
+        self.compareResourceOEO("annotations/WidgetProps10.poc")
+
     def testWidgetProps2(self):
         self.compareResourceOEO("annotations/WidgetProps2.poc")
 
@@ -31,6 +34,21 @@ class TestAnnotations(BaseOParserTest):
 
     def testWidgetProps4(self):
         self.compareResourceOEO("annotations/WidgetProps4.poc")
+
+    def testWidgetProps5(self):
+        self.compareResourceOEO("annotations/WidgetProps5.poc")
+
+    def testWidgetProps6(self):
+        self.compareResourceOEO("annotations/WidgetProps6.poc")
+
+    def testWidgetProps7(self):
+        self.compareResourceOEO("annotations/WidgetProps7.poc")
+
+    def testWidgetProps8(self):
+        self.compareResourceOEO("annotations/WidgetProps8.poc")
+
+    def testWidgetProps9(self):
+        self.compareResourceOEO("annotations/WidgetProps9.poc")
 
     def testCallback(self):
         self.compareResourceOEO("annotations/callback.poc")
