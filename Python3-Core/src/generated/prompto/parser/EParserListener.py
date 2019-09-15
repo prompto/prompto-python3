@@ -2114,15 +2114,6 @@ class EParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EParser#any_identifier.
-    def enterAny_identifier(self, ctx:EParser.Any_identifierContext):
-        pass
-
-    # Exit a parse tree produced by EParser#any_identifier.
-    def exitAny_identifier(self, ctx:EParser.Any_identifierContext):
-        pass
-
-
     # Enter a parse tree produced by EParser#argument_list.
     def enterArgument_list(self, ctx:EParser.Argument_listContext):
         pass
