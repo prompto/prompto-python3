@@ -107,9 +107,11 @@ class ArrowExpression ( IExpression ):
 
     def toDialect(self, writer:CodeWriter):
         self.argsToDialect(writer)
-        writer.append(self.argsSuite)
+        if self.argsSuite is not None:
+            writer.append(self.argsSuite)
         writer.append("=>")
-        writer.append(self.arrowSuite)
+        if self.arrowSuite is not None:
+            writer.append(self.arrowSuite)
         self.bodyToDialect(writer)
 
 
