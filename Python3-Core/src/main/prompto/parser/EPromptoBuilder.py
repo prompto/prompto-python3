@@ -219,6 +219,7 @@ from prompto.type.BooleanType import BooleanType
 from prompto.type.CategoryType import CategoryType
 from prompto.type.CharacterType import CharacterType
 from prompto.type.CodeType import CodeType
+from prompto.type.CssType import CssType
 from prompto.type.DateTimeType import DateTimeType
 from prompto.type.DateType import DateType
 from prompto.type.DecimalType import DecimalType
@@ -809,7 +810,6 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, items)
     
 
-    
     def exitDerivedListItem(self, ctx:EParser.DerivedListItemContext):
         items = self.getNodeValue(ctx.items)
         item = self.getNodeValue(ctx.item)
@@ -817,25 +817,21 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, items)
     
 
-
     def exitInstanceExpression(self, ctx:EParser.InstanceExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
     
 
-    
     def exitSelectableExpression(self, ctx:EParser.SelectableExpressionContext):
         parent = self.getNodeValue(ctx.parent)
         self.setNodeValue(ctx, parent)
     
 
-    
     def exitSelectorExpression(self, ctx:EParser.SelectorExpressionContext):
         parent = self.getNodeValue(ctx.parent)
         selector = self.getNodeValue(ctx.selector)
         selector.setParent(parent)
         self.setNodeValue(ctx, selector)
-    
 
     
     def exitMemberSelector(self, ctx:EParser.MemberSelectorContext):
@@ -2050,19 +2046,20 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.IN, right))
     
 
-    
     def exitNotInExpression(self, ctx:EParser.NotInExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_IN, right))
 
 
+    def exitCssType(self, ctx:EParser.CssTypeContext):
+        self.setNodeValue(ctx, CssType.instance)
+
 
     def exitHasExpression(self, ctx: EParser.HasExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS, right))
-
 
 
     def exitNotHasExpression(self, ctx: EParser.NotHasExpressionContext):

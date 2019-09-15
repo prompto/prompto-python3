@@ -1682,6 +1682,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#CssType.
+    def enterCssType(self, ctx:OParser.CssTypeContext):
+        pass
+
+    # Exit a parse tree produced by OParser#CssType.
+    def exitCssType(self, ctx:OParser.CssTypeContext):
+        pass
+
+
     # Enter a parse tree produced by OParser#CharacterType.
     def enterCharacterType(self, ctx:OParser.CharacterTypeContext):
         pass

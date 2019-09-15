@@ -1799,6 +1799,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#CssType.
+    def enterCssType(self, ctx:EParser.CssTypeContext):
+        pass
+
+    # Exit a parse tree produced by EParser#CssType.
+    def exitCssType(self, ctx:EParser.CssTypeContext):
+        pass
+
+
     # Enter a parse tree produced by EParser#CharacterType.
     def enterCharacterType(self, ctx:EParser.CharacterTypeContext):
         pass

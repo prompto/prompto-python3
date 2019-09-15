@@ -216,6 +216,7 @@ from prompto.type.BooleanType import BooleanType
 from prompto.type.CategoryType import CategoryType
 from prompto.type.CharacterType import CharacterType
 from prompto.type.CodeType import CodeType
+from prompto.type.CssType import CssType
 from prompto.type.DateTimeType import DateTimeType
 from prompto.type.DateType import DateType
 from prompto.type.DecimalType import DecimalType
@@ -1976,12 +1977,14 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.IN, right))
     
 
-    
     def exitNotInExpression(self, ctx:OParser.NotInExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_IN, right))
 
+
+    def exitCssType(self, ctx:OParser.CssTypeContext):
+        self.setNodeValue(ctx, CssType.instance)
 
 
     def exitHasExpression(self, ctx: OParser.HasExpressionContext):
@@ -1990,12 +1993,10 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS, right))
 
 
-
     def exitNotHasExpression(self, ctx: OParser.NotHasExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS, right))
-
 
 
     def exitHasAllExpression(self, ctx: OParser.HasAllExpressionContext):
@@ -2004,12 +2005,10 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS_ALL, right))
 
 
-
     def exitNotHasAllExpression(self, ctx: OParser.NotHasAllExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS_ALL, right))
-
 
 
     def exitHasAnyExpression(self, ctx: OParser.HasAnyExpressionContext):
