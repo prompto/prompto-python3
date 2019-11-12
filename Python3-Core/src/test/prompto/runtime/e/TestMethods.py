@@ -10,6 +10,9 @@ class TestMethods(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testAbstractMember(self):
+        self.checkOutput("methods/abstractMember.pec")
+
     def testAnonymous(self):
         self.checkOutput("methods/anonymous.pec")
 

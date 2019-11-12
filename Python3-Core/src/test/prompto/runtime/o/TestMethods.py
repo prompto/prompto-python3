@@ -10,6 +10,9 @@ class TestMethods(BaseOParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testAbstractMember(self):
+        self.checkOutput("methods/abstractMember.poc")
+
     def testAnonymous(self):
         self.checkOutput("methods/anonymous.poc")
 

@@ -5,6 +5,9 @@ class TestMethods(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testAbstractMember(self):
+        self.compareResourceEME("methods/abstractMember.pec")
+
     def testAnonymous(self):
         self.compareResourceEME("methods/anonymous.pec")
 
