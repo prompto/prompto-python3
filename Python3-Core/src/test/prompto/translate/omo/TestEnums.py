@@ -11,6 +11,9 @@ class TestEnums(BaseOParserTest):
     def testIntegerEnum(self):
         self.compareResourceOMO("enums/integerEnum.poc")
 
+    def testSwitchEnum(self):
+        self.compareResourceOMO("enums/switchEnum.poc")
+
     def testTextEnum(self):
         self.compareResourceOMO("enums/textEnum.poc")
 

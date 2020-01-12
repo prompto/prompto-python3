@@ -16,6 +16,9 @@ class TestEnums(BaseOParserTest):
     def testIntegerEnum(self):
         self.checkOutput("enums/integerEnum.poc")
 
+    def testSwitchEnum(self):
+        self.checkOutput("enums/switchEnum.poc")
+
     def testTextEnum(self):
         self.checkOutput("enums/textEnum.poc")
 

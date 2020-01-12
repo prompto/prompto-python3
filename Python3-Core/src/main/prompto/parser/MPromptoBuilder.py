@@ -1,6 +1,7 @@
 from antlr4 import ParserRuleContext, Token
 from antlr4.tree.Tree import ParseTree, TerminalNode
 
+from prompto.jsx.JsxFragment import JsxFragment
 from prompto.literal.TypeLiteral import TypeLiteral
 from prompto.param.CategoryParameter import CategoryParameter
 from prompto.param.CodeParameter import CodeParameter
@@ -1686,6 +1687,10 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, MemberInstance(None, name))
 
 
+    def exitMember_identifier(self, ctx:MParser.Member_identifierContext):
+        self.setNodeValue(ctx, ctx.getText())
+
+
     def exitMemberSelector(self, ctx:MParser.MemberSelectorContext):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, MemberSelector(name))
@@ -2423,6 +2428,11 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, name)
 
 
+    def exitSymbolLiteral(self, ctx:MParser.SymbolLiteralContext):
+        name = ctx.getText()
+        self.setNodeValue(ctx, SymbolExpression(name))
+
+
     def exitSymbols_token(self, ctx:MParser.Symbols_tokenContext):
         self.setNodeValue(ctx, ctx.getText())
 
@@ -2631,7 +2641,7 @@ class MPromptoBuilder(MParserListener):
 
     def exitJsxCode(self, ctx: MParser.JsxCodeContext):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, JsxCode(exp))
+        self.setNodeValue(ctx, JsxCode(exp, None))
 
 
     def exitJsxExpression(self, ctx: MParser.JsxExpressionContext):
@@ -2673,6 +2683,11 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, expressions)
 
 
+    def exitJsx_closing(self, ctx):
+        name = self.getNodeValue(ctx.name)
+        self.setNodeValue(ctx, JsxClosing(name, None))
+
+
     def exitJsx_element_name(self, ctx: MParser.Jsx_element_nameContext):
         name = ctx.getText()
         self.setNodeValue(ctx, name)
@@ -2680,6 +2695,13 @@ class MPromptoBuilder(MParserListener):
 
     def exitJsx_expression(self, ctx: MParser.Jsx_expressionContext):
         self.setNodeValue(ctx, self.getNodeValue(ctx.getChild(0)))
+
+
+    def exitJsx_fragment(self, ctx:MParser.Jsx_fragmentContext):
+        suite = self.getWhiteSpacePlus(ctx.ws_plus(0))
+        fragment = JsxFragment(suite)
+        fragment.children = self.getNodeValue(ctx.children_)
+        self.setNodeValue(ctx, fragment)
 
 
     def exitJsx_identifier(self, ctx: MParser.Jsx_identifierContext):
@@ -2697,11 +2719,6 @@ class MPromptoBuilder(MParserListener):
         suite = self.getWhiteSpacePlus(ctx.ws_plus())
         attributes = [ self.getNodeValue(cx) for cx in ctx.jsx_attribute() ]
         self.setNodeValue(ctx, JsxElement(name, suite, attributes, None))
-
-
-    def exitJsx_closing(self, ctx):
-        name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, JsxClosing(name, None))
 
 
     def exitJsx_self_closing(self, ctx: MParser.Jsx_self_closingContext):

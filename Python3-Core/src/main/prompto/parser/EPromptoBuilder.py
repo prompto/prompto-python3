@@ -2,6 +2,7 @@ from antlr4 import TerminalNode, Token
 from antlr4.ParserRuleContext import ParserRuleContext
 from antlr4.tree.Tree import ParseTree
 
+from prompto.jsx.JsxFragment import JsxFragment
 from prompto.literal.TypeLiteral import TypeLiteral
 from prompto.param.CategoryParameter import CategoryParameter
 from prompto.param.CodeParameter import CodeParameter
@@ -578,22 +579,18 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, value)
 
 
-
     def exitLiteralExpression(self, ctx:EParser.LiteralExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
     
 
-    
     def exitVariableIdentifier(self, ctx:EParser.VariableIdentifierContext):
         name = self.getNodeValue(ctx.variable_identifier())
         self.setNodeValue(ctx, name)
-    
 
     
     def exitSymbol_identifier(self, ctx:EParser.Symbol_identifierContext):
         self.setNodeValue(ctx, ctx.getText())
-    
 
     
     def exitNative_symbol(self, ctx:EParser.Native_symbolContext):
@@ -602,26 +599,26 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, NativeSymbol(name, exp))
     
 
-    
     def exitSymbolIdentifier(self, ctx:EParser.SymbolIdentifierContext):
         name = self.getNodeValue(ctx.symbol_identifier())
         self.setNodeValue(ctx, name)
     
 
-    
+    def exitSymbolLiteral(self, ctx:EParser.SymbolLiteralContext):
+        name = ctx.getText()
+        self.setNodeValue(ctx, SymbolExpression(name))
+
+
     def exitBooleanType(self, ctx:EParser.BooleanTypeContext):
         self.setNodeValue(ctx, BooleanType.instance)
     
 
-    
     def exitCharacterType(self, ctx:EParser.CharacterTypeContext):
         self.setNodeValue(ctx, CharacterType.instance)
-    
 
     
     def exitTextType(self, ctx:EParser.TextTypeContext):
         self.setNodeValue(ctx, TextType.instance)
-
 
 
     def exitHtmlType(self, ctx:EParser.HtmlTypeContext):
@@ -834,10 +831,13 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, selector)
 
     
+    def exitMember_identifier(self, ctx:EParser.Member_identifierContext):
+        self.setNodeValue(ctx, ctx.getText())
+
+
     def exitMemberSelector(self, ctx:EParser.MemberSelectorContext):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, UnresolvedSelector(name))
-
 
 
     def exitIsATypeExpression(self, ctx:EParser.IsATypeExpressionContext):
@@ -846,11 +846,9 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, exp)
 
 
-
     def exitIsOtherExpression(self, ctx:EParser.IsOtherExpressionContext):
         exp = self.getNodeValue(ctx.expression())
         self.setNodeValue(ctx, exp)
-
 
 
     def exitIsExpression(self, ctx:EParser.IsExpressionContext):
@@ -858,7 +856,6 @@ class EPromptoBuilder(EParserListener):
         right = self.getNodeValue(ctx.right)
         op = EqOp.IS_A if isinstance(right, TypeExpression) else EqOp.IS
         self.setNodeValue(ctx, EqualsExpression(left, op, right))
-
 
 
     def exitIsNotExpression(self, ctx:EParser.IsNotExpressionContext):
@@ -2806,7 +2803,7 @@ class EPromptoBuilder(EParserListener):
 
     def exitJsxCode(self, ctx: EParser.JsxCodeContext):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, JsxCode(exp))
+        self.setNodeValue(ctx, JsxCode(exp, None))
 
 
     def exitJsxExpression(self, ctx: EParser.JsxExpressionContext):
@@ -2820,6 +2817,11 @@ class EPromptoBuilder(EParserListener):
         children = self.getNodeValue(ctx.children_)
         elem.setChildren(children)
         self.setNodeValue(ctx, elem)
+
+
+    def exitJsxLiteral(self, ctx: EParser.JsxLiteralContext):
+        text = ctx.getText()
+        self.setNodeValue(ctx, JsxLiteral(text))
 
 
     def exitJsxSelfClosing(self, ctx: EParser.JsxSelfClosingContext):
@@ -2848,6 +2850,11 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, expressions)
 
 
+    def exitJsx_closing(self, ctx):
+        name = self.getNodeValue(ctx.name)
+        self.setNodeValue(ctx, JsxClosing(name, None))
+
+
     def exitJsx_element_name(self, ctx: EParser.Jsx_element_nameContext):
         name = ctx.getText()
         self.setNodeValue(ctx, name)
@@ -2862,9 +2869,11 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, name)
 
 
-    def exitJsxLiteral(self, ctx: EParser.JsxLiteralContext):
-        text = ctx.getText()
-        self.setNodeValue(ctx, JsxLiteral(text))
+    def exitJsx_fragment(self, ctx:EParser.Jsx_fragmentContext):
+        suite = self.getWhiteSpacePlus(ctx.ws_plus(0))
+        fragment = JsxFragment(suite)
+        fragment.children = self.getNodeValue(ctx.children_)
+        self.setNodeValue(ctx, fragment)
 
 
     def exitJsx_opening(self, ctx: EParser.Jsx_openingContext):
@@ -2872,11 +2881,6 @@ class EPromptoBuilder(EParserListener):
         suite = self.getWhiteSpacePlus(ctx.ws_plus())
         attributes = [ self.getNodeValue(cx) for cx in ctx.jsx_attribute() ]
         self.setNodeValue(ctx, JsxElement(name, suite, attributes, None))
-
-
-    def exitJsx_closing(self, ctx):
-        name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, JsxClosing(name, None))
 
 
     def exitJsx_self_closing(self, ctx: EParser.Jsx_self_closingContext):

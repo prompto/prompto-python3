@@ -25,6 +25,9 @@ class TestJsx(BaseMParserTest):
     def testEmptyAttribute(self):
         self.checkOutput("jsx/emptyAttribute.pmc")
 
+    def testFragment(self):
+        self.checkOutput("jsx/fragment.pmc")
+
     def testHyphenName(self):
         self.checkOutput("jsx/hyphenName.pmc")
 

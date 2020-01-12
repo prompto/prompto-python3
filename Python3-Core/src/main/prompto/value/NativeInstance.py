@@ -23,20 +23,27 @@ class NativeInstance(BaseValue, IInstance):
             self.storable = DataStore.instance.newStorable(categories)
         self.instance = self.makeInstance() if instance is None else instance
 
+
     def convertToPython(self):
         return self.instance
 
+
     def getInstance(self):
         return self.instance
+
 
     def makeInstance(self):
         mapped = self.declaration.getBoundedClass(True)
         return mapped()
 
+
     def getType(self):
         return self.itype
 
+
     def getMemberValue(self, context, attrName, autoCreate=False):
+        if "category" == attrName:
+            return self.getCategory(context)
         stacked = activeGetters.__dict__.get(attrName, None)
         first = stacked is None
         if first:
@@ -47,6 +54,12 @@ class NativeInstance(BaseValue, IInstance):
             if first:
                 del activeGetters.__dict__[attrName]
 
+
+    def getCategory(self, context):
+        decl = context.getRegisteredDeclaration("Category")
+        return NativeInstance(context, decl, self.declaration)
+
+
     def doGetMember(self, context, attrName, allowGetter):
         getter = self.declaration.findGetter(context, attrName) if allowGetter else None
         if getter is not None:
@@ -56,6 +69,7 @@ class NativeInstance(BaseValue, IInstance):
             value = getattr(self.instance, attrName)
             ct = PythonClassType(type(value))
             return ct.convertPythonValueToPromptoValue(context, value, None) # TODO use attribute declaration
+
 
     def setMember(self, context, attrName, value):
         if not self.mutable:
@@ -88,6 +102,7 @@ class NativeInstance(BaseValue, IInstance):
             if decl.storable:
                 # TODO convert object graph if(value instanceof IInstance)
                 self.storable.setData(attrName, value.getStorableData())
+
 
     def __getattr__(self, item):
         return getattr(self.instance, item)

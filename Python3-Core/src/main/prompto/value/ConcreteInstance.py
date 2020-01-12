@@ -39,12 +39,14 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         self.mutable = False
         self.values = dict()
 
+
     def toMutable(self):
         from prompto.type.CategoryType import CategoryType
         result = copy.copy(self)
         result.itype = CategoryType(self.itype.typeName, True)
         result.mutable = True
         return result
+
 
     def getDeclaration(self):
         return self.declaration
@@ -98,6 +100,8 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
 
 
     def getMemberValue(self, context, attrName, autoCreate=False):
+        if "category" == attrName:
+            return self.getCategory(context)
         stacked = activeGetters.__dict__.get(attrName, None)
         first = stacked is None
         if first:
@@ -108,6 +112,12 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
             if first:
                 del activeGetters.__dict__[attrName]
 
+
+    def getCategory(self, context):
+        from prompto.value.NativeInstance import NativeInstance
+        from prompto.declaration.NativeCategoryDeclaration import NativeCategoryDeclaration
+        decl = context.getRegisteredDeclaration( NativeCategoryDeclaration, "Category")
+        return NativeInstance(context, decl, self.declaration)
 
 
     def doGetMember(self, context, attrName, allowGetter):
@@ -121,7 +131,6 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
             return Text(str(self))
         else:
             return NullValue.instance
-
 
 
     def setMember(self, context, attrName, value):

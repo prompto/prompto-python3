@@ -1970,6 +1970,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#member_identifier.
+    def enterMember_identifier(self, ctx:OParser.Member_identifierContext):
+        pass
+
+    # Exit a parse tree produced by OParser#member_identifier.
+    def exitMember_identifier(self, ctx:OParser.Member_identifierContext):
+        pass
+
+
     # Enter a parse tree produced by OParser#variable_identifier.
     def enterVariable_identifier(self, ctx:OParser.Variable_identifierContext):
         pass
@@ -2507,6 +2516,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#UUIDLiteral.
     def exitUUIDLiteral(self, ctx:OParser.UUIDLiteralContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#SymbolLiteral.
+    def enterSymbolLiteral(self, ctx:OParser.SymbolLiteralContext):
+        pass
+
+    # Exit a parse tree produced by OParser#SymbolLiteral.
+    def exitSymbolLiteral(self, ctx:OParser.SymbolLiteralContext):
         pass
 
 

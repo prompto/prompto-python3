@@ -8,6 +8,9 @@ class TestBuiltins(BaseEParserTest):
     def testBooleanText(self):
         self.compareResourceEME("builtins/booleanText.pec")
 
+    def testCategoryCategory(self):
+        self.compareResourceEME("builtins/categoryCategory.pec")
+
     def testCategoryText(self):
         self.compareResourceEME("builtins/categoryText.pec")
 

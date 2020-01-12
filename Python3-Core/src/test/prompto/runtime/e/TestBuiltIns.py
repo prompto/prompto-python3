@@ -13,6 +13,9 @@ class TestBuiltins(BaseEParserTest):
     def testBooleanText(self):
         self.checkOutput("builtins/booleanText.pec")
 
+    def testCategoryCategory(self):
+        self.checkOutput("builtins/categoryCategory.pec")
+
     def testCategoryText(self):
         self.checkOutput("builtins/categoryText.pec")
 

@@ -24,6 +24,9 @@ class TestCore(BaseEParserTest):
     def testAttributes(self):
         self.runTests("core/attributes.pec")
 
+    def testCategory(self):
+        self.runTests("core/category.pec")
+
     def testCloud(self):
         self.runTests("core/cloud.pec")
 

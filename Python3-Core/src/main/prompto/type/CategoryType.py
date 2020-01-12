@@ -142,6 +142,8 @@ class CategoryType(BaseType):
 
 
     def checkMember(self, context, name):
+        if "category" == name:
+            return CategoryType("Category")
         decl = context.getRegisteredDeclaration(IDeclaration, self.typeName)
         if decl is None:
             raise SyntaxError("Unknown category:" + self.typeName)
@@ -317,7 +319,7 @@ class CategoryType(BaseType):
         elif self.globalMethodExists(context, str(key)):
             return self.getGlobalMethodSortKeyReader(context, str(key))
         elif isinstance(key, ArrowExpression):
-                return key.getSortKeyReader(context, self)
+            return key.getSortKeyReader(context, self)
         else:
             return self.getExpressionSortKeyReader(context, key)
 

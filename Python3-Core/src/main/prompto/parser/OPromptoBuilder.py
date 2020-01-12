@@ -2,6 +2,7 @@ from antlr4 import Token
 from antlr4.ParserRuleContext import ParserRuleContext
 from antlr4.tree.Tree import ParseTree
 
+from prompto.jsx.JsxFragment import JsxFragment
 from prompto.literal.TypeLiteral import TypeLiteral
 from prompto.param.CategoryParameter import CategoryParameter
 from prompto.param.CodeParameter import CodeParameter
@@ -475,14 +476,12 @@ class OPromptoBuilder(OParserListener):
         value = SetLiteral(items)
         self.setNodeValue(ctx, value)
 
-
     
     def exitRange_literal(self, ctx:OParser.Range_literalContext):
         low = self.getNodeValue(ctx.low)
         high = self.getNodeValue(ctx.high)
         self.setNodeValue(ctx, RangeLiteral(low, high))
     
-
 
     def exitDict_entry(self, ctx:OParser.Dict_entryContext):
         key = self.getNodeValue(ctx.key)
@@ -520,7 +519,6 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, exp)
     
 
-
     def exitIdentifierExpression(self, ctx:OParser.IdentifierExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
@@ -531,38 +529,36 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, InstanceExpression(name))
     
 
-    
     def exitSymbol_identifier(self, ctx:OParser.Symbol_identifierContext):
         self.setNodeValue(ctx, ctx.getText())
     
 
-    
     def exitNative_symbol(self, ctx:OParser.Native_symbolContext):
         name = self.getNodeValue(ctx.name)
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, NativeSymbol(name, exp))
     
 
-    
     def exitSymbolIdentifier(self, ctx:OParser.SymbolIdentifierContext):
         name = self.getNodeValue(ctx.symbol_identifier())
         self.setNodeValue(ctx, SymbolExpression(name))
-    
 
-    
+
+    def exitSymbolLiteral(self, ctx:OParser.SymbolLiteralContext):
+        name = ctx.getText()
+        self.setNodeValue(ctx, SymbolExpression(name))
+
+
     def exitBooleanType(self, ctx:OParser.BooleanTypeContext):
         self.setNodeValue(ctx, BooleanType.instance)
-    
 
     
     def exitCharacterType(self, ctx:OParser.CharacterTypeContext):
         self.setNodeValue(ctx, CharacterType.instance)
-    
 
     
     def exitTextType(self, ctx:OParser.TextTypeContext):
         self.setNodeValue(ctx, TextType.instance)
-
 
 
     def exitHtmlType(self, ctx:OParser.HtmlTypeContext):
@@ -753,7 +749,6 @@ class OPromptoBuilder(OParserListener):
     def exitSelectableExpression(self, ctx:OParser.SelectableExpressionContext):
         parent = self.getNodeValue(ctx.parent)
         self.setNodeValue(ctx, parent)
-    
 
     
     def exitSelectorExpression(self, ctx:OParser.SelectorExpressionContext):
@@ -763,11 +758,13 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, selector)
     
 
-    
+    def exitMember_identifier(self, ctx:OParser.Member_identifierContext):
+        self.setNodeValue(ctx, ctx.getText())
+
+
     def exitMemberSelector(self, ctx:OParser.MemberSelectorContext):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, MemberSelector(name))
-
 
 
     def exitIsAnExpression(self, ctx:OParser.IsAnExpressionContext):
@@ -777,7 +774,6 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, EqualsExpression(left, EqOp.IS_A, right))
 
 
-
     def exitIsNotAnExpression(self, ctx:OParser.IsNotAnExpressionContext):
         left = self.getNodeValue(ctx.left)
         typ = self.getNodeValue(ctx.right)
@@ -785,12 +781,10 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, EqualsExpression(left, EqOp.IS_NOT_A, right))
 
 
-
     def exitIsExpression(self, ctx:OParser.IsExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
         self.setNodeValue(ctx, EqualsExpression(left, EqOp.IS, right))
-
 
 
     def exitIsNotExpression(self, ctx:OParser.IsNotExpressionContext):
@@ -2660,13 +2654,16 @@ class OPromptoBuilder(OParserListener):
         stmt = self.getNodeValue(ctx.javascript_native_statement())
         self.setNodeValue(ctx, JavaScriptNativeCall(stmt))
 
+
     def exitJavascriptPrimaryExpression(self, ctx:OParser.JavascriptPrimaryExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
 
+
     def exitJavascriptReturnStatement(self, ctx:OParser.JavascriptReturnStatementContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, JavaScriptStatement(exp, True))
+
 
     def exitJavascriptSelectorExpression(self, ctx:OParser.JavascriptSelectorExpressionContext):
         parent = self.getNodeValue(ctx.parent)
@@ -2674,9 +2671,11 @@ class OPromptoBuilder(OParserListener):
         child.parent = parent
         self.setNodeValue(ctx, child)
 
+
     def exitJavaScriptMemberExpression(self, ctx:OParser.JavaScriptMemberExpressionContext):
         name = ctx.name.getText()
         self.setNodeValue(ctx, JavaScriptMemberExpression(name))
+
 
     def exitJavascript_primary_expression(self, ctx:OParser.Java_primary_expressionContext):
         exp = self.getNodeValue(ctx.getChild(0))
@@ -2699,11 +2698,8 @@ class OPromptoBuilder(OParserListener):
 
     def exitJsxCode(self, ctx: OParser.JsxCodeContext):
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, JsxCode(exp))
-
-
-    def exitJsxExpression(self, ctx: OParser.JsxExpressionContext):
-        self.setNodeValue(ctx, self.getNodeValue(ctx.exp))
+        suite = self.getHiddenTokensAfter(ctx.RCURL())
+        self.setNodeValue(ctx, JsxCode(exp, suite))
 
 
     def exitJsxElement(self, ctx: OParser.JsxElementContext):
@@ -2713,6 +2709,15 @@ class OPromptoBuilder(OParserListener):
         children = self.getNodeValue(ctx.children_)
         elem.setChildren(children)
         self.setNodeValue(ctx, elem)
+
+
+    def exitJsxExpression(self, ctx: OParser.JsxExpressionContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.exp))
+
+
+    def exitJsxLiteral(self, ctx: OParser.JsxLiteralContext):
+        text = ctx.getText()
+        self.setNodeValue(ctx, JsxLiteral(text))
 
 
     def exitJsxSelfClosing(self, ctx: OParser.JsxSelfClosingContext):
@@ -2742,6 +2747,12 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, expressions)
 
 
+    def exitJsx_closing(self, ctx):
+        name = self.getNodeValue(ctx.name)
+        suite = self.getHiddenTokensAfter(ctx.GT())
+        self.setNodeValue(ctx, JsxClosing(name, suite))
+
+
     def exitJsx_element_name(self, ctx: OParser.Jsx_element_nameContext):
         name = ctx.getText()
         self.setNodeValue(ctx, name)
@@ -2751,14 +2762,16 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, self.getNodeValue(ctx.getChild(0)))
 
 
+    def exitJsx_fragment(self, ctx:OParser.Jsx_fragmentContext):
+        suite = self.getHiddenTokensAfter(ctx.jsx_fragment_start().stop)
+        fragment = JsxFragment(suite)
+        fragment.children = self.getNodeValue(ctx.children_)
+        self.setNodeValue(ctx, fragment)
+
+
     def exitJsx_identifier(self, ctx: OParser.Jsx_identifierContext):
         name = ctx.getText()
         self.setNodeValue(ctx, name)
-
-
-    def exitJsxLiteral(self, ctx: OParser.JsxLiteralContext):
-        text = ctx.getText()
-        self.setNodeValue(ctx, JsxLiteral(text))
 
 
     def exitJsx_opening(self, ctx: OParser.Jsx_openingContext):
@@ -2769,18 +2782,12 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, JsxElement(name, nameSuite, attributes, openingSuite))
 
 
-    def exitJsx_closing(self, ctx):
-        name = self.getNodeValue(ctx.name)
-        suite = self.getHiddenTokensAfter(ctx.GT())
-        self.setNodeValue(ctx, JsxClosing(name, suite))
-
-
     def exitJsx_self_closing(self, ctx: OParser.Jsx_self_closingContext):
         name = self.getNodeValue(ctx.name)
         nameSuite = self.getHiddenTokensAfter(ctx.name.stop)
         attributes = [ self.getNodeValue(cx) for cx in ctx.jsx_attribute() ]
-        openingSuite = self.getHiddenTokensAfter(ctx.GT())
-        self.setNodeValue(ctx, JsxSelfClosing(name, nameSuite, attributes, openingSuite))
+        suite = self.getHiddenTokensAfter(ctx.GT())
+        self.setNodeValue(ctx, JsxSelfClosing(name, nameSuite, attributes, suite))
 
 
     def exitCssExpression(self, ctx: OParser.CssExpressionContext):

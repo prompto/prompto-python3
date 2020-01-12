@@ -25,6 +25,9 @@ class TestJsx(BaseEParserTest):
     def testEmptyAttribute(self):
         self.checkOutput("jsx/emptyAttribute.pec")
 
+    def testFragment(self):
+        self.checkOutput("jsx/fragment.pec")
+
     def testHyphenName(self):
         self.checkOutput("jsx/hyphenName.pec")
 

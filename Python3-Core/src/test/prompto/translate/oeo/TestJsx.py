@@ -23,6 +23,9 @@ class TestJsx(BaseOParserTest):
     def testEmptyAttribute(self):
         self.compareResourceOEO("jsx/emptyAttribute.poc")
 
+    def testFragment(self):
+        self.compareResourceOEO("jsx/fragment.poc")
+
     def testHyphenName(self):
         self.compareResourceOEO("jsx/hyphenName.poc")
 

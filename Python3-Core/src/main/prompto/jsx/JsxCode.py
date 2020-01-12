@@ -4,11 +4,12 @@ from prompto.type.JsxType import JsxType
 
 class JsxCode(IJsxExpression):
 
-	def __init__(self, expression):
+	def __init__(self, expression, suite):
 		super().__init__()
 		self.expression = expression
+		self.suite = suite
 
-	
+
 	def check(self, context):
 		self.expression.check(context)
 		return JsxType.instance
@@ -18,3 +19,5 @@ class JsxCode(IJsxExpression):
 		writer.append("{")
 		self.expression.toDialect(writer)
 		writer.append("}")
+		if self.suite is not None:
+			writer.appendRaw(self.suite)

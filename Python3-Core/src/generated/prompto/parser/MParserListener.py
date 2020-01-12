@@ -1943,6 +1943,15 @@ class MParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MParser#member_identifier.
+    def enterMember_identifier(self, ctx:MParser.Member_identifierContext):
+        pass
+
+    # Exit a parse tree produced by MParser#member_identifier.
+    def exitMember_identifier(self, ctx:MParser.Member_identifierContext):
+        pass
+
+
     # Enter a parse tree produced by MParser#variable_identifier.
     def enterVariable_identifier(self, ctx:MParser.Variable_identifierContext):
         pass
@@ -2480,6 +2489,15 @@ class MParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by MParser#UUIDLiteral.
     def exitUUIDLiteral(self, ctx:MParser.UUIDLiteralContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#SymbolLiteral.
+    def enterSymbolLiteral(self, ctx:MParser.SymbolLiteralContext):
+        pass
+
+    # Exit a parse tree produced by MParser#SymbolLiteral.
+    def exitSymbolLiteral(self, ctx:MParser.SymbolLiteralContext):
         pass
 
 
