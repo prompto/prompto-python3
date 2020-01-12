@@ -5,8 +5,10 @@ from prompto.type.JsxType import JsxType
 class JsxFragment(IJsxExpression):
 
     def __init__(self, openingSuite:str):
+        super().__init__()
         self.openingSuite = openingSuite
         self.children = []
+
 
     def toDialect(self, writer):
         writer.append("<>")
