@@ -47,6 +47,16 @@ class CategoryType(BaseType):
         writer.append(self.typeName)
 
 
+    def getSuperType(self, context):
+        from prompto.declaration.CategoryDeclaration import CategoryDeclaration
+        decl = self.getDeclaration(context)
+        if isinstance(decl, CategoryDeclaration):
+            derived = decl.getDerivedFrom()
+            if derived is not None and len(derived) > 0:
+                return CategoryType(derived[0])
+        raise SyntaxError("No super type for:" + self.typeName)
+
+
     def newInstanceFromStored(self, context, document):
         decl = self.getDeclaration(context)
         inst = decl.newInstanceFromStored(context, document)

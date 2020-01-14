@@ -99,16 +99,25 @@ class MethodCall(SimpleStatement):
 
 
     def findDeclaration(self, context):
-        try:
-            o = context.getValue(self.selector.getName())
-            if isinstance(o, ClosureValue):
-                return ClosureDeclaration(o)
-            elif isinstance(o, ArrowValue):
-                return ArrowDeclaration(o)
-        except PromptoError:
-            pass
-        finder = MethodFinder(context, self)
-        return finder.findMethod(True)
+        method = self.findRegistered(context)
+        if method is not None:
+            return method
+        else:
+            finder = MethodFinder(context, self)
+            return finder.findMethod(True)
+
+
+    def findRegistered(self, context):
+        if self.selector.getParent() is None:
+            try:
+                o = context.getValue(self.selector.getName())
+                if isinstance(o, ClosureValue):
+                    return ClosureDeclaration(o)
+                elif isinstance(o, ArrowValue):
+                    return ArrowDeclaration(o)
+            except PromptoError:
+                pass
+        return None
 
 
     def toDialect(self, writer):

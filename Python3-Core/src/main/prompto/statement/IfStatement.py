@@ -96,10 +96,14 @@ class IfElement ( BaseStatement ):
         self.toEDialect(writer)
 
     def toODialect(self, writer):
+        context = writer.context
         if self.condition is not None:
             writer.append("if (")
             self.condition.toDialect(writer)
             writer.append(") ")
+            context = self.downCast(context, False)
+            if context is not writer.context:
+                writer = writer.newChildWriter(context)
         curly = self.statements is not None and len(self.statements) > 1
         if curly:
             writer.append("{\n")
@@ -112,9 +116,13 @@ class IfElement ( BaseStatement ):
             writer.append("}")
 
     def toEDialect(self, writer):
+        context = writer.context
         if self.condition is not None:
             writer.append("if ")
             self.condition.toDialect(writer)
+            context = self.downCast(context, False)
+            if context is not writer.context:
+                writer = writer.newChildWriter(context)
         writer.append(":\n")
         writer.indent()
         self.statements.toDialect(writer)

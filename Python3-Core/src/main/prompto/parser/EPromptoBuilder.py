@@ -2,6 +2,7 @@ from antlr4 import TerminalNode, Token
 from antlr4.ParserRuleContext import ParserRuleContext
 from antlr4.tree.Tree import ParseTree
 
+from prompto.expression.SuperExpression import SuperExpression
 from prompto.jsx.JsxFragment import JsxFragment
 from prompto.literal.TypeLiteral import TypeLiteral
 from prompto.param.CategoryParameter import CategoryParameter
@@ -970,7 +971,7 @@ class EPromptoBuilder(EParserListener):
 
     
     def exitUnresolvedWithArgsStatement(self, ctx:EParser.UnresolvedWithArgsStatementContext):
-        exp = self.getNodeValue(ctx.exp)
+        exp = self.getNodeValue(ctx.exp1) if ctx.exp1 is not None else self.getNodeValue(ctx.exp2)
         args = self.getNodeValue(ctx.args)
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
@@ -1876,7 +1877,10 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, stmt)
     
 
-    
+    def exitSuperExpression(self, ctx:EParser.SuperExpressionContext):
+        self.setNodeValue(ctx, SuperExpression())
+
+
     def exitSwitchStatement(self, ctx:EParser.SwitchStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, stmt)

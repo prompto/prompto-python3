@@ -2,6 +2,7 @@ from antlr4 import Token
 from antlr4.ParserRuleContext import ParserRuleContext
 from antlr4.tree.Tree import ParseTree
 
+from prompto.expression.SuperExpression import SuperExpression
 from prompto.jsx.JsxFragment import JsxFragment
 from prompto.literal.TypeLiteral import TypeLiteral
 from prompto.param.CategoryParameter import CategoryParameter
@@ -1783,35 +1784,33 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, items)
     
 
-    
     def exitIfStatement(self, ctx:OParser.IfStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, stmt)
-    
 
-    
+
+    def exitSuperExpression(self, ctx: OParser.SuperExpressionContext):
+        self.setNodeValue(ctx, SuperExpression())
+
+
     def exitSwitchStatement(self, ctx:OParser.SwitchStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, stmt)
-    
 
     
     def exitAssignTupleStatement(self, ctx:OParser.AssignTupleStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, stmt)
-    
 
     
     def exitRaiseStatement(self, ctx:OParser.RaiseStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, stmt)
-    
 
     
     def exitWriteStatement(self, ctx:OParser.WriteStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, stmt)
-    
 
     
     def exitWithResourceStatement(self, ctx:OParser.WithResourceStatementContext):
@@ -1819,11 +1818,9 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, stmt)
     
 
-    
     def exitWhileStatement(self, ctx:OParser.WhileStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, stmt)
-    
 
     
     def exitDoWhileStatement(self, ctx:OParser.DoWhileStatementContext):

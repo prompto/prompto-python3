@@ -9,6 +9,7 @@ from prompto.expression.SelectorExpression import SelectorExpression
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.ArgumentList import ArgumentList
 from prompto.grammar.INamed import INamed
+from prompto.parser.Dialect import Dialect
 from prompto.runtime.Context import Context, InstanceContext
 from prompto.statement.BaseStatement import BaseStatement
 from prompto.statement.MethodCall import MethodCall
@@ -38,6 +39,8 @@ class UnresolvedCall(BaseStatement):
             self.caller.toDialect(writer)
             if self.arguments is not None:
                 self.arguments.toDialect(writer)
+            elif writer.dialect is not Dialect.E:
+                writer.append("()")
 
 
     def check(self, context:Context):
@@ -63,7 +66,10 @@ class UnresolvedCall(BaseStatement):
                 self.resolved = self.resolveUnresolvedSelector(context)
             else:
                 self.resolved = self.resolveMember(context)
-        return self.resolved
+        if self.resolved is None:
+            raise SyntaxError("Unknown method: " + str(self))
+        else:
+            return self.resolved
 
 
     def resolveUnresolvedSelector(self, context:Context):
