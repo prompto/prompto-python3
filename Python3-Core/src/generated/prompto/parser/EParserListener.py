@@ -1187,6 +1187,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#SuperExpression.
+    def enterSuperExpression(self, ctx:EParser.SuperExpressionContext):
+        pass
+
+    # Exit a parse tree produced by EParser#SuperExpression.
+    def exitSuperExpression(self, ctx:EParser.SuperExpressionContext):
+        pass
+
+
     # Enter a parse tree produced by EParser#SelectorExpression.
     def enterSelectorExpression(self, ctx:EParser.SelectorExpressionContext):
         pass
@@ -2678,6 +2687,15 @@ class EParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by EParser#this_expression.
     def exitThis_expression(self, ctx:EParser.This_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by EParser#super_expression.
+    def enterSuper_expression(self, ctx:EParser.Super_expressionContext):
+        pass
+
+    # Exit a parse tree produced by EParser#super_expression.
+    def exitSuper_expression(self, ctx:EParser.Super_expressionContext):
         pass
 
 
