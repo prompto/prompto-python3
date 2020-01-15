@@ -25,15 +25,5 @@ class SuperExpression(ThisExpression):
         else:
             raise SyntaxError ("Not in an instance context!")
 
-    def interpret (self, context):
-        if isinstance(context, DocumentContext):
-            return context.document
-        if context is not None and not isinstance(context, InstanceContext):
-            context = context.getParentContext ()
-        if isinstance(context, InstanceContext):
-            return context.instance
-        else:
-            raise SyntaxError ("Not in an instance context!")
-
     def toDialect (self, writer):
         writer.append ("super")
