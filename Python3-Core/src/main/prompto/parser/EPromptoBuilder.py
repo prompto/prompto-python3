@@ -232,6 +232,7 @@ from prompto.type.IntegerType import IntegerType
 from prompto.type.IteratorType import IteratorType
 from prompto.type.ListType import ListType
 from prompto.type.PeriodType import PeriodType
+from prompto.type.SetType import SetType
 from prompto.type.TextType import TextType
 from prompto.type.TimeType import TimeType
 from prompto.type.UUIDType import UUIDType
@@ -1043,7 +1044,6 @@ class EPromptoBuilder(EParserListener):
             items.append(item)
         self.setNodeValue(ctx, items)
 
-    
 
     def exitMember_method_declaration_list(self, ctx:EParser.Member_method_declaration_listContext):
         items = MethodDeclarationList()
@@ -1053,19 +1053,21 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, items)
     
 
-
     def exitSetter_method_declaration(self, ctx:EParser.Setter_method_declarationContext):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
         self.setNodeValue(ctx, SetterMethodDeclaration(name, stmts))
     
 
-    
+    def exitSetType(self, ctx:EParser.SetTypeContext):
+        typ = self.getNodeValue(ctx.s)
+        self.setNodeValue(ctx, SetType(typ))
+
+
     def exitGetter_method_declaration(self, ctx:EParser.Getter_method_declarationContext):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
         self.setNodeValue(ctx, GetterMethodDeclaration(name, stmts))
-
 
 
     def exitNative_setter_declaration(self, ctx:EParser.Native_setter_declarationContext):
@@ -1074,12 +1076,10 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, NativeSetterMethodDeclaration(name, stmts))
 
 
-
     def exitNative_getter_declaration(self, ctx:EParser.Native_getter_declarationContext):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
         self.setNodeValue(ctx, NativeGetterMethodDeclaration(name, stmts))
-
 
 
     def exitMember_method_declaration(self, ctx:EParser.Member_method_declarationContext):

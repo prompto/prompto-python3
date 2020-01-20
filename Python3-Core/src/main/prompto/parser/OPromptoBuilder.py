@@ -229,6 +229,7 @@ from prompto.type.IntegerType import IntegerType
 from prompto.type.IteratorType import IteratorType
 from prompto.type.ListType import ListType
 from prompto.type.PeriodType import PeriodType
+from prompto.type.SetType import SetType
 from prompto.type.TextType import TextType
 from prompto.type.TimeType import TimeType
 
@@ -953,7 +954,6 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, items)
 
 
-
     def exitMember_method_declaration_list(self, ctx:OParser.Member_method_declaration_listContext):
         items = MethodDeclarationList()
         for rule in ctx.member_method_declaration():
@@ -968,6 +968,11 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, SetterMethodDeclaration(name, stmts))
     
 
+    def exitSetType(self, ctx:OParser.SetTypeContext):
+        typ = self.getNodeValue(ctx.s)
+        self.setNodeValue(ctx, SetType(typ))
+
+
     def exitGetter_method_declaration(self, ctx:OParser.Getter_method_declarationContext):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
@@ -978,7 +983,6 @@ class OPromptoBuilder(OParserListener):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
         self.setNodeValue(ctx, NativeSetterMethodDeclaration(name, stmts))
-
 
 
     def exitNative_getter_declaration(self, ctx:OParser.Native_getter_declarationContext):
