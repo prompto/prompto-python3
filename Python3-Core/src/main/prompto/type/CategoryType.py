@@ -41,6 +41,13 @@ class CategoryType(BaseType):
         return self.typeName == obj.typeName
 
 
+    def anyfy(self):
+        if self.typeName == "Any":
+            return AnyType.instance
+        else:
+            return self
+
+
     def toDialect(self, writer):
         if self.mutable:
             writer.append("mutable ")

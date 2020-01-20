@@ -1,3 +1,5 @@
 class IType(object):
-	pass
+
+	def anyfy(self):
+		return self
 	

@@ -13,12 +13,6 @@ from prompto.value.Decimal import Decimal
 from prompto.value.Integer import Integer
 
 
-def anify(itype):
-    if isinstance(itype, CategoryType) and itype.typeName == "Any":
-        return AnyType.instance
-    else:
-        return itype
-
 def getTargetType(context, itype):
     if isinstance(itype, IterableType):
         itemType = getTargetType(context, itype.itemType)
@@ -47,11 +41,11 @@ class CastExpression (IExpression):
 
     def __init__(self, expression, itype):
         self.expression = expression
-        self.itype = anify(itype)
+        self.itype = itype.anyfy()
 
 
     def check(self, context):
-        actual = anify(self.expression.check(context))
+        actual = self.expression.check(context).anyfy()
         target = getTargetType(context, self.itype)
         # check any
         if actual == AnyType.instance:
