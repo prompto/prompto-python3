@@ -5,9 +5,9 @@ from prompto.utils.StringUtils import unescape
 class TextLiteral(Literal):
 
     def __init__(self, text):
-        from prompto.value.Text import Text
+        from prompto.value.TextValue import TextValue
         s = unescape(text)
-        value = Text(s)
+        value = TextValue(s)
         super().__init__(text, value)
 
     def check(self, context):

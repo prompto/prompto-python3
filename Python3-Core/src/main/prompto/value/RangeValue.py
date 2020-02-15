@@ -4,10 +4,10 @@ from prompto.type.RangeType import RangeType
 from prompto.value.BaseValue import BaseValue
 from prompto.value.IRange import IRange
 from prompto.value.IValue import IValue
-from prompto.value.Integer import Integer
+from prompto.value.IntegerValue import IntegerValue
 
 
-class Range(BaseValue, IRange):
+class RangeValue(BaseValue, IRange):
 
     def __init__(self, itemType, left, right):
         super().__init__(RangeType(itemType))
@@ -33,7 +33,7 @@ class Range(BaseValue, IRange):
         return self.size() == 0
 
     def __eq__(self, obj):
-        if not isinstance(obj, Range):
+        if not isinstance(obj, RangeValue):
             return False
         else:
             return self.low == obj.low and self.high == obj.high
@@ -42,7 +42,7 @@ class Range(BaseValue, IRange):
         return not(val < self.low or val > self.high)
 
     def getItem(self, context, index):
-        if isinstance(index, Integer):
+        if isinstance(index, IntegerValue):
             try:
                 value = self.computeItem(index.IntegerValue())
                 if isinstance(value, IValue):
@@ -70,5 +70,5 @@ class Range(BaseValue, IRange):
         size = self.size()
         index = 1
         while index <= size:
-            yield self.getItem(context, Integer(index))
+            yield self.getItem(context, IntegerValue(index))
             index += 1

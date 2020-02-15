@@ -1,7 +1,7 @@
 from prompto.expression.IExpression import *
 from prompto.expression.Symbol import *
 from prompto.error.SyntaxError import SyntaxError
-from prompto.value.Text import Text
+from prompto.value.TextValue import TextValue
 
 
 class NativeSymbol ( Symbol, IExpression ):
@@ -62,7 +62,7 @@ class NativeSymbol ( Symbol, IExpression ):
 
     def getMemberValue(self, context, name, autoCreate):
         if "name" == name:
-            return Text(self.getName())
+            return TextValue(self.getName())
         elif "value" == name:
             return self.expression.interpret(context)
         else:

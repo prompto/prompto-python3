@@ -1,15 +1,15 @@
 from prompto.error.SyntaxError import SyntaxError
 from prompto.value.BaseValue import BaseValue
 from prompto.value.IMultiplyable import IMultiplyable
-from prompto.value.Integer import Integer
+from prompto.value.IntegerValue import IntegerValue
 
 
 
-class Character ( BaseValue, IMultiplyable) :
+class CharacterValue (BaseValue, IMultiplyable) :
 
     def __init__(self, value):
         from prompto.type.CharacterType import CharacterType
-        super(Character, self).__init__(CharacterType.instance)
+        super(CharacterValue, self).__init__(CharacterType.instance)
         self.value = value
 
 
@@ -26,35 +26,35 @@ class Character ( BaseValue, IMultiplyable) :
 
     def getMemberValue(self, context, name, autoCreate=False):
         if "codePoint" == name:
-            return Integer(ord(self.value))
+            return IntegerValue(ord(self.value))
         else:
-            return super(Character, self).getMemberValue(context, name, autoCreate)
+            return super(CharacterValue, self).getMemberValue(context, name, autoCreate)
 
 
     def Add(self, context, value):
-        from prompto.value.Text import Text
-        return Text(self.value + str(value))
+        from prompto.value.TextValue import TextValue
+        return TextValue(self.value + str(value))
 
 
 
     def Multiply(self, context, value):
-        from prompto.value.Integer import Integer
-        if isinstance(value, Integer):
-            from prompto.value.Text import Text
+        from prompto.value.IntegerValue import IntegerValue
+        if isinstance(value, IntegerValue):
+            from prompto.value.TextValue import TextValue
             count = value.IntegerValue()
             if count < 0:
                 raise SyntaxError("Negative repeat count:" + count)
             if count == 0:
-                return Text("")
+                return TextValue("")
             if count == 1:
-                return Text(self.value)
-            return Text(self.value*count)
+                return TextValue(self.value)
+            return TextValue(self.value * count)
         else:
             raise SyntaxError("Illegal: Character * " + type(value).__name__)
  
 
     def compareTo(self, context, other):
-        if isinstance(other, Character):
+        if isinstance(other, CharacterValue):
             if self.value < other.value:
                 return -1
             elif self.value == other.value:
@@ -69,8 +69,8 @@ class Character ( BaseValue, IMultiplyable) :
         return self.value
     
     def Roughly(self, context, value):
-        from prompto.value.Text import Text
-        if isinstance(value, Character) or  isinstance(value, Text):
+        from prompto.value.TextValue import TextValue
+        if isinstance(value, CharacterValue) or  isinstance(value, TextValue):
             if len(self.value)!=len(value.value):
                 return False
             return self.value.tolower()==value.value.tolower()
@@ -81,7 +81,7 @@ class Character ( BaseValue, IMultiplyable) :
         return self.value
  
     def __eq__(self, obj):
-        if isinstance(obj, Character):
+        if isinstance(obj, CharacterValue):
             return self.value == obj.value
         else:
             return False

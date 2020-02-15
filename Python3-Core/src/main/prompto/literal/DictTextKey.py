@@ -9,7 +9,7 @@ class DictTextKey(object):
         return self.text
 
     def asText(self):
-        from prompto.value.Text import Text
+        from prompto.value.TextValue import TextValue
         s = unescape(self.text)
-        return Text(s)
+        return TextValue(s)
 

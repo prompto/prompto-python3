@@ -17,29 +17,29 @@ from prompto.type.DateTimeType import DateTimeType
 from prompto.type.PeriodType import PeriodType
 from prompto.type.UUIDType import UUIDType
 from prompto.type.AnyType import AnyType
-from prompto.value.Document import Document
+from prompto.value.DocumentValue import DocumentValue
 from prompto.value.IteratorValue import IteratorValue
 from prompto.value.ListValue import ListValue
 from prompto.value.IValue import IValue
-from prompto.value.Period import Period
+from prompto.value.PeriodValue import PeriodValue
 from prompto.error.InternalError import InternalError
 from prompto.value.SetValue import SetValue
 
 
 class PythonClassType(CategoryType):
     from prompto.type.BooleanType import BooleanType
-    pythonToPromptoMap = { bool.__name__: BooleanType.instance,
-                         int.__name__: IntegerType.instance,
-                         float.__name__: DecimalType.instance,
-                         str.__name__: TextType.instance,
-                         date.__name__: DateType.instance,
-                         time.__name__: TimeType.instance,
-                         datetime.__name__: DateTimeType.instance,
-                         timedelta.__name__: PeriodType.instance,
-                         Period.__name__: PeriodType.instance,
-                         UUID.__name__: UUIDType.instance,
-                         object.__name__: AnyType.instance
-                        }
+    pythonToPromptoMap = {bool.__name__: BooleanType.instance,
+                          int.__name__: IntegerType.instance,
+                          float.__name__: DecimalType.instance,
+                          str.__name__: TextType.instance,
+                          date.__name__: DateType.instance,
+                          time.__name__: TimeType.instance,
+                          datetime.__name__: DateTimeType.instance,
+                          timedelta.__name__: PeriodType.instance,
+                          PeriodValue.__name__: PeriodType.instance,
+                          UUID.__name__: UUIDType.instance,
+                          object.__name__: AnyType.instance
+                          }
 
 
     def __init__(self, klass):
@@ -145,7 +145,7 @@ class PythonClassType(CategoryType):
 
     def convertDocument(self, context, value, klass, returnType):
         if isinstance(returnType, DocumentType) and isinstance(value, dict):
-            doc = Document()
+            doc = DocumentValue()
             for key, val in value.items():
                 klass = type(val)
                 itype = self.pythonToPromptoMap.get(klass.__name__, DocumentType.instance)

@@ -2,9 +2,9 @@ from prompto.expression.IUnaryExpression import IUnaryExpression
 from prompto.type.DecimalType import DecimalType
 from prompto.type.IntegerType import IntegerType
 from prompto.type.PeriodType import PeriodType
-from prompto.value.Decimal import Decimal
-from prompto.value.Integer import Integer
-from prompto.value.Period import Period
+from prompto.value.DecimalValue import DecimalValue
+from prompto.value.IntegerValue import IntegerValue
+from prompto.value.PeriodValue import PeriodValue
 from prompto.error.SyntaxError import SyntaxError
 
 class MinusExpression ( IUnaryExpression ):
@@ -28,11 +28,11 @@ class MinusExpression ( IUnaryExpression ):
 
     def interpret(self, context):
         val = self.expression.interpret(context)
-        if isinstance(val, Integer):
-            return Integer(-val.IntegerValue())
-        elif isinstance(val, Decimal):
-            return Decimal(-val.DecimalValue())
-        elif isinstance(val, Period):
+        if isinstance(val, IntegerValue):
+            return IntegerValue(-val.IntegerValue())
+        elif isinstance(val, DecimalValue):
+            return DecimalValue(-val.DecimalValue())
+        elif isinstance(val, PeriodValue):
             return val.inverse()
         else:
             raise SyntaxError("Illegal: - " + type(val).__name__)

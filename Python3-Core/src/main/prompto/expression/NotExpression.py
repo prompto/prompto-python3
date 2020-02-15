@@ -1,6 +1,6 @@
 from prompto.expression.IUnaryExpression import IUnaryExpression
 from prompto.type.BooleanType import BooleanType
-from prompto.value.Boolean import Boolean
+from prompto.value.BooleanValue import BooleanValue
 from prompto.error.SyntaxError import SyntaxError
 from prompto.utils.CodeWriter import CodeWriter
 from prompto.parser.Dialect import Dialect
@@ -34,7 +34,7 @@ class NotExpression ( IUnaryExpression ):
         return self.interpretValue(context, val)
 
     def interpretValue(self, context, val):
-        if isinstance(val, Boolean):
+        if isinstance(val, BooleanValue):
             return val.getNot()
         else:
             raise SyntaxError("Illegal: not " + type(val).__name__)
@@ -42,7 +42,7 @@ class NotExpression ( IUnaryExpression ):
     def interpretAssert(self, context, test):
         val = self.expression.interpret(context)
         result = self.interpretValue(context, val)
-        if result is Boolean.TRUE:
+        if result is BooleanValue.TRUE:
             return True
         writer = CodeWriter(test.dialect, context)
         self.toDialect(writer)

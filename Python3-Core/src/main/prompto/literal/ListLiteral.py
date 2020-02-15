@@ -5,10 +5,10 @@ from prompto.type.IntegerType import IntegerType
 from prompto.type.ListType import ListType
 from prompto.type.MissingType import MissingType
 from prompto.type.TextType import TextType
-from prompto.value.Decimal import Decimal
+from prompto.value.DecimalValue import DecimalValue
 from prompto.value.ListValue import ListValue
 from prompto.utils.TypeUtils import inferElementType
-from prompto.value.Text import Text
+from prompto.value.TextValue import TextValue
 
 
 # noinspection PyDefaultArgument
@@ -44,9 +44,9 @@ class ListLiteral(Literal):
         if item is None:
             return item
         if DecimalType.instance == self.itemType and item.itype == IntegerType.instance:
-            return Decimal(item.DecimalValue())
+            return DecimalValue(item.DecimalValue())
         elif TextType.instance == self.itemType and item.itype == CharacterType.instance:
-            return Text(item.value)
+            return TextValue(item.value)
         else:
             return item
 

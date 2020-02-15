@@ -1,12 +1,12 @@
 from prompto.literal.Literal import Literal
 from prompto.type.DecimalType import DecimalType
-from prompto.value.Decimal import Decimal
+from prompto.value.DecimalValue import DecimalValue
 
 
 class DecimalLiteral ( Literal ):
 
 	def __init__(self, text):
-		super(DecimalLiteral, self).__init__(text,Decimal.Parse(text))
+		super(DecimalLiteral, self).__init__(text, DecimalValue.Parse(text))
 
 	def check(self, context):
 		return DecimalType.instance

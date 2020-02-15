@@ -62,8 +62,14 @@ class TestBuiltins(BaseOParserTest):
     def testListCount(self):
         self.compareResourceOEO("builtins/listCount.poc")
 
+    def testListJoin(self):
+        self.compareResourceOEO("builtins/listJoin.poc")
+
     def testSetCount(self):
         self.compareResourceOEO("builtins/setCount.poc")
+
+    def testSetJoin(self):
+        self.compareResourceOEO("builtins/setJoin.poc")
 
     def testTextCapitalize(self):
         self.compareResourceOEO("builtins/textCapitalize.poc")
@@ -103,5 +109,8 @@ class TestBuiltins(BaseOParserTest):
 
     def testTupleCount(self):
         self.compareResourceOEO("builtins/tupleCount.poc")
+
+    def testTupleJoin(self):
+        self.compareResourceOEO("builtins/tupleJoin.poc")
 
 

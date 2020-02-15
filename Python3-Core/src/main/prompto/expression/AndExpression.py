@@ -1,6 +1,6 @@
 from prompto.expression.IExpression import IExpression
 from prompto.type.BooleanType import BooleanType
-from prompto.value.Boolean import Boolean
+from prompto.value.BooleanValue import BooleanValue
 from prompto.error.SyntaxError import SyntaxError
 from prompto.utils.CodeWriter import CodeWriter
 from prompto.parser.Dialect import Dialect
@@ -34,23 +34,23 @@ class AndExpression ( IExpression ):
 
     def interpret(self, context):
         lval = self.left.interpret(context)
-        if not isinstance(lval, Boolean):
+        if not isinstance(lval, BooleanValue):
             raise SyntaxError("Illegal: " + type(lval).__name__ + " and ..., expected a Boolean ")
-        if lval is Boolean.FALSE:
+        if lval is BooleanValue.FALSE:
             return lval
         rval = self.right.interpret(context)
-        if not isinstance(rval, Boolean):
+        if not isinstance(rval, BooleanValue):
             raise SyntaxError("Illegal: Boolean and " + type(rval).__name__)
         return rval
 
     def interpretAssert(self, context, test):
         lval = self.left.interpret(context)
-        if not isinstance(lval, Boolean):
+        if not isinstance(lval, BooleanValue):
             raise SyntaxError("Illegal: " + type(lval).__name__ + " and ..., expected a Boolean ")
         rval = lval
-        if lval is Boolean.TRUE:
+        if lval is BooleanValue.TRUE:
             rval = self.right.interpret(context)
-        if rval is Boolean.TRUE:
+        if rval is BooleanValue.TRUE:
             return True
         writer = CodeWriter(test.dialect, context)
         self.toDialect(writer)

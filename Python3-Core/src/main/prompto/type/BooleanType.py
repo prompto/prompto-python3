@@ -13,8 +13,8 @@ class BooleanType(NativeType):
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         if isinstance(value, bool):
-            from prompto.value.Boolean import Boolean
-            return Boolean.ValueOf(value)
+            from prompto.value.BooleanValue import BooleanValue
+            return BooleanValue.ValueOf(value)
         else:
             return value  # TODO for now
 

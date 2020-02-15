@@ -3,11 +3,11 @@ from prompto.type.CharacterType import CharacterType
 from prompto.type.DecimalType import DecimalType
 from prompto.type.IntegerType import IntegerType
 from prompto.type.TextType import TextType
-from prompto.value.Decimal import Decimal
+from prompto.value.DecimalValue import DecimalValue
 from prompto.value.SetValue import SetValue
 from prompto.type.MissingType import MissingType
 from prompto.type.SetType import SetType
-from prompto.value.Text import Text
+from prompto.value.TextValue import TextValue
 from prompto.utils.TypeUtils import inferElementType
 
 
@@ -41,9 +41,9 @@ class SetLiteral(Literal):
         if item is None:
             return item
         if DecimalType.instance == self.itemType and item.itype == IntegerType.instance:
-            return Decimal(item.DecimalValue())
+            return DecimalValue(item.DecimalValue())
         elif TextType.instance == self.itemType and item.itype == CharacterType.instance:
-            return Text(item.value)
+            return TextValue(item.value)
         else:
             return item
 

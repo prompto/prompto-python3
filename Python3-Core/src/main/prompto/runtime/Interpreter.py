@@ -11,8 +11,8 @@ from prompto.statement.MethodCall import MethodCall
 from prompto.type.DictType import DictType
 from prompto.type.TextType import TextType
 from prompto.utils import CmdLineParser
-from prompto.value.Dictionary import Dictionary
-from prompto.value.Text import Text
+from prompto.value.DictValue import DictValue
+from prompto.value.TextValue import TextValue
 
 
 class Interpreter(object):
@@ -62,8 +62,8 @@ class Interpreter(object):
             args = CmdLineParser.parseCmdLine(cmdLineArgs)
             valueArgs = dict()
             for key, value in args:
-                valueArgs[Text(key)] = Text(value)
-            dict_ = Dictionary(TextType.instance, False, value=valueArgs)
+                valueArgs[TextValue(key)] = TextValue(value)
+            dict_ = DictValue(TextType.instance, False, value=valueArgs)
             return ValueExpression(Interpreter.argsType, dict_)
         except:
             # TODO

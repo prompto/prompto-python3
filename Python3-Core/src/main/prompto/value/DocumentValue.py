@@ -4,14 +4,14 @@ from prompto.type.DocumentType import DocumentType
 from prompto.utils.JSONGenerator import JSONGenerator
 from prompto.value.BaseValue import BaseValue
 from prompto.value.NullValue import NullValue
-from prompto.value.Text import Text
+from prompto.value.TextValue import TextValue
 from prompto.error.SyntaxError import SyntaxError
 
 
-class Document ( BaseValue ):
+class DocumentValue (BaseValue):
 
     def __init__(self, values=None):
-        super(Document, self).__init__(DocumentType.instance)
+        super(DocumentValue, self).__init__(DocumentType.instance)
         self.mutable = True
         if values is None:
             self.values = dict()
@@ -34,9 +34,9 @@ class Document ( BaseValue ):
         if result is not None:
             return result
         elif "text" == name:
-            return Text(str(self))
+            return TextValue(str(self))
         elif autoCreate:
-            result = Document()
+            result = DocumentValue()
             self.values[name] = result
             return result
         else:
@@ -47,7 +47,7 @@ class Document ( BaseValue ):
 
 
     def getItem(self, context, index):
-        if isinstance(index, Text):
+        if isinstance(index, TextValue):
             # TODO autocreate
             return self.values.get(index.value, NullValue.instance)
         else:
@@ -55,7 +55,7 @@ class Document ( BaseValue ):
 
 
     def setItem(self, context, index, value):
-        if isinstance(index, Text):
+        if isinstance(index, TextValue):
             self.values[index.value] = value
         else:
             raise SyntaxError("No such item:" + index.toString())

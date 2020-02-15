@@ -9,8 +9,8 @@ from prompto.store.DataStore import DataStore
 from prompto.type.DecimalType import DecimalType
 from prompto.utils.TypeUtils import fieldToValue
 from prompto.value.BaseValue import BaseValue
-from prompto.value.Decimal import Decimal
-from prompto.value.Integer import Integer
+from prompto.value.DecimalValue import DecimalValue
+from prompto.value.IntegerValue import IntegerValue
 from prompto.value.IInstance import IInstance
 from prompto.value.IMultiplyable import IMultiplyable
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
@@ -18,7 +18,7 @@ from prompto.runtime.Variable import Variable
 from prompto.error.SyntaxError import SyntaxError
 from prompto.error.NotMutableError import NotMutableError
 from prompto.value.NullValue import NullValue
-from prompto.value.Text import Text
+from prompto.value.TextValue import TextValue
 
 # don't call getters from getters, so register them
 activeGetters = threading.local()
@@ -128,7 +128,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         elif self.declaration.hasAttribute(context, attrName) or "dbId" == attrName:
             return self.values.get(attrName, NullValue.instance)
         elif "text" == attrName:
-            return Text(str(self))
+            return TextValue(str(self))
         else:
             return NullValue.instance
 
@@ -165,8 +165,8 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
 
 
     def autocast(self, decl, value):
-        if isinstance(value, Integer) and decl.getType() is DecimalType.instance:
-            value = Decimal(value.DecimalValue())
+        if isinstance(value, IntegerValue) and decl.getType() is DecimalType.instance:
+            value = DecimalValue(value.DecimalValue())
         return value
 
     def __eq__(self, obj):

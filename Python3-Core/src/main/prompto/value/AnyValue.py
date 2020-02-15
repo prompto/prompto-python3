@@ -1,7 +1,7 @@
 from prompto.value.BaseValue import BaseValue
 from prompto.type.AnyType import AnyType
 
-class Any(BaseValue):
+class AnyValue(BaseValue):
 
     def __init__(self):
         super().__init__(AnyType.instance)

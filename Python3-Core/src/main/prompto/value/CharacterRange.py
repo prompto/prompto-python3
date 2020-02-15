@@ -1,9 +1,9 @@
 from prompto.error.IndexOutOfRangeError import *
-from prompto.value.Character import *
-from prompto.value.Range import *
+from prompto.value.CharacterValue import *
+from prompto.value.RangeValue import *
 
 
-class CharacterRange(Range):
+class CharacterRange(RangeValue):
 
     def __init__(self, left, right):
         from prompto.type.CharacterType import CharacterType
@@ -24,7 +24,7 @@ class CharacterRange(Range):
         result = chr(ord(self.low.getValue()[0]) + index - 1)
         if result > self.high.getValue():
             raise IndexOutOfRangeError()
-        return Character(result)
+        return CharacterValue(result)
 
     def newInstance(self, left, right):
         return CharacterRange(left, right)

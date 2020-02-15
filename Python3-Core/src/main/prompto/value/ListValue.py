@@ -3,7 +3,7 @@ from io import StringIO
 from prompto.error.InternalError import InternalError
 from prompto.value.BaseValueList import BaseValueList
 from prompto.value.IFilterable import IFilterable
-from prompto.value.Integer import Integer
+from prompto.value.IntegerValue import IntegerValue
 from prompto.error.SyntaxError import SyntaxError
 
 class ListValue(BaseValueList, IFilterable):
@@ -45,7 +45,7 @@ class ListValue(BaseValueList, IFilterable):
 
 
     def Multiply(self, context, value):
-        if isinstance(value, Integer):
+        if isinstance(value, IntegerValue):
             count = value.IntegerValue()
             if count < 0:
                 raise SyntaxError("Negative repeat count:" + count)

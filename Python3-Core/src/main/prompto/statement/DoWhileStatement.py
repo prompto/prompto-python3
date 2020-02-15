@@ -2,7 +2,7 @@ from prompto.store.InvalidValueError import InvalidValueError
 from prompto.runtime.BreakResult import BreakResult
 from prompto.statement.BaseStatement import BaseStatement
 from prompto.type.BooleanType import BooleanType
-from prompto.value.Boolean import Boolean
+from prompto.value.BooleanValue import BooleanValue
 
 
 class DoWhileStatement ( BaseStatement ):
@@ -33,7 +33,7 @@ class DoWhileStatement ( BaseStatement ):
 
     def interpretCondition(self, context):
         value = self.condition.interpret(context)
-        if not isinstance(value, Boolean):
+        if not isinstance(value, BooleanValue):
             raise InvalidValueError("Expected a Boolean, got:" + type(value).__name__)
         return value.value
 

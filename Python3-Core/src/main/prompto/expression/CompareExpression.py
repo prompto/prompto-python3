@@ -4,7 +4,7 @@ from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.CmpOp import CmpOp
 from prompto.store.InvalidValueError import InvalidValueError
 from prompto.store.MatchOp import MatchOp
-from prompto.value.Boolean import Boolean
+from prompto.value.BooleanValue import BooleanValue
 from prompto.value.IInstance import IInstance
 from prompto.value.IValue import IValue
 from prompto.utils.CodeWriter import CodeWriter
@@ -44,13 +44,13 @@ class CompareExpression ( IExpression ):
     def compare(self, context, lval, rval):
         cmp = lval.compareTo(context, rval)
         if self.operator==CmpOp.GT:
-            return Boolean.ValueOf(cmp > 0)
+            return BooleanValue.ValueOf(cmp > 0)
         elif self.operator==CmpOp.LT:
-            return Boolean.ValueOf(cmp < 0)
+            return BooleanValue.ValueOf(cmp < 0)
         elif self.operator==CmpOp.GTE:
-            return Boolean.ValueOf(cmp >= 0)
+            return BooleanValue.ValueOf(cmp >= 0)
         elif self.operator==CmpOp.LTE:
-            return Boolean.ValueOf(cmp <= 0)
+            return BooleanValue.ValueOf(cmp <= 0)
         else:
             raise SyntaxError("Illegal compare operand: " + str(self.operator))
 
@@ -58,7 +58,7 @@ class CompareExpression ( IExpression ):
         lval = self.left.interpret(context)
         rval = self.right.interpret(context)
         result = self.compare(context, lval, rval)
-        if result is Boolean.TRUE:
+        if result is BooleanValue.TRUE:
             return True
         writer = CodeWriter(test.dialect, context)
         self.toDialect(writer)

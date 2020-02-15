@@ -59,8 +59,8 @@ class TupleValue ( BaseValueList, IFilterable ):
         for o in self.getIterator(context):
             context.setValue(itemName, o)
             test = filter.interpret(context)
-            from prompto.value.Boolean import Boolean
-            if not isinstance(test, Boolean):
+            from prompto.value.BooleanValue import BooleanValue
+            if not isinstance(test, BooleanValue):
                 raise InternalError("Illegal test result: " + test)
             if test.getValue():
                 result.append(o)

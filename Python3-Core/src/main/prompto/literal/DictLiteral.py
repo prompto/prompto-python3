@@ -2,7 +2,7 @@ from prompto.literal.DictEntryList import DictEntryList
 from prompto.literal.Literal import Literal
 from prompto.type.MissingType import MissingType
 from prompto.type.TextType import TextType
-from prompto.value.Dictionary import Dictionary
+from prompto.value.DictValue import DictValue
 from prompto.error.SyntaxError import SyntaxError
 from prompto.utils.TypeUtils import inferElementType
 
@@ -13,7 +13,7 @@ class DictLiteral(Literal):
     def __init__(self, mutable, entries=None):
         if entries is None:
             entries = DictEntryList()
-        super().__init__("<:>", Dictionary(MissingType.instance, mutable))
+        super().__init__("<:>", DictValue(MissingType.instance, mutable))
         self.mutable = mutable
         self.entries = entries
         self.itemType = None
@@ -49,6 +49,6 @@ class DictLiteral(Literal):
                 key = e.getKey().asText()
                 val = e.getValue().interpret(context)
                 value[key.value] = val
-            return Dictionary(self.itemType, self.mutable, value=value)
+            return DictValue(self.itemType, self.mutable, value=value)
         else:
             return self.value

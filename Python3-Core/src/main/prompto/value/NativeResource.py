@@ -1,5 +1,5 @@
 from prompto.value.IResource import IResource
-from prompto.value.Text import Text
+from prompto.value.TextValue import TextValue
 from prompto.value.NativeInstance import NativeInstance
 
 
@@ -16,7 +16,7 @@ class NativeResource(NativeInstance, IResource):
 
     def readFully(self):
         s = self.instance.readFully()
-        return Text(s)
+        return TextValue(s)
 
     def writeFully(self, data):
         s = str(data)
@@ -24,7 +24,7 @@ class NativeResource(NativeInstance, IResource):
 
     def readLine(self):
         s = self.instance.readLine()
-        return Text(s)
+        return TextValue(s)
 
     def writeLine(self, data):
         s = str(data)

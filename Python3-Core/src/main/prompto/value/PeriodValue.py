@@ -2,9 +2,9 @@ from io import StringIO
 from prompto.type.PeriodType import PeriodType
 from prompto.value.BaseValue import BaseValue
 from prompto.value.IMultiplyable import IMultiplyable
-from prompto.value.Integer import Integer
+from prompto.value.IntegerValue import IntegerValue
 
-class Period ( BaseValue, IMultiplyable ):
+class PeriodValue (BaseValue, IMultiplyable):
 
     ZERO = None
     
@@ -71,8 +71,8 @@ class Period ( BaseValue, IMultiplyable ):
             # must terminate by a value type
             if value is not None:
                 raise Exception()
-            return Period(years=data[0], months=data[1], weeks=data[2], days=data[3],
-                          hours=data[4], minutes=data[5], seconds=data[6], millis=data[7])
+            return PeriodValue(years=data[0], months=data[1], weeks=data[2], days=data[3],
+                               hours=data[4], minutes=data[5], seconds=data[6], millis=data[7])
         except Exception as e:
             from prompto.error.InvalidValueError import InvalidValueError
             raise InvalidValueError("\"" + text + "\" is not a valid ISO 8601 period!")
@@ -103,24 +103,24 @@ class Period ( BaseValue, IMultiplyable ):
         self.millis = millis
 
     def Add(self, context, value):
-        if isinstance(value, Period):
+        if isinstance(value, PeriodValue):
             return self.plus(value)
         else:
             raise SyntaxError("Illegal: Period + " + type(value).__name__)
  
     def Subtract(self, context, value):
-        if isinstance(value, Period):
+        if isinstance(value, PeriodValue):
             return self.minus(value)
         else:
             raise SyntaxError("Illegal: Period - " + type(value).__name__)
     
     def Multiply(self, context, value):
-        if isinstance(value, Integer):
+        if isinstance(value, IntegerValue):
             count = value.IntegerValue()
             if count < 0:
                 raise SyntaxError("Negative repeat count:" + count)
             elif count == 0:
-                return Period.ZERO
+                return PeriodValue.ZERO
             elif count == 1:
                 return self
             else:
@@ -135,14 +135,14 @@ class Period ( BaseValue, IMultiplyable ):
         millis = self.millis + period.millis
         seconds = int(millis/1000)
         millis %= 1000
-        return Period(self.years + period.years,
-                        self.months + period.months,
-                        self.weeks + period.weeks,
-                        self.days + period.days,
-                        self.hours + period.hours,
-                        self.minutes + period.minutes,
-                        self.seconds + period.seconds + seconds,
-                        millis)
+        return PeriodValue(self.years + period.years,
+                           self.months + period.months,
+                           self.weeks + period.weeks,
+                           self.days + period.days,
+                           self.hours + period.hours,
+                           self.minutes + period.minutes,
+                           self.seconds + period.seconds + seconds,
+                           millis)
 
     def minus(self, period):
         days = self.days - period.days
@@ -162,24 +162,24 @@ class Period ( BaseValue, IMultiplyable ):
         if hours < 0:
             days += int((hours - 23)/24)
             hours = abs (hours % 24)
-        return Period(self.years - period.years,
-                        self.months - period.months,
-                        self.weeks - period.weeks,
-                        days, hours, minutes, seconds, millis)
+        return PeriodValue(self.years - period.years,
+                           self.months - period.months,
+                           self.weeks - period.weeks,
+                           days, hours, minutes, seconds, millis)
 
     def inverse(self):
-        return Period(-self.years, -self.months, -self.weeks, -self.days,
-                        -self.hours, -self.minutes, -self.seconds, -self.millis)
+        return PeriodValue(-self.years, -self.months, -self.weeks, -self.days,
+                           -self.hours, -self.minutes, -self.seconds, -self.millis)
 
     def times(self, count):
-        return Period(self.years * count,
-                        self.months * count,
-                        self.weeks * count,
-                        self.days * count,
-                        self.hours * count,
-                        self.minutes * count,
-                        self.seconds * count,
-                        self.millis * count)
+        return PeriodValue(self.years * count,
+                           self.months * count,
+                           self.weeks * count,
+                           self.days * count,
+                           self.hours * count,
+                           self.minutes * count,
+                           self.seconds * count,
+                           self.millis * count)
 
     def __str__(self):
         s = StringIO()
@@ -216,7 +216,7 @@ class Period ( BaseValue, IMultiplyable ):
             s.close()
 
     def __eq__(self, obj):
-        if isinstance(obj, Period):
+        if isinstance(obj, PeriodValue):
             return self.years==obj.years \
                 and self.months==obj.months \
                 and self.weeks==obj.weeks \
@@ -228,6 +228,6 @@ class Period ( BaseValue, IMultiplyable ):
         else:
             return False
  
-Period.ZERO = Period(0, 0, 0, 0, 0, 0, 0, 0)
+PeriodValue.ZERO = PeriodValue(0, 0, 0, 0, 0, 0, 0, 0)
 
 

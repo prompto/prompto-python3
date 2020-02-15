@@ -2,7 +2,7 @@ from prompto.error.NullReferenceError import NullReferenceError
 from prompto.expression.SelectorExpression import SelectorExpression
 from prompto.type.IntegerType import IntegerType
 from prompto.value.ISliceable import ISliceable
-from prompto.value.Integer import Integer
+from prompto.value.IntegerValue import IntegerValue
 from prompto.error.SyntaxError import SyntaxError
 
 class SliceSelector(SelectorExpression):
@@ -50,10 +50,10 @@ class SliceSelector(SelectorExpression):
             raise NullReferenceError()
         if isinstance(o, ISliceable):
             fi = None if self.first is None else self.first.interpret(context)
-            if fi is not None and not isinstance(fi, Integer):
+            if fi is not None and not isinstance(fi, IntegerValue):
                 raise SyntaxError("Illegal sliced type: " + str(fi))
             li = None if self.last is None else self.last.interpret(context)
-            if li is not None and not isinstance(li, Integer):
+            if li is not None and not isinstance(li, IntegerValue):
                 raise SyntaxError("Illegal sliced type: " + str(li))
             return o.slice(fi, li)
         else:

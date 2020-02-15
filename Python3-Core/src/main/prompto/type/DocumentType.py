@@ -10,10 +10,10 @@ from prompto.type.AnyType import AnyType
 from prompto.type.NativeType import NativeType
 from prompto.store.TypeFamily import TypeFamily
 from prompto.value.NullValue import NullValue
-from prompto.value.Boolean import Boolean
-from prompto.value.Decimal import Decimal
-from prompto.value.Integer import Integer
-from prompto.value.Text import Text
+from prompto.value.BooleanValue import BooleanValue
+from prompto.value.DecimalValue import DecimalValue
+from prompto.value.IntegerValue import IntegerValue
+from prompto.value.TextValue import TextValue
 
 
 class DocumentType ( NativeType ):
@@ -51,8 +51,8 @@ class DocumentType ( NativeType ):
 
 
     def readJSONValue(self, context, node, parts):
-        from prompto.value.Document import Document
-        instance = Document()
+        from prompto.value.DocumentValue import DocumentValue
+        instance = DocumentValue()
         for key, node in node.items():
             value = self.readJSONField(context, node, parts)
             instance.setMember(context, key, value)
@@ -62,13 +62,13 @@ class DocumentType ( NativeType ):
         if node is None:
             return NullValue.instance
         elif isinstance(node, bool):
-            return Boolean.ValueOf(node)
+            return BooleanValue.ValueOf(node)
         elif isinstance(node, int):
-            return Integer(node)
+            return IntegerValue(node)
         elif isinstance(node, float):
-            return Decimal(node)
+            return DecimalValue(node)
         elif isinstance(node, str):
-            return Text(node)
+            return TextValue(node)
         elif isinstance(node, list):
             raise Exception("list")
         elif isinstance(node, dict):
@@ -105,8 +105,8 @@ class DocumentType ( NativeType ):
 
     def getGlobalMethodSortKeyReader(self, context, name):
         from prompto.statement.MethodCall import MethodCall
-        from prompto.value.Document import Document
-        exp = ValueExpression(self, Document())
+        from prompto.value.DocumentValue import DocumentValue
+        exp = ValueExpression(self, DocumentValue())
         arg = Argument(None, exp)
         args = ArgumentList(items=[arg])
         from prompto.expression.MethodSelector import MethodSelector

@@ -1,6 +1,6 @@
 from prompto.value.BaseValue import BaseValue
 from prompto.value.ISliceable import ISliceable
-from prompto.value.Integer import Integer
+from prompto.value.IntegerValue import IntegerValue
 from prompto.error.IndexOutOfRangeError import IndexOutOfRangeError
 from prompto.error.SyntaxError import SyntaxError
 
@@ -69,7 +69,7 @@ class BaseValueList(BaseValue, ISliceable):
         return False
 
     def getItem(self, context, index):
-        if isinstance(index, Integer):
+        if isinstance(index, IntegerValue):
             try:
                 idx = index.IntegerValue() - 1
                 return self.items[idx]
@@ -79,7 +79,7 @@ class BaseValueList(BaseValue, ISliceable):
             raise SyntaxError("No such item:" + index.toString())
 
     def setItem(self, context, index, value):
-        if isinstance(index, Integer):
+        if isinstance(index, IntegerValue):
             try:
                 idx = index.IntegerValue() - 1
                 self.items[idx] = value
@@ -96,7 +96,7 @@ class BaseValueList(BaseValue, ISliceable):
 
     def getMemberValue(self, context, name, autoCreate=False):
         if "count" == name:
-            return Integer(len(self.items))
+            return IntegerValue(len(self.items))
         else:
             return super(BaseValueList, self).getMemberValue(context, name)
 

@@ -1,6 +1,6 @@
 from prompto.type.IType import IType
 from prompto.type.TimeType import *
-from prompto.value.Date import *
+from prompto.value.DateValue import *
 from prompto.value.DateRange import *
 
 

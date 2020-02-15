@@ -6,7 +6,7 @@ from prompto.error.SyntaxError import SyntaxError
 from functools import total_ordering
 
 from prompto.utils.CodeWriter import CodeWriter
-from prompto.value.Integer import Integer
+from prompto.value.IntegerValue import IntegerValue
 
 
 class ArrowExpression ( IExpression ):
@@ -43,14 +43,14 @@ class ArrowExpression ( IExpression ):
 
 
     def getFilter(self, context, itemType):
-        from prompto.value.Boolean import Boolean
+        from prompto.value.BooleanValue import BooleanValue
         if len(self.args) != 1:
             raise SyntaxError("Expecting 1 parameter only!")
         local = self.registerArrowArgs(context.newLocalContext(), itemType)
         def filter(o):
             local.setValue(self.args[0], o)
             result = self.statements.interpret(local)
-            if isinstance(result, Boolean):
+            if isinstance(result, BooleanValue):
                 return result.value
             else:
                 raise SyntaxError("Expecting a Boolean result!")
@@ -149,7 +149,7 @@ class ItemProxy(object):
         self.context.setValue(self.arrow.args[0], self.value)
         self.context.setValue(self.arrow.args[1], other.value)
         result = self.arrow.statements.interpret(self.context)
-        if not isinstance(result, Integer):
+        if not isinstance(result, IntegerValue):
             raise SyntaxError("Expected an Integer, got a " + result.itype)
         return result.value == 0
 
@@ -158,7 +158,7 @@ class ItemProxy(object):
         self.context.setValue(self.arrow.args[0], self.value)
         self.context.setValue(self.arrow.args[1], other.value)
         result = self.arrow.statements.interpret(self.context)
-        if not isinstance(result, Integer):
+        if not isinstance(result, IntegerValue):
             raise SyntaxError("Expected an Integer, got a " + result.itype)
         return result.value < 0
 

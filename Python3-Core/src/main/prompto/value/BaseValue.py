@@ -34,9 +34,9 @@ class BaseValue(IValue):
         raise Exception("Contains not supported by " + type(self).__name__)
 
     def getMemberValue(self, context, name, autoCreate=False):
-        from prompto.value.Text import Text
+        from prompto.value.TextValue import TextValue
         if "text" == name:
-            return Text(str(self))
+            return TextValue(str(self))
         else:
             raise Exception("No member support for " + type(self).__name__)
 

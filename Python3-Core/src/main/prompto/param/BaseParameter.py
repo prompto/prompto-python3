@@ -1,8 +1,8 @@
 from prompto.param.IParameter import IParameter
 from prompto.type.DecimalType import DecimalType
 from prompto.type.IntegerType import IntegerType
-from prompto.value.Decimal import Decimal
-from prompto.value.Integer import Integer
+from prompto.value.DecimalValue import DecimalValue
+from prompto.value.IntegerValue import IntegerValue
 
 
 
@@ -18,9 +18,9 @@ class BaseParameter (IParameter) :
 
     def checkValue(self, context, expression):
         value = expression.interpret(context)
-        if isinstance(value, Integer) and self.getType(context)==DecimalType.instance:
-            return Decimal(value.DecimalValue())
-        elif isinstance(value, Decimal) and self.getType(context)==IntegerType.instance:
-            return Integer(value.IntegerValue())
+        if isinstance(value, IntegerValue) and self.getType(context)==DecimalType.instance:
+            return DecimalValue(value.DecimalValue())
+        elif isinstance(value, DecimalValue) and self.getType(context)==IntegerType.instance:
+            return IntegerValue(value.IntegerValue())
         else:
             return value

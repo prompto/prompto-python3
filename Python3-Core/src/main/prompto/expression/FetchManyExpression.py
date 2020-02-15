@@ -10,7 +10,7 @@ from prompto.type.AnyType import AnyType
 from prompto.type.BooleanType import BooleanType
 from prompto.type.CursorType import CursorType
 from prompto.store.DataStore import DataStore
-from prompto.value.Cursor import Cursor
+from prompto.value.CursorValue import CursorValue
 
 class FetchManyExpression(Section, IExpression):
 
@@ -120,7 +120,7 @@ class FetchManyExpression(Section, IExpression):
         query = self.buildFetchManyQuery(context, store)
         docs = store.fetchMany (query)
         typ = AnyType.instance if self.typ is None else self.typ
-        return Cursor(context, typ, docs)
+        return CursorValue(context, typ, docs)
 
 
 

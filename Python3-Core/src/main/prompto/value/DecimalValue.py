@@ -5,11 +5,11 @@ from prompto.error.DivideByZeroError import DivideByZeroError
 from prompto.error.SyntaxError import SyntaxError
 
 
-class Decimal(BaseValue, INumber, IMultiplyable):
+class DecimalValue(BaseValue, INumber, IMultiplyable):
 
     @staticmethod
     def Parse(text):
-        return Decimal(float(text))
+        return DecimalValue(float(text))
 
     def __init__(self, value):
         from prompto.type.DecimalType import DecimalType
@@ -26,30 +26,30 @@ class Decimal(BaseValue, INumber, IMultiplyable):
         return self.value
 
     def Add(self, context, value):
-        from prompto.value.Integer import Integer
-        if isinstance(value, Integer):
-            return Decimal(self.value + value.IntegerValue())
-        elif isinstance(value, Decimal):
-            return Decimal(self.value + value.DecimalValue())
+        from prompto.value.IntegerValue import IntegerValue
+        if isinstance(value, IntegerValue):
+            return DecimalValue(self.value + value.IntegerValue())
+        elif isinstance(value, DecimalValue):
+            return DecimalValue(self.value + value.DecimalValue())
         else:
             raise SyntaxError("Illegal: Decimal + " + type(value).__name__)
 
     def Subtract(self, context, value):
-        from prompto.value.Integer import Integer
-        if isinstance(value, Integer):
-            return Decimal(self.value - value.IntegerValue())
-        elif isinstance(value, Decimal):
-            return Decimal(self.value - value.DecimalValue())
+        from prompto.value.IntegerValue import IntegerValue
+        if isinstance(value, IntegerValue):
+            return DecimalValue(self.value - value.IntegerValue())
+        elif isinstance(value, DecimalValue):
+            return DecimalValue(self.value - value.DecimalValue())
         else:
             raise SyntaxError("Illegal: Decimal - " + type(value).__name__)
 
 
     def Multiply(self, context, value):
-        from prompto.value.Integer import Integer
-        if isinstance(value, Integer):
-            return Decimal(self.DecimalValue() * value.IntegerValue())
-        elif isinstance(value, Decimal):
-            return Decimal(self.DecimalValue() * value.DecimalValue())
+        from prompto.value.IntegerValue import IntegerValue
+        if isinstance(value, IntegerValue):
+            return DecimalValue(self.DecimalValue() * value.IntegerValue())
+        elif isinstance(value, DecimalValue):
+            return DecimalValue(self.DecimalValue() * value.DecimalValue())
         else:
             raise SyntaxError("Illegal: Decimal * " + type(value).__name__)
 
@@ -59,17 +59,17 @@ class Decimal(BaseValue, INumber, IMultiplyable):
             if value.DecimalValue() == 0.0:
                 raise DivideByZeroError()
             else:
-                return Decimal(self.DecimalValue() / value.DecimalValue())
+                return DecimalValue(self.DecimalValue() / value.DecimalValue())
         else:
             raise SyntaxError("Illegal: Decimal / " + type(value).__name__)
 
     def IntDivide(self, context, value):
-        from prompto.value.Integer import Integer
-        if isinstance(value, Integer):
+        from prompto.value.IntegerValue import IntegerValue
+        if isinstance(value, IntegerValue):
             if value.IntegerValue() == 0.:
                 raise DivideByZeroError()
             else:
-                return Integer(int(self.IntegerValue() // value.IntegerValue()))
+                return IntegerValue(int(self.IntegerValue() // value.IntegerValue()))
         else:
             raise SyntaxError("Illegal: Decimal / " + type(value).__name__)
 
@@ -78,7 +78,7 @@ class Decimal(BaseValue, INumber, IMultiplyable):
             if value.DecimalValue() == 0.0:
                 raise DivideByZeroError()
             else:
-                return Decimal(self.DecimalValue() % value.DecimalValue())
+                return DecimalValue(self.DecimalValue() % value.DecimalValue())
         else:
             raise SyntaxError("Illegal: Decimal % " + type(value).__name__)
 

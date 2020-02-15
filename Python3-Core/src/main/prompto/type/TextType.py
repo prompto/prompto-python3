@@ -69,9 +69,9 @@ class TextType(NativeType):
 
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
-        from prompto.value.Text import Text
+        from prompto.value.TextValue import TextValue
         if isinstance(value, str):
-            return Text(value)
+            return TextValue(value)
         else:
             return value  # TODO for now
 
@@ -111,11 +111,11 @@ class StartsWithMethodDeclaration(BuiltInMethodDeclaration):
 
 
     def interpret(self, context):
-        from prompto.value.Boolean import Boolean
+        from prompto.value.BooleanValue import BooleanValue
         value = self.getValue(context).value
         find = context.getValue("value").value
         startsWith = value.startswith(find)
-        return Boolean.ValueOf(startsWith)
+        return BooleanValue.ValueOf(startsWith)
 
 
     def check(self, context, isStart=False):
@@ -132,11 +132,11 @@ class EndsWithMethodDeclaration(BuiltInMethodDeclaration):
 
 
     def interpret(self, context):
-        from prompto.value.Boolean import Boolean
+        from prompto.value.BooleanValue import BooleanValue
         value = self.getValue(context).value
         find = context.getValue("value").value
         endsWith = value.endswith(find)
-        return Boolean.ValueOf(endsWith)
+        return BooleanValue.ValueOf(endsWith)
 
 
     def check(self, context, isStart=False):
@@ -156,11 +156,11 @@ class SplitMethodDeclaration(BuiltInMethodDeclaration):
 
 
     def interpret(self, context):
-        from prompto.value.Text import Text
+        from prompto.value.TextValue import TextValue
         from prompto.value.ListValue import ListValue
         value = self.getValue(context).value
         sep = context.getValue("separator").value
-        parts = [ Text(part) for part in value.split(sep)]
+        parts = [TextValue(part) for part in value.split(sep)]
         return ListValue(TextType.instance, parts, mutable = False)
 
 
@@ -179,12 +179,12 @@ class ReplaceMethodDeclaration(BuiltInMethodDeclaration):
 
 
     def interpret(self, context):
-        from prompto.value.Text import Text
+        from prompto.value.TextValue import TextValue
         value = self.getValue(context).value
         toReplace = context.getValue("toReplace").value
         replaceWith = context.getValue("replaceWith").value
         value = value.replace(toReplace, replaceWith, 1)
-        return Text(value)
+        return TextValue(value)
 
 
     def check(self, context, isStart=False):
@@ -201,12 +201,12 @@ class ReplaceAllMethodDeclaration(BuiltInMethodDeclaration):
 
 
     def interpret(self, context):
-        from prompto.value.Text import Text
+        from prompto.value.TextValue import TextValue
         value = self.getValue(context).value
         toReplace = context.getValue("toReplace").value
         replaceWith = context.getValue("replaceWith").value
         value = value.replace(toReplace, replaceWith)
-        return Text(value)
+        return TextValue(value)
 
 
     def check(self, context, isStart=False):
@@ -219,9 +219,9 @@ class ToLowerCaseMethodDeclaration(BuiltInMethodDeclaration):
 
 
     def interpret(self, context):
-        from prompto.value.Text import Text
+        from prompto.value.TextValue import TextValue
         value = self.getValue(context).getStorableData()
-        return Text(value.lower())
+        return TextValue(value.lower())
 
 
     def check(self, context, isStart=False):
@@ -236,9 +236,9 @@ class ToUpperCaseMethodDeclaration(BuiltInMethodDeclaration):
 
 
     def interpret(self, context):
-        from prompto.value.Text import Text
+        from prompto.value.TextValue import TextValue
         value = self.getValue(context).getStorableData()
-        return Text(value.upper())
+        return TextValue(value.upper())
 
 
     def check(self, context, isStart=False):
@@ -253,9 +253,9 @@ class ToCapitalizedMethodDeclaration(BuiltInMethodDeclaration):
 
 
     def interpret(self, context):
-        from prompto.value.Text import Text
+        from prompto.value.TextValue import TextValue
         value = self.getValue(context).getStorableData()
-        return Text(value.title())
+        return TextValue(value.title())
 
 
     def check(self, context, isStart=False):
@@ -269,9 +269,9 @@ class TrimMethodDeclaration(BuiltInMethodDeclaration):
 
 
     def interpret(self, context):
-        from prompto.value.Text import Text
+        from prompto.value.TextValue import TextValue
         value = self.getValue(context).getStorableData()
-        return Text(value.strip())
+        return TextValue(value.strip())
 
 
     def check(self, context, isStart=False):
@@ -287,11 +287,11 @@ class IndexOfMethodDeclaration(BuiltInMethodDeclaration):
 
 
     def interpret(self, context):
-        from prompto.value.Integer import Integer
+        from prompto.value.IntegerValue import IntegerValue
         value = self.getValue(context).value
         find = context.getValue("value").value
         index = value.index(find)
-        return Integer(index + 1)
+        return IntegerValue(index + 1)
 
 
     def check(self, context, isStart=False):

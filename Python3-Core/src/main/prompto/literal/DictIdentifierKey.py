@@ -8,5 +8,5 @@ class DictIdentifierKey(object):
         return self.name
 
     def asText(self):
-        from prompto.value.Text import Text
-        return Text(self.name)
+        from prompto.value.TextValue import TextValue
+        return TextValue(self.name)

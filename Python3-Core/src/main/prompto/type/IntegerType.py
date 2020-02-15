@@ -9,7 +9,7 @@ from prompto.type.ListType import ListType
 from prompto.type.PeriodType import PeriodType
 from prompto.type.RangeType import RangeType
 from prompto.type.TextType import TextType
-from prompto.value.Integer import Integer
+from prompto.value.IntegerValue import IntegerValue
 from prompto.value.IntegerRange import IntegerRange
 from prompto.store.TypeFamily import TypeFamily
 
@@ -102,14 +102,14 @@ class IntegerType(NativeType):
 
 
     def newRange(self, left, right):
-        if isinstance(left, Integer) and isinstance(right, Integer):
+        if isinstance(left, IntegerValue) and isinstance(right, IntegerValue):
             return IntegerRange(left, right)
         return super(IntegerType, self).newRange(left, right)
 
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         if isinstance(value, Number):
-            return Integer(int(value))
+            return IntegerValue(int(value))
         else:
             return value  # TODO for now
 
@@ -133,12 +133,12 @@ class FormatMethodDeclaration(BuiltInMethodDeclaration):
 
 
     def interpret(self, context):
-        from prompto.value.Text import Text
+        from prompto.value.TextValue import TextValue
         value = self.getValue(context).value
         format = context.getValue("format").value
         format = translateFormat(format)
         text = format.format(value)
-        return Text(text)
+        return TextValue(text)
 
 
     def check(self, context, isStart=False):

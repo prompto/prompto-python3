@@ -61,8 +61,14 @@ class TestBuiltins(BaseOParserTest):
     def testListCount(self):
         self.checkOutput("builtins/listCount.poc")
 
+    def testListJoin(self):
+        self.checkOutput("builtins/listJoin.poc")
+
     def testSetCount(self):
         self.checkOutput("builtins/setCount.poc")
+
+    def testSetJoin(self):
+        self.checkOutput("builtins/setJoin.poc")
 
     def testTextCapitalize(self):
         self.checkOutput("builtins/textCapitalize.poc")
@@ -102,5 +108,8 @@ class TestBuiltins(BaseOParserTest):
 
     def testTupleCount(self):
         self.checkOutput("builtins/tupleCount.poc")
+
+    def testTupleJoin(self):
+        self.checkOutput("builtins/tupleJoin.poc")
 
 

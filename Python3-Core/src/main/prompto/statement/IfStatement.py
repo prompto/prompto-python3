@@ -1,7 +1,7 @@
 from prompto.expression.EqualsExpression import EqualsExpression
 from prompto.statement.BaseStatement import BaseStatement
 from prompto.type.BooleanType import BooleanType
-from prompto.value.Boolean import Boolean
+from prompto.value.BooleanValue import BooleanValue
 from prompto.error.SyntaxError import SyntaxError
 
 class IfStatement ( BaseStatement ):
@@ -26,8 +26,8 @@ class IfStatement ( BaseStatement ):
     def interpret(self, context):
         for element in self.elements:
             condition = element.condition
-            test = Boolean.TRUE if condition is None else condition.interpret(context)
-            if isinstance(test, Boolean) and Boolean.TRUE==test:
+            test = BooleanValue.TRUE if condition is None else condition.interpret(context)
+            if isinstance(test, BooleanValue) and BooleanValue.TRUE==test:
                 return element.interpret(context)
         return None
 

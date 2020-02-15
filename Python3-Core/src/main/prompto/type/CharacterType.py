@@ -5,7 +5,7 @@ from prompto.type.BooleanType import BooleanType
 from prompto.type.NativeType import NativeType
 from prompto.type.RangeType import RangeType
 from prompto.type.TextType import TextType
-from prompto.value.Character import Character
+from prompto.value.CharacterValue import CharacterValue
 from prompto.value.CharacterRange import CharacterRange
 
 
@@ -48,7 +48,7 @@ class CharacterType(NativeType):
 
 
     def newRange(self, left, right):
-        if isinstance(left, Character) and isinstance(right, Character):
+        if isinstance(left, CharacterValue) and isinstance(right, CharacterValue):
             return CharacterRange(left, right)
         return super().newRange(left, right)
 
@@ -59,14 +59,14 @@ class CharacterType(NativeType):
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         if isinstance(value, str):
-            return Character(value)
+            return CharacterValue(value)
         else:
             return value  # TODO for now
 
 
     def nativeCast(self, context, value):
         if isinstance(value.itype, TextType) and len(value.value)>=1:
-            return Character(value.value[0:1])
+            return CharacterValue(value.value[0:1])
         else:
             raise InvalidValueError("Cannot convert " + str(value) + " to Character")
 

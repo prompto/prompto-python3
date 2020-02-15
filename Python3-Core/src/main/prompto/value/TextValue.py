@@ -4,13 +4,13 @@ from prompto.type.TextType import TextType
 from prompto.value.BaseValue import BaseValue
 from prompto.value.IMultiplyable import IMultiplyable
 from prompto.value.ISliceable import ISliceable
-from prompto.value.Integer import Integer
+from prompto.value.IntegerValue import IntegerValue
 
 
-class Text(BaseValue, ISliceable, IMultiplyable):
+class TextValue(BaseValue, ISliceable, IMultiplyable):
 
     def __init__(self, value):
-        super(Text, self).__init__(TextType.instance)
+        super(TextValue, self).__init__(TextType.instance)
         self.value = value
 
 
@@ -35,25 +35,25 @@ class Text(BaseValue, ISliceable, IMultiplyable):
 
 
     def Add(self, context, value):
-        return Text(self.value + str(value))
+        return TextValue(self.value + str(value))
 
 
     def Multiply(self, context, value):
-        if isinstance(value, Integer):
+        if isinstance(value, IntegerValue):
             count = value.IntegerValue()
             if count < 0:
                 raise SyntaxError("Negative repeat count:" + count)
             if count == 0:
-                return Text("")
+                return TextValue("")
             if count == 1:
-                return Text(self.value)
-            return Text(self.value * count)
+                return TextValue(self.value)
+            return TextValue(self.value * count)
         else:
-            super(Text, self).Multiply(context, value)
+            super(TextValue, self).Multiply(context, value)
 
 
     def compareTo(self, context, value):
-        if isinstance(value, Text):
+        if isinstance(value, TextValue):
             if self.value < value.value:
                 return -1
             elif self.value == value.value:
@@ -61,14 +61,14 @@ class Text(BaseValue, ISliceable, IMultiplyable):
             else:
                 return 1
         else:
-            super(Text, self).CompareTo(context, value)
+            super(TextValue, self).CompareTo(context, value)
 
 
     def hasItem(self, context, value):
-        from prompto.value.Character import Character
-        if isinstance(value, Character):
+        from prompto.value.CharacterValue import CharacterValue
+        if isinstance(value, CharacterValue):
             return self.value.find(value.value) >= 0
-        elif isinstance(value, Text):
+        elif isinstance(value, TextValue):
             return self.value.find(value.value) >= 0
         else:
             raise SyntaxError("Illegal contain: Text + " + type(value).__name__)
@@ -76,16 +76,16 @@ class Text(BaseValue, ISliceable, IMultiplyable):
 
     def getMemberValue(self, context, name, autoCreate=False):
         if "count" == name:
-            return Integer(len(self.value))
+            return IntegerValue(len(self.value))
         else:
             return super().getMemberValue(context, name, autoCreate)
 
 
     def getItem(self, context, index):
-        from prompto.value.Character import Character
+        from prompto.value.CharacterValue import CharacterValue
         try:
-            if isinstance(index, Integer):
-                return Character(self.value[index.IntegerValue() - 1])
+            if isinstance(index, IntegerValue):
+                return CharacterValue(self.value[index.IntegerValue() - 1])
             else:
                 raise InvalidValueError("No such item:" + str(index))
         except IndexError:
@@ -93,9 +93,9 @@ class Text(BaseValue, ISliceable, IMultiplyable):
 
 
     def getIterator(self, context):
-        from prompto.value.Character import Character
+        from prompto.value.CharacterValue import CharacterValue
         for c in self.value:
-            yield Character(c)
+            yield CharacterValue(c)
 
     def ConvertTo(self, itype):
         return self.value
@@ -104,7 +104,7 @@ class Text(BaseValue, ISliceable, IMultiplyable):
     def slice(self, fi, li):
         first = self.checkFirst(fi)
         last = self.checkLast(li)
-        return Text(self.value[first - 1:last])
+        return TextValue(self.value[first - 1:last])
 
 
     def checkFirst(self, fi):
@@ -124,8 +124,8 @@ class Text(BaseValue, ISliceable, IMultiplyable):
 
 
     def Roughly(self, context, value):
-        from prompto.value.Character import Character
-        if isinstance(value, (Character, Text)):
+        from prompto.value.CharacterValue import CharacterValue
+        if isinstance(value, (CharacterValue, TextValue)):
             if len(self.value)!=len(value.value):
                 return False
             return self.value.lower()==value.value.lower()
@@ -134,8 +134,8 @@ class Text(BaseValue, ISliceable, IMultiplyable):
 
 
     def Contains(self, context, value):
-        from prompto.value.Character import Character
-        if isinstance(value, (Text, Character)):
+        from prompto.value.CharacterValue import CharacterValue
+        if isinstance(value, (TextValue, CharacterValue)):
             return self.value.index(value.value) >= 0
         else:
             return False
@@ -146,7 +146,7 @@ class Text(BaseValue, ISliceable, IMultiplyable):
 
 
     def __eq__(self, obj):
-        if isinstance(obj, Text):
+        if isinstance(obj, TextValue):
             return self.value == obj.value
         else:
             return self.value == obj

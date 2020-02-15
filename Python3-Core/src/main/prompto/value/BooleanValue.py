@@ -1,17 +1,17 @@
 from prompto.value.BaseValue import BaseValue
 
 
-class Boolean(BaseValue):
+class BooleanValue(BaseValue):
     TRUE = None
     FALSE = None
 
     @staticmethod
     def Parse(text):
-        return Boolean.TRUE if text == "true" else Boolean.FALSE
+        return BooleanValue.TRUE if text == "true" else BooleanValue.FALSE
 
     @staticmethod
     def ValueOf(value):
-        return Boolean.TRUE if value else Boolean.FALSE
+        return BooleanValue.TRUE if value else BooleanValue.FALSE
 
     def __init__(self, value):
         from prompto.type.BooleanType import BooleanType
@@ -28,7 +28,7 @@ class Boolean(BaseValue):
         return str(self.value).lower()
 
     def __eq__(self, obj):
-        if isinstance(obj, Boolean):
+        if isinstance(obj, BooleanValue):
             return self.value == obj.value
         else:
             return False
@@ -39,7 +39,7 @@ class Boolean(BaseValue):
     def __hash__(self):
         return hash(self.value)
 
-Boolean.TRUE = Boolean(True)
-Boolean.FALSE = Boolean(False)
-Boolean.TRUE.opposite = Boolean.FALSE
-Boolean.FALSE.opposite = Boolean.TRUE
+BooleanValue.TRUE = BooleanValue(True)
+BooleanValue.FALSE = BooleanValue(False)
+BooleanValue.TRUE.opposite = BooleanValue.FALSE
+BooleanValue.FALSE.opposite = BooleanValue.TRUE

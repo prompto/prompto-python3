@@ -17,19 +17,19 @@ class DateTime(BaseValue):
         return self.value
 
     def Add(self, context, value):
-        from prompto.value.Period import Period
-        if isinstance(value, Period):
+        from prompto.value.PeriodValue import PeriodValue
+        if isinstance(value, PeriodValue):
             return self.plus(value)
         else:
             raise SyntaxError("Illegal: DateTime + " + type(value).__name__)
 
 
     def Subtract(self, context, value):
-        from prompto.value.Period import Period
+        from prompto.value.PeriodValue import PeriodValue
         if isinstance(value, DateTime):
             td = self.value - value.value
-            return Period(delta=td)
-        elif isinstance(value, Period):
+            return PeriodValue(delta=td)
+        elif isinstance(value, PeriodValue):
             return self.minus(value)
         else:
             raise SyntaxError("Illegal: DateTime - " + type(value).__name__)
@@ -48,35 +48,35 @@ class DateTime(BaseValue):
 
 
     def getMemberValue(self, context, name, autoCreate=False):
-        from prompto.value.Integer import Integer
+        from prompto.value.IntegerValue import IntegerValue
         if "year" == name:
-            return Integer(self.value.year)
+            return IntegerValue(self.value.year)
         elif "month" == name:
-            return Integer(self.value.month)
+            return IntegerValue(self.value.month)
         elif "dayOfMonth" == name:
-            return Integer(self.value.day)
+            return IntegerValue(self.value.day)
         elif "dayOfYear" == name:
             day = 1 + self.value.toordinal() - date(self.value.year, 1, 1).toordinal()
-            return Integer(day)
+            return IntegerValue(day)
         elif "hour" == name:
-            return Integer(self.value.hour)
+            return IntegerValue(self.value.hour)
         elif "minute" == name:
-            return Integer(self.value.minute)
+            return IntegerValue(self.value.minute)
         elif "second" == name:
-            return Integer(self.value.second)
+            return IntegerValue(self.value.second)
         elif "millisecond" == name:
-            return Integer(self.value.microsecond // 1000)
+            return IntegerValue(self.value.microsecond // 1000)
         elif "tzOffset" == name:
-            return Integer(0)  # self.value.getZone().toTimeZone().getRawOffset() / 1000)
+            return IntegerValue(0)  # self.value.getZone().toTimeZone().getRawOffset() / 1000)
         elif "tzName" == name:
-            from prompto.value.Text import Text
-            return Text("Z")  # self.value.getZone().toTimeZone().getDisplayName())
+            from prompto.value.TextValue import TextValue
+            return TextValue("Z")  # self.value.getZone().toTimeZone().getDisplayName())
         elif "date" == name:
-            from prompto.value.Date import Date
-            return Date(years=self.value.year, months=self.value.month, days=self.value.day)
+            from prompto.value.DateValue import DateValue
+            return DateValue(years=self.value.year, months=self.value.month, days=self.value.day)
         elif "time" == name:
-            from prompto.value.Time import Time
-            return Time(hours=self.value.hour, minutes=self.value.minute, seconds=self.value.second, millis=self.value.microsecond // 1000)
+            from prompto.value.TimeValue import TimeValue
+            return TimeValue(hours=self.value.hour, minutes=self.value.minute, seconds=self.value.second, millis=self.value.microsecond // 1000)
         else:
             return super().getMemberValue(context, name, autoCreate)
 

@@ -4,7 +4,7 @@ from prompto.error.SyntaxError import SyntaxError
 from prompto.value.BaseValue import BaseValue
 from prompto.value.IContainer import IContainer
 from prompto.value.IFilterable import IFilterable
-from prompto.value.Integer import Integer
+from prompto.value.IntegerValue import IntegerValue
 from io import StringIO
 
 class SetValue(BaseValue, IContainer, IFilterable):
@@ -33,7 +33,7 @@ class SetValue(BaseValue, IContainer, IFilterable):
 
 
     def getItem(self, context, index):
-        if isinstance(index, Integer):
+        if isinstance(index, IntegerValue):
             idx = index.IntegerValue()
             for item in self.items:
                 idx -= 1
@@ -117,7 +117,7 @@ class SetValue(BaseValue, IContainer, IFilterable):
 
     def getMemberValue(self, context, name, autoCreate=False):
         if "count" == name:
-            return Integer(len(self.items))
+            return IntegerValue(len(self.items))
         else:
             return super(SetValue, self).getMemberValue(context, name)
 

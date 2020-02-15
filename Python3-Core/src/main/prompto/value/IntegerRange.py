@@ -1,9 +1,9 @@
 from prompto.error.IndexOutOfRangeError import IndexOutOfRangeError
-from prompto.value.Integer import Integer
-from prompto.value.Range import Range
+from prompto.value.IntegerValue import IntegerValue
+from prompto.value.RangeValue import RangeValue
 
 
-class IntegerRange ( Range ):
+class IntegerRange (RangeValue):
 
     def __init__(self, left, right):
         from prompto.type.IntegerType import IntegerType
@@ -24,7 +24,7 @@ class IntegerRange ( Range ):
         result = self.low.IntegerValue() + index - 1
         if result>self.high.IntegerValue():
             raise IndexOutOfRangeError()
-        return Integer(result)
+        return IntegerValue(result)
 
     def newInstance(self, left, right):
         return IntegerRange(left, right)

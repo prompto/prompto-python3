@@ -13,7 +13,7 @@ from prompto.type.ContainerType import ContainerType
 from prompto.type.NullType import NullType
 from prompto.type.TextType import TextType
 from prompto.utils.CodeWriter import CodeWriter
-from prompto.value.Boolean import Boolean
+from prompto.value.BooleanValue import BooleanValue
 from prompto.value.IInstance import IInstance
 from prompto.value.IValue import IValue
 from prompto.value.NullValue import NullValue
@@ -84,7 +84,7 @@ class EqualsExpression ( IExpression ):
             equal = not self.contains(context, lval, rval)
         else:
             equal = self.roughly(context,lval,rval)
-        return Boolean.ValueOf(equal)
+        return BooleanValue.ValueOf(equal)
 
 
     def contains(self, context, lval, rval):
@@ -144,7 +144,7 @@ class EqualsExpression ( IExpression ):
         lval = self.left.interpret(context)
         rval = self.right.interpret(context)
         result = self.interpretValues(context, lval, rval)
-        if result is Boolean.TRUE:
+        if result is BooleanValue.TRUE:
             return True
         writer = CodeWriter(test.dialect, context)
         self.toDialect(writer)

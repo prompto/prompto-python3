@@ -5,7 +5,7 @@ from prompto.error.ReadWriteError import ReadWriteError
 from prompto.expression.IExpression import IExpression
 from prompto.type.BlobType import BlobType
 from prompto.utils.JSONGenerator import JSONGenerator
-from prompto.value.Blob import Blob
+from prompto.value.BlobValue import BlobValue
 
 
 class BlobExpression ( IExpression ):
@@ -22,7 +22,7 @@ class BlobExpression ( IExpression ):
         try:
             datas = BlobExpression.collectDatas(context, value)
             zipped = BlobExpression.zipDatas(datas)
-            return Blob("application/zip", zipped)
+            return BlobValue("application/zip", zipped)
         except Exception as e:
             print(e)
             raise ReadWriteError(e.message)

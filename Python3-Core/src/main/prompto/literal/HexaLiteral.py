@@ -1,5 +1,5 @@
 from prompto.literal.Literal import Literal
-from prompto.value.Integer import Integer
+from prompto.value.IntegerValue import IntegerValue
 
 
 class HexaLiteral(Literal):
@@ -24,4 +24,4 @@ class HexaLiteral(Literal):
             else:
                 from prompto.error.InvalidValueError import InvalidValueError
                 raise InvalidValueError(text + " is not a valid hexadecimal number")
-        return Integer(value)
+        return IntegerValue(value)

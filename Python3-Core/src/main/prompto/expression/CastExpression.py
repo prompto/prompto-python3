@@ -9,8 +9,8 @@ from prompto.type.IntegerType import IntegerType
 from prompto.type.IterableType import IterableType
 from prompto.type.MethodType import MethodType
 from prompto.type.NativeType import NativeType
-from prompto.value.Decimal import Decimal
-from prompto.value.Integer import Integer
+from prompto.value.DecimalValue import DecimalValue
+from prompto.value.IntegerValue import IntegerValue
 
 
 def getTargetType(context, itype):
@@ -64,10 +64,10 @@ class CastExpression (IExpression):
         value = self.expression.interpret(context)
         if value is not None:
             target = getTargetType(context, self.itype)
-            if isinstance(value, Integer) and target == DecimalType.instance:
-                value = Decimal(value.DecimalValue())
-            elif isinstance(value, Decimal) and target == IntegerType.instance:
-                return Integer(value.IntegerValue())
+            if isinstance(value, IntegerValue) and target == DecimalType.instance:
+                value = DecimalValue(value.DecimalValue())
+            elif isinstance(value, DecimalValue) and target == IntegerType.instance:
+                return IntegerValue(value.IntegerValue())
             elif target.isMoreSpecificThan(context, value.itype):
                 value.itype = self.itype
         return value

@@ -1,11 +1,11 @@
 from datetime import time, datetime, timedelta
 
 from prompto.value.BaseValue import BaseValue
-from prompto.value.Integer import Integer
-from prompto.value.Period import Period
+from prompto.value.IntegerValue import IntegerValue
+from prompto.value.PeriodValue import PeriodValue
 from prompto.error.SyntaxError import SyntaxError
 
-class Time(BaseValue):
+class TimeValue(BaseValue):
 
     @staticmethod
     def Parse(text):
@@ -19,11 +19,11 @@ class Time(BaseValue):
             millis = int(text[9:])
         else:
             millis = 0
-        return Time(time(hours, minutes, seconds, millis*1000))
+        return TimeValue(time(hours, minutes, seconds, millis * 1000))
 
     def __init__(self, value=None, hours=None, minutes=None, seconds=None, millis=0):
         from prompto.type.TimeType import TimeType
-        super(Time, self).__init__(TimeType.instance)
+        super(TimeValue, self).__init__(TimeType.instance)
         if value is None:
             value = time(hours, minutes, seconds, millis*1000)
         self.value = value
@@ -32,25 +32,25 @@ class Time(BaseValue):
         return self.value
 
     def Add(self, context, value):
-        if isinstance(value, Period):
+        if isinstance(value, PeriodValue):
             return self.plus(value)
         else:
             raise SyntaxError("Illegal: Time + " + type(value).__name__)
 
     def Subtract(self, context, value):
-        if isinstance(value, Time):
-            return Period(hours=self.value.hour - value.value.hour, \
-                          minutes=self.value.minute - value.value.minute, \
-                          seconds=self.value.second - value.value.second, \
-                          millis=(self.value.microsecond - value.value.microsecond)/1000)
-        elif isinstance(value, Period):
+        if isinstance(value, TimeValue):
+            return PeriodValue(hours=self.value.hour - value.value.hour, \
+                               minutes=self.value.minute - value.value.minute, \
+                               seconds=self.value.second - value.value.second, \
+                               millis=(self.value.microsecond - value.value.microsecond)/1000)
+        elif isinstance(value, PeriodValue):
             return self.minus(value)
         else:
             raise SyntaxError("Illegal: Time - " + type(value).__name__)
 
 
     def compareTo(self, context, value):
-        if isinstance(value, Time):
+        if isinstance(value, TimeValue):
             if self.value < value.value:
                 return -1
             elif self.value == value.value:
@@ -63,13 +63,13 @@ class Time(BaseValue):
 
     def getMemberValue(self, context, name, autoCreate=False):
         if "hour" == name:
-            return Integer(self.value.hour)
+            return IntegerValue(self.value.hour)
         elif "minute" == name:
-            return Integer(self.value.minute)
+            return IntegerValue(self.value.minute)
         elif "second" == name:
-            return Integer(self.value.second)
+            return IntegerValue(self.value.second)
         elif "millisecond" == name:
-            return Integer(self.value.microsecond // 1000)
+            return IntegerValue(self.value.microsecond // 1000)
         else:
             return super().getMemberValue(context, name, autoCreate)
 
@@ -82,13 +82,13 @@ class Time(BaseValue):
         dt = datetime(2000,1,1,hour=self.value.hour, minute=self.value.minute, second=self.value.second, microsecond=self.value.microsecond)
         td = timedelta(hours=period.hours,minutes=period.minutes,seconds=period.seconds,milliseconds=period.millis)
         value = dt - td
-        return Time(value.time())
+        return TimeValue(value.time())
 
     def plus(self, period):
         dt = datetime(2000,1,1,hour=self.value.hour, minute=self.value.minute, second=self.value.second, microsecond=self.value.microsecond)
         td = timedelta(hours=period.hours,minutes=period.minutes,seconds=period.seconds,milliseconds=period.millis)
         value = dt + td
-        return Time(value.time())
+        return TimeValue(value.time())
 
 
     def getMillisOfDay(self):
@@ -102,7 +102,7 @@ class Time(BaseValue):
 
 
     def __eq__(self, obj):
-        if isinstance(obj, Time):
+        if isinstance(obj, TimeValue):
             return self.value == obj.value
         else:
             return self.value == obj

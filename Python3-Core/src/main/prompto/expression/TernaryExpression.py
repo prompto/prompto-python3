@@ -1,6 +1,6 @@
 from prompto.expression.IExpression import IExpression
 from prompto.type.BooleanType import BooleanType
-from prompto.value.Boolean import Boolean
+from prompto.value.BooleanValue import BooleanValue
 from prompto.parser.Dialect import Dialect
 
 class TernaryExpression ( IExpression ):
@@ -39,7 +39,7 @@ class TernaryExpression ( IExpression ):
 
     def interpret(self, context):
         test = self.condition.interpret(context)
-        if test is Boolean.TRUE:
+        if test is BooleanValue.TRUE:
             return self.ifTrue.interpret(context)
         else:
             return self.ifFalse.interpret(context)

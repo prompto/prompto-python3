@@ -60,7 +60,7 @@ class CategorySymbol(Symbol, IExpression):
 
     def makeInstance(self, context):
         if self.instance is None:
-            from prompto.value.Text import Text
+            from prompto.value.TextValue import TextValue
             instance = self.itype.newInstance(context)
             instance.mutable = True
             if self.arguments != None:
@@ -68,7 +68,7 @@ class CategorySymbol(Symbol, IExpression):
                 for argument in self.arguments:
                     value = argument.getExpression().interpret(context)
                     instance.setMember(context, argument.getName(), value)
-            instance.setMember(context, "name", Text(self.symbol))
+            instance.setMember(context, "name", TextValue(self.symbol))
             instance.mutable = False
             self.instance = instance
         return self.instance

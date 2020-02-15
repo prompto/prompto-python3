@@ -1,7 +1,7 @@
 from prompto.value.BaseValue import BaseValue
 from prompto.error.SyntaxError import SyntaxError
 
-class Version ( BaseValue ):
+class VersionValue (BaseValue):
 
     @staticmethod
     def Parse(text):
@@ -12,7 +12,7 @@ class Version ( BaseValue ):
         d2 = text.find('.', d1 + 1)
         minor = int(text[d1 + 1:d2])
         fix = int(text[d2 + 1:])
-        return Version(major=major,minor=minor,fix=fix)
+        return VersionValue(major=major, minor=minor, fix=fix)
 
     def __init__(self, major=-1, minor=-1, fix=-1):
         from prompto.type.VersionType import VersionType
@@ -22,7 +22,7 @@ class Version ( BaseValue ):
         self.fix = fix
 
     def compareTo(self, context, value):
-        if isinstance(value, Version):
+        if isinstance(value, VersionValue):
             if self.asInt() < value.asInt():
                 return -1
             elif self.asInt() == value.asInt():
@@ -37,7 +37,7 @@ class Version ( BaseValue ):
 
 
     def __eq__(self, obj):
-        if isinstance(obj, Version):
+        if isinstance(obj, VersionValue):
             return self.asInt() == obj.asInt()
         else:
             return False

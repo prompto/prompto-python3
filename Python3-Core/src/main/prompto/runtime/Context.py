@@ -9,10 +9,10 @@ from prompto.runtime.Variable import Variable
 from prompto.type.DecimalType import DecimalType
 from prompto.type.MethodType import MethodType
 from prompto.value.ClosureValue import ClosureValue
-from prompto.value.Decimal import Decimal
+from prompto.value.DecimalValue import DecimalValue
 from prompto.value.ConcreteInstance import ConcreteInstance
 from prompto.error.SyntaxError import SyntaxError
-from prompto.value.Integer import Integer
+from prompto.value.IntegerValue import IntegerValue
 
 
 class Context(IContext):
@@ -312,10 +312,10 @@ class Context(IContext):
 
 
     def autocast(self, name, value):
-        if isinstance(value, Integer):
+        if isinstance(value, IntegerValue):
             actual = self.instances.get(name)
             if actual.getType(self) is DecimalType.instance:
-                value = Decimal(value.DecimalValue())
+                value = DecimalValue(value.DecimalValue())
         return value
 
 
