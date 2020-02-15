@@ -2812,7 +2812,7 @@ class OPromptoBuilder(OParserListener):
 
 
     def exitCssText(self, ctx: OParser.CssTextContext):
-        text = ctx.text.getText()
+        text = self.input.getText(ctx.text.start, ctx.text.stop)
         self.setNodeValue(ctx, CssText(text))
 
 
