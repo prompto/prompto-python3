@@ -15,8 +15,8 @@ class DateTimeType(NativeType):
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         if isinstance(value, datetime):
-            from prompto.value.DateTime import DateTime
-            return DateTime(value)
+            from prompto.value.DateTimeValue import DateTimeValue
+            return DateTimeValue(value)
         else:
             return value  # TODO for now
 

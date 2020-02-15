@@ -1,12 +1,12 @@
 from prompto.literal.Literal import Literal
 from prompto.type.DateTimeType import DateTimeType
-from prompto.value.DateTime import DateTime
+from prompto.value.DateTimeValue import DateTimeValue
 
 
 class DateTimeLiteral ( Literal ):
 	
 	def __init__(self, text):
-		dt = DateTime.Parse(text[1:-1])
+		dt = DateTimeValue.Parse(text[1:-1])
 		super(DateTimeLiteral, self).__init__(text, dt)
 	
 	def check(self, context):

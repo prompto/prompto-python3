@@ -65,6 +65,7 @@ class TupleType(NativeType):
 
 TupleType.instance = TupleType()
 
+
 class JoinTupleMethodDeclaration(BaseJoinMethodDeclaration):
 
     def getItems(self, context):

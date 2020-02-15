@@ -4,7 +4,7 @@ from prompto.error.SyntaxError import SyntaxError
 from prompto.value.BaseValue import BaseValue
 
 
-class DateTime(BaseValue):
+class DateTimeValue(BaseValue):
 
     def __init__(self, value=None, year=None, month=None, day=None, hour=None, minute=None, second=None, millis=None):
         from prompto.type.DateTimeType import DateTimeType
@@ -26,7 +26,7 @@ class DateTime(BaseValue):
 
     def Subtract(self, context, value):
         from prompto.value.PeriodValue import PeriodValue
-        if isinstance(value, DateTime):
+        if isinstance(value, DateTimeValue):
             td = self.value - value.value
             return PeriodValue(delta=td)
         elif isinstance(value, PeriodValue):
@@ -36,7 +36,7 @@ class DateTime(BaseValue):
 
 
     def compareTo(self, context, value):
-        if isinstance(value, DateTime):
+        if isinstance(value, DateTimeValue):
             if self.value < value.value:
                 return -1
             elif self.value == value.value:
@@ -91,7 +91,7 @@ class DateTime(BaseValue):
         else:
             month = self.value.month
         value = self.value.replace(year=year, month=month) + td
-        return DateTime(value)
+        return DateTimeValue(value)
 
     def minus(self, period):
         td = timedelta(weeks=period.weeks, days=period.days, hours=period.hours, minutes=period.minutes,
@@ -104,7 +104,7 @@ class DateTime(BaseValue):
         else:
             month = self.value.month
         value = self.value.replace(year=year, month=month) - td
-        return DateTime(value)
+        return DateTimeValue(value)
 
     def ConvertTo(self, itype):
         return self.value
@@ -113,7 +113,7 @@ class DateTime(BaseValue):
         return self.value < obj.value
 
     def __eq__(self, obj):
-        if isinstance(obj, DateTime):
+        if isinstance(obj, DateTimeValue):
             return self.value == obj.value
         else:
             return self.value == obj
@@ -169,4 +169,4 @@ class DateTime(BaseValue):
             micro = 0
         zone = None
         dt = datetime(year, month, day, hour, minute, second, micro, zone)
-        return DateTime(value=dt)
+        return DateTimeValue(value=dt)
