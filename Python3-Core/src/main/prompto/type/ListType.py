@@ -1,6 +1,5 @@
-from prompto.type.AnyType import AnyType
 from prompto.type.BooleanType import BooleanType
-from prompto.type.ContainerType import ContainerType
+from prompto.type.ContainerType import ContainerType, BaseJoinMethodDeclaration
 from prompto.store.TypeFamily import TypeFamily
 from prompto.type.IType import IType
 
@@ -78,6 +77,13 @@ class ListType(ContainerType):
             return super(ListType, self).checkMember(context, name)
 
 
+    def getMemberMethods(self, context, name):
+        if name == "join":
+            return [JoinListMethodDeclaration()]
+        else:
+            return super().getMemberMethods(context, name)
+
+
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         if isinstance(value, (list, set, tuple)):
             items = [self.itemType.convertPythonValueToPromptoValue(context, item, returnType) for item in value]
@@ -89,3 +95,13 @@ class ListType(ContainerType):
 
     def withItemType(self, itemType:IType):
         return ListType(itemType)
+
+
+
+class JoinListMethodDeclaration(BaseJoinMethodDeclaration):
+
+    def getItems(self, context):
+        return self.getValue(context).items
+
+
+

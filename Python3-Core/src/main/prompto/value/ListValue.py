@@ -1,6 +1,5 @@
 from io import StringIO
 
-from prompto.error.InternalError import InternalError
 from prompto.value.BaseValueList import BaseValueList
 from prompto.value.IFilterable import IFilterable
 from prompto.value.IntegerValue import IntegerValue
@@ -14,6 +13,7 @@ class ListValue(BaseValueList, IFilterable):
         self.storables = None
         if item is not None:
             self.items.append(item)
+
 
     def newInstance(self, items):
         return ListValue(self.itype.itemType, items=items)
@@ -73,6 +73,7 @@ class ListValue(BaseValueList, IFilterable):
                 sb.truncate(len - 2)
             sb.write("]")
             return sb.getvalue()
+
 
     def filter(self, predicate):
         items = list(filter(predicate, self.items))

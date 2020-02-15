@@ -1,5 +1,5 @@
 from prompto.type.BooleanType import BooleanType
-from prompto.type.ContainerType import ContainerType
+from prompto.type.ContainerType import ContainerType, BaseJoinMethodDeclaration
 from prompto.store.TypeFamily import TypeFamily
 from prompto.type.IType import IType
 
@@ -66,5 +66,18 @@ class SetType(ContainerType):
             return super().checkMember(context, name)
 
 
+    def getMemberMethods(self, context, name):
+        if name == "join":
+            return [JoinSetMethodDeclaration()]
+        else:
+            return super().getMemberMethods(context, name)
+
+
     def withItemType(self, itemType:IType):
         return SetType(itemType)
+
+
+class JoinSetMethodDeclaration(BaseJoinMethodDeclaration):
+
+    def getItems(self, context):
+        return self.getValue(context).items

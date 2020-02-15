@@ -1,5 +1,6 @@
 from prompto.type.AnyType import AnyType
 from prompto.type.BooleanType import BooleanType
+from prompto.type.ContainerType import BaseJoinMethodDeclaration
 from prompto.type.IType import IType
 from prompto.type.ListType import ListType
 from prompto.type.SetType import SetType
@@ -51,9 +52,20 @@ class TupleType(NativeType):
         return BooleanType.instance
 
 
+    def getMemberMethods(self, context, name):
+        if name == "join":
+            return [JoinTupleMethodDeclaration()]
+        else:
+            return super().getMemberMethods(context, name)
+
+
     def withItemType(self, itemType:IType):
         return self
 
 
 TupleType.instance = TupleType()
 
+class JoinTupleMethodDeclaration(BaseJoinMethodDeclaration):
+
+    def getItems(self, context):
+        return self.getValue(context).items
