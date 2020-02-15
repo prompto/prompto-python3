@@ -1,4 +1,4 @@
-from antlr4 import Token, CommonTokenStream
+from antlr4 import Token
 from antlr4.ParserRuleContext import ParserRuleContext
 from antlr4.tree.Tree import ParseTree
 
@@ -242,7 +242,7 @@ OCleverParser = None
 class OPromptoBuilder(OParserListener):
 
     def __init__(self, parser:OCleverParser):
-        self.input :CommonTokenStream = parser.getTokenStream()
+        self.input = parser.getTokenStream()
         self.path = parser.path
         self.nodeValues = dict()
 

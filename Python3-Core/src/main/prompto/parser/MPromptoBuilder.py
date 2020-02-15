@@ -1,4 +1,4 @@
-from antlr4 import ParserRuleContext, Token, CommonTokenStream
+from antlr4 import ParserRuleContext, Token
 from antlr4.tree.Tree import ParseTree, TerminalNode
 
 from prompto.expression.SuperExpression import SuperExpression
@@ -246,7 +246,7 @@ from prompto.type.VersionType import VersionType
 class MPromptoBuilder(MParserListener):
 
     def __init__(self, parser:MParser):
-        self.input :CommonTokenStream = parser.getTokenStream()
+        self.input = parser.getTokenStream()
         self.path = parser.path
         self.nodeValues = dict()
 
