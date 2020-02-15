@@ -32,6 +32,9 @@ class TestJsx(BaseOParserTest):
     def testLiteralAttribute(self):
         self.compareResourceOMO("jsx/literalAttribute.poc")
 
+    def testNonAsciiTextElement(self):
+        self.compareResourceOMO("jsx/nonAsciiTextElement.poc")
+
     def testSelfClosingDiv(self):
         self.compareResourceOMO("jsx/selfClosingDiv.poc")
 

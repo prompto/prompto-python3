@@ -4076,6 +4076,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#jsx_char.
+    def enterJsx_char(self, ctx:OParser.Jsx_charContext):
+        pass
+
+    # Exit a parse tree produced by OParser#jsx_char.
+    def exitJsx_char(self, ctx:OParser.Jsx_charContext):
+        pass
+
+
     # Enter a parse tree produced by OParser#css_expression.
     def enterCss_expression(self, ctx:OParser.Css_expressionContext):
         pass

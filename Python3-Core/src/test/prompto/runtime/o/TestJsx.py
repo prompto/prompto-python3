@@ -34,6 +34,9 @@ class TestJsx(BaseOParserTest):
     def testLiteralAttribute(self):
         self.checkOutput("jsx/literalAttribute.poc")
 
+    def testNonAsciiTextElement(self):
+        self.checkOutput("jsx/nonAsciiTextElement.poc")
+
     def testSelfClosingDiv(self):
         self.checkOutput("jsx/selfClosingDiv.poc")
 

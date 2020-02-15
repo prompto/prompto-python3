@@ -34,6 +34,9 @@ class TestJsx(BaseMParserTest):
     def testLiteralAttribute(self):
         self.checkOutput("jsx/literalAttribute.pmc")
 
+    def testNonAsciiTextElement(self):
+        self.checkOutput("jsx/nonAsciiTextElement.pmc")
+
     def testSelfClosingDiv(self):
         self.checkOutput("jsx/selfClosingDiv.pmc")
 
