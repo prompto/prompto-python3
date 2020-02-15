@@ -1,4 +1,4 @@
-from antlr4 import Token
+from antlr4 import Token, CommonTokenStream
 from antlr4.ParserRuleContext import ParserRuleContext
 from antlr4.tree.Tree import ParseTree
 
@@ -242,7 +242,7 @@ OCleverParser = None
 class OPromptoBuilder(OParserListener):
 
     def __init__(self, parser:OCleverParser):
-        self.input = parser.getTokenStream()
+        self.input :CommonTokenStream = parser.getTokenStream()
         self.path = parser.path
         self.nodeValues = dict()
 
@@ -2812,7 +2812,7 @@ class OPromptoBuilder(OParserListener):
 
 
     def exitCssText(self, ctx: OParser.CssTextContext):
-        text = self.input.getText(ctx.text.start, ctx.text.stop)
+        text = self.input.getText((ctx.text.start, ctx.text.stop))
         self.setNodeValue(ctx, CssText(text))
 
 

@@ -1,4 +1,4 @@
-from antlr4 import TerminalNode, Token
+from antlr4 import TerminalNode, Token, CommonTokenStream
 from antlr4.ParserRuleContext import ParserRuleContext
 from antlr4.tree.Tree import ParseTree
 
@@ -246,7 +246,7 @@ ECleverParser = None
 class EPromptoBuilder(EParserListener):
 
     def __init__(self, parser:ECleverParser):
-        self.input = parser.getTokenStream()
+        self.input :CommonTokenStream = parser.getTokenStream()
         self.path = parser.path
         self.nodeValues = dict()
 
@@ -2915,7 +2915,7 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitCssText(self, ctx: EParser.CssTextContext):
-        text = self.input.getText(ctx.text.start, ctx.text.stop)
+        text = self.input.getText((ctx.text.start, ctx.text.stop))
         self.setNodeValue(ctx, CssText(text))
 
 
