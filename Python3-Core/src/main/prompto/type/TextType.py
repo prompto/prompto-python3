@@ -283,14 +283,18 @@ class IndexOfMethodDeclaration(BuiltInMethodDeclaration):
     def __init__(self):
         from prompto.param.CategoryParameter import CategoryParameter
         VALUE_ARGUMENT = CategoryParameter(TextType.instance, "value")
-        super().__init__("indexOf", VALUE_ARGUMENT)
+        from prompto.type.IntegerType import IntegerType
+        from prompto.literal.IntegerLiteral import IntegerLiteral
+        FROM_INDEX_ARGUMENT = CategoryParameter(IntegerType.instance, "fromIndex", IntegerLiteral("1"))
+        super().__init__("indexOf", VALUE_ARGUMENT, FROM_INDEX_ARGUMENT)
 
 
     def interpret(self, context):
         from prompto.value.IntegerValue import IntegerValue
         value = self.getValue(context).value
-        find = context.getValue("value").value
-        index = value.index(find)
+        toFind = context.getValue("value").value
+        fromIndex = context.getValue("fromIndex").value
+        index = value.index(toFind, fromIndex - 1)
         return IntegerValue(index + 1)
 
 
