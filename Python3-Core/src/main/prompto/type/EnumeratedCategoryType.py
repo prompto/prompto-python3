@@ -65,5 +65,4 @@ class SymbolOfMethodDeclaration(BuiltInMethodDeclaration):
 
 
     def check(self, context, isStart):
-        from prompto.type.BooleanType import BooleanType
-        return BooleanType.instance
+        return self.enumType
