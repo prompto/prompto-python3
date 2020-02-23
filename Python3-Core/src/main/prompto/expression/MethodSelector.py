@@ -137,6 +137,7 @@ class MethodSelector(MemberSelector):
 
     def newInstanceContext(self, context:Context):
         from prompto.type.CategoryType import CategoryType
+        from prompto.expression.CategorySymbol import CategorySymbol
         from prompto.value.ConcreteInstance import ConcreteInstance
         from prompto.value.NativeInstance import NativeInstance
         from prompto.declaration.SingletonCategoryDeclaration import SingletonCategoryDeclaration
@@ -151,6 +152,8 @@ class MethodSelector(MemberSelector):
                 decl = typ.getDeclaration(context)
                 if isinstance(decl, SingletonCategoryDeclaration):
                     value = context.loadSingleton(value.value)
+        if isinstance(value, CategorySymbol):
+            value = value.interpret(context)
         if isinstance(value, TypeValue):
             return context.newChildContext()
         elif isinstance(value, (ConcreteInstance, NativeInstance)):
