@@ -1,5 +1,4 @@
 from prompto.value.BaseValue import BaseValue
-from prompto.type.MethodType import MethodType
 
 class ClosureValue(BaseValue):
 
@@ -10,8 +9,14 @@ class ClosureValue(BaseValue):
 
 	def interpret(self, context):
 		parentMost = self.context.getParentMostContext()
+		savedParent = parentMost.getParentContext()
 		parentMost.setParentContext(context)
-		result = self.itype.method.interpret(self.context)
-		parentMost.setParentContext(None)
-		return result
+		try:
+			local = self.context.newChildContext()
+			return self.doInterpret(local)
+		finally:
+			parentMost.setParentContext(savedParent)
 
+
+	def doInterpret(self, local):
+		return self.itype.method.interpret(local)
