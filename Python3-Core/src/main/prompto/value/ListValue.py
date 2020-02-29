@@ -1,5 +1,6 @@
 from io import StringIO
 
+from prompto.error.InternalError import InternalError
 from prompto.value.BaseValueList import BaseValueList
 from prompto.value.IFilterable import IFilterable
 from prompto.value.IntegerValue import IntegerValue
@@ -23,6 +24,10 @@ class ListValue(BaseValueList, IFilterable):
         if self.storables is None:
             self.storables = [item.getStorableData() for item in self.items]
         return self.storables
+
+
+    def convertToPython(self):
+        return [ o.convertToPython() for o in self.items ]
 
 
     def Add(self, context, value):
@@ -60,6 +65,13 @@ class ListValue(BaseValueList, IFilterable):
                 return ListValue(self.itype.itemType, items=result)
         else:
             raise SyntaxError("Illegal: List * " + type(value).__name__)
+
+
+    def toJson(self, context, generator, instanceId, fieldName, withType, binaries):
+        generator.writeStartArray()
+        [ o.toJson(context, generator, instanceId, fieldName, withType, binaries) for o in self.items ]
+        generator.writeEndArray()
+
 
     def __str__(self):
         with StringIO() as sb:

@@ -18,16 +18,26 @@ class DocumentValue (BaseValue):
         else:
             self.values = values
 
+
     def getStorableData(self):
         return self.values
+
+
+    def convertToPython(self):
+        res = dict()
+        for key, value in self.values.items():
+            res[key] = value.convertToPython()
+        return res
 
 
     def getMemberNames(self):
         return self.values.keys()
 
+
     def hasMember(self, name):
         result = self.values.get(name, None)
         return result is not None
+
 
     def getMemberValue(self, context, name, autoCreate = False):
         result = self.values.get(name, None)
@@ -41,6 +51,7 @@ class DocumentValue (BaseValue):
             return result
         else:
             return NullValue.instance
+
 
     def setMember(self, context, name, value):
         self.values[name] = value
@@ -59,6 +70,13 @@ class DocumentValue (BaseValue):
             self.values[index.value] = value
         else:
             raise SyntaxError("No such item:" + index.toString())
+
+
+    def __eq__(self, obj):
+        if not isinstance(obj, DocumentValue):
+            return False
+        return self.values == obj.values
+
 
     def __str__(self):
         binaries = dict()

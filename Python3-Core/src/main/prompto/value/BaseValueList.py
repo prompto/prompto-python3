@@ -1,3 +1,4 @@
+from prompto.type.NativeType import NativeType
 from prompto.value.BaseValue import BaseValue
 from prompto.value.ISliceable import ISliceable
 from prompto.value.IntegerValue import IntegerValue
@@ -32,8 +33,10 @@ class BaseValueList(BaseValue, ISliceable):
     def size(self):
         return len(self.items)
 
+
     def isEmpty(self):
         return len(self.items) == 0
+
 
     def slice(self, fi, li):
         _fi = 1 if fi is None else fi.IntegerValue()
@@ -46,6 +49,7 @@ class BaseValueList(BaseValue, ISliceable):
             raise IndexOutOfRangeError()
         return self.newInstance(self.items[_fi-1:_li]) # 0 based, right limit excluded
 
+
     def merge(self, other):
         if(len(other.items)==0):
             return self
@@ -55,6 +59,7 @@ class BaseValueList(BaseValue, ISliceable):
             result.extend(other.items)
             return self.newInstance(result)
 
+
     def remove(self, other):
         if(len(other.items)==0):
             return self
@@ -62,11 +67,13 @@ class BaseValueList(BaseValue, ISliceable):
             result = filter(lambda item: not item in other.items, self.items)
             return self.newInstance(result)
 
+
     def hasItem(self, context, lval):
         for item in self.items:
             if item == lval:
                 return True
         return False
+
 
     def getItem(self, context, index):
         if isinstance(index, IntegerValue):
@@ -93,6 +100,7 @@ class BaseValueList(BaseValue, ISliceable):
         if not isinstance(obj, BaseValueList):
             return False
         return self.items == obj.items
+
 
     def getMemberValue(self, context, name, autoCreate=False):
         if "count" == name:

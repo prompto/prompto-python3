@@ -2,6 +2,8 @@ from enum import Enum
 
 START_OBJECT = "{".encode()
 END_OBJECT = "}".encode()
+START_ARRAY = "[".encode()
+END_ARRAY = "]".encode()
 VALUE_SEPARATOR = ":".encode()
 FIELD_SEPARATOR = ",".encode()
 DOUBLE_QUOTE = '"'.encode()
@@ -25,7 +27,6 @@ class JSONGenerator(object):
         self.state = State.NONE
 
 
-
     def writeStartObject(self):
         if self.state in [State.BEGIN_OBJECT, State.WITHIN_OBJECT]:
             raise Exception("Invalid state: " + str(self.state))
@@ -36,7 +37,6 @@ class JSONGenerator(object):
         self.state = State.BEGIN_OBJECT
 
 
-
     def writeEndObject(self):
         if not self.state in [State.BEGIN_OBJECT, State.WITHIN_OBJECT]:
             raise Exception("Invalid state: " + str(self.state))
@@ -44,8 +44,24 @@ class JSONGenerator(object):
         self.state = self.states.pop()
         if self.state is State.BEGIN_VALUE:
             self.state = State.WITHIN_OBJECT
+        elif self.state is State.BEGIN_ARRAY:
+            self.state = State.WITHIN_ARRAY
 
 
+    def writeStartArray(self):
+        if self.state in [State.BEGIN_ARRAY, State.WITHIN_ARRAY]:
+            raise Exception("Invalid state: " + str(self.state))
+        self.states.append(self.state)
+        self.stream.write(START_ARRAY)
+        self.state = State.BEGIN_ARRAY
+
+    def writeEndArray(self):
+        if not self.state in [State.BEGIN_ARRAY, State.WITHIN_ARRAY]:
+            raise Exception("Invalid state: " + str(self.state))
+        self.stream.write(END_ARRAY)
+        self.state = self.states.pop()
+        if self.state is State.BEGIN_VALUE:
+            self.state = State.WITHIN_OBJECT
 
     def writeFieldName(self, name):
         if not self.state in [State.BEGIN_OBJECT, State.WITHIN_OBJECT]:
@@ -59,30 +75,39 @@ class JSONGenerator(object):
         self.state = State.BEGIN_VALUE
 
 
-
     def writeString(self, value):
         if self.state in [State.BEGIN_OBJECT, State.WITHIN_OBJECT]:
             raise Exception("Invalid state: " + str(self.state))
+        if self.state is State.WITHIN_ARRAY:
+            self.stream.write(FIELD_SEPARATOR)
         self.stream.write(DOUBLE_QUOTE)
         self.stream.write(value.encode())
         self.stream.write(DOUBLE_QUOTE)
         if self.state is State.BEGIN_VALUE:
             self.state = State.WITHIN_OBJECT
-
-
+        elif self.state is State.BEGIN_ARRAY:
+            self.state = State.WITHIN_ARRAY
 
     def writeLong(self, value):
         if self.state in [State.BEGIN_OBJECT, State.WITHIN_OBJECT]:
             raise Exception("Invalid state: " + str(self.state))
+        if self.state is State.WITHIN_ARRAY:
+            self.stream.write(FIELD_SEPARATOR)
         self.stream.write(str(value).encode())
         if self.state is State.BEGIN_VALUE:
             self.state = State.WITHIN_OBJECT
-
-
+        elif self.state is State.BEGIN_ARRAY:
+            self.state = State.WITHIN_ARRAY
 
     def writeNull(self):
         if self.state in [State.BEGIN_OBJECT, State.WITHIN_OBJECT]:
             raise Exception("Invalid state: " + str(self.state))
+        if self.state is State.WITHIN_ARRAY:
+            self.stream.write(FIELD_SEPARATOR)
         self.stream.write(str("null").encode())
         if self.state is State.BEGIN_VALUE:
             self.state = State.WITHIN_OBJECT
+        elif self.state is State.BEGIN_ARRAY:
+            self.state = State.WITHIN_ARRAY
+
+

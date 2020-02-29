@@ -13,10 +13,13 @@ class TestReader(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
-    def testJson(self):
-        self.runTests("reader/json.pec")
+    # def testJson(self):
+    #     self.runTests("reader/json.pec")
+    #
+    # def testReader(self):
+    #     self.runTests("reader/reader.pec")
 
-    def testReader(self):
-        self.runTests("reader/reader.pec")
+    def testYaml(self):
+        self.runTests("reader/yaml.pec")
 
 
