@@ -7,6 +7,7 @@ class CategoryParameter(BaseParameter, ITypedParameter):
     def __init__(self, itype, name, default=None):
         super(CategoryParameter, self).__init__(name)
         self.itype = itype
+        self.resolved = None
         self.defaultExpression = default
 
     def getSignature(self, dialect):
@@ -28,6 +29,7 @@ class CategoryParameter(BaseParameter, ITypedParameter):
         return self.getType() == obj.getType() \
             and self.getName() == obj.getName()
 
+
     def register(self, context):
         actual = context.contextForValue(self.name)
         if actual is self:
@@ -37,11 +39,20 @@ class CategoryParameter(BaseParameter, ITypedParameter):
             value = self.defaultExpression.interpret(context)
             context.setValue(self.name, value)
 
+
     def check(self, context):
-        self.itype.checkExists(context)
+        self.resolve(context)
+        self.resolved.checkExists(context)
+
+
+    def resolve(self, context):
+        if self.resolved is None:
+            self.resolved = self.itype.resolve(context)
+
 
     def getType(self, context=None):
         return self.itype
+
 
     def toDialect(self, writer):
         if self.mutable:
