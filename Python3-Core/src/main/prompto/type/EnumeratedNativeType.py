@@ -21,6 +21,10 @@ class EnumeratedNativeType ( BaseType ):
         return self.derivedFrom
 
 
+    def checkExists(self, context):
+        pass # TODO
+
+
     def checkMember(self, context, name):
         if "name"==name:
             return TextType.instance
@@ -42,14 +46,14 @@ class EnumeratedNativeType ( BaseType ):
         decl = context.getRegisteredDeclaration(IDeclaration, self.typeName)
         if not isinstance (decl, EnumeratedNativeDeclaration):
             raise SyntaxError(self.typeName + " is not an enumerated type!")
-        if "symbols"==name:
+        if "symbols" == name:
             return decl.getSymbols()
         else:
             raise SyntaxError("Unknown member:" + name)
 
 
     def isAssignableFrom(self, context, other:IType):
-        return self.typeName==other.typeName
+        return self.typeName == other.typeName
 
 
     def getStaticMemberMethods(self, context, name):

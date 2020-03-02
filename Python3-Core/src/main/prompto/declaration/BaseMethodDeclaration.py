@@ -19,6 +19,7 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
         self.memberOf = None
         self.closureOf = None
 
+
     def getSignature(self, dialect):
         with StringIO() as sb:
             try:
@@ -38,6 +39,7 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
     def __str__(self):
         return self.getName() + ":(" + str(self.parameters) + ')'
 
+
     def getProto(self):
         with StringIO() as sb:
             for arg in self.parameters:
@@ -48,23 +50,29 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
             val = val[:-1]  # strip "/"
         return val
 
+
     def getArguments(self):
         return self.parameters
+
 
     def getReturnType(self):
         return self.returnType
 
+
     def register(self, context):
         context.registerMethodDeclaration(self)
 
+
     def registerArguments(self, context):
         self.parameters.register(context)
+
 
     def getType(self, context):
         try:
             return self.check(context)
         except SyntaxError as e:
             raise Exception(e)
+
 
     def isAssignableTo(self, context, arguments, checkInstance):
         from prompto.grammar.ArgumentList import ArgumentList
@@ -102,9 +110,11 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
 
         try:
             requiredType = parameter.getType(context)
+            requiredType = requiredType.resolve(context, None)
             expression = argument.getExpression()
             checkArrow = isinstance(requiredType, MethodType) and isinstance(expression, ContextualExpression) and isinstance(expression.expression, ArrowExpression)
             actualType = requiredType.checkArrowExpression(expression) if checkArrow else expression.check(context)
+            actualType = actualType.resolve(context, None)
             # retrieve actual runtime type
             if checkInstance and isinstance(actualType, CategoryType):
                 value = argument.getExpression().interpret(context.getCallingContext())

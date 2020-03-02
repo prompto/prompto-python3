@@ -10,11 +10,13 @@ from prompto.grammar.Argument import Argument
 from prompto.grammar.ArgumentList import ArgumentList
 from prompto.grammar.Operator import Operator
 from prompto.parser.Dialect import Dialect
+from prompto.runtime.Context import MethodDeclarationMap
 from prompto.runtime.Score import Score
 from prompto.store.DataStore import DataStore
 from prompto.store.Store import IStored
 from prompto.store.TypeFamily import TypeFamily
 from prompto.type.MethodType import MethodType
+from prompto.type.NativeType import NativeType
 from prompto.type.TextType import TextType
 from prompto.type.BaseType import BaseType
 from prompto.type.IType import IType
@@ -30,6 +32,7 @@ class CategoryType(BaseType):
         super(CategoryType, self).__init__(family)
         self.typeName = typeName
         self.mutable = mutable
+        self.resolved = None
 
     def __eq__(self, obj):
         if obj is None:
@@ -46,6 +49,29 @@ class CategoryType(BaseType):
             return AnyType.instance
         else:
             return self
+
+
+    def resolve(self, context, onError = None):
+        if self.resolved is None:
+            typ = self.anyfy()
+            if isinstance(typ, NativeType):
+                self.resolved = typ
+            else:
+                if(isinstance(context, CategoryType)):
+                    raise SyntaxError("what!!")
+                decl = context.getRegisteredDeclaration(IDeclaration, typ.typeName)
+                if decl is None:
+                    if onError is not None:
+                        onError(typ)
+                        return None
+                    else:
+                        raise SyntaxError("Unknown type:" + typ.typeName)
+                elif isinstance(decl, MethodDeclarationMap):
+                    self.resolved = MethodType(decl.getFirst())
+                else:
+                    found = decl.getType(context)
+                    self.resolved = typ if type(found)==type(typ) else found
+        return self.resolved
 
 
     def toDialect(self, writer):
@@ -70,10 +96,12 @@ class CategoryType(BaseType):
         inst.mutable = self.mutable
         return inst
 
+
     def checkUnique(self, context):
         actual = context.getRegisteredDeclaration(IDeclaration, self.typeName)
         if actual is not None:
             raise SyntaxError("Duplicate name: \"" + self.typeName + "\"")
+
 
     def getDeclaration(self, context):
         from prompto.declaration.CategoryDeclaration import CategoryDeclaration
@@ -133,12 +161,13 @@ class CategoryType(BaseType):
         else:
             return super().checkSubstract(context, other)
 
+
     def checkOperator(self, context, other, tryReverse, operator):
         from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
         actual = self.getDeclaration(context)
         if isinstance(actual, ConcreteCategoryDeclaration):
             try:
-                method = actual.getOperatorMethod(self, operator, other)
+                method = actual.getOperatorMethod(context, operator, other)
                 if method is None:
                     return None
                 context = context.newInstanceContext(None, self)
@@ -251,9 +280,13 @@ class CategoryType(BaseType):
 
 
     def isAssignableFrom(self, context, other:IType):
-        return super().isAssignableFrom(context, other) or \
-            (isinstance(other, CategoryType) and self.isAssignableFromCategory(context, other))
-
+        actual = self.resolve(context, None)
+        other = other.resolve(context, None)
+        if actual is self:
+            return super().isAssignableFrom(context, other) or \
+                (isinstance(other, CategoryType) and self.isAssignableFromCategory(context, other))
+        else:
+            return actual.isAssignableFrom(context, other)
 
 
     def isAssignableFromCategory(self, context, other: IType):

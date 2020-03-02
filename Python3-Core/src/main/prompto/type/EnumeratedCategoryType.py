@@ -14,15 +14,19 @@ class EnumeratedCategoryType ( CategoryType ):
         super(EnumeratedCategoryType, self).__init__(name, TypeFamily.ENUMERATED)
 
 
+    def checkExists(self, context):
+        pass # TODO
+
+
     def checkMember(self, context, name):
-        if "name"==name:
+        if "name" == name:
             return TextType.instance
         else:
             return super(EnumeratedCategoryType, self).checkMember(context, name)
 
 
     def checkStaticMember(self, context, name):
-        if "symbols"==name:
+        if "symbols" == name:
             return ListType(self)
         else:
             return super(EnumeratedCategoryType, self).checkMember(context, name)
@@ -33,7 +37,7 @@ class EnumeratedCategoryType ( CategoryType ):
         decl = context.getRegisteredDeclaration(IDeclaration, self.typeName)
         if not isinstance (decl, EnumeratedCategoryDeclaration):
             raise SyntaxError(self.typeName + " is not an enumerated type!")
-        if "symbols"==name:
+        if "symbols" == name:
             return decl.getSymbols()
         else:
             raise SyntaxError("Unknown member:" + name)

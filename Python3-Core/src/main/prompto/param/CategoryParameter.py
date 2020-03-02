@@ -47,7 +47,7 @@ class CategoryParameter(BaseParameter, ITypedParameter):
 
     def resolve(self, context):
         if self.resolved is None:
-            self.resolved = self.itype.resolve(context)
+            self.resolved = self.itype.resolve(context, None)
 
 
     def getType(self, context=None):
