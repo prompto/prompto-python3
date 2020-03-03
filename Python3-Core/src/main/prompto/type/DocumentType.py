@@ -25,7 +25,10 @@ class DocumentType ( NativeType ):
 
 
     def checkMember(self, context, name):
-        return AnyType.instance
+        if name == "text":
+            return TextType.instance
+        else:
+            return AnyType.instance
 
 
     def checkItem(self, context, itemType):
