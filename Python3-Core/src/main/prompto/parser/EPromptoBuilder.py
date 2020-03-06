@@ -2175,16 +2175,14 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, NullLiteral.instance)
 
 
-
     def exitOperator_argument(self, ctx:EParser.Operator_argumentContext):
         stmt = self.getNodeValue(ctx.getChild(0))
         self.setNodeValue(ctx, stmt)
 
 
-
     def exitOperatorArgument(self, ctx:EParser.OperatorArgumentContext):
         arg = self.getNodeValue(ctx.arg)
-        arg.mutable = ctx.MUTABLE() is not None
+        arg.setMutable(ctx.MUTABLE() is not None)
         self.setNodeValue(ctx, arg)
 
 

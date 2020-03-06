@@ -2,12 +2,12 @@ from prompto.error.SyntaxError import SyntaxError
 from prompto.grammar.INamedValue import INamedValue
 from prompto.instance.IAssignableInstance import IAssignableInstance
 from prompto.runtime.Variable import Variable
-from prompto.value.NullValue import NullValue
+from prompto.type.CategoryType import CategoryType
+from prompto.type.DocumentType import DocumentType
 
 
 
 class VariableInstance(IAssignableInstance):
-
 
     def __init__(self, name):
         super(VariableInstance, self).__init__()
@@ -47,7 +47,16 @@ class VariableInstance(IAssignableInstance):
         actual = context.getRegisteredValue(INamedValue, self.name)
         if actual is None:
             raise SyntaxError("Unknown variable:" + self.name)
-        return valueType
+        thisType = actual.getType(context)
+        if thisType is DocumentType.instance:
+            return valueType
+        else:
+            if isinstance(thisType, CategoryType) and not thisType.mutable:
+                raise SyntaxError("Not mutable:" + self.name)
+            requiredType = thisType.checkMember(context, name)
+            if requiredType is not None and not requiredType.isAssignableFrom(context, valueType):
+                raise SyntaxError("Incompatible types:" + requiredType.typename + " and " + valueType.typename)
+            return valueType
 
 
 
@@ -63,8 +72,8 @@ class VariableInstance(IAssignableInstance):
     def assign(self, context, expression):
         value = expression.interpret(context)
         if context.getRegisteredValue(INamedValue, self.name) is None:
-            typ = expression.check(context)
-            context.registerValue(Variable(self.name, typ))
+            itype = expression.check(context)
+            context.registerValue(Variable(self.name, itype))
         context.setValue(self.name, value)
 
     def interpret(self, context):

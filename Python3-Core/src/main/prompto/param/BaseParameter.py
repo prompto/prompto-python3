@@ -13,8 +13,14 @@ class BaseParameter (IParameter) :
         self.mutable = False
         self.defaultExpression = None
 
+
     def getName(self):
         return self.name
+
+
+    def setMutable(self, mutable):
+        self.mutable = mutable
+
 
     def checkValue(self, context, expression):
         value = expression.interpret(context)

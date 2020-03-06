@@ -40,9 +40,6 @@ class TestMutability(BaseOParserTest):
     def testMutableList(self):
         self.checkOutput("mutability/mutableList.poc")
 
-    def testMutableMember(self):
-        self.checkOutput("mutability/mutableMember.poc")
-
     def testMutableTuple(self):
         self.checkOutput("mutability/mutableTuple.poc")
 

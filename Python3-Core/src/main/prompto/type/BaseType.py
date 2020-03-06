@@ -27,15 +27,15 @@ class BaseType(IType):
         return self.typeName
 
 
-    def toDialect(self, writer):
+    def toDialect(self, writer, skipMutable = False):
         writer.append(self.typeName)
 
 
-    def getMemberMethods(selfself, context, name):
+    def getMemberMethods(self, context, name):
         return []
 
 
-    def getStaticMemberMethods(selfself, context, name):
+    def getStaticMemberMethods(self, context, name):
         return []
 
 

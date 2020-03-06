@@ -10,14 +10,18 @@ class CategoryParameter(BaseParameter, ITypedParameter):
         self.resolved = None
         self.defaultExpression = default
 
+
     def getSignature(self, dialect):
         return self.getProto()
+
 
     def getProto(self):
         return self.itype.typeName
 
+
     def __str__(self):
         return self.name + ':' + self.getProto()
+
 
     def __eq__(self, obj):
         if id(obj) == id(self):
@@ -28,6 +32,11 @@ class CategoryParameter(BaseParameter, ITypedParameter):
             return False
         return self.getType() == obj.getType() \
             and self.getName() == obj.getName()
+
+
+    def setMutable(self, mutable):
+        self.itype.mutable = mutable
+        self.mutable = mutable
 
 
     def register(self, context):
@@ -64,17 +73,17 @@ class CategoryParameter(BaseParameter, ITypedParameter):
 
 
     def toEDialect(self, writer):
-        self.itype.toDialect(writer)
+        self.itype.toDialect(writer, True)
         writer.append(' ')
         writer.append(self.name)
 
 
     def toODialect(self, writer):
-        self.itype.toDialect(writer)
+        self.itype.toDialect(writer, True)
         writer.append(' ')
         writer.append(self.name)
 
     def toMDialect(self, writer):
         writer.append(self.name)
         writer.append(':')
-        self.itype.toDialect(writer)
+        self.itype.toDialect(writer, True)

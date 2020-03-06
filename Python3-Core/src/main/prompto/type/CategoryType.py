@@ -74,8 +74,8 @@ class CategoryType(BaseType):
         return self.resolved
 
 
-    def toDialect(self, writer):
-        if self.mutable:
+    def toDialect(self, writer, skipMutable=False):
+        if self.mutable and not skipMutable:
             writer.append("mutable ")
         writer.append(self.typeName)
 
@@ -209,7 +209,7 @@ class CategoryType(BaseType):
         elif decl.hasAttribute(context, name):
             ad = context.getRegisteredDeclaration(AttributeDeclaration, name)
             if ad is None:
-                raise SyntaxError("Missing atttribute:" + name)
+                raise SyntaxError("Missing attribute:" + name)
             else:
                 return ad.getType(context)
         elif "text" == name:

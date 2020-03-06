@@ -1960,7 +1960,6 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, EqualsExpression(left, EqOp.CONTAINS, right))
 
 
-
     def exitNotContainsExpression(self, ctx: MParser.NotContainsExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
@@ -1971,16 +1970,14 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, NullLiteral.instance)
 
 
-
     def exitOperator_argument(self, ctx:MParser.Operator_argumentContext):
         stmt = self.getNodeValue(ctx.getChild(0))
         self.setNodeValue(ctx, stmt)
 
 
-
     def exitOperatorArgument(self, ctx:MParser.OperatorArgumentContext):
         arg = self.getNodeValue(ctx.arg)
-        arg.mutable = ctx.MUTABLE() is not None
+        arg.setMutable(ctx.MUTABLE() is not None)
         self.setNodeValue(ctx, arg)
 
 

@@ -41,9 +41,6 @@ class TestMutability(BaseEParserTest):
     def testMutableList(self):
         self.compareResourceEME("mutability/mutableList.pec")
 
-    def testMutableMember(self):
-        self.compareResourceEME("mutability/mutableMember.pec")
-
     def testMutableTuple(self):
         self.compareResourceEME("mutability/mutableTuple.pec")
 

@@ -14,6 +14,7 @@ class UnresolvedParameter (INamedParameter):
         self.name = name
         self.defaultValue = None
         self.resolved = None
+        self.mutable = False
 
 
     def getSignature(self, dialect):
@@ -26,6 +27,10 @@ class UnresolvedParameter (INamedParameter):
 
     def __str__(self):
         return self.name
+
+
+    def setMutable(self, mutable):
+        self.mutable = mutable
 
 
     def toDialect(self, writer):
@@ -66,5 +71,7 @@ class UnresolvedParameter (INamedParameter):
             self.resolved = AttributeParameter(self.name)
         elif isinstance(named, MethodDeclarationMap):
             self.resolved = MethodParameter(self.name)
+        if self.resolved is not None:
+            self.resolved.setMutable(self.mutable)
         else:
             raise SyntaxError("Unknown identifier:" + self.name)

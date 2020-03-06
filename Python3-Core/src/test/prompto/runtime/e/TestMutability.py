@@ -46,9 +46,6 @@ class TestMutability(BaseEParserTest):
     def testMutableList(self):
         self.checkOutput("mutability/mutableList.pec")
 
-    def testMutableMember(self):
-        self.checkOutput("mutability/mutableMember.pec")
-
     def testMutableTuple(self):
         self.checkOutput("mutability/mutableTuple.pec")
 

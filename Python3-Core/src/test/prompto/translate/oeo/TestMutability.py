@@ -35,9 +35,6 @@ class TestMutability(BaseOParserTest):
     def testMutableList(self):
         self.compareResourceOEO("mutability/mutableList.poc")
 
-    def testMutableMember(self):
-        self.compareResourceOEO("mutability/mutableMember.poc")
-
     def testMutableTuple(self):
         self.compareResourceOEO("mutability/mutableTuple.poc")
 
