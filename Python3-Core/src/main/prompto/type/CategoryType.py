@@ -48,9 +48,8 @@ class CategoryType(BaseType):
         if self.mutable == mutable:
             return self
         else:
-            result = CategoryType(self.typeName)
-            result.mutable = mutable
-            return result
+            return CategoryType(self.typeName, mutable = mutable)
+
 
     def anyfy(self):
         if self.typeName == "Any":
