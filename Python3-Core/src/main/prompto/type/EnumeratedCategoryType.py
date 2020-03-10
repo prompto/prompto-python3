@@ -14,6 +14,12 @@ class EnumeratedCategoryType ( CategoryType ):
         super(EnumeratedCategoryType, self).__init__(name, TypeFamily.ENUMERATED)
 
 
+    def asMutable(self, mutable):
+        if mutable:
+            pass # TODO throw
+        return self
+
+
     def checkExists(self, context):
         pass # TODO
 

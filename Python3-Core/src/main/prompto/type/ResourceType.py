@@ -8,6 +8,7 @@ class ResourceType ( CategoryType ):
 	def __init__(self, name):
 		super().__init__(name, TypeFamily.RESOURCE)
 
+
 	def __eq__(self, obj):
 		if id(obj)==id(self):
 			return True
@@ -17,3 +18,8 @@ class ResourceType ( CategoryType ):
 			return False
 		return self.typeName == obj.typeName
 
+
+	def asMutable(self, mutable):
+		if mutable:
+			pass  # TODO throw
+		return self

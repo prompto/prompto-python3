@@ -121,7 +121,7 @@ class ConstructorExpression(IExpression):
                     raise SyntaxError("\"" + argument.getName() +
                         "\" is not an attribute of " + self.itype.typeName)
                 argument.check(context)
-        return cd.getType(context)
+        return cd.getType(context).asMutable(self.mutable)
 
 
     def interpret(self, context:Context):
