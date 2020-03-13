@@ -14,7 +14,7 @@ class EnumeratedCategoryType ( CategoryType ):
         super(EnumeratedCategoryType, self).__init__(name, TypeFamily.ENUMERATED)
 
 
-    def asMutable(self, mutable):
+    def asMutable(self, context, mutable):
         if mutable:
             pass # TODO throw
         return self

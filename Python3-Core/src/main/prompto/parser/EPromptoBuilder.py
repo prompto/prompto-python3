@@ -2581,7 +2581,8 @@ class EPromptoBuilder(EParserListener):
     def exitCastExpression(self, ctx:EParser.CastExpressionContext):
         typ = self.getNodeValue(ctx.right)
         exp = self.getNodeValue(ctx.left)
-        self.setNodeValue(ctx, CastExpression(exp, typ))
+        mutable = ctx.MUTABLE() is not None
+        self.setNodeValue(ctx, CastExpression(exp, typ, mutable))
 
     
     def exitCatchAtomicStatement(self, ctx:EParser.CatchAtomicStatementContext):

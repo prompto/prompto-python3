@@ -572,7 +572,7 @@ class MPromptoBuilder(MParserListener):
     def exitCastExpression(self, ctx:MParser.CastExpressionContext):
         typ = self.getNodeValue(ctx.right)
         exp = self.getNodeValue(ctx.left)
-        self.setNodeValue(ctx, CastExpression(exp, typ))
+        self.setNodeValue(ctx, CastExpression(exp, typ, ctx.MUTABLE() is not None))
 
 
     def exitCatchAtomicStatement(self, ctx:MParser.CatchAtomicStatementContext):

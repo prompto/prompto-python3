@@ -2480,7 +2480,7 @@ class OPromptoBuilder(OParserListener):
     def exitCastExpression(self, ctx:OParser.CastExpressionContext):
         typ = self.getNodeValue(ctx.right)
         exp = self.getNodeValue(ctx.left)
-        self.setNodeValue(ctx, CastExpression(exp, typ))
+        self.setNodeValue(ctx, CastExpression(exp, typ, ctx.MUTABLE() is not None))
 
 
 
