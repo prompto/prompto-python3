@@ -10,12 +10,15 @@ class NotExpression ( IUnaryExpression ):
     def __init__(self, expression):
         self.expression = expression
 
+
     def __str__(self):
         return "not " + str(self.expression)
+
 
     def toDialect(self, writer):
         writer.append(self.operatorToDialect(writer.dialect))
         self.expression.toDialect(writer)
+
 
     def operatorToDialect(self, dialect):
         if dialect is Dialect.E or dialect is Dialect.M:
@@ -23,15 +26,18 @@ class NotExpression ( IUnaryExpression ):
         else:
             return "!"
 
+
     def check(self, context):
         itype = self.expression.check(context)
         if not isinstance(itype, BooleanType):
             raise SyntaxError("Cannot negate " + itype.getName())
         return BooleanType.instance
 
+
     def interpret(self, context):
         val = self.expression.interpret(context)
         return self.interpretValue(context, val)
+
 
     def interpretValue(self, context, val):
         if isinstance(val, BooleanValue):
@@ -50,3 +56,10 @@ class NotExpression ( IUnaryExpression ):
         actual = self.operatorToDialect(test.dialect) + str(val)
         test.printFailedAssertion(context, expected, actual)
         return False
+
+
+    def interpretQuery(self, context, query):
+        if getattr(self.expression, "interpretQuery", None) is None:
+            raise SyntaxError("Not a predicate: " + str(self.expression))
+        self.expression.interpretQuery(context, query)
+        query.Not()

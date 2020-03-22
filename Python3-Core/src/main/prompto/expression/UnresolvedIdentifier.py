@@ -47,6 +47,11 @@ class UnresolvedIdentifier(IExpression):
         return self.resolved.interpret(context)
 
 
+    def interpretQuery(self, context, builder):
+        self.resolveAndCheck(context, False)
+        self.resolved.interpretQuery(context, builder)
+
+
     def resolveAndCheck(self, context, forMember):
         self.resolve(context, forMember)
         return self.resolved.check(context)

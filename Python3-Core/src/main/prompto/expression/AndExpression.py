@@ -11,13 +11,16 @@ class AndExpression ( IExpression ):
         self.left = left
         self.right = right
 
+
     def __str__(self):
         return str(self.left) + " and " + str(self.right)
+
 
     def toDialect(self, writer):
         self.left.toDialect(writer)
         writer.append(self.operatorToDialect(writer.dialect))
         self.right.toDialect(writer)
+
 
     def operatorToDialect(self, dialect):
         if dialect is Dialect.E or dialect is Dialect.M:
@@ -32,6 +35,7 @@ class AndExpression ( IExpression ):
             raise SyntaxError("Cannot combine " + lt.typeName + " and " + rt.typeName)
         return BooleanType.instance
 
+
     def interpret(self, context):
         lval = self.left.interpret(context)
         if not isinstance(lval, BooleanValue):
@@ -42,6 +46,7 @@ class AndExpression ( IExpression ):
         if not isinstance(rval, BooleanValue):
             raise SyntaxError("Illegal: Boolean and " + type(rval).__name__)
         return rval
+
 
     def interpretAssert(self, context, test):
         lval = self.left.interpret(context)
@@ -58,3 +63,13 @@ class AndExpression ( IExpression ):
         actual = str(lval) + self.operatorToDialect(test.dialect) + str(rval)
         test.printFailedAssertion(context, expected, actual)
         return False
+
+
+    def interpretQuery(self, context, query):
+        if getattr(self.left, "interpretQuery", None) is None:
+            raise SyntaxError("Not a predicate: " + str(self.left))
+        self.left.interpretQuery(context, query)
+        if getattr(self.right, "interpretQuery", None) is None:
+            raise SyntaxError("Not a predicate: " + str(self.right))
+        self.right.interpretQuery(context, query)
+        query.And()

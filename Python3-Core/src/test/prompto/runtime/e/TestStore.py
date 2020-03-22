@@ -22,6 +22,18 @@ class TestStore(BaseEParserTest):
     def testDeleteRecords(self):
         self.checkOutput("store/deleteRecords.pec")
 
+    def testFetchAnd(self):
+        self.checkOutput("store/fetchAnd.pec")
+
+    def testFetchBoolean(self):
+        self.checkOutput("store/fetchBoolean.pec")
+
+    def testFetchNotBoolean(self):
+        self.checkOutput("store/fetchNotBoolean.pec")
+
+    def testFetchOr(self):
+        self.checkOutput("store/fetchOr.pec")
+
     def testFlush(self):
         self.checkOutput("store/flush.pec")
 

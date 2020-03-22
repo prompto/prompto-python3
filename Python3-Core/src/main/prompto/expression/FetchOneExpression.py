@@ -17,6 +17,7 @@ class FetchOneExpression(Section, IExpression):
         self.typ = typ
         self.predicate = predicate
 
+
     def toEDialect (self, writer):
         writer.append ("fetch one ")
         if self.typ:
@@ -26,6 +27,7 @@ class FetchOneExpression(Section, IExpression):
             writer.append(" ")
         writer.append (" where ")
         self.predicate.toDialect (writer)
+
 
     def toODialect (self, writer):
         writer.append ("fetch one ")
@@ -39,6 +41,7 @@ class FetchOneExpression(Section, IExpression):
         self.predicate.toDialect (writer)
         writer.append (")")
 
+
     def toMDialect (self, writer):
         writer.append ("fetch one ")
         if self.typ:
@@ -48,6 +51,7 @@ class FetchOneExpression(Section, IExpression):
             writer.append(" ")
         writer.append (" where ")
         self.predicate.toDialect (writer)
+
 
     def check (self, context):
         if self.typ is not None:
@@ -63,6 +67,7 @@ class FetchOneExpression(Section, IExpression):
         else:
             return self.typ
 
+
     def interpret (self, context):
         store = DataStore.instance
         query = self.buildFetchOneQuery(context, store)
@@ -75,6 +80,7 @@ class FetchOneExpression(Section, IExpression):
             if self.typ is not None:
                 typ.mutable = self.typ.mutable
             return typ.newInstanceFromStored (context, stored)
+
 
     def buildFetchOneQuery(self, context, store):
         builder = store.newQueryBuilder()

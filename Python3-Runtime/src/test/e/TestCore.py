@@ -30,6 +30,9 @@ class TestCore(BaseEParserTest):
     def testCloud(self):
         self.runTests("core/cloud.pec")
 
+    def testConfig(self):
+        self.runTests("core/config.pec")
+
     def testError(self):
         self.runTests("core/error.pec")
 

@@ -17,6 +17,18 @@ class TestStore(BaseEParserTest):
     def testDeleteRecords(self):
         self.compareResourceEOE("store/deleteRecords.pec")
 
+    def testFetchAnd(self):
+        self.compareResourceEOE("store/fetchAnd.pec")
+
+    def testFetchBoolean(self):
+        self.compareResourceEOE("store/fetchBoolean.pec")
+
+    def testFetchNotBoolean(self):
+        self.compareResourceEOE("store/fetchNotBoolean.pec")
+
+    def testFetchOr(self):
+        self.compareResourceEOE("store/fetchOr.pec")
+
     def testFlush(self):
         self.compareResourceEOE("store/flush.pec")
 

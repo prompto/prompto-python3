@@ -6,6 +6,7 @@ from prompto.parser.Dialect import Dialect
 from prompto.runtime.Context import MethodDeclarationMap
 from prompto.runtime.LinkedVariable import LinkedVariable
 from prompto.runtime.Variable import Variable
+from prompto.type.BooleanType import BooleanType
 from prompto.type.MethodType import MethodType
 from prompto.value.ClosureValue import ClosureValue
 from prompto.error.SyntaxError import SyntaxError
@@ -79,3 +80,20 @@ class InstanceExpression(IExpression):
             else:
                 raise SyntaxError("No value or method with name:" + self.name)
 
+
+    def toPredicate(self, context):
+        decl = context.findAttribute(self.name)
+        if decl is None:
+            raise SyntaxError("Unknown identifier:" + self.name)
+        elif decl.getType(context)!=BooleanType.instance:
+            raise SyntaxError("Expected a Boolean, got: " + decl.getType(context).typeName)
+        else:
+            from prompto.expression.EqualsExpression import EqualsExpression
+            from prompto.grammar.EqOp import EqOp
+            from prompto.literal.BooleanLiteral import BooleanLiteral
+            return EqualsExpression(self, EqOp.EQUALS, BooleanLiteral("true"))
+
+
+    def interpretQuery(self, context, builder):
+        predicate = self.toPredicate(context)
+        predicate.interpretQuery(context, builder)
