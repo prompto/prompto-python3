@@ -2,6 +2,7 @@ from antlr4 import TerminalNode, Token
 from antlr4.ParserRuleContext import ParserRuleContext
 from antlr4.tree.Tree import ParseTree
 
+from prompto.expression.ReadBlobExpression import ReadBlobExpression
 from prompto.expression.SuperExpression import SuperExpression
 from prompto.jsx.JsxFragment import JsxFragment
 from prompto.literal.TypeLiteral import TypeLiteral
@@ -2504,11 +2505,9 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, ecd)
 
 
-
     def exitEnum_declaration(self, ctx: EParser.Enum_declarationContext):
         value = self.getNodeValue(ctx.getChild(0))
         self.setNodeValue(ctx, value)
-
 
 
     def exitRead_all_expression(self, ctx:EParser.Read_all_expressionContext):
@@ -2516,11 +2515,14 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, ReadAllExpression(source))
     
 
-    
+    def exitRead_blob_expression(self, ctx:EParser.Read_blob_expressionContext):
+        source = self.getNodeValue(ctx.source)
+        self.setNodeValue(ctx, ReadBlobExpression(source))
+
+
     def exitRead_one_expression(self, ctx:EParser.Read_one_expressionContext):
         source = self.getNodeValue(ctx.source)
         self.setNodeValue(ctx, ReadOneExpression(source))
-
 
 
     def exitReadAllExpression(self, ctx:EParser.ReadAllExpressionContext):
@@ -2528,18 +2530,20 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, exp)
 
 
+    def exitReadBlobExpression(self, ctx:EParser.ReadBlobExpressionContext):
+        exp = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, exp)
+
 
     def exitReadOneExpression(self, ctx: EParser.ReadOneExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
 
 
-
     def exitWrite_statement(self, ctx:EParser.Write_statementContext):
         what = self.getNodeValue(ctx.what)
         target = self.getNodeValue(ctx.target)
         self.setNodeValue(ctx, WriteStatement(what, target))
-    
 
 
     def exitWith_singleton_statement(self, ctx:EParser.With_singleton_statementContext):

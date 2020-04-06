@@ -2780,6 +2780,15 @@ class MParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MParser#read_blob_expression.
+    def enterRead_blob_expression(self, ctx:MParser.Read_blob_expressionContext):
+        pass
+
+    # Exit a parse tree produced by MParser#read_blob_expression.
+    def exitRead_blob_expression(self, ctx:MParser.Read_blob_expressionContext):
+        pass
+
+
     # Enter a parse tree produced by MParser#read_all_expression.
     def enterRead_all_expression(self, ctx:MParser.Read_all_expressionContext):
         pass

@@ -14,6 +14,10 @@ class NativeResource(NativeInstance, IResource):
     def isWritable(self):
         return self.instance.isWritable()
 
+    def readBinary(self):
+        s = self.instance.readBinary()
+        return TextValue(s)
+
     def readFully(self):
         s = self.instance.readFully()
         return TextValue(s)

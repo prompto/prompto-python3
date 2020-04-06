@@ -1,6 +1,7 @@
 from antlr4 import ParserRuleContext, Token
 from antlr4.tree.Tree import ParseTree, TerminalNode
 
+from prompto.expression.ReadBlobExpression import ReadBlobExpression
 from prompto.expression.SuperExpression import SuperExpression
 from prompto.jsx.JsxFragment import JsxFragment
 from prompto.literal.TypeLiteral import TypeLiteral
@@ -2252,11 +2253,9 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, RaiseStatement(exp))
 
 
-
     def exitRaiseStatement(self, ctx:MParser.RaiseStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, stmt)
-
 
 
     def exitRange_literal(self, ctx:MParser.Range_literalContext):
@@ -2265,11 +2264,14 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, RangeLiteral(low, high))
 
 
-
     def exitRead_all_expression(self, ctx:MParser.Read_all_expressionContext):
         source = self.getNodeValue(ctx.source)
         self.setNodeValue(ctx, ReadAllExpression(source))
 
+
+    def exitRead_blob_expression(self, ctx:MParser.Read_blob_expressionContext):
+        source = self.getNodeValue(ctx.source)
+        self.setNodeValue(ctx, ReadBlobExpression(source))
 
 
     def exitRead_one_expression(self, ctx:MParser.Read_one_expressionContext):
@@ -2277,17 +2279,14 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, ReadOneExpression(source))
 
 
-
     def exitResource_declaration(self, ctx:MParser.Resource_declarationContext):
         decl = self.getNodeValue(ctx.native_resource_declaration())
         self.setNodeValue(ctx, decl)
 
 
-
     def exitReturn_statement(self, ctx:MParser.Return_statementContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, ReturnStatement(exp))
-
 
 
     def exitReturnStatement(self, ctx:MParser.ReturnStatementContext):

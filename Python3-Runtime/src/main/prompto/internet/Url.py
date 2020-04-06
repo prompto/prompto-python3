@@ -1,4 +1,5 @@
 from prompto.value.IResource import IResource
+from prompto.intrinsic.Binary import Binary
 import urllib.request
 
 class Url(IResource):
@@ -16,6 +17,14 @@ class Url(IResource):
     def close(self):
         if self.reader is not None:
             self.reader.close()
+
+    def readBinary(self):
+        with urllib.request.urlopen(self.path) as response:
+            data = response.read()
+            mimeType = response.getheader("Content-Type")
+            if mimeType.index(";") > 0:
+                mimeType = mimeType[0, mimeType.index(";")]
+            return Binary(mimeType, data)
 
     def readFully(self):
         with urllib.request.urlopen(self.path) as response:

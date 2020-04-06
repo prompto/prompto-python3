@@ -2,12 +2,13 @@ from prompto.error.InternalError import InternalError
 from prompto.error.InvalidResourceError import InvalidResourceError
 from prompto.error.NullReferenceError import NullReferenceError
 from prompto.expression.IExpression import IExpression
+from prompto.type.BlobType import BlobType
 from prompto.type.ResourceType import ResourceType
-from prompto.type.TextType import TextType
+from prompto.value.BlobValue import BlobValue
 from prompto.value.IResource import IResource
 from prompto.error.SyntaxError import SyntaxError
 
-class ReadAllExpression (IExpression) :
+class ReadBlobExpression (IExpression) :
 
     def __init__(self, resource):
         super().__init__()
@@ -15,7 +16,7 @@ class ReadAllExpression (IExpression) :
 
 
     def __str__(self):
-        return "read all from " + str(self.resource)
+        return "read Blob from " + str(self.resource)
 
 
 
@@ -24,7 +25,7 @@ class ReadAllExpression (IExpression) :
         sourceType = self.resource.check(context)
         if not isinstance(sourceType, ResourceType):
             raise SyntaxError("Not a readable resource!")
-        return TextType.instance
+        return BlobType.instance
 
 
 
@@ -38,12 +39,12 @@ class ReadAllExpression (IExpression) :
         if not o.isReadable():
             raise InvalidResourceError("Not readable")
         try:
-            return o.readFully()
+            return BlobValue(o.readBinary())
         finally:
             o.close()
 
 
 
     def toDialect(self, writer):
-        writer.append("read all from ")
+        writer.append("read Blob from ")
         self.resource.toDialect(writer)
