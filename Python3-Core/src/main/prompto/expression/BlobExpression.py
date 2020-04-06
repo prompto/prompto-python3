@@ -22,7 +22,7 @@ class BlobExpression ( IExpression ):
         try:
             datas = BlobExpression.collectDatas(context, value)
             zipped = BlobExpression.zipDatas(datas)
-            return BlobValue("application/zip", zipped)
+            return BlobValue(mimeType="application/zip", data=zipped)
         except Exception as e:
             print(e)
             raise ReadWriteError(e.message)
