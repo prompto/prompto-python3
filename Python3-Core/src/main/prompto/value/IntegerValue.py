@@ -24,11 +24,14 @@ class IntegerValue(BaseValue, INumber, IMultiplyable):
     def convertToPython(self):
         return self.value
 
+
     def IntegerValue(self):
         return self.value
 
+
     def DecimalValue(self):
         return float(self.value)
+
 
     def Add(self, context, value):
         if isinstance(value, IntegerValue):
@@ -38,6 +41,7 @@ class IntegerValue(BaseValue, INumber, IMultiplyable):
         else:
             raise SyntaxError("Illegal: Integer + " + type(value).__name__)
 
+
     def Subtract(self, context, value):
         if isinstance(value, IntegerValue):
             return IntegerValue(self.IntegerValue() - value.IntegerValue())
@@ -45,6 +49,7 @@ class IntegerValue(BaseValue, INumber, IMultiplyable):
             return DecimalValue(self.DecimalValue() - value.DecimalValue())
         else:
             raise SyntaxError("Illegal: Integer - " + type(value).__name__)
+
 
     def Multiply(self, context, value):
         if isinstance(value, IntegerValue):
@@ -56,6 +61,7 @@ class IntegerValue(BaseValue, INumber, IMultiplyable):
         else:
             raise SyntaxError("Illegal: Integer * " + type(value).__name__)
 
+
     def Divide(self, context, value):
         if isinstance(value, INumber):
             if value.DecimalValue() == 0.0:
@@ -64,6 +70,7 @@ class IntegerValue(BaseValue, INumber, IMultiplyable):
                 return DecimalValue(self.DecimalValue() / value.DecimalValue())
         else:
             raise SyntaxError("Illegal: Integer / " + type(value).__name__)
+
 
     def IntDivide(self, context, value):
         if isinstance(value, IntegerValue):
@@ -74,6 +81,7 @@ class IntegerValue(BaseValue, INumber, IMultiplyable):
         else:
             raise SyntaxError("Illegal: Integer \\ " + type(value).__name__)
 
+
     def Modulo(self, context, value):
         if isinstance(value, IntegerValue):
             mod = value.IntegerValue()
@@ -82,6 +90,7 @@ class IntegerValue(BaseValue, INumber, IMultiplyable):
             return IntegerValue(self.IntegerValue() % mod)
         else:
             raise SyntaxError("Illegal: Integer % " + type(value).__name__)
+
 
     def compareTo(self, context, value):
         if isinstance(value, IntegerValue):
@@ -104,17 +113,22 @@ class IntegerValue(BaseValue, INumber, IMultiplyable):
     def ConvertTo(self, itype):
         return self.value
 
+
     def __str__(self):
         return str(self.value)
+
 
     def __lt__(self, obj):
         return self.value < obj.value
 
+
     def __eq__(self, obj):
         return self.value==obj.value
 
+
     def __hash__(self):
         return hash(self.value)
+
 
     def toJson(self, context, generator, instanceId, fieldName, withType, binaries):
         generator.writeLong(self.value)

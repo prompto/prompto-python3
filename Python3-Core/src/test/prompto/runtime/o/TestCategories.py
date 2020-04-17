@@ -28,4 +28,7 @@ class TestCategories(BaseOParserTest):
     def testCopyFromStored(self):
         self.checkOutput("categories/copyFromStored.poc")
 
+    def testPopulateFalse(self):
+        self.checkOutput("categories/populateFalse.poc")
+
 

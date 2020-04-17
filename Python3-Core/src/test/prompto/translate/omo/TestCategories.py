@@ -23,4 +23,7 @@ class TestCategories(BaseOParserTest):
     def testCopyFromStored(self):
         self.compareResourceOMO("categories/copyFromStored.poc")
 
+    def testPopulateFalse(self):
+        self.compareResourceOMO("categories/populateFalse.poc")
+
 
