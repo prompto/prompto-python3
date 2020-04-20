@@ -1,3 +1,4 @@
+from prompto.type.NullType import NullType
 from prompto.type.VoidType import VoidType
 from prompto.error.SyntaxError import SyntaxError
 
@@ -11,6 +12,8 @@ class TypeMap ( dict ):
         for t in self.values():
             if common is None:
                 common = t
+            elif t is NullType.instance:
+                continue
             elif common.isAssignableFrom(context, t):
                 continue
             elif t.isAssignableFrom(context, common):
