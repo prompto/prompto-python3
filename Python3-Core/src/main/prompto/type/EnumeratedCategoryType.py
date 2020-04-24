@@ -1,5 +1,6 @@
 from prompto.declaration.BuiltInMethodDeclaration import BuiltInMethodDeclaration
 from prompto.declaration.IDeclaration import IDeclaration
+from prompto.runtime.ContextFlags import ContextFlags
 from prompto.store.TypeFamily import TypeFamily
 from prompto.type.CategoryType import CategoryType
 from prompto.type.ListType import ListType
@@ -74,5 +75,5 @@ class SymbolOfMethodDeclaration(BuiltInMethodDeclaration):
         return decl.getSymbol(symbolName)
 
 
-    def check(self, context, isStart):
+    def check(self, context, flags:ContextFlags):
         return self.enumType

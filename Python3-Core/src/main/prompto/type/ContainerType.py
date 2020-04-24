@@ -1,4 +1,5 @@
 from prompto.declaration.BuiltInMethodDeclaration import BuiltInMethodDeclaration
+from prompto.runtime.ContextFlags import ContextFlags
 from prompto.type.BooleanType import BooleanType
 from prompto.type.IterableType import IterableType
 from prompto.type.TextType import TextType
@@ -33,6 +34,6 @@ class BaseJoinMethodDeclaration(BuiltInMethodDeclaration):
         return TextValue(joined)
 
 
-    def check(self, context, isStart=False):
+    def check(self, context, flags:ContextFlags):
         from prompto.type.BooleanType import BooleanType
         return BooleanType.instance

@@ -1,4 +1,5 @@
 from prompto.declaration.BuiltInMethodDeclaration import BuiltInMethodDeclaration
+from prompto.runtime.ContextFlags import ContextFlags
 from prompto.type.NativeType import NativeType
 from prompto.store.TypeFamily import TypeFamily
 
@@ -118,7 +119,7 @@ class StartsWithMethodDeclaration(BuiltInMethodDeclaration):
         return BooleanValue.ValueOf(startsWith)
 
 
-    def check(self, context, isStart=False):
+    def check(self, context, flags:ContextFlags):
         from prompto.type.BooleanType import BooleanType
         return BooleanType.instance
 
@@ -139,7 +140,7 @@ class EndsWithMethodDeclaration(BuiltInMethodDeclaration):
         return BooleanValue.ValueOf(endsWith)
 
 
-    def check(self, context, isStart=False):
+    def check(self, context, flags:ContextFlags):
         from prompto.type.BooleanType import BooleanType
         return BooleanType.instance
 
@@ -164,7 +165,7 @@ class SplitMethodDeclaration(BuiltInMethodDeclaration):
         return ListValue(TextType.instance, parts, mutable = False)
 
 
-    def check(self, context, isStart=False):
+    def check(self, context, flags:ContextFlags):
         from prompto.type.ListType import ListType
         return ListType(TextType.instance)
 
@@ -187,7 +188,7 @@ class ReplaceMethodDeclaration(BuiltInMethodDeclaration):
         return TextValue(value)
 
 
-    def check(self, context, isStart=False):
+    def check(self, context, flags:ContextFlags):
         return TextType.instance
 
 
@@ -209,7 +210,7 @@ class ReplaceAllMethodDeclaration(BuiltInMethodDeclaration):
         return TextValue(value)
 
 
-    def check(self, context, isStart=False):
+    def check(self, context, flags:ContextFlags):
         return TextType.instance
 
 class ToLowerCaseMethodDeclaration(BuiltInMethodDeclaration):
@@ -224,7 +225,7 @@ class ToLowerCaseMethodDeclaration(BuiltInMethodDeclaration):
         return TextValue(value.lower())
 
 
-    def check(self, context, isStart=False):
+    def check(self, context, flags:ContextFlags):
         return TextType.instance
 
 
@@ -241,7 +242,7 @@ class ToUpperCaseMethodDeclaration(BuiltInMethodDeclaration):
         return TextValue(value.upper())
 
 
-    def check(self, context, isStart=False):
+    def check(self, context, flags:ContextFlags):
         return TextType.instance
 
 
@@ -258,7 +259,7 @@ class ToCapitalizedMethodDeclaration(BuiltInMethodDeclaration):
         return TextValue(value.title())
 
 
-    def check(self, context, isStart=False):
+    def check(self, context, flags:ContextFlags):
         return TextType.instance
 
 
@@ -274,7 +275,7 @@ class TrimMethodDeclaration(BuiltInMethodDeclaration):
         return TextValue(value.strip())
 
 
-    def check(self, context, isStart=False):
+    def check(self, context, flags:ContextFlags):
         return TextType.instance
 
 
@@ -298,7 +299,7 @@ class IndexOfMethodDeclaration(BuiltInMethodDeclaration):
         return IntegerValue(index + 1)
 
 
-    def check(self, context, isStart=False):
+    def check(self, context, flags:ContextFlags):
         from prompto.type.IntegerType import IntegerType
         return IntegerType.instance
 

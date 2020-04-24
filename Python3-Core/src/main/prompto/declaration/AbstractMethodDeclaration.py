@@ -1,4 +1,5 @@
 from prompto.declaration.BaseMethodDeclaration import BaseMethodDeclaration
+from prompto.runtime.ContextFlags import ContextFlags
 from prompto.type.VoidType import VoidType
 from prompto.error.SyntaxError import SyntaxError
 
@@ -13,10 +14,10 @@ class AbstractMethodDeclaration(BaseMethodDeclaration):
         pass  # TODO
 
 
-    def check(self, context, isStart:bool):
+    def check(self, context, flags:ContextFlags):
         if self.parameters is not None:
             self.parameters.check(context)
-        if isStart:
+        if flags.isStart:
             local = context.newLocalContext()
             self.registerArguments(local)
         return self.returnType

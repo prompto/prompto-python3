@@ -1,6 +1,7 @@
 from numbers import Number
 
 from prompto.declaration.BuiltInMethodDeclaration import BuiltInMethodDeclaration
+from prompto.runtime.ContextFlags import ContextFlags
 from prompto.type.BooleanType import BooleanType
 from prompto.type.NativeType import NativeType
 from prompto.type.CharacterType import CharacterType
@@ -141,7 +142,7 @@ class FormatMethodDeclaration(BuiltInMethodDeclaration):
         return TextValue(text)
 
 
-    def check(self, context, isStart=False):
+    def check(self, context, flags:ContextFlags):
         from prompto.type.ListType import ListType
         return ListType(TextType.instance)
 

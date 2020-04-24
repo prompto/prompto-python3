@@ -119,12 +119,12 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         return actual.hasMethod(context, name)
 
 
-    def check(self, context, isStart:bool):
+    def check(self, context):
         context = context.newInstanceContext(None, self.getType(context))
         self.checkDerived(context)
         self.processAnnotations(context, False)
         self.checkMethods(context)
-        return super(ConcreteCategoryDeclaration, self).check(context, isStart)
+        return super(ConcreteCategoryDeclaration, self).check(context)
 
 
     def registerMethods(self, context):

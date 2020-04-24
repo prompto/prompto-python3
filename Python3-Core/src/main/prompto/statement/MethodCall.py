@@ -49,7 +49,7 @@ class MethodCall(SimpleStatement):
 
     def lightCheck(self, declaration, local):
         declaration.registerArguments(local)
-        return declaration.check(local, False)
+        return declaration.check(local, ContextFlags.NONE)
 
 
     def fullCheck(self, declaration, parent, local):
@@ -60,7 +60,7 @@ class MethodCall(SimpleStatement):
                 expression = argument.resolve(local, declaration, True)
                 value = argument.getParameter().checkValue(parent, expression)
                 local.setValue(argument.getName(), value)
-            return declaration.check(local, False)
+            return declaration.check(local, ContextFlags.NONE)
         except PromptoError as e:
             raise SyntaxError(e.message)
 

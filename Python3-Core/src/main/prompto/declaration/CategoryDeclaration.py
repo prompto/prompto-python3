@@ -24,7 +24,7 @@ class CategoryDeclaration(BaseDeclaration):
         self.registerMethods(context)
 
 
-    def check(self, context, isStart):
+    def check(self, context):
         from prompto.declaration.AttributeDeclaration import AttributeDeclaration
         if self.attributes is not None:
             for attribute in self.attributes:
