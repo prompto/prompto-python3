@@ -11,7 +11,6 @@ from prompto.grammar.ArgumentList import ArgumentList
 from prompto.grammar.Operator import Operator
 from prompto.parser.Dialect import Dialect
 from prompto.runtime.Context import MethodDeclarationMap
-from prompto.runtime.ContextFlags import ContextFlags
 from prompto.runtime.Score import Score
 from prompto.store.DataStore import DataStore
 from prompto.store.Store import IStored
@@ -181,7 +180,7 @@ class CategoryType(BaseType):
                 context = context.newInstanceContext(None, self)
                 local = context.newChildContext()
                 method.registerArguments(local)
-                return method.check(local, ContextFlags.NONE)
+                return method.check(local, False)
             except SyntaxError as e:
                 # ok to pass, will try reverse
                 pass

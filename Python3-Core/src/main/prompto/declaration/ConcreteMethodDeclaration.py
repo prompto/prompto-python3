@@ -1,7 +1,6 @@
 from prompto.param.CategoryParameter import CategoryParameter
 from prompto.param.CodeParameter import CodeParameter
 from prompto.declaration.BaseMethodDeclaration import BaseMethodDeclaration
-from prompto.runtime.ContextFlags import ContextFlags
 from prompto.statement.StatementList import StatementList
 from prompto.type.DictType import DictType
 from prompto.type.IType import IType
@@ -27,9 +26,9 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
         return self.statements
 
 
-    def check(self, context, flags:ContextFlags):
+    def check(self, context, isStart:bool):
         if self.canBeChecked(context):
-            return self.fullCheck(context, flags)
+            return self.fullCheck(context, isStart)
         else:
             return VoidType.instance
 
@@ -51,8 +50,8 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
         return False
 
 
-    def fullCheck(self, context, flags:ContextFlags):
-        if flags.isStart:
+    def fullCheck(self, context, isStart:bool):
+        if isStart:
             context = context.newLocalContext()
             self.registerArguments(context)
         if self.parameters is not None:

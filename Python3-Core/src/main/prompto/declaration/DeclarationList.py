@@ -5,7 +5,6 @@ from prompto.declaration.BaseMethodDeclaration import BaseMethodDeclaration
 from prompto.declaration.IMethodDeclaration import IMethodDeclaration
 from prompto.declaration.TestMethodDeclaration import TestMethodDeclaration
 from prompto.declaration.ConcreteMethodDeclaration import ConcreteMethodDeclaration
-from prompto.runtime.ContextFlags import ContextFlags
 
 
 class DeclarationList(list):
@@ -52,7 +51,7 @@ class DeclarationList(list):
     def check(self, context):
         for declaration in self:
             if isinstance(declaration, IMethodDeclaration):
-                declaration.check(context, ContextFlags.START)
+                declaration.check(context, True)
             else:
                 declaration.check(context)
 

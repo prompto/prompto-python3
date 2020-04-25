@@ -1,5 +1,4 @@
 from prompto.declaration.BuiltInMethodDeclaration import BuiltInMethodDeclaration
-from prompto.runtime.ContextFlags import ContextFlags
 from prompto.type.IType import IType
 from prompto.type.IterableType import IterableType
 from prompto.type.IntegerType import IntegerType
@@ -63,5 +62,5 @@ class ToListMethodDeclaration(BuiltInMethodDeclaration):
         return value.toListValue(context)
 
 
-    def check(self, context, flags:ContextFlags):
+    def check(self, context, isStart:bool):
         return ListType(self.itemType)
