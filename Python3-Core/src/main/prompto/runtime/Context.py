@@ -130,10 +130,7 @@ class Context(IContext):
         context.calling = self.calling if isChild else self
         context.parent = self if isChild else None
         context.debugger = self.debugger
-        from prompto.declaration.CategoryDeclaration import CategoryDeclaration
-        if typ is None:
-            typ = instance.itype
-        decl = context.getRegisteredDeclaration(CategoryDeclaration, typ.typeName)
+        decl = context.getDeclaration()
         if decl is not None:
             decl.processAnnotations(context, True)
         return context
@@ -482,7 +479,7 @@ class InstanceContext(Context):
 
 
     def getDeclaration(self):
-        if self.instance is not None:
+        if isinstance(self.instance, ConcreteInstance):
             return self.instance.getDeclaration()
         else:
             from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
