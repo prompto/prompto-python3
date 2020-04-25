@@ -130,6 +130,12 @@ class Context(IContext):
         context.calling = self.calling if isChild else self
         context.parent = self if isChild else None
         context.debugger = self.debugger
+        from prompto.declaration.CategoryDeclaration import CategoryDeclaration
+        if typ is None:
+            typ = instance.itype
+        decl = context.getRegisteredDeclaration(CategoryDeclaration, typ.typeName)
+        if decl is not None:
+            decl.processAnnotations(context, True)
         return context
 
 
