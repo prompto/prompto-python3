@@ -130,6 +130,9 @@ class MethodSelector(MemberSelector):
         typ = self.parent.check (context)
         if isinstance(typ, CategoryType):
             context = context.newInstanceContext (None, typ)
+            from prompto.declaration.CategoryDeclaration import CategoryDeclaration
+            decl = context.getRegisteredDeclaration(CategoryDeclaration, typ.typeName)
+            decl.processAnnotations(context, True)
             return context.newChildContext ()
         else:
             return context.newChildContext()

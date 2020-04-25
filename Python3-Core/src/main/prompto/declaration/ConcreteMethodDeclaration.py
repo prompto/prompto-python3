@@ -55,8 +55,6 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
         if flags.isStart:
             context = context.newLocalContext()
             self.registerArguments(context)
-        elif self.memberOf is not None and not flags.isMember:
-            self.memberOf.processAnnotations(context, True)
         if self.parameters is not None:
             self.parameters.check(context)
         return self.checkStatements(context, self.returnType)
