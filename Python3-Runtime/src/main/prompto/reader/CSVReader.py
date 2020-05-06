@@ -18,7 +18,7 @@ def csvIterate(text:str, columns:dict, delimiter:str, encloser:str):
     file = StringIO(text)
     return DictReader(file, columns, dialect)
 
-def csvRead(text:str, columns:dict, delimiter:str, encloser:str):
+def csvRead(text:str, columns:dict, delimiter:str, encloser:str) -> list:
     reader = csvIterate(text, columns, delimiter, encloser)
     return [doc for doc in reader]
 
