@@ -16,10 +16,10 @@ class TestReader(BaseEParserTest):
     def testCsv(self):
         self.runTests("reader/csv.pec")
 
-    # def testJson(self):
-    #     self.runTests("reader/json.pec")
-    #
-    # def testYaml(self):
-    #     self.runTests("reader/yaml.pec")
+    def testJson(self):
+        self.runTests("reader/json.pec")
+
+    def testYaml(self):
+        self.runTests("reader/yaml.pec")
 
 
