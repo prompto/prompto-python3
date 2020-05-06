@@ -21,8 +21,14 @@ class DateValue (BaseValue):
             value = date(years, months, days)
         self.value = value
 
+
     def getValue(self):
         return self.value
+
+
+    def convertToPython(self):
+        return self.value
+
 
     def Add(self, context, value):
         if isinstance(value, PeriodValue):
@@ -30,6 +36,7 @@ class DateValue (BaseValue):
         else:
             raise SyntaxError("Illegal: Date + " + type(value).__name__)
  
+
     def Subtract(self, context, value):
         if isinstance(value, DateValue):
             td = self.value - value.value
@@ -38,6 +45,7 @@ class DateValue (BaseValue):
             return self.minus(value)
         else:
             raise SyntaxError("Illegal: Date - " + type(value).__name__)
+
 
     def compareTo(self, context, value):
         if isinstance(value, DateValue):
