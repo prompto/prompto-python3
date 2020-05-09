@@ -38,15 +38,15 @@ class RangeValue(BaseValue, IRange):
         else:
             return self.low == obj.low and self.high == obj.high
 
-    def hasItem(self, context, val):
-        return not(val < self.low or val > self.high)
-
-
     def getMemberValue(self, context, name, autoCreate=False):
         if name == "count":
             return IntegerValue(self.size())
         else:
             return super(RangeValue, self).getMemberValue(context, name, autoCreate)
+
+
+    def hasItem(self, context, val):
+        return not(val < self.low or val > self.high)
 
 
     def getItem(self, context, index):
