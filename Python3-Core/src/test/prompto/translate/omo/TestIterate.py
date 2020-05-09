@@ -11,4 +11,7 @@ class TestIterate(BaseOParserTest):
     def testForEachIntegerList(self):
         self.compareResourceOMO("iterate/forEachIntegerList.poc")
 
+    def testForEachIntegerRange(self):
+        self.compareResourceOMO("iterate/forEachIntegerRange.poc")
+
 
