@@ -25,6 +25,9 @@ class TestAdd(BaseOParserTest):
     def testAddDict(self):
         self.checkOutput("add/addDict.poc")
 
+    def testAddDocument(self):
+        self.checkOutput("add/addDocument.poc")
+
     def testAddInteger(self):
         self.checkOutput("add/addInteger.poc")
 

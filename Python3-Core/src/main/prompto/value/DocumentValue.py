@@ -10,6 +10,11 @@ from prompto.error.SyntaxError import SyntaxError
 
 class DocumentValue (BaseValue):
 
+    @staticmethod
+    def merge(doc1, doc2):
+        return DocumentValue(dict(doc1.values, **doc2.values))
+
+
     def __init__(self, values=None):
         super(DocumentValue, self).__init__(DocumentType.instance)
         self.mutable = True
@@ -70,6 +75,13 @@ class DocumentValue (BaseValue):
             self.values[index.value] = value
         else:
             raise SyntaxError("No such item:" + index.toString())
+
+
+    def Add(self, context, value):
+        if isinstance(value, DocumentValue):
+            return DocumentValue.merge(self, value)
+        else:
+            raise SyntaxError("Illegal: Document + " + type(value).__name__)
 
 
     def __eq__(self, obj):

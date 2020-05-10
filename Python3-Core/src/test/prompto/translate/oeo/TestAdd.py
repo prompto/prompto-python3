@@ -20,6 +20,9 @@ class TestAdd(BaseOParserTest):
     def testAddDict(self):
         self.compareResourceOEO("add/addDict.poc")
 
+    def testAddDocument(self):
+        self.compareResourceOEO("add/addDocument.poc")
+
     def testAddInteger(self):
         self.compareResourceOEO("add/addInteger.poc")
 
