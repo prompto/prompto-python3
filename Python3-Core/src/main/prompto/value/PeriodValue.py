@@ -227,7 +227,13 @@ class PeriodValue (BaseValue, IMultiplyable):
                 and self.millis==obj.millis
         else:
             return False
- 
+
+
+    def toDocumentValue(self, context):
+        from prompto.value.TextValue import TextValue
+        return TextValue(str(self))
+
+
 PeriodValue.ZERO = PeriodValue(0, 0, 0, 0, 0, 0, 0, 0)
 
 

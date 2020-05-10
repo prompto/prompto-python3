@@ -21,6 +21,7 @@ class TimeValue(BaseValue):
             millis = 0
         return TimeValue(time(hours, minutes, seconds, millis * 1000))
 
+
     def __init__(self, value=None, hours=None, minutes=None, seconds=None, millis=0):
         from prompto.type.TimeType import TimeType
         super(TimeValue, self).__init__(TimeType.instance)
@@ -28,8 +29,10 @@ class TimeValue(BaseValue):
             value = time(hours, minutes, seconds, millis*1000)
         self.value = value
 
+
     def getValue(self):
         return self.value
+
 
     def Add(self, context, value):
         if isinstance(value, PeriodValue):
@@ -37,11 +40,12 @@ class TimeValue(BaseValue):
         else:
             raise SyntaxError("Illegal: Time + " + type(value).__name__)
 
+
     def Subtract(self, context, value):
         if isinstance(value, TimeValue):
-            return PeriodValue(hours=self.value.hour - value.value.hour, \
-                               minutes=self.value.minute - value.value.minute, \
-                               seconds=self.value.second - value.value.second, \
+            return PeriodValue(hours=self.value.hour - value.value.hour,
+                               minutes=self.value.minute - value.value.minute,
+                               seconds=self.value.second - value.value.second,
                                millis=(self.value.microsecond - value.value.microsecond)/1000)
         elif isinstance(value, PeriodValue):
             return self.minus(value)
@@ -84,6 +88,7 @@ class TimeValue(BaseValue):
         value = dt - td
         return TimeValue(value.time())
 
+
     def plus(self, period):
         dt = datetime(2000,1,1,hour=self.value.hour, minute=self.value.minute, second=self.value.second, microsecond=self.value.microsecond)
         td = timedelta(hours=period.hours,minutes=period.minutes,seconds=period.seconds,milliseconds=period.millis)
@@ -107,6 +112,7 @@ class TimeValue(BaseValue):
         else:
             return self.value == obj
 
+
     def __str__(self):
         s = self.value.isoformat()
         if self.value.microsecond==0:
@@ -115,5 +121,11 @@ class TimeValue(BaseValue):
             s = s[0:12]
         return s
 
+
     def __hash__(self):
         return hash(self.value)
+
+
+    def toDocumentValue(self, context):
+        from prompto.value.TextValue import TextValue
+        return TextValue(str(self))

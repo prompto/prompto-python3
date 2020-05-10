@@ -25,3 +25,8 @@ class UUIDValue ( BaseValue) :
 
     def __hash__(self):
         return hash(self.value)
+
+
+    def toDocumentValue(self, context):
+        from prompto.value.TextValue import TextValue
+        return TextValue(str(self))

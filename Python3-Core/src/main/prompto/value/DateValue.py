@@ -70,12 +70,15 @@ class DateValue (BaseValue):
             return IntegerValue(day)
         else:
             return super().getMemberValue(context, name, autoCreate)
- 
+
+
     def ConvertTo(self, itype):
         return self.value
-    
+
+
     def toDateMidnight(self):
         return self
+
 
     def minus(self, period):
         dt = datetime(self.value.year, self.value.month, self.value.day)
@@ -86,6 +89,7 @@ class DateValue (BaseValue):
         value = dt.replace(year=year, month=month) - td
         return DateValue(value.date())
 
+
     def plus(self, period):
         dt = datetime(self.value.year, self.value.month, self.value.day)
         td = timedelta(weeks=period.weeks, days=period.days)
@@ -95,17 +99,26 @@ class DateValue (BaseValue):
         value = dt.replace(year=year, month=month) + td
         return DateValue(value.date())
 
+
     def __eq__(self, obj):
         if isinstance(obj, DateValue):
             return self.value == obj.value
         else:
             return self.value == obj
 
+
     def __lt__(self, other):
         return self.value < other.value
+
 
     def __str__(self):
         return self.value.isoformat()
 
+
     def __hash__(self):
         return hash(self.value)
+
+
+    def toDocumentValue(self, context):
+        from prompto.value.TextValue import TextValue
+        return TextValue(str(self))
