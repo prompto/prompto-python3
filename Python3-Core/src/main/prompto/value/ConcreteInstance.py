@@ -245,3 +245,12 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         arg = decl.parameters[0]
         local.setValue(arg.name, value)
         return decl.interpret(local)
+
+
+    def toDocumentValue(self, context):
+        from prompto.value.DocumentValue import DocumentValue
+        doc = DocumentValue()
+        for key in self.values.keys():
+            value = self.values[key].toDocumentValue(context)
+            doc.setMember(context, key, value)
+        return doc

@@ -14,6 +14,9 @@ class TestDocuments(BaseEParserTest):
     def testDeepMember(self):
         self.compareResourceEOE("documents/deepMember.pec")
 
+    def testInstance(self):
+        self.compareResourceEOE("documents/instance.pec")
+
     def testItem(self):
         self.compareResourceEOE("documents/item.pec")
 

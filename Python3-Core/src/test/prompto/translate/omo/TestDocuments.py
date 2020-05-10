@@ -11,6 +11,9 @@ class TestDocuments(BaseOParserTest):
     def testDeepMember(self):
         self.compareResourceOMO("documents/deepMember.poc")
 
+    def testInstance(self):
+        self.compareResourceOMO("documents/instance.poc")
+
     def testItem(self):
         self.compareResourceOMO("documents/item.poc")
 

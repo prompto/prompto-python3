@@ -19,6 +19,9 @@ class TestDocuments(BaseEParserTest):
     def testDeepMember(self):
         self.checkOutput("documents/deepMember.pec")
 
+    def testInstance(self):
+        self.checkOutput("documents/instance.pec")
+
     def testItem(self):
         self.checkOutput("documents/item.pec")
 

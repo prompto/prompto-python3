@@ -108,3 +108,9 @@ class BaseValueList(BaseValue, ISliceable):
         else:
             return super(BaseValueList, self).getMemberValue(context, name)
 
+
+    def toDocumentValue(self, context):
+        items = [ item.toDocumentValue(context) for item in self.items ]
+        from prompto.value.ListValue import ListValue
+        from prompto.type.AnyType import AnyType
+        return ListValue(AnyType.instance, items)

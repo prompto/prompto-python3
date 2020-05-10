@@ -10330,6 +10330,7 @@ class EParser ( AbstractParser ):
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
+            self.exp = None # ExpressionContext
 
         def DOCUMENT(self):
             return self.getToken(EParser.DOCUMENT, 0)
@@ -10370,7 +10371,7 @@ class EParser ( AbstractParser ):
                 self.state = 1406
                 self.match(EParser.FROM)
                 self.state = 1407
-                self.expression(0)
+                localctx.exp = self.expression(0)
 
 
         except RecognitionException as re:

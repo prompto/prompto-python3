@@ -11,6 +11,9 @@ class TestDocuments(BaseOParserTest):
     def testDeepMember(self):
         self.compareResourceOEO("documents/deepMember.poc")
 
+    def testInstance(self):
+        self.compareResourceOEO("documents/instance.poc")
+
     def testItem(self):
         self.compareResourceOEO("documents/item.poc")
 

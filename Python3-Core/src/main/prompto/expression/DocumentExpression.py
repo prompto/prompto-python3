@@ -28,8 +28,11 @@ class DocumentExpression ( IExpression ):
             return self.documentFromValue(context, value)
 
     def documentFromValue(self, context, value):
+        from prompto.value.ConcreteInstance import ConcreteInstance
         if isinstance(value, BlobValue):
             return self.documentFromBlob(context, value)
+        elif isinstance(value, ConcreteInstance):
+            return value.toDocumentValue(context)
         else:
             raise Exception("documentFromValue not supported for " + type(value).__name__)
 
@@ -78,12 +81,14 @@ class DocumentExpression ( IExpression ):
     def toMDialect(self, writer):
         writer.append("Document(")
         if self.source is not None:
+            writer.append(" from = ")
             self.source.toDialect(writer)
         writer.append(")")
 
     def toODialect(self, writer):
         writer.append("Document(")
         if self.source is not None:
+            writer.append(" from = ")
             self.source.toDialect(writer)
         writer.append(")")
 

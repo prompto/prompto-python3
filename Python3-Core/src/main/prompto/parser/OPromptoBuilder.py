@@ -2273,7 +2273,7 @@ class OPromptoBuilder(OParserListener):
 
 
     def exitDocument_expression(self, ctx:OParser.Document_expressionContext):
-        exp = self.getNodeValue(ctx.expression())
+        exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, DocumentExpression(exp))
     
 

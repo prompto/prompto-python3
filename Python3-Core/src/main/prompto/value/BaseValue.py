@@ -45,3 +45,6 @@ class BaseValue(IValue):
 
     def ConvertTo(self, itype):
         return self
+
+    def toDocumentValue(self, context):
+        return self

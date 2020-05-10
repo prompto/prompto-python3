@@ -16,6 +16,9 @@ class TestDocuments(BaseOParserTest):
     def testDeepMember(self):
         self.checkOutput("documents/deepMember.poc")
 
+    def testInstance(self):
+        self.checkOutput("documents/instance.poc")
+
     def testItem(self):
         self.checkOutput("documents/item.poc")
 
