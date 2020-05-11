@@ -1,3 +1,4 @@
+from prompto.declaration.BuiltInMethodDeclaration import BuiltInMethodDeclaration
 from prompto.type.BooleanType import BooleanType
 from prompto.type.ContainerType import ContainerType
 from prompto.type.EntryType import EntryType
@@ -71,5 +72,28 @@ class DictType ( ContainerType ):
         else:
             return super(DictType, self).checkMember(context, name)
 
+
+    def getMemberMethods(self, context, name):
+        if name == "swap":
+            return [SwapMethodDeclaration()]
+        else:
+            return super().getMemberMethods(context, name)
+
+
     def withItemType(self, itemType:IType):
         return DictType(itemType)
+
+
+class SwapMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self):
+        super().__init__("swap")
+
+
+    def interpret(self, context):
+        value = self.getValue(context)
+        return value.swap(context)
+
+
+    def check(self, context, isStart:bool):
+        return DictType(TextType.instance)

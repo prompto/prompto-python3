@@ -46,6 +46,9 @@ class TestBuiltins(BaseOParserTest):
     def testDictCount(self):
         self.checkOutput("builtins/dictCount.poc")
 
+    def testDictSwap(self):
+        self.checkOutput("builtins/dictSwap.poc")
+
     def testEnumName(self):
         self.checkOutput("builtins/enumName.poc")
 
