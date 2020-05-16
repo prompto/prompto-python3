@@ -52,11 +52,17 @@ class TestEquals(BaseOParserTest):
     def testEqVersion(self):
         self.checkOutput("equals/eqVersion.poc")
 
+    def testIsABoolean(self):
+        self.checkOutput("equals/isABoolean.poc")
+
     def testIsBoolean(self):
         self.checkOutput("equals/isBoolean.poc")
 
     def testIsInstance(self):
         self.checkOutput("equals/isInstance.poc")
+
+    def testIsNotABoolean(self):
+        self.checkOutput("equals/isNotABoolean.poc")
 
     def testIsNotBoolean(self):
         self.checkOutput("equals/isNotBoolean.poc")

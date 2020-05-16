@@ -47,11 +47,17 @@ class TestEquals(BaseOParserTest):
     def testEqVersion(self):
         self.compareResourceOMO("equals/eqVersion.poc")
 
+    def testIsABoolean(self):
+        self.compareResourceOMO("equals/isABoolean.poc")
+
     def testIsBoolean(self):
         self.compareResourceOMO("equals/isBoolean.poc")
 
     def testIsInstance(self):
         self.compareResourceOMO("equals/isInstance.poc")
+
+    def testIsNotABoolean(self):
+        self.compareResourceOMO("equals/isNotABoolean.poc")
 
     def testIsNotBoolean(self):
         self.compareResourceOMO("equals/isNotBoolean.poc")
