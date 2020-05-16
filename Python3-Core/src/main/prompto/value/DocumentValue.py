@@ -1,9 +1,14 @@
 from io import BytesIO
 
+from prompto.type.AnyType import AnyType
 from prompto.type.DocumentType import DocumentType
+from prompto.type.TextType import TextType
 from prompto.utils.JSONGenerator import JSONGenerator
 from prompto.value.BaseValue import BaseValue
+from prompto.value.IntegerValue import IntegerValue
+from prompto.value.ListValue import ListValue
 from prompto.value.NullValue import NullValue
+from prompto.value.SetValue import SetValue
 from prompto.value.TextValue import TextValue
 from prompto.error.SyntaxError import SyntaxError
 
@@ -35,6 +40,14 @@ class DocumentValue (BaseValue):
         return res
 
 
+    def size(self):
+        return len(self.values)
+
+
+    def isEmpty(self):
+        return len(self.values) == 0
+
+
     def getMemberNames(self):
         return self.values.keys()
 
@@ -45,17 +58,25 @@ class DocumentValue (BaseValue):
 
 
     def getMemberValue(self, context, name, autoCreate = False):
-        result = self.values.get(name, None)
-        if result is not None:
-            return result
-        elif "text" == name:
-            return TextValue(str(self))
-        elif autoCreate:
-            result = DocumentValue()
-            self.values[name] = result
-            return result
+        if "count" == name:
+            return IntegerValue(self.size())
+        elif "keys" == name:
+            res = set([TextValue(k) for k in self.values.keys()])
+            return SetValue(TextType.instance, items=res)
+        elif "values" == name:
+            return ListValue(AnyType.instance, items=self.values.values())
         else:
-            return NullValue.instance
+            result = self.values.get(name, None)
+            if result is not None:
+                return result
+            elif "text" == name:
+                return TextValue(str(self))
+            elif autoCreate:
+                result = DocumentValue()
+                self.values[name] = result
+                return result
+            else:
+                return NullValue.instance
 
 
     def setMember(self, context, name, value):

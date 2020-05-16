@@ -50,6 +50,9 @@ class TestBuiltins(BaseOParserTest):
     def testDictSwap(self):
         self.compareResourceOMO("builtins/dictSwap.poc")
 
+    def testDocumentCount(self):
+        self.compareResourceOMO("builtins/documentCount.poc")
+
     def testEnumName(self):
         self.compareResourceOMO("builtins/enumName.poc")
 

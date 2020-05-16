@@ -92,8 +92,17 @@ class TestBuiltins(BaseEParserTest):
     def testDictValues(self):
         self.compareResourceEME("builtins/dictValues.pec")
 
+    def testDocumentCount(self):
+        self.compareResourceEME("builtins/documentCount.pec")
+
+    def testDocumentKeys(self):
+        self.compareResourceEME("builtins/documentKeys.pec")
+
     def testDocumentText(self):
         self.compareResourceEME("builtins/documentText.pec")
+
+    def testDocumentValues(self):
+        self.compareResourceEME("builtins/documentValues.pec")
 
     def testEnumName(self):
         self.compareResourceEME("builtins/enumName.pec")

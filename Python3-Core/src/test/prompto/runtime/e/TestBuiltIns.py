@@ -91,8 +91,17 @@ class TestBuiltins(BaseEParserTest):
     def testDictValues(self):
         self.checkOutput("builtins/dictValues.pec")
 
+    def testDocumentCount(self):
+        self.checkOutput("builtins/documentCount.pec")
+
+    def testDocumentKeys(self):
+        self.checkOutput("builtins/documentKeys.pec")
+
     def testDocumentText(self):
         self.checkOutput("builtins/documentText.pec")
+
+    def testDocumentValues(self):
+        self.checkOutput("builtins/documentValues.pec")
 
     def testEnumName(self):
         self.checkOutput("builtins/enumName.pec")
