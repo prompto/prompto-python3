@@ -12,6 +12,10 @@ class IStore(object):
         raise Exception("Must be implemented by Store instance!")
 
 
+    def nextSequenceValue(self, name):
+        raise Exception("Must be implemented by Store instance!")
+
+
 class IQueryBuilder(object):
 
     def setFirst(self, first):

@@ -1,6 +1,9 @@
 from prompto.python.PythonExpression import PythonExpression
 from types import ModuleType
 
+from prompto.store.DataStore import DataStore
+
+
 class PythonIdentifierExpression(PythonExpression):
 
     @staticmethod
@@ -57,6 +60,8 @@ class PythonIdentifierExpression(PythonExpression):
     def interpret_presto(self, context):
         if self.identifier=="$context":
             return context
+        elif self.identifier == "$store":
+            return DataStore.instance
         else:
             return None
 
