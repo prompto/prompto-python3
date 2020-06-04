@@ -8,6 +8,9 @@ class TestResource(BaseEParserTest):
     def testReadResource(self):
         self.compareResourceEME("resource/readResource.pec")
 
+    def testReadResourceThen(self):
+        self.compareResourceEME("resource/readResourceThen.pec")
+
     def testReadWithResource(self):
         self.compareResourceEME("resource/readWithResource.pec")
 

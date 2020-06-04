@@ -189,6 +189,7 @@ from prompto.python.PythonTextLiteral import PythonTextLiteral
 from prompto.statement.AssignInstanceStatement import AssignInstanceStatement
 from prompto.statement.AssignTupleStatement import AssignTupleStatement
 from prompto.statement.AssignVariableStatement import AssignVariableStatement
+from prompto.statement.ReadStatement import ReadStatement
 from prompto.statement.RemoteCall import RemoteCall
 from prompto.statement.AtomicSwitchCase import AtomicSwitchCase
 from prompto.statement.BreakStatement import BreakStatement
@@ -2275,12 +2276,10 @@ class OPromptoBuilder(OParserListener):
     def exitDocument_expression(self, ctx:OParser.Document_expressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, DocumentExpression(exp))
-    
 
     
     def exitDocumentType(self, ctx:OParser.DocumentTypeContext):
         self.setNodeValue(ctx, DocumentType.instance)
-
 
 
     def exitDocument_literal(self, ctx:OParser.Document_literalContext):
@@ -2433,6 +2432,17 @@ class OPromptoBuilder(OParserListener):
     def exitRead_one_expression(self, ctx: OParser.Read_one_expressionContext):
         source = self.getNodeValue(ctx.source)
         self.setNodeValue(ctx, ReadOneExpression(source))
+
+
+    def exitRead_statement(self, ctx:OParser.Read_statementContext):
+        source = self.getNodeValue(ctx.source)
+        name = self.getNodeValue(ctx.name)
+        stmts = self.getNodeValue(ctx.stmts)
+        self.setNodeValue(ctx, ReadStatement(source, name, stmts))
+
+
+    def exitReadStatement(self, ctx:OParser.ReadStatementContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.stmt))
 
 
     def exitWrite_statement(self, ctx:OParser.Write_statementContext):

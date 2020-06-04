@@ -14,6 +14,9 @@ class TestInternet(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testEmail(self):
+        self.runTests("internet/email.pec")
+
     def testHtml(self):
         self.runTests("internet/html.pec")
 

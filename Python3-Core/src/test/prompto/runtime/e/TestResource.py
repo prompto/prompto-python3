@@ -13,6 +13,9 @@ class TestResource(BaseEParserTest):
     def testReadResource(self):
         self.checkOutput("resource/readResource.pec")
 
+    def testReadResourceThen(self):
+        self.checkOutput("resource/readResourceThen.pec")
+
     def testReadWithResource(self):
         self.checkOutput("resource/readWithResource.pec")
 

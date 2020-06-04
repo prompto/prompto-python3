@@ -8,6 +8,9 @@ class TestResource(BaseOParserTest):
     def testReadResource(self):
         self.compareResourceOMO("resource/readResource.poc")
 
+    def testReadResourceThen(self):
+        self.compareResourceOMO("resource/readResourceThen.poc")
+
     def testReadWithResource(self):
         self.compareResourceOMO("resource/readWithResource.poc")
 

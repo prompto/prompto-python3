@@ -191,6 +191,7 @@ from prompto.python.PythonTextLiteral import PythonTextLiteral
 from prompto.statement.AssignInstanceStatement import AssignInstanceStatement
 from prompto.statement.AssignTupleStatement import AssignTupleStatement
 from prompto.statement.AssignVariableStatement import AssignVariableStatement
+from prompto.statement.ReadStatement import ReadStatement
 from prompto.statement.RemoteCall import RemoteCall
 from prompto.statement.AtomicSwitchCase import AtomicSwitchCase
 from prompto.statement.BreakStatement import BreakStatement
@@ -2524,6 +2525,12 @@ class EPromptoBuilder(EParserListener):
         source = self.getNodeValue(ctx.source)
         self.setNodeValue(ctx, ReadOneExpression(source))
 
+    def exitRead_statement(self, ctx: EParser.Read_statementContext):
+        source = self.getNodeValue(ctx.source)
+        name = self.getNodeValue(ctx.name)
+        stmts = self.getNodeValue(ctx.stmts)
+        self.setNodeValue(ctx, ReadStatement(source, name, stmts))
+
 
     def exitReadAllExpression(self, ctx:EParser.ReadAllExpressionContext):
         exp = self.getNodeValue(ctx.exp)
@@ -2538,6 +2545,10 @@ class EPromptoBuilder(EParserListener):
     def exitReadOneExpression(self, ctx: EParser.ReadOneExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
+
+
+    def exitReadStatement(self, ctx: EParser.ReadStatementContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.stmt))
 
 
     def exitWrite_statement(self, ctx:EParser.Write_statementContext):
