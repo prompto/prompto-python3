@@ -34,6 +34,9 @@ class TestAdd(BaseOParserTest):
     def testAddList(self):
         self.checkOutput("add/addList.poc")
 
+    def testAddListDerived(self):
+        self.checkOutput("add/addListDerived.poc")
+
     def testAddPeriod(self):
         self.checkOutput("add/addPeriod.poc")
 

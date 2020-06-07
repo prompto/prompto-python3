@@ -29,6 +29,9 @@ class TestAdd(BaseOParserTest):
     def testAddList(self):
         self.compareResourceOMO("add/addList.poc")
 
+    def testAddListDerived(self):
+        self.compareResourceOMO("add/addListDerived.poc")
+
     def testAddPeriod(self):
         self.compareResourceOMO("add/addPeriod.poc")
 
