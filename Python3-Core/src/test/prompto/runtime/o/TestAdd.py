@@ -43,6 +43,9 @@ class TestAdd(BaseOParserTest):
     def testAddSet(self):
         self.checkOutput("add/addSet.poc")
 
+    def testAddSetDerived(self):
+        self.checkOutput("add/addSetDerived.poc")
+
     def testAddTextCharacter(self):
         self.checkOutput("add/addTextCharacter.poc")
 

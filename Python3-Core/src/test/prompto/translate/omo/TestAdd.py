@@ -38,6 +38,9 @@ class TestAdd(BaseOParserTest):
     def testAddSet(self):
         self.compareResourceOMO("add/addSet.poc")
 
+    def testAddSetDerived(self):
+        self.compareResourceOMO("add/addSetDerived.poc")
+
     def testAddTextCharacter(self):
         self.compareResourceOMO("add/addTextCharacter.poc")
 

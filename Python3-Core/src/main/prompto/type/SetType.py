@@ -28,7 +28,7 @@ class SetType(ContainerType):
 
     def checkAdd(self, context, other, tryReverse):
         from prompto.type.ListType import ListType
-        if isinstance(other, (ListType, SetType)) and self.itemType == other.itemType:
+        if isinstance(other, (ListType, SetType)) and self.itemType.isAssignableFrom(context, other.itemType):
             return self
         else:
             return super().checkAdd(context, other, tryReverse)
