@@ -5,6 +5,9 @@ from antlr4.tree.Tree import ParseTree
 from prompto.expression.ReadBlobExpression import ReadBlobExpression
 from prompto.expression.SuperExpression import SuperExpression
 from prompto.jsx.JsxFragment import JsxFragment
+from prompto.literal.DocEntry import DocEntry
+from prompto.literal.DocIdentifierKey import DocIdentifierKey
+from prompto.literal.DocTextKey import DocTextKey
 from prompto.literal.TypeLiteral import TypeLiteral
 from prompto.param.CategoryParameter import CategoryParameter
 from prompto.param.CodeParameter import CodeParameter
@@ -526,7 +529,6 @@ class EPromptoBuilder(EParserListener):
         self.setNodeValue(ctx, value)
     
 
-    
     def exitTuple_literal(self, ctx:EParser.Tuple_literalContext):
         mutable = ctx.MUTABLE() is not None
         items = self.getNodeValue(ctx.expression_tuple())
@@ -547,7 +549,6 @@ class EPromptoBuilder(EParserListener):
         high = self.getNodeValue(ctx.high)
         self.setNodeValue(ctx, RangeLiteral(low, high))
     
-
 
     def exitDict_entry(self, ctx:EParser.Dict_entryContext):
         key = self.getNodeValue(ctx.key)
@@ -576,6 +577,30 @@ class EPromptoBuilder(EParserListener):
         name = ctx.name.text
         self.setNodeValue(ctx, DictTextKey(name))
 
+
+    def exitDoc_entry(self, ctx: EParser.Doc_entryContext):
+        key = self.getNodeValue(ctx.key)
+        value = self.getNodeValue(ctx.value)
+        entry = DocEntry(key, value)
+        self.setNodeValue(ctx, entry)
+
+
+    def exitDoc_entry_list(self, ctx: EParser.Doc_entry_listContext):
+        items = DocEntryList()
+        for rule in ctx.doc_entry():
+            item = self.getNodeValue(rule)
+            items.append(item)
+        self.setNodeValue(ctx, items)
+
+
+    def exitDocKeyIdentifier(self, ctx: EParser.DocKeyIdentifierContext):
+        name = ctx.name.getText()
+        self.setNodeValue(ctx, DocIdentifierKey(name))
+
+
+    def exitDocKeyText(self, ctx: EParser.DocKeyTextContext):
+        name = ctx.name.text
+        self.setNodeValue(ctx, DocTextKey(name))
 
 
     def exitLiteral_expression(self, ctx:EParser.Literal_expressionContext):
@@ -2133,10 +2158,10 @@ class EPromptoBuilder(EParserListener):
 
     def exitAnnotation_constructor(self, ctx:EParser.Annotation_constructorContext):
         name = self.getNodeValue(ctx.name)
-        args = DictEntryList()
+        args = DocEntryList()
         exp = self.getNodeValue(ctx.exp)
         if exp is not None:
-            args.append(DictEntry(None, exp))
+            args.append(DocEntry(None, exp))
         for argCtx in ctx.annotation_argument():
             arg = self.getNodeValue(argCtx)
             args.append(arg)
@@ -2146,7 +2171,7 @@ class EPromptoBuilder(EParserListener):
     def exitAnnotation_argument(self, ctx:EParser.Annotation_argumentContext):
         name = self.getNodeValue(ctx.name)
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, DictEntry(name, exp))
+        self.setNodeValue(ctx, DocEntry(name, exp))
 
 
     def exitAnnotation_identifier(self, ctx:EParser.Annotation_identifierContext):
@@ -2366,9 +2391,10 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitDocument_literal(self, ctx:EParser.Document_literalContext):
-        entries = self.getNodeValue(ctx.dict_entry_list())
-        items = DocEntryList(entries=entries)
-        self.setNodeValue(ctx, DocumentLiteral(items))
+        entries = self.getNodeValue(ctx.doc_entry_list())
+        if entries is None:
+            entries = DocEntryList()
+        self.setNodeValue(ctx, DocumentLiteral(entries))
 
 
     def exitFetchExpression(self, ctx:EParser.FetchExpressionContext):

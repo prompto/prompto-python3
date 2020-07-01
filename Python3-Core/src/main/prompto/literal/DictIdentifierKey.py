@@ -1,3 +1,7 @@
+from prompto.expression.InstanceExpression import InstanceExpression
+from prompto.value.TextValue import TextValue
+from prompto.error.SyntaxError import SyntaxError
+
 
 class DictIdentifierKey(object):
 
@@ -7,6 +11,9 @@ class DictIdentifierKey(object):
     def __str__(self):
         return self.name
 
-    def asText(self):
-        from prompto.value.TextValue import TextValue
-        return TextValue(self.name)
+    def interpret(self, context):
+        value = InstanceExpression(self.name).interpret(context)
+        if isinstance(value, TextValue):
+            return value
+        else:
+            raise SyntaxError("Expecting a Text, got a " + value.itype.typename)

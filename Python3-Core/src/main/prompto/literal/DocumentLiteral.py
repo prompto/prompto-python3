@@ -28,7 +28,7 @@ class DocumentLiteral(Literal):
             self.check(context)
             doc = DocumentValue()
             for e in self.entries:
-                key = e.getKey().asText()
+                key = e.getKey().interpret(context)
                 val = e.getValue().interpret(context)
                 doc.setMember(context, key.value, val)
             return doc

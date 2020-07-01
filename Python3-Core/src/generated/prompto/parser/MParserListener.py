@@ -2636,6 +2636,42 @@ class MParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MParser#doc_entry_list.
+    def enterDoc_entry_list(self, ctx:MParser.Doc_entry_listContext):
+        pass
+
+    # Exit a parse tree produced by MParser#doc_entry_list.
+    def exitDoc_entry_list(self, ctx:MParser.Doc_entry_listContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#doc_entry.
+    def enterDoc_entry(self, ctx:MParser.Doc_entryContext):
+        pass
+
+    # Exit a parse tree produced by MParser#doc_entry.
+    def exitDoc_entry(self, ctx:MParser.Doc_entryContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#DocKeyIdentifier.
+    def enterDocKeyIdentifier(self, ctx:MParser.DocKeyIdentifierContext):
+        pass
+
+    # Exit a parse tree produced by MParser#DocKeyIdentifier.
+    def exitDocKeyIdentifier(self, ctx:MParser.DocKeyIdentifierContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#DocKeyText.
+    def enterDocKeyText(self, ctx:MParser.DocKeyTextContext):
+        pass
+
+    # Exit a parse tree produced by MParser#DocKeyText.
+    def exitDocKeyText(self, ctx:MParser.DocKeyTextContext):
+        pass
+
+
     # Enter a parse tree produced by MParser#dict_entry_list.
     def enterDict_entry_list(self, ctx:MParser.Dict_entry_listContext):
         pass

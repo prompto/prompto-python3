@@ -46,7 +46,7 @@ class DictLiteral(Literal):
             self.check(context)
             value = dict()
             for e in self.entries:
-                key = e.getKey().asText()
+                key = e.getKey().interpret(context)
                 val = e.getValue().interpret(context)
                 value[key.value] = val
             return DictValue(self.itemType, self.mutable, value=value)

@@ -1,6 +1,6 @@
 from prompto.utils.StringUtils import unescape
 
-class DictTextKey(object):
+class DocTextKey(object):
 
     def __init__(self, text):
         self.text = text

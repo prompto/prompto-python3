@@ -5,6 +5,9 @@ from antlr4.tree.Tree import ParseTree
 from prompto.expression.ReadBlobExpression import ReadBlobExpression
 from prompto.expression.SuperExpression import SuperExpression
 from prompto.jsx.JsxFragment import JsxFragment
+from prompto.literal.DocEntry import DocEntry
+from prompto.literal.DocIdentifierKey import DocIdentifierKey
+from prompto.literal.DocTextKey import DocTextKey
 from prompto.literal.TypeLiteral import TypeLiteral
 from prompto.param.CategoryParameter import CategoryParameter
 from prompto.param.CodeParameter import CodeParameter
@@ -510,6 +513,31 @@ class OPromptoBuilder(OParserListener):
     def exitDictKeyText(self, ctx:OParser.DictKeyTextContext):
         name = ctx.name.text
         self.setNodeValue(ctx, DictTextKey(name))
+
+
+    def exitDoc_entry(self, ctx: OParser.Doc_entryContext):
+        key = self.getNodeValue(ctx.key)
+        value = self.getNodeValue(ctx.value)
+        entry = DocEntry(key, value)
+        self.setNodeValue(ctx, entry)
+
+
+    def exitDoc_entry_list(self, ctx: OParser.Doc_entry_listContext):
+        items = DocEntryList()
+        for rule in ctx.doc_entry():
+            item = self.getNodeValue(rule)
+            items.append(item)
+        self.setNodeValue(ctx, items)
+
+
+    def exitDocKeyIdentifier(self, ctx: OParser.DocKeyIdentifierContext):
+        name = ctx.name.getText()
+        self.setNodeValue(ctx, DocIdentifierKey(name))
+
+
+    def exitDocKeyText(self, ctx: OParser.DocKeyTextContext):
+        name = ctx.name.text
+        self.setNodeValue(ctx, DocTextKey(name))
 
 
     def exitLiteral_expression(self, ctx:OParser.Literal_expressionContext):
@@ -2057,10 +2085,10 @@ class OPromptoBuilder(OParserListener):
 
     def exitAnnotation_constructor(self, ctx:OParser.Annotation_constructorContext):
         name = self.getNodeValue(ctx.name)
-        args = DictEntryList()
+        args = DocEntryList()
         exp = self.getNodeValue(ctx.exp)
         if exp is not None:
-            args.append(DictEntry(None, exp))
+            args.append(DocEntry(None, exp))
         for argCtx in ctx.annotation_argument():
             arg = self.getNodeValue(argCtx)
             args.append(arg)
@@ -2070,7 +2098,7 @@ class OPromptoBuilder(OParserListener):
     def exitAnnotation_argument(self, ctx:OParser.Annotation_argumentContext):
         name = self.getNodeValue(ctx.name)
         exp = self.getNodeValue(ctx.exp)
-        self.setNodeValue(ctx, DictEntry(name, exp))
+        self.setNodeValue(ctx, DocEntry(name, exp))
 
 
     def exitAnnotation_identifier(self, ctx:OParser.Annotation_identifierContext):
@@ -2283,9 +2311,10 @@ class OPromptoBuilder(OParserListener):
 
 
     def exitDocument_literal(self, ctx:OParser.Document_literalContext):
-        entries = self.getNodeValue(ctx.dict_entry_list())
-        items = DocEntryList(entries=entries)
-        self.setNodeValue(ctx, DocumentLiteral(items))
+        entries = self.getNodeValue(ctx.doc_entry_list())
+        if entries is None:
+            entries = DocEntryList()
+        self.setNodeValue(ctx, DocumentLiteral(entries))
 
 
     def exitFetchStatement(self, ctx:OParser.FetchStatementContext):
