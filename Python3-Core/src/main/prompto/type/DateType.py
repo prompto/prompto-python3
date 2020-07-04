@@ -3,6 +3,7 @@ from prompto.type.BooleanType import BooleanType
 from prompto.type.IType import IType
 from prompto.type.NativeType import NativeType
 from prompto.type.PeriodType import PeriodType
+from prompto.type.TimeType import TimeType
 from prompto.type.RangeType import RangeType
 from prompto.value.DateValue import DateValue
 from prompto.value.DateRange import DateRange
@@ -18,7 +19,11 @@ class DateType(NativeType):
     def checkAdd(self, context, other, tryReverse):
         if isinstance(other, PeriodType):
             return self  # ignore time section
-        return super(DateType, self).checkAdd(context, other, tryReverse)
+        elif isinstance(other, TimeType):
+            from prompto.type.DateTimeType import DateTimeType
+            return DateTimeType.instance
+        else:
+            return super(DateType, self).checkAdd(context, other, tryReverse)
 
     def checkSubstract(self, context, other):
         if isinstance(other, PeriodType):

@@ -23,7 +23,7 @@ class DateRange(RangeValue):
             return 1
 
     def computeItem(self, index):
-        result = self.low.plus(PeriodValue(days=index - 1))
+        result = self.low.plusPeriod(PeriodValue(days=index - 1))
         if result < self.low or result > self.high:
             raise IndexOutOfRangeError()
         return result

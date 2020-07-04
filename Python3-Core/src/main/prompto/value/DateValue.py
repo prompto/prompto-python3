@@ -3,6 +3,7 @@ from datetime import date, datetime, timedelta
 from prompto.value.BaseValue import BaseValue
 from prompto.value.IntegerValue import IntegerValue
 from prompto.value.PeriodValue import PeriodValue
+from prompto.value.TimeValue import TimeValue
 from prompto.error.SyntaxError import SyntaxError
 
 class DateValue (BaseValue):
@@ -32,7 +33,9 @@ class DateValue (BaseValue):
 
     def Add(self, context, value):
         if isinstance(value, PeriodValue):
-            return self.plus(value)
+            return self.plusPeriod(value)
+        elif isinstance(value, TimeValue):
+            return self.plusTime(value)
         else:
             raise SyntaxError("Illegal: Date + " + type(value).__name__)
  
@@ -90,7 +93,7 @@ class DateValue (BaseValue):
         return DateValue(value.date())
 
 
-    def plus(self, period):
+    def plusPeriod(self, period):
         dt = datetime(self.value.year, self.value.month, self.value.day)
         td = timedelta(weeks=period.weeks, days=period.days)
         month = self.value.month + period.months
@@ -98,6 +101,12 @@ class DateValue (BaseValue):
         month %= 12
         value = dt.replace(year=year, month=month) + td
         return DateValue(value.date())
+
+
+    def plusTime(self, time):
+        dt = datetime(self.value.year, self.value.month, self.value.day, time.value.hour, time.value.minute, time.value.second, time.value.microsecond // 1000)
+        from prompto.value.DateTimeValue import DateTimeValue
+        return DateTimeValue(dt)
 
 
     def __eq__(self, obj):
