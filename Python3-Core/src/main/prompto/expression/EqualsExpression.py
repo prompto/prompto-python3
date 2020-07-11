@@ -1,6 +1,5 @@
 from prompto.expression.IExpression import IExpression
 from prompto.expression.InstanceExpression import InstanceExpression
-from prompto.expression.MemberSelector import MemberSelector
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.EqOp import EqOp
 from prompto.grammar.INamedValue import INamedValue
@@ -161,7 +160,7 @@ class EqualsExpression ( IExpression ):
 
 
     def checkQuery(self, context):
-        decl = context.checkAttribute(self.left)
+        decl = self.left.checkAttribute(context)
         if not decl.storable:
             raise SyntaxError(decl.name + " is not storable")
         rt = self.right.check(context)
@@ -169,7 +168,7 @@ class EqualsExpression ( IExpression ):
 
 
     def interpretQuery(self, context, query):
-        decl = context.checkAttribute(self.left)
+        decl = self.left.checkAttribute(context)
         if not decl.storable:
             raise SyntaxError(decl.name + " is not storable")
         value = self.right.interpret(context)

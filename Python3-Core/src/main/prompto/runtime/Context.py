@@ -154,19 +154,6 @@ class Context(IContext):
         return context
 
 
-    def checkAttribute(self, expression):
-        from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
-        from prompto.expression.InstanceExpression import InstanceExpression
-        from prompto.expression.MemberSelector import MemberSelector
-        if isinstance(expression, (UnresolvedIdentifier, InstanceExpression, MemberSelector)):
-            name = str(expression)
-            decl = self.findAttribute(name)
-            if decl is not None:
-                if decl.storable:
-                    return decl
-        raise SyntaxError("Expected an attribute, got: " + str(expression))
-
-
     def findAttribute(self, name):
         return self.getRegisteredDeclaration(AttributeDeclaration, name)
 

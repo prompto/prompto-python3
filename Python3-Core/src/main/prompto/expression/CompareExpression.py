@@ -1,6 +1,4 @@
 from prompto.expression.IExpression import IExpression
-from prompto.expression.InstanceExpression import InstanceExpression
-from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.CmpOp import CmpOp
 from prompto.store.InvalidValueError import InvalidValueError
 from prompto.store.MatchOp import MatchOp
@@ -78,7 +76,7 @@ class CompareExpression ( IExpression ):
 
 
     def checkQuery(self, context):
-        decl = context.checkAttribute(self.left)
+        decl = self.left.checkAttribute(context)
         if not decl.storable:
             raise SyntaxError(decl.name + " is not storable")
         rt = self.right.check(context)
@@ -86,7 +84,7 @@ class CompareExpression ( IExpression ):
 
 
     def interpretQuery(self, context, query):
-        decl = context.checkAttribute(self.left)
+        decl = self.left.checkAttribute(context)
         if decl is None or not decl.storable:
             raise SyntaxError("Unable to interpret predicate")
         value = self.right.interpret(context)

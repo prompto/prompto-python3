@@ -38,6 +38,11 @@ class UnresolvedIdentifier(IExpression):
         return self.resolveAndCheck(context, False)
 
 
+    def checkAttribute(self, context):
+        self.resolve(context, False)
+        return self.resolved.checkAttribute(context)
+
+
     def checkQuery(self, context):
         return self.check(context)
 

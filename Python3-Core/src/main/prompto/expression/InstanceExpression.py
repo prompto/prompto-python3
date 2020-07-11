@@ -65,6 +65,15 @@ class InstanceExpression(IExpression):
             raise SyntaxError(self.name + "  is not a value or method:" + type(named).__name__)
 
 
+    def checkAttribute(self, context):
+        decl = context.findAttribute(self.name)
+        if decl is None:
+            raise SyntaxError("Expected an attribute, got: " + self.name)
+        if not decl.storable:
+            raise SyntaxError(self.name + " is not storable")
+        return decl
+
+
     def checkQuery(self, context):
         return self.check(context)
 
