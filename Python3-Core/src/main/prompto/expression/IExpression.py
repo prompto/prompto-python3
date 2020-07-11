@@ -1,4 +1,5 @@
 from prompto.grammar.IDialectElement import IDialectElement
+from prompto.error.SyntaxError import SyntaxError
 
 
 class IExpression(IDialectElement):
