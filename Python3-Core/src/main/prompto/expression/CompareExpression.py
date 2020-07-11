@@ -39,7 +39,6 @@ class CompareExpression ( IExpression ):
         return lt.checkCompare(context,rt)
 
 
-
     def interpret(self, context):
         lval = self.left.interpret(context)
         rval = self.right.interpret(context)

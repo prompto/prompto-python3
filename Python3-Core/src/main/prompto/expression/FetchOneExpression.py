@@ -25,7 +25,7 @@ class FetchOneExpression(Section, IExpression):
                 writer.append("mutable ")
             writer.append (self.typ.typeName)
             writer.append(" ")
-        writer.append (" where ")
+        writer.append ("where ")
         self.predicate.toDialect (writer)
 
 
@@ -49,7 +49,7 @@ class FetchOneExpression(Section, IExpression):
                 writer.append("mutable ")
             writer.append (self.typ.typeName)
             writer.append(" ")
-        writer.append (" where ")
+        writer.append ("where ")
         self.predicate.toDialect (writer)
 
 
@@ -61,7 +61,7 @@ class FetchOneExpression(Section, IExpression):
             context = context.newInstanceContext(None, decl.getType(context), True)
         filterType = self.predicate.checkQuery (context)
         if filterType is not BooleanType.instance:
-            raise  SyntaxError ("Filtering expression must return a boolean !")
+            raise SyntaxError ("Filtering expression must return a boolean !")
         if self.typ is None:
             return AnyType.instance
         else:

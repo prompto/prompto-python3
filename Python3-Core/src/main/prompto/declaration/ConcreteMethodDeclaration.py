@@ -94,7 +94,7 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
             if isinstance(arg, CategoryParameter):
                 itype = arg.getType()
                 if isinstance(itype, DictType):
-                    return itype.itemType==TextType.instance
+                    return itype.itemType is TextType.instance
         return super(ConcreteMethodDeclaration, self).isEligibleAsMain()
 
 

@@ -21,6 +21,7 @@ class FetchManyExpression(Section, IExpression):
         self.predicate = predicate
         self.orderBy = orderBy
 
+
     def toEDialect (self, writer):
         writer.append("fetch ")
         if self.first is None:
@@ -35,10 +36,11 @@ class FetchManyExpression(Section, IExpression):
             self.last.toDialect(writer)
             writer.append(" ")
         if self.predicate is not None:
-            writer.append(" where ")
+            writer.append("where ")
             self.predicate.toDialect(writer)
         if self.orderBy is not None:
             self.orderBy.toDialect(writer)
+
 
     def toODialect (self, writer):
         writer.append("fetch ")
@@ -74,16 +76,16 @@ class FetchManyExpression(Section, IExpression):
             writer.append(" ")
         else:
             writer.append("all ")
-        writer.append(" ( ")
+        writer.append("(")
         if self.typ is not None:
             writer.append(" ")
             if self.typ.mutable:
                 writer.append("mutable ")
             writer.append(self.typ.typeName)
             writer.append(" ")
-        writer.append(" ) ")
+        writer.append(") ")
         if self.predicate is not None:
-            writer.append(" where ")
+            writer.append("where ")
             self.predicate.toDialect(writer)
             writer.append(" ")
         if self.orderBy is not None:
@@ -102,11 +104,14 @@ class FetchManyExpression(Section, IExpression):
         self.checkLimits(context)
         return CursorType (typ)
 
+
     def checkOrderBy (self, context):
         pass # TODO
 
+
     def checkLimits (self, context):
         pass # TODO
+
 
     def checkFilter (self, context):
         if self.predicate is None:
@@ -115,13 +120,13 @@ class FetchManyExpression(Section, IExpression):
         if filterType is not BooleanType.instance:
             raise SyntaxError ("Filtering expression must return a boolean !")
 
+
     def interpret (self, context):
         store = DataStore.instance
         query = self.buildFetchManyQuery(context, store)
         docs = store.fetchMany (query)
         typ = AnyType.instance if self.typ is None else self.typ
         return CursorValue(context, typ, docs)
-
 
 
     def buildFetchManyQuery(self, context, store):
@@ -138,7 +143,6 @@ class FetchManyExpression(Section, IExpression):
         if self.orderBy is not None:
             self.orderBy.interpretQuery(context, builder)
         return builder.build()
-
 
 
     def interpretLimit(self, context, exp):
