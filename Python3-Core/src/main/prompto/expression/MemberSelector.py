@@ -28,10 +28,14 @@ class MemberSelector (SelectorExpression):
         else:
             self.toOMDialect(writer)
 
+
     def toEDialect(self, writer):
-        type = self.check(writer.context)
-        if isinstance(type, MethodType):
-            writer.append("Method: ")
+        try:
+            type = self.check(writer.context)
+            if isinstance(type, MethodType):
+                writer.append("Method: ")
+        except:
+            pass  # ignore
         self.parentAndMemberToDialect(writer)
 
 
