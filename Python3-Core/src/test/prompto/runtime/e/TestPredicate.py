@@ -16,6 +16,9 @@ class TestPredicate(BaseEParserTest):
     def testEquals(self):
         self.checkOutput("predicate/equals.pec")
 
+    def testEqualsError(self):
+        self.checkOutput("predicate/equalsError.pec")
+
     def testGreater(self):
         self.checkOutput("predicate/greater.pec")
 

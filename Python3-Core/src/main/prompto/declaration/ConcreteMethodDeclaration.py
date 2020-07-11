@@ -6,7 +6,7 @@ from prompto.type.DictType import DictType
 from prompto.type.IType import IType
 from prompto.type.TextType import TextType
 from prompto.type.VoidType import VoidType
-
+from prompto.error.SyntaxError import SyntaxError
 
 class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
 
@@ -68,13 +68,20 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
 
 
     def checkStatements(self, context, returnType: IType):
-        return self.statements.check(context, returnType)
+        try:
+            return self.statements.check(context, returnType)
+        except SyntaxError as e:
+            e.suffix = " in method '" + self.name + "'"
+            raise e
 
 
     def interpret(self, context):
         context.enterMethod(self)
         try:
             return self.statements.interpret(context)
+        except SyntaxError as e:
+            e.suffix = " in method " + self.name
+            raise e
         finally:
             context.leaveMethod(self)
 

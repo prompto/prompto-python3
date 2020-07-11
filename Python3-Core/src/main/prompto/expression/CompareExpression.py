@@ -20,6 +20,7 @@ class CompareExpression ( IExpression ):
     def __str__(self):
         return str(self.left) + " " + str(self.operator) + " " + str(self.right)
 
+
     def toDialect(self, writer):
         self.left.toDialect(writer)
         writer.append(" ")
@@ -27,10 +28,17 @@ class CompareExpression ( IExpression ):
         writer.append(" ")
         self.right.toDialect(writer)
 
+
     def check(self, context):
         lt = self.right.check(context)
         rt = self.right.check(context)
+        return self.checkOperator(context, lt, rt)
+
+
+    def checkOperator(self, context, lt, rt):
         return lt.checkCompare(context,rt)
+
+
 
     def interpret(self, context):
         lval = self.left.interpret(context)
@@ -40,6 +48,7 @@ class CompareExpression ( IExpression ):
         else:
             raise SyntaxError("Illegal comparison: " + type(lval).__name__ \
                             + " " + str(self.operator) + " " + type(rval).__name__)
+
 
     def compare(self, context, lval, rval):
         cmp = lval.compareTo(context, rval)
@@ -53,6 +62,7 @@ class CompareExpression ( IExpression ):
             return BooleanValue.ValueOf(cmp <= 0)
         else:
             raise SyntaxError("Illegal compare operand: " + str(self.operator))
+
 
     def interpretAssert(self, context, test):
         lval = self.left.interpret(context)
@@ -68,26 +78,27 @@ class CompareExpression ( IExpression ):
         return False
 
 
+    def checkQuery(self, context):
+        decl = context.checkAttribute(self.left)
+        if not decl.storable:
+            raise SyntaxError(decl.name + " is not storable")
+        rt = self.right.check(context)
+        return self.checkOperator(context, decl.getType(), rt)
+
+
     def interpretQuery(self, context, query):
-        name = None
-        value = None
-        if isinstance(self.left, (UnresolvedIdentifier, InstanceExpression)):
-            name = self.left.name
-            value = self.right.interpret(context)
-        elif isinstance(self.right, (UnresolvedIdentifier, InstanceExpression)):
-            name = self.right.name
-            value = self.left.interpret(context)
-        if name is None:
+        decl = context.checkAttribute(self.left)
+        if decl is None or not decl.storable:
             raise SyntaxError("Unable to interpret predicate")
-        else:
-            decl = context.findAttribute(name)
-            info = None if decl is None else decl.getAttributeInfo()
-            if isinstance(value, IInstance):
-                value = value.getMemberValue(context, "dbId", False)
-            matchOp = self.getMatchOp()
-            query.verify(info, matchOp, None if value is None else value.getStorableData())
-            if self.operator in [CmpOp.GTE, CmpOp.LTE]:
-                query.Not()
+        value = self.right.interpret(context)
+        info = decl.getAttributeInfo()
+        if isinstance(value, IInstance):
+            value = value.getMemberValue(context, "dbId", False)
+        matchOp = self.getMatchOp()
+        query.verify(info, matchOp, None if value is None else value.getStorableData())
+        if self.operator in [CmpOp.GTE, CmpOp.LTE]:
+            query.Not()
+
 
     def getMatchOp(self):
         if self.operator in [CmpOp.GT, CmpOp.LTE]:
@@ -96,3 +107,4 @@ class CompareExpression ( IExpression ):
             return MatchOp.LESSER
         else:
             raise InvalidValueError(str(self.operator))
+

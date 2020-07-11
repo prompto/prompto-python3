@@ -47,6 +47,9 @@ class EqualsExpression ( IExpression ):
     def check(self, context):
         lt = self.left.check(context)
         rt = self.right.check(context)
+        return self.checkOperator(context, lt, rt)
+
+    def checkOperator(self, context, lt, rt):
         if self.operator in [EqOp.CONTAINS, EqOp.NOT_CONTAINS]:
             if isinstance(lt, ContainerType):
                 lt = lt.itemType
@@ -55,6 +58,7 @@ class EqualsExpression ( IExpression ):
             if lt is not TextType.instance or rt not in [TextType.instance, CharacterType.instance]:
                 raise SyntaxError("'contains' only operates on textual values!")
         return BooleanType.instance # can compare all objects
+
 
     def interpret(self, context):
         lval = self.left.interpret(context)
@@ -132,6 +136,7 @@ class EqualsExpression ( IExpression ):
                 context = local
         return context
 
+
     def readLeftName(self):
         if isinstance(self.left, InstanceExpression):
             return self.left.name
@@ -139,6 +144,7 @@ class EqualsExpression ( IExpression ):
             return self.left.name
         else:
             return None
+
 
     def interpretAssert(self, context, test):
         lval = self.left.interpret(context)
@@ -153,22 +159,24 @@ class EqualsExpression ( IExpression ):
         test.printFailedAssertion(context, expected, actual)
         return False
 
+
+    def checkQuery(self, context):
+        decl = context.checkAttribute(self.left)
+        if not decl.storable:
+            raise SyntaxError(decl.name + " is not storable")
+        rt = self.right.check(context)
+        return self.checkOperator(context, decl.getType(), rt)
+
+
     def interpretQuery(self, context, query):
-        value = None
-        name = self.readFieldName(self.left)
-        if name is not None:
-            value = self.right.interpret(context)
-        else:
-            name = self.readFieldName(self.right)
-            if name is not None:
-                value = self.left.interpret(context)
-            else:
-                raise SyntaxError("Unable to interpret predicate")
+        decl = context.checkAttribute(self.left)
+        if not decl.storable:
+            raise SyntaxError(decl.name + " is not storable")
+        value = self.right.interpret(context)
         if isinstance(value, IInstance):
             value = value.getMemberValue(context, "dbId", False)
-        decl = context.findAttribute(name)
-        info = None if decl is None else decl.getAttributeInfo()
-        data = None if value is None else value.getStorableData()
+        info = decl.getAttributeInfo()
+        data = value.getStorableData()
         match = self.getMatchOp()
         query.verify(info, match, data)
         if self.operator is EqOp.NOT_EQUALS:
@@ -188,11 +196,4 @@ class EqualsExpression ( IExpression ):
             return MatchOp.CONTAINS
         else:
             raise Exception("Not supported:" + str(self.operator))
-
-
-    def readFieldName(self, exp):
-        if isinstance(exp, (UnresolvedIdentifier, InstanceExpression, MemberSelector)):
-            return str(exp)
-        else:
-            return None
 

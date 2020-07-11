@@ -14,6 +14,7 @@ from prompto.runtime.Interpreter import Interpreter
 from prompto.runtime.utils.Out import Out
 from prompto.store.DataStore import DataStore
 from prompto.utils.CodeWriter import CodeWriter
+from prompto.error.SyntaxError import SyntaxError
 import os
 import unittest
 
@@ -100,7 +101,10 @@ class BaseParserTest(unittest.TestCase):
 
     def checkOutput(self, resource):
         DataStore.instance = MemStore()
-        self.runResource(resource)
+        try:
+            self.runResource(resource)
+        except SyntaxError as e:
+            print(e.message, end="")
         self.checkExpected(resource)
 
     def checkExpected(self, resource):

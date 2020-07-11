@@ -22,8 +22,10 @@ class ContainsExpression(IExpression):
         self.operator = operator
         self.right = right
 
+
     def __str__(self):
         return str(self.left) + " " + str(self.operator) + " " + str(self.right)
+
 
     def toDialect(self, writer):
         self.left.toDialect(writer)
@@ -32,9 +34,14 @@ class ContainsExpression(IExpression):
         writer.append(" ")
         self.right.toDialect(writer)
 
+
     def check(self, context):
         lt = self.left.check(context)
         rt = self.right.check(context)
+        return self.checkOperator(context, lt, rt)
+
+
+    def checkOperator(self, context, lt, rt):
         if self.operator in [ContOp.IN, ContOp.NOT_IN]:
             return rt.checkContains(context, lt)
         elif self.operator in [ContOp.HAS, ContOp.NOT_HAS]:
@@ -42,10 +49,12 @@ class ContainsExpression(IExpression):
         else:
             return lt.checkContainsAllOrAny(context, rt)
 
+
     def interpret(self, context):
         lval = self.left.interpret(context)
         rval = self.right.interpret(context)
         return self.interpretValue(context, lval, rval)
+
 
     def interpretValue(self, context, lval, rval):
         if isinstance(lval, IValue) and isinstance(rval, IValue):
@@ -83,6 +92,7 @@ class ContainsExpression(IExpression):
         raise SyntaxError("Illegal comparison: " + type(lval).__name__ + \
                           " " + lowerName + " " + type(rval).__name__)
 
+
     def containsAll(self, context, container, items):
         for item in items.getIterator(context):
             if isinstance(item, IExpression):
@@ -94,6 +104,7 @@ class ContainsExpression(IExpression):
                 raise SyntaxError("Illegal contain: Text + " + type(item).__name__)
         return True
 
+
     def containsAny(self, context, container, items):
         for item in items.getIterator(context):
             if isinstance(item, IExpression):
@@ -104,6 +115,7 @@ class ContainsExpression(IExpression):
             else:
                 raise SyntaxError("Illegal contain: Text + " + type(item).__name__)
         return False
+
 
     def interpretAssert(self, context, test):
         lval = self.left.interpret(context)
@@ -121,38 +133,30 @@ class ContainsExpression(IExpression):
         return False
 
 
+    def checkQuery(self, context):
+        decl = context.checkAttribute(self.left)
+        if not decl.storable:
+            raise SyntaxError(decl.name + " is not storable")
+        rt = self.right.check(context)
+        return self.checkOperator(context, decl.getType(), rt)
+
+
     def interpretQuery(self, context, query):
-        value = None
-        name = self.readFieldName(self.left)
-        reverse = name is None
-        if name is not None:
-            value = self.right.interpret(context)
-        else:
-            name = self.readFieldName(self.right)
-            if name is not None:
-                value = self.left.interpret(context)
-            else:
-                raise SyntaxError("Unable to interpret predicate")
-        matchOp = self.getMatchOp(context, self.getAttributeType(context, name), value.itype, self.operator, reverse)
+        decl = context.checkAttribute(self.left)
+        if decl is None or not decl.storable:
+            raise SyntaxError("Unable to interpret predicate")
+        value = self.right.interpret(context)
+        matchOp = self.getMatchOp(context, decl.getType(), value.itype, self.operator)
         if isinstance(value, IInstance):
             value = value.getMemberValue(context, "dbId", False)
-        info = context.findAttribute(name).getAttributeInfo()
+        info = decl.getAttributeInfo()
         data = None if value is None else value.getStorableData()
         query.verify(info, matchOp, data)
         if str(self.operator).startswith("NOT_"):
             query.Not()
 
 
-    def getAttributeType(self, context, name):
-        return context.getRegisteredDeclaration(AttributeDeclaration, name).getType()
-
-
-    def getMatchOp(self, context, fieldType, valueType, operator, reverse):
-        if reverse:
-            reversed = operator.reverse()
-            if reversed is None:
-                raise SyntaxError("Cannot reverse " + self.operator)
-            return self.getMatchOp(context, valueType, fieldType, reversed, False)
+    def getMatchOp(self, context, fieldType, valueType, operator):
         if operator in [ContOp.HAS, ContOp.NOT_HAS]:
             return MatchOp.HAS
         elif operator in [ContOp.IN, ContOp.NOT_IN]:
@@ -161,9 +165,3 @@ class ContainsExpression(IExpression):
             raise SyntaxError("Unsupported operator: " + str(operator))
 
 
-
-    def readFieldName(self, exp):
-        if isinstance(exp, (UnresolvedIdentifier, InstanceExpression, MemberSelector)):
-            return str(exp)
-        else:
-            return None
