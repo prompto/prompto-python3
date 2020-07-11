@@ -28,6 +28,7 @@ class AndExpression ( IExpression ):
         else:
             return " && "
 
+
     def check(self, context):
         lt = self.left.check(context)
         rt = self.right.check(context)

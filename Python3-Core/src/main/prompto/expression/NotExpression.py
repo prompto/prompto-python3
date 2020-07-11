@@ -51,6 +51,7 @@ class NotExpression ( IUnaryExpression ):
         else:
             raise SyntaxError("Illegal: not " + type(val).__name__)
 
+
     def interpretAssert(self, context, test):
         val = self.expression.interpret(context)
         result = self.interpretValue(context, val)
