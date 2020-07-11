@@ -34,6 +34,10 @@ class NotExpression ( IUnaryExpression ):
         return BooleanType.instance
 
 
+    def checkQuery(self, context):
+        return self.check(context)
+
+
     def interpret(self, context):
         val = self.expression.interpret(context)
         return self.interpretValue(context, val)

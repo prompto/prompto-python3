@@ -65,6 +65,10 @@ class InstanceExpression(IExpression):
             raise SyntaxError(self.name + "  is not a value or method:" + type(named).__name__)
 
 
+    def checkQuery(self, context):
+        return self.check(context)
+
+
     def interpret(self, context):
         if context.hasValue(self.name):
             v = context.getValue(self.name)

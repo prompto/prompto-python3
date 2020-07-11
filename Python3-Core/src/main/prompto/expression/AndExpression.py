@@ -36,6 +36,10 @@ class AndExpression ( IExpression ):
         return BooleanType.instance
 
 
+    def checkQuery(self, context):
+        return self.check(context)
+
+
     def interpret(self, context):
         lval = self.left.interpret(context)
         if not isinstance(lval, BooleanValue):
