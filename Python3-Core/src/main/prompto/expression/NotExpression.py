@@ -35,7 +35,9 @@ class NotExpression ( IUnaryExpression ):
 
 
     def checkQuery(self, context):
-        return self.check(context)
+        if getattr(self.expression, "checkQuery", None) is None:
+            raise SyntaxError("Not a predicate: " + str(self.expression))
+        self.expression.checkQuery(context)
 
 
     def interpret(self, context):

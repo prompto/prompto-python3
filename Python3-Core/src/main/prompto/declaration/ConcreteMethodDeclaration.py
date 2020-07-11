@@ -80,7 +80,7 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
         try:
             return self.statements.interpret(context)
         except SyntaxError as e:
-            e.suffix = " in method " + self.name
+            e.suffix = " in method '" + self.name + "'"
             raise e
         finally:
             context.leaveMethod(self)

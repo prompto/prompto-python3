@@ -59,9 +59,7 @@ class FetchOneExpression(Section, IExpression):
             if decl is None:
                 raise SyntaxError ("Unknown category: " + self.typ.typeName)
             context = context.newInstanceContext(None, decl.getType(context), True)
-        filterType = self.predicate.checkQuery (context)
-        if filterType is not BooleanType.instance:
-            raise SyntaxError ("Filtering expression must return a boolean !")
+        self.predicate.checkQuery (context)
         if self.typ is None:
             return AnyType.instance
         else:

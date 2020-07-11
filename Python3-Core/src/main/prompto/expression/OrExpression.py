@@ -38,7 +38,12 @@ class OrExpression ( IExpression ):
 
 
     def checkQuery(self, context):
-        return self.check(context)
+        if getattr(self.left, "checkQuery", None) is None:
+            raise SyntaxError("Not a predicate: " + str(self.left))
+        if getattr(self.right, "checkQuery", None) is None:
+            raise SyntaxError("Not a predicate: " + str(self.right))
+        self.left.checkQuery(context)
+        self.right.checkQuery(context)
 
 
     def interpret(self, context):

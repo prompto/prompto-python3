@@ -116,9 +116,7 @@ class FetchManyExpression(Section, IExpression):
     def checkFilter (self, context):
         if self.predicate is None:
             return
-        filterType = self.predicate.checkQuery (context)
-        if filterType is not BooleanType.instance:
-            raise SyntaxError ("Filtering expression must return a boolean !")
+        self.predicate.checkQuery (context)
 
 
     def interpret (self, context):

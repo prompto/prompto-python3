@@ -10,6 +10,12 @@ class TestPredicate(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testAnd(self):
+        self.checkOutput("predicate/and.pec")
+
+    def testAndError(self):
+        self.checkOutput("predicate/andError.pec")
+
     def testContainsItem(self):
         self.checkOutput("predicate/containsItem.pec")
 
@@ -33,6 +39,18 @@ class TestPredicate(BaseEParserTest):
 
     def testNotEquals(self):
         self.checkOutput("predicate/notEquals.pec")
+
+    def testOr(self):
+        self.checkOutput("predicate/or.pec")
+
+    def testOrError(self):
+        self.checkOutput("predicate/orError.pec")
+
+    def testParenthesis(self):
+        self.checkOutput("predicate/parenthesis.pec")
+
+    def testParenthesisError(self):
+        self.checkOutput("predicate/parenthesisError.pec")
 
     def testPartial(self):
         self.checkOutput("predicate/partial.pec")
