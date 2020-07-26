@@ -10,10 +10,10 @@ class TypeMap ( dict ):
         common = None
         # first pass: get less specific type
         for t in self.values():
-            if common is None:
-                common = t
-            elif t is NullType.instance:
+            if t is NullType.instance:
                 continue
+            elif common is None:
+                common = t
             elif common.isAssignableFrom(context, t):
                 continue
             elif t.isAssignableFrom(context, common):
