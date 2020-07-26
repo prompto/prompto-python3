@@ -11,6 +11,9 @@ class TestCondition(BaseOParserTest):
     def testEmbeddedIf(self):
         self.compareResourceOMO("condition/embeddedIf.poc")
 
+    def testLocalScope(self):
+        self.compareResourceOMO("condition/localScope.poc")
+
     def testReturnIf(self):
         self.compareResourceOMO("condition/returnIf.poc")
 

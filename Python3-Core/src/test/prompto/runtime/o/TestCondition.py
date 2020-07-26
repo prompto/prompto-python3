@@ -16,6 +16,9 @@ class TestCondition(BaseOParserTest):
     def testEmbeddedIf(self):
         self.checkOutput("condition/embeddedIf.poc")
 
+    def testLocalScope(self):
+        self.checkOutput("condition/localScope.poc")
+
     def testReturnIf(self):
         self.checkOutput("condition/returnIf.poc")
 
