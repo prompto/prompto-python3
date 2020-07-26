@@ -54,8 +54,10 @@ class BaseParserTest(unittest.TestCase):
         else:
             return None
 
-    def runTests(self, resource):
+    def runTests(self, resource, register = False):
         stmts = self.parseResource(resource)
+        if register:
+            stmts.register(self.coreContext)
         for decl in stmts:
             if not isinstance(decl, TestMethodDeclaration):
                 continue
