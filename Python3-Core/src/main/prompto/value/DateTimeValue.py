@@ -13,8 +13,14 @@ class DateTimeValue(BaseValue):
             value = datetime(year, month, day, hour, minute, second, millis)
         self.value = value
 
+
     def getValue(self):
         return self.value
+
+
+    def convertToPython(self):
+        return self.value
+
 
     def Add(self, context, value):
         from prompto.value.PeriodValue import PeriodValue
@@ -80,6 +86,7 @@ class DateTimeValue(BaseValue):
         else:
             return super().getMemberValue(context, name, autoCreate)
 
+
     def plus(self, period):
         td = timedelta(weeks=period.weeks, days=period.days, hours=period.hours, minutes=period.minutes,
                        seconds=period.seconds, milliseconds=period.millis)
@@ -92,6 +99,7 @@ class DateTimeValue(BaseValue):
             month = self.value.month
         value = self.value.replace(year=year, month=month) + td
         return DateTimeValue(value)
+
 
     def minus(self, period):
         td = timedelta(weeks=period.weeks, days=period.days, hours=period.hours, minutes=period.minutes,
@@ -106,8 +114,10 @@ class DateTimeValue(BaseValue):
         value = self.value.replace(year=year, month=month) - td
         return DateTimeValue(value)
 
+
     def ConvertTo(self, itype):
         return self.value
+
 
     def __lt__(self, obj):
         return self.value < obj.value

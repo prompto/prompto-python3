@@ -20,3 +20,7 @@ class ClosureValue(BaseValue):
 
 	def doInterpret(self, local):
 		return self.itype.method.interpret(local)
+
+
+	def convertToPython(self):
+		return self
