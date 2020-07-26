@@ -28,4 +28,7 @@ class TestCondition(BaseOParserTest):
     def testTernary(self):
         self.checkOutput("condition/ternary.poc")
 
+    def testTernaryType(self):
+        self.checkOutput("condition/ternaryType.poc")
+
 

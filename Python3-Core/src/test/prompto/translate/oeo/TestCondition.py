@@ -23,4 +23,7 @@ class TestCondition(BaseOParserTest):
     def testTernary(self):
         self.compareResourceOEO("condition/ternary.poc")
 
+    def testTernaryType(self):
+        self.compareResourceOEO("condition/ternaryType.poc")
+
 
