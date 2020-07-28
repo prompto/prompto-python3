@@ -2,6 +2,7 @@ from prompto.expression.IExpression import IExpression
 from prompto.value.BaseValue import BaseValue
 from prompto.type.MissingType import MissingType
 
+
 class ContextualExpression(BaseValue, IExpression):
 
     def __init__(self, calling, expression):

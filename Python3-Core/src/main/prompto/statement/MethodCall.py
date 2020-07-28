@@ -1,11 +1,12 @@
+from prompto.declaration.IDeclaration import IDeclaration
 from prompto.declaration.AbstractMethodDeclaration import AbstractMethodDeclaration
 from prompto.declaration.ArrowDeclaration import ArrowDeclaration
-from prompto.declaration.IDeclaration import IDeclaration
-from prompto.runtime.Context import MethodDeclarationMap
+from prompto.error.PromptoError import PromptoError
+from prompto.grammar.ArgumentList import ArgumentList
 from prompto.statement.SimpleStatement import SimpleStatement
-from prompto.declaration.ConcreteMethodDeclaration import *
-from prompto.grammar.ArgumentList import *
-from prompto.runtime.MethodFinder import *
+from prompto.declaration.ConcreteMethodDeclaration import ConcreteMethodDeclaration
+from prompto.runtime.Context import MethodDeclarationMap
+from prompto.runtime.MethodFinder import MethodFinder
 from prompto.declaration.ClosureDeclaration import ClosureDeclaration
 from prompto.type.MethodType import MethodType
 from prompto.value.ArrowValue import ArrowValue
@@ -23,7 +24,7 @@ class MethodCall(SimpleStatement):
 
 
     def __str__(self):
-        suffix = str(self.arguments) if self.arguments != None else ""
+        suffix = str(self.arguments) if self.arguments is not None else ""
         return str(self.selector) + suffix
 
 
@@ -76,7 +77,7 @@ class MethodCall(SimpleStatement):
 
 
     def makeArguments(self, context, declaration):
-        if self.arguments == None:
+        if self.arguments is None:
             return ArgumentList()
         else:
             return self.arguments.makeArguments(context, declaration)
