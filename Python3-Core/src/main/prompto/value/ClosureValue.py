@@ -10,7 +10,8 @@ class ClosureValue(BaseValue):
 	def interpret(self, context):
 		parentMost = self.context.getParentMostContext()
 		savedParent = parentMost.getParentContext()
-		parentMost.setParentContext(context)
+		if not context.isChildOf(parentMost):
+			parentMost.setParentContext(context)
 		try:
 			local = self.context.newChildContext()
 			return self.doInterpret(local)

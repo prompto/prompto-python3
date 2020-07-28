@@ -7,6 +7,7 @@ from prompto.declaration.ConcreteMethodDeclaration import *
 from prompto.grammar.ArgumentList import *
 from prompto.runtime.MethodFinder import *
 from prompto.declaration.ClosureDeclaration import ClosureDeclaration
+from prompto.type.MethodType import MethodType
 from prompto.value.ArrowValue import ArrowValue
 from prompto.value.ClosureValue import ClosureValue
 from prompto.value.BooleanValue import BooleanValue
@@ -31,6 +32,15 @@ class MethodCall(SimpleStatement):
         declaration = finder.findMethod(False)
         local = context if self.isLocalClosure(context) else self.selector.newLocalCheckContext(context, declaration)
         return self.doCheck(declaration, context, local)
+
+
+    def checkReference(self, context):
+        finder = MethodFinder(context, self)
+        method = finder.findMethod(False)
+        if method is not None:
+            return MethodType(method)
+        else:
+            return None
 
 
     def isLocalClosure(self, context):
@@ -86,6 +96,11 @@ class MethodCall(SimpleStatement):
                 raise NotMutableError()
             local.setValue(argument.getName(), value)
         return declaration.interpret(local)
+
+
+    def interpretReference(self, context):
+        declaration = self.findDeclaration(context)
+        return ClosureValue(context, MethodType(declaration))
 
 
     def interpretAssert(self, context, testMethodDeclaration):

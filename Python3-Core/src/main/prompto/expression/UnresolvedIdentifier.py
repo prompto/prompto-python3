@@ -7,6 +7,7 @@ from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.SymbolExpression import SymbolExpression
 from prompto.expression.TypeExpression import TypeExpression
 from prompto.parser.Dialect import Dialect
+from prompto.type.AnyType import AnyType
 from prompto.type.NativeType import NativeType
 
 
@@ -38,6 +39,11 @@ class UnresolvedIdentifier(IExpression):
         return self.resolveAndCheck(context, False)
 
 
+    def checkReference(self, context):
+        self.resolve(context, False)
+        return self.resolved.checkReference(context) if self.resolved else AnyType.instance
+
+
     def checkAttribute(self, context):
         self.resolve(context, False)
         return self.resolved.checkAttribute(context)
@@ -54,6 +60,11 @@ class UnresolvedIdentifier(IExpression):
     def interpret(self, context):
         self.resolveAndCheck(context, False)
         return self.resolved.interpret(context)
+
+
+    def interpretReference(self, context):
+        self.resolveAndCheck(context, False)
+        return self.resolved.interpretReference(context)
 
 
     def interpretQuery(self, context, builder):

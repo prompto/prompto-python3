@@ -97,6 +97,10 @@ class Context(IContext):
         self.parent = parent
 
 
+    def isChildOf(self, context):
+        return context is self.parent or (self.parent and self.parent.isChildOf(context))
+
+
     def newResourceContext(self):
         context = ResourceContext()
         context.globals = self.globals

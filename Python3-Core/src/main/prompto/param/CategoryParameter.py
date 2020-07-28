@@ -1,6 +1,8 @@
 from prompto.param.BaseParameter import BaseParameter
 from prompto.param.ITypedParameter import ITypedParameter
 from prompto.error.SyntaxError import SyntaxError
+from prompto.type.MethodType import MethodType
+
 
 class CategoryParameter(BaseParameter, ITypedParameter):
 
@@ -52,6 +54,14 @@ class CategoryParameter(BaseParameter, ITypedParameter):
     def check(self, context):
         self.resolve(context)
         self.resolved.checkExists(context)
+
+
+    def checkValue(self, context, expression):
+        self.resolve(context)
+        if isinstance(self.resolved, MethodType):
+            return expression.interpretReference(context)
+        else:
+            return super(CategoryParameter, self).checkValue(context, expression)
 
 
     def resolve(self, context):

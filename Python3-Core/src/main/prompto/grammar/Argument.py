@@ -1,9 +1,10 @@
 from prompto.grammar.IDialectElement import IDialectElement
-from prompto.runtime.Variable import *
+from prompto.grammar.INamedValue import INamedValue
+from prompto.runtime.Variable import Variable
 from prompto.type.MethodType import MethodType
-from prompto.type.VoidType import *
-from prompto.value.ContextualExpression import *
-from prompto.value.IInstance import *
+from prompto.type.VoidType import VoidType
+from prompto.value.ContextualExpression import ContextualExpression
+from prompto.value.IInstance import IInstance
 from prompto.error.SyntaxError import SyntaxError
 
 class Argument(IDialectElement):
@@ -13,24 +14,30 @@ class Argument(IDialectElement):
         self.parameter = parameter
         self.expression = expression
 
+
     def getParameter(self):
         return self.parameter
 
+
     def getName(self):
         return self.parameter.getName()
+
 
     def getExpression(self):
         from prompto.expression.InstanceExpression import InstanceExpression
         return self.expression if self.expression is not None else InstanceExpression(self.parameter.name)
 
+
     def setExpression(self, expression):
         self.expression = expression
+
 
     def __str__(self):
         if self.parameter is None:
             return str(self.expression)
         else:
             return str(self.expression) + " as " + self.parameter.getName()
+
 
     def toODialect(self, writer):
         if self.expression is None:
@@ -83,6 +90,40 @@ class Argument(IDialectElement):
             newType = self.getExpression().check(context)
             actualType.checkAssignableFrom(context, newType)
         return VoidType.instance
+
+
+    def checkActualType(self, context, requiredType, expression, checkInstance):
+        from prompto.type.CategoryType import CategoryType
+        actualType = None
+        isArrow = self.isArrowExpression(requiredType, expression)
+        if isArrow:
+            actualType = self.checkArrowExpression(context, requiredType, expression)
+        elif isinstance(requiredType, MethodType):
+            actualType = expression.checkReference(context.calling)
+        else:
+            actualType = expression.check(context)
+        # retrieve actual runtime type
+        if checkInstance and isinstance(actualType, CategoryType):
+            value = expression.interpret(context.calling)
+            if isinstance(value, IInstance):
+                actualType = value.getType()
+        return actualType
+
+
+    def checkArrowExpression(self, context, requiredType, expression):
+        from prompto.expression.ArrowExpression import ArrowExpression
+        context = expression.calling if isinstance(expression, ContextualExpression) else context.calling
+        arrow = expression if isinstance(expression, ArrowExpression) else expression.expression
+        return requiredType.checkArrowExpression(context, arrow)
+
+
+    def isArrowExpression(self, requiredType, expression):
+        from prompto.expression.ArrowExpression import ArrowExpression
+        if not isinstance(requiredType, MethodType):
+            return False
+        if isinstance(expression, ContextualExpression):
+            expression = expression.expression
+        return isinstance(expression, ArrowExpression)
 
 
     def interpret(self, context):

@@ -104,22 +104,9 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
     def computeSpecificity(self, context, parameter, argument, checkInstance):
         from prompto.error.PromptoError import PromptoError
         from prompto.grammar.Specificity import Specificity
-        from prompto.type.CategoryType import CategoryType
-        from prompto.value.IInstance import IInstance
-        from prompto.expression.ArrowExpression import ArrowExpression
-
         try:
-            requiredType = parameter.getType(context)
-            requiredType = requiredType.resolve(context, None)
-            expression = argument.getExpression()
-            checkArrow = isinstance(requiredType, MethodType) and isinstance(expression, ContextualExpression) and isinstance(expression.expression, ArrowExpression)
-            actualType = requiredType.checkArrowExpression(expression) if checkArrow else expression.check(context)
-            actualType = actualType.resolve(context, None)
-            # retrieve actual runtime type
-            if checkInstance and isinstance(actualType, CategoryType):
-                value = argument.getExpression().interpret(context.getCallingContext())
-                if isinstance(value, IInstance):
-                    actualType = value.getType()
+            requiredType = parameter.getType(context).resolve(context, None)
+            actualType = argument.checkActualType(context, requiredType, argument.getExpression(), checkInstance).resolve(context, None)
             if actualType == requiredType:
                 return Specificity.EXACT
             if requiredType.isAssignableFrom(context, actualType):
