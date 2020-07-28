@@ -38,5 +38,5 @@ class MethodType(BaseType):
         return False
 
 
-    def checkArrowExpression(self, expression: ContextualExpression):
+    def checkArrowExpression(self, context, expression: ContextualExpression):
         return self

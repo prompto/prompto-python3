@@ -142,7 +142,7 @@ class Argument(IDialectElement):
         argument = methodDeclaration.getArguments().find(name)
         requiredType = argument.getType(context)
         checkArrow = isinstance(requiredType, MethodType) and isinstance(expression, ContextualExpression) and isinstance(expression.expression, ArrowExpression)
-        actualType = requiredType.checkArrowExpression(expression) if checkArrow else expression.check(context.getCallingContext())
+        actualType = requiredType.checkArrowExpression(context, expression) if checkArrow else expression.check(context.getCallingContext())
         if checkInstance and isinstance(actualType, CategoryType):
             value = expression.interpret(context.getCallingContext())
             if isinstance(value, IInstance):
