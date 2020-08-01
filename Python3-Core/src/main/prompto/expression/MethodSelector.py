@@ -1,10 +1,10 @@
+from prompto.declaration.IMethodDeclaration import IMethodDeclaration
 from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.InstanceExpression import InstanceExpression
 from prompto.expression.MemberSelector import MemberSelector
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.INamedInstance import INamedInstance
 from prompto.runtime.Context import Context, InstanceContext
-from prompto.runtime.Variable import Variable
 from prompto.type.MethodType import MethodType
 from prompto.value.NullValue import NullValue
 from prompto.value.TypeValue import TypeValue
@@ -128,13 +128,17 @@ class MethodSelector(MemberSelector):
             return context.newLocalContext()
 
 
-    def newLocalInstanceContext(self, context:Context):
-        parent = context.getParentContext()
-        if not isinstance(parent, InstanceContext):
-            raise SyntaxError("Not in instance context !")
-        context = context.newLocalContext()
-        context.setParentContext(parent) # make local context child of the existing instance context
-        return context
+    def newLocalInstanceContext(self, context:Context, declaration:IMethodDeclaration):
+        instance = context.getClosestInstanceContext()
+        if instance is not None:
+            required = declaration.memberOf.getType(context)
+            actual = instance.getInstanceType()
+            if not required.isAssignableFrom(context, actual):
+                instance = None
+        if instance is None:
+            declaring = declaration.memberOf.getType(context)
+            instance = context.newInstanceContext(declaring, False)
+        return instance.newChildContext()
 
 
     def newInstanceCheckContext(self, context:Context):

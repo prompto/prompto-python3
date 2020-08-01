@@ -128,12 +128,26 @@ class MethodCall(SimpleStatement):
             try:
                 o = context.getValue(self.selector.getName())
                 if isinstance(o, ClosureValue):
-                    return ClosureDeclaration(o)
+                    return self.getClosureDeclaration(context, o)
                 elif isinstance(o, ArrowValue):
                     return ArrowDeclaration(o)
             except PromptoError:
                 pass
         return None
+
+
+    def getClosureDeclaration(self, context, closure):
+        decl = closure.itype.method
+        if decl.memberOf is not None:
+            # the closure references a member method (useful when a method reference is needed)
+            # in which case we may simply want to return that method to avoid spilling context into method body
+            # this is only true if the closure comes straight from the method's instance context
+            # if the closure comes from an accessible context that is not the instance context
+            # then it is a local variable that needs the closure context to be interpreted
+            declaring = context.contextForValue(self.selector.getName())
+            if declaring == closure.context:
+                return decl
+        return ClosureDeclaration(closure)
 
 
     def toDialect(self, writer):
