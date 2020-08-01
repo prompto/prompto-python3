@@ -11,6 +11,7 @@ from prompto.value.TypeValue import TypeValue
 class TypeLiteral(Section, IExpression):
 
     def __init__(self, typ:IType):
+        super().__init__()
         self.typ = typ
 
 
