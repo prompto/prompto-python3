@@ -1,8 +1,8 @@
 from prompto.grammar.IDialectElement import IDialectElement
-from prompto.grammar.INamedValue import INamedValue
+from prompto.grammar.INamedInstance import INamedInstance
 
 
-class IParameter (INamedValue, IDialectElement):
+class IParameter (INamedInstance, IDialectElement):
 
 	def getType(self, context):
 		raise Exception("Should never get there!")

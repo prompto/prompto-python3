@@ -1,13 +1,10 @@
-from prompto.grammar.INamedValue import INamedValue
+from prompto.grammar.INamedInstance import INamedInstance
 
-class Variable ( INamedValue ):
+class Variable ( INamedInstance ):
 
     def __init__(self, name, type):
         self.name = name
         self.type = type
-        from prompto.type.IType import IType
-        if not isinstance(type, IType):
-            raise "beurk"
 
     def __str__(self):
         return self.name

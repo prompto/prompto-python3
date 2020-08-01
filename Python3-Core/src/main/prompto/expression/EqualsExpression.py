@@ -2,7 +2,7 @@ from prompto.expression.IExpression import IExpression
 from prompto.expression.InstanceExpression import InstanceExpression
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.EqOp import EqOp
-from prompto.grammar.INamedValue import INamedValue
+from prompto.grammar.INamedInstance import INamedInstance
 from prompto.runtime.LinkedValue import LinkedValue
 from prompto.runtime.LinkedVariable import LinkedVariable
 from prompto.store.MatchOp import MatchOp
@@ -125,7 +125,7 @@ class EqualsExpression ( IExpression ):
         if self.operator is EqOp.IS_A:
             name = self.readLeftName()
             if name is not None:
-                value = context.getRegisteredValue(INamedValue, name)
+                value = context.getRegisteredValue(INamedInstance, name)
                 type = self.right.typ
                 local = context.newChildContext()
                 value = LinkedVariable(type, value)

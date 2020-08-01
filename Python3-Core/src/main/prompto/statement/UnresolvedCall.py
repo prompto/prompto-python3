@@ -9,6 +9,7 @@ from prompto.expression.SelectorExpression import SelectorExpression
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.ArgumentList import ArgumentList
 from prompto.grammar.INamed import INamed
+from prompto.grammar.INamedInstance import INamedInstance
 from prompto.parser.Dialect import Dialect
 from prompto.runtime.Context import Context, InstanceContext
 from prompto.statement.BaseStatement import BaseStatement
@@ -86,13 +87,15 @@ class UnresolvedCall(BaseStatement):
             if decl is not None:
                 return MethodCall(MethodSelector(name), self.arguments)
         # it could be a reference to a local closure
-        named = context.getRegisteredValue(INamed, name)
+        named = context.getRegisteredValue(INamedInstance, name)
         if named is not None:
             itype = named.getType(context)
-            if isinstance(itype, MethodType):
-                call = MethodCall(MethodSelector(name), self.arguments)
-                call.variableName = name
-                return call
+            if itype is not None:
+                itype = itype.resolve(context)
+                if isinstance(itype, MethodType):
+                    call = MethodCall(MethodSelector(name), self.arguments)
+                    call.variableName = name
+                    return call
         # can only be global then
         decl = context.getRegisteredDeclaration(IDeclaration, name)
         if decl is None:

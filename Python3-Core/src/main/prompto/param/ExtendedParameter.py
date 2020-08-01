@@ -44,8 +44,8 @@ class ExtendedParameter(CategoryParameter):
 
 
     def register(self, context):
-        from prompto.grammar.INamedValue import INamedValue
-        actual = context.getRegisteredValue(INamedValue, self.name)
+        from prompto.grammar.INamedInstance import INamedInstance
+        actual = context.getRegisteredValue(INamedInstance, self.name)
         if actual is not None:
             raise SyntaxError("Duplicate argument: \"" + self.name + "\"")
         from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration

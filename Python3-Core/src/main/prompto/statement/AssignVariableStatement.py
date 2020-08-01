@@ -1,5 +1,5 @@
 from prompto.expression.MemberSelector import MemberSelector
-from prompto.grammar.INamedValue import INamedValue
+from prompto.grammar.INamedInstance import INamedInstance
 from prompto.runtime.Variable import Variable
 from prompto.statement.SimpleStatement import SimpleStatement
 from prompto.type.CategoryType import CategoryType
@@ -31,7 +31,7 @@ class AssignVariableStatement ( SimpleStatement ):
         expressionType = self.expression.check(context)
         if not isinstance(expressionType, ResourceType):
             raise SyntaxError("Not a resource!")
-        actual = context.getRegisteredValue(INamedValue,self.name)
+        actual = context.getRegisteredValue(INamedInstance, self.name)
         if actual is None:
             context.registerValue(Variable(self.name, expressionType))
         else:
@@ -50,7 +50,7 @@ class AssignVariableStatement ( SimpleStatement ):
         return self.name==obj.name and self.getExpression()==obj.getExpression()
 
     def check(self, context):
-        actual = context.getRegisteredValue(INamedValue,self.name)
+        actual = context.getRegisteredValue(INamedInstance, self.name)
         if actual is None:
             actualType = self.expression.check(context)
             context.registerValue(Variable(self.name, actualType))
@@ -62,7 +62,7 @@ class AssignVariableStatement ( SimpleStatement ):
         return VoidType.instance
 
     def interpret(self, context):
-        if context.getRegisteredValue(INamedValue,self.name)is None:
+        if context.getRegisteredValue(INamedInstance, self.name)is None:
             actualType = self.expression.check(context)
             context.registerValue(Variable(self.name, actualType))
         context.setValue(self.name, self.expression.interpret(context))

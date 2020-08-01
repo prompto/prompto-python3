@@ -1,5 +1,5 @@
 from prompto.param.AttributeParameter import AttributeParameter
-from prompto.param.INamedParameter import INamedParameter
+from prompto.param.IParameter import IParameter
 from prompto.param.MethodParameter import MethodParameter
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 from prompto.declaration.IDeclaration import IDeclaration
@@ -7,7 +7,7 @@ from prompto.error.SyntaxError import SyntaxError
 from prompto.runtime.Context import MethodDeclarationMap
 
 
-class UnresolvedParameter (INamedParameter):
+class UnresolvedParameter (IParameter):
 
     def __init__(self, name):
         super(UnresolvedParameter, self).__init__()

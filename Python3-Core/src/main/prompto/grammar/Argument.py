@@ -1,5 +1,5 @@
 from prompto.grammar.IDialectElement import IDialectElement
-from prompto.grammar.INamedValue import INamedValue
+from prompto.grammar.INamedInstance import INamedInstance
 from prompto.runtime.Variable import Variable
 from prompto.type.MethodType import MethodType
 from prompto.type.VoidType import VoidType
@@ -80,7 +80,7 @@ class Argument(IDialectElement):
 
 
     def check(self, context):
-        actual = context.getRegisteredValue(INamedValue, self.parameter.getName())
+        actual = context.getRegisteredValue(INamedInstance, self.parameter.getName())
         if actual is None:
             actualType = self.getExpression().check(context)
             context.registerValue(Variable(self.parameter.getName(), actualType))
@@ -127,7 +127,7 @@ class Argument(IDialectElement):
 
 
     def interpret(self, context):
-        if context.getRegisteredValue(INamedValue, self.parameter.getName()) is None:
+        if context.getRegisteredValue(INamedInstance, self.parameter.getName()) is None:
             context.registerValue(Variable(self.parameter.getName(), self.getExpression()))
         context.setValue(self.parameter.getName(), self.getExpression().interpret(context))
         return None

@@ -1,8 +1,9 @@
-from prompto.grammar.INamedValue import INamedValue
+from prompto.grammar.INamedInstance import INamedInstance
 from prompto.parser.Section import Section
+from prompto.value.IValue import IValue
 
 
-class Symbol ( Section , INamedValue):
+class Symbol (Section , INamedInstance, IValue):
 
     def __init__(self, symbol):
         super(Symbol, self).__init__()

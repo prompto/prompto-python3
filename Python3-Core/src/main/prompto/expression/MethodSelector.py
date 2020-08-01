@@ -2,6 +2,7 @@ from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.InstanceExpression import InstanceExpression
 from prompto.expression.MemberSelector import MemberSelector
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
+from prompto.grammar.INamedInstance import INamedInstance
 from prompto.runtime.Context import Context, InstanceContext
 from prompto.runtime.Variable import Variable
 from prompto.type.MethodType import MethodType
@@ -30,13 +31,24 @@ class MethodSelector(MemberSelector):
 
 
     def getCandidates(self, context:Context, checkInstance:bool):
-        named = context.getRegistered(self.name)
-        if isinstance(named, Variable) and isinstance(named.getType(context), MethodType):
-            return {named.getType(context).method}
+        method = self.getMethodInstance(context)
+        if method is not None:
+            return {method}
         elif self.parent is None:
             return self.getGlobalCandidates(context)
         else:
             return self.getMemberCandidates(context, checkInstance)
+
+
+    def getMethodInstance(self, context):
+        named = context.getRegistered(self.name)
+        if isinstance(named, INamedInstance):
+            typ = named.getType(context)
+            if typ is not None:
+                typ = typ.resolve(context)
+                if isinstance(typ, MethodType):
+                    return typ.method
+        return None
 
 
     def getGlobalCandidates(self, context:Context):

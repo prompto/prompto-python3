@@ -17,6 +17,8 @@ class MethodFinder(object):
 
     def findMethod(self, checkInstance):
         candidates = self.methodCall.selector.getCandidates(self.context, checkInstance)
+        if candidates is None:
+            candidates = self.methodCall.selector.getCandidates(self.context, checkInstance)
         if len(candidates) == 0:
             raise SyntaxError("No method found for:" + str(self.methodCall))
         compatibles = self.filterCompatible(candidates, checkInstance)

@@ -1,7 +1,6 @@
 from prompto.expression.ArrowExpression import ArrowExpression
 from prompto.param.BaseParameter import BaseParameter
-from prompto.param.INamedParameter import INamedParameter
-from prompto.grammar.INamedValue import INamedValue
+from prompto.grammar.INamedInstance import INamedInstance
 from prompto.runtime.Context import Context
 from prompto.type.MethodType import MethodType
 from prompto.error.SyntaxError import SyntaxError
@@ -9,7 +8,7 @@ from prompto.value.ArrowValue import ArrowValue
 from prompto.value.ContextualExpression import ContextualExpression
 
 
-class MethodParameter (BaseParameter, INamedParameter):
+class MethodParameter (BaseParameter):
 
     def __init__(self, name):
         super(MethodParameter, self).__init__(name)
@@ -38,14 +37,14 @@ class MethodParameter (BaseParameter, INamedParameter):
 
 
     def register(self, context):
-        actual = context.getRegisteredValue(INamedValue, self.name)
+        actual = context.getRegisteredValue(INamedInstance, self.name)
         if actual is not None:
             raise SyntaxError("Duplicate argument: \"" + self.name + "\"")
         context.registerValue(self)
 
 
     def check(self, context):
-        actual = context.getRegisteredValue(INamedValue, context)
+        actual = context.getRegisteredValue(INamedInstance, context)
         if actual is None:
             raise SyntaxError("Unknown method: \"" + self.name + "\"")
 

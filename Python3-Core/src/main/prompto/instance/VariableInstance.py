@@ -1,5 +1,5 @@
 from prompto.error.SyntaxError import SyntaxError
-from prompto.grammar.INamedValue import INamedValue
+from prompto.grammar.INamedInstance import INamedInstance
 from prompto.instance.IAssignableInstance import IAssignableInstance
 from prompto.runtime.Variable import Variable
 from prompto.type.CategoryType import CategoryType
@@ -22,7 +22,7 @@ class VariableInstance(IAssignableInstance):
     def toDialect(self, writer, expression):
         if expression is not None:
             try:
-                actual = writer.context.getRegisteredValue(INamedValue, self.name)
+                actual = writer.context.getRegisteredValue(INamedInstance, self.name)
                 if actual is None:
                     typ = expression.check(writer.context)
                     writer.context.registerValue(Variable(self.name, typ))
@@ -31,7 +31,7 @@ class VariableInstance(IAssignableInstance):
         writer.append(self.name)
 
     def checkAssignValue(self, context, valueType):
-        actual = context.getRegisteredValue(INamedValue, self.name)
+        actual = context.getRegisteredValue(INamedInstance, self.name)
         if actual is None:
             context.registerValue(Variable(self.name, valueType))
             return valueType
@@ -44,7 +44,7 @@ class VariableInstance(IAssignableInstance):
 
 
     def checkAssignMember(self, context, name, valueType):
-        actual = context.getRegisteredValue(INamedValue, self.name)
+        actual = context.getRegisteredValue(INamedInstance, self.name)
         if actual is None:
             raise SyntaxError("Unknown variable:" + self.name)
         thisType = actual.getType(context)
@@ -61,7 +61,7 @@ class VariableInstance(IAssignableInstance):
 
 
     def checkAssignItem(self, context, itemType, valueType):
-        actual = context.getRegisteredValue(INamedValue, self.name)
+        actual = context.getRegisteredValue(INamedInstance, self.name)
         if actual is None:
             raise SyntaxError("Unknown variable:" + self.name)
         parentType = actual.getType(context)
@@ -71,7 +71,7 @@ class VariableInstance(IAssignableInstance):
 
     def assign(self, context, expression):
         value = expression.interpret(context)
-        if context.getRegisteredValue(INamedValue, self.name) is None:
+        if context.getRegisteredValue(INamedInstance, self.name) is None:
             itype = expression.check(context)
             context.registerValue(Variable(self.name, itype))
         context.setValue(self.name, value)

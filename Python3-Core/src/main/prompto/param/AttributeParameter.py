@@ -1,10 +1,9 @@
 from prompto.param.BaseParameter import BaseParameter
-from prompto.param.INamedParameter import INamedParameter
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 from prompto.declaration.IDeclaration import IDeclaration
 
 
-class AttributeParameter (BaseParameter, INamedParameter):
+class AttributeParameter (BaseParameter):
 
     def __init__(self, name):
         super(AttributeParameter, self).__init__(name)

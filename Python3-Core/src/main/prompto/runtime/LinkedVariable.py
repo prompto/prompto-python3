@@ -1,8 +1,8 @@
 # used for downcast
-from prompto.grammar.INamedValue import INamedValue
+from prompto.grammar.INamedInstance import INamedInstance
 
 
-class LinkedVariable (INamedValue):
+class LinkedVariable (INamedInstance):
 
     def __init__(self, type, linked):
         self.type = type
