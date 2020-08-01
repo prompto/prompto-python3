@@ -58,6 +58,9 @@ class TestMethods(BaseEParserTest):
     def testOverride(self):
         self.checkOutput("methods/override.pec")
 
+    def testParameter(self):
+        self.checkOutput("methods/parameter.pec")
+
     def testPolymorphic_abstract(self):
         self.checkOutput("methods/polymorphic_abstract.pec")
 

@@ -49,6 +49,9 @@ class TestMethods(BaseOParserTest):
     def testOverride(self):
         self.checkOutput("methods/override.poc")
 
+    def testParameter(self):
+        self.checkOutput("methods/parameter.poc")
+
     def testPolymorphic_abstract(self):
         self.checkOutput("methods/polymorphic_abstract.poc")
 

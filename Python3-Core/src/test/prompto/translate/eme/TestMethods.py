@@ -59,6 +59,9 @@ class TestMethods(BaseEParserTest):
     def testOverride(self):
         self.compareResourceEME("methods/override.pec")
 
+    def testParameter(self):
+        self.compareResourceEME("methods/parameter.pec")
+
     def testPolymorphic_abstract(self):
         self.compareResourceEME("methods/polymorphic_abstract.pec")
 

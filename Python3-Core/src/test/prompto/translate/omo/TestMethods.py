@@ -50,6 +50,9 @@ class TestMethods(BaseOParserTest):
     def testOverride(self):
         self.compareResourceOMO("methods/override.poc")
 
+    def testParameter(self):
+        self.compareResourceOMO("methods/parameter.poc")
+
     def testPolymorphic_abstract(self):
         self.compareResourceOMO("methods/polymorphic_abstract.poc")
 
