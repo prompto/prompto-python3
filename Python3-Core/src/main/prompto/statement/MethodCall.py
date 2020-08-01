@@ -166,7 +166,9 @@ class MethodCall(SimpleStatement):
         try:
             finder = MethodFinder(writer.context, self)
             declaration = finder.findMethod(False)
-            # if method is abstract, need to prefix with invoke
+            # if method is a reference, need to prefix with invoke
             return isinstance(declaration, AbstractMethodDeclaration) or declaration.closureOf is not None
         except:
-            return False
+            pass
+            # ok
+        return False
