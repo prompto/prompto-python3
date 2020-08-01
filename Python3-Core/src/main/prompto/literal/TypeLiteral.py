@@ -1,7 +1,7 @@
 from prompto.expression.IExpression import IExpression
 from prompto.parser.Dialect import Dialect
 from prompto.parser.Section import Section
-from prompto.runtime.Context import Context
+from prompto.runtime.Context import Context, MethodDeclarationMap
 from prompto.type.IType import IType
 from prompto.type.TypeType import TypeType
 from prompto.utils.CodeWriter import CodeWriter
@@ -24,7 +24,11 @@ class TypeLiteral(Section, IExpression):
 
     def toDialect(self, writer:CodeWriter):
         if writer.dialect is Dialect.E:
-            writer.append("Type: ")
+            decl = writer.context.getRegisteredDeclaration(MethodDeclarationMap, self.typ.typeName)
+            if isinstance(decl, MethodDeclarationMap):
+                writer.append("Method: ")
+            else:
+                writer.append("Type: ")
         self.typ.toDialect(writer)
 
     def parentToDialect(self, writer:CodeWriter):
