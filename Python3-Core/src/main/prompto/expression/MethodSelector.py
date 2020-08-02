@@ -144,14 +144,14 @@ class MethodSelector(MemberSelector):
     def newInstanceCheckContext(self, context:Context):
         from prompto.type.CategoryType import CategoryType
         from prompto.type.TypeType import TypeType
-        from prompto.declaration import IDeclaration
+        from prompto.declaration.IDeclaration import IDeclaration
         from prompto.declaration.SingletonCategoryDeclaration import SingletonCategoryDeclaration
         typ = self.parent.check (context)
         # if calling singleton method, parent is the singleton type
         if isinstance(typ, TypeType):
             decl = context.getRegisteredDeclaration(IDeclaration, typ.typ.typeName)
             if isinstance(decl, SingletonCategoryDeclaration):
-                type = decl.getType(context)
+                typ = decl.getType(context)
         if isinstance(typ, CategoryType):
             context = context.newInstanceContext (None, typ)
             return context.newChildContext ()
