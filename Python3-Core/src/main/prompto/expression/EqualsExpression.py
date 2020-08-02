@@ -178,20 +178,16 @@ class EqualsExpression ( IExpression ):
         data = value.getStorableData()
         match = self.getMatchOp()
         query.verify(info, match, data)
-        if self.operator is EqOp.NOT_EQUALS:
+        if self.operator in [EqOp.NOT_EQUALS, EqOp.IS_NOT, EqOp.NOT_CONTAINS]:
             query.Not()
 
 
     def getMatchOp(self):
-        if self.operator is EqOp.EQUALS:
-            return MatchOp.EQUALS
-        elif self.operator is EqOp.NOT_EQUALS:
+        if self.operator in [EqOp.EQUALS, EqOp.IS, EqOp.NOT_EQUALS, EqOp.IS_NOT]:
             return MatchOp.EQUALS
         elif self.operator is EqOp.ROUGHLY:
             return MatchOp.ROUGHLY
-        elif self.operator is EqOp.CONTAINS:
-            return MatchOp.CONTAINS
-        elif self.operator is EqOp.NOT_CONTAINS:
+        elif self.operator in [EqOp.CONTAINS, EqOp.NOT_CONTAINS]:
             return MatchOp.CONTAINS
         else:
             raise Exception("Not supported:" + str(self.operator))

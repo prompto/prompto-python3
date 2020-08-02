@@ -148,7 +148,7 @@ class ContainsExpression(IExpression):
         info = decl.getAttributeInfo()
         data = None if value is None else value.getStorableData()
         query.verify(info, matchOp, data)
-        if str(self.operator).startswith("NOT_"):
+        if self.operator in [ContOp.NOT_IN, ContOp.NOT_HAS, ContOp.NOT_HAS_ALL, ContOp.NOT_HAS_ANY]:
             query.Not()
 
 
