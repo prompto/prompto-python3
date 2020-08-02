@@ -8,6 +8,9 @@ class TestSingleton(BaseOParserTest):
     def testAttribute(self):
         self.compareResourceOMO("singleton/attribute.poc")
 
+    def testInternal(self):
+        self.compareResourceOMO("singleton/internal.poc")
+
     def testMember(self):
         self.compareResourceOMO("singleton/member.poc")
 

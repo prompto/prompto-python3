@@ -13,6 +13,9 @@ class TestSingleton(BaseOParserTest):
     def testAttribute(self):
         self.checkOutput("singleton/attribute.poc")
 
+    def testInternal(self):
+        self.checkOutput("singleton/internal.poc")
+
     def testMember(self):
         self.checkOutput("singleton/member.poc")
 
