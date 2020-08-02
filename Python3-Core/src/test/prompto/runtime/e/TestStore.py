@@ -28,8 +28,38 @@ class TestStore(BaseEParserTest):
     def testFetchBoolean(self):
         self.checkOutput("store/fetchBoolean.pec")
 
+    def testFetchContains(self):
+        self.checkOutput("store/fetchContains.pec")
+
+    def testFetchGreater(self):
+        self.checkOutput("store/fetchGreater.pec")
+
+    def testFetchGreaterEqual(self):
+        self.checkOutput("store/fetchGreaterEqual.pec")
+
+    def testFetchHas(self):
+        self.checkOutput("store/fetchHas.pec")
+
+    def testFetchIn(self):
+        self.checkOutput("store/fetchIn.pec")
+
+    def testFetchLesser(self):
+        self.checkOutput("store/fetchLesser.pec")
+
+    def testFetchLesserEqual(self):
+        self.checkOutput("store/fetchLesserEqual.pec")
+
     def testFetchNotBoolean(self):
         self.checkOutput("store/fetchNotBoolean.pec")
+
+    def testFetchNotContains(self):
+        self.checkOutput("store/fetchNotContains.pec")
+
+    def testFetchNotHas(self):
+        self.checkOutput("store/fetchNotHas.pec")
+
+    def testFetchNotIn(self):
+        self.checkOutput("store/fetchNotIn.pec")
 
     def testFetchOr(self):
         self.checkOutput("store/fetchOr.pec")

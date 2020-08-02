@@ -23,8 +23,38 @@ class TestStore(BaseEParserTest):
     def testFetchBoolean(self):
         self.compareResourceEME("store/fetchBoolean.pec")
 
+    def testFetchContains(self):
+        self.compareResourceEME("store/fetchContains.pec")
+
+    def testFetchGreater(self):
+        self.compareResourceEME("store/fetchGreater.pec")
+
+    def testFetchGreaterEqual(self):
+        self.compareResourceEME("store/fetchGreaterEqual.pec")
+
+    def testFetchHas(self):
+        self.compareResourceEME("store/fetchHas.pec")
+
+    def testFetchIn(self):
+        self.compareResourceEME("store/fetchIn.pec")
+
+    def testFetchLesser(self):
+        self.compareResourceEME("store/fetchLesser.pec")
+
+    def testFetchLesserEqual(self):
+        self.compareResourceEME("store/fetchLesserEqual.pec")
+
     def testFetchNotBoolean(self):
         self.compareResourceEME("store/fetchNotBoolean.pec")
+
+    def testFetchNotContains(self):
+        self.compareResourceEME("store/fetchNotContains.pec")
+
+    def testFetchNotHas(self):
+        self.compareResourceEME("store/fetchNotHas.pec")
+
+    def testFetchNotIn(self):
+        self.compareResourceEME("store/fetchNotIn.pec")
 
     def testFetchOr(self):
         self.compareResourceEME("store/fetchOr.pec")
