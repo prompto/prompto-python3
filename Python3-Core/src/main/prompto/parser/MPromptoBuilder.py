@@ -2796,7 +2796,7 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitCssText(self, ctx: MParser.CssTextContext):
-        text = self.input.getText((ctx.text.start, ctx.text.stop))
+        text = self.input.getText(ctx.text.start, ctx.text.stop)
         self.setNodeValue(ctx, CssText(text))
 
 

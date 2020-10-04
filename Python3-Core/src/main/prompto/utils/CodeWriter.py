@@ -11,7 +11,7 @@ class Indenter(object):
     def appendTabsIfRequired(self, s):
         if self.isStartOfLine:
             self.file.write(self.indents)
-        self.isStartOfLine = s[-1] == '\n'
+        self.isStartOfLine = len(s) >0  and s[-1] == '\n'
 
     def indent(self):
         self.indents += '\t'
