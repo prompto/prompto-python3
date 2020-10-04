@@ -1,4 +1,4 @@
-# Generated from MParser.g4 by ANTLR 4.7.1
+# Generated from MParser.g4 by ANTLR 4.8
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .MParser import MParser
@@ -4157,3 +4157,5 @@ class MParserListener(ParseTreeListener):
         pass
 
 
+
+del MParser
