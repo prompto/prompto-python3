@@ -19,4 +19,7 @@ class TestIterate(BaseEParserTest):
     def testForEachIntegerList(self):
         self.checkOutput("iterate/forEachIntegerList.pec")
 
+    def testForEachIntegerSet(self):
+        self.checkOutput("iterate/forEachIntegerSet.pec")
+
 

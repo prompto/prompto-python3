@@ -14,4 +14,7 @@ class TestIterate(BaseEParserTest):
     def testForEachIntegerList(self):
         self.compareResourceEOE("iterate/forEachIntegerList.pec")
 
+    def testForEachIntegerSet(self):
+        self.compareResourceEOE("iterate/forEachIntegerSet.pec")
+
 

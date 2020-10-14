@@ -19,4 +19,7 @@ class TestIterate(BaseOParserTest):
     def testForEachIntegerRange(self):
         self.checkOutput("iterate/forEachIntegerRange.poc")
 
+    def testForEachIntegerSet(self):
+        self.checkOutput("iterate/forEachIntegerSet.poc")
+
 
