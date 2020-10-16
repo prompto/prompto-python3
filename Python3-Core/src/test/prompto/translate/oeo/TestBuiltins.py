@@ -71,6 +71,30 @@ class TestBuiltins(BaseOParserTest):
     def testListJoin(self):
         self.compareResourceOEO("builtins/listJoin.poc")
 
+    def testPeriodDays(self):
+        self.compareResourceOEO("builtins/periodDays.poc")
+
+    def testPeriodHours(self):
+        self.compareResourceOEO("builtins/periodHours.poc")
+
+    def testPeriodMillis(self):
+        self.compareResourceOEO("builtins/periodMillis.poc")
+
+    def testPeriodMinutes(self):
+        self.compareResourceOEO("builtins/periodMinutes.poc")
+
+    def testPeriodMonths(self):
+        self.compareResourceOEO("builtins/periodMonths.poc")
+
+    def testPeriodSeconds(self):
+        self.compareResourceOEO("builtins/periodSeconds.poc")
+
+    def testPeriodWeeks(self):
+        self.compareResourceOEO("builtins/periodWeeks.poc")
+
+    def testPeriodYears(self):
+        self.compareResourceOEO("builtins/periodYears.poc")
+
     def testSetCount(self):
         self.compareResourceOEO("builtins/setCount.poc")
 

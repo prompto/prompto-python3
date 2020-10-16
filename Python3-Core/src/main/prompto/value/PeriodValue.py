@@ -201,6 +201,27 @@ class PeriodValue (BaseValue, IMultiplyable):
                            self.seconds * count,
                            self.millis * count)
 
+    def getMemberValue(self, context, name, autoCreate=False):
+        from prompto.value.IntegerValue import IntegerValue
+        if "years" == name:
+            return IntegerValue(self.years)
+        elif "months" == name:
+            return IntegerValue(self.months)
+        elif "weeks" == name:
+            return IntegerValue(self.weeks)
+        elif "days" == name:
+            return IntegerValue(self.days)
+        elif "hours" == name:
+            return IntegerValue(self.hours)
+        elif "minutes" == name:
+            return IntegerValue(self.minutes)
+        elif "seconds" == name:
+            return IntegerValue(self.seconds)
+        elif "milliseconds" == name:
+            return IntegerValue(self.millis)
+        else:
+            return super().getMemberValue(context, name, autoCreate)
+
 
     def __str__(self):
         s = StringIO()

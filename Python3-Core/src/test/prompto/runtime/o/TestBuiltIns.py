@@ -70,6 +70,30 @@ class TestBuiltins(BaseOParserTest):
     def testListJoin(self):
         self.checkOutput("builtins/listJoin.poc")
 
+    def testPeriodDays(self):
+        self.checkOutput("builtins/periodDays.poc")
+
+    def testPeriodHours(self):
+        self.checkOutput("builtins/periodHours.poc")
+
+    def testPeriodMillis(self):
+        self.checkOutput("builtins/periodMillis.poc")
+
+    def testPeriodMinutes(self):
+        self.checkOutput("builtins/periodMinutes.poc")
+
+    def testPeriodMonths(self):
+        self.checkOutput("builtins/periodMonths.poc")
+
+    def testPeriodSeconds(self):
+        self.checkOutput("builtins/periodSeconds.poc")
+
+    def testPeriodWeeks(self):
+        self.checkOutput("builtins/periodWeeks.poc")
+
+    def testPeriodYears(self):
+        self.checkOutput("builtins/periodYears.poc")
+
     def testSetCount(self):
         self.checkOutput("builtins/setCount.poc")
 

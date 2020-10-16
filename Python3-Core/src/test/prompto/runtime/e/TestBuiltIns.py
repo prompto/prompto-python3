@@ -124,8 +124,32 @@ class TestBuiltins(BaseEParserTest):
     def testListText(self):
         self.checkOutput("builtins/listText.pec")
 
+    def testPeriodDays(self):
+        self.checkOutput("builtins/periodDays.pec")
+
+    def testPeriodHours(self):
+        self.checkOutput("builtins/periodHours.pec")
+
+    def testPeriodMillis(self):
+        self.checkOutput("builtins/periodMillis.pec")
+
+    def testPeriodMinutes(self):
+        self.checkOutput("builtins/periodMinutes.pec")
+
+    def testPeriodMonths(self):
+        self.checkOutput("builtins/periodMonths.pec")
+
+    def testPeriodSeconds(self):
+        self.checkOutput("builtins/periodSeconds.pec")
+
     def testPeriodText(self):
         self.checkOutput("builtins/periodText.pec")
+
+    def testPeriodWeeks(self):
+        self.checkOutput("builtins/periodWeeks.pec")
+
+    def testPeriodYears(self):
+        self.checkOutput("builtins/periodYears.pec")
 
     def testSetCount(self):
         self.checkOutput("builtins/setCount.pec")

@@ -125,8 +125,32 @@ class TestBuiltins(BaseEParserTest):
     def testListText(self):
         self.compareResourceEME("builtins/listText.pec")
 
+    def testPeriodDays(self):
+        self.compareResourceEME("builtins/periodDays.pec")
+
+    def testPeriodHours(self):
+        self.compareResourceEME("builtins/periodHours.pec")
+
+    def testPeriodMillis(self):
+        self.compareResourceEME("builtins/periodMillis.pec")
+
+    def testPeriodMinutes(self):
+        self.compareResourceEME("builtins/periodMinutes.pec")
+
+    def testPeriodMonths(self):
+        self.compareResourceEME("builtins/periodMonths.pec")
+
+    def testPeriodSeconds(self):
+        self.compareResourceEME("builtins/periodSeconds.pec")
+
     def testPeriodText(self):
         self.compareResourceEME("builtins/periodText.pec")
+
+    def testPeriodWeeks(self):
+        self.compareResourceEME("builtins/periodWeeks.pec")
+
+    def testPeriodYears(self):
+        self.compareResourceEME("builtins/periodYears.pec")
 
     def testSetCount(self):
         self.compareResourceEME("builtins/setCount.pec")
