@@ -1060,8 +1060,14 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitNative_member_method_declaration(self, ctx:EParser.Native_member_method_declarationContext):
-        decl = self.getNodeValue(ctx.getChild(0))
-        self.setNodeValue(ctx, decl)
+        comments = self.readComments(ctx.comment_statement())
+        annotations = self.readAnnotations(ctx.annotation_constructor())
+        ctx_ = ctx.children[ctx.getChildCount()-1]
+        decl = self.getNodeValue(ctx_)
+        if decl is not None:
+            decl.comments = comments
+            decl.annotations = annotations
+            self.setNodeValue(ctx, decl)
 
 
     def exitNative_member_method_declaration_list(self, ctx:EParser.Native_member_method_declaration_listContext):
@@ -1102,7 +1108,6 @@ class EPromptoBuilder(EParserListener):
         stmts = self.getNodeValue(ctx.stmts)
         self.setNodeValue(ctx, NativeSetterMethodDeclaration(name, stmts))
 
-
     def exitNative_getter_declaration(self, ctx:EParser.Native_getter_declarationContext):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
@@ -1120,14 +1125,12 @@ class EPromptoBuilder(EParserListener):
             self.setNodeValue(ctx, decl)
 
 
-
     def exitStatement_list(self, ctx:EParser.Statement_listContext):
         items = StatementList()
         for rule in ctx.statement():
             item = self.getNodeValue(rule)
             items.append(item)
         self.setNodeValue(ctx, items)
-    
 
     
     def exitAbstract_method_declaration(self, ctx:EParser.Abstract_method_declarationContext):

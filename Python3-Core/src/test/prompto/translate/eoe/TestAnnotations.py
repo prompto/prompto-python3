@@ -11,4 +11,7 @@ class TestAnnotations(BaseEParserTest):
     def testCategory(self):
         self.compareResourceEOE("annotations/category.pec")
 
+    def testInlined(self):
+        self.compareResourceEOE("annotations/inlined.pec")
+
 

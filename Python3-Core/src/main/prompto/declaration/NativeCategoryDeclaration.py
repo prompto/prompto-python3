@@ -78,9 +78,15 @@ class NativeCategoryDeclaration ( ConcreteCategoryDeclaration ):
         writer.newLine()
         self.categoryBindings.toDialect(writer)
         if self.methods is not None and len(self.methods)>0:
-            for method in self.methods:
+            for decl in self.methods:
+                if decl.comments is not None:
+                    for comment in decl.comments:
+                        comment.toDialect(writer)
+                if decl.annotations is not None:
+                    for annotation in decl.annotations:
+                        annotation.toDialect(writer)
                 w = writer.newMemberWriter()
-                method.toDialect(w)
+                decl.toDialect(w)
                 writer.newLine()
         writer.dedent()
         writer.newLine()

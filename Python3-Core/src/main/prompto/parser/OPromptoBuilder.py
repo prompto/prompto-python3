@@ -951,7 +951,6 @@ class OPromptoBuilder(OParserListener):
         arrow.statements = stmts
         self.setNodeValue(ctx, arrow)
 
-
     def exitAddExpression(self, ctx:OParser.AddExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
@@ -959,11 +958,15 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, exp)
 
 
-
     def exitNative_member_method_declaration(self, ctx:OParser.Native_member_method_declarationContext):
-        decl = self.getNodeValue(ctx.getChild(0))
-        self.setNodeValue(ctx, decl)
-
+        comments = self.readComments(ctx.comment_statement())
+        annotations = self.readAnnotations(ctx.annotation_constructor())
+        ctx_ = ctx.children[ctx.getChildCount()-1]
+        decl = self.getNodeValue(ctx_)
+        if decl is not None:
+            decl.comments = comments
+            decl.annotations = annotations
+            self.setNodeValue(ctx, decl)
 
 
     def exitNative_member_method_declaration_list(self, ctx:OParser.Native_member_method_declaration_listContext):

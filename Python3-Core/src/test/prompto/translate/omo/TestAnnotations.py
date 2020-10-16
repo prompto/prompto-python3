@@ -62,4 +62,7 @@ class TestAnnotations(BaseOParserTest):
     def testCategory(self):
         self.compareResourceOMO("annotations/category.poc")
 
+    def testInlined(self):
+        self.compareResourceOMO("annotations/inlined.poc")
+
 
