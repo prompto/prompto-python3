@@ -16,12 +16,15 @@ class ExecutionError(PromptoError):
         exp = self.getExpression(context)
         if exp is None:
             args = ArgumentList()
-            args.add(Argument(UnresolvedParameter("name"), TextLiteral(type(self).__name__)))
-            args.add(Argument(UnresolvedParameter("text"), TextLiteral(self.message)))
-            exp = ConstructorExpression(CategoryType("Error"), args)
+            args.append(Argument(UnresolvedParameter("name"), TextLiteral(type(self).__name__)))
+            args.append(Argument(UnresolvedParameter("text"), TextLiteral(self.message)))
+            exp = ConstructorExpression(CategoryType("Error"), args, None, None)
         if context.getRegisteredValue(object, errorName) is None:
             from prompto.runtime.ErrorVariable import ErrorVariable
             context.registerValue(ErrorVariable(errorName))
         error = exp.interpret(context)
         context.setValue(errorName, error)
         return error
+
+    def getExpression(self, context):
+        return None

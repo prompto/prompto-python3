@@ -1183,7 +1183,7 @@ class EPromptoBuilder(EParserListener):
             args.append(arg)
         elif args is not None:
             args.checkLastAnd()
-        self.setNodeValue(ctx, ConstructorExpression(typ, copyFrom, args, True))
+        self.setNodeValue(ctx, ConstructorExpression(typ, copyFrom, args))
     
 
     
@@ -1197,7 +1197,7 @@ class EPromptoBuilder(EParserListener):
             args.append(arg)
         elif args is not None:
             args.checkLastAnd()
-        self.setNodeValue(ctx, ConstructorExpression(typ, None, args, True))
+        self.setNodeValue(ctx, ConstructorExpression(typ, None, args))
     
 
     def exitAssertion(self, ctx:EParser.AssertionContext):

@@ -64,12 +64,12 @@ class SwitchErrorStatement(BaseSwitchStatement):
     def populateError(self, e, context):
         error = e.getExpression(context)
         if error == None:
-            ctor = ConstructorExpression(CategoryType("Error"), None)
+            exp = ConstructorExpression(CategoryType("Error"), None, None)
             args = ArgumentList()
             args.append(Argument(UnresolvedParameter("name"), TextLiteral(type(e).__name__)))
             args.append(Argument(UnresolvedParameter("text"), TextLiteral(e.getMessage())))
-            ctor.setArguments(args)
-            error = ctor
+            exp.setArguments(args)
+            error = exp
         if context.getRegisteredValue(INamedInstance, self.errorName) == None:
             context.registerValue(ErrorVariable(self.errorName))
         if isinstance(error, IExpression):

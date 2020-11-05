@@ -12,12 +12,12 @@ from prompto.error.NotMutableError import NotMutableError
 
 class ConstructorExpression(IExpression):
 
-    def __init__(self, itype:IType, copyFrom:IExpression, arguments:ArgumentList, checked:bool):
+    def __init__(self, itype:IType, copyFrom:IExpression, arguments:ArgumentList):
         self.mutable = False
         self.itype = itype
         self.copyFrom = copyFrom
         self.arguments = arguments
-        self.checked = checked
+        self.checked = False
 
 
     def getType(self):

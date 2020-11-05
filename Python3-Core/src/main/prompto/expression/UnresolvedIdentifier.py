@@ -138,7 +138,7 @@ class UnresolvedIdentifier(IExpression):
     def resolveConstructor(self, context):
         from prompto.type.CategoryType import CategoryType
         try:
-            ctor = ConstructorExpression(CategoryType(self.name), None, None, True)
+            ctor = ConstructorExpression(CategoryType(self.name), None, None)
             ctor.check(context)
             return ctor
         except SyntaxError as e:
