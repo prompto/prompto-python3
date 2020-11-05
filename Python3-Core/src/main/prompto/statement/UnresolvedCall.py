@@ -9,7 +9,6 @@ from prompto.expression.SelectorExpression import SelectorExpression
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.ArgumentList import ArgumentList
 from prompto.grammar.INamed import INamed
-from prompto.grammar.INamedInstance import INamedInstance
 from prompto.parser.Dialect import Dialect
 from prompto.runtime.Context import Context, InstanceContext
 from prompto.statement.BaseStatement import BaseStatement
@@ -105,7 +104,7 @@ class UnresolvedCall(BaseStatement):
 
     def resolveUnresolvedMethodReference(self, context, name):
         # it could be a reference to a local closure
-        named = context.getRegisteredValue(INamedInstance, name)
+        named = context.getRegisteredValue(INamed, name)
         if named is None:
             return None
         itype = named.getType(context)
