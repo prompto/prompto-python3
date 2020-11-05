@@ -81,27 +81,49 @@ class UnresolvedCall(BaseStatement):
     def resolveUnresolvedIdentifier(self, context:Context):
         name = self.caller.name
         # if this happens in the context of a member method, then we need to check for category members first
+        call = self.resolveUnresolvedMemberMethod(context, name)
+        if call is None:
+            call = self.resolveUnresolvedMethodReference(context, name)
+        if call is None:
+            call = self.resolveUnresolvedDeclaration(context, name)
+        if call is None:
+            raise SyntaxError("Unknown name:" + name)
+        else:
+            return call
+
+
+    def resolveUnresolvedMemberMethod(self, context, name):
         instance = context.getClosestInstanceContext()
-        if instance is not None:
-            decl = self.resolveUnresolvedMember(instance, name)
-            if decl is not None:
-                return MethodCall(MethodSelector(name), self.arguments)
+        if instance is None:
+            return None
+        decl = self.resolveUnresolvedMember(instance, name)
+        if decl is not None:
+            return MethodCall(MethodSelector(name), self.arguments)
+        else:
+            return None
+
+
+    def resolveUnresolvedMethodReference(self, context, name):
         # it could be a reference to a local closure
         named = context.getRegisteredValue(INamedInstance, name)
-        if named is not None:
-            itype = named.getType(context)
-            if itype is not None:
-                itype = itype.resolve(context)
-                if isinstance(itype, MethodType):
-                    call = MethodCall(MethodSelector(name), self.arguments)
-                    call.variableName = name
-                    return call
-        # can only be global then
+        if named is None:
+            return None
+        itype = named.getType(context)
+        if itype is not None:
+            itype = itype.resolve(context)
+            if isinstance(itype, MethodType):
+                call = MethodCall(MethodSelector(name), self.arguments)
+                call.variableName = name
+                return call
+        return None
+
+
+    def resolveUnresolvedDeclaration(self, context, name):
         decl = context.getRegisteredDeclaration(IDeclaration, name)
         if decl is None:
             raise SyntaxError("Unknown name:" + name)
         if isinstance(decl, CategoryDeclaration):
-            return ConstructorExpression(CategoryType(name), None, self.arguments, False)
+            return ConstructorExpression(CategoryType(name), None, self.arguments)
         else:
             return MethodCall(MethodSelector(name), self.arguments)
 
