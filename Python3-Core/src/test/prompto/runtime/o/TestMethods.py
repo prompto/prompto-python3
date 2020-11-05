@@ -40,6 +40,9 @@ class TestMethods(BaseOParserTest):
     def testExtended(self):
         self.checkOutput("methods/extended.poc")
 
+    def testHomonym2(self):
+        self.checkOutput("methods/homonym2.poc")
+
     def testImplicitMember(self):
         self.checkOutput("methods/implicitMember.poc")
 

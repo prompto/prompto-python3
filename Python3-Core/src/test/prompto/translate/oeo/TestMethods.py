@@ -41,6 +41,9 @@ class TestMethods(BaseOParserTest):
     def testGlobal(self):
         self.compareResourceOEO("methods/global.poc")
 
+    def testHomonym2(self):
+        self.compareResourceOEO("methods/homonym2.poc")
+
     def testImplicitMember(self):
         self.compareResourceOEO("methods/implicitMember.poc")
 

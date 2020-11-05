@@ -43,6 +43,9 @@ class TestMethods(BaseEParserTest):
     def testHomonym(self):
         self.checkOutput("methods/homonym.pec")
 
+    def testHomonym2(self):
+        self.checkOutput("methods/homonym2.pec")
+
     def testImplicitAnd(self):
         self.checkOutput("methods/implicitAnd.pec")
 

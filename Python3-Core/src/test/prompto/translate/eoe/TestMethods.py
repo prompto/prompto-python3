@@ -44,6 +44,9 @@ class TestMethods(BaseEParserTest):
     def testHomonym(self):
         self.compareResourceEOE("methods/homonym.pec")
 
+    def testHomonym2(self):
+        self.compareResourceEOE("methods/homonym2.pec")
+
     def testImplicitAnd(self):
         self.compareResourceEOE("methods/implicitAnd.pec")
 
