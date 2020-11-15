@@ -1,7 +1,9 @@
+from datetime import date, time, datetime
 from prompto.expression.IExpression import IExpression
 from prompto.grammar.CmpOp import CmpOp
 from prompto.store.InvalidValueError import InvalidValueError
 from prompto.store.MatchOp import MatchOp
+from prompto.store.TypeFamily import TypeFamily
 from prompto.value.BooleanValue import BooleanValue
 from prompto.value.IInstance import IInstance
 from prompto.value.IValue import IValue
@@ -91,8 +93,12 @@ class CompareExpression ( IExpression ):
         info = decl.getAttributeInfo()
         if isinstance(value, IInstance):
             value = value.getMemberValue(context, "dbId", False)
-        matchOp = self.getMatchOp()
-        query.verify(info, matchOp, None if value is None else value.getStorableData())
+        data = None if value is None else value.getStorableData()
+        if info.family is TypeFamily.DATETIME and isinstance(data, date):
+            data = datetime.combine(data, time())
+        elif info.family is TypeFamily.DATE and isinstance(data, datetime):
+            data = data.date()
+        query.verify(info, self.getMatchOp(), data)
         if self.operator in [CmpOp.GTE, CmpOp.LTE]:
             query.Not()
 
