@@ -2508,13 +2508,13 @@ class OPromptoBuilder(OParserListener):
 
     
     def exitAnyListType(self, ctx:OParser.AnyListTypeContext):
-        typ = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.any_type())
         self.setNodeValue(ctx, ListType(typ))
     
 
     
     def exitAnyDictType(self, ctx:OParser.AnyDictTypeContext):
-        typ = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.any_type())
         self.setNodeValue(ctx, DictType(typ))
     
 

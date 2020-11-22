@@ -2617,7 +2617,7 @@ class EPromptoBuilder(EParserListener):
 
     
     def exitAnyDictType(self, ctx:EParser.AnyDictTypeContext):
-        typ = self.getNodeValue(ctx.typ)
+        typ = self.getNodeValue(ctx.any_type())
         self.setNodeValue(ctx, DictType(typ))
     
 
