@@ -167,6 +167,21 @@ class BaseParserTest(unittest.TestCase):
         parser = MCleverParser(stream=stream)
         return self.parse(MPromptoBuilder, parser)
 
+    def compareResourceOO(self, resourceName):
+        expected = self.getResourceAsString(resourceName, 'r')
+        # print(expected)
+        # parse o source code
+        dlo = self.parseOString(expected)
+        context = Context.newGlobalContext()
+        dlo.register(context)
+        # rewrite as o
+        writer = CodeWriter(Dialect.O, context)
+        dlo.toDialect(writer)
+        actual = str(writer)
+        # print(actual)
+        # ensure equivalent
+        self.assertEquivalent(expected, actual)
+
     def compareResourceEOE(self, resourceName):
         expected = self.getResourceAsString(resourceName, 'r')
         # print(expected)

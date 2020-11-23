@@ -104,7 +104,7 @@ class IfElement ( BaseStatement ):
             context = self.downCast(context, False)
             if context is not writer.context:
                 writer = writer.newChildWriter(context)
-        curly = self.statements is not None and len(self.statements) > 1
+        curly = self.needsCurlyBraces()
         if curly:
             writer.append("{\n")
         else:
@@ -114,6 +114,14 @@ class IfElement ( BaseStatement ):
         writer.dedent()
         if curly:
             writer.append("}")
+
+    def needsCurlyBraces(self):
+        if self.statements is None:
+            return False
+        elif len(self.statements) > 1:
+            return True
+        else:
+            return not self.statements[0].isSimple()
 
     def toEDialect(self, writer):
         context = writer.context
