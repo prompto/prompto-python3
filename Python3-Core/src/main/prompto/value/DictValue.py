@@ -57,6 +57,10 @@ class DictValue(BaseValue, IContainer):
         return swapped
 
 
+    def remove(self, key):
+        del self.value[key.value]
+
+
     def hasItem(self, context, value):
         if isinstance(value, TextValue):
             return self.value.get(value.value, None) is not None
