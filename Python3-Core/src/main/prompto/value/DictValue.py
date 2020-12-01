@@ -57,8 +57,17 @@ class DictValue(BaseValue, IContainer):
         return swapped
 
 
-    def remove(self, key):
-        del self.value[key.value]
+    def removeKey(self, key):
+        self.value.pop(key.value)
+
+
+    def removeValue(self, value):
+        keys = set()
+        for k, v in self.value.items():
+            if value == v:
+                keys.add(k)
+        for k in keys:
+            self.value.pop(k)
 
 
     def hasItem(self, context, value):

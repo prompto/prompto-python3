@@ -1,5 +1,6 @@
 from prompto.declaration.BuiltInMethodDeclaration import BuiltInMethodDeclaration
 from prompto.error.NotMutableError import NotMutableError
+from prompto.type.AnyType import AnyType
 from prompto.type.BooleanType import BooleanType
 from prompto.type.ContainerType import ContainerType
 from prompto.type.EntryType import EntryType
@@ -77,8 +78,10 @@ class DictType ( ContainerType ):
     def getMemberMethods(self, context, name):
         if name == "swap":
             return [SwapMethodDeclaration()]
-        elif name == "remove":
-                return [RemoveMethodDeclaration()]
+        elif name == "removeKey":
+            return [RemoveKeyMethodDeclaration()]
+        elif name == "removeValue":
+            return [RemoveValueMethodDeclaration()]
         else:
             return super().getMemberMethods(context, name)
 
@@ -102,12 +105,12 @@ class SwapMethodDeclaration(BuiltInMethodDeclaration):
         return DictType(TextType.instance)
 
 
-class RemoveMethodDeclaration(BuiltInMethodDeclaration):
+class RemoveKeyMethodDeclaration(BuiltInMethodDeclaration):
 
     def __init__(self):
         from prompto.param.CategoryParameter import CategoryParameter
         KEY_ARGUMENT = CategoryParameter(TextType.instance, "key")
-        super().__init__("remove", KEY_ARGUMENT)
+        super().__init__("removeKey", KEY_ARGUMENT)
 
 
     def interpret(self, context):
@@ -115,7 +118,27 @@ class RemoveMethodDeclaration(BuiltInMethodDeclaration):
         if not dict.mutable:
             raise NotMutableError()
         key = context.getValue("key")
-        dict.remove(key)
+        dict.removeKey(key)
+
+
+    def check(self, context, isStart:bool):
+        return VoidType.instance
+
+
+class RemoveValueMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self):
+        from prompto.param.CategoryParameter import CategoryParameter
+        VALUE_ARGUMENT = CategoryParameter(AnyType.instance, "value")
+        super().__init__("removeValue", VALUE_ARGUMENT)
+
+
+    def interpret(self, context):
+        dict = self.getValue(context)
+        if not dict.mutable:
+            raise NotMutableError()
+        value = context.getValue("value")
+        dict.removeValue(value)
 
 
     def check(self, context, isStart:bool):

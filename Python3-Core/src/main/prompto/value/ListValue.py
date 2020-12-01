@@ -1,6 +1,5 @@
 from io import StringIO
 
-from prompto.error.InternalError import InternalError
 from prompto.value.BaseValueList import BaseValueList
 from prompto.value.IFilterable import IFilterable
 from prompto.value.IntegerValue import IntegerValue
@@ -47,6 +46,16 @@ class ListValue(BaseValueList, IFilterable):
             return self.remove(value)
         else:
             return super().Add(context, value)
+
+
+    def removeItem(self, item):
+        del self.items[item.value - 1]
+
+
+    def removeValue(self, value):
+        idx = self.items.index(value)
+        if idx > -1:
+            del self.items[idx]
 
 
     def Multiply(self, context, value):
