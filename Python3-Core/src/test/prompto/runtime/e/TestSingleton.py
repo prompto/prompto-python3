@@ -13,6 +13,9 @@ class TestSingleton(BaseEParserTest):
     def testAttribute(self):
         self.checkOutput("singleton/attribute.pec")
 
+    def testConstructor(self):
+        self.checkOutput("singleton/constructor.pec")
+
     def testInternal(self):
         self.checkOutput("singleton/internal.pec")
 
