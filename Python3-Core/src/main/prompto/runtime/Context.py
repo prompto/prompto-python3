@@ -349,7 +349,7 @@ class Context(IContext):
                     raise InternalError("No such singleton:" + typ.typeName)
                 value = ConcreteInstance(self, decl)
                 value.mutable = True # a singleton is protected by "with x do", so always mutable in that context
-                method = decl.getConstructorMethod(self)
+                method = decl.getInitializeMethod(self)
                 if method is not None:
                     instance = self.newInstanceContext(value, False)
                     child = instance.newChildContext()

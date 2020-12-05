@@ -15,9 +15,9 @@ class SingletonCategoryDeclaration(ConcreteCategoryDeclaration):
     def categoryTypeToMDialect(self, writer):
         writer.append("singleton")
 
-    def getConstructorMethod(self, context):
+    def getInitializeMethod(self, context):
         self.registerMethods(context)
-        decl = self.methodsMap.get("constructor", None)
+        decl = self.methodsMap.get("initialize", None)
         from prompto.runtime.Context import MethodDeclarationMap
         if isinstance(decl, MethodDeclarationMap):
             method = decl.getFirst()

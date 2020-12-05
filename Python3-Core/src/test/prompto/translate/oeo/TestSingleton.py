@@ -8,8 +8,8 @@ class TestSingleton(BaseOParserTest):
     def testAttribute(self):
         self.compareResourceOEO("singleton/attribute.poc")
 
-    def testConstructor(self):
-        self.compareResourceOEO("singleton/constructor.poc")
+    def testInitialize(self):
+        self.compareResourceOEO("singleton/initialize.poc")
 
     def testInternal(self):
         self.compareResourceOEO("singleton/internal.poc")

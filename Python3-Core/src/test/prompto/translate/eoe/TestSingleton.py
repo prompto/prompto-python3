@@ -8,8 +8,8 @@ class TestSingleton(BaseEParserTest):
     def testAttribute(self):
         self.compareResourceEOE("singleton/attribute.pec")
 
-    def testConstructor(self):
-        self.compareResourceEOE("singleton/constructor.pec")
+    def testInitialize(self):
+        self.compareResourceEOE("singleton/initialize.pec")
 
     def testInternal(self):
         self.compareResourceEOE("singleton/internal.pec")
