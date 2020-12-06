@@ -13,6 +13,9 @@ class TestSingleton(BaseEParserTest):
     def testAttribute(self):
         self.checkOutput("singleton/attribute.pec")
 
+    def testDictionary(self):
+        self.checkOutput("singleton/dictionary.pec")
+
     def testInitialize(self):
         self.checkOutput("singleton/initialize.pec")
 

@@ -8,6 +8,9 @@ class TestSingleton(BaseEParserTest):
     def testAttribute(self):
         self.compareResourceEME("singleton/attribute.pec")
 
+    def testDictionary(self):
+        self.compareResourceEME("singleton/dictionary.pec")
+
     def testInitialize(self):
         self.compareResourceEME("singleton/initialize.pec")
 

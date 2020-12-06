@@ -8,6 +8,9 @@ class TestSingleton(BaseOParserTest):
     def testAttribute(self):
         self.compareResourceOEO("singleton/attribute.poc")
 
+    def testDictionary(self):
+        self.compareResourceOEO("singleton/dictionary.poc")
+
     def testInitialize(self):
         self.compareResourceOEO("singleton/initialize.poc")
 

@@ -13,6 +13,9 @@ class TestSingleton(BaseOParserTest):
     def testAttribute(self):
         self.checkOutput("singleton/attribute.poc")
 
+    def testDictionary(self):
+        self.checkOutput("singleton/dictionary.poc")
+
     def testInitialize(self):
         self.checkOutput("singleton/initialize.poc")
 
