@@ -8,6 +8,9 @@ class TestAdd(BaseOParserTest):
     def testAddCharacter(self):
         self.compareResourceOMO("add/addCharacter.poc")
 
+    def testAddCss(self):
+        self.compareResourceOMO("add/addCss.poc")
+
     def testAddDate(self):
         self.compareResourceOMO("add/addDate.poc")
 

@@ -8,6 +8,9 @@ class TestAdd(BaseEParserTest):
     def testAddCharacter(self):
         self.compareResourceEOE("add/addCharacter.pec")
 
+    def testAddCss(self):
+        self.compareResourceEOE("add/addCss.pec")
+
     def testAddDate(self):
         self.compareResourceEOE("add/addDate.pec")
 

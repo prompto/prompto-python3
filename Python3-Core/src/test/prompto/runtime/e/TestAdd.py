@@ -13,6 +13,9 @@ class TestAdd(BaseEParserTest):
     def testAddCharacter(self):
         self.checkOutput("add/addCharacter.pec")
 
+    def testAddCss(self):
+        self.checkOutput("add/addCss.pec")
+
     def testAddDate(self):
         self.checkOutput("add/addDate.pec")
 

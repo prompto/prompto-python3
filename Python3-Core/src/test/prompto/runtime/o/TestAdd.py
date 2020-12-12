@@ -13,6 +13,9 @@ class TestAdd(BaseOParserTest):
     def testAddCharacter(self):
         self.checkOutput("add/addCharacter.poc")
 
+    def testAddCss(self):
+        self.checkOutput("add/addCss.poc")
+
     def testAddDate(self):
         self.checkOutput("add/addDate.poc")
 
