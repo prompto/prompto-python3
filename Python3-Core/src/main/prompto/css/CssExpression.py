@@ -5,8 +5,8 @@ from prompto.value.CssValue import CssValue
 
 class CssExpression(IExpression):
 
-	def __init__(self, fields = []):
-		self.fields = fields
+	def __init__(self, fields = None):
+		self.fields = fields or []
 
 
 	def __str__(self):
