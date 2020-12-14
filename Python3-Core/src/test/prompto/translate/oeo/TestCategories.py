@@ -23,6 +23,9 @@ class TestCategories(BaseOParserTest):
     def testCopyFromStored(self):
         self.compareResourceOEO("categories/copyFromStored.poc")
 
+    def testEquals(self):
+        self.compareResourceOEO("categories/equals.poc")
+
     def testPopulateFalse(self):
         self.compareResourceOEO("categories/populateFalse.poc")
 
