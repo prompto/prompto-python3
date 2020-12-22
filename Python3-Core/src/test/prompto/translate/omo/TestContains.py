@@ -5,29 +5,29 @@ class TestContains(BaseOParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
-    def testContainsAllList(self):
-        self.compareResourceOMO("contains/containsAllList.poc")
+    def testHasAllList(self):
+        self.compareResourceOMO("contains/hasAllList.poc")
 
-    def testContainsAllSet(self):
-        self.compareResourceOMO("contains/containsAllSet.poc")
+    def testHasAllSet(self):
+        self.compareResourceOMO("contains/hasAllSet.poc")
 
-    def testContainsAllText(self):
-        self.compareResourceOMO("contains/containsAllText.poc")
+    def testHasAllText(self):
+        self.compareResourceOMO("contains/hasAllText.poc")
 
-    def testContainsAllTuple(self):
-        self.compareResourceOMO("contains/containsAllTuple.poc")
+    def testHasAllTuple(self):
+        self.compareResourceOMO("contains/hasAllTuple.poc")
 
-    def testContainsAnyList(self):
-        self.compareResourceOMO("contains/containsAnyList.poc")
+    def testHasAnyList(self):
+        self.compareResourceOMO("contains/hasAnyList.poc")
 
-    def testContainsAnySet(self):
-        self.compareResourceOMO("contains/containsAnySet.poc")
+    def testHasAnySet(self):
+        self.compareResourceOMO("contains/hasAnySet.poc")
 
-    def testContainsAnyText(self):
-        self.compareResourceOMO("contains/containsAnyText.poc")
+    def testHasAnyText(self):
+        self.compareResourceOMO("contains/hasAnyText.poc")
 
-    def testContainsAnyTuple(self):
-        self.compareResourceOMO("contains/containsAnyTuple.poc")
+    def testHasAnyTuple(self):
+        self.compareResourceOMO("contains/hasAnyTuple.poc")
 
     def testInCharacterRange(self):
         self.compareResourceOMO("contains/inCharacterRange.poc")

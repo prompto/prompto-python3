@@ -10,29 +10,29 @@ class TestContains(BaseOParserTest):
     def tearDown(self):
         Out.restore()
 
-    def testContainsAllList(self):
-        self.checkOutput("contains/containsAllList.poc")
+    def testHasAllList(self):
+        self.checkOutput("contains/hasAllList.poc")
 
-    def testContainsAllSet(self):
-        self.checkOutput("contains/containsAllSet.poc")
+    def testHasAllSet(self):
+        self.checkOutput("contains/hasAllSet.poc")
 
-    def testContainsAllText(self):
-        self.checkOutput("contains/containsAllText.poc")
+    def testHasAllText(self):
+        self.checkOutput("contains/hasAllText.poc")
 
-    def testContainsAllTuple(self):
-        self.checkOutput("contains/containsAllTuple.poc")
+    def testHasAllTuple(self):
+        self.checkOutput("contains/hasAllTuple.poc")
 
-    def testContainsAnyList(self):
-        self.checkOutput("contains/containsAnyList.poc")
+    def testHasAnyList(self):
+        self.checkOutput("contains/hasAnyList.poc")
 
-    def testContainsAnySet(self):
-        self.checkOutput("contains/containsAnySet.poc")
+    def testHasAnySet(self):
+        self.checkOutput("contains/hasAnySet.poc")
 
-    def testContainsAnyText(self):
-        self.checkOutput("contains/containsAnyText.poc")
+    def testHasAnyText(self):
+        self.checkOutput("contains/hasAnyText.poc")
 
-    def testContainsAnyTuple(self):
-        self.checkOutput("contains/containsAnyTuple.poc")
+    def testHasAnyTuple(self):
+        self.checkOutput("contains/hasAnyTuple.poc")
 
     def testInCharacterRange(self):
         self.checkOutput("contains/inCharacterRange.poc")

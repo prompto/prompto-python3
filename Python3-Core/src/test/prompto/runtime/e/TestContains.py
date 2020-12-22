@@ -10,41 +10,41 @@ class TestContains(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
-    def testContainsAllDict(self):
-        self.checkOutput("contains/containsAllDict.pec")
+    def testHasAllDict(self):
+        self.checkOutput("contains/hasAllDict.pec")
 
-    def testContainsAllList(self):
-        self.checkOutput("contains/containsAllList.pec")
+    def testHasAllList(self):
+        self.checkOutput("contains/hasAllList.pec")
 
-    def testContainsAllRange(self):
-        self.checkOutput("contains/containsAllRange.pec")
+    def testHasAllRange(self):
+        self.checkOutput("contains/hasAllRange.pec")
 
-    def testContainsAllSet(self):
-        self.checkOutput("contains/containsAllSet.pec")
+    def testHasAllSet(self):
+        self.checkOutput("contains/hasAllSet.pec")
 
-    def testContainsAllText(self):
-        self.checkOutput("contains/containsAllText.pec")
+    def testHasAllText(self):
+        self.checkOutput("contains/hasAllText.pec")
 
-    def testContainsAllTuple(self):
-        self.checkOutput("contains/containsAllTuple.pec")
+    def testHasAllTuple(self):
+        self.checkOutput("contains/hasAllTuple.pec")
 
-    def testContainsAnyDict(self):
-        self.checkOutput("contains/containsAnyDict.pec")
+    def testHasAnyDict(self):
+        self.checkOutput("contains/hasAnyDict.pec")
 
-    def testContainsAnyList(self):
-        self.checkOutput("contains/containsAnyList.pec")
+    def testHasAnyList(self):
+        self.checkOutput("contains/hasAnyList.pec")
 
-    def testContainsAnyRange(self):
-        self.checkOutput("contains/containsAnyRange.pec")
+    def testHasAnyRange(self):
+        self.checkOutput("contains/hasAnyRange.pec")
 
-    def testContainsAnySet(self):
-        self.checkOutput("contains/containsAnySet.pec")
+    def testHasAnySet(self):
+        self.checkOutput("contains/hasAnySet.pec")
 
-    def testContainsAnyText(self):
-        self.checkOutput("contains/containsAnyText.pec")
+    def testHasAnyText(self):
+        self.checkOutput("contains/hasAnyText.pec")
 
-    def testContainsAnyTuple(self):
-        self.checkOutput("contains/containsAnyTuple.pec")
+    def testHasAnyTuple(self):
+        self.checkOutput("contains/hasAnyTuple.pec")
 
     def testInCharacterRange(self):
         self.checkOutput("contains/inCharacterRange.pec")

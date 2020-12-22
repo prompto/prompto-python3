@@ -5,41 +5,41 @@ class TestContains(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
-    def testContainsAllDict(self):
-        self.compareResourceEOE("contains/containsAllDict.pec")
+    def testHasAllDict(self):
+        self.compareResourceEOE("contains/hasAllDict.pec")
 
-    def testContainsAllList(self):
-        self.compareResourceEOE("contains/containsAllList.pec")
+    def testHasAllList(self):
+        self.compareResourceEOE("contains/hasAllList.pec")
 
-    def testContainsAllRange(self):
-        self.compareResourceEOE("contains/containsAllRange.pec")
+    def testHasAllRange(self):
+        self.compareResourceEOE("contains/hasAllRange.pec")
 
-    def testContainsAllSet(self):
-        self.compareResourceEOE("contains/containsAllSet.pec")
+    def testHasAllSet(self):
+        self.compareResourceEOE("contains/hasAllSet.pec")
 
-    def testContainsAllText(self):
-        self.compareResourceEOE("contains/containsAllText.pec")
+    def testHasAllText(self):
+        self.compareResourceEOE("contains/hasAllText.pec")
 
-    def testContainsAllTuple(self):
-        self.compareResourceEOE("contains/containsAllTuple.pec")
+    def testHasAllTuple(self):
+        self.compareResourceEOE("contains/hasAllTuple.pec")
 
-    def testContainsAnyDict(self):
-        self.compareResourceEOE("contains/containsAnyDict.pec")
+    def testHasAnyDict(self):
+        self.compareResourceEOE("contains/hasAnyDict.pec")
 
-    def testContainsAnyList(self):
-        self.compareResourceEOE("contains/containsAnyList.pec")
+    def testHasAnyList(self):
+        self.compareResourceEOE("contains/hasAnyList.pec")
 
-    def testContainsAnyRange(self):
-        self.compareResourceEOE("contains/containsAnyRange.pec")
+    def testHasAnyRange(self):
+        self.compareResourceEOE("contains/hasAnyRange.pec")
 
-    def testContainsAnySet(self):
-        self.compareResourceEOE("contains/containsAnySet.pec")
+    def testHasAnySet(self):
+        self.compareResourceEOE("contains/hasAnySet.pec")
 
-    def testContainsAnyText(self):
-        self.compareResourceEOE("contains/containsAnyText.pec")
+    def testHasAnyText(self):
+        self.compareResourceEOE("contains/hasAnyText.pec")
 
-    def testContainsAnyTuple(self):
-        self.compareResourceEOE("contains/containsAnyTuple.pec")
+    def testHasAnyTuple(self):
+        self.compareResourceEOE("contains/hasAnyTuple.pec")
 
     def testInCharacterRange(self):
         self.compareResourceEOE("contains/inCharacterRange.pec")
