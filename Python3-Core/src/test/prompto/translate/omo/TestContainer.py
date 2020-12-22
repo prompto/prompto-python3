@@ -1,86 +1,86 @@
 from prompto.parser.o.BaseOParserTest import BaseOParserTest
 
-class TestContains(BaseOParserTest):
+class TestContainer(BaseOParserTest):
     
     def setUp(self):
         super(type(self), self).setUp()
     
     def testHasAllList(self):
-        self.compareResourceOMO("contains/hasAllList.poc")
+        self.compareResourceOMO("container/hasAllList.poc")
 
     def testHasAllSet(self):
-        self.compareResourceOMO("contains/hasAllSet.poc")
+        self.compareResourceOMO("container/hasAllSet.poc")
 
     def testHasAllText(self):
-        self.compareResourceOMO("contains/hasAllText.poc")
+        self.compareResourceOMO("container/hasAllText.poc")
 
     def testHasAllTuple(self):
-        self.compareResourceOMO("contains/hasAllTuple.poc")
+        self.compareResourceOMO("container/hasAllTuple.poc")
 
     def testHasAnyList(self):
-        self.compareResourceOMO("contains/hasAnyList.poc")
+        self.compareResourceOMO("container/hasAnyList.poc")
 
     def testHasAnySet(self):
-        self.compareResourceOMO("contains/hasAnySet.poc")
+        self.compareResourceOMO("container/hasAnySet.poc")
 
     def testHasAnyText(self):
-        self.compareResourceOMO("contains/hasAnyText.poc")
+        self.compareResourceOMO("container/hasAnyText.poc")
 
     def testHasAnyTuple(self):
-        self.compareResourceOMO("contains/hasAnyTuple.poc")
+        self.compareResourceOMO("container/hasAnyTuple.poc")
 
     def testInCharacterRange(self):
-        self.compareResourceOMO("contains/inCharacterRange.poc")
+        self.compareResourceOMO("container/inCharacterRange.poc")
 
     def testInDateRange(self):
-        self.compareResourceOMO("contains/inDateRange.poc")
+        self.compareResourceOMO("container/inDateRange.poc")
 
     def testInDict(self):
-        self.compareResourceOMO("contains/inDict.poc")
+        self.compareResourceOMO("container/inDict.poc")
 
     def testInIntegerRange(self):
-        self.compareResourceOMO("contains/inIntegerRange.poc")
+        self.compareResourceOMO("container/inIntegerRange.poc")
 
     def testInList(self):
-        self.compareResourceOMO("contains/inList.poc")
+        self.compareResourceOMO("container/inList.poc")
 
     def testInSet(self):
-        self.compareResourceOMO("contains/inSet.poc")
+        self.compareResourceOMO("container/inSet.poc")
 
     def testInText(self):
-        self.compareResourceOMO("contains/inText.poc")
+        self.compareResourceOMO("container/inText.poc")
 
     def testInTextEnum(self):
-        self.compareResourceOMO("contains/inTextEnum.poc")
+        self.compareResourceOMO("container/inTextEnum.poc")
 
     def testInTimeRange(self):
-        self.compareResourceOMO("contains/inTimeRange.poc")
+        self.compareResourceOMO("container/inTimeRange.poc")
 
     def testInTuple(self):
-        self.compareResourceOMO("contains/inTuple.poc")
+        self.compareResourceOMO("container/inTuple.poc")
 
     def testNinCharacterRange(self):
-        self.compareResourceOMO("contains/ninCharacterRange.poc")
+        self.compareResourceOMO("container/ninCharacterRange.poc")
 
     def testNinDateRange(self):
-        self.compareResourceOMO("contains/ninDateRange.poc")
+        self.compareResourceOMO("container/ninDateRange.poc")
 
     def testNinDict(self):
-        self.compareResourceOMO("contains/ninDict.poc")
+        self.compareResourceOMO("container/ninDict.poc")
 
     def testNinIntegerRange(self):
-        self.compareResourceOMO("contains/ninIntegerRange.poc")
+        self.compareResourceOMO("container/ninIntegerRange.poc")
 
     def testNinList(self):
-        self.compareResourceOMO("contains/ninList.poc")
+        self.compareResourceOMO("container/ninList.poc")
 
     def testNinSet(self):
-        self.compareResourceOMO("contains/ninSet.poc")
+        self.compareResourceOMO("container/ninSet.poc")
 
     def testNinText(self):
-        self.compareResourceOMO("contains/ninText.poc")
+        self.compareResourceOMO("container/ninText.poc")
 
     def testNinTimeRange(self):
-        self.compareResourceOMO("contains/ninTimeRange.poc")
+        self.compareResourceOMO("container/ninTimeRange.poc")
 
 

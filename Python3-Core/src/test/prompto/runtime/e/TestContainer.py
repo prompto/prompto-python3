@@ -1,7 +1,7 @@
 from prompto.parser.e.BaseEParserTest import BaseEParserTest
 from prompto.runtime.utils.Out import Out
 
-class TestContains(BaseEParserTest):
+class TestContainer(BaseEParserTest):
     
     def setUp(self):
         super(type(self), self).setUp()
@@ -11,93 +11,93 @@ class TestContains(BaseEParserTest):
         Out.restore()
 
     def testHasAllDict(self):
-        self.checkOutput("contains/hasAllDict.pec")
+        self.checkOutput("container/hasAllDict.pec")
 
     def testHasAllList(self):
-        self.checkOutput("contains/hasAllList.pec")
+        self.checkOutput("container/hasAllList.pec")
 
     def testHasAllRange(self):
-        self.checkOutput("contains/hasAllRange.pec")
+        self.checkOutput("container/hasAllRange.pec")
 
     def testHasAllSet(self):
-        self.checkOutput("contains/hasAllSet.pec")
+        self.checkOutput("container/hasAllSet.pec")
 
     def testHasAllText(self):
-        self.checkOutput("contains/hasAllText.pec")
+        self.checkOutput("container/hasAllText.pec")
 
     def testHasAllTuple(self):
-        self.checkOutput("contains/hasAllTuple.pec")
+        self.checkOutput("container/hasAllTuple.pec")
 
     def testHasAnyDict(self):
-        self.checkOutput("contains/hasAnyDict.pec")
+        self.checkOutput("container/hasAnyDict.pec")
 
     def testHasAnyList(self):
-        self.checkOutput("contains/hasAnyList.pec")
+        self.checkOutput("container/hasAnyList.pec")
 
     def testHasAnyRange(self):
-        self.checkOutput("contains/hasAnyRange.pec")
+        self.checkOutput("container/hasAnyRange.pec")
 
     def testHasAnySet(self):
-        self.checkOutput("contains/hasAnySet.pec")
+        self.checkOutput("container/hasAnySet.pec")
 
     def testHasAnyText(self):
-        self.checkOutput("contains/hasAnyText.pec")
+        self.checkOutput("container/hasAnyText.pec")
 
     def testHasAnyTuple(self):
-        self.checkOutput("contains/hasAnyTuple.pec")
+        self.checkOutput("container/hasAnyTuple.pec")
 
     def testInCharacterRange(self):
-        self.checkOutput("contains/inCharacterRange.pec")
+        self.checkOutput("container/inCharacterRange.pec")
 
     def testInDateRange(self):
-        self.checkOutput("contains/inDateRange.pec")
+        self.checkOutput("container/inDateRange.pec")
 
     def testInDict(self):
-        self.checkOutput("contains/inDict.pec")
+        self.checkOutput("container/inDict.pec")
 
     def testInIntegerRange(self):
-        self.checkOutput("contains/inIntegerRange.pec")
+        self.checkOutput("container/inIntegerRange.pec")
 
     def testInList(self):
-        self.checkOutput("contains/inList.pec")
+        self.checkOutput("container/inList.pec")
 
     def testInSet(self):
-        self.checkOutput("contains/inSet.pec")
+        self.checkOutput("container/inSet.pec")
 
     def testInText(self):
-        self.checkOutput("contains/inText.pec")
+        self.checkOutput("container/inText.pec")
 
     def testInTextEnum(self):
-        self.checkOutput("contains/inTextEnum.pec")
+        self.checkOutput("container/inTextEnum.pec")
 
     def testInTimeRange(self):
-        self.checkOutput("contains/inTimeRange.pec")
+        self.checkOutput("container/inTimeRange.pec")
 
     def testInTuple(self):
-        self.checkOutput("contains/inTuple.pec")
+        self.checkOutput("container/inTuple.pec")
 
     def testNinCharacterRange(self):
-        self.checkOutput("contains/ninCharacterRange.pec")
+        self.checkOutput("container/ninCharacterRange.pec")
 
     def testNinDateRange(self):
-        self.checkOutput("contains/ninDateRange.pec")
+        self.checkOutput("container/ninDateRange.pec")
 
     def testNinDict(self):
-        self.checkOutput("contains/ninDict.pec")
+        self.checkOutput("container/ninDict.pec")
 
     def testNinIntegerRange(self):
-        self.checkOutput("contains/ninIntegerRange.pec")
+        self.checkOutput("container/ninIntegerRange.pec")
 
     def testNinList(self):
-        self.checkOutput("contains/ninList.pec")
+        self.checkOutput("container/ninList.pec")
 
     def testNinSet(self):
-        self.checkOutput("contains/ninSet.pec")
+        self.checkOutput("container/ninSet.pec")
 
     def testNinText(self):
-        self.checkOutput("contains/ninText.pec")
+        self.checkOutput("container/ninText.pec")
 
     def testNinTimeRange(self):
-        self.checkOutput("contains/ninTimeRange.pec")
+        self.checkOutput("container/ninTimeRange.pec")
 
 

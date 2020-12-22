@@ -1,98 +1,98 @@
 from prompto.parser.e.BaseEParserTest import BaseEParserTest
 
-class TestContains(BaseEParserTest):
+class TestContainer(BaseEParserTest):
     
     def setUp(self):
         super(type(self), self).setUp()
     
     def testHasAllDict(self):
-        self.compareResourceEOE("contains/hasAllDict.pec")
+        self.compareResourceEOE("container/hasAllDict.pec")
 
     def testHasAllList(self):
-        self.compareResourceEOE("contains/hasAllList.pec")
+        self.compareResourceEOE("container/hasAllList.pec")
 
     def testHasAllRange(self):
-        self.compareResourceEOE("contains/hasAllRange.pec")
+        self.compareResourceEOE("container/hasAllRange.pec")
 
     def testHasAllSet(self):
-        self.compareResourceEOE("contains/hasAllSet.pec")
+        self.compareResourceEOE("container/hasAllSet.pec")
 
     def testHasAllText(self):
-        self.compareResourceEOE("contains/hasAllText.pec")
+        self.compareResourceEOE("container/hasAllText.pec")
 
     def testHasAllTuple(self):
-        self.compareResourceEOE("contains/hasAllTuple.pec")
+        self.compareResourceEOE("container/hasAllTuple.pec")
 
     def testHasAnyDict(self):
-        self.compareResourceEOE("contains/hasAnyDict.pec")
+        self.compareResourceEOE("container/hasAnyDict.pec")
 
     def testHasAnyList(self):
-        self.compareResourceEOE("contains/hasAnyList.pec")
+        self.compareResourceEOE("container/hasAnyList.pec")
 
     def testHasAnyRange(self):
-        self.compareResourceEOE("contains/hasAnyRange.pec")
+        self.compareResourceEOE("container/hasAnyRange.pec")
 
     def testHasAnySet(self):
-        self.compareResourceEOE("contains/hasAnySet.pec")
+        self.compareResourceEOE("container/hasAnySet.pec")
 
     def testHasAnyText(self):
-        self.compareResourceEOE("contains/hasAnyText.pec")
+        self.compareResourceEOE("container/hasAnyText.pec")
 
     def testHasAnyTuple(self):
-        self.compareResourceEOE("contains/hasAnyTuple.pec")
+        self.compareResourceEOE("container/hasAnyTuple.pec")
 
     def testInCharacterRange(self):
-        self.compareResourceEOE("contains/inCharacterRange.pec")
+        self.compareResourceEOE("container/inCharacterRange.pec")
 
     def testInDateRange(self):
-        self.compareResourceEOE("contains/inDateRange.pec")
+        self.compareResourceEOE("container/inDateRange.pec")
 
     def testInDict(self):
-        self.compareResourceEOE("contains/inDict.pec")
+        self.compareResourceEOE("container/inDict.pec")
 
     def testInIntegerRange(self):
-        self.compareResourceEOE("contains/inIntegerRange.pec")
+        self.compareResourceEOE("container/inIntegerRange.pec")
 
     def testInList(self):
-        self.compareResourceEOE("contains/inList.pec")
+        self.compareResourceEOE("container/inList.pec")
 
     def testInSet(self):
-        self.compareResourceEOE("contains/inSet.pec")
+        self.compareResourceEOE("container/inSet.pec")
 
     def testInText(self):
-        self.compareResourceEOE("contains/inText.pec")
+        self.compareResourceEOE("container/inText.pec")
 
     def testInTextEnum(self):
-        self.compareResourceEOE("contains/inTextEnum.pec")
+        self.compareResourceEOE("container/inTextEnum.pec")
 
     def testInTimeRange(self):
-        self.compareResourceEOE("contains/inTimeRange.pec")
+        self.compareResourceEOE("container/inTimeRange.pec")
 
     def testInTuple(self):
-        self.compareResourceEOE("contains/inTuple.pec")
+        self.compareResourceEOE("container/inTuple.pec")
 
     def testNinCharacterRange(self):
-        self.compareResourceEOE("contains/ninCharacterRange.pec")
+        self.compareResourceEOE("container/ninCharacterRange.pec")
 
     def testNinDateRange(self):
-        self.compareResourceEOE("contains/ninDateRange.pec")
+        self.compareResourceEOE("container/ninDateRange.pec")
 
     def testNinDict(self):
-        self.compareResourceEOE("contains/ninDict.pec")
+        self.compareResourceEOE("container/ninDict.pec")
 
     def testNinIntegerRange(self):
-        self.compareResourceEOE("contains/ninIntegerRange.pec")
+        self.compareResourceEOE("container/ninIntegerRange.pec")
 
     def testNinList(self):
-        self.compareResourceEOE("contains/ninList.pec")
+        self.compareResourceEOE("container/ninList.pec")
 
     def testNinSet(self):
-        self.compareResourceEOE("contains/ninSet.pec")
+        self.compareResourceEOE("container/ninSet.pec")
 
     def testNinText(self):
-        self.compareResourceEOE("contains/ninText.pec")
+        self.compareResourceEOE("container/ninText.pec")
 
     def testNinTimeRange(self):
-        self.compareResourceEOE("contains/ninTimeRange.pec")
+        self.compareResourceEOE("container/ninTimeRange.pec")
 
 

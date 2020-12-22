@@ -1,98 +1,98 @@
 from prompto.parser.e.BaseEParserTest import BaseEParserTest
 
-class TestContains(BaseEParserTest):
+class TestContainer(BaseEParserTest):
     
     def setUp(self):
         super(type(self), self).setUp()
     
     def testHasAllDict(self):
-        self.compareResourceEME("contains/hasAllDict.pec")
+        self.compareResourceEME("container/hasAllDict.pec")
 
     def testHasAllList(self):
-        self.compareResourceEME("contains/hasAllList.pec")
+        self.compareResourceEME("container/hasAllList.pec")
 
     def testHasAllRange(self):
-        self.compareResourceEME("contains/hasAllRange.pec")
+        self.compareResourceEME("container/hasAllRange.pec")
 
     def testHasAllSet(self):
-        self.compareResourceEME("contains/hasAllSet.pec")
+        self.compareResourceEME("container/hasAllSet.pec")
 
     def testHasAllText(self):
-        self.compareResourceEME("contains/hasAllText.pec")
+        self.compareResourceEME("container/hasAllText.pec")
 
     def testHasAllTuple(self):
-        self.compareResourceEME("contains/hasAllTuple.pec")
+        self.compareResourceEME("container/hasAllTuple.pec")
 
     def testHasAnyDict(self):
-        self.compareResourceEME("contains/hasAnyDict.pec")
+        self.compareResourceEME("container/hasAnyDict.pec")
 
     def testHasAnyList(self):
-        self.compareResourceEME("contains/hasAnyList.pec")
+        self.compareResourceEME("container/hasAnyList.pec")
 
     def testHasAnyRange(self):
-        self.compareResourceEME("contains/hasAnyRange.pec")
+        self.compareResourceEME("container/hasAnyRange.pec")
 
     def testHasAnySet(self):
-        self.compareResourceEME("contains/hasAnySet.pec")
+        self.compareResourceEME("container/hasAnySet.pec")
 
     def testHasAnyText(self):
-        self.compareResourceEME("contains/hasAnyText.pec")
+        self.compareResourceEME("container/hasAnyText.pec")
 
     def testHasAnyTuple(self):
-        self.compareResourceEME("contains/hasAnyTuple.pec")
+        self.compareResourceEME("container/hasAnyTuple.pec")
 
     def testInCharacterRange(self):
-        self.compareResourceEME("contains/inCharacterRange.pec")
+        self.compareResourceEME("container/inCharacterRange.pec")
 
     def testInDateRange(self):
-        self.compareResourceEME("contains/inDateRange.pec")
+        self.compareResourceEME("container/inDateRange.pec")
 
     def testInDict(self):
-        self.compareResourceEME("contains/inDict.pec")
+        self.compareResourceEME("container/inDict.pec")
 
     def testInIntegerRange(self):
-        self.compareResourceEME("contains/inIntegerRange.pec")
+        self.compareResourceEME("container/inIntegerRange.pec")
 
     def testInList(self):
-        self.compareResourceEME("contains/inList.pec")
+        self.compareResourceEME("container/inList.pec")
 
     def testInSet(self):
-        self.compareResourceEME("contains/inSet.pec")
+        self.compareResourceEME("container/inSet.pec")
 
     def testInText(self):
-        self.compareResourceEME("contains/inText.pec")
+        self.compareResourceEME("container/inText.pec")
 
     def testInTextEnum(self):
-        self.compareResourceEME("contains/inTextEnum.pec")
+        self.compareResourceEME("container/inTextEnum.pec")
 
     def testInTimeRange(self):
-        self.compareResourceEME("contains/inTimeRange.pec")
+        self.compareResourceEME("container/inTimeRange.pec")
 
     def testInTuple(self):
-        self.compareResourceEME("contains/inTuple.pec")
+        self.compareResourceEME("container/inTuple.pec")
 
     def testNinCharacterRange(self):
-        self.compareResourceEME("contains/ninCharacterRange.pec")
+        self.compareResourceEME("container/ninCharacterRange.pec")
 
     def testNinDateRange(self):
-        self.compareResourceEME("contains/ninDateRange.pec")
+        self.compareResourceEME("container/ninDateRange.pec")
 
     def testNinDict(self):
-        self.compareResourceEME("contains/ninDict.pec")
+        self.compareResourceEME("container/ninDict.pec")
 
     def testNinIntegerRange(self):
-        self.compareResourceEME("contains/ninIntegerRange.pec")
+        self.compareResourceEME("container/ninIntegerRange.pec")
 
     def testNinList(self):
-        self.compareResourceEME("contains/ninList.pec")
+        self.compareResourceEME("container/ninList.pec")
 
     def testNinSet(self):
-        self.compareResourceEME("contains/ninSet.pec")
+        self.compareResourceEME("container/ninSet.pec")
 
     def testNinText(self):
-        self.compareResourceEME("contains/ninText.pec")
+        self.compareResourceEME("container/ninText.pec")
 
     def testNinTimeRange(self):
-        self.compareResourceEME("contains/ninTimeRange.pec")
+        self.compareResourceEME("container/ninTimeRange.pec")
 
 

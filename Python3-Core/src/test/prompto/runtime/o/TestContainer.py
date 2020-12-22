@@ -1,7 +1,7 @@
 from prompto.parser.o.BaseOParserTest import BaseOParserTest
 from prompto.runtime.utils.Out import Out
 
-class TestContains(BaseOParserTest):
+class TestContainer(BaseOParserTest):
     
     def setUp(self):
         super(type(self), self).setUp()
@@ -11,81 +11,81 @@ class TestContains(BaseOParserTest):
         Out.restore()
 
     def testHasAllList(self):
-        self.checkOutput("contains/hasAllList.poc")
+        self.checkOutput("container/hasAllList.poc")
 
     def testHasAllSet(self):
-        self.checkOutput("contains/hasAllSet.poc")
+        self.checkOutput("container/hasAllSet.poc")
 
     def testHasAllText(self):
-        self.checkOutput("contains/hasAllText.poc")
+        self.checkOutput("container/hasAllText.poc")
 
     def testHasAllTuple(self):
-        self.checkOutput("contains/hasAllTuple.poc")
+        self.checkOutput("container/hasAllTuple.poc")
 
     def testHasAnyList(self):
-        self.checkOutput("contains/hasAnyList.poc")
+        self.checkOutput("container/hasAnyList.poc")
 
     def testHasAnySet(self):
-        self.checkOutput("contains/hasAnySet.poc")
+        self.checkOutput("container/hasAnySet.poc")
 
     def testHasAnyText(self):
-        self.checkOutput("contains/hasAnyText.poc")
+        self.checkOutput("container/hasAnyText.poc")
 
     def testHasAnyTuple(self):
-        self.checkOutput("contains/hasAnyTuple.poc")
+        self.checkOutput("container/hasAnyTuple.poc")
 
     def testInCharacterRange(self):
-        self.checkOutput("contains/inCharacterRange.poc")
+        self.checkOutput("container/inCharacterRange.poc")
 
     def testInDateRange(self):
-        self.checkOutput("contains/inDateRange.poc")
+        self.checkOutput("container/inDateRange.poc")
 
     def testInDict(self):
-        self.checkOutput("contains/inDict.poc")
+        self.checkOutput("container/inDict.poc")
 
     def testInIntegerRange(self):
-        self.checkOutput("contains/inIntegerRange.poc")
+        self.checkOutput("container/inIntegerRange.poc")
 
     def testInList(self):
-        self.checkOutput("contains/inList.poc")
+        self.checkOutput("container/inList.poc")
 
     def testInSet(self):
-        self.checkOutput("contains/inSet.poc")
+        self.checkOutput("container/inSet.poc")
 
     def testInText(self):
-        self.checkOutput("contains/inText.poc")
+        self.checkOutput("container/inText.poc")
 
     def testInTextEnum(self):
-        self.checkOutput("contains/inTextEnum.poc")
+        self.checkOutput("container/inTextEnum.poc")
 
     def testInTimeRange(self):
-        self.checkOutput("contains/inTimeRange.poc")
+        self.checkOutput("container/inTimeRange.poc")
 
     def testInTuple(self):
-        self.checkOutput("contains/inTuple.poc")
+        self.checkOutput("container/inTuple.poc")
 
     def testNinCharacterRange(self):
-        self.checkOutput("contains/ninCharacterRange.poc")
+        self.checkOutput("container/ninCharacterRange.poc")
 
     def testNinDateRange(self):
-        self.checkOutput("contains/ninDateRange.poc")
+        self.checkOutput("container/ninDateRange.poc")
 
     def testNinDict(self):
-        self.checkOutput("contains/ninDict.poc")
+        self.checkOutput("container/ninDict.poc")
 
     def testNinIntegerRange(self):
-        self.checkOutput("contains/ninIntegerRange.poc")
+        self.checkOutput("container/ninIntegerRange.poc")
 
     def testNinList(self):
-        self.checkOutput("contains/ninList.poc")
+        self.checkOutput("container/ninList.poc")
 
     def testNinSet(self):
-        self.checkOutput("contains/ninSet.poc")
+        self.checkOutput("container/ninSet.poc")
 
     def testNinText(self):
-        self.checkOutput("contains/ninText.poc")
+        self.checkOutput("container/ninText.poc")
 
     def testNinTimeRange(self):
-        self.checkOutput("contains/ninTimeRange.poc")
+        self.checkOutput("container/ninTimeRange.poc")
 
 

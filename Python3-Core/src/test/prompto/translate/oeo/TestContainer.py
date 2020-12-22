@@ -1,86 +1,86 @@
 from prompto.parser.o.BaseOParserTest import BaseOParserTest
 
-class TestContains(BaseOParserTest):
+class TestContainer(BaseOParserTest):
     
     def setUp(self):
         super(type(self), self).setUp()
     
     def testHasAllList(self):
-        self.compareResourceOEO("contains/hasAllList.poc")
+        self.compareResourceOEO("container/hasAllList.poc")
 
     def testHasAllSet(self):
-        self.compareResourceOEO("contains/hasAllSet.poc")
+        self.compareResourceOEO("container/hasAllSet.poc")
 
     def testHasAllText(self):
-        self.compareResourceOEO("contains/hasAllText.poc")
+        self.compareResourceOEO("container/hasAllText.poc")
 
     def testHasAllTuple(self):
-        self.compareResourceOEO("contains/hasAllTuple.poc")
+        self.compareResourceOEO("container/hasAllTuple.poc")
 
     def testHasAnyList(self):
-        self.compareResourceOEO("contains/hasAnyList.poc")
+        self.compareResourceOEO("container/hasAnyList.poc")
 
     def testHasAnySet(self):
-        self.compareResourceOEO("contains/hasAnySet.poc")
+        self.compareResourceOEO("container/hasAnySet.poc")
 
     def testHasAnyText(self):
-        self.compareResourceOEO("contains/hasAnyText.poc")
+        self.compareResourceOEO("container/hasAnyText.poc")
 
     def testHasAnyTuple(self):
-        self.compareResourceOEO("contains/hasAnyTuple.poc")
+        self.compareResourceOEO("container/hasAnyTuple.poc")
 
     def testInCharacterRange(self):
-        self.compareResourceOEO("contains/inCharacterRange.poc")
+        self.compareResourceOEO("container/inCharacterRange.poc")
 
     def testInDateRange(self):
-        self.compareResourceOEO("contains/inDateRange.poc")
+        self.compareResourceOEO("container/inDateRange.poc")
 
     def testInDict(self):
-        self.compareResourceOEO("contains/inDict.poc")
+        self.compareResourceOEO("container/inDict.poc")
 
     def testInIntegerRange(self):
-        self.compareResourceOEO("contains/inIntegerRange.poc")
+        self.compareResourceOEO("container/inIntegerRange.poc")
 
     def testInList(self):
-        self.compareResourceOEO("contains/inList.poc")
+        self.compareResourceOEO("container/inList.poc")
 
     def testInSet(self):
-        self.compareResourceOEO("contains/inSet.poc")
+        self.compareResourceOEO("container/inSet.poc")
 
     def testInText(self):
-        self.compareResourceOEO("contains/inText.poc")
+        self.compareResourceOEO("container/inText.poc")
 
     def testInTextEnum(self):
-        self.compareResourceOEO("contains/inTextEnum.poc")
+        self.compareResourceOEO("container/inTextEnum.poc")
 
     def testInTimeRange(self):
-        self.compareResourceOEO("contains/inTimeRange.poc")
+        self.compareResourceOEO("container/inTimeRange.poc")
 
     def testInTuple(self):
-        self.compareResourceOEO("contains/inTuple.poc")
+        self.compareResourceOEO("container/inTuple.poc")
 
     def testNinCharacterRange(self):
-        self.compareResourceOEO("contains/ninCharacterRange.poc")
+        self.compareResourceOEO("container/ninCharacterRange.poc")
 
     def testNinDateRange(self):
-        self.compareResourceOEO("contains/ninDateRange.poc")
+        self.compareResourceOEO("container/ninDateRange.poc")
 
     def testNinDict(self):
-        self.compareResourceOEO("contains/ninDict.poc")
+        self.compareResourceOEO("container/ninDict.poc")
 
     def testNinIntegerRange(self):
-        self.compareResourceOEO("contains/ninIntegerRange.poc")
+        self.compareResourceOEO("container/ninIntegerRange.poc")
 
     def testNinList(self):
-        self.compareResourceOEO("contains/ninList.poc")
+        self.compareResourceOEO("container/ninList.poc")
 
     def testNinSet(self):
-        self.compareResourceOEO("contains/ninSet.poc")
+        self.compareResourceOEO("container/ninSet.poc")
 
     def testNinText(self):
-        self.compareResourceOEO("contains/ninText.poc")
+        self.compareResourceOEO("container/ninText.poc")
 
     def testNinTimeRange(self):
-        self.compareResourceOEO("contains/ninTimeRange.poc")
+        self.compareResourceOEO("container/ninTimeRange.poc")
 
 
