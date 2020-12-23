@@ -30,7 +30,7 @@ class ExplicitPredicateExpression(PredicateExpression, IExpression):
         writer.context.registerValue(Variable(self.itemName, itemType))
         if writer.dialect is Dialect.O:
             writer.append("filtered (")
-            source.ToDialect(writer)
+            source.toDialect(writer)
             writer.append(") with (") \
                 .append(self.itemName) \
                 .append(") where (")
