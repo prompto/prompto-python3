@@ -710,15 +710,6 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#NotEqualsExpression.
-    def enterNotEqualsExpression(self, ctx:OParser.NotEqualsExpressionContext):
-        pass
-
-    # Exit a parse tree produced by OParser#NotEqualsExpression.
-    def exitNotEqualsExpression(self, ctx:OParser.NotEqualsExpressionContext):
-        pass
-
-
     # Enter a parse tree produced by OParser#InExpression.
     def enterInExpression(self, ctx:OParser.InExpressionContext):
         pass
@@ -755,12 +746,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#GreaterThanExpression.
-    def enterGreaterThanExpression(self, ctx:OParser.GreaterThanExpressionContext):
+    # Enter a parse tree produced by OParser#CompareExpression.
+    def enterCompareExpression(self, ctx:OParser.CompareExpressionContext):
         pass
 
-    # Exit a parse tree produced by OParser#GreaterThanExpression.
-    def exitGreaterThanExpression(self, ctx:OParser.GreaterThanExpressionContext):
+    # Exit a parse tree produced by OParser#CompareExpression.
+    def exitCompareExpression(self, ctx:OParser.CompareExpressionContext):
         pass
 
 
@@ -782,24 +773,6 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#LessThanOrEqualExpression.
-    def enterLessThanOrEqualExpression(self, ctx:OParser.LessThanOrEqualExpressionContext):
-        pass
-
-    # Exit a parse tree produced by OParser#LessThanOrEqualExpression.
-    def exitLessThanOrEqualExpression(self, ctx:OParser.LessThanOrEqualExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by OParser#NotHasAnyExpression.
-    def enterNotHasAnyExpression(self, ctx:OParser.NotHasAnyExpressionContext):
-        pass
-
-    # Exit a parse tree produced by OParser#NotHasAnyExpression.
-    def exitNotHasAnyExpression(self, ctx:OParser.NotHasAnyExpressionContext):
-        pass
-
-
     # Enter a parse tree produced by OParser#AndExpression.
     def enterAndExpression(self, ctx:OParser.AndExpressionContext):
         pass
@@ -818,30 +791,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#NotHasExpression.
-    def enterNotHasExpression(self, ctx:OParser.NotHasExpressionContext):
-        pass
-
-    # Exit a parse tree produced by OParser#NotHasExpression.
-    def exitNotHasExpression(self, ctx:OParser.NotHasExpressionContext):
-        pass
-
-
     # Enter a parse tree produced by OParser#ClosureExpression.
     def enterClosureExpression(self, ctx:OParser.ClosureExpressionContext):
         pass
 
     # Exit a parse tree produced by OParser#ClosureExpression.
     def exitClosureExpression(self, ctx:OParser.ClosureExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by OParser#NotHasAllExpression.
-    def enterNotHasAllExpression(self, ctx:OParser.NotHasAllExpressionContext):
-        pass
-
-    # Exit a parse tree produced by OParser#NotHasAllExpression.
-    def exitNotHasAllExpression(self, ctx:OParser.NotHasAllExpressionContext):
         pass
 
 
@@ -854,39 +809,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#NotContainsExpression.
-    def enterNotContainsExpression(self, ctx:OParser.NotContainsExpressionContext):
-        pass
-
-    # Exit a parse tree produced by OParser#NotContainsExpression.
-    def exitNotContainsExpression(self, ctx:OParser.NotContainsExpressionContext):
-        pass
-
-
     # Enter a parse tree produced by OParser#MultiplyExpression.
     def enterMultiplyExpression(self, ctx:OParser.MultiplyExpressionContext):
         pass
 
     # Exit a parse tree produced by OParser#MultiplyExpression.
     def exitMultiplyExpression(self, ctx:OParser.MultiplyExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by OParser#RoughlyEqualsExpression.
-    def enterRoughlyEqualsExpression(self, ctx:OParser.RoughlyEqualsExpressionContext):
-        pass
-
-    # Exit a parse tree produced by OParser#RoughlyEqualsExpression.
-    def exitRoughlyEqualsExpression(self, ctx:OParser.RoughlyEqualsExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by OParser#IsNotAnExpression.
-    def enterIsNotAnExpression(self, ctx:OParser.IsNotAnExpressionContext):
-        pass
-
-    # Exit a parse tree produced by OParser#IsNotAnExpression.
-    def exitIsNotAnExpression(self, ctx:OParser.IsNotAnExpressionContext):
         pass
 
 
@@ -899,39 +827,12 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#GreaterThanOrEqualExpression.
-    def enterGreaterThanOrEqualExpression(self, ctx:OParser.GreaterThanOrEqualExpressionContext):
-        pass
-
-    # Exit a parse tree produced by OParser#GreaterThanOrEqualExpression.
-    def exitGreaterThanOrEqualExpression(self, ctx:OParser.GreaterThanOrEqualExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by OParser#NotInExpression.
-    def enterNotInExpression(self, ctx:OParser.NotInExpressionContext):
-        pass
-
-    # Exit a parse tree produced by OParser#NotInExpression.
-    def exitNotInExpression(self, ctx:OParser.NotInExpressionContext):
-        pass
-
-
     # Enter a parse tree produced by OParser#IteratorExpression.
     def enterIteratorExpression(self, ctx:OParser.IteratorExpressionContext):
         pass
 
     # Exit a parse tree produced by OParser#IteratorExpression.
     def exitIteratorExpression(self, ctx:OParser.IteratorExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by OParser#IsNotExpression.
-    def enterIsNotExpression(self, ctx:OParser.IsNotExpressionContext):
-        pass
-
-    # Exit a parse tree produced by OParser#IsNotExpression.
-    def exitIsNotExpression(self, ctx:OParser.IsNotExpressionContext):
         pass
 
 
@@ -1025,21 +926,39 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#LessThanExpression.
-    def enterLessThanExpression(self, ctx:OParser.LessThanExpressionContext):
-        pass
-
-    # Exit a parse tree produced by OParser#LessThanExpression.
-    def exitLessThanExpression(self, ctx:OParser.LessThanExpressionContext):
-        pass
-
-
     # Enter a parse tree produced by OParser#EqualsExpression.
     def enterEqualsExpression(self, ctx:OParser.EqualsExpressionContext):
         pass
 
     # Exit a parse tree produced by OParser#EqualsExpression.
     def exitEqualsExpression(self, ctx:OParser.EqualsExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#ArrowFilterExpression.
+    def enterArrowFilterExpression(self, ctx:OParser.ArrowFilterExpressionContext):
+        pass
+
+    # Exit a parse tree produced by OParser#ArrowFilterExpression.
+    def exitArrowFilterExpression(self, ctx:OParser.ArrowFilterExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#ExplicitFilterExpression.
+    def enterExplicitFilterExpression(self, ctx:OParser.ExplicitFilterExpressionContext):
+        pass
+
+    # Exit a parse tree produced by OParser#ExplicitFilterExpression.
+    def exitExplicitFilterExpression(self, ctx:OParser.ExplicitFilterExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#OtherFilterExpression.
+    def enterOtherFilterExpression(self, ctx:OParser.OtherFilterExpressionContext):
+        pass
+
+    # Exit a parse tree produced by OParser#OtherFilterExpression.
+    def exitOtherFilterExpression(self, ctx:OParser.OtherFilterExpressionContext):
         pass
 
 
