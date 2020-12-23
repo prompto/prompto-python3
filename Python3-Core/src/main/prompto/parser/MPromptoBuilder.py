@@ -317,6 +317,7 @@ class MPromptoBuilder(MParserListener):
         return self.getHiddenTokensText(hidden)
 
 
+    # noinspection PyMethodMayBeStatic
     def getHiddenTokensText(self, hidden):
         if hidden is None or len(hidden) == 0:
             return None
@@ -338,7 +339,7 @@ class MPromptoBuilder(MParserListener):
         return within
 
 
-    # noinspection PyUnresolvedReferences
+    # noinspection PyUnresolvedReferences,PyMethodMayBeStatic
     def isNotIndent(self, tree):
         return (not isinstance(tree, TerminalNode)) or tree.symbol.type != MLexer.INDENT
 
@@ -379,8 +380,8 @@ class MPromptoBuilder(MParserListener):
 
 
     def exitArrowListArg(self, ctx: MParser.ArrowListArgContext):
-        list = self.getNodeValue(ctx.variable_identifier_list())
-        self.setNodeValue(ctx, list)
+        xlist = self.getNodeValue(ctx.variable_identifier_list())
+        self.setNodeValue(ctx, xlist)
 
 
     def exitArrowSingleArg(self, ctx: MParser.ArrowSingleArgContext):

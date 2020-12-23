@@ -313,6 +313,7 @@ class OPromptoBuilder(OParserListener):
         return self.getHiddenTokens(node, self.input.getHiddenTokensToRight)
 
 
+    # noinspection PyMethodMayBeStatic
     def getHiddenTokens(self, node, fetcher):
         token = node if isinstance(node, Token) else node.symbol
         hidden = fetcher(token.tokenIndex)
@@ -889,8 +890,8 @@ class OPromptoBuilder(OParserListener):
 
 
     def exitArrowListArg(self, ctx: OParser.ArrowListArgContext):
-        list = self.getNodeValue(ctx.variable_identifier_list())
-        self.setNodeValue(ctx, list)
+        xlist = self.getNodeValue(ctx.variable_identifier_list())
+        self.setNodeValue(ctx, xlist)
 
 
     def exitArrowSingleArg(self, ctx: OParser.ArrowSingleArgContext):
@@ -2465,8 +2466,8 @@ class OPromptoBuilder(OParserListener):
     def exitJavascript_category_binding(self, ctx: OParser.Javascript_category_bindingContext):
         identifier = ".".join([cx.getText() for cx in ctx.javascript_identifier()])
         module = self.getNodeValue(ctx.javascript_module())
-        map = JavaScriptNativeCategoryBinding(identifier, module)
-        self.setNodeValue(ctx, map)
+        xmap = JavaScriptNativeCategoryBinding(identifier, module)
+        self.setNodeValue(ctx, xmap)
 
 
     def exitJavascriptCharacterLiteral(self, ctx: OParser.JavascriptCharacterLiteralContext):
