@@ -10,6 +10,12 @@ class TestContainer(BaseOParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testHasAllFromList(self):
+        self.checkOutput("container/hasAllFromList.poc")
+
+    def testHasAllFromSet(self):
+        self.checkOutput("container/hasAllFromSet.poc")
+
     def testHasAllList(self):
         self.checkOutput("container/hasAllList.poc")
 
@@ -21,6 +27,12 @@ class TestContainer(BaseOParserTest):
 
     def testHasAllTuple(self):
         self.checkOutput("container/hasAllTuple.poc")
+
+    def testHasAnyFromList(self):
+        self.checkOutput("container/hasAnyFromList.poc")
+
+    def testHasAnyFromSet(self):
+        self.checkOutput("container/hasAnyFromSet.poc")
 
     def testHasAnyList(self):
         self.checkOutput("container/hasAnyList.poc")

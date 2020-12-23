@@ -8,6 +8,12 @@ class TestContainer(BaseEParserTest):
     def testHasAllDict(self):
         self.compareResourceEME("container/hasAllDict.pec")
 
+    def testHasAllFromList(self):
+        self.compareResourceEME("container/hasAllFromList.pec")
+
+    def testHasAllFromSet(self):
+        self.compareResourceEME("container/hasAllFromSet.pec")
+
     def testHasAllList(self):
         self.compareResourceEME("container/hasAllList.pec")
 
@@ -25,6 +31,12 @@ class TestContainer(BaseEParserTest):
 
     def testHasAnyDict(self):
         self.compareResourceEME("container/hasAnyDict.pec")
+
+    def testHasAnyFromList(self):
+        self.compareResourceEME("container/hasAnyFromList.pec")
+
+    def testHasAnyFromSet(self):
+        self.compareResourceEME("container/hasAnyFromSet.pec")
 
     def testHasAnyList(self):
         self.compareResourceEME("container/hasAnyList.pec")

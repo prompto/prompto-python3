@@ -19,6 +19,18 @@ class TestArrow(BaseOParserTest):
     def testFilterFromSet(self):
         self.checkOutput("arrow/filterFromSet.poc")
 
+    def testHasAllFromList(self):
+        self.checkOutput("arrow/hasAllFromList.poc")
+
+    def testHasAllFromSet(self):
+        self.checkOutput("arrow/hasAllFromSet.poc")
+
+    def testHasAnyFromList(self):
+        self.checkOutput("arrow/hasAnyFromList.poc")
+
+    def testHasAnyFromSet(self):
+        self.checkOutput("arrow/hasAnyFromSet.poc")
+
     def testSortCategory1Arg(self):
         self.checkOutput("arrow/sortCategory1Arg.poc")
 

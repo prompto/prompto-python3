@@ -14,6 +14,18 @@ class TestArrow(BaseOParserTest):
     def testFilterFromSet(self):
         self.compareResourceOEO("arrow/filterFromSet.poc")
 
+    def testHasAllFromList(self):
+        self.compareResourceOEO("arrow/hasAllFromList.poc")
+
+    def testHasAllFromSet(self):
+        self.compareResourceOEO("arrow/hasAllFromSet.poc")
+
+    def testHasAnyFromList(self):
+        self.compareResourceOEO("arrow/hasAnyFromList.poc")
+
+    def testHasAnyFromSet(self):
+        self.compareResourceOEO("arrow/hasAnyFromSet.poc")
+
     def testSortCategory1Arg(self):
         self.compareResourceOEO("arrow/sortCategory1Arg.poc")
 

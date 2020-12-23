@@ -13,6 +13,12 @@ class TestContainer(BaseEParserTest):
     def testHasAllDict(self):
         self.checkOutput("container/hasAllDict.pec")
 
+    def testHasAllFromList(self):
+        self.checkOutput("container/hasAllFromList.pec")
+
+    def testHasAllFromSet(self):
+        self.checkOutput("container/hasAllFromSet.pec")
+
     def testHasAllList(self):
         self.checkOutput("container/hasAllList.pec")
 
@@ -30,6 +36,12 @@ class TestContainer(BaseEParserTest):
 
     def testHasAnyDict(self):
         self.checkOutput("container/hasAnyDict.pec")
+
+    def testHasAnyFromList(self):
+        self.checkOutput("container/hasAnyFromList.pec")
+
+    def testHasAnyFromSet(self):
+        self.checkOutput("container/hasAnyFromSet.pec")
 
     def testHasAnyList(self):
         self.checkOutput("container/hasAnyList.pec")

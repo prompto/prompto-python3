@@ -5,6 +5,12 @@ class TestContainer(BaseOParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testHasAllFromList(self):
+        self.compareResourceOEO("container/hasAllFromList.poc")
+
+    def testHasAllFromSet(self):
+        self.compareResourceOEO("container/hasAllFromSet.poc")
+
     def testHasAllList(self):
         self.compareResourceOEO("container/hasAllList.poc")
 
@@ -16,6 +22,12 @@ class TestContainer(BaseOParserTest):
 
     def testHasAllTuple(self):
         self.compareResourceOEO("container/hasAllTuple.poc")
+
+    def testHasAnyFromList(self):
+        self.compareResourceOEO("container/hasAnyFromList.poc")
+
+    def testHasAnyFromSet(self):
+        self.compareResourceOEO("container/hasAnyFromSet.poc")
 
     def testHasAnyList(self):
         self.compareResourceOEO("container/hasAnyList.poc")
