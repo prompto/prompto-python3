@@ -2,6 +2,8 @@ from antlr4 import Token
 from antlr4.ParserRuleContext import ParserRuleContext
 from antlr4.tree.Tree import ParseTree
 
+from prompto.expression.ExplicitPredicateExpression import ExplicitPredicateExpression
+from prompto.expression.PredicateExpression import PredicateExpression
 from prompto.expression.ReadBlobExpression import ReadBlobExpression
 from prompto.expression.SuperExpression import SuperExpression
 from prompto.jsx.JsxFragment import JsxFragment
@@ -173,6 +175,7 @@ from prompto.jsx.JsxText import JsxText
 from prompto.jsx.JsxExpression import JsxExpression
 from prompto.jsx.JsxCode import JsxCode
 from prompto.parser import ParserUtils
+from prompto.parser.OLexer import OLexer
 from prompto.parser.OParser import OParser
 from prompto.parser.OParserListener import OParserListener
 from prompto.parser.Section import Section
@@ -803,38 +806,25 @@ class OPromptoBuilder(OParserListener):
         left = self.getNodeValue(ctx.left)
         typ = self.getNodeValue(ctx.right)
         right = TypeExpression(typ)
-        self.setNodeValue(ctx, EqualsExpression(left, EqOp.IS_A, right))
-
-
-    def exitIsNotAnExpression(self, ctx:OParser.IsNotAnExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        typ = self.getNodeValue(ctx.right)
-        right = TypeExpression(typ)
-        self.setNodeValue(ctx, EqualsExpression(left, EqOp.IS_NOT_A, right))
+        op = EqOp.IS_A if ctx.NOT() is None else EqOp.IS_NOT_A
+        self.setNodeValue(ctx, EqualsExpression(left, op, right))
 
 
     def exitIsExpression(self, ctx:OParser.IsExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, EqualsExpression(left, EqOp.IS, right))
+        op = EqOp.IS if ctx.NOT() is None else EqOp.IS_NOT
+        self.setNodeValue(ctx, EqualsExpression(left, op, right))
 
 
-    def exitIsNotExpression(self, ctx:OParser.IsNotExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, EqualsExpression(left, EqOp.IS_NOT, right))
-
-
-    
     def exitItemSelector(self, ctx:OParser.ItemSelectorContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, ItemSelector(exp))
     
 
-    
     def exitSliceSelector(self, ctx:OParser.SliceSelectorContext):
-        slice = self.getNodeValue(ctx.xslice)
-        self.setNodeValue(ctx, slice)
+        xslice = self.getNodeValue(ctx.xslice)
+        self.setNodeValue(ctx, xslice)
     
 
     def exitTyped_argument(self, ctx:OParser.Typed_argumentContext):
@@ -1133,18 +1123,9 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, stmt)
 
 
-
     def exitRootInstance(self, ctx:OParser.RootInstanceContext):
         name = self.getNodeValue(ctx.variable_identifier())
         self.setNodeValue(ctx, VariableInstance(name))
-
-
-
-    def exitRoughlyEqualsExpression(self, ctx:OParser.RoughlyEqualsExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, EqualsExpression(left, EqOp.ROUGHLY, right))
-
 
 
     def exitChildInstance(self, ctx:OParser.ChildInstanceContext):
@@ -1154,17 +1135,14 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, child)
 
 
-
     def exitMemberInstance(self, ctx:OParser.MemberInstanceContext):
         name = self.getNodeValue(ctx.name)
         self.setNodeValue(ctx, MemberInstance(None, name))
 
 
-
     def exitItemInstance(self, ctx:OParser.ItemInstanceContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, ItemInstance(None, exp))
-
 
 
     def exitMethodExpression(self, ctx:OParser.MethodExpressionContext):
@@ -1867,7 +1845,6 @@ class OPromptoBuilder(OParserListener):
     def exitDoWhileStatement(self, ctx:OParser.DoWhileStatementContext):
         stmt = self.getNodeValue(ctx.stmt)
         self.setNodeValue(ctx, stmt)
-    
 
     
     def exitTryStatement(self, ctx:OParser.TryStatementContext):
@@ -1875,60 +1852,45 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, stmt)
     
 
-    
     def exitEqualsExpression(self, ctx:OParser.EqualsExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, EqualsExpression(left, EqOp.EQUALS, right))
-    
+        if ctx.op.type == OLexer.EQ2:
+            eqOp = EqOp.EQUALS
+        elif ctx.op.type == OLexer.XEQ:
+            eqOp = EqOp.NOT_EQUALS
+        elif ctx.op.type == OLexer.TEQ:
+            eqOp = EqOp.ROUGHLY
+        else:
+            raise Exception("Operator " + str(ctx.op.type))
+        self.setNodeValue(ctx, EqualsExpression(left, eqOp, right))
 
     
-    def exitNotEqualsExpression(self, ctx:OParser.NotEqualsExpressionContext):
+    def exitCompareExpression(self, ctx:OParser.CompareExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, EqualsExpression(left, EqOp.NOT_EQUALS, right))
-    
-
-    
-    def exitGreaterThanExpression(self, ctx:OParser.GreaterThanExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, CompareExpression(left, CmpOp.GT, right))
-    
-
-    
-    def exitGreaterThanOrEqualExpression(self, ctx:OParser.GreaterThanOrEqualExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, CompareExpression(left, CmpOp.GTE, right))
-    
-
-    
-    def exitLessThanExpression(self, ctx:OParser.LessThanExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, CompareExpression(left, CmpOp.LT, right))
-    
-
-    
-    def exitLessThanOrEqualExpression(self, ctx:OParser.LessThanOrEqualExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, CompareExpression(left, CmpOp.LTE, right))
-    
+        if ctx.op.type == OLexer.LT:
+            cmpOp = CmpOp.LT
+        elif ctx.op.type ==OLexer.LTE:
+            cmpOp = CmpOp.LTE
+        elif ctx.op.type == OLexer.GT:
+            cmpOp = CmpOp.GT
+        elif ctx.op.type == OLexer.GTE:
+            cmpOp = CmpOp.GTE
+        else:
+            raise Exception("Operator " + str(ctx.op.type))
+        self.setNodeValue(ctx, CompareExpression(left, cmpOp, right))
 
     
     def exitAtomicSwitchCase(self, ctx:OParser.AtomicSwitchCaseContext):
         exp = self.getNodeValue(ctx.exp)
         stmts = self.getNodeValue(ctx.stmts)
         self.setNodeValue(ctx, AtomicSwitchCase(exp, stmts))
-    
 
     
     def exitCollection_literal(self, ctx:OParser.Collection_literalContext):
         stmt = self.getNodeValue(ctx.getChild(0))
         self.setNodeValue(ctx, stmt)
-
 
 
     def exitCollectionSwitchCase(self, ctx:OParser.CollectionSwitchCaseContext):
@@ -1945,10 +1907,8 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, CommentStatement(ctx.getText()))
 
 
-
     def exitCursorType(self, ctx: OParser.CursorTypeContext):
         raise Exception("not implemented")
-
 
 
     def exitSwitch_case_statement_list(self, ctx:OParser.Switch_case_statement_listContext):
@@ -1957,7 +1917,6 @@ class OPromptoBuilder(OParserListener):
             item = self.getNodeValue(rule)
             items.append(item)
         self.setNodeValue(ctx, items)
-    
 
     
     def exitSwitch_statement(self, ctx:OParser.Switch_statementContext):
@@ -1968,14 +1927,12 @@ class OPromptoBuilder(OParserListener):
         stmt.setSwitchCases(cases)
         stmt.setDefaultCase(stmts)
         self.setNodeValue(ctx, stmt)
-    
 
     
     def exitLiteralRangeLiteral(self, ctx:OParser.LiteralRangeLiteralContext):
         low = self.getNodeValue(ctx.low)
         high = self.getNodeValue(ctx.high)
         self.setNodeValue(ctx, RangeLiteral(low, high))
-    
 
 
     def exitLiteralSetLiteral(self, ctx:OParser.LiteralSetLiteralContext):
@@ -1985,13 +1942,11 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, value)
 
 
-
     def exitLiteralListLiteral(self, ctx:OParser.LiteralListLiteralContext):
         items = self.getNodeValue(ctx.literal_list_literal())
         items = items if items is not None else []
         value = ListLiteral(items)
         self.setNodeValue(ctx, value)
-
 
 
     def exitLiteral_list_literal(self, ctx:OParser.Literal_list_literalContext):
@@ -2002,17 +1957,11 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, items)
     
 
-    
     def exitInExpression(self, ctx:OParser.InExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.IN, right))
-    
-
-    def exitNotInExpression(self, ctx:OParser.NotInExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_IN, right))
+        contOp = ContOp.IN if ctx.NOT() is None else ContOp.NOT_IN
+        self.setNodeValue(ctx, ContainsExpression(left, contOp, right))
 
 
     def exitCssType(self, ctx:OParser.CssTypeContext):
@@ -2022,50 +1971,29 @@ class OPromptoBuilder(OParserListener):
     def exitHasExpression(self, ctx: OParser.HasExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS, right))
-
-
-    def exitNotHasExpression(self, ctx: OParser.NotHasExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS, right))
+        contOp = ContOp.HAS if ctx.NOT() is None else ContOp.NOT_HAS
+        self.setNodeValue(ctx, ContainsExpression(left, contOp, right))
 
 
     def exitHasAllExpression(self, ctx: OParser.HasAllExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS_ALL, right))
-
-
-    def exitNotHasAllExpression(self, ctx: OParser.NotHasAllExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS_ALL, right))
+        contOp = ContOp.HAS_ALL if ctx.NOT() is None else ContOp.NOT_HAS_ALL
+        self.setNodeValue(ctx, ContainsExpression(left, contOp, right))
 
 
     def exitHasAnyExpression(self, ctx: OParser.HasAnyExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS_ANY, right))
-
-
-
-    def exitNotHasAnyExpression(self, ctx: OParser.NotHasAnyExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS_ANY, right))
+        contOp = ContOp.HAS_ANY if ctx.NOT() is None else ContOp.NOT_HAS_ANY
+        self.setNodeValue(ctx, ContainsExpression(left, contOp, right))
 
 
     def exitContainsExpression(self, ctx: OParser.ContainsExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, EqualsExpression(left, EqOp.CONTAINS, right))
-
-
-    def exitNotContainsExpression(self, ctx: OParser.NotContainsExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, EqualsExpression(left, EqOp.NOT_CONTAINS, right))
+        eqOp = EqOp.CONTAINS if ctx.NOT() is None else EqOp.NOT_CONTAINS
+        self.setNodeValue(ctx, EqualsExpression(left, eqOp, right))
 
 
     def exitDivideExpression(self, ctx:OParser.DivideExpressionContext):
@@ -2359,11 +2287,30 @@ class OPromptoBuilder(OParserListener):
 
 
     def exitFiltered_list_expression(self, ctx:OParser.Filtered_list_expressionContext):
-        itemName = self.getNodeValue(ctx.name)
         source = self.getNodeValue(ctx.source)
+        itemName = self.getNodeValue(ctx.name)
         predicate = self.getNodeValue(ctx.predicate)
-        self.setNodeValue(ctx, FilteredExpression(itemName, source, predicate))
+        if itemName is not None:
+            expression = ExplicitPredicateExpression(itemName, predicate)
+        elif isinstance(predicate, PredicateExpression):
+            expression = predicate
+        else:
+            raise Exception("What?")
+        self.setNodeValue(ctx, FilteredExpression(source, expression))
 
+
+    def exitArrowFilterExpression(self, ctx: OParser.ArrowFilterExpressionContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.arrow_expression()))
+
+
+    def exitExplicitFilterExpression(self, ctx: OParser.ExplicitFilterExpressionContext):
+        name = self.getNodeValue(ctx.variable_identifier())
+        predicate = self.getNodeValue(ctx.expression())
+        self.setNodeValue(ctx, ExplicitPredicateExpression(name, predicate))
+
+
+    def exitOtherFilterExpression(self, ctx: OParser.OtherFilterExpressionContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.expression()))
 
 
     def exitClosure_expression(self, ctx):

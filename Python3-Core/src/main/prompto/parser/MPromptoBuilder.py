@@ -1,6 +1,8 @@
 from antlr4 import ParserRuleContext, Token
 from antlr4.tree.Tree import ParseTree, TerminalNode
 
+from prompto.expression.ExplicitPredicateExpression import ExplicitPredicateExpression
+from prompto.expression.PredicateExpression import PredicateExpression
 from prompto.expression.ReadBlobExpression import ReadBlobExpression
 from prompto.expression.SuperExpression import SuperExpression
 from prompto.jsx.JsxFragment import JsxFragment
@@ -335,7 +337,7 @@ class MPromptoBuilder(MParserListener):
             within = within + after
         return within
 
-
+    # noinspection PyUnresolvedReferences
     def isNotIndent(self, tree):
         return (not isinstance(tree, TerminalNode)) or tree.symbol.type != MLexer.INDENT
 
@@ -1111,7 +1113,15 @@ class MPromptoBuilder(MParserListener):
     def exitEqualsExpression(self, ctx:MParser.EqualsExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, EqualsExpression(left, EqOp.EQUALS, right))
+        if ctx.op.type == MLexer.EQ2:
+            eqOp = EqOp.EQUALS
+        elif ctx.op.type == MLexer.XEQ:
+            eqOp = EqOp.NOT_EQUALS
+        elif ctx.op.type == MLexer.TEQ:
+            eqOp = EqOp.ROUGHLY
+        else:
+            raise Exception("Operator " + ctx.op.type)
+        self.setNodeValue(ctx, EqualsExpression(left, eqOp, right))
 
 
 
@@ -1190,12 +1200,30 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, filtered)
 
 
-
     def exitFiltered_list_suffix(self, ctx:MParser.Filtered_list_suffixContext):
         itemName = self.getNodeValue(ctx.name)
         predicate = self.getNodeValue(ctx.predicate)
-        self.setNodeValue(ctx, FilteredExpression(itemName, None, predicate))
+        if itemName is not None:
+            expression = ExplicitPredicateExpression(itemName, predicate)
+        elif isinstance(predicate, PredicateExpression):
+            expression = predicate
+        else:
+            raise Exception("What?")
+        self.setNodeValue(ctx, FilteredExpression(itemName, expression))
 
+
+    def exitArrowFilterExpression(self, ctx: MParser.ArrowFilterExpressionContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.arrow_expression()))
+
+
+    def exitExplicitFilterExpression(self, ctx: MParser.ExplicitFilterExpressionContext):
+        name = self.getNodeValue(ctx.variable_identifier())
+        predicate = self.getNodeValue(ctx.expression())
+        self.setNodeValue(ctx, ExplicitPredicateExpression(name, predicate))
+
+
+    def exitOtherFilterExpression(self, ctx: MParser.OtherFilterExpressionContext):
+        self.setNodeValue(ctx, self.getNodeValue(ctx.expression()))
 
 
     def exitFlush_statement(self, ctx: MParser.Flush_statementContext):
@@ -1247,16 +1275,20 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, NativeGetterMethodDeclaration(name, stmts))
 
 
-    def exitGreaterThanExpression(self, ctx:MParser.GreaterThanExpressionContext):
+    def exitCompareExpression(self, ctx:MParser.CompareExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, CompareExpression(left, CmpOp.GT, right))
-
-
-    def exitGreaterThanOrEqualExpression(self, ctx:MParser.GreaterThanOrEqualExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, CompareExpression(left, CmpOp.GTE, right))
+        if ctx.op.type == MLexer.LT:
+            cmpOp = CmpOp.LT
+        elif ctx.op.type == MLexer.LTE:
+            cmpOp = CmpOp.LTE
+        elif ctx.op.type == MLexer.GT:
+            cmpOp = CmpOp.GT
+        elif ctx.op.type == MLexer.GTE:
+            cmpOp = CmpOp.GTE
+        else:
+            raise Exception("Operator " + ctx.op.type)
+        self.setNodeValue(ctx, CompareExpression(left, cmpOp, right))
 
 
     def exitHexadecimalLiteral(self, ctx:MParser.HexadecimalLiteralContext):
@@ -1289,7 +1321,8 @@ class MPromptoBuilder(MParserListener):
     def exitInExpression(self, ctx:MParser.InExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.IN, right))
+        contOp = ContOp.IN if ctx.NOT() is None else ContOp.NOT_IN
+        self.setNodeValue(ctx, ContainsExpression(left, contOp, right))
 
 
     def exitInstanceExpression(self, ctx:MParser.InstanceExpressionContext):
@@ -1307,10 +1340,8 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, IntegerLiteral(ctx.getText()))
 
 
-
     def exitIntegerType(self, ctx:MParser.IntegerTypeContext):
         self.setNodeValue(ctx, IntegerType.instance)
-
 
 
     def exitIsATypeExpression(self, ctx:MParser.IsATypeExpressionContext):
@@ -1319,24 +1350,18 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, exp)
 
 
-
     def exitIsOtherExpression(self, ctx:MParser.IsOtherExpressionContext):
         exp = self.getNodeValue(ctx.expression())
         self.setNodeValue(ctx, exp)
 
 
-
     def exitIsExpression(self, ctx:MParser.IsExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        op = EqOp.IS_A if isinstance(right, TypeExpression) else EqOp.IS
-        self.setNodeValue(ctx, EqualsExpression(left, op, right))
-
-
-    def exitIsNotExpression(self, ctx:MParser.IsNotExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        op = EqOp.IS_NOT_A if isinstance(right, TypeExpression) else EqOp.IS_NOT
+        if ctx.NOT() is not None:
+            op = EqOp.IS_NOT_A if isinstance(right, TypeExpression) else EqOp.IS_NOT
+        else:
+            op = EqOp.IS_A if isinstance(right, TypeExpression) else EqOp.IS
         self.setNodeValue(ctx, EqualsExpression(left, op, right))
 
 
@@ -1621,18 +1646,6 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, ctx.getText())
 
 
-    def exitLessThanExpression(self, ctx:MParser.LessThanExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, CompareExpression(left, CmpOp.LT, right))
-
-
-    def exitLessThanOrEqualExpression(self, ctx:MParser.LessThanOrEqualExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, CompareExpression(left, CmpOp.LTE, right))
-
-
     def exitList_literal(self, ctx:MParser.List_literalContext):
         mutable = ctx.MUTABLE() is not None
         items = self.getNodeValue(ctx.expression_list())
@@ -1641,11 +1654,9 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, value)
 
 
-
     def exitListType(self, ctx:MParser.ListTypeContext):
         typ = self.getNodeValue(ctx.l)
         self.setNodeValue(ctx, ListType(typ))
-
 
 
     def exitLiteral_expression(self, ctx:MParser.Literal_expressionContext):
@@ -1653,11 +1664,9 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, value)
 
 
-
     def exitLiteralExpression(self, ctx:MParser.LiteralExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, exp)
-
 
 
     def exitLiteral_list_literal(self, ctx:MParser.Literal_list_literalContext):
@@ -1668,11 +1677,9 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, items)
 
 
-
     def exitLiteralListLiteral(self, ctx:MParser.LiteralListLiteralContext):
         exp = self.getNodeValue(ctx.literal_list_literal())
         self.setNodeValue(ctx, ListLiteral(exp))
-
 
 
     def exitLiteralRangeLiteral(self, ctx:MParser.LiteralRangeLiteralContext):
@@ -1681,11 +1688,9 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, RangeLiteral(low, high))
 
 
-
     def exitLiteralSetLiteral(self, ctx:MParser.LiteralSetLiteralContext):
         exp = self.getNodeValue(ctx.literal_list_literal())
         self.setNodeValue(ctx, SetLiteral(exp))
-
 
 
     def exitMatchingExpression(self, ctx:MParser.MatchingExpressionContext):
@@ -1693,16 +1698,13 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, MatchingExpressionConstraint(exp))
 
 
-
     def exitMatchingList(self, ctx:MParser.MatchingListContext):
         exp = self.getNodeValue(ctx.source)
         self.setNodeValue(ctx, MatchingCollectionConstraint(exp))
 
 
-
     def exitMatchingPattern(self, ctx:MParser.MatchingPatternContext):
         self.setNodeValue(ctx, MatchingPatternConstraint(TextLiteral(ctx.text.text)))
-
 
 
     def exitMatchingRange(self, ctx:MParser.MatchingRangeContext):
@@ -1710,11 +1712,9 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, MatchingCollectionConstraint(exp))
 
 
-
     def exitMatchingSet(self, ctx:MParser.MatchingSetContext):
         exp = self.getNodeValue(ctx.source)
         self.setNodeValue(ctx, MatchingCollectionConstraint(exp))
-
 
 
     def exitMaxIntegerLiteral(self, ctx:MParser.MaxIntegerLiteralContext):
@@ -1898,13 +1898,11 @@ class MPromptoBuilder(MParserListener):
         items = NativeCategoryBindingList(item)
         self.setNodeValue(ctx, items)
 
-
     def exitNativeCategoryBindingListItem(self, ctx:MParser.NativeCategoryBindingListItemContext):
         item = self.getNodeValue(ctx.item)
         items = self.getNodeValue(ctx.items)
         items.append(item)
         self.setNodeValue(ctx, items)
-
 
 
     def exitNative_statement_list(self, ctx:MParser.Native_statement_listContext):
@@ -1915,7 +1913,6 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, items)
 
 
-
     def exitNative_symbol_list(self, ctx:MParser.Native_symbol_listContext):
         items = NativeSymbolList()
         for rule in ctx.native_symbol():
@@ -1924,27 +1921,14 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, items)
 
 
-
     def exitNativeType(self, ctx:MParser.NativeTypeContext):
         typ = self.getNodeValue(ctx.n)
         self.setNodeValue(ctx, typ)
 
 
-    def exitNotEqualsExpression(self, ctx:MParser.NotEqualsExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, EqualsExpression(left, EqOp.NOT_EQUALS, right))
-
-
     def exitNotExpression(self, ctx:MParser.NotExpressionContext):
         exp = self.getNodeValue(ctx.exp)
         self.setNodeValue(ctx, NotExpression(exp))
-
-
-    def exitNotInExpression(self, ctx:MParser.NotInExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_IN, right))
 
 
     def exitCssType(self, ctx:MParser.CssTypeContext):
@@ -1954,51 +1938,29 @@ class MPromptoBuilder(MParserListener):
     def exitHasExpression(self, ctx: MParser.HasExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS, right))
-
-
-    def exitNotHasExpression(self, ctx: MParser.NotHasExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS, right))
+        contOp = ContOp.HAS if ctx.NOT() is None else ContOp.NOT_HAS
+        self.setNodeValue(ctx, ContainsExpression(left, contOp, right))
 
 
     def exitHasAllExpression(self, ctx: MParser.HasAllExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS_ALL, right))
-
-
-    def exitNotHasAllExpression(self, ctx: MParser.NotHasAllExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS_ALL, right))
+        contOp = ContOp.HAS_ALL if ctx.NOT() is None else ContOp.NOT_HAS_ALL
+        self.setNodeValue(ctx, ContainsExpression(left, contOp, right))
 
 
     def exitHasAnyExpression(self, ctx: MParser.HasAnyExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.HAS_ANY, right))
-
-
-
-    def exitNotHasAnyExpression(self, ctx: MParser.NotHasAnyExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, ContainsExpression(left, ContOp.NOT_HAS_ANY, right))
-
+        contOp = ContOp.HAS_ANY if ctx.NOT() is None else ContOp.NOT_HAS_ANY
+        self.setNodeValue(ctx, ContainsExpression(left, contOp, right))
 
 
     def exitContainsExpression(self, ctx: MParser.ContainsExpressionContext):
         left = self.getNodeValue(ctx.left)
         right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, EqualsExpression(left, EqOp.CONTAINS, right))
-
-
-    def exitNotContainsExpression(self, ctx: MParser.NotContainsExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, EqualsExpression(left, EqOp.NOT_CONTAINS, right))
+        eqOp = EqOp.CONTAINS if ctx.NOT() is None else EqOp.NOT_CONTAINS
+        self.setNodeValue(ctx, EqualsExpression(left, eqOp, right))
 
 
     def exitNullLiteral(self, ctx:MParser.NullLiteralContext):
@@ -2342,12 +2304,6 @@ class MPromptoBuilder(MParserListener):
     def exitRootInstance(self, ctx:MParser.RootInstanceContext):
         name = self.getNodeValue(ctx.variable_identifier())
         self.setNodeValue(ctx, VariableInstance(name))
-
-
-    def exitRoughlyEqualsExpression(self, ctx:MParser.RoughlyEqualsExpressionContext):
-        left = self.getNodeValue(ctx.left)
-        right = self.getNodeValue(ctx.right)
-        self.setNodeValue(ctx, EqualsExpression(left, EqOp.ROUGHLY, right))
 
 
     def exitSelectableExpression(self, ctx:MParser.SelectableExpressionContext):

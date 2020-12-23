@@ -1,0 +1,2 @@
+class PredicateExpression(object):
+    pass

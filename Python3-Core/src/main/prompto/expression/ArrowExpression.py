@@ -1,4 +1,5 @@
 from prompto.expression.IExpression import IExpression
+from prompto.expression.PredicateExpression import PredicateExpression
 from prompto.parser.Dialect import Dialect
 from prompto.runtime.Context import Context
 from prompto.runtime.Variable import Variable
@@ -9,7 +10,7 @@ from prompto.utils.CodeWriter import CodeWriter
 from prompto.value.IntegerValue import IntegerValue
 
 
-class ArrowExpression ( IExpression ):
+class ArrowExpression ( IExpression, PredicateExpression ):
 
     def __init__(self, args, argsSuite, arrowSuite):
         self.args = args
@@ -22,6 +23,10 @@ class ArrowExpression ( IExpression ):
         return self.toString(Context.newGlobalContext())
 
 
+    def toArrowExpression(self):
+        return self
+
+
     def toString(self, context: Context):
         try:
             writer = CodeWriter(Dialect.E, context)
@@ -29,6 +34,14 @@ class ArrowExpression ( IExpression ):
             return writer.__str__()
         except:
             return ""
+
+
+    def checkFilter(self, context, itemType):
+        if self.args is None or len(self.args) != 1:
+            raise SyntaxError("Expecting 1 parameter only!")
+        context = context.newChildContext()
+        context.registerValue(Variable(self.args[0], itemType))
+        return self.statements.check(context, None)
 
 
     def interpret(self, context):
@@ -63,7 +76,7 @@ class ArrowExpression ( IExpression ):
         return context
 
 
-    def filterToDialect(self, writer, source):
+    def filteredToDialect(self, writer, source):
         if len(self.args) != 1:
             raise SyntaxError("Expecting 1 parameter only!")
         sourceType = source.check(writer.context)

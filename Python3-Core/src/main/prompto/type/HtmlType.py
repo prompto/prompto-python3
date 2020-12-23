@@ -6,6 +6,8 @@ from prompto.store.TypeFamily import TypeFamily
 
 class HtmlType(NativeType):
 
+    instance = None
+
     def __init__(self):
         super().__init__(TypeFamily.HTML)
 

@@ -1,6 +1,8 @@
 from prompto.expression.IExpression import IExpression
+from prompto.expression.PredicateExpression import PredicateExpression
 from prompto.grammar.ContOp import ContOp
 from prompto.store.MatchOp import MatchOp
+from prompto.type.IterableType import IterableType
 from prompto.value.BooleanValue import BooleanValue
 from prompto.value.IContainer import IContainer
 from prompto.utils.CodeWriter import CodeWriter
@@ -8,7 +10,6 @@ from prompto.value.IInstance import IInstance
 from prompto.value.IValue import IValue
 from prompto.error.SyntaxError import SyntaxError
 from prompto.value.NullValue import NullValue
-
 
 
 class ContainsExpression(IExpression):
@@ -32,6 +33,23 @@ class ContainsExpression(IExpression):
 
 
     def check(self, context):
+        if isinstance(self.right, PredicateExpression):
+            return self.checkPredicate(context)
+        else:
+            return self.checkValue(context)
+
+
+    def checkPredicate(self, context):
+        lt = self.left.check(context)
+        if isinstance(lt, IterableType):
+            itemType = lt.itemType
+            arrow = self.right.toArrowExpression()
+            return arrow.checkFilter(context, itemType)
+        else:
+            raise SyntaxError("Expecting collection")
+
+
+    def checkValue(self, context):
         lt = self.left.check(context)
         rt = self.right.check(context)
         return self.checkOperator(context, lt, rt)
