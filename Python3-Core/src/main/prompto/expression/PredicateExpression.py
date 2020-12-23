@@ -1,2 +1,4 @@
 class PredicateExpression(object):
-    pass
+
+    def containsToDialect(self, writer):
+        raise Exception("What?")

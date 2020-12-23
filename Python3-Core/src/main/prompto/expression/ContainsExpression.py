@@ -29,7 +29,10 @@ class ContainsExpression(IExpression):
         writer.append(" ")
         self.operator.toDialect(writer)
         writer.append(" ")
-        self.right.toDialect(writer)
+        if isinstance(self.right, PredicateExpression):
+            self.right.containsToDialect(writer)
+        else:
+            self.right.toDialect(writer)
 
 
     def check(self, context):
@@ -65,9 +68,44 @@ class ContainsExpression(IExpression):
 
 
     def interpret(self, context):
+        if isinstance(self.right, PredicateExpression):
+            return self.interpretPredicate(context)
+        else:
+            lval = self.left.interpret(context)
+            rval = self.right.interpret(context)
+            return self.interpretValue(context, lval, rval)
+
+
+    def interpretPredicate(self, context):
         lval = self.left.interpret(context)
-        rval = self.right.interpret(context)
-        return self.interpretValue(context, lval, rval)
+        if not isinstance(lval, IContainer):
+            raise SyntaxError("Expecting a collection!")
+        itemType = lval.GetType(context).itemType
+        arrow = self.right.toArrowExpression()
+        predicate = arrow.getFilter(context, itemType)
+        return self.interpretContainerPredicate(context, lval, predicate)
+
+
+    def interpretContainerPredicate(self, context, container, predicate):
+        result = None
+        if self.operator in [ContOp.HAS_ALL, ContOp.NOT_HAS_ALL]:
+            result = self.allMatch(context, container, predicate)
+        elif self.operator in [ContOp.HAS_ANY, ContOp.NOT_HAS_ANY]:
+            result = self.anyMatch(context, container, predicate)
+        if isinstance(result, bool):
+            if self.operator in [ContOp.NOT_HAS_ALL, ContOp.NOT_HAS_ANY]:
+                result = not result
+            return BooleanValue.ValueOf(result)
+        lowerName = self.operator.name.lower().replace('_', ' ')
+        raise SyntaxError("Illegal filter: " + type(container) + " " + lowerName)
+
+
+    def allMatch(self, context, container, predicate):
+        return all(predicate(item) for item in container.items)
+
+
+    def anyMatch(self, context, container, predicate):
+        return any(predicate(item) for item in container.items)
 
 
     def interpretValue(self, context, lval, rval):

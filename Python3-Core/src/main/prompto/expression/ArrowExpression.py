@@ -95,6 +95,15 @@ class ArrowExpression ( IExpression, PredicateExpression ):
             writer.append(")")
 
 
+    def containsToDialect(self, writer):
+        writer.append("where ")
+        if writer.dialect is Dialect.O:
+            writer.append("( ")
+        self.toDialect(writer)
+        if writer.dialect is Dialect.O:
+            writer.append(" ) ")
+
+
     def getSortKeyReader(self, context, itemType):
         if len(self.args) == 1:
             return self.getSortKeyReader1Arg(context, itemType)
