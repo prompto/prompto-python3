@@ -10,31 +10,31 @@ from prompto.value.TypeValue import TypeValue
 
 class TypeLiteral(Section, IExpression):
 
-    def __init__(self, typ:IType):
+    def __init__(self, itype:IType):
         super().__init__()
-        self.typ = typ
+        self.itype = itype
 
 
     def check(self, context:Context):
-        return TypeType(self.typ)
+        return TypeType(self.itype)
 
 
     def interpret(self, context:Context):
-        return TypeValue(self.typ)
+        return TypeValue(self.itype)
 
 
     def toDialect(self, writer:CodeWriter):
         if writer.dialect is Dialect.E:
-            decl = writer.context.getRegisteredDeclaration(MethodDeclarationMap, self.typ.typeName)
+            decl = writer.context.getRegisteredDeclaration(MethodDeclarationMap, self.itype.typeName)
             if isinstance(decl, MethodDeclarationMap):
                 writer.append("Method: ")
             else:
                 writer.append("Type: ")
-        self.typ.toDialect(writer)
+        self.itype.toDialect(writer)
 
     def parentToDialect(self, writer:CodeWriter):
-        self.typ.toDialect(writer)
+        self.itype.toDialect(writer)
 
 
     def __str__(self):
-        return str(self.typ)
+        return str(self.itype)
