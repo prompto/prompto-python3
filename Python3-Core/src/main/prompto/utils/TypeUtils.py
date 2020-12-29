@@ -29,7 +29,7 @@ def fieldType(context, name, data):
         return typeToIType(type(data))
     else:
         decl = context.getRegisteredDeclaration(name)
-        return decl.typ
+        return decl.itype
 
 typeToITypedict = { type(None): VoidType.instance,
                     (bool) : BooleanType.instance,

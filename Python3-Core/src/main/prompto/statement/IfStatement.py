@@ -78,17 +78,17 @@ class IfElement ( BaseStatement ):
         cond = self.condition.check(context)
         if cond!=BooleanType.instance:
             raise SyntaxError("Expected a boolean condition!")
-        context = self.downCast(context, False)
+        context = self.downcast(context, False)
         return self.statements.check(context, None)
 
     def interpret(self, context):
-        context = self.downCast(context, True)
+        context = self.downcast(context, True)
         return self.statements.interpret(context)
 
-    def downCast(self, context, setValue):
+    def downcast(self, context, setValue):
         parent = context
         if isinstance(self.condition, EqualsExpression):
-            context = self.condition.downCast(context, setValue)
+            context = self.condition.downcast(context, setValue)
         context = context if id(parent)!=id(context) else context.newChildContext()
         return context
 
@@ -101,7 +101,7 @@ class IfElement ( BaseStatement ):
             writer.append("if (")
             self.condition.toDialect(writer)
             writer.append(") ")
-            context = self.downCast(context, False)
+            context = self.downcast(context, False)
             if context is not writer.context:
                 writer = writer.newChildWriter(context)
         curly = self.needsCurlyBraces()
@@ -128,7 +128,7 @@ class IfElement ( BaseStatement ):
         if self.condition is not None:
             writer.append("if ")
             self.condition.toDialect(writer)
-            context = self.downCast(context, False)
+            context = self.downcast(context, False)
             if context is not writer.context:
                 writer = writer.newChildWriter(context)
         writer.append(":\n")

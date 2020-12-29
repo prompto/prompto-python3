@@ -45,7 +45,13 @@ class CategoryParameter(BaseParameter, ITypedParameter):
         actual = context.contextForValue(self.name)
         if actual is self:
             raise SyntaxError("Duplicate argument: \"" + self.name + "\"")
-        context.registerValue(self)
+        self.resolve(context)
+        if self.resolved is self.itype:
+            context.registerValue(self)
+        else:
+            param = CategoryParameter(self.resolved, self.name)
+            param.setMutable(self.mutable)
+            context.registerValue(param)
         if self.defaultExpression is not None:
             value = self.defaultExpression.interpret(context)
             context.setValue(self.name, value)
@@ -66,7 +72,7 @@ class CategoryParameter(BaseParameter, ITypedParameter):
 
     def resolve(self, context):
         if self.resolved is None:
-            self.resolved = self.itype.resolve(context, None)
+            self.resolved = self.itype.resolve(context, None).asMutable(context, self.mutable)
 
 
     def getType(self, context=None):

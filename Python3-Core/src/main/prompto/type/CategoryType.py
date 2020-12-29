@@ -44,6 +44,10 @@ class CategoryType(BaseType):
         return self.typeName == obj.typeName
 
 
+    def isMutable(self, context):
+        return self.mutable
+
+
     def asMutable(self, context, mutable):
         if self.mutable == mutable:
             return self

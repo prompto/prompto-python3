@@ -24,5 +24,5 @@ class WidgetFieldProcessor(AnnotationProcessor):
             raise SyntaxError("WidgetField requires a Type value for argument 'type'")
         else:
             name = str(fieldName)
-            typ = fieldType.typ
+            typ = fieldType.itype
             context.registerValue(Variable(name[1:-1], typ), False)

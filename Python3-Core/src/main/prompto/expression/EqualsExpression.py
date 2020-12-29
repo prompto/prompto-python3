@@ -121,14 +121,17 @@ class EqualsExpression ( IExpression ):
         else:
             return False
 
-    def downCast(self, context, setValue):
+    def downcast(self, context, setValue):
         if self.operator is EqOp.IS_A:
             name = self.readLeftName()
             if name is not None:
                 value = context.getRegisteredValue(INamedInstance, name)
-                type = self.right.typ
+                targetType = self.right.itype
+                sourceType = value.getType(context)
+                if sourceType.isMutable(context):
+                    targetType = targetType.asMutable(context, True)
                 local = context.newChildContext()
-                value = LinkedVariable(type, value)
+                value = LinkedVariable(targetType, value)
                 local.registerValue(value, False)
                 if setValue:
                     local.setValue(name, LinkedValue(context))

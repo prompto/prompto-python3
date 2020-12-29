@@ -2,9 +2,9 @@ from prompto.grammar.INamedInstance import INamedInstance
 
 class Variable ( INamedInstance ):
 
-    def __init__(self, name, type):
+    def __init__(self, name, itype):
         self.name = name
-        self.type = type
+        self.itype = itype
 
     def __str__(self):
         return self.name
@@ -13,4 +13,4 @@ class Variable ( INamedInstance ):
         return self.name
 
     def getType(self, context):
-        return self.type
+        return self.itype

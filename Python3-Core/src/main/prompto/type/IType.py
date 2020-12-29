@@ -6,6 +6,9 @@ class IType(object):
 	def resolve(self, context, onError = None):
 		return self
 
+	def isMutable(self, context):
+		return False
+
 	def asMutable(self, context, mutable:bool):
 		if mutable:
 			raise SyntaxError("Cannot mutate " + self.typeName)
