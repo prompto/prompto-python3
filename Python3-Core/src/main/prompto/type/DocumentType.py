@@ -41,10 +41,7 @@ class DocumentType ( NativeType ):
 
 
     def checkItem(self, context, itemType):
-        if itemType is TextType.instance:
-            return AnyType.instance
-        else:
-            return super().checkItem(context, itemType)
+        return AnyType.instance
 
 
     def checkAdd(self, context, other, tryReverse):
@@ -67,7 +64,6 @@ class DocumentType ( NativeType ):
             return super().isMoreSpecificThan(context, other)
 
 
-
     def readJSONValue(self, context, node, parts):
         from prompto.value.DocumentValue import DocumentValue
         instance = DocumentValue()
@@ -75,6 +71,7 @@ class DocumentType ( NativeType ):
             value = self.readJSONField(context, node, parts)
             instance.setMember(context, key, value)
         return instance
+
 
     def readJSONField(self, context, node, parts):
         if node is None:

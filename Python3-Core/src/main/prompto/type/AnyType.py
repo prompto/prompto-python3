@@ -11,10 +11,12 @@ class AnyType ( NativeType ):
         self.typeName = "any"
 
     def checkItem(self, context, itemType):
-        return AnyType.instance # needed to support lists in Documents
+        from prompto.type.DocumentType import DocumentType
+        return DocumentType.instance.checkItem(context, itemType) # needed to support lists in Documents
 
     def checkMember(self, context, name):
-        return AnyType.instance # needed to support members in Documents
+        from prompto.type.DocumentType import DocumentType
+        return DocumentType.instance.checkMember(context, name) # needed to support members in Documents
 
     def isAssignableFrom(self, context, other):
         return True
