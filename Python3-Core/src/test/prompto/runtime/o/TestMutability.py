@@ -10,6 +10,9 @@ class TestMutability(BaseOParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testDowncastMutable(self):
+        self.checkOutput("mutability/downcastMutable.poc")
+
     def testImmutable(self):
         self.checkOutput("mutability/immutable.poc")
 

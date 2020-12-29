@@ -5,6 +5,9 @@ class TestMutability(BaseOParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testDowncastMutable(self):
+        self.compareResourceOEO("mutability/downcastMutable.poc")
+
     def testImmutable(self):
         self.compareResourceOEO("mutability/immutable.poc")
 
