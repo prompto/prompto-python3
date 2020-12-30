@@ -119,11 +119,20 @@ class TestBuiltins(BaseEParserTest):
     def testIntegerText(self):
         self.compareResourceEOE("builtins/integerText.pec")
 
+    def testIteratorToList(self):
+        self.compareResourceEOE("builtins/iteratorToList.pec")
+
+    def testIteratorToSet(self):
+        self.compareResourceEOE("builtins/iteratorToSet.pec")
+
     def testListCount(self):
         self.compareResourceEOE("builtins/listCount.pec")
 
     def testListText(self):
         self.compareResourceEOE("builtins/listText.pec")
+
+    def testListToSet(self):
+        self.compareResourceEOE("builtins/listToSet.pec")
 
     def testPeriodDays(self):
         self.compareResourceEOE("builtins/periodDays.pec")
@@ -157,6 +166,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testSetText(self):
         self.compareResourceEOE("builtins/setText.pec")
+
+    def testSetToList(self):
+        self.compareResourceEOE("builtins/setToList.pec")
 
     def testTextCapitalize(self):
         self.compareResourceEOE("builtins/textCapitalize.pec")

@@ -119,11 +119,20 @@ class TestBuiltins(BaseEParserTest):
     def testIntegerText(self):
         self.compareResourceEME("builtins/integerText.pec")
 
+    def testIteratorToList(self):
+        self.compareResourceEME("builtins/iteratorToList.pec")
+
+    def testIteratorToSet(self):
+        self.compareResourceEME("builtins/iteratorToSet.pec")
+
     def testListCount(self):
         self.compareResourceEME("builtins/listCount.pec")
 
     def testListText(self):
         self.compareResourceEME("builtins/listText.pec")
+
+    def testListToSet(self):
+        self.compareResourceEME("builtins/listToSet.pec")
 
     def testPeriodDays(self):
         self.compareResourceEME("builtins/periodDays.pec")
@@ -157,6 +166,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testSetText(self):
         self.compareResourceEME("builtins/setText.pec")
+
+    def testSetToList(self):
+        self.compareResourceEME("builtins/setToList.pec")
 
     def testTextCapitalize(self):
         self.compareResourceEME("builtins/textCapitalize.pec")

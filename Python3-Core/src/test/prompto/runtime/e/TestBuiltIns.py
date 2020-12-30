@@ -118,11 +118,20 @@ class TestBuiltins(BaseEParserTest):
     def testIntegerText(self):
         self.checkOutput("builtins/integerText.pec")
 
+    def testIteratorToList(self):
+        self.checkOutput("builtins/iteratorToList.pec")
+
+    def testIteratorToSet(self):
+        self.checkOutput("builtins/iteratorToSet.pec")
+
     def testListCount(self):
         self.checkOutput("builtins/listCount.pec")
 
     def testListText(self):
         self.checkOutput("builtins/listText.pec")
+
+    def testListToSet(self):
+        self.checkOutput("builtins/listToSet.pec")
 
     def testPeriodDays(self):
         self.checkOutput("builtins/periodDays.pec")
@@ -156,6 +165,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testSetText(self):
         self.checkOutput("builtins/setText.pec")
+
+    def testSetToList(self):
+        self.checkOutput("builtins/setToList.pec")
 
     def testTextCapitalize(self):
         self.checkOutput("builtins/textCapitalize.pec")
