@@ -1,3 +1,4 @@
+from prompto.declaration.BuiltInMethodDeclaration import BuiltInMethodDeclaration
 from prompto.type.BooleanType import BooleanType
 from prompto.type.ContainerType import ContainerType, BaseJoinMethodDeclaration
 from prompto.store.TypeFamily import TypeFamily
@@ -67,8 +68,10 @@ class SetType(ContainerType):
 
 
     def getMemberMethods(self, context, name):
-        if name == "join":
-            return [JoinSetMethodDeclaration()]
+        if name == "toList":
+            return [ToListMethodDeclaration(self.itemType)]
+        elif name == "join":
+            return [JoinSetMethodDeclaration.getInstance()]
         else:
             return super().getMemberMethods(context, name)
 
@@ -79,5 +82,31 @@ class SetType(ContainerType):
 
 class JoinSetMethodDeclaration(BaseJoinMethodDeclaration):
 
+    instance = None
+
+    @classmethod
+    def getInstance(cls):
+        if cls.instance is None:
+            cls.instance = JoinSetMethodDeclaration()
+        return cls.instance
+
     def getItems(self, context):
         return self.getValue(context).items
+
+
+class ToListMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self, itemType):
+        super().__init__("toList")
+        self.itemType = itemType
+
+
+    def interpret(self, context):
+        value = self.getValue(context)
+        return value.toListValue(context)
+
+
+    def check(self, context, isStart: bool):
+        from prompto.type.ListType import ListType
+        return ListType(self.itemType)
+

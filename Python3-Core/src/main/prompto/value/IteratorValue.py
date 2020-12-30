@@ -20,3 +20,13 @@ class IteratorValue(BaseValue, IIterable):
 
     def getIterator(self, context):
         return self.value
+
+    def toListValue(self, context):
+        from prompto.value.ListValue import ListValue
+        items = [ item for item in self.value]
+        return ListValue(self.value.itemType, items=items)
+
+    def toSetValue(self, context):
+        from prompto.value.SetValue import SetValue
+        items = [ item for item in self.getIterator(context)]
+        return SetValue(self.value.itemType, items=set(items))

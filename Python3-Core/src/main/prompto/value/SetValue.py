@@ -1,5 +1,4 @@
 from prompto.error.IndexOutOfRangeError import IndexOutOfRangeError
-from prompto.error.InternalError import InternalError
 from prompto.error.SyntaxError import SyntaxError
 from prompto.value.BaseValue import BaseValue
 from prompto.value.IContainer import IContainer
@@ -121,3 +120,7 @@ class SetValue(BaseValue, IContainer, IFilterable):
         else:
             return super(SetValue, self).getMemberValue(context, name)
 
+
+    def toListValue(self, context):
+        from prompto.value.ListValue import ListValue
+        return ListValue(self.itype.itemType, items=list(self.items))

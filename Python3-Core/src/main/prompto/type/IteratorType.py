@@ -1,3 +1,4 @@
+from prompto.declaration.BuiltInMethodDeclaration import BuiltInMethodDeclaration
 from prompto.type.IType import IType
 from prompto.type.IterableType import IterableType
 from prompto.store.TypeFamily import TypeFamily
@@ -30,3 +31,46 @@ class IteratorType(IterableType):
 
     def withItemType(self, itemType:IType):
         return IteratorType(itemType)
+
+
+    def getMemberMethods(self, context, name):
+        if name == "toList":
+            return [ToListMethodDeclaration(self.itemType)]
+        elif name == "toSet":
+            return [ToSetMethodDeclaration(self.itemType)]
+        else:
+            return super().getMemberMethods(context, name)
+
+
+class ToListMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self, itemType):
+        super().__init__("toList")
+        self.itemType = itemType
+
+
+    def interpret(self, context):
+        value = self.getValue(context)
+        return value.toListValue(context)
+
+
+    def check(self, context, isStart: bool):
+        from prompto.type.ListType import ListType
+        return ListType(self.itemType)
+
+
+class ToSetMethodDeclaration(BuiltInMethodDeclaration):
+
+    def __init__(self, itemType):
+        super().__init__("toSet")
+        self.itemType = itemType
+
+
+    def interpret(self, context):
+        value = self.getValue(context)
+        return value.toSetValue(context)
+
+
+    def check(self, context, isStart: bool):
+        from prompto.type.SetType import SetType
+        return SetType(self.itemType)

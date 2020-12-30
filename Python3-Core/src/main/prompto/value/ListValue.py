@@ -104,3 +104,8 @@ class ListValue(BaseValueList, IFilterable):
     def collectStorables(self, list):
         for item in self.items:
             item.collectStorables(list)
+
+
+    def toSetValue(self, context):
+        from prompto.value.SetValue import SetValue
+        return SetValue(self.itype.itemType, items=set(self.items))
