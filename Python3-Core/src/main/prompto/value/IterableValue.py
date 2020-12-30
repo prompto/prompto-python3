@@ -1,9 +1,9 @@
+from io import StringIO
+
 from prompto.value.BaseValue import BaseValue
 from prompto.value.IFilterable import IFilterable
 from prompto.value.IIterable import IIterable
 from prompto.runtime.Variable import Variable
-from io import StringIO
-
 from prompto.value.ListValue import ListValue
 from prompto.value.SetValue import SetValue
 
