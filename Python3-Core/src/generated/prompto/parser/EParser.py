@@ -1,4 +1,4 @@
-# Generated from EParser.g4 by ANTLR 4.9
+# Generated from EParser.g4 by ANTLR 4.9.1
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -2253,7 +2253,7 @@ class EParser ( AbstractParser ):
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
-        self.checkVersion("4.9")
+        self.checkVersion("4.9.1")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
 
@@ -2261,6 +2261,7 @@ class EParser ( AbstractParser ):
 
 
     class Enum_category_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -2401,6 +2402,7 @@ class EParser ( AbstractParser ):
 
 
     class Enum_native_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -2500,6 +2502,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_symbolContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -2565,6 +2568,7 @@ class EParser ( AbstractParser ):
 
 
     class Category_symbolContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -2633,6 +2637,7 @@ class EParser ( AbstractParser ):
 
 
     class Attribute_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -2769,6 +2774,7 @@ class EParser ( AbstractParser ):
 
 
     class Concrete_widget_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -2883,6 +2889,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_widget_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3017,6 +3024,7 @@ class EParser ( AbstractParser ):
 
 
     class Concrete_category_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3178,6 +3186,7 @@ class EParser ( AbstractParser ):
 
 
     class Singleton_category_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3311,6 +3320,7 @@ class EParser ( AbstractParser ):
 
 
     class Derived_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3410,6 +3420,7 @@ class EParser ( AbstractParser ):
 
 
     class Operator_method_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3527,6 +3538,7 @@ class EParser ( AbstractParser ):
 
 
     class Setter_method_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3613,6 +3625,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_setter_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3711,6 +3724,7 @@ class EParser ( AbstractParser ):
 
 
     class Getter_method_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3797,6 +3811,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_getter_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3895,6 +3910,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_category_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4076,6 +4092,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_resource_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4257,6 +4274,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_category_bindingsContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4336,6 +4354,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_category_binding_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4447,6 +4466,7 @@ class EParser ( AbstractParser ):
 
 
     class Attribute_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4568,6 +4588,7 @@ class EParser ( AbstractParser ):
 
 
     class Abstract_method_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4678,6 +4699,7 @@ class EParser ( AbstractParser ):
 
 
     class Concrete_method_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4827,6 +4849,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_method_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4961,6 +4984,7 @@ class EParser ( AbstractParser ):
 
 
     class Test_method_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -5106,6 +5130,7 @@ class EParser ( AbstractParser ):
 
 
     class AssertionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -5148,6 +5173,7 @@ class EParser ( AbstractParser ):
 
 
     class Full_argument_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -5209,6 +5235,7 @@ class EParser ( AbstractParser ):
 
 
     class Typed_argumentContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -5290,6 +5317,7 @@ class EParser ( AbstractParser ):
 
 
     class StatementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -5892,6 +5920,7 @@ class EParser ( AbstractParser ):
 
 
     class Flush_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -5932,6 +5961,7 @@ class EParser ( AbstractParser ):
 
 
     class Store_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6051,6 +6081,7 @@ class EParser ( AbstractParser ):
 
 
     class Method_call_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6215,6 +6246,7 @@ class EParser ( AbstractParser ):
 
 
     class With_resource_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6296,6 +6328,7 @@ class EParser ( AbstractParser ):
 
 
     class With_singleton_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6377,6 +6410,7 @@ class EParser ( AbstractParser ):
 
 
     class Switch_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6492,6 +6526,7 @@ class EParser ( AbstractParser ):
 
 
     class Switch_case_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6633,6 +6668,7 @@ class EParser ( AbstractParser ):
 
 
     class For_each_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6739,6 +6775,7 @@ class EParser ( AbstractParser ):
 
 
     class Do_while_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6821,6 +6858,7 @@ class EParser ( AbstractParser ):
 
 
     class While_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6892,6 +6930,7 @@ class EParser ( AbstractParser ):
 
 
     class If_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -7019,6 +7058,7 @@ class EParser ( AbstractParser ):
 
 
     class Else_if_statement_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -7186,6 +7226,7 @@ class EParser ( AbstractParser ):
 
 
     class Raise_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -7233,6 +7274,7 @@ class EParser ( AbstractParser ):
 
 
     class Try_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -7415,6 +7457,7 @@ class EParser ( AbstractParser ):
 
 
     class Catch_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -7574,6 +7617,7 @@ class EParser ( AbstractParser ):
 
 
     class Break_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -7614,6 +7658,7 @@ class EParser ( AbstractParser ):
 
 
     class Return_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -7668,6 +7713,7 @@ class EParser ( AbstractParser ):
 
 
     class ExpressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9282,6 +9328,7 @@ class EParser ( AbstractParser ):
 
 
     class Filter_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9408,6 +9455,7 @@ class EParser ( AbstractParser ):
 
 
     class Unresolved_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9514,6 +9562,7 @@ class EParser ( AbstractParser ):
 
 
     class Unresolved_selectorContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9565,6 +9614,7 @@ class EParser ( AbstractParser ):
 
 
     class Invocation_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9618,6 +9668,7 @@ class EParser ( AbstractParser ):
 
 
     class Invocation_trailerContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9658,6 +9709,7 @@ class EParser ( AbstractParser ):
 
 
     class Selectable_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9828,6 +9880,7 @@ class EParser ( AbstractParser ):
 
 
     class Instance_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9934,6 +9987,7 @@ class EParser ( AbstractParser ):
 
 
     class Instance_selectorContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10082,6 +10136,7 @@ class EParser ( AbstractParser ):
 
 
     class Mutable_instance_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10192,6 +10247,7 @@ class EParser ( AbstractParser ):
 
 
     class Document_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10250,6 +10306,7 @@ class EParser ( AbstractParser ):
 
 
     class Blob_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10301,6 +10358,7 @@ class EParser ( AbstractParser ):
 
 
     class Constructor_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10467,6 +10525,7 @@ class EParser ( AbstractParser ):
 
 
     class Write_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10525,6 +10584,7 @@ class EParser ( AbstractParser ):
 
 
     class Ambiguous_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10579,6 +10639,7 @@ class EParser ( AbstractParser ):
 
 
     class Filtered_list_suffixContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10650,6 +10711,7 @@ class EParser ( AbstractParser ):
 
 
     class Fetch_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10860,6 +10922,7 @@ class EParser ( AbstractParser ):
 
 
     class Fetch_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11138,6 +11201,7 @@ class EParser ( AbstractParser ):
 
 
     class Read_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11236,6 +11300,7 @@ class EParser ( AbstractParser ):
 
 
     class Sorted_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11324,6 +11389,7 @@ class EParser ( AbstractParser ):
 
 
     class Argument_assignment_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11461,6 +11527,7 @@ class EParser ( AbstractParser ):
 
 
     class With_argument_assignment_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11575,6 +11642,7 @@ class EParser ( AbstractParser ):
 
 
     class Argument_assignmentContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11635,6 +11703,7 @@ class EParser ( AbstractParser ):
 
 
     class Assign_instance_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11690,6 +11759,7 @@ class EParser ( AbstractParser ):
 
 
     class Child_instanceContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11799,6 +11869,7 @@ class EParser ( AbstractParser ):
 
 
     class Assign_tuple_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11854,6 +11925,7 @@ class EParser ( AbstractParser ):
 
 
     class LfsContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11906,6 +11978,7 @@ class EParser ( AbstractParser ):
 
 
     class LfpContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11960,6 +12033,7 @@ class EParser ( AbstractParser ):
 
 
     class Ws_plusContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12036,6 +12110,7 @@ class EParser ( AbstractParser ):
 
 
     class IndentContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12095,6 +12170,7 @@ class EParser ( AbstractParser ):
 
 
     class DedentContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12152,6 +12228,7 @@ class EParser ( AbstractParser ):
 
 
     class Type_literalContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12203,6 +12280,7 @@ class EParser ( AbstractParser ):
 
 
     class Null_literalContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12243,6 +12321,7 @@ class EParser ( AbstractParser ):
 
 
     class ReplContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12311,6 +12390,7 @@ class EParser ( AbstractParser ):
 
 
     class Declaration_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12381,6 +12461,7 @@ class EParser ( AbstractParser ):
 
 
     class DeclarationsContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12445,6 +12526,7 @@ class EParser ( AbstractParser ):
 
 
     class DeclarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12584,6 +12666,7 @@ class EParser ( AbstractParser ):
 
 
     class Annotation_constructorContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12687,6 +12770,7 @@ class EParser ( AbstractParser ):
 
 
     class Annotation_identifierContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12727,6 +12811,7 @@ class EParser ( AbstractParser ):
 
 
     class Annotation_argumentContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12781,6 +12866,7 @@ class EParser ( AbstractParser ):
 
 
     class Annotation_argument_nameContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12833,6 +12919,7 @@ class EParser ( AbstractParser ):
 
 
     class Annotation_argument_valueContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12922,6 +13009,7 @@ class EParser ( AbstractParser ):
 
 
     class Resource_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12963,6 +13051,7 @@ class EParser ( AbstractParser ):
 
 
     class Enum_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13021,6 +13110,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_symbol_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13085,6 +13175,7 @@ class EParser ( AbstractParser ):
 
 
     class Category_symbol_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13149,6 +13240,7 @@ class EParser ( AbstractParser ):
 
 
     class Symbol_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13212,6 +13304,7 @@ class EParser ( AbstractParser ):
 
 
     class Attribute_constraintContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13401,6 +13494,7 @@ class EParser ( AbstractParser ):
 
 
     class List_literalContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13470,6 +13564,7 @@ class EParser ( AbstractParser ):
 
 
     class Set_literalContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13539,6 +13634,7 @@ class EParser ( AbstractParser ):
 
 
     class Expression_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13602,6 +13698,7 @@ class EParser ( AbstractParser ):
 
 
     class Range_literalContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13665,6 +13762,7 @@ class EParser ( AbstractParser ):
 
 
     class TypedefContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13934,6 +14032,7 @@ class EParser ( AbstractParser ):
 
 
     class Primary_typeContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14023,6 +14122,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_typeContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14468,6 +14568,7 @@ class EParser ( AbstractParser ):
 
 
     class Category_typeContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14509,6 +14610,7 @@ class EParser ( AbstractParser ):
 
 
     class Mutable_category_typeContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14562,6 +14664,7 @@ class EParser ( AbstractParser ):
 
 
     class Code_typeContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14603,6 +14706,7 @@ class EParser ( AbstractParser ):
 
 
     class Category_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14719,6 +14823,7 @@ class EParser ( AbstractParser ):
 
 
     class Widget_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14808,6 +14913,7 @@ class EParser ( AbstractParser ):
 
 
     class Type_identifier_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14871,6 +14977,7 @@ class EParser ( AbstractParser ):
 
 
     class Method_identifierContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14929,6 +15036,7 @@ class EParser ( AbstractParser ):
 
 
     class Identifier_or_keywordContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14987,6 +15095,7 @@ class EParser ( AbstractParser ):
 
 
     class Nospace_hyphen_identifier_or_keywordContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15037,6 +15146,7 @@ class EParser ( AbstractParser ):
 
 
     class Nospace_identifier_or_keywordContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15082,6 +15192,7 @@ class EParser ( AbstractParser ):
 
 
     class IdentifierContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15194,6 +15305,7 @@ class EParser ( AbstractParser ):
 
 
     class Member_identifierContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15243,6 +15355,7 @@ class EParser ( AbstractParser ):
 
 
     class Variable_identifierContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15283,6 +15396,7 @@ class EParser ( AbstractParser ):
 
 
     class Attribute_identifierContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15332,6 +15446,7 @@ class EParser ( AbstractParser ):
 
 
     class Type_identifierContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15372,6 +15487,7 @@ class EParser ( AbstractParser ):
 
 
     class Symbol_identifierContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15412,6 +15528,7 @@ class EParser ( AbstractParser ):
 
 
     class Argument_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15475,6 +15592,7 @@ class EParser ( AbstractParser ):
 
 
     class ArgumentContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15575,6 +15693,7 @@ class EParser ( AbstractParser ):
 
 
     class Operator_argumentContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15633,6 +15752,7 @@ class EParser ( AbstractParser ):
 
 
     class Named_argumentContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15692,6 +15812,7 @@ class EParser ( AbstractParser ):
 
 
     class Code_argumentContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15740,6 +15861,7 @@ class EParser ( AbstractParser ):
 
 
     class Category_or_any_typeContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15798,6 +15920,7 @@ class EParser ( AbstractParser ):
 
 
     class Any_typeContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15945,6 +16068,7 @@ class EParser ( AbstractParser ):
 
 
     class Member_method_declaration_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16009,6 +16133,7 @@ class EParser ( AbstractParser ):
 
 
     class Member_method_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16139,6 +16264,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_member_method_declaration_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16203,6 +16329,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_member_method_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16315,6 +16442,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_category_bindingContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16502,6 +16630,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_category_bindingContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16555,6 +16684,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_moduleContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16634,6 +16764,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_category_bindingContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16709,6 +16840,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_moduleContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16810,6 +16942,7 @@ class EParser ( AbstractParser ):
 
 
     class Variable_identifier_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16873,6 +17006,7 @@ class EParser ( AbstractParser ):
 
 
     class Attribute_identifier_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16936,6 +17070,7 @@ class EParser ( AbstractParser ):
 
 
     class Method_declarationContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17014,6 +17149,7 @@ class EParser ( AbstractParser ):
 
 
     class Comment_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17054,6 +17190,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_statement_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17118,6 +17255,7 @@ class EParser ( AbstractParser ):
 
 
     class Native_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17300,6 +17438,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_native_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17365,6 +17504,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_native_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17430,6 +17570,7 @@ class EParser ( AbstractParser ):
 
 
     class Statement_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17494,6 +17635,7 @@ class EParser ( AbstractParser ):
 
 
     class Assertion_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17558,6 +17700,7 @@ class EParser ( AbstractParser ):
 
 
     class Switch_case_statement_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17622,6 +17765,7 @@ class EParser ( AbstractParser ):
 
 
     class Catch_statement_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17686,6 +17830,7 @@ class EParser ( AbstractParser ):
 
 
     class Literal_collectionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17834,6 +17979,7 @@ class EParser ( AbstractParser ):
 
 
     class Atomic_literalContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18318,6 +18464,7 @@ class EParser ( AbstractParser ):
 
 
     class Literal_list_literalContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18381,6 +18528,7 @@ class EParser ( AbstractParser ):
 
 
     class This_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18430,6 +18578,7 @@ class EParser ( AbstractParser ):
 
 
     class Super_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18488,6 +18637,7 @@ class EParser ( AbstractParser ):
 
 
     class Parenthesis_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18539,6 +18689,7 @@ class EParser ( AbstractParser ):
 
 
     class Literal_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18597,6 +18748,7 @@ class EParser ( AbstractParser ):
 
 
     class Collection_literalContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18695,6 +18847,7 @@ class EParser ( AbstractParser ):
 
 
     class Tuple_literalContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18764,6 +18917,7 @@ class EParser ( AbstractParser ):
 
 
     class Dict_literalContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18854,6 +19008,7 @@ class EParser ( AbstractParser ):
 
 
     class Document_literalContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18912,6 +19067,7 @@ class EParser ( AbstractParser ):
 
 
     class Expression_tupleContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18985,6 +19141,7 @@ class EParser ( AbstractParser ):
 
 
     class Doc_entry_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19048,6 +19205,7 @@ class EParser ( AbstractParser ):
 
 
     class Doc_entryContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19102,6 +19260,7 @@ class EParser ( AbstractParser ):
 
 
     class Doc_keyContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19190,6 +19349,7 @@ class EParser ( AbstractParser ):
 
 
     class Dict_entry_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19253,6 +19413,7 @@ class EParser ( AbstractParser ):
 
 
     class Dict_entryContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19307,6 +19468,7 @@ class EParser ( AbstractParser ):
 
 
     class Dict_keyContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19395,6 +19557,7 @@ class EParser ( AbstractParser ):
 
 
     class Slice_argumentsContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19529,6 +19692,7 @@ class EParser ( AbstractParser ):
 
 
     class Assign_variable_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19582,6 +19746,7 @@ class EParser ( AbstractParser ):
 
 
     class Assignable_instanceContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19684,6 +19849,7 @@ class EParser ( AbstractParser ):
 
 
     class Is_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19779,6 +19945,7 @@ class EParser ( AbstractParser ):
 
 
     class Arrow_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19884,6 +20051,7 @@ class EParser ( AbstractParser ):
 
 
     class Arrow_prefixContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19943,6 +20111,7 @@ class EParser ( AbstractParser ):
 
 
     class Arrow_argsContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20045,6 +20214,7 @@ class EParser ( AbstractParser ):
 
 
     class Sorted_keyContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20103,6 +20273,7 @@ class EParser ( AbstractParser ):
 
 
     class Read_blob_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20160,6 +20331,7 @@ class EParser ( AbstractParser ):
 
 
     class Read_all_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20217,6 +20389,7 @@ class EParser ( AbstractParser ):
 
 
     class Read_one_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20274,6 +20447,7 @@ class EParser ( AbstractParser ):
 
 
     class Order_by_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20337,6 +20511,7 @@ class EParser ( AbstractParser ):
 
 
     class Order_byContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20420,6 +20595,7 @@ class EParser ( AbstractParser ):
 
 
     class OperatorContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20605,6 +20781,7 @@ class EParser ( AbstractParser ):
 
 
     class KeywordContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20987,6 +21164,7 @@ class EParser ( AbstractParser ):
 
 
     class New_tokenContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21032,6 +21210,7 @@ class EParser ( AbstractParser ):
 
 
     class Key_tokenContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21077,6 +21256,7 @@ class EParser ( AbstractParser ):
 
 
     class Module_tokenContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21122,6 +21302,7 @@ class EParser ( AbstractParser ):
 
 
     class Value_tokenContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21167,6 +21348,7 @@ class EParser ( AbstractParser ):
 
 
     class Symbols_tokenContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21212,6 +21394,7 @@ class EParser ( AbstractParser ):
 
 
     class AssignContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21252,6 +21435,7 @@ class EParser ( AbstractParser ):
 
 
     class MultiplyContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21292,6 +21476,7 @@ class EParser ( AbstractParser ):
 
 
     class DivideContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21332,6 +21517,7 @@ class EParser ( AbstractParser ):
 
 
     class IdivideContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21372,6 +21558,7 @@ class EParser ( AbstractParser ):
 
 
     class ModuloContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21421,6 +21608,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21522,6 +21710,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21628,6 +21817,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_primary_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21736,6 +21926,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_this_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21777,6 +21968,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_new_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21824,6 +22016,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_selector_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21948,6 +22141,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_method_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22014,6 +22208,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_argumentsContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22124,6 +22319,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_item_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22176,6 +22372,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_parenthesis_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22228,6 +22425,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_identifier_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22270,6 +22468,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_literal_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22432,6 +22631,7 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_identifierContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22513,6 +22713,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22606,6 +22807,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22712,6 +22914,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_primary_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22882,6 +23085,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_self_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22923,6 +23127,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_selector_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23024,6 +23229,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_method_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23090,6 +23296,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_argument_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23216,6 +23423,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_ordinal_argument_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23326,6 +23534,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_named_argument_listContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23456,6 +23665,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_parenthesis_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23508,6 +23718,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_identifier_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23651,6 +23862,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_literal_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23813,6 +24025,7 @@ class EParser ( AbstractParser ):
 
 
     class Python_identifierContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23894,6 +24107,7 @@ class EParser ( AbstractParser ):
 
 
     class Java_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23995,6 +24209,7 @@ class EParser ( AbstractParser ):
 
 
     class Java_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24101,6 +24316,7 @@ class EParser ( AbstractParser ):
 
 
     class Java_primary_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24189,6 +24405,7 @@ class EParser ( AbstractParser ):
 
 
     class Java_this_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24230,6 +24447,7 @@ class EParser ( AbstractParser ):
 
 
     class Java_new_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24277,6 +24495,7 @@ class EParser ( AbstractParser ):
 
 
     class Java_selector_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24370,6 +24589,7 @@ class EParser ( AbstractParser ):
 
 
     class Java_method_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24436,6 +24656,7 @@ class EParser ( AbstractParser ):
 
 
     class Java_argumentsContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24546,6 +24767,7 @@ class EParser ( AbstractParser ):
 
 
     class Java_item_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24598,6 +24820,7 @@ class EParser ( AbstractParser ):
 
 
     class Java_parenthesis_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24650,6 +24873,7 @@ class EParser ( AbstractParser ):
 
 
     class Java_identifier_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24760,6 +24984,7 @@ class EParser ( AbstractParser ):
 
 
     class Java_class_identifier_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24865,6 +25090,7 @@ class EParser ( AbstractParser ):
 
 
     class Java_literal_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25027,6 +25253,7 @@ class EParser ( AbstractParser ):
 
 
     class Java_identifierContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25108,6 +25335,7 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_statementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25209,6 +25437,7 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25315,6 +25544,7 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_primary_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25403,6 +25633,7 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_this_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25444,6 +25675,7 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_new_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25491,6 +25723,7 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_selector_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25584,6 +25817,7 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_method_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25650,6 +25884,7 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_argumentsContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25760,6 +25995,7 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_item_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25812,6 +26048,7 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_parenthesis_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25864,6 +26101,7 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_identifier_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26007,6 +26245,7 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_literal_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26164,6 +26403,7 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_identifierContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26245,6 +26485,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26303,6 +26544,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_elementContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26410,6 +26652,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_fragmentContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26481,6 +26724,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_fragment_startContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26542,6 +26786,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_fragment_endContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26592,6 +26837,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_self_closingContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26674,6 +26920,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_openingContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26751,6 +26998,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_closingContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26808,6 +27056,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_element_nameContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26871,6 +27120,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_identifierContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26930,6 +27180,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_attributeContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26997,6 +27248,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_attribute_valueContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27092,6 +27344,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_childrenContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27148,6 +27401,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_childContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27278,6 +27532,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_textContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27334,6 +27589,7 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_charContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27405,6 +27661,7 @@ class EParser ( AbstractParser ):
 
 
     class Css_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27471,6 +27728,7 @@ class EParser ( AbstractParser ):
 
 
     class Css_fieldContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27530,6 +27788,7 @@ class EParser ( AbstractParser ):
 
 
     class Css_identifierContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27638,6 +27897,7 @@ class EParser ( AbstractParser ):
 
 
     class Css_valueContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27735,6 +27995,7 @@ class EParser ( AbstractParser ):
 
 
     class Css_textContext(ParserRuleContext):
+        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
