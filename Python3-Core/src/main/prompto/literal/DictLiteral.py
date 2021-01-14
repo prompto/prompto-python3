@@ -1,10 +1,8 @@
 from prompto.literal.DictEntryList import DictEntryList
 from prompto.literal.Literal import Literal
 from prompto.type.MissingType import MissingType
-from prompto.type.TextType import TextType
+from prompto.type.TypeMap import TypeMap
 from prompto.value.DictValue import DictValue
-from prompto.error.SyntaxError import SyntaxError
-from prompto.utils.TypeUtils import inferElementType
 
 class DictLiteral(Literal):
     # we can only compute keys by evaluating key expressions
@@ -32,13 +30,13 @@ class DictLiteral(Literal):
         return DictType(self.itemType)
 
 
-
     def inferElementType(self, context):
         if len(self.entries) == 0:
             return MissingType.instance
-        expressions = [e.getValue() for e in self.entries]
-        return inferElementType(context, expressions)
-
+        types = TypeMap()
+        for e in self.entries:
+            types.add(e.getValue().check(context))
+        return types.inferType(context)
 
 
     def interpret(self, context):

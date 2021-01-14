@@ -39,11 +39,11 @@ class BaseSwitchStatement(BaseStatement):
             for sc in self.switchCases:
                 itype = sc.checkReturnType(context)
                 if itype != VoidType.instance:
-                    types[itype.getName()] = itype
+                    types.add(itype)
         if self.defaultCase is not None:
             itype = self.defaultCase.check(context, None)
             if itype != VoidType.instance:
-                types.put(itype.getName(), itype)
+                types.add(itype)
 
     def interpretSwitch(self, context, switchValue, toThrow):
         if self.switchCases is not None:

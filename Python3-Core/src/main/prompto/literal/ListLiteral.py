@@ -5,9 +5,9 @@ from prompto.type.IntegerType import IntegerType
 from prompto.type.ListType import ListType
 from prompto.type.MissingType import MissingType
 from prompto.type.TextType import TextType
+from prompto.type.TypeMap import TypeMap
 from prompto.value.DecimalValue import DecimalValue
 from prompto.value.ListValue import ListValue
-from prompto.utils.TypeUtils import inferElementType
 from prompto.value.TextValue import TextValue
 
 
@@ -21,10 +21,21 @@ class ListLiteral(Literal):
         self.expressions = expressions
         self.mutable = mutable
 
+
     def check(self, context):
         if self.itemType is None:
-            self.itemType = inferElementType(context, self.expressions)
+            self.itemType = self.inferElementType(context)
         return ListType(self.itemType)
+
+
+    def inferElementType(self, context):
+        if len(self.expressions) == 0:
+            return MissingType.instance
+        else:
+            types = TypeMap()
+            for exp in self.expressions:
+                types.add(exp.check(context))
+            return types.inferType(context)
 
 
     def interpret(self, context):
