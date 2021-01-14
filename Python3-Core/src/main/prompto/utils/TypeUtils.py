@@ -29,7 +29,7 @@ def fieldType(context, name, data):
         decl = context.getRegisteredDeclaration(name)
         return decl.itype
 
-typeToITypeDict = { type(None): VoidType.instance,
+typeToITypeDict = { (None): VoidType.instance,
                     (bool) : BooleanType.instance,
                     (int) : IntegerType.instance,
                     (float) : DecimalType.instance,

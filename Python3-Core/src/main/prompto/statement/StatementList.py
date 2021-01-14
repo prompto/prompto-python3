@@ -59,6 +59,7 @@ class StatementList(list):
         except ReferenceError:
             raise NullReferenceError()
 
+
     def doInterpret(self, context):
         for statement in self:
             context.enterStatement(statement)
@@ -72,11 +73,13 @@ class StatementList(list):
                 context.leaveStatement(statement)
         return None
 
+
     def interpretNative(self, context, returnType):
         try:
             return self.doInterpretNative(context, returnType)
         except ReferenceError:
             raise NullReferenceError()
+
 
     def doInterpretNative(self, context, returnType):
         for statement in self:
@@ -90,6 +93,7 @@ class StatementList(list):
             finally:
                 context.leaveStatement(statement)
         return None
+
 
     def toDialect(self, writer):
         if len(self) == 0:
