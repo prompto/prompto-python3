@@ -1,6 +1,8 @@
 from prompto.expression.EqualsExpression import EqualsExpression
 from prompto.statement.BaseStatement import BaseStatement
 from prompto.type.BooleanType import BooleanType
+from prompto.type.TypeMap import TypeMap
+from prompto.type.VoidType import VoidType
 from prompto.value.BooleanValue import BooleanValue
 from prompto.error.SyntaxError import SyntaxError
 
@@ -10,18 +12,27 @@ class IfStatement ( BaseStatement ):
         super(IfStatement, self).__init__()
         self.elements = [IfElement(condition, statements)]
 
+
     def addAdditionals(self, elements):
         self.elements.extend(elements)
+
 
     def addAdditional(self, condition, statements):
         self.elements.append(IfElement(condition, statements))
 
+
     def setFinal(self, statements):
         self.elements.append(IfElement(None, statements))
 
+
     def check(self, context):
-        return self.elements[0].check(context)
-        # TODO check consistency with additional elements
+        types = TypeMap()
+        for element in self.elements:
+            typ = element.check(context)
+            if typ is not VoidType.instance:
+                types.add(typ)
+        return types.inferType(context)
+
 
     def interpret(self, context):
         for element in self.elements:
@@ -30,6 +41,7 @@ class IfStatement ( BaseStatement ):
             if isinstance(test, BooleanValue) and BooleanValue.TRUE==test:
                 return element.interpret(context)
         return None
+
 
     def canReturn(self):
         return True
@@ -74,16 +86,20 @@ class IfElement ( BaseStatement ):
         self.condition = condition
         self.statements = statements
 
+
     def check(self, context):
-        cond = self.condition.check(context)
-        if cond!=BooleanType.instance:
-            raise SyntaxError("Expected a boolean condition!")
-        context = self.downcast(context, False)
+        if self.condition is not None:
+            cond = self.condition.check(context)
+            if cond!=BooleanType.instance:
+                raise SyntaxError("Expected a boolean condition!")
+            context = self.downcast(context, False)
         return self.statements.check(context, None)
+
 
     def interpret(self, context):
         context = self.downcast(context, True)
         return self.statements.interpret(context)
+
 
     def downcast(self, context, setValue):
         parent = context
@@ -92,8 +108,10 @@ class IfElement ( BaseStatement ):
         context = context if id(parent)!=id(context) else context.newChildContext()
         return context
 
+
     def toMDialect(self, writer):
         self.toEDialect(writer)
+
 
     def toODialect(self, writer):
         context = writer.context
@@ -115,6 +133,7 @@ class IfElement ( BaseStatement ):
         if curly:
             writer.append("}")
 
+
     def needsCurlyBraces(self):
         if self.statements is None:
             return False
@@ -122,6 +141,7 @@ class IfElement ( BaseStatement ):
             return True
         else:
             return not self.statements[0].isSimple()
+
 
     def toEDialect(self, writer):
         context = writer.context
