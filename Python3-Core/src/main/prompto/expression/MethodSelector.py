@@ -55,9 +55,10 @@ class MethodSelector(MemberSelector):
         from prompto.runtime.Context import MethodDeclarationMap
         methods = set()
         # if called from a member method, could be a member method called without this/self
-        if isinstance(context.getParentContext(), InstanceContext):
+        parentContext = context.getParentContext()
+        if isinstance(parentContext, InstanceContext):
             from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
-            typ = context.getParentContext().instanceType
+            typ = parentContext.instanceType
             cd = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, typ.typeName)
             if cd is not None:
                 members = cd.getMemberMethodsMap(context, self.name)

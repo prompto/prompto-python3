@@ -1,7 +1,6 @@
 import threading
 
 from prompto.error.NotMutableError import NotMutableError
-from prompto.memstore.MemStore import StorableDocument
 from prompto.type.CategoryType import *
 from prompto.value.BaseValue import *
 from prompto.value.IInstance import *

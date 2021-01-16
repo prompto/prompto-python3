@@ -5,6 +5,8 @@ from prompto.expression.TypeExpression import TypeExpression
 from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.parser.Dialect import Dialect
 from prompto.type.MethodType import MethodType
+from prompto.value.ClosureValue import ClosureValue
+from prompto.value.IInstance import IInstance
 from prompto.value.NullValue import NullValue
 
 
@@ -95,3 +97,18 @@ class MemberSelector (SelectorExpression):
             return self.parent.resolved
         else:
             return self.parent
+
+
+    def interpretReference(self, context):
+        # resolve parent to keep clarity
+        parent = self.resolveParent(context)
+        instance = parent.interpret(context)
+        if instance is None or instance is NullValue.instance:
+            raise NullReferenceError()
+        elif isinstance(instance, IInstance):
+            category = instance.getDeclaration()
+            methods = category.getMemberMethodsMap(context, self.name)
+            method = methods.getFirst() # TODO check prototype
+            return ClosureValue(context.newInstanceContext(instance, None, True), MethodType(method))
+        else:
+            raise SyntaxError("Should never get here!")

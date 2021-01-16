@@ -1698,9 +1698,14 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, stmt)
 
 
-    def exitClosureExpression(self, ctx: OParser.ClosureExpressionContext):
+    def exitTypeExpression(self, ctx: OParser.TypeExpressionContext):
         name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, MethodExpression(name))
+        self.setNodeValue(ctx, TypeExpression(CategoryType(name)))
+
+
+    def exitType_expression(self, ctx: OParser.Type_expressionContext):
+        exp = self.getNodeValue(ctx.exp)
+        self.setNodeValue(ctx, exp)
 
 
     def exitIf_statement(self, ctx: OParser.If_statementContext):
@@ -2235,11 +2240,6 @@ class OPromptoBuilder(OParserListener):
 
     def exitOtherFilterExpression(self, ctx: OParser.OtherFilterExpressionContext):
         self.setNodeValue(ctx, self.getNodeValue(ctx.expression()))
-
-
-    def exitClosure_expression(self, ctx):
-        name = self.getNodeValue(ctx.name)
-        self.setNodeValue(ctx, MethodExpression(name))
 
 
     def exitCode_type(self, ctx: OParser.Code_typeContext):
