@@ -737,15 +737,6 @@ class MParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MParser#ClosureExpression.
-    def enterClosureExpression(self, ctx:MParser.ClosureExpressionContext):
-        pass
-
-    # Exit a parse tree produced by MParser#ClosureExpression.
-    def exitClosureExpression(self, ctx:MParser.ClosureExpressionContext):
-        pass
-
-
     # Enter a parse tree produced by MParser#ContainsExpression.
     def enterContainsExpression(self, ctx:MParser.ContainsExpressionContext):
         pass
@@ -761,6 +752,15 @@ class MParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by MParser#FilteredListExpression.
     def exitFilteredListExpression(self, ctx:MParser.FilteredListExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by MParser#TypeExpression.
+    def enterTypeExpression(self, ctx:MParser.TypeExpressionContext):
+        pass
+
+    # Exit a parse tree produced by MParser#TypeExpression.
+    def exitTypeExpression(self, ctx:MParser.TypeExpressionContext):
         pass
 
 
@@ -917,12 +917,12 @@ class MParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MParser#closure_expression.
-    def enterClosure_expression(self, ctx:MParser.Closure_expressionContext):
+    # Enter a parse tree produced by MParser#type_expression.
+    def enterType_expression(self, ctx:MParser.Type_expressionContext):
         pass
 
-    # Exit a parse tree produced by MParser#closure_expression.
-    def exitClosure_expression(self, ctx:MParser.Closure_expressionContext):
+    # Exit a parse tree produced by MParser#type_expression.
+    def exitType_expression(self, ctx:MParser.Type_expressionContext):
         pass
 
 

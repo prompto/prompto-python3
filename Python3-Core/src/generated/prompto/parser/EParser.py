@@ -775,7 +775,7 @@ def serializedATN():
         buf.write("\5\\/$\u04bf\u04c0\7\u0081\2\2\u04c0\u04d4\5\\/#\u04c1")
         buf.write("\u04c2\7C\2\2\u04c2\u04c3\7\21\2\2\u04c3\u04d4\5\\/\21")
         buf.write("\u04c4\u04c5\7j\2\2\u04c5\u04c6\7\21\2\2\u04c6\u04d4\5")
-        buf.write("\u00e2r\2\u04c7\u04c8\7B\2\2\u04c8\u04d4\5\u00d6l\2\u04c9")
+        buf.write("\u00e2r\2\u04c7\u04c8\7B\2\2\u04c8\u04d4\5j\66\2\u04c9")
         buf.write("\u04d4\5r:\2\u04ca\u04d4\5p9\2\u04cb\u04d4\5n8\2\u04cc")
         buf.write("\u04d4\5|?\2\u04cd\u04d4\5\u0156\u00ac\2\u04ce\u04d4\5")
         buf.write("\u0158\u00ad\2\u04cf\u04d4\5\u015a\u00ae\2\u04d0\u04d4")
@@ -8173,13 +8173,13 @@ class EParser ( AbstractParser ):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a EParser.ExpressionContext
             super().__init__(parser)
-            self.name = None # Method_identifierContext
+            self.exp = None # Instance_expressionContext
             self.copyFrom(ctx)
 
         def METHOD_COLON(self):
             return self.getToken(EParser.METHOD_COLON, 0)
-        def method_identifier(self):
-            return self.getTypedRuleContext(EParser.Method_identifierContext,0)
+        def instance_expression(self):
+            return self.getTypedRuleContext(EParser.Instance_expressionContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
@@ -8865,7 +8865,7 @@ class EParser ( AbstractParser ):
                 self.state = 1221
                 self.match(EParser.METHOD_COLON)
                 self.state = 1222
-                localctx.name = self.method_identifier()
+                localctx.exp = self.instance_expression(0)
                 pass
 
             elif la_ == 13:
