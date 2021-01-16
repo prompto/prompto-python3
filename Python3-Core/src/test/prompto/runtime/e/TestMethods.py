@@ -58,6 +58,9 @@ class TestMethods(BaseEParserTest):
     def testMemberCall(self):
         self.checkOutput("methods/memberCall.pec")
 
+    def testMemberRef(self):
+        self.checkOutput("methods/memberRef.pec")
+
     def testOverride(self):
         self.checkOutput("methods/override.pec")
 

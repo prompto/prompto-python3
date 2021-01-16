@@ -50,6 +50,9 @@ class TestMethods(BaseOParserTest):
     def testMember(self):
         self.compareResourceOEO("methods/member.poc")
 
+    def testMemberRef(self):
+        self.compareResourceOEO("methods/memberRef.poc")
+
     def testOverride(self):
         self.compareResourceOEO("methods/override.poc")
 

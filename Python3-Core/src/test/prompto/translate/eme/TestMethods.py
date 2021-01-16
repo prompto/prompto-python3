@@ -59,6 +59,9 @@ class TestMethods(BaseEParserTest):
     def testMemberCall(self):
         self.compareResourceEME("methods/memberCall.pec")
 
+    def testMemberRef(self):
+        self.compareResourceEME("methods/memberRef.pec")
+
     def testOverride(self):
         self.compareResourceEME("methods/override.pec")
 

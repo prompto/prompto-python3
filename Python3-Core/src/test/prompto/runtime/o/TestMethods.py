@@ -49,6 +49,9 @@ class TestMethods(BaseOParserTest):
     def testMember(self):
         self.checkOutput("methods/member.poc")
 
+    def testMemberRef(self):
+        self.checkOutput("methods/memberRef.poc")
+
     def testOverride(self):
         self.checkOutput("methods/override.poc")
 
