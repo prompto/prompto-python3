@@ -18,7 +18,7 @@ class IResource ( object ):
     def readFully(self):
         raise Exception("You must override readFully in " + type(self).__name__)
 
-    def writeFully(self, s):
+    def writeFully(self, s, callback = None):
         raise Exception("You must override writeFully in " + type(self).__name__)
 
     def readBinary(self):

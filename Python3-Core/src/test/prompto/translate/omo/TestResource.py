@@ -17,6 +17,9 @@ class TestResource(BaseOParserTest):
     def testWriteResource(self):
         self.compareResourceOMO("resource/writeResource.poc")
 
+    def testWriteResourceThen(self):
+        self.compareResourceOMO("resource/writeResourceThen.poc")
+
     def testWriteWithResource(self):
         self.compareResourceOMO("resource/writeWithResource.poc")
 

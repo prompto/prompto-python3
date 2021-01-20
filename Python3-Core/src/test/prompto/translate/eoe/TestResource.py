@@ -17,6 +17,9 @@ class TestResource(BaseEParserTest):
     def testWriteResource(self):
         self.compareResourceEOE("resource/writeResource.pec")
 
+    def testWriteResourceThen(self):
+        self.compareResourceEOE("resource/writeResourceThen.pec")
+
     def testWriteWithResource(self):
         self.compareResourceEOE("resource/writeWithResource.pec")
 

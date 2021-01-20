@@ -1304,6 +1304,15 @@ class EParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by EParser#then.
+    def enterThen(self, ctx:EParser.ThenContext):
+        pass
+
+    # Exit a parse tree produced by EParser#then.
+    def exitThen(self, ctx:EParser.ThenContext):
+        pass
+
+
     # Enter a parse tree produced by EParser#read_statement.
     def enterRead_statement(self, ctx:EParser.Read_statementContext):
         pass

@@ -5,6 +5,7 @@ from prompto.expression.ExplicitPredicateExpression import ExplicitPredicateExpr
 from prompto.expression.PredicateExpression import PredicateExpression
 from prompto.expression.ReadBlobExpression import ReadBlobExpression
 from prompto.expression.SuperExpression import SuperExpression
+from prompto.grammar.ThenWith import ThenWith
 from prompto.jsx.JsxFragment import JsxFragment
 from prompto.literal.DocEntry import DocEntry
 from prompto.literal.DocIdentifierKey import DocIdentifierKey
@@ -1143,9 +1144,14 @@ class MPromptoBuilder(MParserListener):
         start = self.getNodeValue(ctx.xstart)
         stop = self.getNodeValue(ctx.xstop)
         orderBy = self.getNodeValue(ctx.orderby)
+        thenWith = ThenWith.OrEmpty(self.getNodeValue(ctx.then()))
+        self.setNodeValue(ctx, FetchManyStatement(category, predicate, start, stop, orderBy, thenWith))
+
+
+    def exitThen(self, ctx:MParser.ThenContext):
         name = self.getNodeValue(ctx.name)
         stmts = self.getNodeValue(ctx.stmts)
-        self.setNodeValue(ctx, FetchManyStatement(category, predicate, start, stop, orderBy, name, stmts))
+        self.setNodeValue(ctx, ThenWith(name, stmts))
 
 
     def exitFetchStatement(self, ctx: MParser.FetchStatementContext):
@@ -1161,9 +1167,8 @@ class MPromptoBuilder(MParserListener):
     def exitFetchOneAsync(self, ctx: MParser.FetchOneAsyncContext):
         category = self.getNodeValue(ctx.typ)
         predicate = self.getNodeValue(ctx.predicate)
-        name = self.getNodeValue(ctx.name)
-        stmts = self.getNodeValue(ctx.stmts)
-        self.setNodeValue(ctx, FetchOneStatement(category, predicate, name, stmts))
+        thenWith = ThenWith.OrEmpty(self.getNodeValue(ctx.then()))
+        self.setNodeValue(ctx, FetchOneStatement(category, predicate, thenWith))
 
 
     def exitFilteredListExpression(self, ctx: MParser.FilteredListExpressionContext):
@@ -2250,9 +2255,8 @@ class MPromptoBuilder(MParserListener):
 
     def exitRead_statement(self, ctx: MParser.Read_statementContext):
         source = self.getNodeValue(ctx.source)
-        name = self.getNodeValue(ctx.name)
-        stmts = self.getNodeValue(ctx.stmts)
-        self.setNodeValue(ctx, ReadStatement(source, name, stmts))
+        thenWith = ThenWith.OrEmpty(self.getNodeValue(ctx.then()))
+        self.setNodeValue(ctx, ReadStatement(source, thenWith))
 
 
     def exitReadStatement(self, ctx: MParser.ReadStatementContext):
@@ -2610,7 +2614,8 @@ class MPromptoBuilder(MParserListener):
     def exitWrite_statement(self, ctx: MParser.Write_statementContext):
         what = self.getNodeValue(ctx.what)
         target = self.getNodeValue(ctx.target)
-        self.setNodeValue(ctx, WriteStatement(what, target))
+        thenWith = self.getNodeValue(ctx.then())
+        self.setNodeValue(ctx, WriteStatement(what, target, thenWith))
 
 
     def exitWriteStatement(self, ctx: MParser.WriteStatementContext):

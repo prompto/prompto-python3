@@ -22,6 +22,9 @@ class TestResource(BaseEParserTest):
     def testWriteResource(self):
         self.checkOutput("resource/writeResource.pec")
 
+    def testWriteResourceThen(self):
+        self.checkOutput("resource/writeResourceThen.pec")
+
     def testWriteWithResource(self):
         self.checkOutput("resource/writeWithResource.pec")
 

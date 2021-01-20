@@ -22,9 +22,9 @@ class NativeResource(NativeInstance, IResource):
         s = self.instance.readFully()
         return TextValue(s)
 
-    def writeFully(self, data):
+    def writeFully(self, data, callback = None):
         s = str(data)
-        self.instance.writeFully(s)
+        self.instance.writeFully(s, callback)
 
     def readLine(self):
         s = self.instance.readLine()

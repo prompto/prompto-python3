@@ -1196,6 +1196,15 @@ class MParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MParser#then.
+    def enterThen(self, ctx:MParser.ThenContext):
+        pass
+
+    # Exit a parse tree produced by MParser#then.
+    def exitThen(self, ctx:MParser.ThenContext):
+        pass
+
+
     # Enter a parse tree produced by MParser#read_statement.
     def enterRead_statement(self, ctx:MParser.Read_statementContext):
         pass

@@ -22,6 +22,9 @@ class TestResource(BaseOParserTest):
     def testWriteResource(self):
         self.checkOutput("resource/writeResource.poc")
 
+    def testWriteResourceThen(self):
+        self.checkOutput("resource/writeResourceThen.poc")
+
     def testWriteWithResource(self):
         self.checkOutput("resource/writeWithResource.poc")
 

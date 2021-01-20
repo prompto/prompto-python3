@@ -7,10 +7,9 @@ from prompto.type.VoidType import VoidType
 
 class FetchManyStatement(FetchManyExpression):
 
-    def __init__(self, typ, predicate, first, last, orderBy, name, stmts):
+    def __init__(self, typ, predicate, first, last, orderBy, thenWith):
         super().__init__(typ,predicate, first, last, orderBy)
-        self.name = name
-        self.stmts = stmts
+        self.thenWith = thenWith
 
 
     def canReturn(self):
@@ -22,33 +21,15 @@ class FetchManyStatement(FetchManyExpression):
 
     def check(self, context):
         super().check(context)
-        context = context.newChildContext()
-        context.registerValue(Variable(self.name, CursorType(self.typ)))
-        self.stmts.check(context, None)
-        return VoidType.instance
+        return self.thenWith.check(context, CursorType(self.typ))
 
 
     def interpret(self, context):
         record = super().interpret(context)
-        context = context.newChildContext()
-        context.registerValue(Variable(self.name, CursorType(self.typ)))
-        context.setValue(self.name, record)
-        self.stmts.interpret(context)
-        return None
+        return self.thenWith.interpret(context, record)
 
 
     def toDialect(self, writer):
         super().toDialect(writer)
-        writer.append(" then with ").append(self.name)
-        if writer.dialect is Dialect.O:
-            writer.append(" {")
-        else:
-            writer.append(":")
-        writer = writer.newChildWriter()
-        writer.context.registerValue(Variable(self.name, CursorType(self.typ)))
-        writer.newLine().indent()
-        self.stmts.toDialect(writer)
-        writer.dedent()
-        if writer.dialect is Dialect.O:
-            writer.append("}")
+        self.thenWith.toDialect(writer, CursorType(self.typ))
 

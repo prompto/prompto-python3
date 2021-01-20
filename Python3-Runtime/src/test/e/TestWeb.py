@@ -16,10 +16,16 @@ class TestWeb(BaseEParserTest):
     def testEvents(self):
         self.runTests("web/events.pec")
 
+    def testFileRef(self):
+        self.runTests("web/fileRef.pec")
+
     def testReact(self):
         self.runTests("web/react.pec")
 
     def testUtils(self):
         self.runTests("web/utils.pec")
+
+    def testWebSocket(self):
+        self.runTests("web/webSocket.pec")
 
 
