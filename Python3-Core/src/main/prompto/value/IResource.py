@@ -23,4 +23,3 @@ class IResource ( object ):
 
     def readBinary(self):
         raise Exception("You must override readBinary in " + type(self).__name__)
-

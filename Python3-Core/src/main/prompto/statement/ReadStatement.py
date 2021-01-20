@@ -1,8 +1,5 @@
 from prompto.expression.ReadAllExpression import ReadAllExpression
-from prompto.parser.Dialect import Dialect
-from prompto.runtime.Variable import Variable
 from prompto.type.TextType import TextType
-from prompto.type.VoidType import VoidType
 
 
 class ReadStatement(ReadAllExpression):

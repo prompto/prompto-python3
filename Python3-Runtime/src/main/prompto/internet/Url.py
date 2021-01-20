@@ -35,7 +35,7 @@ class Url(IResource):
             self.reader = urllib.request.urlopen(self.path)
         return str(self.reader.readLine())
 
-    def writeFully(self, data):
+    def writeFully(self, data, callback = None):
         pass
 
     def writeLine(self, data):

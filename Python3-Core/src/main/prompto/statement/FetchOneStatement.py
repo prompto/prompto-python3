@@ -1,7 +1,4 @@
 from prompto.expression.FetchOneExpression import FetchOneExpression
-from prompto.parser.Dialect import Dialect
-from prompto.runtime.Variable import Variable
-from prompto.type.VoidType import VoidType
 
 
 class FetchOneStatement(FetchOneExpression):

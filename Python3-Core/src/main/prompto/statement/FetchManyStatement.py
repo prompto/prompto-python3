@@ -1,8 +1,5 @@
 from prompto.expression.FetchManyExpression import FetchManyExpression
-from prompto.parser.Dialect import Dialect
-from prompto.runtime.Variable import Variable
 from prompto.type.CursorType import CursorType
-from prompto.type.VoidType import VoidType
 
 
 class FetchManyStatement(FetchManyExpression):
