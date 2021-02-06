@@ -50,9 +50,6 @@ class TestMethods(BaseEParserTest):
     def testImplicitAnd(self):
         self.compareResourceEME("methods/implicitAnd.pec")
 
-    def testImplicitMember(self):
-        self.compareResourceEME("methods/implicitMember.pec")
-
     def testMember(self):
         self.compareResourceEME("methods/member.pec")
 
@@ -70,9 +67,6 @@ class TestMethods(BaseEParserTest):
 
     def testPolymorphic_abstract(self):
         self.compareResourceEME("methods/polymorphic_abstract.pec")
-
-    def testPolymorphic_implicit(self):
-        self.compareResourceEME("methods/polymorphic_implicit.pec")
 
     def testPolymorphic_named(self):
         self.compareResourceEME("methods/polymorphic_named.pec")

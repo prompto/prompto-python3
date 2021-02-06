@@ -8,7 +8,4 @@ class TestSelf(BaseOParserTest):
     def testSelfAsParameter(self):
         self.compareResourceOEO("self/selfAsParameter.poc")
 
-    def testSelfMember(self):
-        self.compareResourceOEO("self/selfMember.poc")
-
 

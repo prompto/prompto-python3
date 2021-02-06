@@ -13,7 +13,4 @@ class TestSelf(BaseEParserTest):
     def testSelfAsParameter(self):
         self.checkOutput("self/selfAsParameter.pec")
 
-    def testSelfMember(self):
-        self.checkOutput("self/selfMember.pec")
-
 

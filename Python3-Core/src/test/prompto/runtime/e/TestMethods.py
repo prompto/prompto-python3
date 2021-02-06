@@ -49,9 +49,6 @@ class TestMethods(BaseEParserTest):
     def testImplicitAnd(self):
         self.checkOutput("methods/implicitAnd.pec")
 
-    def testImplicitMember(self):
-        self.checkOutput("methods/implicitMember.pec")
-
     def testMember(self):
         self.checkOutput("methods/member.pec")
 
@@ -69,9 +66,6 @@ class TestMethods(BaseEParserTest):
 
     def testPolymorphic_abstract(self):
         self.checkOutput("methods/polymorphic_abstract.pec")
-
-    def testPolymorphic_implicit(self):
-        self.checkOutput("methods/polymorphic_implicit.pec")
 
     def testPolymorphic_named(self):
         self.checkOutput("methods/polymorphic_named.pec")

@@ -8,7 +8,4 @@ class TestSelf(BaseEParserTest):
     def testSelfAsParameter(self):
         self.compareResourceEOE("self/selfAsParameter.pec")
 
-    def testSelfMember(self):
-        self.compareResourceEOE("self/selfMember.pec")
-
 

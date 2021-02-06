@@ -12,6 +12,6 @@ class Specificity(object):
 		return self.idx > other.idx
 	
 Specificity.INCOMPATIBLE = Specificity(0)
-Specificity.RESOLVED = Specificity(1)
-Specificity.INHERITED = Specificity(2)
-Specificity.EXACT = Specificity(3)
+Specificity.INHERITED = Specificity(1)
+Specificity.EXACT = Specificity(2)
+Specificity.DERIVED = Specificity(3)

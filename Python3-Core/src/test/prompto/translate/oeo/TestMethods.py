@@ -44,9 +44,6 @@ class TestMethods(BaseOParserTest):
     def testHomonym2(self):
         self.compareResourceOEO("methods/homonym2.poc")
 
-    def testImplicitMember(self):
-        self.compareResourceOEO("methods/implicitMember.poc")
-
     def testMember(self):
         self.compareResourceOEO("methods/member.poc")
 
@@ -61,9 +58,6 @@ class TestMethods(BaseOParserTest):
 
     def testPolymorphic_abstract(self):
         self.compareResourceOEO("methods/polymorphic_abstract.poc")
-
-    def testPolymorphic_implicit(self):
-        self.compareResourceOEO("methods/polymorphic_implicit.poc")
 
     def testPolymorphic_named(self):
         self.compareResourceOEO("methods/polymorphic_named.poc")

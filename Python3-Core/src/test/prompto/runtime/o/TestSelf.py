@@ -13,7 +13,4 @@ class TestSelf(BaseOParserTest):
     def testSelfAsParameter(self):
         self.checkOutput("self/selfAsParameter.poc")
 
-    def testSelfMember(self):
-        self.checkOutput("self/selfMember.poc")
-
 
