@@ -22,16 +22,6 @@ class TestParserFiles ( BaseEParserTest ):
         self.assertIsNotNone(stmts)
         self.assertEqual(6,len(stmts))
 
-    def testImplicitMember(self):
-        stmts = self.parseResource("methods/implicitMember.pec")
-        self.assertIsNotNone(stmts)
-        self.assertEqual(6,len(stmts))
-
-    def testPolymorphicImplicit(self):
-        stmts = self.parseResource("methods/polymorphic_implicit.pec")
-        self.assertIsNotNone(stmts)
-        self.assertEqual(12,len(stmts))
-
     def testEnumeratedCategory(self):
         stmts = self.parseResource("enums/categoryEnum.pec")
         self.assertIsNotNone(stmts)
