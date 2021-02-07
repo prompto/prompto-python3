@@ -8,6 +8,9 @@ class TestCast(BaseOParserTest):
     def testAutoDowncast(self):
         self.compareResourceOMO("cast/autoDowncast.poc")
 
+    def testAutoDowncastMethod(self):
+        self.compareResourceOMO("cast/autoDowncastMethod.poc")
+
     def testCastChild(self):
         self.compareResourceOMO("cast/castChild.poc")
 

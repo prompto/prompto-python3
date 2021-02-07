@@ -13,6 +13,9 @@ class TestCast(BaseOParserTest):
     def testAutoDowncast(self):
         self.checkOutput("cast/autoDowncast.poc")
 
+    def testAutoDowncastMethod(self):
+        self.checkOutput("cast/autoDowncastMethod.poc")
+
     def testCastChild(self):
         self.checkOutput("cast/castChild.poc")
 
