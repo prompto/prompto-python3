@@ -9,25 +9,20 @@ class ExtendedParameter(CategoryParameter):
         self.attributes = attributes
 
 
-
     def setAttributes(self, attributes):
         self.attributes = attributes
-
 
 
     def getProto(self):
         return self.itype.typeName + '(' + str(self.attributes) + ')'
 
 
-
     def hasAttributes(self):
         return self.attributes is not None
 
 
-
     def getAttributes(self):
         return self.attributes
-
 
 
     def __eq__(self, obj):
@@ -40,7 +35,6 @@ class ExtendedParameter(CategoryParameter):
         return self.getType() == obj.getType() \
                and self.getName() == obj.getName() \
                and self.getAttributes() == obj.getAttributes()
-
 
 
     def register(self, context):
@@ -60,22 +54,19 @@ class ExtendedParameter(CategoryParameter):
             context.setValue(self.name, value)
 
 
-
     def check(self, context):
         self.itype.checkExists(context)
         for attribute in self.attributes:
             from prompto.declaration.AttributeDeclaration import AttributeDeclaration
             actual = context.getRegisteredDeclaration(AttributeDeclaration, attribute)
-            if actual is None:
+            if actual is None and actual != "text":
                 raise SyntaxError("Unknown attribute: \"" + attribute + "\"")
-
 
 
     def getType(self, context=None):
         from prompto.declaration.IDeclaration import IDeclaration
         return self.itype if context is None else context.getRegisteredDeclaration(IDeclaration, self.name).getType(
             context)
-
 
 
     def toEDialect(self, writer):
@@ -90,7 +81,6 @@ class ExtendedParameter(CategoryParameter):
             self.attributes.toDialect(writer, True)
 
 
-
     def toODialect(self, writer):
         self.itype.toDialect(writer)
         writer.append('(')
@@ -98,7 +88,6 @@ class ExtendedParameter(CategoryParameter):
         writer.append(')')
         writer.append(' ')
         writer.append(self.name)
-
 
 
     def toMDialect(self, writer):
