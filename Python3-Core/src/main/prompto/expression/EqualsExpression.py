@@ -126,7 +126,7 @@ class EqualsExpression ( IExpression ):
             name = self.readLeftName()
             if name is not None:
                 value = context.getRegisteredValue(INamedInstance, name)
-                targetType = self.right.itype
+                targetType = self.right.itype.resolve(context)
                 sourceType = value.getType(context)
                 if sourceType.isMutable(context):
                     targetType = targetType.asMutable(context, True)

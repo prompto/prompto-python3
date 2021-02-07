@@ -195,7 +195,7 @@ class CategoryType(BaseType):
 
 
     def checkExists(self, context):
-        self.getDeclaration(context)
+        self.resolve(context)
 
 
     def checkMember(self, context, name):
