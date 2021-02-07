@@ -29,7 +29,7 @@ class CategoryDeclaration(BaseDeclaration):
         if self.attributes is not None:
             for attribute in self.attributes:
                 ad = context.getRegisteredDeclaration(AttributeDeclaration, attribute)
-                if ad is None and ad != "text":
+                if ad is None and attribute != "text":
                     raise SyntaxError("Unknown attribute: \"" + attribute + "\"")
         return CategoryType(self.getName())
 
