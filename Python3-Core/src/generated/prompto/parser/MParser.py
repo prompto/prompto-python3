@@ -370,146 +370,147 @@ def serializedATN():
         buf.write("\u01cc\u01ce\u01d0\u01d2\u01d4\u01d6\u01d8\u01da\u01dc")
         buf.write("\u01de\u01e0\u01e2\u01e4\u01e6\u01e8\u01ea\u01ec\u01ee")
         buf.write("\u01f0\u01f2\u01f4\u01f6\u01f8\u01fa\u01fc\u01fe\u0200")
-        buf.write("\u0202\u0204\u0206\2\21\3\2\\]\3\2#$\3\2*-\3\2\61\63\4")
-        buf.write("\2\3\3\7\t\3\2\n\13\5\2tt\u0094\u0094\u00ae\u00ae\6\2")
-        buf.write("\\\\\u008f\u008f\u0097\u0097\u00ae\u00ae\5\2\u008f\u008f")
-        buf.write("\u0097\u0097\u00ae\u00ae\4\2\u0093\u0093\u009d\u009d\4")
-        buf.write("\2SScc\t\2\f\2188:BDKMxz\u009b\u009d\u00a7\4\2((~~\5\2")
-        buf.write("\33\34**,,\3\2\23\23\2\u0bd8\2\u0208\3\2\2\2\4\u0219\3")
-        buf.write("\2\2\2\6\u0223\3\2\2\2\b\u0227\3\2\2\2\n\u022f\3\2\2\2")
-        buf.write("\f\u024d\3\2\2\2\16\u0254\3\2\2\2\20\u0263\3\2\2\2\22")
-        buf.write("\u0270\3\2\2\2\24\u0288\3\2\2\2\26\u0295\3\2\2\2\30\u0297")
-        buf.write("\3\2\2\2\32\u02a6\3\2\2\2\34\u02b0\3\2\2\2\36\u02bd\3")
-        buf.write("\2\2\2 \u02c7\3\2\2\2\"\u02d5\3\2\2\2$\u02ea\3\2\2\2&")
-        buf.write("\u02fe\3\2\2\2(\u0306\3\2\2\2*\u0312\3\2\2\2,\u0321\3")
-        buf.write("\2\2\2.\u0337\3\2\2\2\60\u034a\3\2\2\2\62\u035d\3\2\2")
-        buf.write("\2\64\u035f\3\2\2\2\66\u0381\3\2\2\28\u0383\3\2\2\2:\u0398")
-        buf.write("\3\2\2\2<\u03a2\3\2\2\2>\u03ac\3\2\2\2@\u03bb\3\2\2\2")
-        buf.write("B\u03c2\3\2\2\2D\u03c9\3\2\2\2F\u03e9\3\2\2\2H\u03eb\3")
-        buf.write("\2\2\2J\u03f8\3\2\2\2L\u0401\3\2\2\2N\u0408\3\2\2\2P\u041c")
-        buf.write("\3\2\2\2R\u0434\3\2\2\2T\u0437\3\2\2\2V\u0468\3\2\2\2")
-        buf.write("X\u046a\3\2\2\2Z\u046c\3\2\2\2\\\u0485\3\2\2\2^\u04ed")
-        buf.write("\3\2\2\2`\u04ef\3\2\2\2b\u04f7\3\2\2\2d\u04f9\3\2\2\2")
-        buf.write("f\u0503\3\2\2\2h\u0517\3\2\2\2j\u0525\3\2\2\2l\u0527\3")
-        buf.write("\2\2\2n\u052e\3\2\2\2p\u0547\3\2\2\2r\u0549\3\2\2\2t\u0553")
-        buf.write("\3\2\2\2v\u055d\3\2\2\2x\u0563\3\2\2\2z\u056a\3\2\2\2")
-        buf.write("|\u0590\3\2\2\2~\u05b3\3\2\2\2\u0080\u05b5\3\2\2\2\u0082")
-        buf.write("\u05bd\3\2\2\2\u0084\u05c3\3\2\2\2\u0086\u05d2\3\2\2\2")
-        buf.write("\u0088\u05de\3\2\2\2\u008a\u05e0\3\2\2\2\u008c\u05e7\3")
-        buf.write("\2\2\2\u008e\u05eb\3\2\2\2\u0090\u05f2\3\2\2\2\u0092\u05f6")
-        buf.write("\3\2\2\2\u0094\u05ff\3\2\2\2\u0096\u0604\3\2\2\2\u0098")
-        buf.write("\u0606\3\2\2\2\u009a\u0608\3\2\2\2\u009c\u0611\3\2\2\2")
-        buf.write("\u009e\u0614\3\2\2\2\u00a0\u0619\3\2\2\2\u00a2\u0627\3")
-        buf.write("\2\2\2\u00a4\u063a\3\2\2\2\u00a6\u064b\3\2\2\2\u00a8\u064d")
-        buf.write("\3\2\2\2\u00aa\u0651\3\2\2\2\u00ac\u0655\3\2\2\2\u00ae")
-        buf.write("\u0657\3\2\2\2\u00b0\u065b\3\2\2\2\u00b2\u065d\3\2\2\2")
-        buf.write("\u00b4\u0666\3\2\2\2\u00b6\u066f\3\2\2\2\u00b8\u0681\3")
-        buf.write("\2\2\2\u00ba\u0684\3\2\2\2\u00bc\u068d\3\2\2\2\u00be\u0695")
-        buf.write("\3\2\2\2\u00c0\u069d\3\2\2\2\u00c2\u06af\3\2\2\2\u00c4")
-        buf.write("\u06bf\3\2\2\2\u00c6\u06d2\3\2\2\2\u00c8\u06d4\3\2\2\2")
-        buf.write("\u00ca\u06d7\3\2\2\2\u00cc\u06db\3\2\2\2\u00ce\u06e0\3")
-        buf.write("\2\2\2\u00d0\u06e4\3\2\2\2\u00d2\u06e6\3\2\2\2\u00d4\u06f0")
-        buf.write("\3\2\2\2\u00d6\u06f4\3\2\2\2\u00d8\u06f6\3\2\2\2\u00da")
-        buf.write("\u06fa\3\2\2\2\u00dc\u0700\3\2\2\2\u00de\u0702\3\2\2\2")
-        buf.write("\u00e0\u0704\3\2\2\2\u00e2\u0706\3\2\2\2\u00e4\u0708\3")
-        buf.write("\2\2\2\u00e6\u070a\3\2\2\2\u00e8\u070c\3\2\2\2\u00ea\u0719")
-        buf.write("\3\2\2\2\u00ec\u071d\3\2\2\2\u00ee\u071f\3\2\2\2\u00f0")
-        buf.write("\u0724\3\2\2\2\u00f2\u0729\3\2\2\2\u00f4\u072b\3\2\2\2")
-        buf.write("\u00f6\u0739\3\2\2\2\u00f8\u0747\3\2\2\2\u00fa\u0759\3")
-        buf.write("\2\2\2\u00fc\u0767\3\2\2\2\u00fe\u0781\3\2\2\2\u0100\u0783")
-        buf.write("\3\2\2\2\u0102\u0787\3\2\2\2\u0104\u0792\3\2\2\2\u0106")
-        buf.write("\u079d\3\2\2\2\u0108\u07af\3\2\2\2\u010a\u07b7\3\2\2\2")
-        buf.write("\u010c\u07c3\3\2\2\2\u010e\u07c5\3\2\2\2\u0110\u07d8\3")
-        buf.write("\2\2\2\u0112\u07da\3\2\2\2\u0114\u07e1\3\2\2\2\u0116\u07e8")
-        buf.write("\3\2\2\2\u0118\u07f1\3\2\2\2\u011a\u07fa\3\2\2\2\u011c")
-        buf.write("\u0803\3\2\2\2\u011e\u081a\3\2\2\2\u0120\u0833\3\2\2\2")
-        buf.write("\u0122\u0835\3\2\2\2\u0124\u083d\3\2\2\2\u0126\u0842\3")
-        buf.write("\2\2\2\u0128\u0846\3\2\2\2\u012a\u084c\3\2\2\2\u012c\u0854")
-        buf.write("\3\2\2\2\u012e\u0857\3\2\2\2\u0130\u0860\3\2\2\2\u0132")
-        buf.write("\u086c\3\2\2\2\u0134\u0872\3\2\2\2\u0136\u087e\3\2\2\2")
-        buf.write("\u0138\u0886\3\2\2\2\u013a\u088c\3\2\2\2\u013c\u088e\3")
-        buf.write("\2\2\2\u013e\u0896\3\2\2\2\u0140\u089c\3\2\2\2\u0142\u08a7")
-        buf.write("\3\2\2\2\u0144\u08a9\3\2\2\2\u0146\u08ad\3\2\2\2\u0148")
-        buf.write("\u08bb\3\2\2\2\u014a\u08c5\3\2\2\2\u014c\u08c7\3\2\2\2")
-        buf.write("\u014e\u08d2\3\2\2\2\u0150\u08d6\3\2\2\2\u0152\u08d8\3")
-        buf.write("\2\2\2\u0154\u08dd\3\2\2\2\u0156\u08e2\3\2\2\2\u0158\u08e7")
-        buf.write("\3\2\2\2\u015a\u08ef\3\2\2\2\u015c\u0900\3\2\2\2\u015e")
-        buf.write("\u0902\3\2\2\2\u0160\u0904\3\2\2\2\u0162\u0907\3\2\2\2")
-        buf.write("\u0164\u090a\3\2\2\2\u0166\u090d\3\2\2\2\u0168\u0910\3")
-        buf.write("\2\2\2\u016a\u0913\3\2\2\2\u016c\u0915\3\2\2\2\u016e\u0917")
-        buf.write("\3\2\2\2\u0170\u0919\3\2\2\2\u0172\u091b\3\2\2\2\u0174")
-        buf.write("\u0924\3\2\2\2\u0176\u0926\3\2\2\2\u0178\u0937\3\2\2\2")
-        buf.write("\u017a\u0939\3\2\2\2\u017c\u093b\3\2\2\2\u017e\u0943\3")
-        buf.write("\2\2\2\u0180\u0945\3\2\2\2\u0182\u094c\3\2\2\2\u0184\u0957")
-        buf.write("\3\2\2\2\u0186\u095b\3\2\2\2\u0188\u095f\3\2\2\2\u018a")
-        buf.write("\u0966\3\2\2\2\u018c\u096d\3\2\2\2\u018e\u0972\3\2\2\2")
-        buf.write("\u0190\u0974\3\2\2\2\u0192\u0983\3\2\2\2\u0194\u0985\3")
-        buf.write("\2\2\2\u0196\u098d\3\2\2\2\u0198\u098f\3\2\2\2\u019a\u099c")
-        buf.write("\3\2\2\2\u019c\u099e\3\2\2\2\u019e\u09a9\3\2\2\2\u01a0")
-        buf.write("\u09b9\3\2\2\2\u01a2\u09c0\3\2\2\2\u01a4\u09cf\3\2\2\2")
-        buf.write("\u01a6\u09d6\3\2\2\2\u01a8\u09df\3\2\2\2\u01aa\u09e1\3")
-        buf.write("\2\2\2\u01ac\u09f0\3\2\2\2\u01ae\u09f2\3\2\2\2\u01b0\u09f4")
-        buf.write("\3\2\2\2\u01b2\u09fa\3\2\2\2\u01b4\u09fc\3\2\2\2\u01b6")
-        buf.write("\u0a03\3\2\2\2\u01b8\u0a0e\3\2\2\2\u01ba\u0a12\3\2\2\2")
-        buf.write("\u01bc\u0a16\3\2\2\2\u01be\u0a21\3\2\2\2\u01c0\u0a30\3")
-        buf.write("\2\2\2\u01c2\u0a37\3\2\2\2\u01c4\u0a40\3\2\2\2\u01c6\u0a42")
-        buf.write("\3\2\2\2\u01c8\u0a51\3\2\2\2\u01ca\u0a53\3\2\2\2\u01cc")
-        buf.write("\u0a55\3\2\2\2\u01ce\u0a5b\3\2\2\2\u01d0\u0a5d\3\2\2\2")
-        buf.write("\u01d2\u0a64\3\2\2\2\u01d4\u0a6f\3\2\2\2\u01d6\u0a73\3")
-        buf.write("\2\2\2\u01d8\u0a7a\3\2\2\2\u01da\u0a89\3\2\2\2\u01dc\u0a90")
-        buf.write("\3\2\2\2\u01de\u0a94\3\2\2\2\u01e0\u0a9d\3\2\2\2\u01e2")
-        buf.write("\u0a9f\3\2\2\2\u01e4\u0aaa\3\2\2\2\u01e6\u0aac\3\2\2\2")
-        buf.write("\u01e8\u0ab0\3\2\2\2\u01ea\u0abc\3\2\2\2\u01ec\u0ac7\3")
-        buf.write("\2\2\2\u01ee\u0acc\3\2\2\2\u01f0\u0ad4\3\2\2\2\u01f2\u0adb")
-        buf.write("\3\2\2\2\u01f4\u0ae7\3\2\2\2\u01f6\u0aea\3\2\2\2\u01f8")
-        buf.write("\u0af5\3\2\2\2\u01fa\u0af8\3\2\2\2\u01fc\u0afe\3\2\2\2")
-        buf.write("\u01fe\u0b00\3\2\2\2\u0200\u0b08\3\2\2\2\u0202\u0b11\3")
-        buf.write("\2\2\2\u0204\u0b23\3\2\2\2\u0206\u0b26\3\2\2\2\u0208\u0209")
-        buf.write("\7h\2\2\u0209\u020a\5\u00e4s\2\u020a\u0211\7\27\2\2\u020b")
-        buf.write("\u020e\5\u00e4s\2\u020c\u020d\7\24\2\2\u020d\u020f\5\u010a")
-        buf.write("\u0086\2\u020e\u020c\3\2\2\2\u020e\u020f\3\2\2\2\u020f")
-        buf.write("\u0212\3\2\2\2\u0210\u0212\5\u010a\u0086\2\u0211\u020b")
-        buf.write("\3\2\2\2\u0211\u0210\3\2\2\2\u0212\u0213\3\2\2\2\u0213")
-        buf.write("\u0214\7\30\2\2\u0214\u0215\7\22\2\2\u0215\u0216\5\u0092")
-        buf.write("J\2\u0216\u0217\5\u00b4[\2\u0217\u0218\5\u0094K\2\u0218")
-        buf.write("\3\3\2\2\2\u0219\u021a\7h\2\2\u021a\u021b\5\u00e4s\2\u021b")
-        buf.write("\u021c\7\27\2\2\u021c\u021d\5\u00c6d\2\u021d\u021e\7\30")
-        buf.write("\2\2\u021e\u021f\7\22\2\2\u021f\u0220\5\u0092J\2\u0220")
-        buf.write("\u0221\5\u00b2Z\2\u0221\u0222\5\u0094K\2\u0222\5\3\2\2")
-        buf.write("\2\u0223\u0224\5\u00e6t\2\u0224\u0225\7\60\2\2\u0225\u0226")
-        buf.write("\5\\/\2\u0226\7\3\2\2\2\u0227\u0228\5\u00e6t\2\u0228\u022a")
-        buf.write("\7\27\2\2\u0229\u022b\5t;\2\u022a\u0229\3\2\2\2\u022a")
-        buf.write("\u022b\3\2\2\2\u022b\u022c\3\2\2\2\u022c\u022d\7\30\2")
-        buf.write("\2\u022d\t\3\2\2\2\u022e\u0230\7\u0097\2\2\u022f\u022e")
-        buf.write("\3\2\2\2\u022f\u0230\3\2\2\2\u0230\u0231\3\2\2\2\u0231")
-        buf.write("\u0232\7T\2\2\u0232\u0233\5\u00e2r\2\u0233\u0234\7\27")
-        buf.write("\2\2\u0234\u0235\5\u00c2b\2\u0235\u024b\7\30\2\2\u0236")
-        buf.write("\u0237\7\22\2\2\u0237\u0247\5\u0092J\2\u0238\u0248\7\u008b")
-        buf.write("\2\2\u0239\u023d\5\u00b8]\2\u023a\u023b\5\u008eH\2\u023b")
-        buf.write("\u023c\5\f\7\2\u023c\u023e\3\2\2\2\u023d\u023a\3\2\2\2")
-        buf.write("\u023d\u023e\3\2\2\2\u023e\u0246\3\2\2\2\u023f\u0243\5")
-        buf.write("\f\7\2\u0240\u0241\5\u008eH\2\u0241\u0242\5\u00b8]\2\u0242")
-        buf.write("\u0244\3\2\2\2\u0243\u0240\3\2\2\2\u0243\u0244\3\2\2\2")
-        buf.write("\u0244\u0246\3\2\2\2\u0245\u0239\3\2\2\2\u0245\u023f\3")
-        buf.write("\2\2\2\u0246\u0248\3\2\2\2\u0247\u0238\3\2\2\2\u0247\u0245")
-        buf.write("\3\2\2\2\u0248\u0249\3\2\2\2\u0249\u024a\5\u0094K\2\u024a")
-        buf.write("\u024c\3\2\2\2\u024b\u0236\3\2\2\2\u024b\u024c\3\2\2\2")
-        buf.write("\u024c\13\3\2\2\2\u024d\u024e\7x\2\2\u024e\u0250\7\27")
-        buf.write("\2\2\u024f\u0251\5\u0108\u0085\2\u0250\u024f\3\2\2\2\u0250")
-        buf.write("\u0251\3\2\2\2\u0251\u0252\3\2\2\2\u0252\u0253\7\30\2")
-        buf.write("\2\u0253\r\3\2\2\2\u0254\u0255\7\u00a2\2\2\u0255\u0256")
-        buf.write("\5\u00e4s\2\u0256\u0258\7\27\2\2\u0257\u0259\5\u00e4s")
-        buf.write("\2\u0258\u0257\3\2\2\2\u0258\u0259\3\2\2\2\u0259\u025a")
-        buf.write("\3\2\2\2\u025a\u025b\7\30\2\2\u025b\u025c\7\22\2\2\u025c")
-        buf.write("\u025f\5\u0092J\2\u025d\u0260\5\u00f6|\2\u025e\u0260\7")
-        buf.write("\u008b\2\2\u025f\u025d\3\2\2\2\u025f\u025e\3\2\2\2\u0260")
-        buf.write("\u0261\3\2\2\2\u0261\u0262\5\u0094K\2\u0262\17\3\2\2\2")
-        buf.write("\u0263\u0264\7\u0080\2\2\u0264\u0265\7\u00a2\2\2\u0265")
-        buf.write("\u0266\5\u00e4s\2\u0266\u0267\7\27\2\2\u0267\u0268\7\30")
-        buf.write("\2\2\u0268\u0269\7\22\2\2\u0269\u026a\5\u0092J\2\u026a")
-        buf.write("\u026b\5&\24\2\u026b\u026c\5\u008eH\2\u026c\u026d\5\u00fa")
-        buf.write("~\2\u026d\u026e\5\u0094K\2\u026e\21\3\2\2\2\u026f\u0271")
-        buf.write("\7\u0097\2\2\u0270\u026f\3\2\2\2\u0270\u0271\3\2\2\2\u0271")
+        buf.write("\u0202\u0204\u0206\2\22\3\2\\]\3\2#$\3\2*-\3\2\61\63\4")
+        buf.write("\2\3\3\7\t\3\2\n\13\5\2tt\u0094\u0094\u00ae\u00ae\7\2")
+        buf.write("\\\\\177\177\u008f\u008f\u0097\u0097\u00ae\u00ae\5\2\\")
+        buf.write("\\\u008f\u008f\u00ae\u00ae\4\2\u008f\u008f\u00ae\u00ae")
+        buf.write("\4\2\u0093\u0093\u009d\u009d\4\2SScc\t\2\f\2188:BDKMx")
+        buf.write("z\u009b\u009d\u00a7\4\2((~~\5\2\33\34**,,\3\2\23\23\2")
+        buf.write("\u0bd8\2\u0208\3\2\2\2\4\u0219\3\2\2\2\6\u0223\3\2\2\2")
+        buf.write("\b\u0227\3\2\2\2\n\u022f\3\2\2\2\f\u024d\3\2\2\2\16\u0254")
+        buf.write("\3\2\2\2\20\u0263\3\2\2\2\22\u0270\3\2\2\2\24\u0288\3")
+        buf.write("\2\2\2\26\u0295\3\2\2\2\30\u0297\3\2\2\2\32\u02a6\3\2")
+        buf.write("\2\2\34\u02b0\3\2\2\2\36\u02bd\3\2\2\2 \u02c7\3\2\2\2")
+        buf.write("\"\u02d5\3\2\2\2$\u02ea\3\2\2\2&\u02fe\3\2\2\2(\u0306")
+        buf.write("\3\2\2\2*\u0312\3\2\2\2,\u0321\3\2\2\2.\u0337\3\2\2\2")
+        buf.write("\60\u034a\3\2\2\2\62\u035d\3\2\2\2\64\u035f\3\2\2\2\66")
+        buf.write("\u0381\3\2\2\28\u0383\3\2\2\2:\u0398\3\2\2\2<\u03a2\3")
+        buf.write("\2\2\2>\u03ac\3\2\2\2@\u03bb\3\2\2\2B\u03c2\3\2\2\2D\u03c9")
+        buf.write("\3\2\2\2F\u03e9\3\2\2\2H\u03eb\3\2\2\2J\u03f8\3\2\2\2")
+        buf.write("L\u0401\3\2\2\2N\u0408\3\2\2\2P\u041c\3\2\2\2R\u0434\3")
+        buf.write("\2\2\2T\u0437\3\2\2\2V\u0468\3\2\2\2X\u046a\3\2\2\2Z\u046c")
+        buf.write("\3\2\2\2\\\u0485\3\2\2\2^\u04ed\3\2\2\2`\u04ef\3\2\2\2")
+        buf.write("b\u04f7\3\2\2\2d\u04f9\3\2\2\2f\u0503\3\2\2\2h\u0517\3")
+        buf.write("\2\2\2j\u0525\3\2\2\2l\u0527\3\2\2\2n\u052e\3\2\2\2p\u0547")
+        buf.write("\3\2\2\2r\u0549\3\2\2\2t\u0553\3\2\2\2v\u055d\3\2\2\2")
+        buf.write("x\u0563\3\2\2\2z\u056a\3\2\2\2|\u0590\3\2\2\2~\u05b3\3")
+        buf.write("\2\2\2\u0080\u05b5\3\2\2\2\u0082\u05bd\3\2\2\2\u0084\u05c3")
+        buf.write("\3\2\2\2\u0086\u05d2\3\2\2\2\u0088\u05de\3\2\2\2\u008a")
+        buf.write("\u05e0\3\2\2\2\u008c\u05e7\3\2\2\2\u008e\u05eb\3\2\2\2")
+        buf.write("\u0090\u05f2\3\2\2\2\u0092\u05f6\3\2\2\2\u0094\u05ff\3")
+        buf.write("\2\2\2\u0096\u0604\3\2\2\2\u0098\u0606\3\2\2\2\u009a\u0608")
+        buf.write("\3\2\2\2\u009c\u0611\3\2\2\2\u009e\u0614\3\2\2\2\u00a0")
+        buf.write("\u0619\3\2\2\2\u00a2\u0627\3\2\2\2\u00a4\u063a\3\2\2\2")
+        buf.write("\u00a6\u064b\3\2\2\2\u00a8\u064d\3\2\2\2\u00aa\u0651\3")
+        buf.write("\2\2\2\u00ac\u0655\3\2\2\2\u00ae\u0657\3\2\2\2\u00b0\u065b")
+        buf.write("\3\2\2\2\u00b2\u065d\3\2\2\2\u00b4\u0666\3\2\2\2\u00b6")
+        buf.write("\u066f\3\2\2\2\u00b8\u0681\3\2\2\2\u00ba\u0684\3\2\2\2")
+        buf.write("\u00bc\u068d\3\2\2\2\u00be\u0695\3\2\2\2\u00c0\u069d\3")
+        buf.write("\2\2\2\u00c2\u06af\3\2\2\2\u00c4\u06bf\3\2\2\2\u00c6\u06d2")
+        buf.write("\3\2\2\2\u00c8\u06d4\3\2\2\2\u00ca\u06d7\3\2\2\2\u00cc")
+        buf.write("\u06db\3\2\2\2\u00ce\u06e0\3\2\2\2\u00d0\u06e4\3\2\2\2")
+        buf.write("\u00d2\u06e6\3\2\2\2\u00d4\u06f0\3\2\2\2\u00d6\u06f4\3")
+        buf.write("\2\2\2\u00d8\u06f6\3\2\2\2\u00da\u06fa\3\2\2\2\u00dc\u0700")
+        buf.write("\3\2\2\2\u00de\u0702\3\2\2\2\u00e0\u0704\3\2\2\2\u00e2")
+        buf.write("\u0706\3\2\2\2\u00e4\u0708\3\2\2\2\u00e6\u070a\3\2\2\2")
+        buf.write("\u00e8\u070c\3\2\2\2\u00ea\u0719\3\2\2\2\u00ec\u071d\3")
+        buf.write("\2\2\2\u00ee\u071f\3\2\2\2\u00f0\u0724\3\2\2\2\u00f2\u0729")
+        buf.write("\3\2\2\2\u00f4\u072b\3\2\2\2\u00f6\u0739\3\2\2\2\u00f8")
+        buf.write("\u0747\3\2\2\2\u00fa\u0759\3\2\2\2\u00fc\u0767\3\2\2\2")
+        buf.write("\u00fe\u0781\3\2\2\2\u0100\u0783\3\2\2\2\u0102\u0787\3")
+        buf.write("\2\2\2\u0104\u0792\3\2\2\2\u0106\u079d\3\2\2\2\u0108\u07af")
+        buf.write("\3\2\2\2\u010a\u07b7\3\2\2\2\u010c\u07c3\3\2\2\2\u010e")
+        buf.write("\u07c5\3\2\2\2\u0110\u07d8\3\2\2\2\u0112\u07da\3\2\2\2")
+        buf.write("\u0114\u07e1\3\2\2\2\u0116\u07e8\3\2\2\2\u0118\u07f1\3")
+        buf.write("\2\2\2\u011a\u07fa\3\2\2\2\u011c\u0803\3\2\2\2\u011e\u081a")
+        buf.write("\3\2\2\2\u0120\u0833\3\2\2\2\u0122\u0835\3\2\2\2\u0124")
+        buf.write("\u083d\3\2\2\2\u0126\u0842\3\2\2\2\u0128\u0846\3\2\2\2")
+        buf.write("\u012a\u084c\3\2\2\2\u012c\u0854\3\2\2\2\u012e\u0857\3")
+        buf.write("\2\2\2\u0130\u0860\3\2\2\2\u0132\u086c\3\2\2\2\u0134\u0872")
+        buf.write("\3\2\2\2\u0136\u087e\3\2\2\2\u0138\u0886\3\2\2\2\u013a")
+        buf.write("\u088c\3\2\2\2\u013c\u088e\3\2\2\2\u013e\u0896\3\2\2\2")
+        buf.write("\u0140\u089c\3\2\2\2\u0142\u08a7\3\2\2\2\u0144\u08a9\3")
+        buf.write("\2\2\2\u0146\u08ad\3\2\2\2\u0148\u08bb\3\2\2\2\u014a\u08c5")
+        buf.write("\3\2\2\2\u014c\u08c7\3\2\2\2\u014e\u08d2\3\2\2\2\u0150")
+        buf.write("\u08d6\3\2\2\2\u0152\u08d8\3\2\2\2\u0154\u08dd\3\2\2\2")
+        buf.write("\u0156\u08e2\3\2\2\2\u0158\u08e7\3\2\2\2\u015a\u08ef\3")
+        buf.write("\2\2\2\u015c\u0900\3\2\2\2\u015e\u0902\3\2\2\2\u0160\u0904")
+        buf.write("\3\2\2\2\u0162\u0907\3\2\2\2\u0164\u090a\3\2\2\2\u0166")
+        buf.write("\u090d\3\2\2\2\u0168\u0910\3\2\2\2\u016a\u0913\3\2\2\2")
+        buf.write("\u016c\u0915\3\2\2\2\u016e\u0917\3\2\2\2\u0170\u0919\3")
+        buf.write("\2\2\2\u0172\u091b\3\2\2\2\u0174\u0924\3\2\2\2\u0176\u0926")
+        buf.write("\3\2\2\2\u0178\u0937\3\2\2\2\u017a\u0939\3\2\2\2\u017c")
+        buf.write("\u093b\3\2\2\2\u017e\u0943\3\2\2\2\u0180\u0945\3\2\2\2")
+        buf.write("\u0182\u094c\3\2\2\2\u0184\u0957\3\2\2\2\u0186\u095b\3")
+        buf.write("\2\2\2\u0188\u095f\3\2\2\2\u018a\u0966\3\2\2\2\u018c\u096d")
+        buf.write("\3\2\2\2\u018e\u0972\3\2\2\2\u0190\u0974\3\2\2\2\u0192")
+        buf.write("\u0983\3\2\2\2\u0194\u0985\3\2\2\2\u0196\u098d\3\2\2\2")
+        buf.write("\u0198\u098f\3\2\2\2\u019a\u099c\3\2\2\2\u019c\u099e\3")
+        buf.write("\2\2\2\u019e\u09a9\3\2\2\2\u01a0\u09b9\3\2\2\2\u01a2\u09c0")
+        buf.write("\3\2\2\2\u01a4\u09cf\3\2\2\2\u01a6\u09d6\3\2\2\2\u01a8")
+        buf.write("\u09df\3\2\2\2\u01aa\u09e1\3\2\2\2\u01ac\u09f0\3\2\2\2")
+        buf.write("\u01ae\u09f2\3\2\2\2\u01b0\u09f4\3\2\2\2\u01b2\u09fa\3")
+        buf.write("\2\2\2\u01b4\u09fc\3\2\2\2\u01b6\u0a03\3\2\2\2\u01b8\u0a0e")
+        buf.write("\3\2\2\2\u01ba\u0a12\3\2\2\2\u01bc\u0a16\3\2\2\2\u01be")
+        buf.write("\u0a21\3\2\2\2\u01c0\u0a30\3\2\2\2\u01c2\u0a37\3\2\2\2")
+        buf.write("\u01c4\u0a40\3\2\2\2\u01c6\u0a42\3\2\2\2\u01c8\u0a51\3")
+        buf.write("\2\2\2\u01ca\u0a53\3\2\2\2\u01cc\u0a55\3\2\2\2\u01ce\u0a5b")
+        buf.write("\3\2\2\2\u01d0\u0a5d\3\2\2\2\u01d2\u0a64\3\2\2\2\u01d4")
+        buf.write("\u0a6f\3\2\2\2\u01d6\u0a73\3\2\2\2\u01d8\u0a7a\3\2\2\2")
+        buf.write("\u01da\u0a89\3\2\2\2\u01dc\u0a90\3\2\2\2\u01de\u0a94\3")
+        buf.write("\2\2\2\u01e0\u0a9d\3\2\2\2\u01e2\u0a9f\3\2\2\2\u01e4\u0aaa")
+        buf.write("\3\2\2\2\u01e6\u0aac\3\2\2\2\u01e8\u0ab0\3\2\2\2\u01ea")
+        buf.write("\u0abc\3\2\2\2\u01ec\u0ac7\3\2\2\2\u01ee\u0acc\3\2\2\2")
+        buf.write("\u01f0\u0ad4\3\2\2\2\u01f2\u0adb\3\2\2\2\u01f4\u0ae7\3")
+        buf.write("\2\2\2\u01f6\u0aea\3\2\2\2\u01f8\u0af5\3\2\2\2\u01fa\u0af8")
+        buf.write("\3\2\2\2\u01fc\u0afe\3\2\2\2\u01fe\u0b00\3\2\2\2\u0200")
+        buf.write("\u0b08\3\2\2\2\u0202\u0b11\3\2\2\2\u0204\u0b23\3\2\2\2")
+        buf.write("\u0206\u0b26\3\2\2\2\u0208\u0209\7h\2\2\u0209\u020a\5")
+        buf.write("\u00e4s\2\u020a\u0211\7\27\2\2\u020b\u020e\5\u00e4s\2")
+        buf.write("\u020c\u020d\7\24\2\2\u020d\u020f\5\u010a\u0086\2\u020e")
+        buf.write("\u020c\3\2\2\2\u020e\u020f\3\2\2\2\u020f\u0212\3\2\2\2")
+        buf.write("\u0210\u0212\5\u010a\u0086\2\u0211\u020b\3\2\2\2\u0211")
+        buf.write("\u0210\3\2\2\2\u0212\u0213\3\2\2\2\u0213\u0214\7\30\2")
+        buf.write("\2\u0214\u0215\7\22\2\2\u0215\u0216\5\u0092J\2\u0216\u0217")
+        buf.write("\5\u00b4[\2\u0217\u0218\5\u0094K\2\u0218\3\3\2\2\2\u0219")
+        buf.write("\u021a\7h\2\2\u021a\u021b\5\u00e4s\2\u021b\u021c\7\27")
+        buf.write("\2\2\u021c\u021d\5\u00c6d\2\u021d\u021e\7\30\2\2\u021e")
+        buf.write("\u021f\7\22\2\2\u021f\u0220\5\u0092J\2\u0220\u0221\5\u00b2")
+        buf.write("Z\2\u0221\u0222\5\u0094K\2\u0222\5\3\2\2\2\u0223\u0224")
+        buf.write("\5\u00e6t\2\u0224\u0225\7\60\2\2\u0225\u0226\5\\/\2\u0226")
+        buf.write("\7\3\2\2\2\u0227\u0228\5\u00e6t\2\u0228\u022a\7\27\2\2")
+        buf.write("\u0229\u022b\5t;\2\u022a\u0229\3\2\2\2\u022a\u022b\3\2")
+        buf.write("\2\2\u022b\u022c\3\2\2\2\u022c\u022d\7\30\2\2\u022d\t")
+        buf.write("\3\2\2\2\u022e\u0230\7\u0097\2\2\u022f\u022e\3\2\2\2\u022f")
+        buf.write("\u0230\3\2\2\2\u0230\u0231\3\2\2\2\u0231\u0232\7T\2\2")
+        buf.write("\u0232\u0233\5\u00e2r\2\u0233\u0234\7\27\2\2\u0234\u0235")
+        buf.write("\5\u00c2b\2\u0235\u024b\7\30\2\2\u0236\u0237\7\22\2\2")
+        buf.write("\u0237\u0247\5\u0092J\2\u0238\u0248\7\u008b\2\2\u0239")
+        buf.write("\u023d\5\u00b8]\2\u023a\u023b\5\u008eH\2\u023b\u023c\5")
+        buf.write("\f\7\2\u023c\u023e\3\2\2\2\u023d\u023a\3\2\2\2\u023d\u023e")
+        buf.write("\3\2\2\2\u023e\u0246\3\2\2\2\u023f\u0243\5\f\7\2\u0240")
+        buf.write("\u0241\5\u008eH\2\u0241\u0242\5\u00b8]\2\u0242\u0244\3")
+        buf.write("\2\2\2\u0243\u0240\3\2\2\2\u0243\u0244\3\2\2\2\u0244\u0246")
+        buf.write("\3\2\2\2\u0245\u0239\3\2\2\2\u0245\u023f\3\2\2\2\u0246")
+        buf.write("\u0248\3\2\2\2\u0247\u0238\3\2\2\2\u0247\u0245\3\2\2\2")
+        buf.write("\u0248\u0249\3\2\2\2\u0249\u024a\5\u0094K\2\u024a\u024c")
+        buf.write("\3\2\2\2\u024b\u0236\3\2\2\2\u024b\u024c\3\2\2\2\u024c")
+        buf.write("\13\3\2\2\2\u024d\u024e\7x\2\2\u024e\u0250\7\27\2\2\u024f")
+        buf.write("\u0251\5\u0108\u0085\2\u0250\u024f\3\2\2\2\u0250\u0251")
+        buf.write("\3\2\2\2\u0251\u0252\3\2\2\2\u0252\u0253\7\30\2\2\u0253")
+        buf.write("\r\3\2\2\2\u0254\u0255\7\u00a2\2\2\u0255\u0256\5\u00e4")
+        buf.write("s\2\u0256\u0258\7\27\2\2\u0257\u0259\5\u00e4s\2\u0258")
+        buf.write("\u0257\3\2\2\2\u0258\u0259\3\2\2\2\u0259\u025a\3\2\2\2")
+        buf.write("\u025a\u025b\7\30\2\2\u025b\u025c\7\22\2\2\u025c\u025f")
+        buf.write("\5\u0092J\2\u025d\u0260\5\u00f6|\2\u025e\u0260\7\u008b")
+        buf.write("\2\2\u025f\u025d\3\2\2\2\u025f\u025e\3\2\2\2\u0260\u0261")
+        buf.write("\3\2\2\2\u0261\u0262\5\u0094K\2\u0262\17\3\2\2\2\u0263")
+        buf.write("\u0264\7\u0080\2\2\u0264\u0265\7\u00a2\2\2\u0265\u0266")
+        buf.write("\5\u00e4s\2\u0266\u0267\7\27\2\2\u0267\u0268\7\30\2\2")
+        buf.write("\u0268\u0269\7\22\2\2\u0269\u026a\5\u0092J\2\u026a\u026b")
+        buf.write("\5&\24\2\u026b\u026c\5\u008eH\2\u026c\u026d\5\u00fa~\2")
+        buf.write("\u026d\u026e\5\u0094K\2\u026e\21\3\2\2\2\u026f\u0271\7")
+        buf.write("\u0097\2\2\u0270\u026f\3\2\2\2\u0270\u0271\3\2\2\2\u0271")
         buf.write("\u0272\3\2\2\2\u0272\u0273\t\2\2\2\u0273\u0274\5\u00e4")
         buf.write("s\2\u0274\u027b\7\27\2\2\u0275\u027c\5\26\f\2\u0276\u027c")
         buf.write("\5\u010a\u0086\2\u0277\u0278\5\26\f\2\u0278\u0279\7\24")
@@ -1035,8 +1036,8 @@ def serializedATN():
         buf.write("\u06fe\u0701\5\u00e4s\2\u06ff\u0701\5\u00e6t\2\u0700\u06fd")
         buf.write("\3\2\2\2\u0700\u06fe\3\2\2\2\u0700\u06ff\3\2\2\2\u0701")
         buf.write("\u00dd\3\2\2\2\u0702\u0703\t\t\2\2\u0703\u00df\3\2\2\2")
-        buf.write("\u0704\u0705\7\u00ae\2\2\u0705\u00e1\3\2\2\2\u0706\u0707")
-        buf.write("\t\n\2\2\u0707\u00e3\3\2\2\2\u0708\u0709\7\u00ad\2\2\u0709")
+        buf.write("\u0704\u0705\t\n\2\2\u0705\u00e1\3\2\2\2\u0706\u0707\t")
+        buf.write("\13\2\2\u0707\u00e3\3\2\2\2\u0708\u0709\7\u00ad\2\2\u0709")
         buf.write("\u00e5\3\2\2\2\u070a\u070b\7\u00ac\2\2\u070b\u00e7\3\2")
         buf.write("\2\2\u070c\u0711\5\u00eav\2\u070d\u070e\7\24\2\2\u070e")
         buf.write("\u0710\5\u00eav\2\u070f\u070d\3\2\2\2\u0710\u0713\3\2")
@@ -1184,7 +1185,7 @@ def serializedATN():
         buf.write("\2\2\u0837\u0839\5\u0120\u0091\2\u0838\u0836\3\2\2\2\u0839")
         buf.write("\u083c\3\2\2\2\u083a\u0838\3\2\2\2\u083a\u083b\3\2\2\2")
         buf.write("\u083b\u0123\3\2\2\2\u083c\u083a\3\2\2\2\u083d\u083e\t")
-        buf.write("\13\2\2\u083e\u0125\3\2\2\2\u083f\u0840\5\u00c8e\2\u0840")
+        buf.write("\f\2\2\u083e\u0125\3\2\2\2\u083f\u0840\5\u00c8e\2\u0840")
         buf.write("\u0841\7\26\2\2\u0841\u0843\3\2\2\2\u0842\u083f\3\2\2")
         buf.write("\2\u0842\u0843\3\2\2\2\u0843\u0844\3\2\2\2\u0844\u0845")
         buf.write("\7\u0099\2\2\u0845\u0127\3\2\2\2\u0846\u0847\7\27\2\2")
@@ -1268,15 +1269,15 @@ def serializedATN():
         buf.write("\2\2\u08f1\u08f3\5\u00e0q\2\u08f2\u08f0\3\2\2\2\u08f3")
         buf.write("\u08f6\3\2\2\2\u08f4\u08f2\3\2\2\2\u08f4\u08f5\3\2\2\2")
         buf.write("\u08f5\u08f8\3\2\2\2\u08f6\u08f4\3\2\2\2\u08f7\u08f9\t")
-        buf.write("\f\2\2\u08f8\u08f7\3\2\2\2\u08f8\u08f9\3\2\2\2\u08f9\u015b")
+        buf.write("\r\2\2\u08f8\u08f7\3\2\2\2\u08f8\u08f9\3\2\2\2\u08f9\u015b")
         buf.write("\3\2\2\2\u08fa\u0901\7#\2\2\u08fb\u0901\7$\2\2\u08fc\u0901")
         buf.write("\5\u016c\u00b7\2\u08fd\u0901\5\u016e\u00b8\2\u08fe\u0901")
         buf.write("\5\u0170\u00b9\2\u08ff\u0901\5\u0172\u00ba\2\u0900\u08fa")
         buf.write("\3\2\2\2\u0900\u08fb\3\2\2\2\u0900\u08fc\3\2\2\2\u0900")
         buf.write("\u08fd\3\2\2\2\u0900\u08fe\3\2\2\2\u0900\u08ff\3\2\2\2")
-        buf.write("\u0901\u015d\3\2\2\2\u0902\u0903\t\r\2\2\u0903\u015f\3")
-        buf.write("\2\2\2\u0904\u0905\7\u00ae\2\2\u0905\u0906\6\u00b1\'\3")
-        buf.write("\u0906\u0161\3\2\2\2\u0907\u0908\7\u00ae\2\2\u0908\u0909")
+        buf.write("\u0901\u015d\3\2\2\2\u0902\u0903\t\16\2\2\u0903\u015f")
+        buf.write("\3\2\2\2\u0904\u0905\7\u00ae\2\2\u0905\u0906\6\u00b1\'")
+        buf.write("\3\u0906\u0161\3\2\2\2\u0907\u0908\7\u00ae\2\2\u0908\u0909")
         buf.write("\6\u00b2(\3\u0909\u0163\3\2\2\2\u090a\u090b\7\u00ae\2")
         buf.write("\2\u090b\u090c\6\u00b3)\3\u090c\u0165\3\2\2\2\u090d\u090e")
         buf.write("\7\u00ae\2\2\u090e\u090f\6\u00b4*\3\u090f\u0167\3\2\2")
@@ -1284,7 +1285,7 @@ def serializedATN():
         buf.write("\u0169\3\2\2\2\u0913\u0914\7\60\2\2\u0914\u016b\3\2\2")
         buf.write("\2\u0915\u0916\7%\2\2\u0916\u016d\3\2\2\2\u0917\u0918")
         buf.write("\7&\2\2\u0918\u016f\3\2\2\2\u0919\u091a\7\'\2\2\u091a")
-        buf.write("\u0171\3\2\2\2\u091b\u091c\t\16\2\2\u091c\u0173\3\2\2")
+        buf.write("\u0171\3\2\2\2\u091b\u091c\t\17\2\2\u091c\u0173\3\2\2")
         buf.write("\2\u091d\u091e\7\u0090\2\2\u091e\u091f\5\u0176\u00bc\2")
         buf.write("\u091f\u0920\7\23\2\2\u0920\u0925\3\2\2\2\u0921\u0922")
         buf.write("\5\u0176\u00bc\2\u0922\u0923\7\23\2\2\u0923\u0925\3\2")
@@ -1517,7 +1518,7 @@ def serializedATN():
         buf.write("\3\2\2\2\u0af5\u0aef\3\2\2\2\u0af5\u0af0\3\2\2\2\u0af6")
         buf.write("\u01f9\3\2\2\2\u0af7\u0af9\5\u01fc\u00ff\2\u0af8\u0af7")
         buf.write("\3\2\2\2\u0af9\u0afa\3\2\2\2\u0afa\u0af8\3\2\2\2\u0afa")
-        buf.write("\u0afb\3\2\2\2\u0afb\u01fb\3\2\2\2\u0afc\u0aff\n\17\2")
+        buf.write("\u0afb\3\2\2\2\u0afb\u01fb\3\2\2\2\u0afc\u0aff\n\20\2")
         buf.write("\2\u0afd\u0aff\7\u00bc\2\2\u0afe\u0afc\3\2\2\2\u0afe\u0afd")
         buf.write("\3\2\2\2\u0aff\u01fd\3\2\2\2\u0b00\u0b02\7\33\2\2\u0b01")
         buf.write("\u0b03\5\u0200\u0101\2\u0b02\u0b01\3\2\2\2\u0b03\u0b04")
@@ -1536,7 +1537,7 @@ def serializedATN():
         buf.write("\33\2\2\u0b1f\u0b20\5\\/\2\u0b20\u0b21\7\34\2\2\u0b21")
         buf.write("\u0b24\3\2\2\2\u0b22\u0b24\5\u0206\u0104\2\u0b23\u0b1e")
         buf.write("\3\2\2\2\u0b23\u0b22\3\2\2\2\u0b24\u0205\3\2\2\2\u0b25")
-        buf.write("\u0b27\n\20\2\2\u0b26\u0b25\3\2\2\2\u0b27\u0b28\3\2\2")
+        buf.write("\u0b27\n\21\2\2\u0b26\u0b25\3\2\2\2\u0b27\u0b28\3\2\2")
         buf.write("\2\u0b28\u0b29\3\2\2\2\u0b28\u0b26\3\2\2\2\u0b29\u0207")
         buf.write("\3\2\2\2\u010d\u020e\u0211\u022a\u022f\u023d\u0243\u0245")
         buf.write("\u0247\u024b\u0250\u0258\u025f\u0270\u027b\u0282\u0286")
@@ -2292,7 +2293,7 @@ class MParser ( AbstractParser ):
 
 
                 pass
-            elif token in [MParser.RESOURCE, MParser.STORABLE, MParser.VARIABLE_IDENTIFIER]:
+            elif token in [MParser.RESOURCE, MParser.VARIABLE_IDENTIFIER]:
                 self.state = 526
                 localctx.attrs = self.attribute_identifier_list()
                 pass
@@ -2513,7 +2514,7 @@ class MParser ( AbstractParser ):
             self.state = 552
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.CATEGORY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.RESOURCE - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
                 self.state = 551
                 localctx.args = self.argument_assignment_list(0)
 
@@ -2741,7 +2742,7 @@ class MParser ( AbstractParser ):
             self.state = 590
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==MParser.VARIABLE_IDENTIFIER:
+            if _la==MParser.CATEGORY or _la==MParser.RESOURCE or _la==MParser.VARIABLE_IDENTIFIER:
                 self.state = 589
                 localctx.indices = self.variable_identifier_list()
 
@@ -3860,7 +3861,7 @@ class MParser ( AbstractParser ):
             self.state = 730
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if ((((_la - 141)) & ~0x3f) == 0 and ((1 << (_la - 141)) & ((1 << (MParser.RESOURCE - 141)) | (1 << (MParser.STORABLE - 141)) | (1 << (MParser.VARIABLE_IDENTIFIER - 141)))) != 0):
+            if _la==MParser.RESOURCE or _la==MParser.VARIABLE_IDENTIFIER:
                 self.state = 729
                 localctx.attrs = self.attribute_identifier_list()
 
@@ -3991,7 +3992,7 @@ class MParser ( AbstractParser ):
             self.state = 751
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if ((((_la - 141)) & ~0x3f) == 0 and ((1 << (_la - 141)) & ((1 << (MParser.RESOURCE - 141)) | (1 << (MParser.STORABLE - 141)) | (1 << (MParser.VARIABLE_IDENTIFIER - 141)))) != 0):
+            if _la==MParser.RESOURCE or _la==MParser.VARIABLE_IDENTIFIER:
                 self.state = 750
                 localctx.attrs = self.attribute_identifier_list()
 
@@ -4293,7 +4294,7 @@ class MParser ( AbstractParser ):
             self.state = 789
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==MParser.CODE or _la==MParser.MUTABLE or _la==MParser.VARIABLE_IDENTIFIER:
+            if ((((_la - 66)) & ~0x3f) == 0 and ((1 << (_la - 66)) & ((1 << (MParser.CODE - 66)) | (1 << (MParser.CATEGORY - 66)) | (1 << (MParser.MUTABLE - 66)))) != 0) or _la==MParser.RESOURCE or _la==MParser.VARIABLE_IDENTIFIER:
                 self.state = 788
                 localctx.args = self.argument_list()
 
@@ -4413,7 +4414,7 @@ class MParser ( AbstractParser ):
             self.state = 803
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==MParser.CODE or _la==MParser.MUTABLE or _la==MParser.VARIABLE_IDENTIFIER:
+            if ((((_la - 66)) & ~0x3f) == 0 and ((1 << (_la - 66)) & ((1 << (MParser.CODE - 66)) | (1 << (MParser.CATEGORY - 66)) | (1 << (MParser.MUTABLE - 66)))) != 0) or _la==MParser.RESOURCE or _la==MParser.VARIABLE_IDENTIFIER:
                 self.state = 802
                 localctx.args = self.argument_list()
 
@@ -4445,7 +4446,7 @@ class MParser ( AbstractParser ):
             self.state = 817
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [MParser.CSS_DATA, MParser.COMMENT, MParser.LPAR, MParser.LBRAK, MParser.LCURL, MParser.MINUS, MParser.LT, MParser.LTCOLONGT, MParser.BOOLEAN, MParser.CSS, MParser.CHARACTER, MParser.TEXT, MParser.INTEGER, MParser.DECIMAL, MParser.DATE, MParser.TIME, MParser.DATETIME, MParser.PERIOD, MParser.VERSION, MParser.CODE, MParser.DOCUMENT, MParser.BLOB, MParser.IMAGE, MParser.UUID, MParser.ITERATOR, MParser.CURSOR, MParser.HTML, MParser.ANY, MParser.BREAK, MParser.DEF, MParser.DELETE, MParser.DO, MParser.FETCH, MParser.FLUSH, MParser.FOR, MParser.IF, MParser.MUTABLE, MParser.NONE, MParser.RAISE, MParser.READ, MParser.RETURN, MParser.SELF, MParser.SORTED, MParser.STORE, MParser.SUPER, MParser.SWITCH, MParser.THIS, MParser.TRY, MParser.WITH, MParser.WHILE, MParser.WRITE, MParser.BOOLEAN_LITERAL, MParser.CHAR_LITERAL, MParser.MIN_INTEGER, MParser.MAX_INTEGER, MParser.SYMBOL_IDENTIFIER, MParser.TYPE_IDENTIFIER, MParser.VARIABLE_IDENTIFIER, MParser.TEXT_LITERAL, MParser.UUID_LITERAL, MParser.INTEGER_LITERAL, MParser.HEXA_LITERAL, MParser.DECIMAL_LITERAL, MParser.DATETIME_LITERAL, MParser.TIME_LITERAL, MParser.DATE_LITERAL, MParser.PERIOD_LITERAL, MParser.VERSION_LITERAL]:
+            if token in [MParser.CSS_DATA, MParser.COMMENT, MParser.LPAR, MParser.LBRAK, MParser.LCURL, MParser.MINUS, MParser.LT, MParser.LTCOLONGT, MParser.BOOLEAN, MParser.CSS, MParser.CHARACTER, MParser.TEXT, MParser.INTEGER, MParser.DECIMAL, MParser.DATE, MParser.TIME, MParser.DATETIME, MParser.PERIOD, MParser.VERSION, MParser.CODE, MParser.DOCUMENT, MParser.BLOB, MParser.IMAGE, MParser.UUID, MParser.ITERATOR, MParser.CURSOR, MParser.HTML, MParser.ANY, MParser.BREAK, MParser.CATEGORY, MParser.DEF, MParser.DELETE, MParser.DO, MParser.FETCH, MParser.FLUSH, MParser.FOR, MParser.IF, MParser.MUTABLE, MParser.NONE, MParser.RAISE, MParser.READ, MParser.RESOURCE, MParser.RETURN, MParser.SELF, MParser.SORTED, MParser.STORE, MParser.SUPER, MParser.SWITCH, MParser.THIS, MParser.TRY, MParser.WITH, MParser.WHILE, MParser.WRITE, MParser.BOOLEAN_LITERAL, MParser.CHAR_LITERAL, MParser.MIN_INTEGER, MParser.MAX_INTEGER, MParser.SYMBOL_IDENTIFIER, MParser.TYPE_IDENTIFIER, MParser.VARIABLE_IDENTIFIER, MParser.TEXT_LITERAL, MParser.UUID_LITERAL, MParser.INTEGER_LITERAL, MParser.HEXA_LITERAL, MParser.DECIMAL_LITERAL, MParser.DATETIME_LITERAL, MParser.TIME_LITERAL, MParser.DATE_LITERAL, MParser.PERIOD_LITERAL, MParser.VERSION_LITERAL]:
                 self.state = 815
                 localctx.stmts = self.statement_list()
                 pass
@@ -4558,7 +4559,7 @@ class MParser ( AbstractParser ):
             self.state = 828
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==MParser.CODE or _la==MParser.MUTABLE or _la==MParser.VARIABLE_IDENTIFIER:
+            if ((((_la - 66)) & ~0x3f) == 0 and ((1 << (_la - 66)) & ((1 << (MParser.CODE - 66)) | (1 << (MParser.CATEGORY - 66)) | (1 << (MParser.MUTABLE - 66)))) != 0) or _la==MParser.RESOURCE or _la==MParser.VARIABLE_IDENTIFIER:
                 self.state = 827
                 localctx.args = self.argument_list()
 
@@ -5717,7 +5718,7 @@ class MParser ( AbstractParser ):
             self.state = 931
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.CATEGORY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.RESOURCE - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
                 self.state = 930
                 localctx.args = self.argument_assignment_list(0)
 
@@ -7246,7 +7247,7 @@ class MParser ( AbstractParser ):
             self.state = 1132
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.CATEGORY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.RESOURCE - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
                 self.state = 1131
                 localctx.exp = self.expression(0)
 
@@ -9452,7 +9453,7 @@ class MParser ( AbstractParser ):
             self.state = 1320
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.CATEGORY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.RESOURCE - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
                 self.state = 1319
                 self.expression(0)
 
@@ -9665,7 +9666,7 @@ class MParser ( AbstractParser ):
                 self.state = 1345
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.CATEGORY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.RESOURCE - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
                     self.state = 1344
                     localctx.args = self.argument_assignment_list(0)
 
@@ -12647,7 +12648,7 @@ class MParser ( AbstractParser ):
             self.state = 1670
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.CATEGORY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.RESOURCE - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
                 self.state = 1669
                 self.expression_list()
 
@@ -12717,7 +12718,7 @@ class MParser ( AbstractParser ):
             self.state = 1679
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.CATEGORY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.RESOURCE - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
                 self.state = 1678
                 self.expression_list()
 
@@ -14113,7 +14114,7 @@ class MParser ( AbstractParser ):
             self.state = 1774
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [MParser.VARIABLE_IDENTIFIER]:
+            if token in [MParser.CATEGORY, MParser.RESOURCE, MParser.VARIABLE_IDENTIFIER]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1772
                 self.variable_identifier()
@@ -14171,19 +14172,19 @@ class MParser ( AbstractParser ):
         try:
             self.state = 1778
             self._errHandler.sync(self)
-            token = self._input.LA(1)
-            if token in [MParser.SYMBOL_IDENTIFIER, MParser.TYPE_IDENTIFIER, MParser.VARIABLE_IDENTIFIER]:
+            la_ = self._interp.adaptivePredict(self._input,136,self._ctx)
+            if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1776
                 self.identifier()
                 pass
-            elif token in [MParser.JAVA, MParser.CSHARP, MParser.PYTHON2, MParser.PYTHON3, MParser.JAVASCRIPT, MParser.SWIFT, MParser.BOOLEAN, MParser.CHARACTER, MParser.TEXT, MParser.INTEGER, MParser.DECIMAL, MParser.DATE, MParser.TIME, MParser.DATETIME, MParser.PERIOD, MParser.VERSION, MParser.CODE, MParser.DOCUMENT, MParser.BLOB, MParser.IMAGE, MParser.UUID, MParser.ITERATOR, MParser.CURSOR, MParser.HTML, MParser.ABSTRACT, MParser.ALL, MParser.ALWAYS, MParser.AND, MParser.ANY, MParser.AS, MParser.ASC, MParser.ATTR, MParser.ATTRIBUTE, MParser.ATTRIBUTES, MParser.BINDINGS, MParser.BREAK, MParser.BY, MParser.CASE, MParser.CATCH, MParser.CATEGORY, MParser.CLASS, MParser.CONTAINS, MParser.DEF, MParser.DEFAULT, MParser.DEFINE, MParser.DELETE, MParser.DESC, MParser.DO, MParser.DOING, MParser.EACH, MParser.ELSE, MParser.ENUM, MParser.ENUMERATED, MParser.EXCEPT, MParser.EXECUTE, MParser.EXPECTING, MParser.EXTENDS, MParser.FETCH, MParser.FILTERED, MParser.FINALLY, MParser.FLUSH, MParser.FOR, MParser.FROM, MParser.GETTER, MParser.HAS, MParser.IF, MParser.IN, MParser.INDEX, MParser.IS, MParser.MATCHING, MParser.METHOD, MParser.METHODS, MParser.MODULO, MParser.MUTABLE, MParser.NATIVE, MParser.NONE, MParser.NOT, MParser.NOTHING, MParser.NULL, MParser.ON, MParser.ONE, MParser.OPERATOR, MParser.OR, MParser.ORDER, MParser.OTHERWISE, MParser.PASS, MParser.RAISE, MParser.READ, MParser.RECEIVING, MParser.RESOURCE, MParser.RETURN, MParser.RETURNING, MParser.ROWS, MParser.SELF, MParser.SETTER, MParser.SINGLETON, MParser.SORTED, MParser.STORABLE, MParser.STORE, MParser.SUPER, MParser.SWITCH, MParser.TEST, MParser.THIS, MParser.THROW, MParser.TO, MParser.TRY, MParser.VERIFYING, MParser.WIDGET, MParser.WITH, MParser.WHEN, MParser.WHERE, MParser.WHILE, MParser.WRITE]:
+
+            elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1777
                 self.keyword()
                 pass
-            else:
-                raise NoViableAltException(self)
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -14374,7 +14375,7 @@ class MParser ( AbstractParser ):
             self.state = 1790
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [MParser.VARIABLE_IDENTIFIER]:
+            if token in [MParser.CATEGORY, MParser.RESOURCE, MParser.VARIABLE_IDENTIFIER]:
                 localctx = MParser.VariableIdentifierContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1787
@@ -14417,6 +14418,9 @@ class MParser ( AbstractParser ):
         def CATEGORY(self):
             return self.getToken(MParser.CATEGORY, 0)
 
+        def MUTABLE(self):
+            return self.getToken(MParser.MUTABLE, 0)
+
         def STORABLE(self):
             return self.getToken(MParser.STORABLE, 0)
 
@@ -14446,7 +14450,7 @@ class MParser ( AbstractParser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 1792
             _la = self._input.LA(1)
-            if not(((((_la - 90)) & ~0x3f) == 0 and ((1 << (_la - 90)) & ((1 << (MParser.CATEGORY - 90)) | (1 << (MParser.RESOURCE - 90)) | (1 << (MParser.STORABLE - 90)))) != 0) or _la==MParser.VARIABLE_IDENTIFIER):
+            if not(((((_la - 90)) & ~0x3f) == 0 and ((1 << (_la - 90)) & ((1 << (MParser.CATEGORY - 90)) | (1 << (MParser.MUTABLE - 90)) | (1 << (MParser.RESOURCE - 90)) | (1 << (MParser.STORABLE - 90)))) != 0) or _la==MParser.VARIABLE_IDENTIFIER):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -14470,6 +14474,12 @@ class MParser ( AbstractParser ):
         def VARIABLE_IDENTIFIER(self):
             return self.getToken(MParser.VARIABLE_IDENTIFIER, 0)
 
+        def CATEGORY(self):
+            return self.getToken(MParser.CATEGORY, 0)
+
+        def RESOURCE(self):
+            return self.getToken(MParser.RESOURCE, 0)
+
         def getRuleIndex(self):
             return MParser.RULE_variable_identifier
 
@@ -14488,10 +14498,16 @@ class MParser ( AbstractParser ):
 
         localctx = MParser.Variable_identifierContext(self, self._ctx, self.state)
         self.enterRule(localctx, 222, self.RULE_variable_identifier)
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 1794
-            self.match(MParser.VARIABLE_IDENTIFIER)
+            _la = self._input.LA(1)
+            if not(_la==MParser.CATEGORY or _la==MParser.RESOURCE or _la==MParser.VARIABLE_IDENTIFIER):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -14510,9 +14526,6 @@ class MParser ( AbstractParser ):
 
         def VARIABLE_IDENTIFIER(self):
             return self.getToken(MParser.VARIABLE_IDENTIFIER, 0)
-
-        def STORABLE(self):
-            return self.getToken(MParser.STORABLE, 0)
 
         def RESOURCE(self):
             return self.getToken(MParser.RESOURCE, 0)
@@ -14540,7 +14553,7 @@ class MParser ( AbstractParser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 1796
             _la = self._input.LA(1)
-            if not(((((_la - 141)) & ~0x3f) == 0 and ((1 << (_la - 141)) & ((1 << (MParser.RESOURCE - 141)) | (1 << (MParser.STORABLE - 141)) | (1 << (MParser.VARIABLE_IDENTIFIER - 141)))) != 0)):
+            if not(_la==MParser.RESOURCE or _la==MParser.VARIABLE_IDENTIFIER):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -14775,7 +14788,7 @@ class MParser ( AbstractParser ):
                 self.state = 1810
                 localctx.arg = self.code_argument()
                 pass
-            elif token in [MParser.MUTABLE, MParser.VARIABLE_IDENTIFIER]:
+            elif token in [MParser.CATEGORY, MParser.MUTABLE, MParser.RESOURCE, MParser.VARIABLE_IDENTIFIER]:
                 localctx = MParser.OperatorArgumentContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1812
@@ -17968,7 +17981,7 @@ class MParser ( AbstractParser ):
             self.state = 2137
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.CATEGORY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.RESOURCE - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
                 self.state = 2136
                 self.expression_tuple()
 
@@ -18182,7 +18195,7 @@ class MParser ( AbstractParser ):
             self.state = 2170
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.CATEGORY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.RESOURCE - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
                 self.state = 2162
                 self.expression(0)
                 self.state = 2167
@@ -19247,7 +19260,7 @@ class MParser ( AbstractParser ):
             self.state = 2256
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [MParser.VARIABLE_IDENTIFIER]:
+            if token in [MParser.CATEGORY, MParser.RESOURCE, MParser.VARIABLE_IDENTIFIER]:
                 localctx = MParser.ArrowSingleArgContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 2250
@@ -19261,7 +19274,7 @@ class MParser ( AbstractParser ):
                 self.state = 2253
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la==MParser.VARIABLE_IDENTIFIER:
+                if _la==MParser.CATEGORY or _la==MParser.RESOURCE or _la==MParser.VARIABLE_IDENTIFIER:
                     self.state = 2252
                     self.variable_identifier_list()
 
@@ -26579,7 +26592,7 @@ class MParser ( AbstractParser ):
                 self.state = 2800
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MParser.LPAR) | (1 << MParser.LBRAK) | (1 << MParser.LCURL) | (1 << MParser.MINUS) | (1 << MParser.LT) | (1 << MParser.LTGT) | (1 << MParser.LTCOLONGT) | (1 << MParser.BOOLEAN) | (1 << MParser.CSS) | (1 << MParser.CHARACTER) | (1 << MParser.TEXT) | (1 << MParser.INTEGER) | (1 << MParser.DECIMAL) | (1 << MParser.DATE) | (1 << MParser.TIME) | (1 << MParser.DATETIME) | (1 << MParser.PERIOD))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (MParser.VERSION - 64)) | (1 << (MParser.CODE - 64)) | (1 << (MParser.DOCUMENT - 64)) | (1 << (MParser.BLOB - 64)) | (1 << (MParser.IMAGE - 64)) | (1 << (MParser.UUID - 64)) | (1 << (MParser.ITERATOR - 64)) | (1 << (MParser.CURSOR - 64)) | (1 << (MParser.HTML - 64)) | (1 << (MParser.ANY - 64)) | (1 << (MParser.CATEGORY - 64)) | (1 << (MParser.EXECUTE - 64)) | (1 << (MParser.FETCH - 64)) | (1 << (MParser.MUTABLE - 64)) | (1 << (MParser.NONE - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (MParser.NOT - 128)) | (1 << (MParser.READ - 128)) | (1 << (MParser.RESOURCE - 128)) | (1 << (MParser.SELF - 128)) | (1 << (MParser.SORTED - 128)) | (1 << (MParser.SUPER - 128)) | (1 << (MParser.THIS - 128)) | (1 << (MParser.BOOLEAN_LITERAL - 128)) | (1 << (MParser.CHAR_LITERAL - 128)) | (1 << (MParser.MIN_INTEGER - 128)) | (1 << (MParser.MAX_INTEGER - 128)) | (1 << (MParser.SYMBOL_IDENTIFIER - 128)) | (1 << (MParser.TYPE_IDENTIFIER - 128)) | (1 << (MParser.VARIABLE_IDENTIFIER - 128)) | (1 << (MParser.TEXT_LITERAL - 128)) | (1 << (MParser.UUID_LITERAL - 128)) | (1 << (MParser.INTEGER_LITERAL - 128)) | (1 << (MParser.HEXA_LITERAL - 128)) | (1 << (MParser.DECIMAL_LITERAL - 128)) | (1 << (MParser.DATETIME_LITERAL - 128)) | (1 << (MParser.TIME_LITERAL - 128)) | (1 << (MParser.DATE_LITERAL - 128)) | (1 << (MParser.PERIOD_LITERAL - 128)) | (1 << (MParser.VERSION_LITERAL - 128)))) != 0):
                     self.state = 2799
                     localctx.exp = self.expression(0)
 

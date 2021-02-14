@@ -381,139 +381,139 @@ def serializedATN():
         buf.write("\u01cc\u01ce\u01d0\u01d2\u01d4\u01d6\u01d8\u01da\u01dc")
         buf.write("\u01de\u01e0\u01e2\u01e4\u01e6\u01e8\u01ea\u01ec\u01ee")
         buf.write("\u01f0\u01f2\u01f4\u01f6\u01f8\u01fa\u01fc\u01fe\u0200")
-        buf.write("\u0202\u0204\u0206\u0208\u020a\u020c\2\17\3\2\"#\3\2)")
+        buf.write("\u0202\u0204\u0206\u0208\u020a\u020c\2\20\3\2\"#\3\2)")
         buf.write(",\5\2--//\63\63\4\2\3\3\7\t\5\2ss\u0093\u0093\u00ad\u00ad")
-        buf.write("\6\2[[\u008e\u008e\u0096\u0096\u00ad\u00ad\5\2\u008e\u008e")
-        buf.write("\u0096\u0096\u00ad\u00ad\4\2\u0092\u0092\u009c\u009c\4")
-        buf.write("\2RRbb\t\2\13\20\67\679ACJLwy\u009a\u009c\u00a6\4\2\'")
-        buf.write("\'}}\5\2\32\33))++\3\2\22\22\2\u0c4f\2\u020e\3\2\2\2\4")
-        buf.write("\u0223\3\2\2\2\6\u022f\3\2\2\2\b\u0235\3\2\2\2\n\u023b")
-        buf.write("\3\2\2\2\f\u0251\3\2\2\2\16\u0261\3\2\2\2\20\u0274\3\2")
-        buf.write("\2\2\22\u0292\3\2\2\2\24\u02af\3\2\2\2\26\u02b1\3\2\2")
-        buf.write("\2\30\u02c1\3\2\2\2\32\u02cb\3\2\2\2\34\u02d8\3\2\2\2")
-        buf.write("\36\u02e2\3\2\2\2 \u02ef\3\2\2\2\"\u030e\3\2\2\2$\u032d")
-        buf.write("\3\2\2\2&\u0336\3\2\2\2(\u034c\3\2\2\2*\u034e\3\2\2\2")
-        buf.write(",\u035e\3\2\2\2.\u0376\3\2\2\2\60\u038b\3\2\2\2\62\u03a0")
-        buf.write("\3\2\2\2\64\u03a2\3\2\2\2\66\u03a7\3\2\2\28\u03c5\3\2")
-        buf.write("\2\2:\u03c7\3\2\2\2<\u03d2\3\2\2\2>\u03f0\3\2\2\2@\u03f2")
-        buf.write("\3\2\2\2B\u03fb\3\2\2\2D\u0404\3\2\2\2F\u0424\3\2\2\2")
-        buf.write("H\u0426\3\2\2\2J\u0434\3\2\2\2L\u043d\3\2\2\2N\u0444\3")
-        buf.write("\2\2\2P\u0458\3\2\2\2R\u0470\3\2\2\2T\u0473\3\2\2\2V\u04aa")
-        buf.write("\3\2\2\2X\u04ac\3\2\2\2Z\u04ae\3\2\2\2\\\u04d5\3\2\2\2")
-        buf.write("^\u053d\3\2\2\2`\u053f\3\2\2\2b\u0549\3\2\2\2d\u054d\3")
-        buf.write("\2\2\2f\u0551\3\2\2\2h\u0558\3\2\2\2j\u055a\3\2\2\2l\u0571")
-        buf.write("\3\2\2\2n\u0573\3\2\2\2p\u057e\3\2\2\2r\u0583\3\2\2\2")
-        buf.write("t\u059c\3\2\2\2v\u059e\3\2\2\2x\u05a5\3\2\2\2z\u05a9\3")
-        buf.write("\2\2\2|\u05d5\3\2\2\2~\u05fe\3\2\2\2\u0080\u0600\3\2\2")
-        buf.write("\2\u0082\u0608\3\2\2\2\u0084\u060e\3\2\2\2\u0086\u0628")
-        buf.write("\3\2\2\2\u0088\u062a\3\2\2\2\u008a\u0639\3\2\2\2\u008c")
-        buf.write("\u063d\3\2\2\2\u008e\u0649\3\2\2\2\u0090\u064b\3\2\2\2")
-        buf.write("\u0092\u0652\3\2\2\2\u0094\u0656\3\2\2\2\u0096\u065d\3")
-        buf.write("\2\2\2\u0098\u0661\3\2\2\2\u009a\u066a\3\2\2\2\u009c\u066f")
-        buf.write("\3\2\2\2\u009e\u0673\3\2\2\2\u00a0\u0678\3\2\2\2\u00a2")
-        buf.write("\u067b\3\2\2\2\u00a4\u0680\3\2\2\2\u00a6\u068e\3\2\2\2")
-        buf.write("\u00a8\u06a1\3\2\2\2\u00aa\u06b2\3\2\2\2\u00ac\u06b4\3")
-        buf.write("\2\2\2\u00ae\u06b8\3\2\2\2\u00b0\u06bc\3\2\2\2\u00b2\u06be")
-        buf.write("\3\2\2\2\u00b4\u06c2\3\2\2\2\u00b6\u06c4\3\2\2\2\u00b8")
-        buf.write("\u06cd\3\2\2\2\u00ba\u06d6\3\2\2\2\u00bc\u06e8\3\2\2\2")
-        buf.write("\u00be\u06eb\3\2\2\2\u00c0\u06f4\3\2\2\2\u00c2\u06fc\3")
-        buf.write("\2\2\2\u00c4\u0704\3\2\2\2\u00c6\u0716\3\2\2\2\u00c8\u0726")
-        buf.write("\3\2\2\2\u00ca\u0739\3\2\2\2\u00cc\u073b\3\2\2\2\u00ce")
-        buf.write("\u073e\3\2\2\2\u00d0\u0742\3\2\2\2\u00d2\u0747\3\2\2\2")
-        buf.write("\u00d4\u074b\3\2\2\2\u00d6\u074d\3\2\2\2\u00d8\u0757\3")
-        buf.write("\2\2\2\u00da\u075b\3\2\2\2\u00dc\u075d\3\2\2\2\u00de\u0761")
-        buf.write("\3\2\2\2\u00e0\u0767\3\2\2\2\u00e2\u0769\3\2\2\2\u00e4")
-        buf.write("\u076b\3\2\2\2\u00e6\u076d\3\2\2\2\u00e8\u076f\3\2\2\2")
-        buf.write("\u00ea\u0771\3\2\2\2\u00ec\u0773\3\2\2\2\u00ee\u0780\3")
-        buf.write("\2\2\2\u00f0\u0784\3\2\2\2\u00f2\u0786\3\2\2\2\u00f4\u078b")
-        buf.write("\3\2\2\2\u00f6\u0790\3\2\2\2\u00f8\u0792\3\2\2\2\u00fa")
-        buf.write("\u07a0\3\2\2\2\u00fc\u07ae\3\2\2\2\u00fe\u07c0\3\2\2\2")
-        buf.write("\u0100\u07ce\3\2\2\2\u0102\u07e8\3\2\2\2\u0104\u07ea\3")
-        buf.write("\2\2\2\u0106\u07ee\3\2\2\2\u0108\u07f9\3\2\2\2\u010a\u0804")
-        buf.write("\3\2\2\2\u010c\u0816\3\2\2\2\u010e\u081e\3\2\2\2\u0110")
-        buf.write("\u082a\3\2\2\2\u0112\u082c\3\2\2\2\u0114\u082e\3\2\2\2")
-        buf.write("\u0116\u0841\3\2\2\2\u0118\u0843\3\2\2\2\u011a\u084a\3")
-        buf.write("\2\2\2\u011c\u0851\3\2\2\2\u011e\u085a\3\2\2\2\u0120\u0863")
-        buf.write("\3\2\2\2\u0122\u086c\3\2\2\2\u0124\u0883\3\2\2\2\u0126")
-        buf.write("\u089c\3\2\2\2\u0128\u089e\3\2\2\2\u012a\u08a6\3\2\2\2")
-        buf.write("\u012c\u08ab\3\2\2\2\u012e\u08af\3\2\2\2\u0130\u08b5\3")
-        buf.write("\2\2\2\u0132\u08bd\3\2\2\2\u0134\u08c0\3\2\2\2\u0136\u08c9")
-        buf.write("\3\2\2\2\u0138\u08d5\3\2\2\2\u013a\u08db\3\2\2\2\u013c")
-        buf.write("\u08e7\3\2\2\2\u013e\u08ef\3\2\2\2\u0140\u08f5\3\2\2\2")
-        buf.write("\u0142\u08f7\3\2\2\2\u0144\u08ff\3\2\2\2\u0146\u0905\3")
-        buf.write("\2\2\2\u0148\u0910\3\2\2\2\u014a\u0912\3\2\2\2\u014c\u0916")
-        buf.write("\3\2\2\2\u014e\u0924\3\2\2\2\u0150\u092e\3\2\2\2\u0152")
-        buf.write("\u0930\3\2\2\2\u0154\u093b\3\2\2\2\u0156\u093f\3\2\2\2")
-        buf.write("\u0158\u0941\3\2\2\2\u015a\u0946\3\2\2\2\u015c\u094b\3")
-        buf.write("\2\2\2\u015e\u0950\3\2\2\2\u0160\u0958\3\2\2\2\u0162\u0969")
-        buf.write("\3\2\2\2\u0164\u096b\3\2\2\2\u0166\u096d\3\2\2\2\u0168")
-        buf.write("\u0970\3\2\2\2\u016a\u0973\3\2\2\2\u016c\u0976\3\2\2\2")
-        buf.write("\u016e\u0979\3\2\2\2\u0170\u097c\3\2\2\2\u0172\u097e\3")
-        buf.write("\2\2\2\u0174\u0980\3\2\2\2\u0176\u0982\3\2\2\2\u0178\u0984")
-        buf.write("\3\2\2\2\u017a\u098d\3\2\2\2\u017c\u098f\3\2\2\2\u017e")
-        buf.write("\u09a0\3\2\2\2\u0180\u09a2\3\2\2\2\u0182\u09a4\3\2\2\2")
-        buf.write("\u0184\u09ac\3\2\2\2\u0186\u09ae\3\2\2\2\u0188\u09b5\3")
-        buf.write("\2\2\2\u018a\u09c0\3\2\2\2\u018c\u09c4\3\2\2\2\u018e\u09c8")
-        buf.write("\3\2\2\2\u0190\u09cf\3\2\2\2\u0192\u09d6\3\2\2\2\u0194")
-        buf.write("\u09db\3\2\2\2\u0196\u09dd\3\2\2\2\u0198\u09ec\3\2\2\2")
-        buf.write("\u019a\u09ee\3\2\2\2\u019c\u09f6\3\2\2\2\u019e\u09f8\3")
-        buf.write("\2\2\2\u01a0\u0a05\3\2\2\2\u01a2\u0a07\3\2\2\2\u01a4\u0a12")
-        buf.write("\3\2\2\2\u01a6\u0a22\3\2\2\2\u01a8\u0a29\3\2\2\2\u01aa")
-        buf.write("\u0a38\3\2\2\2\u01ac\u0a3f\3\2\2\2\u01ae\u0a48\3\2\2\2")
-        buf.write("\u01b0\u0a4a\3\2\2\2\u01b2\u0a59\3\2\2\2\u01b4\u0a5b\3")
-        buf.write("\2\2\2\u01b6\u0a5d\3\2\2\2\u01b8\u0a63\3\2\2\2\u01ba\u0a65")
-        buf.write("\3\2\2\2\u01bc\u0a6c\3\2\2\2\u01be\u0a77\3\2\2\2\u01c0")
-        buf.write("\u0a7b\3\2\2\2\u01c2\u0a7f\3\2\2\2\u01c4\u0a8a\3\2\2\2")
-        buf.write("\u01c6\u0a99\3\2\2\2\u01c8\u0aa0\3\2\2\2\u01ca\u0aa9\3")
-        buf.write("\2\2\2\u01cc\u0aab\3\2\2\2\u01ce\u0aba\3\2\2\2\u01d0\u0abc")
-        buf.write("\3\2\2\2\u01d2\u0abe\3\2\2\2\u01d4\u0ac4\3\2\2\2\u01d6")
-        buf.write("\u0ac6\3\2\2\2\u01d8\u0acd\3\2\2\2\u01da\u0ad8\3\2\2\2")
-        buf.write("\u01dc\u0adc\3\2\2\2\u01de\u0ae3\3\2\2\2\u01e0\u0af2\3")
-        buf.write("\2\2\2\u01e2\u0af9\3\2\2\2\u01e4\u0afd\3\2\2\2\u01e6\u0b06")
-        buf.write("\3\2\2\2\u01e8\u0b08\3\2\2\2\u01ea\u0b13\3\2\2\2\u01ec")
-        buf.write("\u0b15\3\2\2\2\u01ee\u0b19\3\2\2\2\u01f0\u0b25\3\2\2\2")
-        buf.write("\u01f2\u0b30\3\2\2\2\u01f4\u0b35\3\2\2\2\u01f6\u0b3d\3")
-        buf.write("\2\2\2\u01f8\u0b44\3\2\2\2\u01fa\u0b50\3\2\2\2\u01fc\u0b53")
-        buf.write("\3\2\2\2\u01fe\u0b5e\3\2\2\2\u0200\u0b61\3\2\2\2\u0202")
-        buf.write("\u0b67\3\2\2\2\u0204\u0b69\3\2\2\2\u0206\u0b71\3\2\2\2")
-        buf.write("\u0208\u0b7a\3\2\2\2\u020a\u0b8c\3\2\2\2\u020c\u0b8f\3")
-        buf.write("\2\2\2\u020e\u020f\7`\2\2\u020f\u0210\5\u00e8u\2\u0210")
-        buf.write("\u0211\7Q\2\2\u0211\u0214\7h\2\2\u0212\u0215\7[\2\2\u0213")
-        buf.write("\u0215\5\u00e8u\2\u0214\u0212\3\2\2\2\u0214\u0213\3\2")
-        buf.write("\2\2\u0215\u021b\3\2\2\2\u0216\u0217\5(\25\2\u0217\u0218")
-        buf.write("\7\23\2\2\u0218\u0219\7O\2\2\u0219\u021c\3\2\2\2\u021a")
-        buf.write("\u021c\7\u00a2\2\2\u021b\u0216\3\2\2\2\u021b\u021a\3\2")
-        buf.write("\2\2\u021c\u021d\3\2\2\2\u021d\u021e\5\u016e\u00b8\2\u021e")
-        buf.write("\u021f\7\21\2\2\u021f\u0220\5\u0098M\2\u0220\u0221\5\u00b8")
-        buf.write("]\2\u0221\u0222\5\u009aN\2\u0222\3\3\2\2\2\u0223\u0224")
-        buf.write("\7`\2\2\u0224\u0225\5\u00e8u\2\u0225\u0226\7Q\2\2\u0226")
-        buf.write("\u0227\7h\2\2\u0227\u0228\5\u00caf\2\u0228\u0229\7\u00a2")
-        buf.write("\2\2\u0229\u022a\5\u016e\u00b8\2\u022a\u022b\7\21\2\2")
-        buf.write("\u022b\u022c\5\u0098M\2\u022c\u022d\5\u00b6\\\2\u022d")
-        buf.write("\u022e\5\u009aN\2\u022e\5\3\2\2\2\u022f\u0230\5\u00ea")
-        buf.write("v\2\u0230\u0231\7\u00a2\2\2\u0231\u0232\5\\/\2\u0232\u0233")
-        buf.write("\7Q\2\2\u0233\u0234\5\u016c\u00b7\2\u0234\7\3\2\2\2\u0235")
-        buf.write("\u0236\5\u00eav\2\u0236\u0239\5\u0088E\2\u0237\u0238\7")
-        buf.write("O\2\2\u0238\u023a\5\u008aF\2\u0239\u0237\3\2\2\2\u0239")
-        buf.write("\u023a\3\2\2\2\u023a\t\3\2\2\2\u023b\u023c\7`\2\2\u023c")
-        buf.write("\u023d\5\u00e6t\2\u023d\u023f\7Q\2\2\u023e\u0240\7\u0096")
-        buf.write("\2\2\u023f\u023e\3\2\2\2\u023f\u0240\3\2\2\2\u0240\u0241")
-        buf.write("\3\2\2\2\u0241\u0242\5\u00c6d\2\u0242\u0244\7T\2\2\u0243")
-        buf.write("\u0245\5\u00bc_\2\u0244\u0243\3\2\2\2\u0244\u0245\3\2")
-        buf.write("\2\2\u0245\u024f\3\2\2\2\u0246\u024c\7\u00a2\2\2\u0247")
-        buf.write("\u024a\5\u010c\u0087\2\u0248\u0249\7O\2\2\u0249\u024b")
-        buf.write("\5\u00e4s\2\u024a\u0248\3\2\2\2\u024a\u024b\3\2\2\2\u024b")
-        buf.write("\u024d\3\2\2\2\u024c\u0247\3\2\2\2\u024c\u024d\3\2\2\2")
-        buf.write("\u024d\u024e\3\2\2\2\u024e\u0250\7w\2\2\u024f\u0246\3")
-        buf.write("\2\2\2\u024f\u0250\3\2\2\2\u0250\13\3\2\2\2\u0251\u0252")
-        buf.write("\7`\2\2\u0252\u0253\5\u00e8u\2\u0253\u0256\7Q\2\2\u0254")
-        buf.write("\u0257\7\u00a1\2\2\u0255\u0257\5\u00e8u\2\u0256\u0254")
-        buf.write("\3\2\2\2\u0256\u0255\3\2\2\2\u0257\u025f\3\2\2\2\u0258")
-        buf.write("\u0259\7\u00a2\2\2\u0259\u025a\7|\2\2\u025a\u025b\7\21")
-        buf.write("\2\2\u025b\u025c\5\u0098M\2\u025c\u025d\5\u00fa~\2\u025d")
-        buf.write("\u025e\5\u009aN\2\u025e\u0260\3\2\2\2\u025f\u0258\3\2")
-        buf.write("\2\2\u025f\u0260\3\2\2\2\u0260\r\3\2\2\2\u0261\u0262\7")
-        buf.write("`\2\2\u0262\u0263\5\u00e8u\2\u0263\u0264\7Q\2\2\u0264")
+        buf.write("\7\2[[~~\u008e\u008e\u0096\u0096\u00ad\u00ad\5\2[[\u008e")
+        buf.write("\u008e\u00ad\u00ad\4\2\u008e\u008e\u00ad\u00ad\4\2\u0092")
+        buf.write("\u0092\u009c\u009c\4\2RRbb\t\2\13\20\67\679ACJLwy\u009a")
+        buf.write("\u009c\u00a6\4\2\'\'}}\5\2\32\33))++\3\2\22\22\2\u0c4f")
+        buf.write("\2\u020e\3\2\2\2\4\u0223\3\2\2\2\6\u022f\3\2\2\2\b\u0235")
+        buf.write("\3\2\2\2\n\u023b\3\2\2\2\f\u0251\3\2\2\2\16\u0261\3\2")
+        buf.write("\2\2\20\u0274\3\2\2\2\22\u0292\3\2\2\2\24\u02af\3\2\2")
+        buf.write("\2\26\u02b1\3\2\2\2\30\u02c1\3\2\2\2\32\u02cb\3\2\2\2")
+        buf.write("\34\u02d8\3\2\2\2\36\u02e2\3\2\2\2 \u02ef\3\2\2\2\"\u030e")
+        buf.write("\3\2\2\2$\u032d\3\2\2\2&\u0336\3\2\2\2(\u034c\3\2\2\2")
+        buf.write("*\u034e\3\2\2\2,\u035e\3\2\2\2.\u0376\3\2\2\2\60\u038b")
+        buf.write("\3\2\2\2\62\u03a0\3\2\2\2\64\u03a2\3\2\2\2\66\u03a7\3")
+        buf.write("\2\2\28\u03c5\3\2\2\2:\u03c7\3\2\2\2<\u03d2\3\2\2\2>\u03f0")
+        buf.write("\3\2\2\2@\u03f2\3\2\2\2B\u03fb\3\2\2\2D\u0404\3\2\2\2")
+        buf.write("F\u0424\3\2\2\2H\u0426\3\2\2\2J\u0434\3\2\2\2L\u043d\3")
+        buf.write("\2\2\2N\u0444\3\2\2\2P\u0458\3\2\2\2R\u0470\3\2\2\2T\u0473")
+        buf.write("\3\2\2\2V\u04aa\3\2\2\2X\u04ac\3\2\2\2Z\u04ae\3\2\2\2")
+        buf.write("\\\u04d5\3\2\2\2^\u053d\3\2\2\2`\u053f\3\2\2\2b\u0549")
+        buf.write("\3\2\2\2d\u054d\3\2\2\2f\u0551\3\2\2\2h\u0558\3\2\2\2")
+        buf.write("j\u055a\3\2\2\2l\u0571\3\2\2\2n\u0573\3\2\2\2p\u057e\3")
+        buf.write("\2\2\2r\u0583\3\2\2\2t\u059c\3\2\2\2v\u059e\3\2\2\2x\u05a5")
+        buf.write("\3\2\2\2z\u05a9\3\2\2\2|\u05d5\3\2\2\2~\u05fe\3\2\2\2")
+        buf.write("\u0080\u0600\3\2\2\2\u0082\u0608\3\2\2\2\u0084\u060e\3")
+        buf.write("\2\2\2\u0086\u0628\3\2\2\2\u0088\u062a\3\2\2\2\u008a\u0639")
+        buf.write("\3\2\2\2\u008c\u063d\3\2\2\2\u008e\u0649\3\2\2\2\u0090")
+        buf.write("\u064b\3\2\2\2\u0092\u0652\3\2\2\2\u0094\u0656\3\2\2\2")
+        buf.write("\u0096\u065d\3\2\2\2\u0098\u0661\3\2\2\2\u009a\u066a\3")
+        buf.write("\2\2\2\u009c\u066f\3\2\2\2\u009e\u0673\3\2\2\2\u00a0\u0678")
+        buf.write("\3\2\2\2\u00a2\u067b\3\2\2\2\u00a4\u0680\3\2\2\2\u00a6")
+        buf.write("\u068e\3\2\2\2\u00a8\u06a1\3\2\2\2\u00aa\u06b2\3\2\2\2")
+        buf.write("\u00ac\u06b4\3\2\2\2\u00ae\u06b8\3\2\2\2\u00b0\u06bc\3")
+        buf.write("\2\2\2\u00b2\u06be\3\2\2\2\u00b4\u06c2\3\2\2\2\u00b6\u06c4")
+        buf.write("\3\2\2\2\u00b8\u06cd\3\2\2\2\u00ba\u06d6\3\2\2\2\u00bc")
+        buf.write("\u06e8\3\2\2\2\u00be\u06eb\3\2\2\2\u00c0\u06f4\3\2\2\2")
+        buf.write("\u00c2\u06fc\3\2\2\2\u00c4\u0704\3\2\2\2\u00c6\u0716\3")
+        buf.write("\2\2\2\u00c8\u0726\3\2\2\2\u00ca\u0739\3\2\2\2\u00cc\u073b")
+        buf.write("\3\2\2\2\u00ce\u073e\3\2\2\2\u00d0\u0742\3\2\2\2\u00d2")
+        buf.write("\u0747\3\2\2\2\u00d4\u074b\3\2\2\2\u00d6\u074d\3\2\2\2")
+        buf.write("\u00d8\u0757\3\2\2\2\u00da\u075b\3\2\2\2\u00dc\u075d\3")
+        buf.write("\2\2\2\u00de\u0761\3\2\2\2\u00e0\u0767\3\2\2\2\u00e2\u0769")
+        buf.write("\3\2\2\2\u00e4\u076b\3\2\2\2\u00e6\u076d\3\2\2\2\u00e8")
+        buf.write("\u076f\3\2\2\2\u00ea\u0771\3\2\2\2\u00ec\u0773\3\2\2\2")
+        buf.write("\u00ee\u0780\3\2\2\2\u00f0\u0784\3\2\2\2\u00f2\u0786\3")
+        buf.write("\2\2\2\u00f4\u078b\3\2\2\2\u00f6\u0790\3\2\2\2\u00f8\u0792")
+        buf.write("\3\2\2\2\u00fa\u07a0\3\2\2\2\u00fc\u07ae\3\2\2\2\u00fe")
+        buf.write("\u07c0\3\2\2\2\u0100\u07ce\3\2\2\2\u0102\u07e8\3\2\2\2")
+        buf.write("\u0104\u07ea\3\2\2\2\u0106\u07ee\3\2\2\2\u0108\u07f9\3")
+        buf.write("\2\2\2\u010a\u0804\3\2\2\2\u010c\u0816\3\2\2\2\u010e\u081e")
+        buf.write("\3\2\2\2\u0110\u082a\3\2\2\2\u0112\u082c\3\2\2\2\u0114")
+        buf.write("\u082e\3\2\2\2\u0116\u0841\3\2\2\2\u0118\u0843\3\2\2\2")
+        buf.write("\u011a\u084a\3\2\2\2\u011c\u0851\3\2\2\2\u011e\u085a\3")
+        buf.write("\2\2\2\u0120\u0863\3\2\2\2\u0122\u086c\3\2\2\2\u0124\u0883")
+        buf.write("\3\2\2\2\u0126\u089c\3\2\2\2\u0128\u089e\3\2\2\2\u012a")
+        buf.write("\u08a6\3\2\2\2\u012c\u08ab\3\2\2\2\u012e\u08af\3\2\2\2")
+        buf.write("\u0130\u08b5\3\2\2\2\u0132\u08bd\3\2\2\2\u0134\u08c0\3")
+        buf.write("\2\2\2\u0136\u08c9\3\2\2\2\u0138\u08d5\3\2\2\2\u013a\u08db")
+        buf.write("\3\2\2\2\u013c\u08e7\3\2\2\2\u013e\u08ef\3\2\2\2\u0140")
+        buf.write("\u08f5\3\2\2\2\u0142\u08f7\3\2\2\2\u0144\u08ff\3\2\2\2")
+        buf.write("\u0146\u0905\3\2\2\2\u0148\u0910\3\2\2\2\u014a\u0912\3")
+        buf.write("\2\2\2\u014c\u0916\3\2\2\2\u014e\u0924\3\2\2\2\u0150\u092e")
+        buf.write("\3\2\2\2\u0152\u0930\3\2\2\2\u0154\u093b\3\2\2\2\u0156")
+        buf.write("\u093f\3\2\2\2\u0158\u0941\3\2\2\2\u015a\u0946\3\2\2\2")
+        buf.write("\u015c\u094b\3\2\2\2\u015e\u0950\3\2\2\2\u0160\u0958\3")
+        buf.write("\2\2\2\u0162\u0969\3\2\2\2\u0164\u096b\3\2\2\2\u0166\u096d")
+        buf.write("\3\2\2\2\u0168\u0970\3\2\2\2\u016a\u0973\3\2\2\2\u016c")
+        buf.write("\u0976\3\2\2\2\u016e\u0979\3\2\2\2\u0170\u097c\3\2\2\2")
+        buf.write("\u0172\u097e\3\2\2\2\u0174\u0980\3\2\2\2\u0176\u0982\3")
+        buf.write("\2\2\2\u0178\u0984\3\2\2\2\u017a\u098d\3\2\2\2\u017c\u098f")
+        buf.write("\3\2\2\2\u017e\u09a0\3\2\2\2\u0180\u09a2\3\2\2\2\u0182")
+        buf.write("\u09a4\3\2\2\2\u0184\u09ac\3\2\2\2\u0186\u09ae\3\2\2\2")
+        buf.write("\u0188\u09b5\3\2\2\2\u018a\u09c0\3\2\2\2\u018c\u09c4\3")
+        buf.write("\2\2\2\u018e\u09c8\3\2\2\2\u0190\u09cf\3\2\2\2\u0192\u09d6")
+        buf.write("\3\2\2\2\u0194\u09db\3\2\2\2\u0196\u09dd\3\2\2\2\u0198")
+        buf.write("\u09ec\3\2\2\2\u019a\u09ee\3\2\2\2\u019c\u09f6\3\2\2\2")
+        buf.write("\u019e\u09f8\3\2\2\2\u01a0\u0a05\3\2\2\2\u01a2\u0a07\3")
+        buf.write("\2\2\2\u01a4\u0a12\3\2\2\2\u01a6\u0a22\3\2\2\2\u01a8\u0a29")
+        buf.write("\3\2\2\2\u01aa\u0a38\3\2\2\2\u01ac\u0a3f\3\2\2\2\u01ae")
+        buf.write("\u0a48\3\2\2\2\u01b0\u0a4a\3\2\2\2\u01b2\u0a59\3\2\2\2")
+        buf.write("\u01b4\u0a5b\3\2\2\2\u01b6\u0a5d\3\2\2\2\u01b8\u0a63\3")
+        buf.write("\2\2\2\u01ba\u0a65\3\2\2\2\u01bc\u0a6c\3\2\2\2\u01be\u0a77")
+        buf.write("\3\2\2\2\u01c0\u0a7b\3\2\2\2\u01c2\u0a7f\3\2\2\2\u01c4")
+        buf.write("\u0a8a\3\2\2\2\u01c6\u0a99\3\2\2\2\u01c8\u0aa0\3\2\2\2")
+        buf.write("\u01ca\u0aa9\3\2\2\2\u01cc\u0aab\3\2\2\2\u01ce\u0aba\3")
+        buf.write("\2\2\2\u01d0\u0abc\3\2\2\2\u01d2\u0abe\3\2\2\2\u01d4\u0ac4")
+        buf.write("\3\2\2\2\u01d6\u0ac6\3\2\2\2\u01d8\u0acd\3\2\2\2\u01da")
+        buf.write("\u0ad8\3\2\2\2\u01dc\u0adc\3\2\2\2\u01de\u0ae3\3\2\2\2")
+        buf.write("\u01e0\u0af2\3\2\2\2\u01e2\u0af9\3\2\2\2\u01e4\u0afd\3")
+        buf.write("\2\2\2\u01e6\u0b06\3\2\2\2\u01e8\u0b08\3\2\2\2\u01ea\u0b13")
+        buf.write("\3\2\2\2\u01ec\u0b15\3\2\2\2\u01ee\u0b19\3\2\2\2\u01f0")
+        buf.write("\u0b25\3\2\2\2\u01f2\u0b30\3\2\2\2\u01f4\u0b35\3\2\2\2")
+        buf.write("\u01f6\u0b3d\3\2\2\2\u01f8\u0b44\3\2\2\2\u01fa\u0b50\3")
+        buf.write("\2\2\2\u01fc\u0b53\3\2\2\2\u01fe\u0b5e\3\2\2\2\u0200\u0b61")
+        buf.write("\3\2\2\2\u0202\u0b67\3\2\2\2\u0204\u0b69\3\2\2\2\u0206")
+        buf.write("\u0b71\3\2\2\2\u0208\u0b7a\3\2\2\2\u020a\u0b8c\3\2\2\2")
+        buf.write("\u020c\u0b8f\3\2\2\2\u020e\u020f\7`\2\2\u020f\u0210\5")
+        buf.write("\u00e8u\2\u0210\u0211\7Q\2\2\u0211\u0214\7h\2\2\u0212")
+        buf.write("\u0215\7[\2\2\u0213\u0215\5\u00e8u\2\u0214\u0212\3\2\2")
+        buf.write("\2\u0214\u0213\3\2\2\2\u0215\u021b\3\2\2\2\u0216\u0217")
+        buf.write("\5(\25\2\u0217\u0218\7\23\2\2\u0218\u0219\7O\2\2\u0219")
+        buf.write("\u021c\3\2\2\2\u021a\u021c\7\u00a2\2\2\u021b\u0216\3\2")
+        buf.write("\2\2\u021b\u021a\3\2\2\2\u021c\u021d\3\2\2\2\u021d\u021e")
+        buf.write("\5\u016e\u00b8\2\u021e\u021f\7\21\2\2\u021f\u0220\5\u0098")
+        buf.write("M\2\u0220\u0221\5\u00b8]\2\u0221\u0222\5\u009aN\2\u0222")
+        buf.write("\3\3\2\2\2\u0223\u0224\7`\2\2\u0224\u0225\5\u00e8u\2\u0225")
+        buf.write("\u0226\7Q\2\2\u0226\u0227\7h\2\2\u0227\u0228\5\u00caf")
+        buf.write("\2\u0228\u0229\7\u00a2\2\2\u0229\u022a\5\u016e\u00b8\2")
+        buf.write("\u022a\u022b\7\21\2\2\u022b\u022c\5\u0098M\2\u022c\u022d")
+        buf.write("\5\u00b6\\\2\u022d\u022e\5\u009aN\2\u022e\5\3\2\2\2\u022f")
+        buf.write("\u0230\5\u00eav\2\u0230\u0231\7\u00a2\2\2\u0231\u0232")
+        buf.write("\5\\/\2\u0232\u0233\7Q\2\2\u0233\u0234\5\u016c\u00b7\2")
+        buf.write("\u0234\7\3\2\2\2\u0235\u0236\5\u00eav\2\u0236\u0239\5")
+        buf.write("\u0088E\2\u0237\u0238\7O\2\2\u0238\u023a\5\u008aF\2\u0239")
+        buf.write("\u0237\3\2\2\2\u0239\u023a\3\2\2\2\u023a\t\3\2\2\2\u023b")
+        buf.write("\u023c\7`\2\2\u023c\u023d\5\u00e6t\2\u023d\u023f\7Q\2")
+        buf.write("\2\u023e\u0240\7\u0096\2\2\u023f\u023e\3\2\2\2\u023f\u0240")
+        buf.write("\3\2\2\2\u0240\u0241\3\2\2\2\u0241\u0242\5\u00c6d\2\u0242")
+        buf.write("\u0244\7T\2\2\u0243\u0245\5\u00bc_\2\u0244\u0243\3\2\2")
+        buf.write("\2\u0244\u0245\3\2\2\2\u0245\u024f\3\2\2\2\u0246\u024c")
+        buf.write("\7\u00a2\2\2\u0247\u024a\5\u010c\u0087\2\u0248\u0249\7")
+        buf.write("O\2\2\u0249\u024b\5\u00e4s\2\u024a\u0248\3\2\2\2\u024a")
+        buf.write("\u024b\3\2\2\2\u024b\u024d\3\2\2\2\u024c\u0247\3\2\2\2")
+        buf.write("\u024c\u024d\3\2\2\2\u024d\u024e\3\2\2\2\u024e\u0250\7")
+        buf.write("w\2\2\u024f\u0246\3\2\2\2\u024f\u0250\3\2\2\2\u0250\13")
+        buf.write("\3\2\2\2\u0251\u0252\7`\2\2\u0252\u0253\5\u00e8u\2\u0253")
+        buf.write("\u0256\7Q\2\2\u0254\u0257\7\u00a1\2\2\u0255\u0257\5\u00e8")
+        buf.write("u\2\u0256\u0254\3\2\2\2\u0256\u0255\3\2\2\2\u0257\u025f")
+        buf.write("\3\2\2\2\u0258\u0259\7\u00a2\2\2\u0259\u025a\7|\2\2\u025a")
+        buf.write("\u025b\7\21\2\2\u025b\u025c\5\u0098M\2\u025c\u025d\5\u00fa")
+        buf.write("~\2\u025d\u025e\5\u009aN\2\u025e\u0260\3\2\2\2\u025f\u0258")
+        buf.write("\3\2\2\2\u025f\u0260\3\2\2\2\u0260\r\3\2\2\2\u0261\u0262")
+        buf.write("\7`\2\2\u0262\u0263\5\u00e8u\2\u0263\u0264\7Q\2\2\u0264")
         buf.write("\u0265\7\177\2\2\u0265\u0266\7\u00a1\2\2\u0266\u0267\7")
         buf.write("\u00a2\2\2\u0267\u0268\7V\2\2\u0268\u0269\7\21\2\2\u0269")
         buf.write("\u026a\5\u0098M\2\u026a\u026b\5$\23\2\u026b\u026c\5\u009a")
@@ -1090,8 +1090,8 @@ def serializedATN():
         buf.write("\u0765\u0768\5\u00e8u\2\u0766\u0768\5\u00eav\2\u0767\u0764")
         buf.write("\3\2\2\2\u0767\u0765\3\2\2\2\u0767\u0766\3\2\2\2\u0768")
         buf.write("\u00e1\3\2\2\2\u0769\u076a\t\7\2\2\u076a\u00e3\3\2\2\2")
-        buf.write("\u076b\u076c\7\u00ad\2\2\u076c\u00e5\3\2\2\2\u076d\u076e")
-        buf.write("\t\b\2\2\u076e\u00e7\3\2\2\2\u076f\u0770\7\u00ac\2\2\u0770")
+        buf.write("\u076b\u076c\t\b\2\2\u076c\u00e5\3\2\2\2\u076d\u076e\t")
+        buf.write("\t\2\2\u076e\u00e7\3\2\2\2\u076f\u0770\7\u00ac\2\2\u0770")
         buf.write("\u00e9\3\2\2\2\u0771\u0772\7\u00ab\2\2\u0772\u00eb\3\2")
         buf.write("\2\2\u0773\u0778\5\u00eex\2\u0774\u0775\7\23\2\2\u0775")
         buf.write("\u0777\5\u00eex\2\u0776\u0774\3\2\2\2\u0777\u077a\3\2")
@@ -1240,7 +1240,7 @@ def serializedATN():
         buf.write("\u0094\2\u089f\u08a0\7\23\2\2\u08a0\u08a2\5\u0126\u0094")
         buf.write("\2\u08a1\u089f\3\2\2\2\u08a2\u08a5\3\2\2\2\u08a3\u08a1")
         buf.write("\3\2\2\2\u08a3\u08a4\3\2\2\2\u08a4\u0129\3\2\2\2\u08a5")
-        buf.write("\u08a3\3\2\2\2\u08a6\u08a7\t\t\2\2\u08a7\u012b\3\2\2\2")
+        buf.write("\u08a3\3\2\2\2\u08a6\u08a7\t\n\2\2\u08a7\u012b\3\2\2\2")
         buf.write("\u08a8\u08a9\5\u00ccg\2\u08a9\u08aa\7\25\2\2\u08aa\u08ac")
         buf.write("\3\2\2\2\u08ab\u08a8\3\2\2\2\u08ab\u08ac\3\2\2\2\u08ac")
         buf.write("\u08ad\3\2\2\2\u08ad\u08ae\7\u0098\2\2\u08ae\u012d\3\2")
@@ -1324,23 +1324,23 @@ def serializedATN():
         buf.write("\7\25\2\2\u095a\u095c\5\u00e4s\2\u095b\u0959\3\2\2\2\u095c")
         buf.write("\u095f\3\2\2\2\u095d\u095b\3\2\2\2\u095d\u095e\3\2\2\2")
         buf.write("\u095e\u0961\3\2\2\2\u095f\u095d\3\2\2\2\u0960\u0962\t")
-        buf.write("\n\2\2\u0961\u0960\3\2\2\2\u0961\u0962\3\2\2\2\u0962\u0161")
-        buf.write("\3\2\2\2\u0963\u096a\7\"\2\2\u0964\u096a\7#\2\2\u0965")
-        buf.write("\u096a\5\u0172\u00ba\2\u0966\u096a\5\u0174\u00bb\2\u0967")
-        buf.write("\u096a\5\u0176\u00bc\2\u0968\u096a\5\u0178\u00bd\2\u0969")
-        buf.write("\u0963\3\2\2\2\u0969\u0964\3\2\2\2\u0969\u0965\3\2\2\2")
-        buf.write("\u0969\u0966\3\2\2\2\u0969\u0967\3\2\2\2\u0969\u0968\3")
-        buf.write("\2\2\2\u096a\u0163\3\2\2\2\u096b\u096c\t\13\2\2\u096c")
-        buf.write("\u0165\3\2\2\2\u096d\u096e\7\u00ad\2\2\u096e\u096f\6\u00b4")
-        buf.write(",\3\u096f\u0167\3\2\2\2\u0970\u0971\7\u00ad\2\2\u0971")
-        buf.write("\u0972\6\u00b5-\3\u0972\u0169\3\2\2\2\u0973\u0974\7\u00ad")
-        buf.write("\2\2\u0974\u0975\6\u00b6.\3\u0975\u016b\3\2\2\2\u0976")
-        buf.write("\u0977\7\u00ad\2\2\u0977\u0978\6\u00b7/\3\u0978\u016d")
-        buf.write("\3\2\2\2\u0979\u097a\7\u00ad\2\2\u097a\u097b\6\u00b8\60")
-        buf.write("\3\u097b\u016f\3\2\2\2\u097c\u097d\7/\2\2\u097d\u0171")
+        buf.write("\13\2\2\u0961\u0960\3\2\2\2\u0961\u0962\3\2\2\2\u0962")
+        buf.write("\u0161\3\2\2\2\u0963\u096a\7\"\2\2\u0964\u096a\7#\2\2")
+        buf.write("\u0965\u096a\5\u0172\u00ba\2\u0966\u096a\5\u0174\u00bb")
+        buf.write("\2\u0967\u096a\5\u0176\u00bc\2\u0968\u096a\5\u0178\u00bd")
+        buf.write("\2\u0969\u0963\3\2\2\2\u0969\u0964\3\2\2\2\u0969\u0965")
+        buf.write("\3\2\2\2\u0969\u0966\3\2\2\2\u0969\u0967\3\2\2\2\u0969")
+        buf.write("\u0968\3\2\2\2\u096a\u0163\3\2\2\2\u096b\u096c\t\f\2\2")
+        buf.write("\u096c\u0165\3\2\2\2\u096d\u096e\7\u00ad\2\2\u096e\u096f")
+        buf.write("\6\u00b4,\3\u096f\u0167\3\2\2\2\u0970\u0971\7\u00ad\2")
+        buf.write("\2\u0971\u0972\6\u00b5-\3\u0972\u0169\3\2\2\2\u0973\u0974")
+        buf.write("\7\u00ad\2\2\u0974\u0975\6\u00b6.\3\u0975\u016b\3\2\2")
+        buf.write("\2\u0976\u0977\7\u00ad\2\2\u0977\u0978\6\u00b7/\3\u0978")
+        buf.write("\u016d\3\2\2\2\u0979\u097a\7\u00ad\2\2\u097a\u097b\6\u00b8")
+        buf.write("\60\3\u097b\u016f\3\2\2\2\u097c\u097d\7/\2\2\u097d\u0171")
         buf.write("\3\2\2\2\u097e\u097f\7$\2\2\u097f\u0173\3\2\2\2\u0980")
         buf.write("\u0981\7%\2\2\u0981\u0175\3\2\2\2\u0982\u0983\7&\2\2\u0983")
-        buf.write("\u0177\3\2\2\2\u0984\u0985\t\f\2\2\u0985\u0179\3\2\2\2")
+        buf.write("\u0177\3\2\2\2\u0984\u0985\t\r\2\2\u0985\u0179\3\2\2\2")
         buf.write("\u0986\u0987\7\u008f\2\2\u0987\u0988\5\u017c\u00bf\2\u0988")
         buf.write("\u0989\7\22\2\2\u0989\u098e\3\2\2\2\u098a\u098b\5\u017c")
         buf.write("\u00bf\2\u098b\u098c\7\22\2\2\u098c\u098e\3\2\2\2\u098d")
@@ -1573,8 +1573,8 @@ def serializedATN():
         buf.write("\3\2\2\2\u0b5e\u0b58\3\2\2\2\u0b5e\u0b59\3\2\2\2\u0b5f")
         buf.write("\u01ff\3\2\2\2\u0b60\u0b62\5\u0202\u0102\2\u0b61\u0b60")
         buf.write("\3\2\2\2\u0b62\u0b63\3\2\2\2\u0b63\u0b61\3\2\2\2\u0b63")
-        buf.write("\u0b64\3\2\2\2\u0b64\u0201\3\2\2\2\u0b65\u0b68\n\r\2\2")
-        buf.write("\u0b66\u0b68\7\u00bb\2\2\u0b67\u0b65\3\2\2\2\u0b67\u0b66")
+        buf.write("\u0b64\3\2\2\2\u0b64\u0201\3\2\2\2\u0b65\u0b68\n\16\2")
+        buf.write("\2\u0b66\u0b68\7\u00bb\2\2\u0b67\u0b65\3\2\2\2\u0b67\u0b66")
         buf.write("\3\2\2\2\u0b68\u0203\3\2\2\2\u0b69\u0b6b\7\32\2\2\u0b6a")
         buf.write("\u0b6c\5\u0206\u0104\2\u0b6b\u0b6a\3\2\2\2\u0b6c\u0b6d")
         buf.write("\3\2\2\2\u0b6d\u0b6b\3\2\2\2\u0b6d\u0b6e\3\2\2\2\u0b6e")
@@ -1592,7 +1592,7 @@ def serializedATN():
         buf.write("\32\2\2\u0b88\u0b89\5\\/\2\u0b89\u0b8a\7\33\2\2\u0b8a")
         buf.write("\u0b8d\3\2\2\2\u0b8b\u0b8d\5\u020c\u0107\2\u0b8c\u0b87")
         buf.write("\3\2\2\2\u0b8c\u0b8b\3\2\2\2\u0b8d\u020b\3\2\2\2\u0b8e")
-        buf.write("\u0b90\n\16\2\2\u0b8f\u0b8e\3\2\2\2\u0b90\u0b91\3\2\2")
+        buf.write("\u0b90\n\17\2\2\u0b8f\u0b8e\3\2\2\2\u0b90\u0b91\3\2\2")
         buf.write("\2\u0b91\u0b92\3\2\2\2\u0b91\u0b8f\3\2\2\2\u0b92\u020d")
         buf.write("\3\2\2\2\u0119\u0214\u021b\u0239\u023f\u0244\u024a\u024c")
         buf.write("\u024f\u0256\u025f\u0278\u027c\u0287\u0290\u029f\u02a8")
@@ -2745,7 +2745,7 @@ class EParser ( AbstractParser ):
                 self.state = 586
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la==EParser.VARIABLE_IDENTIFIER:
+                if _la==EParser.CATEGORY or _la==EParser.RESOURCE or _la==EParser.VARIABLE_IDENTIFIER:
                     self.state = 581
                     localctx.indices = self.variable_identifier_list()
                     self.state = 584
@@ -4826,7 +4826,7 @@ class EParser ( AbstractParser ):
             self.state = 880
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [EParser.COMMENT, EParser.LPAR, EParser.LBRAK, EParser.LCURL, EParser.MINUS, EParser.LT, EParser.LTCOLONGT, EParser.TYPE, EParser.BREAK, EParser.DEFINE, EParser.DELETE, EParser.DO, EParser.FETCH, EParser.FLUSH, EParser.FOR, EParser.IF, EParser.INVOKE_COLON, EParser.MUTABLE, EParser.NOTHING, EParser.RAISE, EParser.READ, EParser.RETURN, EParser.SELF, EParser.STORE, EParser.SUPER, EParser.SWITCH, EParser.THIS, EParser.WITH, EParser.WHILE, EParser.WRITE, EParser.BOOLEAN_LITERAL, EParser.CHAR_LITERAL, EParser.MIN_INTEGER, EParser.MAX_INTEGER, EParser.SYMBOL_IDENTIFIER, EParser.TYPE_IDENTIFIER, EParser.VARIABLE_IDENTIFIER, EParser.TEXT_LITERAL, EParser.UUID_LITERAL, EParser.INTEGER_LITERAL, EParser.HEXA_LITERAL, EParser.DECIMAL_LITERAL, EParser.DATETIME_LITERAL, EParser.TIME_LITERAL, EParser.DATE_LITERAL, EParser.PERIOD_LITERAL, EParser.VERSION_LITERAL]:
+            if token in [EParser.COMMENT, EParser.LPAR, EParser.LBRAK, EParser.LCURL, EParser.MINUS, EParser.LT, EParser.LTCOLONGT, EParser.TYPE, EParser.BREAK, EParser.CATEGORY, EParser.DEFINE, EParser.DELETE, EParser.DO, EParser.FETCH, EParser.FLUSH, EParser.FOR, EParser.IF, EParser.INVOKE_COLON, EParser.MUTABLE, EParser.NOTHING, EParser.RAISE, EParser.READ, EParser.RESOURCE, EParser.RETURN, EParser.SELF, EParser.STORE, EParser.SUPER, EParser.SWITCH, EParser.THIS, EParser.WITH, EParser.WHILE, EParser.WRITE, EParser.BOOLEAN_LITERAL, EParser.CHAR_LITERAL, EParser.MIN_INTEGER, EParser.MAX_INTEGER, EParser.SYMBOL_IDENTIFIER, EParser.TYPE_IDENTIFIER, EParser.VARIABLE_IDENTIFIER, EParser.TEXT_LITERAL, EParser.UUID_LITERAL, EParser.INTEGER_LITERAL, EParser.HEXA_LITERAL, EParser.DECIMAL_LITERAL, EParser.DATETIME_LITERAL, EParser.TIME_LITERAL, EParser.DATE_LITERAL, EParser.PERIOD_LITERAL, EParser.VERSION_LITERAL]:
                 self.state = 878
                 localctx.stmts = self.statement_list()
                 pass
@@ -6175,7 +6175,7 @@ class EParser ( AbstractParser ):
             self.state = 1006
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [EParser.LPAR, EParser.LBRAK, EParser.LCURL, EParser.MINUS, EParser.LT, EParser.LTCOLONGT, EParser.TYPE, EParser.MUTABLE, EParser.NOTHING, EParser.SELF, EParser.SUPER, EParser.THIS, EParser.BOOLEAN_LITERAL, EParser.CHAR_LITERAL, EParser.MIN_INTEGER, EParser.MAX_INTEGER, EParser.SYMBOL_IDENTIFIER, EParser.TYPE_IDENTIFIER, EParser.VARIABLE_IDENTIFIER, EParser.TEXT_LITERAL, EParser.UUID_LITERAL, EParser.INTEGER_LITERAL, EParser.HEXA_LITERAL, EParser.DECIMAL_LITERAL, EParser.DATETIME_LITERAL, EParser.TIME_LITERAL, EParser.DATE_LITERAL, EParser.PERIOD_LITERAL, EParser.VERSION_LITERAL]:
+            if token in [EParser.LPAR, EParser.LBRAK, EParser.LCURL, EParser.MINUS, EParser.LT, EParser.LTCOLONGT, EParser.TYPE, EParser.CATEGORY, EParser.MUTABLE, EParser.NOTHING, EParser.RESOURCE, EParser.SELF, EParser.SUPER, EParser.THIS, EParser.BOOLEAN_LITERAL, EParser.CHAR_LITERAL, EParser.MIN_INTEGER, EParser.MAX_INTEGER, EParser.SYMBOL_IDENTIFIER, EParser.TYPE_IDENTIFIER, EParser.VARIABLE_IDENTIFIER, EParser.TEXT_LITERAL, EParser.UUID_LITERAL, EParser.INTEGER_LITERAL, EParser.HEXA_LITERAL, EParser.DECIMAL_LITERAL, EParser.DATETIME_LITERAL, EParser.TIME_LITERAL, EParser.DATE_LITERAL, EParser.PERIOD_LITERAL, EParser.VERSION_LITERAL]:
                 localctx = EParser.UnresolvedWithArgsStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 988
@@ -7698,7 +7698,7 @@ class EParser ( AbstractParser ):
             self.state = 1198
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.LTGT) | (1 << EParser.LTCOLONGT))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (EParser.METHOD_COLON - 64)) | (1 << (EParser.CODE - 64)) | (1 << (EParser.DOCUMENT - 64)) | (1 << (EParser.BLOB - 64)) | (1 << (EParser.TYPE - 64)) | (1 << (EParser.EXECUTE - 64)) | (1 << (EParser.FETCH - 64)) | (1 << (EParser.INVOKE_COLON - 64)) | (1 << (EParser.MUTABLE - 64)) | (1 << (EParser.NOT - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (EParser.NOTHING - 128)) | (1 << (EParser.READ - 128)) | (1 << (EParser.SELF - 128)) | (1 << (EParser.SORTED - 128)) | (1 << (EParser.SUPER - 128)) | (1 << (EParser.THIS - 128)) | (1 << (EParser.BOOLEAN_LITERAL - 128)) | (1 << (EParser.CHAR_LITERAL - 128)) | (1 << (EParser.MIN_INTEGER - 128)) | (1 << (EParser.MAX_INTEGER - 128)) | (1 << (EParser.SYMBOL_IDENTIFIER - 128)) | (1 << (EParser.TYPE_IDENTIFIER - 128)) | (1 << (EParser.VARIABLE_IDENTIFIER - 128)) | (1 << (EParser.TEXT_LITERAL - 128)) | (1 << (EParser.UUID_LITERAL - 128)) | (1 << (EParser.INTEGER_LITERAL - 128)) | (1 << (EParser.HEXA_LITERAL - 128)) | (1 << (EParser.DECIMAL_LITERAL - 128)) | (1 << (EParser.DATETIME_LITERAL - 128)) | (1 << (EParser.TIME_LITERAL - 128)) | (1 << (EParser.DATE_LITERAL - 128)) | (1 << (EParser.PERIOD_LITERAL - 128)) | (1 << (EParser.VERSION_LITERAL - 128)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.LTGT) | (1 << EParser.LTCOLONGT))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (EParser.METHOD_COLON - 64)) | (1 << (EParser.CODE - 64)) | (1 << (EParser.DOCUMENT - 64)) | (1 << (EParser.BLOB - 64)) | (1 << (EParser.TYPE - 64)) | (1 << (EParser.CATEGORY - 64)) | (1 << (EParser.EXECUTE - 64)) | (1 << (EParser.FETCH - 64)) | (1 << (EParser.INVOKE_COLON - 64)) | (1 << (EParser.MUTABLE - 64)) | (1 << (EParser.NOT - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (EParser.NOTHING - 128)) | (1 << (EParser.READ - 128)) | (1 << (EParser.RESOURCE - 128)) | (1 << (EParser.SELF - 128)) | (1 << (EParser.SORTED - 128)) | (1 << (EParser.SUPER - 128)) | (1 << (EParser.THIS - 128)) | (1 << (EParser.BOOLEAN_LITERAL - 128)) | (1 << (EParser.CHAR_LITERAL - 128)) | (1 << (EParser.MIN_INTEGER - 128)) | (1 << (EParser.MAX_INTEGER - 128)) | (1 << (EParser.SYMBOL_IDENTIFIER - 128)) | (1 << (EParser.TYPE_IDENTIFIER - 128)) | (1 << (EParser.VARIABLE_IDENTIFIER - 128)) | (1 << (EParser.TEXT_LITERAL - 128)) | (1 << (EParser.UUID_LITERAL - 128)) | (1 << (EParser.INTEGER_LITERAL - 128)) | (1 << (EParser.HEXA_LITERAL - 128)) | (1 << (EParser.DECIMAL_LITERAL - 128)) | (1 << (EParser.DATETIME_LITERAL - 128)) | (1 << (EParser.TIME_LITERAL - 128)) | (1 << (EParser.DATE_LITERAL - 128)) | (1 << (EParser.PERIOD_LITERAL - 128)) | (1 << (EParser.VERSION_LITERAL - 128)))) != 0):
                 self.state = 1197
                 localctx.exp = self.expression(0)
 
@@ -13544,7 +13544,7 @@ class EParser ( AbstractParser ):
             self.state = 1773
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.LTGT) | (1 << EParser.LTCOLONGT))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (EParser.METHOD_COLON - 64)) | (1 << (EParser.CODE - 64)) | (1 << (EParser.DOCUMENT - 64)) | (1 << (EParser.BLOB - 64)) | (1 << (EParser.TYPE - 64)) | (1 << (EParser.EXECUTE - 64)) | (1 << (EParser.FETCH - 64)) | (1 << (EParser.INVOKE_COLON - 64)) | (1 << (EParser.MUTABLE - 64)) | (1 << (EParser.NOT - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (EParser.NOTHING - 128)) | (1 << (EParser.READ - 128)) | (1 << (EParser.SELF - 128)) | (1 << (EParser.SORTED - 128)) | (1 << (EParser.SUPER - 128)) | (1 << (EParser.THIS - 128)) | (1 << (EParser.BOOLEAN_LITERAL - 128)) | (1 << (EParser.CHAR_LITERAL - 128)) | (1 << (EParser.MIN_INTEGER - 128)) | (1 << (EParser.MAX_INTEGER - 128)) | (1 << (EParser.SYMBOL_IDENTIFIER - 128)) | (1 << (EParser.TYPE_IDENTIFIER - 128)) | (1 << (EParser.VARIABLE_IDENTIFIER - 128)) | (1 << (EParser.TEXT_LITERAL - 128)) | (1 << (EParser.UUID_LITERAL - 128)) | (1 << (EParser.INTEGER_LITERAL - 128)) | (1 << (EParser.HEXA_LITERAL - 128)) | (1 << (EParser.DECIMAL_LITERAL - 128)) | (1 << (EParser.DATETIME_LITERAL - 128)) | (1 << (EParser.TIME_LITERAL - 128)) | (1 << (EParser.DATE_LITERAL - 128)) | (1 << (EParser.PERIOD_LITERAL - 128)) | (1 << (EParser.VERSION_LITERAL - 128)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.LTGT) | (1 << EParser.LTCOLONGT))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (EParser.METHOD_COLON - 64)) | (1 << (EParser.CODE - 64)) | (1 << (EParser.DOCUMENT - 64)) | (1 << (EParser.BLOB - 64)) | (1 << (EParser.TYPE - 64)) | (1 << (EParser.CATEGORY - 64)) | (1 << (EParser.EXECUTE - 64)) | (1 << (EParser.FETCH - 64)) | (1 << (EParser.INVOKE_COLON - 64)) | (1 << (EParser.MUTABLE - 64)) | (1 << (EParser.NOT - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (EParser.NOTHING - 128)) | (1 << (EParser.READ - 128)) | (1 << (EParser.RESOURCE - 128)) | (1 << (EParser.SELF - 128)) | (1 << (EParser.SORTED - 128)) | (1 << (EParser.SUPER - 128)) | (1 << (EParser.THIS - 128)) | (1 << (EParser.BOOLEAN_LITERAL - 128)) | (1 << (EParser.CHAR_LITERAL - 128)) | (1 << (EParser.MIN_INTEGER - 128)) | (1 << (EParser.MAX_INTEGER - 128)) | (1 << (EParser.SYMBOL_IDENTIFIER - 128)) | (1 << (EParser.TYPE_IDENTIFIER - 128)) | (1 << (EParser.VARIABLE_IDENTIFIER - 128)) | (1 << (EParser.TEXT_LITERAL - 128)) | (1 << (EParser.UUID_LITERAL - 128)) | (1 << (EParser.INTEGER_LITERAL - 128)) | (1 << (EParser.HEXA_LITERAL - 128)) | (1 << (EParser.DECIMAL_LITERAL - 128)) | (1 << (EParser.DATETIME_LITERAL - 128)) | (1 << (EParser.TIME_LITERAL - 128)) | (1 << (EParser.DATE_LITERAL - 128)) | (1 << (EParser.PERIOD_LITERAL - 128)) | (1 << (EParser.VERSION_LITERAL - 128)))) != 0):
                 self.state = 1772
                 self.expression_list()
 
@@ -13614,7 +13614,7 @@ class EParser ( AbstractParser ):
             self.state = 1782
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.LTGT) | (1 << EParser.LTCOLONGT))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (EParser.METHOD_COLON - 64)) | (1 << (EParser.CODE - 64)) | (1 << (EParser.DOCUMENT - 64)) | (1 << (EParser.BLOB - 64)) | (1 << (EParser.TYPE - 64)) | (1 << (EParser.EXECUTE - 64)) | (1 << (EParser.FETCH - 64)) | (1 << (EParser.INVOKE_COLON - 64)) | (1 << (EParser.MUTABLE - 64)) | (1 << (EParser.NOT - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (EParser.NOTHING - 128)) | (1 << (EParser.READ - 128)) | (1 << (EParser.SELF - 128)) | (1 << (EParser.SORTED - 128)) | (1 << (EParser.SUPER - 128)) | (1 << (EParser.THIS - 128)) | (1 << (EParser.BOOLEAN_LITERAL - 128)) | (1 << (EParser.CHAR_LITERAL - 128)) | (1 << (EParser.MIN_INTEGER - 128)) | (1 << (EParser.MAX_INTEGER - 128)) | (1 << (EParser.SYMBOL_IDENTIFIER - 128)) | (1 << (EParser.TYPE_IDENTIFIER - 128)) | (1 << (EParser.VARIABLE_IDENTIFIER - 128)) | (1 << (EParser.TEXT_LITERAL - 128)) | (1 << (EParser.UUID_LITERAL - 128)) | (1 << (EParser.INTEGER_LITERAL - 128)) | (1 << (EParser.HEXA_LITERAL - 128)) | (1 << (EParser.DECIMAL_LITERAL - 128)) | (1 << (EParser.DATETIME_LITERAL - 128)) | (1 << (EParser.TIME_LITERAL - 128)) | (1 << (EParser.DATE_LITERAL - 128)) | (1 << (EParser.PERIOD_LITERAL - 128)) | (1 << (EParser.VERSION_LITERAL - 128)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.LTGT) | (1 << EParser.LTCOLONGT))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (EParser.METHOD_COLON - 64)) | (1 << (EParser.CODE - 64)) | (1 << (EParser.DOCUMENT - 64)) | (1 << (EParser.BLOB - 64)) | (1 << (EParser.TYPE - 64)) | (1 << (EParser.CATEGORY - 64)) | (1 << (EParser.EXECUTE - 64)) | (1 << (EParser.FETCH - 64)) | (1 << (EParser.INVOKE_COLON - 64)) | (1 << (EParser.MUTABLE - 64)) | (1 << (EParser.NOT - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (EParser.NOTHING - 128)) | (1 << (EParser.READ - 128)) | (1 << (EParser.RESOURCE - 128)) | (1 << (EParser.SELF - 128)) | (1 << (EParser.SORTED - 128)) | (1 << (EParser.SUPER - 128)) | (1 << (EParser.THIS - 128)) | (1 << (EParser.BOOLEAN_LITERAL - 128)) | (1 << (EParser.CHAR_LITERAL - 128)) | (1 << (EParser.MIN_INTEGER - 128)) | (1 << (EParser.MAX_INTEGER - 128)) | (1 << (EParser.SYMBOL_IDENTIFIER - 128)) | (1 << (EParser.TYPE_IDENTIFIER - 128)) | (1 << (EParser.VARIABLE_IDENTIFIER - 128)) | (1 << (EParser.TEXT_LITERAL - 128)) | (1 << (EParser.UUID_LITERAL - 128)) | (1 << (EParser.INTEGER_LITERAL - 128)) | (1 << (EParser.HEXA_LITERAL - 128)) | (1 << (EParser.DECIMAL_LITERAL - 128)) | (1 << (EParser.DATETIME_LITERAL - 128)) | (1 << (EParser.TIME_LITERAL - 128)) | (1 << (EParser.DATE_LITERAL - 128)) | (1 << (EParser.PERIOD_LITERAL - 128)) | (1 << (EParser.VERSION_LITERAL - 128)))) != 0):
                 self.state = 1781
                 self.expression_list()
 
@@ -15010,7 +15010,7 @@ class EParser ( AbstractParser ):
             self.state = 1877
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [EParser.VARIABLE_IDENTIFIER]:
+            if token in [EParser.CATEGORY, EParser.RESOURCE, EParser.VARIABLE_IDENTIFIER]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1875
                 self.variable_identifier()
@@ -15068,19 +15068,19 @@ class EParser ( AbstractParser ):
         try:
             self.state = 1881
             self._errHandler.sync(self)
-            token = self._input.LA(1)
-            if token in [EParser.SYMBOL_IDENTIFIER, EParser.TYPE_IDENTIFIER, EParser.VARIABLE_IDENTIFIER]:
+            la_ = self._interp.adaptivePredict(self._input,148,self._ctx)
+            if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1879
                 self.identifier()
                 pass
-            elif token in [EParser.JAVA, EParser.CSHARP, EParser.PYTHON2, EParser.PYTHON3, EParser.JAVASCRIPT, EParser.SWIFT, EParser.BOOLEAN, EParser.CHARACTER, EParser.TEXT, EParser.INTEGER, EParser.DECIMAL, EParser.DATE, EParser.TIME, EParser.DATETIME, EParser.PERIOD, EParser.VERSION, EParser.CODE, EParser.DOCUMENT, EParser.BLOB, EParser.IMAGE, EParser.UUID, EParser.ITERATOR, EParser.CURSOR, EParser.HTML, EParser.ABSTRACT, EParser.ALL, EParser.ALWAYS, EParser.AND, EParser.ANY, EParser.AS, EParser.ASC, EParser.ATTR, EParser.ATTRIBUTE, EParser.ATTRIBUTES, EParser.BINDINGS, EParser.BREAK, EParser.BY, EParser.CASE, EParser.CATCH, EParser.CATEGORY, EParser.CLASS, EParser.CONTAINS, EParser.DEF, EParser.DEFAULT, EParser.DEFINE, EParser.DELETE, EParser.DESC, EParser.DO, EParser.DOING, EParser.EACH, EParser.ELSE, EParser.ENUM, EParser.ENUMERATED, EParser.EXCEPT, EParser.EXECUTE, EParser.EXPECTING, EParser.EXTENDS, EParser.FETCH, EParser.FILTERED, EParser.FINALLY, EParser.FLUSH, EParser.FOR, EParser.FROM, EParser.GETTER, EParser.HAS, EParser.IF, EParser.IN, EParser.INDEX, EParser.IS, EParser.MATCHING, EParser.METHOD, EParser.METHODS, EParser.MODULO, EParser.MUTABLE, EParser.NATIVE, EParser.NONE, EParser.NOT, EParser.NOTHING, EParser.NULL, EParser.ON, EParser.ONE, EParser.OPERATOR, EParser.OR, EParser.ORDER, EParser.OTHERWISE, EParser.PASS, EParser.RAISE, EParser.READ, EParser.RECEIVING, EParser.RESOURCE, EParser.RETURN, EParser.RETURNING, EParser.ROWS, EParser.SELF, EParser.SETTER, EParser.SINGLETON, EParser.SORTED, EParser.STORABLE, EParser.STORE, EParser.SUPER, EParser.SWITCH, EParser.TEST, EParser.THIS, EParser.THROW, EParser.TO, EParser.TRY, EParser.VERIFYING, EParser.WIDGET, EParser.WITH, EParser.WHEN, EParser.WHERE, EParser.WHILE, EParser.WRITE]:
+
+            elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 1880
                 self.keyword()
                 pass
-            else:
-                raise NoViableAltException(self)
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -15271,7 +15271,7 @@ class EParser ( AbstractParser ):
             self.state = 1893
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [EParser.VARIABLE_IDENTIFIER]:
+            if token in [EParser.CATEGORY, EParser.RESOURCE, EParser.VARIABLE_IDENTIFIER]:
                 localctx = EParser.VariableIdentifierContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1890
@@ -15314,6 +15314,9 @@ class EParser ( AbstractParser ):
         def CATEGORY(self):
             return self.getToken(EParser.CATEGORY, 0)
 
+        def MUTABLE(self):
+            return self.getToken(EParser.MUTABLE, 0)
+
         def STORABLE(self):
             return self.getToken(EParser.STORABLE, 0)
 
@@ -15343,7 +15346,7 @@ class EParser ( AbstractParser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 1895
             _la = self._input.LA(1)
-            if not(((((_la - 89)) & ~0x3f) == 0 and ((1 << (_la - 89)) & ((1 << (EParser.CATEGORY - 89)) | (1 << (EParser.RESOURCE - 89)) | (1 << (EParser.STORABLE - 89)))) != 0) or _la==EParser.VARIABLE_IDENTIFIER):
+            if not(((((_la - 89)) & ~0x3f) == 0 and ((1 << (_la - 89)) & ((1 << (EParser.CATEGORY - 89)) | (1 << (EParser.MUTABLE - 89)) | (1 << (EParser.RESOURCE - 89)) | (1 << (EParser.STORABLE - 89)))) != 0) or _la==EParser.VARIABLE_IDENTIFIER):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -15367,6 +15370,12 @@ class EParser ( AbstractParser ):
         def VARIABLE_IDENTIFIER(self):
             return self.getToken(EParser.VARIABLE_IDENTIFIER, 0)
 
+        def CATEGORY(self):
+            return self.getToken(EParser.CATEGORY, 0)
+
+        def RESOURCE(self):
+            return self.getToken(EParser.RESOURCE, 0)
+
         def getRuleIndex(self):
             return EParser.RULE_variable_identifier
 
@@ -15385,10 +15394,16 @@ class EParser ( AbstractParser ):
 
         localctx = EParser.Variable_identifierContext(self, self._ctx, self.state)
         self.enterRule(localctx, 226, self.RULE_variable_identifier)
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 1897
-            self.match(EParser.VARIABLE_IDENTIFIER)
+            _la = self._input.LA(1)
+            if not(_la==EParser.CATEGORY or _la==EParser.RESOURCE or _la==EParser.VARIABLE_IDENTIFIER):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -15407,9 +15422,6 @@ class EParser ( AbstractParser ):
 
         def VARIABLE_IDENTIFIER(self):
             return self.getToken(EParser.VARIABLE_IDENTIFIER, 0)
-
-        def STORABLE(self):
-            return self.getToken(EParser.STORABLE, 0)
 
         def RESOURCE(self):
             return self.getToken(EParser.RESOURCE, 0)
@@ -15437,7 +15449,7 @@ class EParser ( AbstractParser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 1899
             _la = self._input.LA(1)
-            if not(((((_la - 140)) & ~0x3f) == 0 and ((1 << (_la - 140)) & ((1 << (EParser.RESOURCE - 140)) | (1 << (EParser.STORABLE - 140)) | (1 << (EParser.VARIABLE_IDENTIFIER - 140)))) != 0)):
+            if not(_la==EParser.RESOURCE or _la==EParser.VARIABLE_IDENTIFIER):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -15735,7 +15747,7 @@ class EParser ( AbstractParser ):
             self.state = 1922
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [EParser.VARIABLE_IDENTIFIER]:
+            if token in [EParser.CATEGORY, EParser.RESOURCE, EParser.VARIABLE_IDENTIFIER]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 1920
                 self.named_argument()
@@ -18906,7 +18918,7 @@ class EParser ( AbstractParser ):
             self.state = 2242
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.LTGT) | (1 << EParser.LTCOLONGT))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (EParser.METHOD_COLON - 64)) | (1 << (EParser.CODE - 64)) | (1 << (EParser.DOCUMENT - 64)) | (1 << (EParser.BLOB - 64)) | (1 << (EParser.TYPE - 64)) | (1 << (EParser.EXECUTE - 64)) | (1 << (EParser.FETCH - 64)) | (1 << (EParser.INVOKE_COLON - 64)) | (1 << (EParser.MUTABLE - 64)) | (1 << (EParser.NOT - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (EParser.NOTHING - 128)) | (1 << (EParser.READ - 128)) | (1 << (EParser.SELF - 128)) | (1 << (EParser.SORTED - 128)) | (1 << (EParser.SUPER - 128)) | (1 << (EParser.THIS - 128)) | (1 << (EParser.BOOLEAN_LITERAL - 128)) | (1 << (EParser.CHAR_LITERAL - 128)) | (1 << (EParser.MIN_INTEGER - 128)) | (1 << (EParser.MAX_INTEGER - 128)) | (1 << (EParser.SYMBOL_IDENTIFIER - 128)) | (1 << (EParser.TYPE_IDENTIFIER - 128)) | (1 << (EParser.VARIABLE_IDENTIFIER - 128)) | (1 << (EParser.TEXT_LITERAL - 128)) | (1 << (EParser.UUID_LITERAL - 128)) | (1 << (EParser.INTEGER_LITERAL - 128)) | (1 << (EParser.HEXA_LITERAL - 128)) | (1 << (EParser.DECIMAL_LITERAL - 128)) | (1 << (EParser.DATETIME_LITERAL - 128)) | (1 << (EParser.TIME_LITERAL - 128)) | (1 << (EParser.DATE_LITERAL - 128)) | (1 << (EParser.PERIOD_LITERAL - 128)) | (1 << (EParser.VERSION_LITERAL - 128)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.LTGT) | (1 << EParser.LTCOLONGT))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (EParser.METHOD_COLON - 64)) | (1 << (EParser.CODE - 64)) | (1 << (EParser.DOCUMENT - 64)) | (1 << (EParser.BLOB - 64)) | (1 << (EParser.TYPE - 64)) | (1 << (EParser.CATEGORY - 64)) | (1 << (EParser.EXECUTE - 64)) | (1 << (EParser.FETCH - 64)) | (1 << (EParser.INVOKE_COLON - 64)) | (1 << (EParser.MUTABLE - 64)) | (1 << (EParser.NOT - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (EParser.NOTHING - 128)) | (1 << (EParser.READ - 128)) | (1 << (EParser.RESOURCE - 128)) | (1 << (EParser.SELF - 128)) | (1 << (EParser.SORTED - 128)) | (1 << (EParser.SUPER - 128)) | (1 << (EParser.THIS - 128)) | (1 << (EParser.BOOLEAN_LITERAL - 128)) | (1 << (EParser.CHAR_LITERAL - 128)) | (1 << (EParser.MIN_INTEGER - 128)) | (1 << (EParser.MAX_INTEGER - 128)) | (1 << (EParser.SYMBOL_IDENTIFIER - 128)) | (1 << (EParser.TYPE_IDENTIFIER - 128)) | (1 << (EParser.VARIABLE_IDENTIFIER - 128)) | (1 << (EParser.TEXT_LITERAL - 128)) | (1 << (EParser.UUID_LITERAL - 128)) | (1 << (EParser.INTEGER_LITERAL - 128)) | (1 << (EParser.HEXA_LITERAL - 128)) | (1 << (EParser.DECIMAL_LITERAL - 128)) | (1 << (EParser.DATETIME_LITERAL - 128)) | (1 << (EParser.TIME_LITERAL - 128)) | (1 << (EParser.DATE_LITERAL - 128)) | (1 << (EParser.PERIOD_LITERAL - 128)) | (1 << (EParser.VERSION_LITERAL - 128)))) != 0):
                 self.state = 2241
                 self.expression_tuple()
 
@@ -19120,7 +19132,7 @@ class EParser ( AbstractParser ):
             self.state = 2275
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.LTGT) | (1 << EParser.LTCOLONGT))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (EParser.METHOD_COLON - 64)) | (1 << (EParser.CODE - 64)) | (1 << (EParser.DOCUMENT - 64)) | (1 << (EParser.BLOB - 64)) | (1 << (EParser.TYPE - 64)) | (1 << (EParser.EXECUTE - 64)) | (1 << (EParser.FETCH - 64)) | (1 << (EParser.INVOKE_COLON - 64)) | (1 << (EParser.MUTABLE - 64)) | (1 << (EParser.NOT - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (EParser.NOTHING - 128)) | (1 << (EParser.READ - 128)) | (1 << (EParser.SELF - 128)) | (1 << (EParser.SORTED - 128)) | (1 << (EParser.SUPER - 128)) | (1 << (EParser.THIS - 128)) | (1 << (EParser.BOOLEAN_LITERAL - 128)) | (1 << (EParser.CHAR_LITERAL - 128)) | (1 << (EParser.MIN_INTEGER - 128)) | (1 << (EParser.MAX_INTEGER - 128)) | (1 << (EParser.SYMBOL_IDENTIFIER - 128)) | (1 << (EParser.TYPE_IDENTIFIER - 128)) | (1 << (EParser.VARIABLE_IDENTIFIER - 128)) | (1 << (EParser.TEXT_LITERAL - 128)) | (1 << (EParser.UUID_LITERAL - 128)) | (1 << (EParser.INTEGER_LITERAL - 128)) | (1 << (EParser.HEXA_LITERAL - 128)) | (1 << (EParser.DECIMAL_LITERAL - 128)) | (1 << (EParser.DATETIME_LITERAL - 128)) | (1 << (EParser.TIME_LITERAL - 128)) | (1 << (EParser.DATE_LITERAL - 128)) | (1 << (EParser.PERIOD_LITERAL - 128)) | (1 << (EParser.VERSION_LITERAL - 128)))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.LTGT) | (1 << EParser.LTCOLONGT))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (EParser.METHOD_COLON - 64)) | (1 << (EParser.CODE - 64)) | (1 << (EParser.DOCUMENT - 64)) | (1 << (EParser.BLOB - 64)) | (1 << (EParser.TYPE - 64)) | (1 << (EParser.CATEGORY - 64)) | (1 << (EParser.EXECUTE - 64)) | (1 << (EParser.FETCH - 64)) | (1 << (EParser.INVOKE_COLON - 64)) | (1 << (EParser.MUTABLE - 64)) | (1 << (EParser.NOT - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (EParser.NOTHING - 128)) | (1 << (EParser.READ - 128)) | (1 << (EParser.RESOURCE - 128)) | (1 << (EParser.SELF - 128)) | (1 << (EParser.SORTED - 128)) | (1 << (EParser.SUPER - 128)) | (1 << (EParser.THIS - 128)) | (1 << (EParser.BOOLEAN_LITERAL - 128)) | (1 << (EParser.CHAR_LITERAL - 128)) | (1 << (EParser.MIN_INTEGER - 128)) | (1 << (EParser.MAX_INTEGER - 128)) | (1 << (EParser.SYMBOL_IDENTIFIER - 128)) | (1 << (EParser.TYPE_IDENTIFIER - 128)) | (1 << (EParser.VARIABLE_IDENTIFIER - 128)) | (1 << (EParser.TEXT_LITERAL - 128)) | (1 << (EParser.UUID_LITERAL - 128)) | (1 << (EParser.INTEGER_LITERAL - 128)) | (1 << (EParser.HEXA_LITERAL - 128)) | (1 << (EParser.DECIMAL_LITERAL - 128)) | (1 << (EParser.DATETIME_LITERAL - 128)) | (1 << (EParser.TIME_LITERAL - 128)) | (1 << (EParser.DATE_LITERAL - 128)) | (1 << (EParser.PERIOD_LITERAL - 128)) | (1 << (EParser.VERSION_LITERAL - 128)))) != 0):
                 self.state = 2267
                 self.expression(0)
                 self.state = 2272
@@ -20185,7 +20197,7 @@ class EParser ( AbstractParser ):
             self.state = 2361
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [EParser.VARIABLE_IDENTIFIER]:
+            if token in [EParser.CATEGORY, EParser.RESOURCE, EParser.VARIABLE_IDENTIFIER]:
                 localctx = EParser.ArrowSingleArgContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 2355
@@ -20199,7 +20211,7 @@ class EParser ( AbstractParser ):
                 self.state = 2358
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la==EParser.VARIABLE_IDENTIFIER:
+                if _la==EParser.CATEGORY or _la==EParser.RESOURCE or _la==EParser.VARIABLE_IDENTIFIER:
                     self.state = 2357
                     self.variable_identifier_list()
 
@@ -27517,7 +27529,7 @@ class EParser ( AbstractParser ):
                 self.state = 2905
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.LTGT) | (1 << EParser.LTCOLONGT))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (EParser.METHOD_COLON - 64)) | (1 << (EParser.CODE - 64)) | (1 << (EParser.DOCUMENT - 64)) | (1 << (EParser.BLOB - 64)) | (1 << (EParser.TYPE - 64)) | (1 << (EParser.EXECUTE - 64)) | (1 << (EParser.FETCH - 64)) | (1 << (EParser.INVOKE_COLON - 64)) | (1 << (EParser.MUTABLE - 64)) | (1 << (EParser.NOT - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (EParser.NOTHING - 128)) | (1 << (EParser.READ - 128)) | (1 << (EParser.SELF - 128)) | (1 << (EParser.SORTED - 128)) | (1 << (EParser.SUPER - 128)) | (1 << (EParser.THIS - 128)) | (1 << (EParser.BOOLEAN_LITERAL - 128)) | (1 << (EParser.CHAR_LITERAL - 128)) | (1 << (EParser.MIN_INTEGER - 128)) | (1 << (EParser.MAX_INTEGER - 128)) | (1 << (EParser.SYMBOL_IDENTIFIER - 128)) | (1 << (EParser.TYPE_IDENTIFIER - 128)) | (1 << (EParser.VARIABLE_IDENTIFIER - 128)) | (1 << (EParser.TEXT_LITERAL - 128)) | (1 << (EParser.UUID_LITERAL - 128)) | (1 << (EParser.INTEGER_LITERAL - 128)) | (1 << (EParser.HEXA_LITERAL - 128)) | (1 << (EParser.DECIMAL_LITERAL - 128)) | (1 << (EParser.DATETIME_LITERAL - 128)) | (1 << (EParser.TIME_LITERAL - 128)) | (1 << (EParser.DATE_LITERAL - 128)) | (1 << (EParser.PERIOD_LITERAL - 128)) | (1 << (EParser.VERSION_LITERAL - 128)))) != 0):
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << EParser.LPAR) | (1 << EParser.LBRAK) | (1 << EParser.LCURL) | (1 << EParser.MINUS) | (1 << EParser.LT) | (1 << EParser.LTGT) | (1 << EParser.LTCOLONGT))) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & ((1 << (EParser.METHOD_COLON - 64)) | (1 << (EParser.CODE - 64)) | (1 << (EParser.DOCUMENT - 64)) | (1 << (EParser.BLOB - 64)) | (1 << (EParser.TYPE - 64)) | (1 << (EParser.CATEGORY - 64)) | (1 << (EParser.EXECUTE - 64)) | (1 << (EParser.FETCH - 64)) | (1 << (EParser.INVOKE_COLON - 64)) | (1 << (EParser.MUTABLE - 64)) | (1 << (EParser.NOT - 64)))) != 0) or ((((_la - 128)) & ~0x3f) == 0 and ((1 << (_la - 128)) & ((1 << (EParser.NOTHING - 128)) | (1 << (EParser.READ - 128)) | (1 << (EParser.RESOURCE - 128)) | (1 << (EParser.SELF - 128)) | (1 << (EParser.SORTED - 128)) | (1 << (EParser.SUPER - 128)) | (1 << (EParser.THIS - 128)) | (1 << (EParser.BOOLEAN_LITERAL - 128)) | (1 << (EParser.CHAR_LITERAL - 128)) | (1 << (EParser.MIN_INTEGER - 128)) | (1 << (EParser.MAX_INTEGER - 128)) | (1 << (EParser.SYMBOL_IDENTIFIER - 128)) | (1 << (EParser.TYPE_IDENTIFIER - 128)) | (1 << (EParser.VARIABLE_IDENTIFIER - 128)) | (1 << (EParser.TEXT_LITERAL - 128)) | (1 << (EParser.UUID_LITERAL - 128)) | (1 << (EParser.INTEGER_LITERAL - 128)) | (1 << (EParser.HEXA_LITERAL - 128)) | (1 << (EParser.DECIMAL_LITERAL - 128)) | (1 << (EParser.DATETIME_LITERAL - 128)) | (1 << (EParser.TIME_LITERAL - 128)) | (1 << (EParser.DATE_LITERAL - 128)) | (1 << (EParser.PERIOD_LITERAL - 128)) | (1 << (EParser.VERSION_LITERAL - 128)))) != 0):
                     self.state = 2904
                     localctx.exp = self.expression(0)
 

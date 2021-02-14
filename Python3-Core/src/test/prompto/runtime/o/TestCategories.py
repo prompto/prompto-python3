@@ -34,4 +34,7 @@ class TestCategories(BaseOParserTest):
     def testPopulateFalse(self):
         self.checkOutput("categories/populateFalse.poc")
 
+    def testResourceAttribute(self):
+        self.checkOutput("categories/resourceAttribute.poc")
+
 

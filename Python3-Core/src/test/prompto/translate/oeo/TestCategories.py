@@ -29,4 +29,7 @@ class TestCategories(BaseOParserTest):
     def testPopulateFalse(self):
         self.compareResourceOEO("categories/populateFalse.poc")
 
+    def testResourceAttribute(self):
+        self.compareResourceOEO("categories/resourceAttribute.poc")
+
 
