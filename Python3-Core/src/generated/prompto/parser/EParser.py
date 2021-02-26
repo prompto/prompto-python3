@@ -1,4 +1,4 @@
-# Generated from EParser.g4 by ANTLR 4.9.1
+# Generated from EParser.g4 by ANTLR 4.8
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -386,211 +386,212 @@ def serializedATN():
         buf.write("\7\2[[~~\u008e\u008e\u0096\u0096\u00ad\u00ad\5\2[[\u008e")
         buf.write("\u008e\u00ad\u00ad\5\2\u008e\u008e\u0096\u0096\u00ad\u00ad")
         buf.write("\4\2\u0092\u0092\u009c\u009c\4\2RRbb\t\2\13\20\67\679")
-        buf.write("ACJLwy\u009a\u009c\u00a6\4\2\'\'}}\5\2\32\33))++\3\2\22")
-        buf.write("\22\2\u0c4f\2\u020e\3\2\2\2\4\u0223\3\2\2\2\6\u022f\3")
-        buf.write("\2\2\2\b\u0235\3\2\2\2\n\u023b\3\2\2\2\f\u0251\3\2\2\2")
-        buf.write("\16\u0261\3\2\2\2\20\u0274\3\2\2\2\22\u0292\3\2\2\2\24")
-        buf.write("\u02af\3\2\2\2\26\u02b1\3\2\2\2\30\u02c1\3\2\2\2\32\u02cb")
-        buf.write("\3\2\2\2\34\u02d8\3\2\2\2\36\u02e2\3\2\2\2 \u02ef\3\2")
-        buf.write("\2\2\"\u030e\3\2\2\2$\u032d\3\2\2\2&\u0336\3\2\2\2(\u034c")
-        buf.write("\3\2\2\2*\u034e\3\2\2\2,\u035e\3\2\2\2.\u0376\3\2\2\2")
-        buf.write("\60\u038b\3\2\2\2\62\u03a0\3\2\2\2\64\u03a2\3\2\2\2\66")
-        buf.write("\u03a7\3\2\2\28\u03c5\3\2\2\2:\u03c7\3\2\2\2<\u03d2\3")
-        buf.write("\2\2\2>\u03f0\3\2\2\2@\u03f2\3\2\2\2B\u03fb\3\2\2\2D\u0404")
-        buf.write("\3\2\2\2F\u0424\3\2\2\2H\u0426\3\2\2\2J\u0434\3\2\2\2")
-        buf.write("L\u043d\3\2\2\2N\u0444\3\2\2\2P\u0458\3\2\2\2R\u0470\3")
-        buf.write("\2\2\2T\u0473\3\2\2\2V\u04aa\3\2\2\2X\u04ac\3\2\2\2Z\u04ae")
-        buf.write("\3\2\2\2\\\u04d5\3\2\2\2^\u053d\3\2\2\2`\u053f\3\2\2\2")
-        buf.write("b\u0549\3\2\2\2d\u054d\3\2\2\2f\u0551\3\2\2\2h\u0558\3")
-        buf.write("\2\2\2j\u055a\3\2\2\2l\u0571\3\2\2\2n\u0573\3\2\2\2p\u057e")
-        buf.write("\3\2\2\2r\u0583\3\2\2\2t\u059c\3\2\2\2v\u059e\3\2\2\2")
-        buf.write("x\u05a5\3\2\2\2z\u05a9\3\2\2\2|\u05d5\3\2\2\2~\u05fe\3")
-        buf.write("\2\2\2\u0080\u0600\3\2\2\2\u0082\u0608\3\2\2\2\u0084\u060e")
-        buf.write("\3\2\2\2\u0086\u0628\3\2\2\2\u0088\u062a\3\2\2\2\u008a")
-        buf.write("\u0639\3\2\2\2\u008c\u063d\3\2\2\2\u008e\u0649\3\2\2\2")
-        buf.write("\u0090\u064b\3\2\2\2\u0092\u0652\3\2\2\2\u0094\u0656\3")
-        buf.write("\2\2\2\u0096\u065d\3\2\2\2\u0098\u0661\3\2\2\2\u009a\u066a")
-        buf.write("\3\2\2\2\u009c\u066f\3\2\2\2\u009e\u0673\3\2\2\2\u00a0")
-        buf.write("\u0678\3\2\2\2\u00a2\u067b\3\2\2\2\u00a4\u0680\3\2\2\2")
-        buf.write("\u00a6\u068e\3\2\2\2\u00a8\u06a1\3\2\2\2\u00aa\u06b2\3")
-        buf.write("\2\2\2\u00ac\u06b4\3\2\2\2\u00ae\u06b8\3\2\2\2\u00b0\u06bc")
-        buf.write("\3\2\2\2\u00b2\u06be\3\2\2\2\u00b4\u06c2\3\2\2\2\u00b6")
-        buf.write("\u06c4\3\2\2\2\u00b8\u06cd\3\2\2\2\u00ba\u06d6\3\2\2\2")
-        buf.write("\u00bc\u06e8\3\2\2\2\u00be\u06eb\3\2\2\2\u00c0\u06f4\3")
-        buf.write("\2\2\2\u00c2\u06fc\3\2\2\2\u00c4\u0704\3\2\2\2\u00c6\u0716")
-        buf.write("\3\2\2\2\u00c8\u0726\3\2\2\2\u00ca\u0739\3\2\2\2\u00cc")
-        buf.write("\u073b\3\2\2\2\u00ce\u073e\3\2\2\2\u00d0\u0742\3\2\2\2")
-        buf.write("\u00d2\u0747\3\2\2\2\u00d4\u074b\3\2\2\2\u00d6\u074d\3")
-        buf.write("\2\2\2\u00d8\u0757\3\2\2\2\u00da\u075b\3\2\2\2\u00dc\u075d")
-        buf.write("\3\2\2\2\u00de\u0761\3\2\2\2\u00e0\u0767\3\2\2\2\u00e2")
-        buf.write("\u0769\3\2\2\2\u00e4\u076b\3\2\2\2\u00e6\u076d\3\2\2\2")
-        buf.write("\u00e8\u076f\3\2\2\2\u00ea\u0771\3\2\2\2\u00ec\u0773\3")
-        buf.write("\2\2\2\u00ee\u0780\3\2\2\2\u00f0\u0784\3\2\2\2\u00f2\u0786")
-        buf.write("\3\2\2\2\u00f4\u078b\3\2\2\2\u00f6\u0790\3\2\2\2\u00f8")
-        buf.write("\u0792\3\2\2\2\u00fa\u07a0\3\2\2\2\u00fc\u07ae\3\2\2\2")
-        buf.write("\u00fe\u07c0\3\2\2\2\u0100\u07ce\3\2\2\2\u0102\u07e8\3")
-        buf.write("\2\2\2\u0104\u07ea\3\2\2\2\u0106\u07ee\3\2\2\2\u0108\u07f9")
-        buf.write("\3\2\2\2\u010a\u0804\3\2\2\2\u010c\u0816\3\2\2\2\u010e")
-        buf.write("\u081e\3\2\2\2\u0110\u082a\3\2\2\2\u0112\u082c\3\2\2\2")
-        buf.write("\u0114\u082e\3\2\2\2\u0116\u0841\3\2\2\2\u0118\u0843\3")
-        buf.write("\2\2\2\u011a\u084a\3\2\2\2\u011c\u0851\3\2\2\2\u011e\u085a")
-        buf.write("\3\2\2\2\u0120\u0863\3\2\2\2\u0122\u086c\3\2\2\2\u0124")
-        buf.write("\u0883\3\2\2\2\u0126\u089c\3\2\2\2\u0128\u089e\3\2\2\2")
-        buf.write("\u012a\u08a6\3\2\2\2\u012c\u08ab\3\2\2\2\u012e\u08af\3")
-        buf.write("\2\2\2\u0130\u08b5\3\2\2\2\u0132\u08bd\3\2\2\2\u0134\u08c0")
-        buf.write("\3\2\2\2\u0136\u08c9\3\2\2\2\u0138\u08d5\3\2\2\2\u013a")
-        buf.write("\u08db\3\2\2\2\u013c\u08e7\3\2\2\2\u013e\u08ef\3\2\2\2")
-        buf.write("\u0140\u08f5\3\2\2\2\u0142\u08f7\3\2\2\2\u0144\u08ff\3")
-        buf.write("\2\2\2\u0146\u0905\3\2\2\2\u0148\u0910\3\2\2\2\u014a\u0912")
-        buf.write("\3\2\2\2\u014c\u0916\3\2\2\2\u014e\u0924\3\2\2\2\u0150")
-        buf.write("\u092e\3\2\2\2\u0152\u0930\3\2\2\2\u0154\u093b\3\2\2\2")
-        buf.write("\u0156\u093f\3\2\2\2\u0158\u0941\3\2\2\2\u015a\u0946\3")
-        buf.write("\2\2\2\u015c\u094b\3\2\2\2\u015e\u0950\3\2\2\2\u0160\u0958")
-        buf.write("\3\2\2\2\u0162\u0969\3\2\2\2\u0164\u096b\3\2\2\2\u0166")
-        buf.write("\u096d\3\2\2\2\u0168\u0970\3\2\2\2\u016a\u0973\3\2\2\2")
-        buf.write("\u016c\u0976\3\2\2\2\u016e\u0979\3\2\2\2\u0170\u097c\3")
-        buf.write("\2\2\2\u0172\u097e\3\2\2\2\u0174\u0980\3\2\2\2\u0176\u0982")
-        buf.write("\3\2\2\2\u0178\u0984\3\2\2\2\u017a\u098d\3\2\2\2\u017c")
-        buf.write("\u098f\3\2\2\2\u017e\u09a0\3\2\2\2\u0180\u09a2\3\2\2\2")
-        buf.write("\u0182\u09a4\3\2\2\2\u0184\u09ac\3\2\2\2\u0186\u09ae\3")
-        buf.write("\2\2\2\u0188\u09b5\3\2\2\2\u018a\u09c0\3\2\2\2\u018c\u09c4")
-        buf.write("\3\2\2\2\u018e\u09c8\3\2\2\2\u0190\u09cf\3\2\2\2\u0192")
-        buf.write("\u09d6\3\2\2\2\u0194\u09db\3\2\2\2\u0196\u09dd\3\2\2\2")
-        buf.write("\u0198\u09ec\3\2\2\2\u019a\u09ee\3\2\2\2\u019c\u09f6\3")
-        buf.write("\2\2\2\u019e\u09f8\3\2\2\2\u01a0\u0a05\3\2\2\2\u01a2\u0a07")
-        buf.write("\3\2\2\2\u01a4\u0a12\3\2\2\2\u01a6\u0a22\3\2\2\2\u01a8")
-        buf.write("\u0a29\3\2\2\2\u01aa\u0a38\3\2\2\2\u01ac\u0a3f\3\2\2\2")
-        buf.write("\u01ae\u0a48\3\2\2\2\u01b0\u0a4a\3\2\2\2\u01b2\u0a59\3")
-        buf.write("\2\2\2\u01b4\u0a5b\3\2\2\2\u01b6\u0a5d\3\2\2\2\u01b8\u0a63")
-        buf.write("\3\2\2\2\u01ba\u0a65\3\2\2\2\u01bc\u0a6c\3\2\2\2\u01be")
-        buf.write("\u0a77\3\2\2\2\u01c0\u0a7b\3\2\2\2\u01c2\u0a7f\3\2\2\2")
-        buf.write("\u01c4\u0a8a\3\2\2\2\u01c6\u0a99\3\2\2\2\u01c8\u0aa0\3")
-        buf.write("\2\2\2\u01ca\u0aa9\3\2\2\2\u01cc\u0aab\3\2\2\2\u01ce\u0aba")
-        buf.write("\3\2\2\2\u01d0\u0abc\3\2\2\2\u01d2\u0abe\3\2\2\2\u01d4")
-        buf.write("\u0ac4\3\2\2\2\u01d6\u0ac6\3\2\2\2\u01d8\u0acd\3\2\2\2")
-        buf.write("\u01da\u0ad8\3\2\2\2\u01dc\u0adc\3\2\2\2\u01de\u0ae3\3")
-        buf.write("\2\2\2\u01e0\u0af2\3\2\2\2\u01e2\u0af9\3\2\2\2\u01e4\u0afd")
-        buf.write("\3\2\2\2\u01e6\u0b06\3\2\2\2\u01e8\u0b08\3\2\2\2\u01ea")
-        buf.write("\u0b13\3\2\2\2\u01ec\u0b15\3\2\2\2\u01ee\u0b19\3\2\2\2")
-        buf.write("\u01f0\u0b25\3\2\2\2\u01f2\u0b30\3\2\2\2\u01f4\u0b35\3")
-        buf.write("\2\2\2\u01f6\u0b3d\3\2\2\2\u01f8\u0b44\3\2\2\2\u01fa\u0b50")
-        buf.write("\3\2\2\2\u01fc\u0b53\3\2\2\2\u01fe\u0b5e\3\2\2\2\u0200")
-        buf.write("\u0b61\3\2\2\2\u0202\u0b67\3\2\2\2\u0204\u0b69\3\2\2\2")
-        buf.write("\u0206\u0b71\3\2\2\2\u0208\u0b7a\3\2\2\2\u020a\u0b8c\3")
-        buf.write("\2\2\2\u020c\u0b8f\3\2\2\2\u020e\u020f\7`\2\2\u020f\u0210")
-        buf.write("\5\u00e8u\2\u0210\u0211\7Q\2\2\u0211\u0214\7h\2\2\u0212")
-        buf.write("\u0215\7[\2\2\u0213\u0215\5\u00e8u\2\u0214\u0212\3\2\2")
-        buf.write("\2\u0214\u0213\3\2\2\2\u0215\u021b\3\2\2\2\u0216\u0217")
-        buf.write("\5(\25\2\u0217\u0218\7\23\2\2\u0218\u0219\7O\2\2\u0219")
-        buf.write("\u021c\3\2\2\2\u021a\u021c\7\u00a2\2\2\u021b\u0216\3\2")
-        buf.write("\2\2\u021b\u021a\3\2\2\2\u021c\u021d\3\2\2\2\u021d\u021e")
-        buf.write("\5\u016e\u00b8\2\u021e\u021f\7\21\2\2\u021f\u0220\5\u0098")
-        buf.write("M\2\u0220\u0221\5\u00b8]\2\u0221\u0222\5\u009aN\2\u0222")
-        buf.write("\3\3\2\2\2\u0223\u0224\7`\2\2\u0224\u0225\5\u00e8u\2\u0225")
-        buf.write("\u0226\7Q\2\2\u0226\u0227\7h\2\2\u0227\u0228\5\u00caf")
-        buf.write("\2\u0228\u0229\7\u00a2\2\2\u0229\u022a\5\u016e\u00b8\2")
-        buf.write("\u022a\u022b\7\21\2\2\u022b\u022c\5\u0098M\2\u022c\u022d")
-        buf.write("\5\u00b6\\\2\u022d\u022e\5\u009aN\2\u022e\5\3\2\2\2\u022f")
-        buf.write("\u0230\5\u00eav\2\u0230\u0231\7\u00a2\2\2\u0231\u0232")
-        buf.write("\5\\/\2\u0232\u0233\7Q\2\2\u0233\u0234\5\u016c\u00b7\2")
-        buf.write("\u0234\7\3\2\2\2\u0235\u0236\5\u00eav\2\u0236\u0239\5")
-        buf.write("\u0088E\2\u0237\u0238\7O\2\2\u0238\u023a\5\u008aF\2\u0239")
-        buf.write("\u0237\3\2\2\2\u0239\u023a\3\2\2\2\u023a\t\3\2\2\2\u023b")
-        buf.write("\u023c\7`\2\2\u023c\u023d\5\u00e6t\2\u023d\u023f\7Q\2")
-        buf.write("\2\u023e\u0240\7\u0096\2\2\u023f\u023e\3\2\2\2\u023f\u0240")
-        buf.write("\3\2\2\2\u0240\u0241\3\2\2\2\u0241\u0242\5\u00c6d\2\u0242")
-        buf.write("\u0244\7T\2\2\u0243\u0245\5\u00bc_\2\u0244\u0243\3\2\2")
-        buf.write("\2\u0244\u0245\3\2\2\2\u0245\u024f\3\2\2\2\u0246\u024c")
-        buf.write("\7\u00a2\2\2\u0247\u024a\5\u010c\u0087\2\u0248\u0249\7")
-        buf.write("O\2\2\u0249\u024b\5\u00e4s\2\u024a\u0248\3\2\2\2\u024a")
-        buf.write("\u024b\3\2\2\2\u024b\u024d\3\2\2\2\u024c\u0247\3\2\2\2")
-        buf.write("\u024c\u024d\3\2\2\2\u024d\u024e\3\2\2\2\u024e\u0250\7")
-        buf.write("w\2\2\u024f\u0246\3\2\2\2\u024f\u0250\3\2\2\2\u0250\13")
-        buf.write("\3\2\2\2\u0251\u0252\7`\2\2\u0252\u0253\5\u00e8u\2\u0253")
-        buf.write("\u0256\7Q\2\2\u0254\u0257\7\u00a1\2\2\u0255\u0257\5\u00e8")
-        buf.write("u\2\u0256\u0254\3\2\2\2\u0256\u0255\3\2\2\2\u0257\u025f")
-        buf.write("\3\2\2\2\u0258\u0259\7\u00a2\2\2\u0259\u025a\7|\2\2\u025a")
-        buf.write("\u025b\7\21\2\2\u025b\u025c\5\u0098M\2\u025c\u025d\5\u00fa")
-        buf.write("~\2\u025d\u025e\5\u009aN\2\u025e\u0260\3\2\2\2\u025f\u0258")
-        buf.write("\3\2\2\2\u025f\u0260\3\2\2\2\u0260\r\3\2\2\2\u0261\u0262")
-        buf.write("\7`\2\2\u0262\u0263\5\u00e8u\2\u0263\u0264\7Q\2\2\u0264")
-        buf.write("\u0265\7\177\2\2\u0265\u0266\7\u00a1\2\2\u0266\u0267\7")
-        buf.write("\u00a2\2\2\u0267\u0268\7V\2\2\u0268\u0269\7\21\2\2\u0269")
-        buf.write("\u026a\5\u0098M\2\u026a\u026b\5$\23\2\u026b\u026c\5\u009a")
-        buf.write("N\2\u026c\u026d\5\u0094K\2\u026d\u026e\7O\2\2\u026e\u026f")
-        buf.write("\7|\2\2\u026f\u0270\7\21\2\2\u0270\u0271\5\u0098M\2\u0271")
-        buf.write("\u0272\5\u00fe\u0080\2\u0272\u0273\5\u009aN\2\u0273\17")
-        buf.write("\3\2\2\2\u0274\u0275\7`\2\2\u0275\u0276\5\u00e8u\2\u0276")
-        buf.write("\u0278\7Q\2\2\u0277\u0279\7\u0096\2\2\u0278\u0277\3\2")
-        buf.write("\2\2\u0278\u0279\3\2\2\2\u0279\u027c\3\2\2\2\u027a\u027d")
-        buf.write("\7[\2\2\u027b\u027d\5\24\13\2\u027c\u027a\3\2\2\2\u027c")
-        buf.write("\u027b\3\2\2\2\u027d\u0290\3\2\2\2\u027e\u0287\5(\25\2")
-        buf.write("\u027f\u0280\7\23\2\2\u0280\u0281\7O\2\2\u0281\u0282\7")
-        buf.write("|\2\2\u0282\u0283\7\21\2\2\u0283\u0284\5\u0098M\2\u0284")
-        buf.write("\u0285\5\u00fa~\2\u0285\u0286\5\u009aN\2\u0286\u0288\3")
-        buf.write("\2\2\2\u0287\u027f\3\2\2\2\u0287\u0288\3\2\2\2\u0288\u0291")
-        buf.write("\3\2\2\2\u0289\u028a\7\u00a2\2\2\u028a\u028b\7|\2\2\u028b")
-        buf.write("\u028c\7\21\2\2\u028c\u028d\5\u0098M\2\u028d\u028e\5\u00fa")
-        buf.write("~\2\u028e\u028f\5\u009aN\2\u028f\u0291\3\2\2\2\u0290\u027e")
-        buf.write("\3\2\2\2\u0290\u0289\3\2\2\2\u0290\u0291\3\2\2\2\u0291")
-        buf.write("\21\3\2\2\2\u0292\u0293\7`\2\2\u0293\u0294\5\u00e8u\2")
-        buf.write("\u0294\u0295\7Q\2\2\u0295\u02a8\7\u0094\2\2\u0296\u029f")
-        buf.write("\5(\25\2\u0297\u0298\7\23\2\2\u0298\u0299\7O\2\2\u0299")
-        buf.write("\u029a\7|\2\2\u029a\u029b\7\21\2\2\u029b\u029c\5\u0098")
-        buf.write("M\2\u029c\u029d\5\u00fa~\2\u029d\u029e\5\u009aN\2\u029e")
-        buf.write("\u02a0\3\2\2\2\u029f\u0297\3\2\2\2\u029f\u02a0\3\2\2\2")
-        buf.write("\u02a0\u02a9\3\2\2\2\u02a1\u02a2\7\u00a2\2\2\u02a2\u02a3")
-        buf.write("\7|\2\2\u02a3\u02a4\7\21\2\2\u02a4\u02a5\5\u0098M\2\u02a5")
-        buf.write("\u02a6\5\u00fa~\2\u02a6\u02a7\5\u009aN\2\u02a7\u02a9\3")
-        buf.write("\2\2\2\u02a8\u0296\3\2\2\2\u02a8\u02a1\3\2\2\2\u02a8\u02a9")
-        buf.write("\3\2\2\2\u02a9\23\3\2\2\2\u02aa\u02b0\5\u00d6l\2\u02ab")
-        buf.write("\u02ac\5\u00d6l\2\u02ac\u02ad\7O\2\2\u02ad\u02ae\5\u00e8")
-        buf.write("u\2\u02ae\u02b0\3\2\2\2\u02af\u02aa\3\2\2\2\u02af\u02ab")
-        buf.write("\3\2\2\2\u02b0\25\3\2\2\2\u02b1\u02b2\7`\2\2\u02b2\u02b3")
-        buf.write("\5\u0162\u00b2\2\u02b3\u02b4\7Q\2\2\u02b4\u02b5\7\u0086")
-        buf.write("\2\2\u02b5\u02b6\7\u008d\2\2\u02b6\u02b9\5\u00f0y\2\u02b7")
-        buf.write("\u02b8\7\u0090\2\2\u02b8\u02ba\5\u00c6d\2\u02b9\u02b7")
-        buf.write("\3\2\2\2\u02b9\u02ba\3\2\2\2\u02ba\u02bb\3\2\2\2\u02bb")
-        buf.write("\u02bc\7d\2\2\u02bc\u02bd\7\21\2\2\u02bd\u02be\5\u0098")
-        buf.write("M\2\u02be\u02bf\5\u011c\u008f\2\u02bf\u02c0\5\u009aN\2")
-        buf.write("\u02c0\27\3\2\2\2\u02c1\u02c2\7`\2\2\u02c2\u02c3\5\u00e4")
-        buf.write("s\2\u02c3\u02c4\7Q\2\2\u02c4\u02c5\7\u0093\2\2\u02c5\u02c6")
-        buf.write("\7d\2\2\u02c6\u02c7\7\21\2\2\u02c7\u02c8\5\u0098M\2\u02c8")
-        buf.write("\u02c9\5\u011c\u008f\2\u02c9\u02ca\5\u009aN\2\u02ca\31")
-        buf.write("\3\2\2\2\u02cb\u02cc\7`\2\2\u02cc\u02cd\5\u00e4s\2\u02cd")
-        buf.write("\u02cf\7Q\2\2\u02ce\u02d0\7\177\2\2\u02cf\u02ce\3\2\2")
-        buf.write("\2\u02cf\u02d0\3\2\2\2\u02d0\u02d1\3\2\2\2\u02d1\u02d2")
-        buf.write("\7\u0093\2\2\u02d2\u02d3\7d\2\2\u02d3\u02d4\7\21\2\2\u02d4")
-        buf.write("\u02d5\5\u0098M\2\u02d5\u02d6\5\u0114\u008b\2\u02d6\u02d7")
-        buf.write("\5\u009aN\2\u02d7\33\3\2\2\2\u02d8\u02d9\7`\2\2\u02d9")
-        buf.write("\u02da\5\u00e4s\2\u02da\u02db\7Q\2\2\u02db\u02dc\7s\2")
-        buf.write("\2\u02dc\u02dd\7d\2\2\u02dd\u02de\7\21\2\2\u02de\u02df")
-        buf.write("\5\u0098M\2\u02df\u02e0\5\u011c\u008f\2\u02e0\u02e1\5")
-        buf.write("\u009aN\2\u02e1\35\3\2\2\2\u02e2\u02e3\7`\2\2\u02e3\u02e4")
-        buf.write("\5\u00e4s\2\u02e4\u02e6\7Q\2\2\u02e5\u02e7\7\177\2\2\u02e6")
-        buf.write("\u02e5\3\2\2\2\u02e6\u02e7\3\2\2\2\u02e7\u02e8\3\2\2\2")
-        buf.write("\u02e8\u02e9\7s\2\2\u02e9\u02ea\7d\2\2\u02ea\u02eb\7\21")
-        buf.write("\2\2\u02eb\u02ec\5\u0098M\2\u02ec\u02ed\5\u0114\u008b")
-        buf.write("\2\u02ed\u02ee\5\u009aN\2\u02ee\37\3\2\2\2\u02ef\u02f0")
-        buf.write("\7`\2\2\u02f0\u02f1\5\u00e8u\2\u02f1\u02f3\7Q\2\2\u02f2")
-        buf.write("\u02f4\7\u0096\2\2\u02f3\u02f2\3\2\2\2\u02f3\u02f4\3\2")
-        buf.write("\2\2\u02f4\u02f5\3\2\2\2\u02f5\u02f6\7\177\2\2\u02f6\u02fe")
-        buf.write("\7[\2\2\u02f7\u02f8\5(\25\2\u02f8\u02f9\7\23\2\2\u02f9")
-        buf.write("\u02fa\7O\2\2\u02fa\u02fb\7V\2\2\u02fb\u02ff\3\2\2\2\u02fc")
-        buf.write("\u02fd\7\u00a2\2\2\u02fd\u02ff\7V\2\2\u02fe\u02f7\3\2")
-        buf.write("\2\2\u02fe\u02fc\3\2\2\2\u02ff\u0300\3\2\2\2\u0300\u0301")
-        buf.write("\7\21\2\2\u0301\u0302\5\u0098M\2\u0302\u0303\5$\23\2\u0303")
-        buf.write("\u030c\5\u009aN\2\u0304\u0305\5\u0094K\2\u0305\u0306\7")
-        buf.write("O\2\2\u0306\u0307\7|\2\2\u0307\u0308\7\21\2\2\u0308\u0309")
-        buf.write("\5\u0098M\2\u0309\u030a\5\u00fe\u0080\2\u030a\u030b\5")
-        buf.write("\u009aN\2\u030b\u030d\3\2\2\2\u030c\u0304\3\2\2\2\u030c")
-        buf.write("\u030d\3\2\2\2\u030d!\3\2\2\2\u030e\u030f\7`\2\2\u030f")
-        buf.write("\u0310\5\u00e8u\2\u0310\u0312\7Q\2\2\u0311\u0313\7\u0096")
-        buf.write("\2\2\u0312\u0311\3\2\2\2\u0312\u0313\3\2\2\2\u0313\u0314")
-        buf.write("\3\2\2\2\u0314\u0315\7\177\2\2\u0315\u031d\7\u008e\2\2")
-        buf.write("\u0316\u0317\5(\25\2\u0317\u0318\7\23\2\2\u0318\u0319")
-        buf.write("\7O\2\2\u0319\u031a\7V\2\2\u031a\u031e\3\2\2\2\u031b\u031c")
-        buf.write("\7\u00a2\2\2\u031c\u031e\7V\2\2\u031d\u0316\3\2\2\2\u031d")
+        buf.write("ACJLwy\u009a\u009c\u00a6\4\2\'\'}}\5\2\32\33))++\4\2\22")
+        buf.write("\22\33\33\2\u0c4f\2\u020e\3\2\2\2\4\u0223\3\2\2\2\6\u022f")
+        buf.write("\3\2\2\2\b\u0235\3\2\2\2\n\u023b\3\2\2\2\f\u0251\3\2\2")
+        buf.write("\2\16\u0261\3\2\2\2\20\u0274\3\2\2\2\22\u0292\3\2\2\2")
+        buf.write("\24\u02af\3\2\2\2\26\u02b1\3\2\2\2\30\u02c1\3\2\2\2\32")
+        buf.write("\u02cb\3\2\2\2\34\u02d8\3\2\2\2\36\u02e2\3\2\2\2 \u02ef")
+        buf.write("\3\2\2\2\"\u030e\3\2\2\2$\u032d\3\2\2\2&\u0336\3\2\2\2")
+        buf.write("(\u034c\3\2\2\2*\u034e\3\2\2\2,\u035e\3\2\2\2.\u0376\3")
+        buf.write("\2\2\2\60\u038b\3\2\2\2\62\u03a0\3\2\2\2\64\u03a2\3\2")
+        buf.write("\2\2\66\u03a7\3\2\2\28\u03c5\3\2\2\2:\u03c7\3\2\2\2<\u03d2")
+        buf.write("\3\2\2\2>\u03f0\3\2\2\2@\u03f2\3\2\2\2B\u03fb\3\2\2\2")
+        buf.write("D\u0404\3\2\2\2F\u0424\3\2\2\2H\u0426\3\2\2\2J\u0434\3")
+        buf.write("\2\2\2L\u043d\3\2\2\2N\u0444\3\2\2\2P\u0458\3\2\2\2R\u0470")
+        buf.write("\3\2\2\2T\u0473\3\2\2\2V\u04aa\3\2\2\2X\u04ac\3\2\2\2")
+        buf.write("Z\u04ae\3\2\2\2\\\u04d5\3\2\2\2^\u053d\3\2\2\2`\u053f")
+        buf.write("\3\2\2\2b\u0549\3\2\2\2d\u054d\3\2\2\2f\u0551\3\2\2\2")
+        buf.write("h\u0558\3\2\2\2j\u055a\3\2\2\2l\u0571\3\2\2\2n\u0573\3")
+        buf.write("\2\2\2p\u057e\3\2\2\2r\u0583\3\2\2\2t\u059c\3\2\2\2v\u059e")
+        buf.write("\3\2\2\2x\u05a5\3\2\2\2z\u05a9\3\2\2\2|\u05d5\3\2\2\2")
+        buf.write("~\u05fe\3\2\2\2\u0080\u0600\3\2\2\2\u0082\u0608\3\2\2")
+        buf.write("\2\u0084\u060e\3\2\2\2\u0086\u0628\3\2\2\2\u0088\u062a")
+        buf.write("\3\2\2\2\u008a\u0639\3\2\2\2\u008c\u063d\3\2\2\2\u008e")
+        buf.write("\u0649\3\2\2\2\u0090\u064b\3\2\2\2\u0092\u0652\3\2\2\2")
+        buf.write("\u0094\u0656\3\2\2\2\u0096\u065d\3\2\2\2\u0098\u0661\3")
+        buf.write("\2\2\2\u009a\u066a\3\2\2\2\u009c\u066f\3\2\2\2\u009e\u0673")
+        buf.write("\3\2\2\2\u00a0\u0678\3\2\2\2\u00a2\u067b\3\2\2\2\u00a4")
+        buf.write("\u0680\3\2\2\2\u00a6\u068e\3\2\2\2\u00a8\u06a1\3\2\2\2")
+        buf.write("\u00aa\u06b2\3\2\2\2\u00ac\u06b4\3\2\2\2\u00ae\u06b8\3")
+        buf.write("\2\2\2\u00b0\u06bc\3\2\2\2\u00b2\u06be\3\2\2\2\u00b4\u06c2")
+        buf.write("\3\2\2\2\u00b6\u06c4\3\2\2\2\u00b8\u06cd\3\2\2\2\u00ba")
+        buf.write("\u06d6\3\2\2\2\u00bc\u06e8\3\2\2\2\u00be\u06eb\3\2\2\2")
+        buf.write("\u00c0\u06f4\3\2\2\2\u00c2\u06fc\3\2\2\2\u00c4\u0704\3")
+        buf.write("\2\2\2\u00c6\u0716\3\2\2\2\u00c8\u0726\3\2\2\2\u00ca\u0739")
+        buf.write("\3\2\2\2\u00cc\u073b\3\2\2\2\u00ce\u073e\3\2\2\2\u00d0")
+        buf.write("\u0742\3\2\2\2\u00d2\u0747\3\2\2\2\u00d4\u074b\3\2\2\2")
+        buf.write("\u00d6\u074d\3\2\2\2\u00d8\u0757\3\2\2\2\u00da\u075b\3")
+        buf.write("\2\2\2\u00dc\u075d\3\2\2\2\u00de\u0761\3\2\2\2\u00e0\u0767")
+        buf.write("\3\2\2\2\u00e2\u0769\3\2\2\2\u00e4\u076b\3\2\2\2\u00e6")
+        buf.write("\u076d\3\2\2\2\u00e8\u076f\3\2\2\2\u00ea\u0771\3\2\2\2")
+        buf.write("\u00ec\u0773\3\2\2\2\u00ee\u0780\3\2\2\2\u00f0\u0784\3")
+        buf.write("\2\2\2\u00f2\u0786\3\2\2\2\u00f4\u078b\3\2\2\2\u00f6\u0790")
+        buf.write("\3\2\2\2\u00f8\u0792\3\2\2\2\u00fa\u07a0\3\2\2\2\u00fc")
+        buf.write("\u07ae\3\2\2\2\u00fe\u07c0\3\2\2\2\u0100\u07ce\3\2\2\2")
+        buf.write("\u0102\u07e8\3\2\2\2\u0104\u07ea\3\2\2\2\u0106\u07ee\3")
+        buf.write("\2\2\2\u0108\u07f9\3\2\2\2\u010a\u0804\3\2\2\2\u010c\u0816")
+        buf.write("\3\2\2\2\u010e\u081e\3\2\2\2\u0110\u082a\3\2\2\2\u0112")
+        buf.write("\u082c\3\2\2\2\u0114\u082e\3\2\2\2\u0116\u0841\3\2\2\2")
+        buf.write("\u0118\u0843\3\2\2\2\u011a\u084a\3\2\2\2\u011c\u0851\3")
+        buf.write("\2\2\2\u011e\u085a\3\2\2\2\u0120\u0863\3\2\2\2\u0122\u086c")
+        buf.write("\3\2\2\2\u0124\u0883\3\2\2\2\u0126\u089c\3\2\2\2\u0128")
+        buf.write("\u089e\3\2\2\2\u012a\u08a6\3\2\2\2\u012c\u08ab\3\2\2\2")
+        buf.write("\u012e\u08af\3\2\2\2\u0130\u08b5\3\2\2\2\u0132\u08bd\3")
+        buf.write("\2\2\2\u0134\u08c0\3\2\2\2\u0136\u08c9\3\2\2\2\u0138\u08d5")
+        buf.write("\3\2\2\2\u013a\u08db\3\2\2\2\u013c\u08e7\3\2\2\2\u013e")
+        buf.write("\u08ef\3\2\2\2\u0140\u08f5\3\2\2\2\u0142\u08f7\3\2\2\2")
+        buf.write("\u0144\u08ff\3\2\2\2\u0146\u0905\3\2\2\2\u0148\u0910\3")
+        buf.write("\2\2\2\u014a\u0912\3\2\2\2\u014c\u0916\3\2\2\2\u014e\u0924")
+        buf.write("\3\2\2\2\u0150\u092e\3\2\2\2\u0152\u0930\3\2\2\2\u0154")
+        buf.write("\u093b\3\2\2\2\u0156\u093f\3\2\2\2\u0158\u0941\3\2\2\2")
+        buf.write("\u015a\u0946\3\2\2\2\u015c\u094b\3\2\2\2\u015e\u0950\3")
+        buf.write("\2\2\2\u0160\u0958\3\2\2\2\u0162\u0969\3\2\2\2\u0164\u096b")
+        buf.write("\3\2\2\2\u0166\u096d\3\2\2\2\u0168\u0970\3\2\2\2\u016a")
+        buf.write("\u0973\3\2\2\2\u016c\u0976\3\2\2\2\u016e\u0979\3\2\2\2")
+        buf.write("\u0170\u097c\3\2\2\2\u0172\u097e\3\2\2\2\u0174\u0980\3")
+        buf.write("\2\2\2\u0176\u0982\3\2\2\2\u0178\u0984\3\2\2\2\u017a\u098d")
+        buf.write("\3\2\2\2\u017c\u098f\3\2\2\2\u017e\u09a0\3\2\2\2\u0180")
+        buf.write("\u09a2\3\2\2\2\u0182\u09a4\3\2\2\2\u0184\u09ac\3\2\2\2")
+        buf.write("\u0186\u09ae\3\2\2\2\u0188\u09b5\3\2\2\2\u018a\u09c0\3")
+        buf.write("\2\2\2\u018c\u09c4\3\2\2\2\u018e\u09c8\3\2\2\2\u0190\u09cf")
+        buf.write("\3\2\2\2\u0192\u09d6\3\2\2\2\u0194\u09db\3\2\2\2\u0196")
+        buf.write("\u09dd\3\2\2\2\u0198\u09ec\3\2\2\2\u019a\u09ee\3\2\2\2")
+        buf.write("\u019c\u09f6\3\2\2\2\u019e\u09f8\3\2\2\2\u01a0\u0a05\3")
+        buf.write("\2\2\2\u01a2\u0a07\3\2\2\2\u01a4\u0a12\3\2\2\2\u01a6\u0a22")
+        buf.write("\3\2\2\2\u01a8\u0a29\3\2\2\2\u01aa\u0a38\3\2\2\2\u01ac")
+        buf.write("\u0a3f\3\2\2\2\u01ae\u0a48\3\2\2\2\u01b0\u0a4a\3\2\2\2")
+        buf.write("\u01b2\u0a59\3\2\2\2\u01b4\u0a5b\3\2\2\2\u01b6\u0a5d\3")
+        buf.write("\2\2\2\u01b8\u0a63\3\2\2\2\u01ba\u0a65\3\2\2\2\u01bc\u0a6c")
+        buf.write("\3\2\2\2\u01be\u0a77\3\2\2\2\u01c0\u0a7b\3\2\2\2\u01c2")
+        buf.write("\u0a7f\3\2\2\2\u01c4\u0a8a\3\2\2\2\u01c6\u0a99\3\2\2\2")
+        buf.write("\u01c8\u0aa0\3\2\2\2\u01ca\u0aa9\3\2\2\2\u01cc\u0aab\3")
+        buf.write("\2\2\2\u01ce\u0aba\3\2\2\2\u01d0\u0abc\3\2\2\2\u01d2\u0abe")
+        buf.write("\3\2\2\2\u01d4\u0ac4\3\2\2\2\u01d6\u0ac6\3\2\2\2\u01d8")
+        buf.write("\u0acd\3\2\2\2\u01da\u0ad8\3\2\2\2\u01dc\u0adc\3\2\2\2")
+        buf.write("\u01de\u0ae3\3\2\2\2\u01e0\u0af2\3\2\2\2\u01e2\u0af9\3")
+        buf.write("\2\2\2\u01e4\u0afd\3\2\2\2\u01e6\u0b06\3\2\2\2\u01e8\u0b08")
+        buf.write("\3\2\2\2\u01ea\u0b13\3\2\2\2\u01ec\u0b15\3\2\2\2\u01ee")
+        buf.write("\u0b19\3\2\2\2\u01f0\u0b25\3\2\2\2\u01f2\u0b30\3\2\2\2")
+        buf.write("\u01f4\u0b35\3\2\2\2\u01f6\u0b3d\3\2\2\2\u01f8\u0b44\3")
+        buf.write("\2\2\2\u01fa\u0b50\3\2\2\2\u01fc\u0b53\3\2\2\2\u01fe\u0b5e")
+        buf.write("\3\2\2\2\u0200\u0b61\3\2\2\2\u0202\u0b67\3\2\2\2\u0204")
+        buf.write("\u0b69\3\2\2\2\u0206\u0b71\3\2\2\2\u0208\u0b7a\3\2\2\2")
+        buf.write("\u020a\u0b8c\3\2\2\2\u020c\u0b8f\3\2\2\2\u020e\u020f\7")
+        buf.write("`\2\2\u020f\u0210\5\u00e8u\2\u0210\u0211\7Q\2\2\u0211")
+        buf.write("\u0214\7h\2\2\u0212\u0215\7[\2\2\u0213\u0215\5\u00e8u")
+        buf.write("\2\u0214\u0212\3\2\2\2\u0214\u0213\3\2\2\2\u0215\u021b")
+        buf.write("\3\2\2\2\u0216\u0217\5(\25\2\u0217\u0218\7\23\2\2\u0218")
+        buf.write("\u0219\7O\2\2\u0219\u021c\3\2\2\2\u021a\u021c\7\u00a2")
+        buf.write("\2\2\u021b\u0216\3\2\2\2\u021b\u021a\3\2\2\2\u021c\u021d")
+        buf.write("\3\2\2\2\u021d\u021e\5\u016e\u00b8\2\u021e\u021f\7\21")
+        buf.write("\2\2\u021f\u0220\5\u0098M\2\u0220\u0221\5\u00b8]\2\u0221")
+        buf.write("\u0222\5\u009aN\2\u0222\3\3\2\2\2\u0223\u0224\7`\2\2\u0224")
+        buf.write("\u0225\5\u00e8u\2\u0225\u0226\7Q\2\2\u0226\u0227\7h\2")
+        buf.write("\2\u0227\u0228\5\u00caf\2\u0228\u0229\7\u00a2\2\2\u0229")
+        buf.write("\u022a\5\u016e\u00b8\2\u022a\u022b\7\21\2\2\u022b\u022c")
+        buf.write("\5\u0098M\2\u022c\u022d\5\u00b6\\\2\u022d\u022e\5\u009a")
+        buf.write("N\2\u022e\5\3\2\2\2\u022f\u0230\5\u00eav\2\u0230\u0231")
+        buf.write("\7\u00a2\2\2\u0231\u0232\5\\/\2\u0232\u0233\7Q\2\2\u0233")
+        buf.write("\u0234\5\u016c\u00b7\2\u0234\7\3\2\2\2\u0235\u0236\5\u00ea")
+        buf.write("v\2\u0236\u0239\5\u0088E\2\u0237\u0238\7O\2\2\u0238\u023a")
+        buf.write("\5\u008aF\2\u0239\u0237\3\2\2\2\u0239\u023a\3\2\2\2\u023a")
+        buf.write("\t\3\2\2\2\u023b\u023c\7`\2\2\u023c\u023d\5\u00e6t\2\u023d")
+        buf.write("\u023f\7Q\2\2\u023e\u0240\7\u0096\2\2\u023f\u023e\3\2")
+        buf.write("\2\2\u023f\u0240\3\2\2\2\u0240\u0241\3\2\2\2\u0241\u0242")
+        buf.write("\5\u00c6d\2\u0242\u0244\7T\2\2\u0243\u0245\5\u00bc_\2")
+        buf.write("\u0244\u0243\3\2\2\2\u0244\u0245\3\2\2\2\u0245\u024f\3")
+        buf.write("\2\2\2\u0246\u024c\7\u00a2\2\2\u0247\u024a\5\u010c\u0087")
+        buf.write("\2\u0248\u0249\7O\2\2\u0249\u024b\5\u00e4s\2\u024a\u0248")
+        buf.write("\3\2\2\2\u024a\u024b\3\2\2\2\u024b\u024d\3\2\2\2\u024c")
+        buf.write("\u0247\3\2\2\2\u024c\u024d\3\2\2\2\u024d\u024e\3\2\2\2")
+        buf.write("\u024e\u0250\7w\2\2\u024f\u0246\3\2\2\2\u024f\u0250\3")
+        buf.write("\2\2\2\u0250\13\3\2\2\2\u0251\u0252\7`\2\2\u0252\u0253")
+        buf.write("\5\u00e8u\2\u0253\u0256\7Q\2\2\u0254\u0257\7\u00a1\2\2")
+        buf.write("\u0255\u0257\5\u00e8u\2\u0256\u0254\3\2\2\2\u0256\u0255")
+        buf.write("\3\2\2\2\u0257\u025f\3\2\2\2\u0258\u0259\7\u00a2\2\2\u0259")
+        buf.write("\u025a\7|\2\2\u025a\u025b\7\21\2\2\u025b\u025c\5\u0098")
+        buf.write("M\2\u025c\u025d\5\u00fa~\2\u025d\u025e\5\u009aN\2\u025e")
+        buf.write("\u0260\3\2\2\2\u025f\u0258\3\2\2\2\u025f\u0260\3\2\2\2")
+        buf.write("\u0260\r\3\2\2\2\u0261\u0262\7`\2\2\u0262\u0263\5\u00e8")
+        buf.write("u\2\u0263\u0264\7Q\2\2\u0264\u0265\7\177\2\2\u0265\u0266")
+        buf.write("\7\u00a1\2\2\u0266\u0267\7\u00a2\2\2\u0267\u0268\7V\2")
+        buf.write("\2\u0268\u0269\7\21\2\2\u0269\u026a\5\u0098M\2\u026a\u026b")
+        buf.write("\5$\23\2\u026b\u026c\5\u009aN\2\u026c\u026d\5\u0094K\2")
+        buf.write("\u026d\u026e\7O\2\2\u026e\u026f\7|\2\2\u026f\u0270\7\21")
+        buf.write("\2\2\u0270\u0271\5\u0098M\2\u0271\u0272\5\u00fe\u0080")
+        buf.write("\2\u0272\u0273\5\u009aN\2\u0273\17\3\2\2\2\u0274\u0275")
+        buf.write("\7`\2\2\u0275\u0276\5\u00e8u\2\u0276\u0278\7Q\2\2\u0277")
+        buf.write("\u0279\7\u0096\2\2\u0278\u0277\3\2\2\2\u0278\u0279\3\2")
+        buf.write("\2\2\u0279\u027c\3\2\2\2\u027a\u027d\7[\2\2\u027b\u027d")
+        buf.write("\5\24\13\2\u027c\u027a\3\2\2\2\u027c\u027b\3\2\2\2\u027d")
+        buf.write("\u0290\3\2\2\2\u027e\u0287\5(\25\2\u027f\u0280\7\23\2")
+        buf.write("\2\u0280\u0281\7O\2\2\u0281\u0282\7|\2\2\u0282\u0283\7")
+        buf.write("\21\2\2\u0283\u0284\5\u0098M\2\u0284\u0285\5\u00fa~\2")
+        buf.write("\u0285\u0286\5\u009aN\2\u0286\u0288\3\2\2\2\u0287\u027f")
+        buf.write("\3\2\2\2\u0287\u0288\3\2\2\2\u0288\u0291\3\2\2\2\u0289")
+        buf.write("\u028a\7\u00a2\2\2\u028a\u028b\7|\2\2\u028b\u028c\7\21")
+        buf.write("\2\2\u028c\u028d\5\u0098M\2\u028d\u028e\5\u00fa~\2\u028e")
+        buf.write("\u028f\5\u009aN\2\u028f\u0291\3\2\2\2\u0290\u027e\3\2")
+        buf.write("\2\2\u0290\u0289\3\2\2\2\u0290\u0291\3\2\2\2\u0291\21")
+        buf.write("\3\2\2\2\u0292\u0293\7`\2\2\u0293\u0294\5\u00e8u\2\u0294")
+        buf.write("\u0295\7Q\2\2\u0295\u02a8\7\u0094\2\2\u0296\u029f\5(\25")
+        buf.write("\2\u0297\u0298\7\23\2\2\u0298\u0299\7O\2\2\u0299\u029a")
+        buf.write("\7|\2\2\u029a\u029b\7\21\2\2\u029b\u029c\5\u0098M\2\u029c")
+        buf.write("\u029d\5\u00fa~\2\u029d\u029e\5\u009aN\2\u029e\u02a0\3")
+        buf.write("\2\2\2\u029f\u0297\3\2\2\2\u029f\u02a0\3\2\2\2\u02a0\u02a9")
+        buf.write("\3\2\2\2\u02a1\u02a2\7\u00a2\2\2\u02a2\u02a3\7|\2\2\u02a3")
+        buf.write("\u02a4\7\21\2\2\u02a4\u02a5\5\u0098M\2\u02a5\u02a6\5\u00fa")
+        buf.write("~\2\u02a6\u02a7\5\u009aN\2\u02a7\u02a9\3\2\2\2\u02a8\u0296")
+        buf.write("\3\2\2\2\u02a8\u02a1\3\2\2\2\u02a8\u02a9\3\2\2\2\u02a9")
+        buf.write("\23\3\2\2\2\u02aa\u02b0\5\u00d6l\2\u02ab\u02ac\5\u00d6")
+        buf.write("l\2\u02ac\u02ad\7O\2\2\u02ad\u02ae\5\u00e8u\2\u02ae\u02b0")
+        buf.write("\3\2\2\2\u02af\u02aa\3\2\2\2\u02af\u02ab\3\2\2\2\u02b0")
+        buf.write("\25\3\2\2\2\u02b1\u02b2\7`\2\2\u02b2\u02b3\5\u0162\u00b2")
+        buf.write("\2\u02b3\u02b4\7Q\2\2\u02b4\u02b5\7\u0086\2\2\u02b5\u02b6")
+        buf.write("\7\u008d\2\2\u02b6\u02b9\5\u00f0y\2\u02b7\u02b8\7\u0090")
+        buf.write("\2\2\u02b8\u02ba\5\u00c6d\2\u02b9\u02b7\3\2\2\2\u02b9")
+        buf.write("\u02ba\3\2\2\2\u02ba\u02bb\3\2\2\2\u02bb\u02bc\7d\2\2")
+        buf.write("\u02bc\u02bd\7\21\2\2\u02bd\u02be\5\u0098M\2\u02be\u02bf")
+        buf.write("\5\u011c\u008f\2\u02bf\u02c0\5\u009aN\2\u02c0\27\3\2\2")
+        buf.write("\2\u02c1\u02c2\7`\2\2\u02c2\u02c3\5\u00e4s\2\u02c3\u02c4")
+        buf.write("\7Q\2\2\u02c4\u02c5\7\u0093\2\2\u02c5\u02c6\7d\2\2\u02c6")
+        buf.write("\u02c7\7\21\2\2\u02c7\u02c8\5\u0098M\2\u02c8\u02c9\5\u011c")
+        buf.write("\u008f\2\u02c9\u02ca\5\u009aN\2\u02ca\31\3\2\2\2\u02cb")
+        buf.write("\u02cc\7`\2\2\u02cc\u02cd\5\u00e4s\2\u02cd\u02cf\7Q\2")
+        buf.write("\2\u02ce\u02d0\7\177\2\2\u02cf\u02ce\3\2\2\2\u02cf\u02d0")
+        buf.write("\3\2\2\2\u02d0\u02d1\3\2\2\2\u02d1\u02d2\7\u0093\2\2\u02d2")
+        buf.write("\u02d3\7d\2\2\u02d3\u02d4\7\21\2\2\u02d4\u02d5\5\u0098")
+        buf.write("M\2\u02d5\u02d6\5\u0114\u008b\2\u02d6\u02d7\5\u009aN\2")
+        buf.write("\u02d7\33\3\2\2\2\u02d8\u02d9\7`\2\2\u02d9\u02da\5\u00e4")
+        buf.write("s\2\u02da\u02db\7Q\2\2\u02db\u02dc\7s\2\2\u02dc\u02dd")
+        buf.write("\7d\2\2\u02dd\u02de\7\21\2\2\u02de\u02df\5\u0098M\2\u02df")
+        buf.write("\u02e0\5\u011c\u008f\2\u02e0\u02e1\5\u009aN\2\u02e1\35")
+        buf.write("\3\2\2\2\u02e2\u02e3\7`\2\2\u02e3\u02e4\5\u00e4s\2\u02e4")
+        buf.write("\u02e6\7Q\2\2\u02e5\u02e7\7\177\2\2\u02e6\u02e5\3\2\2")
+        buf.write("\2\u02e6\u02e7\3\2\2\2\u02e7\u02e8\3\2\2\2\u02e8\u02e9")
+        buf.write("\7s\2\2\u02e9\u02ea\7d\2\2\u02ea\u02eb\7\21\2\2\u02eb")
+        buf.write("\u02ec\5\u0098M\2\u02ec\u02ed\5\u0114\u008b\2\u02ed\u02ee")
+        buf.write("\5\u009aN\2\u02ee\37\3\2\2\2\u02ef\u02f0\7`\2\2\u02f0")
+        buf.write("\u02f1\5\u00e8u\2\u02f1\u02f3\7Q\2\2\u02f2\u02f4\7\u0096")
+        buf.write("\2\2\u02f3\u02f2\3\2\2\2\u02f3\u02f4\3\2\2\2\u02f4\u02f5")
+        buf.write("\3\2\2\2\u02f5\u02f6\7\177\2\2\u02f6\u02fe\7[\2\2\u02f7")
+        buf.write("\u02f8\5(\25\2\u02f8\u02f9\7\23\2\2\u02f9\u02fa\7O\2\2")
+        buf.write("\u02fa\u02fb\7V\2\2\u02fb\u02ff\3\2\2\2\u02fc\u02fd\7")
+        buf.write("\u00a2\2\2\u02fd\u02ff\7V\2\2\u02fe\u02f7\3\2\2\2\u02fe")
+        buf.write("\u02fc\3\2\2\2\u02ff\u0300\3\2\2\2\u0300\u0301\7\21\2")
+        buf.write("\2\u0301\u0302\5\u0098M\2\u0302\u0303\5$\23\2\u0303\u030c")
+        buf.write("\5\u009aN\2\u0304\u0305\5\u0094K\2\u0305\u0306\7O\2\2")
+        buf.write("\u0306\u0307\7|\2\2\u0307\u0308\7\21\2\2\u0308\u0309\5")
+        buf.write("\u0098M\2\u0309\u030a\5\u00fe\u0080\2\u030a\u030b\5\u009a")
+        buf.write("N\2\u030b\u030d\3\2\2\2\u030c\u0304\3\2\2\2\u030c\u030d")
+        buf.write("\3\2\2\2\u030d!\3\2\2\2\u030e\u030f\7`\2\2\u030f\u0310")
+        buf.write("\5\u00e8u\2\u0310\u0312\7Q\2\2\u0311\u0313\7\u0096\2\2")
+        buf.write("\u0312\u0311\3\2\2\2\u0312\u0313\3\2\2\2\u0313\u0314\3")
+        buf.write("\2\2\2\u0314\u0315\7\177\2\2\u0315\u031d\7\u008e\2\2\u0316")
+        buf.write("\u0317\5(\25\2\u0317\u0318\7\23\2\2\u0318\u0319\7O\2\2")
+        buf.write("\u0319\u031a\7V\2\2\u031a\u031e\3\2\2\2\u031b\u031c\7")
+        buf.write("\u00a2\2\2\u031c\u031e\7V\2\2\u031d\u0316\3\2\2\2\u031d")
         buf.write("\u031b\3\2\2\2\u031e\u031f\3\2\2\2\u031f\u0320\7\21\2")
         buf.write("\2\u0320\u0321\5\u0098M\2\u0321\u0322\5$\23\2\u0322\u032b")
         buf.write("\5\u009aN\2\u0323\u0324\5\u0094K\2\u0324\u0325\7O\2\2")
@@ -2253,7 +2254,7 @@ class EParser ( AbstractParser ):
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
-        self.checkVersion("4.9.1")
+        self.checkVersion("4.8")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
 
@@ -2261,7 +2262,6 @@ class EParser ( AbstractParser ):
 
 
     class Enum_category_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -2402,7 +2402,6 @@ class EParser ( AbstractParser ):
 
 
     class Enum_native_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -2502,7 +2501,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_symbolContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -2568,7 +2566,6 @@ class EParser ( AbstractParser ):
 
 
     class Category_symbolContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -2637,7 +2634,6 @@ class EParser ( AbstractParser ):
 
 
     class Attribute_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -2774,7 +2770,6 @@ class EParser ( AbstractParser ):
 
 
     class Concrete_widget_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -2889,7 +2884,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_widget_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3024,7 +3018,6 @@ class EParser ( AbstractParser ):
 
 
     class Concrete_category_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3186,7 +3179,6 @@ class EParser ( AbstractParser ):
 
 
     class Singleton_category_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3320,7 +3312,6 @@ class EParser ( AbstractParser ):
 
 
     class Derived_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3420,7 +3411,6 @@ class EParser ( AbstractParser ):
 
 
     class Operator_method_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3538,7 +3528,6 @@ class EParser ( AbstractParser ):
 
 
     class Setter_method_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3625,7 +3614,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_setter_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3724,7 +3712,6 @@ class EParser ( AbstractParser ):
 
 
     class Getter_method_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3811,7 +3798,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_getter_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -3910,7 +3896,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_category_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4092,7 +4077,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_resource_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4274,7 +4258,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_category_bindingsContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4354,7 +4337,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_category_binding_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4466,7 +4448,6 @@ class EParser ( AbstractParser ):
 
 
     class Attribute_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4588,7 +4569,6 @@ class EParser ( AbstractParser ):
 
 
     class Abstract_method_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4699,7 +4679,6 @@ class EParser ( AbstractParser ):
 
 
     class Concrete_method_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4849,7 +4828,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_method_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -4984,7 +4962,6 @@ class EParser ( AbstractParser ):
 
 
     class Test_method_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -5130,7 +5107,6 @@ class EParser ( AbstractParser ):
 
 
     class AssertionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -5173,7 +5149,6 @@ class EParser ( AbstractParser ):
 
 
     class Full_argument_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -5235,7 +5210,6 @@ class EParser ( AbstractParser ):
 
 
     class Typed_argumentContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -5317,7 +5291,6 @@ class EParser ( AbstractParser ):
 
 
     class StatementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -5920,7 +5893,6 @@ class EParser ( AbstractParser ):
 
 
     class Flush_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -5961,7 +5933,6 @@ class EParser ( AbstractParser ):
 
 
     class Store_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6081,7 +6052,6 @@ class EParser ( AbstractParser ):
 
 
     class Method_call_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6246,7 +6216,6 @@ class EParser ( AbstractParser ):
 
 
     class With_resource_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6328,7 +6297,6 @@ class EParser ( AbstractParser ):
 
 
     class With_singleton_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6410,7 +6378,6 @@ class EParser ( AbstractParser ):
 
 
     class Switch_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6526,7 +6493,6 @@ class EParser ( AbstractParser ):
 
 
     class Switch_case_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6668,7 +6634,6 @@ class EParser ( AbstractParser ):
 
 
     class For_each_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6775,7 +6740,6 @@ class EParser ( AbstractParser ):
 
 
     class Do_while_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6858,7 +6822,6 @@ class EParser ( AbstractParser ):
 
 
     class While_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -6930,7 +6893,6 @@ class EParser ( AbstractParser ):
 
 
     class If_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -7058,7 +7020,6 @@ class EParser ( AbstractParser ):
 
 
     class Else_if_statement_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -7226,7 +7187,6 @@ class EParser ( AbstractParser ):
 
 
     class Raise_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -7274,7 +7234,6 @@ class EParser ( AbstractParser ):
 
 
     class Try_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -7457,7 +7416,6 @@ class EParser ( AbstractParser ):
 
 
     class Catch_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -7617,7 +7575,6 @@ class EParser ( AbstractParser ):
 
 
     class Break_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -7658,7 +7615,6 @@ class EParser ( AbstractParser ):
 
 
     class Return_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -7713,7 +7669,6 @@ class EParser ( AbstractParser ):
 
 
     class ExpressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9328,7 +9283,6 @@ class EParser ( AbstractParser ):
 
 
     class Filter_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9455,7 +9409,6 @@ class EParser ( AbstractParser ):
 
 
     class Unresolved_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9562,7 +9515,6 @@ class EParser ( AbstractParser ):
 
 
     class Unresolved_selectorContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9614,7 +9566,6 @@ class EParser ( AbstractParser ):
 
 
     class Invocation_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9668,7 +9619,6 @@ class EParser ( AbstractParser ):
 
 
     class Invocation_trailerContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9709,7 +9659,6 @@ class EParser ( AbstractParser ):
 
 
     class Selectable_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9880,7 +9829,6 @@ class EParser ( AbstractParser ):
 
 
     class Instance_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -9987,7 +9935,6 @@ class EParser ( AbstractParser ):
 
 
     class Instance_selectorContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10136,7 +10083,6 @@ class EParser ( AbstractParser ):
 
 
     class Mutable_instance_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10247,7 +10193,6 @@ class EParser ( AbstractParser ):
 
 
     class Document_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10306,7 +10251,6 @@ class EParser ( AbstractParser ):
 
 
     class Blob_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10358,7 +10302,6 @@ class EParser ( AbstractParser ):
 
 
     class Constructor_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10525,7 +10468,6 @@ class EParser ( AbstractParser ):
 
 
     class Write_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10597,7 +10539,6 @@ class EParser ( AbstractParser ):
 
 
     class Ambiguous_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10652,7 +10593,6 @@ class EParser ( AbstractParser ):
 
 
     class Filtered_list_suffixContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10724,7 +10664,6 @@ class EParser ( AbstractParser ):
 
 
     class Fetch_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -10935,7 +10874,6 @@ class EParser ( AbstractParser ):
 
 
     class Fetch_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11156,7 +11094,6 @@ class EParser ( AbstractParser ):
 
 
     class ThenContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11233,7 +11170,6 @@ class EParser ( AbstractParser ):
 
 
     class Read_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11297,7 +11233,6 @@ class EParser ( AbstractParser ):
 
 
     class Sorted_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11386,7 +11321,6 @@ class EParser ( AbstractParser ):
 
 
     class Argument_assignment_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11524,7 +11458,6 @@ class EParser ( AbstractParser ):
 
 
     class With_argument_assignment_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11639,7 +11572,6 @@ class EParser ( AbstractParser ):
 
 
     class Argument_assignmentContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11700,7 +11632,6 @@ class EParser ( AbstractParser ):
 
 
     class Assign_instance_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11756,7 +11687,6 @@ class EParser ( AbstractParser ):
 
 
     class Child_instanceContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11866,7 +11796,6 @@ class EParser ( AbstractParser ):
 
 
     class Assign_tuple_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11922,7 +11851,6 @@ class EParser ( AbstractParser ):
 
 
     class LfsContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -11975,7 +11903,6 @@ class EParser ( AbstractParser ):
 
 
     class LfpContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12030,7 +11957,6 @@ class EParser ( AbstractParser ):
 
 
     class Ws_plusContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12107,7 +12033,6 @@ class EParser ( AbstractParser ):
 
 
     class IndentContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12167,7 +12092,6 @@ class EParser ( AbstractParser ):
 
 
     class DedentContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12225,7 +12149,6 @@ class EParser ( AbstractParser ):
 
 
     class Type_literalContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12277,7 +12200,6 @@ class EParser ( AbstractParser ):
 
 
     class Null_literalContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12318,7 +12240,6 @@ class EParser ( AbstractParser ):
 
 
     class ReplContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12387,7 +12308,6 @@ class EParser ( AbstractParser ):
 
 
     class Declaration_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12458,7 +12378,6 @@ class EParser ( AbstractParser ):
 
 
     class DeclarationsContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12523,7 +12442,6 @@ class EParser ( AbstractParser ):
 
 
     class DeclarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12663,7 +12581,6 @@ class EParser ( AbstractParser ):
 
 
     class Annotation_constructorContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12767,7 +12684,6 @@ class EParser ( AbstractParser ):
 
 
     class Annotation_identifierContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12808,7 +12724,6 @@ class EParser ( AbstractParser ):
 
 
     class Annotation_argumentContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12863,7 +12778,6 @@ class EParser ( AbstractParser ):
 
 
     class Annotation_argument_nameContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -12916,7 +12830,6 @@ class EParser ( AbstractParser ):
 
 
     class Annotation_argument_valueContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13006,7 +12919,6 @@ class EParser ( AbstractParser ):
 
 
     class Resource_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13048,7 +12960,6 @@ class EParser ( AbstractParser ):
 
 
     class Enum_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13107,7 +13018,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_symbol_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13172,7 +13082,6 @@ class EParser ( AbstractParser ):
 
 
     class Category_symbol_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13237,7 +13146,6 @@ class EParser ( AbstractParser ):
 
 
     class Symbol_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13301,7 +13209,6 @@ class EParser ( AbstractParser ):
 
 
     class Attribute_constraintContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13491,7 +13398,6 @@ class EParser ( AbstractParser ):
 
 
     class List_literalContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13561,7 +13467,6 @@ class EParser ( AbstractParser ):
 
 
     class Set_literalContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13631,7 +13536,6 @@ class EParser ( AbstractParser ):
 
 
     class Expression_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13695,7 +13599,6 @@ class EParser ( AbstractParser ):
 
 
     class Range_literalContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -13759,7 +13662,6 @@ class EParser ( AbstractParser ):
 
 
     class TypedefContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14029,7 +13931,6 @@ class EParser ( AbstractParser ):
 
 
     class Primary_typeContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14119,7 +14020,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_typeContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14565,7 +14465,6 @@ class EParser ( AbstractParser ):
 
 
     class Category_typeContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14607,7 +14506,6 @@ class EParser ( AbstractParser ):
 
 
     class Mutable_category_typeContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14661,7 +14559,6 @@ class EParser ( AbstractParser ):
 
 
     class Code_typeContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14703,7 +14600,6 @@ class EParser ( AbstractParser ):
 
 
     class Category_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14820,7 +14716,6 @@ class EParser ( AbstractParser ):
 
 
     class Widget_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14910,7 +14805,6 @@ class EParser ( AbstractParser ):
 
 
     class Type_identifier_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -14974,7 +14868,6 @@ class EParser ( AbstractParser ):
 
 
     class Method_identifierContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15033,7 +14926,6 @@ class EParser ( AbstractParser ):
 
 
     class Identifier_or_keywordContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15092,7 +14984,6 @@ class EParser ( AbstractParser ):
 
 
     class Nospace_hyphen_identifier_or_keywordContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15143,7 +15034,6 @@ class EParser ( AbstractParser ):
 
 
     class Nospace_identifier_or_keywordContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15189,7 +15079,6 @@ class EParser ( AbstractParser ):
 
 
     class IdentifierContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15302,7 +15191,6 @@ class EParser ( AbstractParser ):
 
 
     class Member_identifierContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15361,7 +15249,6 @@ class EParser ( AbstractParser ):
 
 
     class Variable_identifierContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15414,7 +15301,6 @@ class EParser ( AbstractParser ):
 
 
     class Attribute_identifierContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15467,7 +15353,6 @@ class EParser ( AbstractParser ):
 
 
     class Type_identifierContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15508,7 +15393,6 @@ class EParser ( AbstractParser ):
 
 
     class Symbol_identifierContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15549,7 +15433,6 @@ class EParser ( AbstractParser ):
 
 
     class Argument_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15613,7 +15496,6 @@ class EParser ( AbstractParser ):
 
 
     class ArgumentContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15714,7 +15596,6 @@ class EParser ( AbstractParser ):
 
 
     class Operator_argumentContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15773,7 +15654,6 @@ class EParser ( AbstractParser ):
 
 
     class Named_argumentContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15833,7 +15713,6 @@ class EParser ( AbstractParser ):
 
 
     class Code_argumentContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15882,7 +15761,6 @@ class EParser ( AbstractParser ):
 
 
     class Category_or_any_typeContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -15941,7 +15819,6 @@ class EParser ( AbstractParser ):
 
 
     class Any_typeContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16089,7 +15966,6 @@ class EParser ( AbstractParser ):
 
 
     class Member_method_declaration_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16154,7 +16030,6 @@ class EParser ( AbstractParser ):
 
 
     class Member_method_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16285,7 +16160,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_member_method_declaration_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16350,7 +16224,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_member_method_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16463,7 +16336,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_category_bindingContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16651,7 +16523,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_category_bindingContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16705,7 +16576,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_moduleContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16785,7 +16655,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_category_bindingContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16861,7 +16730,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_moduleContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -16963,7 +16831,6 @@ class EParser ( AbstractParser ):
 
 
     class Variable_identifier_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17027,7 +16894,6 @@ class EParser ( AbstractParser ):
 
 
     class Attribute_identifier_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17091,7 +16957,6 @@ class EParser ( AbstractParser ):
 
 
     class Method_declarationContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17170,7 +17035,6 @@ class EParser ( AbstractParser ):
 
 
     class Comment_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17211,7 +17075,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_statement_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17276,7 +17139,6 @@ class EParser ( AbstractParser ):
 
 
     class Native_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17459,7 +17321,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_native_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17525,7 +17386,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_native_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17591,7 +17451,6 @@ class EParser ( AbstractParser ):
 
 
     class Statement_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17656,7 +17515,6 @@ class EParser ( AbstractParser ):
 
 
     class Assertion_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17721,7 +17579,6 @@ class EParser ( AbstractParser ):
 
 
     class Switch_case_statement_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17786,7 +17643,6 @@ class EParser ( AbstractParser ):
 
 
     class Catch_statement_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -17851,7 +17707,6 @@ class EParser ( AbstractParser ):
 
 
     class Literal_collectionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18000,7 +17855,6 @@ class EParser ( AbstractParser ):
 
 
     class Atomic_literalContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18485,7 +18339,6 @@ class EParser ( AbstractParser ):
 
 
     class Literal_list_literalContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18549,7 +18402,6 @@ class EParser ( AbstractParser ):
 
 
     class This_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18599,7 +18451,6 @@ class EParser ( AbstractParser ):
 
 
     class Super_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18658,7 +18509,6 @@ class EParser ( AbstractParser ):
 
 
     class Parenthesis_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18710,7 +18560,6 @@ class EParser ( AbstractParser ):
 
 
     class Literal_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18769,7 +18618,6 @@ class EParser ( AbstractParser ):
 
 
     class Collection_literalContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18868,7 +18716,6 @@ class EParser ( AbstractParser ):
 
 
     class Tuple_literalContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -18938,7 +18785,6 @@ class EParser ( AbstractParser ):
 
 
     class Dict_literalContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19029,7 +18875,6 @@ class EParser ( AbstractParser ):
 
 
     class Document_literalContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19088,7 +18933,6 @@ class EParser ( AbstractParser ):
 
 
     class Expression_tupleContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19162,7 +19006,6 @@ class EParser ( AbstractParser ):
 
 
     class Doc_entry_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19226,7 +19069,6 @@ class EParser ( AbstractParser ):
 
 
     class Doc_entryContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19281,7 +19123,6 @@ class EParser ( AbstractParser ):
 
 
     class Doc_keyContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19370,7 +19211,6 @@ class EParser ( AbstractParser ):
 
 
     class Dict_entry_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19434,7 +19274,6 @@ class EParser ( AbstractParser ):
 
 
     class Dict_entryContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19489,7 +19328,6 @@ class EParser ( AbstractParser ):
 
 
     class Dict_keyContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19578,7 +19416,6 @@ class EParser ( AbstractParser ):
 
 
     class Slice_argumentsContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19713,7 +19550,6 @@ class EParser ( AbstractParser ):
 
 
     class Assign_variable_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19767,7 +19603,6 @@ class EParser ( AbstractParser ):
 
 
     class Assignable_instanceContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19870,7 +19705,6 @@ class EParser ( AbstractParser ):
 
 
     class Is_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -19966,7 +19800,6 @@ class EParser ( AbstractParser ):
 
 
     class Arrow_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20072,7 +19905,6 @@ class EParser ( AbstractParser ):
 
 
     class Arrow_prefixContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20132,7 +19964,6 @@ class EParser ( AbstractParser ):
 
 
     class Arrow_argsContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20235,7 +20066,6 @@ class EParser ( AbstractParser ):
 
 
     class Sorted_keyContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20294,7 +20124,6 @@ class EParser ( AbstractParser ):
 
 
     class Read_blob_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20352,7 +20181,6 @@ class EParser ( AbstractParser ):
 
 
     class Read_all_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20410,7 +20238,6 @@ class EParser ( AbstractParser ):
 
 
     class Read_one_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20468,7 +20295,6 @@ class EParser ( AbstractParser ):
 
 
     class Order_by_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20532,7 +20358,6 @@ class EParser ( AbstractParser ):
 
 
     class Order_byContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20616,7 +20441,6 @@ class EParser ( AbstractParser ):
 
 
     class OperatorContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -20802,7 +20626,6 @@ class EParser ( AbstractParser ):
 
 
     class KeywordContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21185,7 +21008,6 @@ class EParser ( AbstractParser ):
 
 
     class New_tokenContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21231,7 +21053,6 @@ class EParser ( AbstractParser ):
 
 
     class Key_tokenContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21277,7 +21098,6 @@ class EParser ( AbstractParser ):
 
 
     class Module_tokenContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21323,7 +21143,6 @@ class EParser ( AbstractParser ):
 
 
     class Value_tokenContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21369,7 +21188,6 @@ class EParser ( AbstractParser ):
 
 
     class Symbols_tokenContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21415,7 +21233,6 @@ class EParser ( AbstractParser ):
 
 
     class AssignContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21456,7 +21273,6 @@ class EParser ( AbstractParser ):
 
 
     class MultiplyContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21497,7 +21313,6 @@ class EParser ( AbstractParser ):
 
 
     class DivideContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21538,7 +21353,6 @@ class EParser ( AbstractParser ):
 
 
     class IdivideContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21579,7 +21393,6 @@ class EParser ( AbstractParser ):
 
 
     class ModuloContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21629,7 +21442,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21731,7 +21543,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21838,7 +21649,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_primary_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21947,7 +21757,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_this_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -21989,7 +21798,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_new_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22037,7 +21845,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_selector_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22162,7 +21969,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_method_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22229,7 +22035,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_argumentsContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22340,7 +22145,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_item_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22393,7 +22197,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_parenthesis_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22446,7 +22249,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_identifier_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22489,7 +22291,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_literal_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22652,7 +22453,6 @@ class EParser ( AbstractParser ):
 
 
     class Javascript_identifierContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22734,7 +22534,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22828,7 +22627,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -22935,7 +22733,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_primary_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23106,7 +22903,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_self_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23148,7 +22944,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_selector_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23250,7 +23045,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_method_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23317,7 +23111,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_argument_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23444,7 +23237,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_ordinal_argument_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23555,7 +23347,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_named_argument_listContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23686,7 +23477,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_parenthesis_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23739,7 +23529,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_identifier_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -23883,7 +23672,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_literal_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24046,7 +23834,6 @@ class EParser ( AbstractParser ):
 
 
     class Python_identifierContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24128,7 +23915,6 @@ class EParser ( AbstractParser ):
 
 
     class Java_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24230,7 +24016,6 @@ class EParser ( AbstractParser ):
 
 
     class Java_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24337,7 +24122,6 @@ class EParser ( AbstractParser ):
 
 
     class Java_primary_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24426,7 +24210,6 @@ class EParser ( AbstractParser ):
 
 
     class Java_this_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24468,7 +24251,6 @@ class EParser ( AbstractParser ):
 
 
     class Java_new_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24516,7 +24298,6 @@ class EParser ( AbstractParser ):
 
 
     class Java_selector_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24610,7 +24391,6 @@ class EParser ( AbstractParser ):
 
 
     class Java_method_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24677,7 +24457,6 @@ class EParser ( AbstractParser ):
 
 
     class Java_argumentsContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24788,7 +24567,6 @@ class EParser ( AbstractParser ):
 
 
     class Java_item_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24841,7 +24619,6 @@ class EParser ( AbstractParser ):
 
 
     class Java_parenthesis_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -24894,7 +24671,6 @@ class EParser ( AbstractParser ):
 
 
     class Java_identifier_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25005,7 +24781,6 @@ class EParser ( AbstractParser ):
 
 
     class Java_class_identifier_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25111,7 +24886,6 @@ class EParser ( AbstractParser ):
 
 
     class Java_literal_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25274,7 +25048,6 @@ class EParser ( AbstractParser ):
 
 
     class Java_identifierContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25356,7 +25129,6 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_statementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25458,7 +25230,6 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25565,7 +25336,6 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_primary_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25654,7 +25424,6 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_this_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25696,7 +25465,6 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_new_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25744,7 +25512,6 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_selector_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25838,7 +25605,6 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_method_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -25905,7 +25671,6 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_argumentsContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26016,7 +25781,6 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_item_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26069,7 +25833,6 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_parenthesis_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26122,7 +25885,6 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_identifier_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26266,7 +26028,6 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_literal_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26424,7 +26185,6 @@ class EParser ( AbstractParser ):
 
 
     class Csharp_identifierContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26506,7 +26266,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26565,7 +26324,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_elementContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26673,7 +26431,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_fragmentContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26745,7 +26502,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_fragment_startContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26807,7 +26563,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_fragment_endContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26858,7 +26613,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_self_closingContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -26941,7 +26695,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_openingContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27019,7 +26772,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_closingContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27077,7 +26829,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_element_nameContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27141,7 +26892,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_identifierContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27201,7 +26951,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_attributeContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27269,7 +27018,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_attribute_valueContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27365,7 +27113,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_childrenContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27422,7 +27169,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_childContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27553,7 +27299,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_textContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27610,7 +27355,6 @@ class EParser ( AbstractParser ):
 
 
     class Jsx_charContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27682,7 +27426,6 @@ class EParser ( AbstractParser ):
 
 
     class Css_expressionContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27749,7 +27492,6 @@ class EParser ( AbstractParser ):
 
 
     class Css_fieldContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27809,7 +27551,6 @@ class EParser ( AbstractParser ):
 
 
     class Css_identifierContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -27918,7 +27659,6 @@ class EParser ( AbstractParser ):
 
 
     class Css_valueContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -28016,7 +27756,6 @@ class EParser ( AbstractParser ):
 
 
     class Css_textContext(ParserRuleContext):
-        __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
@@ -28027,6 +27766,12 @@ class EParser ( AbstractParser ):
                 return self.getTokens(EParser.SEMI)
             else:
                 return self.getToken(EParser.SEMI, i)
+
+        def RCURL(self, i:int=None):
+            if i is None:
+                return self.getTokens(EParser.RCURL)
+            else:
+                return self.getToken(EParser.RCURL, i)
 
         def getRuleIndex(self):
             return EParser.RULE_css_text
@@ -28056,7 +27801,7 @@ class EParser ( AbstractParser ):
                 if _alt == 1+1:
                     self.state = 2956
                     _la = self._input.LA(1)
-                    if _la <= 0 or _la==EParser.SEMI:
+                    if _la <= 0 or _la==EParser.SEMI or _la==EParser.RCURL:
                         self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)
