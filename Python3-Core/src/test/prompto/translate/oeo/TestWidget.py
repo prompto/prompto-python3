@@ -11,6 +11,9 @@ class TestWidget(BaseOParserTest):
     def testNative(self):
         self.compareResourceOEO("widget/native.poc")
 
+    def testWithDocumentLiteral(self):
+        self.compareResourceOEO("widget/withDocumentLiteral.poc")
+
     def testWithEvent(self):
         self.compareResourceOEO("widget/withEvent.poc")
 
