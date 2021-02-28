@@ -28,6 +28,9 @@ class TestCast(BaseEParserTest):
     def testCastDocument(self):
         self.checkOutput("cast/castDocument.pec")
 
+    def testCastDocumentList(self):
+        self.checkOutput("cast/castDocumentList.pec")
+
     def testCastInteger(self):
         self.checkOutput("cast/castInteger.pec")
 

@@ -23,6 +23,9 @@ class TestCast(BaseEParserTest):
     def testCastDocument(self):
         self.compareResourceEOE("cast/castDocument.pec")
 
+    def testCastDocumentList(self):
+        self.compareResourceEOE("cast/castDocumentList.pec")
+
     def testCastInteger(self):
         self.compareResourceEOE("cast/castInteger.pec")
 
