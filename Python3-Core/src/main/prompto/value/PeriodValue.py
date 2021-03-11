@@ -276,6 +276,10 @@ class PeriodValue (BaseValue, IMultiplyable):
         return TextValue(str(self))
 
 
+    def toJsonNode(self):
+        return str(self)
+
+
 PeriodValue.ZERO = PeriodValue(0, 0, 0, 0, 0, 0, 0, 0)
 
 

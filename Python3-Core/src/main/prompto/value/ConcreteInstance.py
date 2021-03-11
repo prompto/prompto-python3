@@ -102,6 +102,13 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
     def getMemberValue(self, context, attrName, autoCreate=False):
         if "category" == attrName:
             return self.getCategory(context)
+        elif "json" == attrName:
+            return super().getMemberValue(context, attrName, autoCreate)
+        else:
+            return self.getAttributeValue(context, attrName)
+
+
+    def getAttributeValue(self, context, attrName):
         stacked = activeGetters.__dict__.get(attrName, None)
         first = stacked is None
         if first:
@@ -256,3 +263,10 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
             value = self.values[key].toDocumentValue(context)
             doc.setMember(context, key, value)
         return doc
+
+
+    def toJsonNode(self):
+        node = {}
+        for key, value in self.values.items():
+            node[key] = value.toJsonNode() if value is not None else None
+        return node

@@ -127,6 +127,8 @@ class BaseType(IType):
         from prompto.type.TextType import TextType
         if "text" == name:
             return TextType.instance
+        elif "json" == name:
+            return TextType.instance
         else:
             raise SyntaxError("Cannot read member from " + self.typeName)
 

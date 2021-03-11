@@ -132,3 +132,7 @@ class IntegerValue(BaseValue, INumber, IMultiplyable):
 
     def toJson(self, context, generator, instanceId, fieldName, withType, binaries):
         generator.writeLong(self.value)
+
+
+    def toJsonNode(self):
+        return self.value

@@ -1,3 +1,4 @@
+import json
 from prompto.value.IValue import IValue
 
 class BaseValue(IValue):
@@ -37,8 +38,14 @@ class BaseValue(IValue):
         from prompto.value.TextValue import TextValue
         if "text" == name:
             return TextValue(str(self))
+        elif "json" == name:
+            val = json.dumps(self.toJsonNode(), separators=(',', ':'))
+            return TextValue(val)
         else:
             raise Exception("No member support for " + type(self).__name__)
+
+    def toJsonNode(self):
+        return self
 
     def setMember(self, context, name, value):
         raise Exception("No member support for " + type(self).__name__)

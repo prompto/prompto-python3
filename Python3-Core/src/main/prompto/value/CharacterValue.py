@@ -92,3 +92,7 @@ class CharacterValue (BaseValue, IMultiplyable) :
 
     def __hash__(self):
         return hash(self.value)
+
+
+    def toJsonNode(self):
+        return str(self.value)

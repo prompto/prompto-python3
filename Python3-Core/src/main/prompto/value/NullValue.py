@@ -17,4 +17,8 @@ class NullValue (BaseValue):
     def getStorableData(self):
         return None # Yes!
 
+
+    def toJsonNode(self):
+        return None
+
 NullValue.instance = NullValue()

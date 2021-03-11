@@ -124,3 +124,7 @@ class SetValue(BaseValue, IContainer, IFilterable):
     def toListValue(self, context):
         from prompto.value.ListValue import ListValue
         return ListValue(self.itype.itemType, items=list(self.items))
+
+
+    def toJsonNode(self):
+        return [ item.toJsonNode() for item in self.items ]

@@ -114,3 +114,7 @@ class BaseValueList(BaseValue, ISliceable):
         from prompto.value.ListValue import ListValue
         from prompto.type.AnyType import AnyType
         return ListValue(AnyType.instance, items)
+
+
+    def toJsonNode(self):
+        return [ item.toJsonNode() for item in self.items ]

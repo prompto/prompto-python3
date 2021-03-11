@@ -147,6 +147,13 @@ class DictValue(BaseValue, IContainer):
             yield KVPValue(k, v)
 
 
+    def toJsonNode(self):
+        node = {}
+        for key, value in self.value.items():
+            node[key] = value.toJsonNode() if value is not None else None
+        return node
+
+
 class KVPValue(BaseValue):
 
     def __init__(self, key, value):

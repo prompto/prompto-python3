@@ -185,3 +185,7 @@ class DateTimeValue(BaseValue):
     def toDocumentValue(self, context):
         from prompto.value.TextValue import TextValue
         return TextValue(str(self))
+
+
+    def toJsonNode(self):
+        return str(self)

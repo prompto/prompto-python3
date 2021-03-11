@@ -65,6 +65,8 @@ class DocumentValue (BaseValue):
             return SetValue(TextType.instance, items=res)
         elif "values" == name:
             return ListValue(AnyType.instance, items=self.values.values())
+        elif "json" == name:
+            return super().getMemberValue(context, name, autoCreate)
         else:
             result = self.values.get(name, None)
             if result is not None:
@@ -145,3 +147,10 @@ class DocumentValue (BaseValue):
         generator.writeEndObject()
         if withType:
             generator.writeEndObject()
+
+
+    def toJsonNode(self):
+        node = {}
+        for key, value in self.values.items():
+            node[key] = value.toJsonNode() if value is not None else None
+        return node

@@ -159,3 +159,7 @@ class TextValue(BaseValue, ISliceable, IMultiplyable):
 
     def toJson(self, context, generator, instanceId, fieldName, withType, binaries):
         generator.writeString(self.value)
+
+
+    def toJsonNode(self):
+        return self.value

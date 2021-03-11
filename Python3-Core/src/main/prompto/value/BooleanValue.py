@@ -50,6 +50,10 @@ class BooleanValue(BaseValue):
     def __hash__(self):
         return hash(self.value)
 
+
+    def toJsonNode(self):
+        return self.value
+
 BooleanValue.TRUE = BooleanValue(True)
 BooleanValue.FALSE = BooleanValue(False)
 BooleanValue.TRUE.opposite = BooleanValue.FALSE
