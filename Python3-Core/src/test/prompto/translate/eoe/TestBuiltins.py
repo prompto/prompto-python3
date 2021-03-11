@@ -5,17 +5,26 @@ class TestBuiltins(BaseEParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testBooleanJson(self):
+        self.compareResourceEOE("builtins/booleanJson.pec")
+
     def testBooleanText(self):
         self.compareResourceEOE("builtins/booleanText.pec")
 
     def testCategoryCategory(self):
         self.compareResourceEOE("builtins/categoryCategory.pec")
 
+    def testCategoryJson(self):
+        self.compareResourceEOE("builtins/categoryJson.pec")
+
     def testCategoryText(self):
         self.compareResourceEOE("builtins/categoryText.pec")
 
     def testCharCodePoint(self):
         self.compareResourceEOE("builtins/charCodePoint.pec")
+
+    def testCharJson(self):
+        self.compareResourceEOE("builtins/charJson.pec")
 
     def testCharText(self):
         self.compareResourceEOE("builtins/charText.pec")
@@ -28,6 +37,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testDateDayOfYear(self):
         self.compareResourceEOE("builtins/dateDayOfYear.pec")
+
+    def testDateJson(self):
+        self.compareResourceEOE("builtins/dateJson.pec")
 
     def testDateMonth(self):
         self.compareResourceEOE("builtins/dateMonth.pec")
@@ -46,6 +58,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testDateTimeHour(self):
         self.compareResourceEOE("builtins/dateTimeHour.pec")
+
+    def testDateTimeJson(self):
+        self.compareResourceEOE("builtins/dateTimeJson.pec")
 
     def testDateTimeMilli(self):
         self.compareResourceEOE("builtins/dateTimeMilli.pec")
@@ -77,11 +92,17 @@ class TestBuiltins(BaseEParserTest):
     def testDateYear(self):
         self.compareResourceEOE("builtins/dateYear.pec")
 
+    def testDecimalJson(self):
+        self.compareResourceEOE("builtins/decimalJson.pec")
+
     def testDecimalText(self):
         self.compareResourceEOE("builtins/decimalText.pec")
 
     def testDictCount(self):
         self.compareResourceEOE("builtins/dictCount.pec")
+
+    def testDictJson(self):
+        self.compareResourceEOE("builtins/dictJson.pec")
 
     def testDictKeys(self):
         self.compareResourceEOE("builtins/dictKeys.pec")
@@ -94,6 +115,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testDocumentCount(self):
         self.compareResourceEOE("builtins/documentCount.pec")
+
+    def testDocumentJson(self):
+        self.compareResourceEOE("builtins/documentJson.pec")
 
     def testDocumentKeys(self):
         self.compareResourceEOE("builtins/documentKeys.pec")
@@ -116,6 +140,9 @@ class TestBuiltins(BaseEParserTest):
     def testIntegerFormat(self):
         self.compareResourceEOE("builtins/integerFormat.pec")
 
+    def testIntegerJson(self):
+        self.compareResourceEOE("builtins/integerJson.pec")
+
     def testIntegerText(self):
         self.compareResourceEOE("builtins/integerText.pec")
 
@@ -128,6 +155,9 @@ class TestBuiltins(BaseEParserTest):
     def testListCount(self):
         self.compareResourceEOE("builtins/listCount.pec")
 
+    def testListJson(self):
+        self.compareResourceEOE("builtins/listJson.pec")
+
     def testListText(self):
         self.compareResourceEOE("builtins/listText.pec")
 
@@ -139,6 +169,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testPeriodHours(self):
         self.compareResourceEOE("builtins/periodHours.pec")
+
+    def testPeriodJson(self):
+        self.compareResourceEOE("builtins/periodJson.pec")
 
     def testPeriodMillis(self):
         self.compareResourceEOE("builtins/periodMillis.pec")
@@ -164,6 +197,9 @@ class TestBuiltins(BaseEParserTest):
     def testSetCount(self):
         self.compareResourceEOE("builtins/setCount.pec")
 
+    def testSetJson(self):
+        self.compareResourceEOE("builtins/setJson.pec")
+
     def testSetText(self):
         self.compareResourceEOE("builtins/setText.pec")
 
@@ -178,6 +214,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testTextEndsWith(self):
         self.compareResourceEOE("builtins/textEndsWith.pec")
+
+    def testTextJson(self):
+        self.compareResourceEOE("builtins/textJson.pec")
 
     def testTextLowercase(self):
         self.compareResourceEOE("builtins/textLowercase.pec")
@@ -206,6 +245,9 @@ class TestBuiltins(BaseEParserTest):
     def testTimeHour(self):
         self.compareResourceEOE("builtins/timeHour.pec")
 
+    def testTimeJson(self):
+        self.compareResourceEOE("builtins/timeJson.pec")
+
     def testTimeMilli(self):
         self.compareResourceEOE("builtins/timeMilli.pec")
 
@@ -223,6 +265,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testTupleText(self):
         self.compareResourceEOE("builtins/tupleText.pec")
+
+    def testUuidJson(self):
+        self.compareResourceEOE("builtins/uuidJson.pec")
 
     def testUuidText(self):
         self.compareResourceEOE("builtins/uuidText.pec")

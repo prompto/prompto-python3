@@ -10,17 +10,26 @@ class TestBuiltins(BaseEParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testBooleanJson(self):
+        self.checkOutput("builtins/booleanJson.pec")
+
     def testBooleanText(self):
         self.checkOutput("builtins/booleanText.pec")
 
     def testCategoryCategory(self):
         self.checkOutput("builtins/categoryCategory.pec")
 
+    def testCategoryJson(self):
+        self.checkOutput("builtins/categoryJson.pec")
+
     def testCategoryText(self):
         self.checkOutput("builtins/categoryText.pec")
 
     def testCharCodePoint(self):
         self.checkOutput("builtins/charCodePoint.pec")
+
+    def testCharJson(self):
+        self.checkOutput("builtins/charJson.pec")
 
     def testCharText(self):
         self.checkOutput("builtins/charText.pec")
@@ -33,6 +42,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testDateDayOfYear(self):
         self.checkOutput("builtins/dateDayOfYear.pec")
+
+    def testDateJson(self):
+        self.checkOutput("builtins/dateJson.pec")
 
     def testDateMonth(self):
         self.checkOutput("builtins/dateMonth.pec")
@@ -51,6 +63,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testDateTimeHour(self):
         self.checkOutput("builtins/dateTimeHour.pec")
+
+    def testDateTimeJson(self):
+        self.checkOutput("builtins/dateTimeJson.pec")
 
     def testDateTimeMilli(self):
         self.checkOutput("builtins/dateTimeMilli.pec")
@@ -76,11 +91,17 @@ class TestBuiltins(BaseEParserTest):
     def testDateYear(self):
         self.checkOutput("builtins/dateYear.pec")
 
+    def testDecimalJson(self):
+        self.checkOutput("builtins/decimalJson.pec")
+
     def testDecimalText(self):
         self.checkOutput("builtins/decimalText.pec")
 
     def testDictCount(self):
         self.checkOutput("builtins/dictCount.pec")
+
+    def testDictJson(self):
+        self.checkOutput("builtins/dictJson.pec")
 
     def testDictKeys(self):
         self.checkOutput("builtins/dictKeys.pec")
@@ -93,6 +114,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testDocumentCount(self):
         self.checkOutput("builtins/documentCount.pec")
+
+    def testDocumentJson(self):
+        self.checkOutput("builtins/documentJson.pec")
 
     def testDocumentKeys(self):
         self.checkOutput("builtins/documentKeys.pec")
@@ -115,6 +139,9 @@ class TestBuiltins(BaseEParserTest):
     def testIntegerFormat(self):
         self.checkOutput("builtins/integerFormat.pec")
 
+    def testIntegerJson(self):
+        self.checkOutput("builtins/integerJson.pec")
+
     def testIntegerText(self):
         self.checkOutput("builtins/integerText.pec")
 
@@ -127,6 +154,9 @@ class TestBuiltins(BaseEParserTest):
     def testListCount(self):
         self.checkOutput("builtins/listCount.pec")
 
+    def testListJson(self):
+        self.checkOutput("builtins/listJson.pec")
+
     def testListText(self):
         self.checkOutput("builtins/listText.pec")
 
@@ -138,6 +168,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testPeriodHours(self):
         self.checkOutput("builtins/periodHours.pec")
+
+    def testPeriodJson(self):
+        self.checkOutput("builtins/periodJson.pec")
 
     def testPeriodMillis(self):
         self.checkOutput("builtins/periodMillis.pec")
@@ -163,6 +196,9 @@ class TestBuiltins(BaseEParserTest):
     def testSetCount(self):
         self.checkOutput("builtins/setCount.pec")
 
+    def testSetJson(self):
+        self.checkOutput("builtins/setJson.pec")
+
     def testSetText(self):
         self.checkOutput("builtins/setText.pec")
 
@@ -177,6 +213,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testTextEndsWith(self):
         self.checkOutput("builtins/textEndsWith.pec")
+
+    def testTextJson(self):
+        self.checkOutput("builtins/textJson.pec")
 
     def testTextLowercase(self):
         self.checkOutput("builtins/textLowercase.pec")
@@ -205,6 +244,9 @@ class TestBuiltins(BaseEParserTest):
     def testTimeHour(self):
         self.checkOutput("builtins/timeHour.pec")
 
+    def testTimeJson(self):
+        self.checkOutput("builtins/timeJson.pec")
+
     def testTimeMilli(self):
         self.checkOutput("builtins/timeMilli.pec")
 
@@ -222,6 +264,9 @@ class TestBuiltins(BaseEParserTest):
 
     def testTupleText(self):
         self.checkOutput("builtins/tupleText.pec")
+
+    def testUuidJson(self):
+        self.checkOutput("builtins/uuidJson.pec")
 
     def testUuidText(self):
         self.checkOutput("builtins/uuidText.pec")
