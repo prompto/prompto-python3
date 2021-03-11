@@ -4,21 +4,20 @@ from prompto.store.Store import IStorable, IStored, IStore, IQueryBuilder
 # a utility class for running unit tests only
 class MemStore(IStore):
 
-    lastDbId = 0
-    sequences = dict()
-
-    @staticmethod
-    def nextDbId():
-        MemStore.lastDbId += 1
-        return MemStore.lastDbId
-
     def __init__(self):
+        self.lastDbId = 0
+        self.sequences = dict()
         self.documents = dict()
 
 
+    def nextDbId(self):
+        self.lastDbId += 1
+        return self.lastDbId
+
+
     def nextSequenceValue(self, name):
-        value = MemStore.sequences.get(name, 0) + 1
-        MemStore.sequences[name] = value
+        value = self.sequences.get(name, 0) + 1
+        self.sequences[name] = value
         return value
 
 
@@ -43,7 +42,7 @@ class MemStore(IStore):
                 self.documents[doc.getData("dbId")] = doc
 
     def newStorable(self, categories):
-        return StorableDocument(categories)
+        return StorableDocument(categories, lambda : self.nextDbId())
 
 
 
@@ -134,9 +133,11 @@ class DocumentIterator(object):
 
 class StorableDocument(IStorable, IStored):
 
-    def __init__(self, categories):
+    def __init__(self, categories, dbIdSource):
         self.document = None
         self.categories = categories
+        self.dbIdSource = dbIdSource
+
 
     def __getattribute__(self, key):
         if key=="dirty":
@@ -157,7 +158,7 @@ class StorableDocument(IStorable, IStored):
     def getOrCreateDbId(self):
         dbId = self.getData("dbId")
         if dbId is None:
-            dbId = MemStore.nextDbId()
+            dbId = self.dbIdSource()
             self.setData("dbId", dbId)
         return dbId
 
@@ -179,7 +180,7 @@ class StorableDocument(IStorable, IStored):
         doc = dict()
         if self.categories is not None:
             doc["category"] = self.categories
-        doc["dbId"] = dbId if dbId is not None else MemStore.nextDbId()
+        doc["dbId"] = dbId if dbId is not None else self.dbIdSource()
         return doc
 
     def matches(self, predicate):
