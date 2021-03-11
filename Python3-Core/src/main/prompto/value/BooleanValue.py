@@ -20,6 +20,7 @@ class BooleanValue(BaseValue):
         super().__init__(BooleanType.instance)
         self.value = value
 
+
     def getStorableData(self):
         return self.value
 

@@ -16,6 +16,7 @@ class DecimalValue(BaseValue, INumber, IMultiplyable):
         super().__init__(DecimalType.instance)
         self.value = value
 
+
     def getStorableData(self):
         return self.value
 

@@ -15,6 +15,7 @@ class DateValue (BaseValue):
         days = int(text[8:10])
         return DateValue(years=years, months=months, days=days)
 
+
     def __init__(self, value=None, years=None, months=None, days=None):
         from prompto.type.DateType import DateType
         super().__init__(DateType.instance)

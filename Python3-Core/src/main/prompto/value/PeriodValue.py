@@ -201,6 +201,7 @@ class PeriodValue (BaseValue, IMultiplyable):
                            self.seconds * count,
                            self.millis * count)
 
+
     def getMemberValue(self, context, name, autoCreate=False):
         from prompto.value.IntegerValue import IntegerValue
         if "years" == name:
@@ -256,6 +257,7 @@ class PeriodValue (BaseValue, IMultiplyable):
             return s.getvalue()
         finally:
             s.close()
+
 
     def __eq__(self, obj):
         if isinstance(obj, PeriodValue):
