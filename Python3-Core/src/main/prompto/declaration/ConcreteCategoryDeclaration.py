@@ -51,12 +51,14 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
             sb.write(str(self.attributes))
         return sb.getvalue()
 
+
     def hasAttribute(self, context, name):
         if super(ConcreteCategoryDeclaration, self).hasAttribute(context, name):
             return True
         if self.hasDerivedAttribute(context,name):
             return True
         return False
+
 
     def hasDerivedAttribute(self, context, name):
         if self.derivedFrom is None:
@@ -271,11 +273,13 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
         for method in actual.values():
             result.registerIfMissing(method)
 
+
     def registerDerivedMemberMethods(self, context, result):
         if self.derivedFrom is None:
             return
         for ancestor in self.derivedFrom:
             self.registerAncestorMemberMethods(ancestor, context, result)
+
 
     def registerAncestorMemberMethods(self, ancestor, context, result):
         actual = context.getRegisteredDeclaration(IDeclaration, ancestor)

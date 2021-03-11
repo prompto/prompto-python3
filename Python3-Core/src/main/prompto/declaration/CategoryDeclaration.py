@@ -26,6 +26,10 @@ class CategoryDeclaration(BaseDeclaration):
         self.registerMethods(context)
 
 
+    def isAWidget(self, context):
+        return False
+
+
     def check(self, context):
         from prompto.declaration.AttributeDeclaration import AttributeDeclaration
         if self.attributes is not None:
@@ -61,10 +65,6 @@ class CategoryDeclaration(BaseDeclaration):
 
     def getDerivedFrom(self):
         return None
-
-
-    def isAWidget(self, context):
-        return False
 
 
     def checkConstructorContext(self, context):
