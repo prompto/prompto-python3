@@ -283,11 +283,13 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
             return
         actual.registerMemberMethods(context, result)
 
+
     def toEDialect(self, writer):
         hasMethods = self.methods is not None and len(self.methods)>0
         self.protoToEDialect(writer, hasMethods, False) # no bindings
         if hasMethods:
             self.methodsToEDialect(writer, self.methods)
+
 
     def categoryTypeToEDialect(self, writer):
         if self.derivedFrom is None:

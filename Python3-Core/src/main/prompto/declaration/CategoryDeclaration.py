@@ -2,6 +2,8 @@ from prompto.declaration.BaseDeclaration import BaseDeclaration
 from prompto.error.SyntaxError import SyntaxError
 from prompto.utils.TypeUtils import fieldToValue
 from prompto.type.CategoryType import CategoryType
+from prompto.value.NullValue import NullValue
+
 
 class CategoryDeclaration(BaseDeclaration):
 
@@ -96,10 +98,8 @@ class CategoryDeclaration(BaseDeclaration):
         if not decl.storable:
             return
         data = stored.getData(name)
-        if data is not None:
-            value = decl.itype.convertPythonValueToPromptoValue(context, data, None)
-            if value is not None:
-                instance.setMember(context, name, value)
+        value = NullValue.instance if data is None else decl.itype.convertPythonValueToPromptoValue(context, data, None)
+        instance.setMember(context, name, value)
 
 
     def toDialect(self, writer):

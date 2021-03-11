@@ -268,5 +268,8 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
     def toJsonNode(self):
         node = {}
         for key, value in self.values.items():
-            node[key] = value.toJsonNode() if value is not None else None
+            if key == "dbId":
+                node[key] = None if value is None else str(value)
+            else:
+                node[key] = value.toJsonNode() if value is not None else None
         return node
