@@ -17,7 +17,9 @@ from prompto.utils.CodeWriter import CodeWriter
 from prompto.error.SyntaxError import SyntaxError
 import os
 import unittest
+import ssl
 
+ssl._create_default_https_context = ssl._create_unverified_context
 
 class BaseParserTest(unittest.TestCase):
 
