@@ -1,5 +1,4 @@
 from prompto.utils.BaseParserTest import BaseParserTest
-from prompto.parser.ECleverParser import *
 
 
 class BaseEParserTest(BaseParserTest):
