@@ -2495,7 +2495,7 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, JavaScriptItemExpression(exp))
 
 
-    def exitJavaScriptItemExpression(self, ctx:OParser.JavaScriptItemExpressionContext):
+    def exitJavascriptItemExpression(self, ctx:OParser.JavascriptItemExpressionContext):
         self.setNodeValue(ctx, self.getNodeValue(ctx.exp))
 
 
@@ -2541,7 +2541,7 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, xlist)
 
 
-    def exitJavaScriptCategoryBinding(self, ctx: OParser.JavaScriptCategoryBindingContext):
+    def exitJavascriptCategoryBinding(self, ctx: OParser.JavascriptCategoryBindingContext):
         self.setNodeValue(ctx, self.getNodeValue(ctx.binding))
 
 
@@ -2561,12 +2561,12 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, JavaScriptIntegerLiteral(text))
 
 
-    def exitJavaScriptMethodExpression(self, ctx: OParser.JavaScriptMethodExpressionContext):
+    def exitJavascriptMethodExpression(self, ctx: OParser.JavascriptMethodExpressionContext):
         method = self.getNodeValue(ctx.method)
         self.setNodeValue(ctx, method)
 
 
-    def exitJavaScriptNativeStatement(self, ctx: OParser.JavaScriptNativeStatementContext):
+    def exitJavascriptNativeStatement(self, ctx: OParser.JavascriptNativeStatementContext):
         stmt = self.getNodeValue(ctx.javascript_native_statement())
         self.setNodeValue(ctx, JavaScriptNativeCall(stmt))
 
@@ -2588,7 +2588,7 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, child)
 
 
-    def exitJavaScriptMemberExpression(self, ctx: OParser.JavaScriptMemberExpressionContext):
+    def exitJavascriptMemberExpression(self, ctx: OParser.JavascriptMemberExpressionContext):
         name = ctx.name.getText()
         self.setNodeValue(ctx, JavaScriptMemberExpression(name))
 

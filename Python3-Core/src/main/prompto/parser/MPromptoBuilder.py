@@ -1503,7 +1503,7 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, JavaScriptItemExpression(exp))
 
 
-    def exitJavaScriptItemExpression(self, ctx:MParser.JavaScriptItemExpressionContext):
+    def exitJavascriptItemExpression(self, ctx:MParser.JavascriptItemExpressionContext):
         self.setNodeValue(ctx, self.getNodeValue(ctx.exp))
 
 
@@ -1549,7 +1549,7 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, xlist)
 
 
-    def exitJavaScriptCategoryBinding(self, ctx: MParser.JavaScriptCategoryBindingContext):
+    def exitJavascriptCategoryBinding(self, ctx: MParser.JavascriptCategoryBindingContext):
         self.setNodeValue(ctx, self.getNodeValue(ctx.binding))
 
 
@@ -1569,17 +1569,17 @@ class MPromptoBuilder(MParserListener):
         self.setNodeValue(ctx, JavaScriptIntegerLiteral(text))
 
 
-    def exitJavaScriptMethodExpression(self, ctx: MParser.JavaScriptMethodExpressionContext):
+    def exitJavascriptMethodExpression(self, ctx: MParser.JavascriptMethodExpressionContext):
         method = self.getNodeValue(ctx.method)
         self.setNodeValue(ctx, method)
 
 
-    def exitJavaScriptNativeStatement(self, ctx: MParser.JavaScriptNativeStatementContext):
+    def exitJavascriptNativeStatement(self, ctx: MParser.JavascriptNativeStatementContext):
         stmt = self.getNodeValue(ctx.javascript_native_statement())
         self.setNodeValue(ctx, JavaScriptNativeCall(stmt))
 
 
-    def exitJavaScriptMemberExpression(self, ctx: MParser.JavaScriptMemberExpressionContext):
+    def exitJavascriptMemberExpression(self, ctx: MParser.JavascriptMemberExpressionContext):
         name = ctx.name.getText()
         self.setNodeValue(ctx, JavaScriptMemberExpression(name))
 
