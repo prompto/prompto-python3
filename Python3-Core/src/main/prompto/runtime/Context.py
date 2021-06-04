@@ -101,8 +101,8 @@ class Context(IContext):
         return context is self.parent or (self.parent and self.parent.isChildOf(context))
 
 
-    def isResourceContext(self):
-        return self.parent is not None and self.parent is not self and self.parent.isResourceContext()
+    def isWithResourceContext(self):
+        return self.parent is not None and self.parent is not self and self.parent.isWithResourceContext()
 
 
     def newResourceContext(self):
@@ -398,7 +398,7 @@ class ResourceContext(Context):
         super(ResourceContext, self).__init__()
 
 
-    def isResourceContext(self):
+    def isWithResourceContext(self):
         return True
 
 

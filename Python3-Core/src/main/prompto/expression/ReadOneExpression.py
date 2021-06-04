@@ -21,7 +21,7 @@ class ReadOneExpression ( IExpression ) :
 
 
     def check(self, context):
-        if not context.isResourceContext():
+        if not context.isWithResourceContext():
             raise SyntaxError("Not a resource context!")
         sourceType = self.resource.check(context)
         if not isinstance(sourceType, ResourceType):
@@ -30,7 +30,7 @@ class ReadOneExpression ( IExpression ) :
 
 
     def interpret(self, context):
-        if not context.isResourceContext():
+        if not context.isWithResourceContext():
             raise SyntaxError("Not a resource context!")
         o = self.resource.interpret(context)
         if o is None:
