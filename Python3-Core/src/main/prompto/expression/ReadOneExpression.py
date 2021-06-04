@@ -2,7 +2,6 @@ from prompto.error.InternalError import InternalError
 from prompto.error.InvalidResourceError import InvalidResourceError
 from prompto.error.NullReferenceError import NullReferenceError
 from prompto.expression.IExpression import IExpression
-from prompto.runtime.Context import ResourceContext
 from prompto.type.ResourceType import ResourceType
 from prompto.type.TextType import TextType
 from prompto.value.IResource import IResource
@@ -22,7 +21,7 @@ class ReadOneExpression ( IExpression ) :
 
 
     def check(self, context):
-        if not isinstance(context, ResourceContext):
+        if not context.isResourceContext():
             raise SyntaxError("Not a resource context!")
         sourceType = self.resource.check(context)
         if not isinstance(sourceType, ResourceType):
@@ -30,9 +29,8 @@ class ReadOneExpression ( IExpression ) :
         return TextType.instance
 
 
-
     def interpret(self, context):
-        if not isinstance(context, ResourceContext):
+        if not context.isResourceContext():
             raise SyntaxError("Not a resource context!")
         o = self.resource.interpret(context)
         if o is None:
@@ -42,7 +40,6 @@ class ReadOneExpression ( IExpression ) :
         if not o.isReadable():
             raise InvalidResourceError("Not readable")
         return o.readLine()
-
 
 
     def toDialect(self, writer):

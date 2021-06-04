@@ -10,6 +10,18 @@ class TestResource(BaseOParserTest):
     def tearDown(self):
         Out.restore()
 
+    def testReadInDoWhile(self):
+        self.checkOutput("resource/readInDoWhile.poc")
+
+    def testReadInForEach(self):
+        self.checkOutput("resource/readInForEach.poc")
+
+    def testReadInIf(self):
+        self.checkOutput("resource/readInIf.poc")
+
+    def testReadInWhile(self):
+        self.checkOutput("resource/readInWhile.poc")
+
     def testReadResource(self):
         self.checkOutput("resource/readResource.poc")
 

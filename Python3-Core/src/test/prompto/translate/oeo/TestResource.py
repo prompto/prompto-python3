@@ -5,6 +5,18 @@ class TestResource(BaseOParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testReadInDoWhile(self):
+        self.compareResourceOEO("resource/readInDoWhile.poc")
+
+    def testReadInForEach(self):
+        self.compareResourceOEO("resource/readInForEach.poc")
+
+    def testReadInIf(self):
+        self.compareResourceOEO("resource/readInIf.poc")
+
+    def testReadInWhile(self):
+        self.compareResourceOEO("resource/readInWhile.poc")
+
     def testReadResource(self):
         self.compareResourceOEO("resource/readResource.poc")
 

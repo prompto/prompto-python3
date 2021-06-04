@@ -1,4 +1,5 @@
 from prompto.value.IResource import IResource
+from prompto.value.NullValue import NullValue
 from prompto.value.TextValue import TextValue
 from prompto.value.NativeInstance import NativeInstance
 
@@ -32,7 +33,7 @@ class NativeResource(NativeInstance, IResource):
 
     def readLine(self):
         s = self.instance.readLine()
-        return TextValue(s)
+        return NullValue.instance if s is None else TextValue(s)
 
 
     def writeLine(self, data):

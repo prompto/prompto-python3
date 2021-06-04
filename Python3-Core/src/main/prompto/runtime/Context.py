@@ -56,7 +56,7 @@ class Context(IContext):
             sb.write("{")
             if id(self) != id(self.globals):
                 sb.write("globals:")
-                sb.write(globals)
+                sb.write(self.globals)
             sb.write(",calling:")
             sb.write(self.calling)
             sb.write(",parent:")
@@ -99,6 +99,10 @@ class Context(IContext):
 
     def isChildOf(self, context):
         return context is self.parent or (self.parent and self.parent.isChildOf(context))
+
+
+    def isResourceContext(self):
+        return self.parent is not None and self.parent is not self and self.parent.isResourceContext()
 
 
     def newResourceContext(self):
@@ -389,8 +393,13 @@ class Context(IContext):
 
 
 class ResourceContext(Context):
+
     def __init__(self):
         super(ResourceContext, self).__init__()
+
+
+    def isResourceContext(self):
+        return True
 
 
 class DocumentContext(Context):
