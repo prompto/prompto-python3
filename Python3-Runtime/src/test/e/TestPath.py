@@ -8,6 +8,7 @@ class TestPath(BaseEParserTest):
         Out.init()
         self.coreContext = None
         self.loadDependency("path")
+        self.loadDependency("core")
     
     def tearDown(self):
         Out.restore()
