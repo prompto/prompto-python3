@@ -40,6 +40,6 @@ def compressToTempPath(path: str) -> str:
 def decompressToTempPath(path: str) -> str:
     with gzip.open(path, 'rb') as deflated:
         rawFile = tempfile.NamedTemporaryFile("w+b", prefix="inflate", suffix=".raw", delete=False)
-        with open(rawFile, 'rb') as inflated:
+        with open(rawFile.name, 'rb') as inflated:
             shutil.copyfileobj(deflated, inflated)
             return rawFile.name
