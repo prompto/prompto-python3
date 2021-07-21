@@ -19,6 +19,9 @@ class TestStore(BaseEParserTest):
     def testAsyncStore(self):
         self.checkOutput("store/asyncStore.pec")
 
+    def testAuditRecord(self):
+        self.checkOutput("store/auditRecord.pec")
+
     def testDeleteRecords(self):
         self.checkOutput("store/deleteRecords.pec")
 
