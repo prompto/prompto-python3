@@ -1,6 +1,7 @@
 from prompto.statement.BaseStatement import BaseStatement
 from prompto.type.VoidType import VoidType
 from prompto.store.DataStore import DataStore
+from prompto.value.DocumentValue import DocumentValue
 from prompto.value.IContainer import IContainer
 from prompto.value.IInstance import IInstance
 from prompto.parser.Dialect import Dialect
@@ -8,12 +9,13 @@ from prompto.value.NullValue import NullValue
 
 
 
-class StoreStatement(BaseStatement):
+class DeleteAndStoreStatement(BaseStatement):
 
-    def __init__(self, to_del, to_add, andThen):
+    def __init__(self, to_del, to_add, with_meta, andThen):
         super().__init__()
         self.to_del = to_del
         self.to_add = to_add
+        self.with_meta = with_meta
         self.andThen = andThen
 
 
@@ -30,6 +32,15 @@ class StoreStatement(BaseStatement):
         if self.to_add is not None:
             writer.append("store ")
             self.itemsToDialect(self.to_add, writer)
+        if self.with_meta is not None:
+            if writer.dialect is Dialect.E:
+                writer.append(" with ")
+                self.with_meta.toDialect(writer)
+                writer.append(" as metadata")
+            else:
+                writer.append(" with metadata(")
+                self.with_meta.toDialect(writer)
+                writer.append(')')
         if self.andThen is not None:
             if writer.dialect is Dialect.O:
                 writer.append(" then {").newLine().indent()
@@ -53,7 +64,14 @@ class StoreStatement(BaseStatement):
 
 
     def __str__(self):
-        return "store " + str(self.to_add)
+        s = ""
+        if self.to_del is not None:
+            s += "delete " + ", ".join(self.to_del)
+            if self.to_add is not None:
+                s += " and "
+        if self.to_add is not None:
+            s += "store " + ", ".join(self.to_add)
+        return s
 
 
     def __eq__(self, other):
@@ -61,7 +79,7 @@ class StoreStatement(BaseStatement):
             return True
         if other is None:
             return False
-        if not isinstance(other, StoreStatement):
+        if not isinstance(other, DeleteAndStoreStatement):
             return False
         return self.to_del == other.to_del and self.to_add == other.to_add
 
@@ -75,7 +93,14 @@ class StoreStatement(BaseStatement):
         idsToDel = self.getIdsToDelete(context)
         storablesToAdd = self.getStorablesToAdd(context)
         if idsToDel is not None or storablesToAdd is not None:
-            DataStore.instance.store(idsToDel, storablesToAdd)
+            with_meta = None
+            if self.with_meta is not None:
+                meta = self.with_meta.interpret(context)
+                if isinstance(meta, DocumentValue):
+                    with_meta = DataStore.instance.newAuditMetadata()
+                    for key, value in meta.values.items():
+                        with_meta[key] = value.getStorableData()
+            DataStore.instance.deleteAndStore(idsToDel, storablesToAdd, with_meta)
         if self.andThen is not None:
             self.andThen.interpret(context)
 

@@ -35,7 +35,8 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         self.storable = None
         if declaration.storable:
             categories = declaration.collectCategories(context)
-            self.storable = DataStore.instance.newStorable(categories)
+            factory = { "provider": lambda: self.getDbId(), "listener": lambda dbId: self.setDbId(dbId), "isUpdate": True }
+            self.storable = DataStore.instance.newStorable(categories, factory)
         self.mutable = False
         self.values = dict()
 
@@ -65,9 +66,13 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         dbId = self.getDbId()
         if dbId is None:
             dbId = self.storable.getOrCreateDbId()
-            value = fieldToValue(None, "dbId", dbId)
-            self.values["dbId"] = value
+            self.setDbId(dbId)
         return dbId
+
+
+    def setDbId(self, dbId):
+        value = fieldToValue(None, "dbId", dbId)
+        self.values["dbId"] = value
 
 
     def getStorableData(self):
@@ -273,3 +278,4 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
             else:
                 node[key] = value.toJsonNode() if value is not None else None
         return node
+

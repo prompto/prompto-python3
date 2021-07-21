@@ -27,6 +27,9 @@ class UnresolvedCall(BaseStatement):
         self.arguments = arguments
 
 
+    def __str__(self):
+        return str(self.caller) + ("" if self.arguments is None else str(self.arguments))
+
     def isSimple(self):
         return True
 

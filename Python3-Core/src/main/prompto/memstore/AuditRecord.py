@@ -1,0 +1,2 @@
+class AuditRecord(object):
+    pass

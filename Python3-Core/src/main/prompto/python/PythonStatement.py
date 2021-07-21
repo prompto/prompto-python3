@@ -1,6 +1,8 @@
 from prompto.type.AnyType import AnyType
 from prompto.type.VoidType import VoidType
 from prompto.python.PythonClassType import PythonClassType
+from prompto.value.NullValue import NullValue
+
 
 class PythonStatement(object):
 
@@ -17,10 +19,11 @@ class PythonStatement(object):
     def interpret(self, context, module, returnType):
         o = self.expression.interpret(context, module)
         if self.isReturn:
-            if o is not None:
+            if o is None:
+                return NullValue.instance
+            else:
                 ct = PythonClassType(type(o))
-                o = ct.convertPythonValueToPromptoValue(context, o, returnType)
-            return o
+                return ct.convertPythonValueToPromptoValue(context, o, returnType)
         else:
             return None
 

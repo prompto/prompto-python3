@@ -21,6 +21,7 @@ from prompto.value.DocumentValue import DocumentValue
 from prompto.value.IteratorValue import IteratorValue
 from prompto.value.ListValue import ListValue
 from prompto.value.IValue import IValue
+from prompto.value.NullValue import NullValue
 from prompto.value.PeriodValue import PeriodValue
 from prompto.error.InternalError import InternalError
 from prompto.value.SetValue import SetValue
@@ -58,7 +59,7 @@ class PythonClassType(CategoryType):
 
     def doConvertPythonValueToPromptoValue(self, context, value, klass, returnType):
         if value is None:
-            return None
+            return NullValue.instance
         else:
             res = self.convertIValue(value)
         if res is not None:

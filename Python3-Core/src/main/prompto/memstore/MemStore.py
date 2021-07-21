@@ -1,5 +1,14 @@
-from prompto.memstore.Query import Query
-from prompto.store.Store import IStorable, IStored, IStore, IQueryBuilder
+from datetime import datetime
+
+from prompto.memstore.AuditMetadata import AuditMetadata
+from prompto.memstore.AuditRecord import AuditRecord
+from prompto.memstore.QueryBuilder import QueryBuilder
+from prompto.memstore.StorableDocument import StorableDocument
+from prompto.memstore.StorableDocumentIterator import StorableDocumentIterator
+from prompto.store.AuditOperation import AuditOperation
+from prompto.store.IAuditMetadata import IAuditMetadata
+from prompto.store.Store import IStore
+
 
 # a utility class for running unit tests only
 class MemStore(IStore):
@@ -8,6 +17,10 @@ class MemStore(IStore):
         self.lastDbId = 0
         self.sequences = dict()
         self.documents = dict()
+        self.lastAuditRecordId = 0
+        self.auditRecords = dict()
+        self.lastAuditMetadataId = 0
+        self.auditMetadatas = dict()
 
 
     def nextDbId(self):
@@ -33,17 +46,71 @@ class MemStore(IStore):
         pass # nothing to do
 
 
-    def store (self, dbIdsToDel, docsToStore):
+    def deleteAndStore (self, dbIdsToDel, docsToStore, withMeta):
+        withMeta = self.storeMetadata(withMeta)
         if dbIdsToDel is not None:
             for dbId in dbIdsToDel:
-                del self.documents[dbId]
+                self.doDelete(dbId, withMeta)
         if docsToStore is not None:
-            for doc in docsToStore:
-                self.documents[doc.getData("dbId")] = doc
+            for storable in docsToStore:
+                self.doStore(storable, withMeta)
 
-    def newStorable(self, categories):
-        return StorableDocument(categories, lambda : self.nextDbId())
 
+    def doDelete(self, dbId, withMeta):
+        del self.documents[dbId]
+        audit = self.newAuditRecord(withMeta)
+        audit.instanceDbId = dbId
+        audit.operation = AuditOperation.DELETE
+        self.auditRecords[audit.auditRecordId] = audit
+
+
+    def doStore(self, storable, withMeta):
+        operation = AuditOperation.UPDATE
+        # ensure db id
+        dbId = storable.getData("dbId")
+        if not isinstance(dbId, int):
+            dbId = ++self.lastDbId
+            storable.setData("dbId", dbId)
+            operation = AuditOperation.INSERT
+        self.documents[dbId] = storable
+        audit = self.newAuditRecord(withMeta)
+        audit.instanceDbId = dbId
+        audit.operation = operation
+        audit.instance = storable
+        self.auditRecords[audit.auditRecordId] =  audit
+
+
+    def newAuditRecord(self, auditMetadata):
+        audit = AuditRecord()
+        self.lastAuditRecordId += 1
+        audit.auditRecordId = self.lastAuditRecordId
+        audit.auditMetadataId = auditMetadata.auditMetadataId
+        audit.UTCTimestamp = auditMetadata.UTCTimestamp
+        return audit
+
+
+    def newAuditMetadata(self):
+        meta = AuditMetadata()
+        self.lastAuditMetadataId += 1
+        meta.auditMetadataId = self.lastAuditMetadataId
+        meta.UTCTimestamp = datetime.utcnow()
+        return meta
+
+
+    def storeMetadata(self, withMeta):
+        if withMeta is None:
+            withMeta = self.newAuditMetadata()
+        self.auditMetadatas[withMeta.auditMetadataId] = withMeta
+        return withMeta
+
+
+    def newStorable(self, categories, factory):
+        provider = factory.get("provider", None)
+        def getDbId():
+            dbId = provider() if provider is not None else None
+            return dbId if dbId is not None else self.nextDbId()
+        factory["provider"] = getDbId
+        return StorableDocument(categories, factory)
 
 
     def newQueryBuilder(self):
@@ -77,7 +144,7 @@ class MemStore(IStore):
         if query.first is not None or query.last is not None:
             docs = self.sliceDocs(docs, query.first, query.last)
         # done
-        return DocumentIterator(docs, totalCount)
+        return StorableDocumentIterator(docs, totalCount)
 
 
     def filterDocs(self, docs, predicate):
@@ -105,6 +172,7 @@ class MemStore(IStore):
             docs = sorted(docs, key=valueExtractor(clause), reverse = clause.descending)
         return docs
 
+
     def sliceDocs(self, docs, first, last):
         if first is None or first < 1:
             first = 1
@@ -113,107 +181,20 @@ class MemStore(IStore):
         return docs[first-1:last]
 
 
-
-class DocumentIterator(object):
-
-    def __init__(self, docs, totalCount):
-        self.docs = docs
-        self.totalCount = totalCount
-
-    def __len__(self):
-        return len(self.docs)
-
-    def totalLength(self):
-        return self.totalCount
-
-    def __iter__(self):
-        for doc in self.docs:
-            yield doc
+    def fetchLatestAuditMetadataId(self, dbId: object) -> object:
+        audits = filter(lambda a: a.instanceDbId == dbId, self.auditRecords.values())
+        audits = sorted(audits, key = lambda a: a.UTCTimestamp, reverse = True)
+        return None if len(audits) == 0 else audits[0].auditMetadataId
 
 
-class StorableDocument(IStorable, IStored):
-
-    def __init__(self, categories, dbIdSource):
-        self.document = None
-        self.categories = categories
-        self.dbIdSource = dbIdSource
+    def fetchAllAuditMetadataIds(self, dbId: object) -> object:
+        audits = filter(lambda a: a.instanceDbId == dbId, self.auditRecords.values())
+        audits = sorted(audits, key = lambda a: a.UTCTimestamp, reverse = True)
+        return [ a.auditMetadataId for a in audits ]
 
 
-    def __getattribute__(self, key):
-        if key=="dirty":
-            return self.document is not None
-        else:
-            return object.__getattribute__(self, key)
-
-    def __setattr__(self, key, value):
-        if key=="dirty":
-            if value==False:
-                self.document = None
-            else:
-                self.document = self.newDocument(None)
-        else:
-            self.__dict__[key] = value
-
-
-    def getOrCreateDbId(self):
-        dbId = self.getData("dbId")
-        if dbId is None:
-            dbId = self.dbIdSource()
-            self.setData("dbId", dbId)
-        return dbId
+    def fetchAuditMetadata(self, dbId: object) -> AuditMetadata:
+        return self.auditMetadatas.get(dbId, None)
 
 
 
-    def getData(self, name):
-        if self.document is None:
-            return None
-        else:
-            return self.document.get(name, None)
-
-    def setData (self, name, data):
-        if self.document is None:
-            self.document = self.newDocument(None)
-        self.document[name] = data
-
-
-    def newDocument(self, dbId):
-        doc = dict()
-        if self.categories is not None:
-            doc["category"] = self.categories
-        doc["dbId"] = dbId if dbId is not None else self.dbIdSource()
-        return doc
-
-    def matches(self, predicate):
-        if predicate is None:
-            return True
-        else:
-            return predicate.matches(self.document)
-
-class QueryBuilder(IQueryBuilder):
-
-    def __init__(self):
-        self.query = Query()
-
-    def build(self):
-        return self.query
-
-    def setFirst(self, first):
-        self.query.first = first
-
-    def setLast(self, last):
-        self.query.last = last
-
-    def verify(self, info, match, value):
-        self.query.verify(info, match, value)
-
-    def And(self):
-        self.query.And()
-
-    def Or(self):
-        self.query.Or()
-
-    def Not(self):
-        self.query.Not()
-
-    def addOrderByClause(self, info, descending):
-        self.query.addOrderByClause(info, descending)
