@@ -93,7 +93,7 @@ class MemStore(IStore):
         self.auditMetadatas[withMeta.auditMetadataId] = withMeta
         return withMeta
 
-    def newStorable(self, categories, factory):
+    def newStorableDocument(self, categories, factory):
         provider = factory.get("provider", None)
         def getDbId():
             dbId = provider() if provider is not None else None

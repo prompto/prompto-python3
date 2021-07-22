@@ -11,8 +11,35 @@ class IStored(object):
 
 class IStore(object):
 
+    def isDbIdType(self, typ):
+        raise Exception("isDbIdType must be implemented by Store instance!")
+
+    def getDbIdType(self):
+        raise Exception("getDbIdType must be implemented by Store instance!")
+
+    def newStorableDocument(self, categories, dbIdFactory):
+        raise Exception("newStorableDocument must be implemented by Store instance!")
+
+    def newAuditMetadata(self):
+        raise Exception("newAuditMetadata must be implemented by Store instance!")
+
+    def deleteAndStore (self, dbIdsToDel, docsToStore, withMeta):
+        raise Exception("deleteAndStore must be implemented by Store instance!")
+
+    def flush (self):
+        raise Exception("flush must be implemented by Store instance!")
+
     def newQueryBuilder(self):
         raise Exception("newQueryBuilder must be implemented by Store instance!")
+
+    def fetchOne (self, query):
+        raise Exception("fetchOne must be implemented by Store instance!")
+
+    def fetchUnique (self, dbId):
+        raise Exception("fetchUnique must be implemented by Store instance!")
+
+    def fetchMany(self, query):
+        raise Exception("fetchMany must be implemented by Store instance!")
 
     def nextSequenceValue(self, name:str):
         raise Exception("nextSequenceValue must be implemented by Store instance!")

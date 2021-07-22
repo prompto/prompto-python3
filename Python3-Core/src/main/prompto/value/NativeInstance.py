@@ -19,7 +19,7 @@ class NativeInstance(BaseValue, IInstance):
         self.storable = None
         if declaration.storable:
             categories = declaration.collectCategories(context)
-            self.storable = DataStore.instance.newStorable(categories)
+            self.storable = DataStore.instance.newStorableDocument(categories)
         self.instance = self.makeInstance() if instance is None else instance
 
 

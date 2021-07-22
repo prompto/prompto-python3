@@ -36,7 +36,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         if declaration.storable:
             categories = declaration.collectCategories(context)
             factory = { "provider": lambda: self.getDbId(), "listener": lambda dbId: self.setDbId(dbId), "isUpdate": True }
-            self.storable = DataStore.instance.newStorable(categories, factory)
+            self.storable = DataStore.instance.newStorableDocument(categories, factory)
         self.mutable = False
         self.values = dict()
 
