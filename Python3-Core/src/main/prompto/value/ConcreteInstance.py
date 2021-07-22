@@ -278,4 +278,3 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
             else:
                 node[key] = value.toJsonNode() if value is not None else None
         return node
-

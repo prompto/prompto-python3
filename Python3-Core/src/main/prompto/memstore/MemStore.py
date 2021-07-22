@@ -22,29 +22,23 @@ class MemStore(IStore):
         self.lastAuditMetadataId = 0
         self.auditMetadatas = dict()
 
-
     def nextDbId(self):
         self.lastDbId += 1
         return self.lastDbId
-
 
     def nextSequenceValue(self, name):
         value = self.sequences.get(name, 0) + 1
         self.sequences[name] = value
         return value
 
-
     def isDbIdType(self, typ):
         return typ is int
-
 
     def getDbIdType(self):
         return int
 
-
     def flush (self):
         pass # nothing to do
-
 
     def deleteAndStore (self, dbIdsToDel, docsToStore, withMeta):
         withMeta = self.storeMetadata(withMeta)
@@ -55,14 +49,12 @@ class MemStore(IStore):
             for storable in docsToStore:
                 self.doStore(storable, withMeta)
 
-
     def doDelete(self, dbId, withMeta):
         del self.documents[dbId]
         audit = self.newAuditRecord(withMeta)
         audit.instanceDbId = dbId
         audit.operation = AuditOperation.DELETE
         self.auditRecords[audit.auditRecordId] = audit
-
 
     def doStore(self, storable, withMeta):
         operation = AuditOperation.UPDATE
@@ -79,7 +71,6 @@ class MemStore(IStore):
         audit.instance = storable
         self.auditRecords[audit.auditRecordId] =  audit
 
-
     def newAuditRecord(self, auditMetadata):
         audit = AuditRecord()
         self.lastAuditRecordId += 1
@@ -87,7 +78,6 @@ class MemStore(IStore):
         audit.auditMetadataId = auditMetadata.auditMetadataId
         audit.UTCTimestamp = auditMetadata.UTCTimestamp
         return audit
-
 
     def newAuditMetadata(self):
         meta = AuditMetadata()
@@ -103,7 +93,6 @@ class MemStore(IStore):
         self.auditMetadatas[withMeta.auditMetadataId] = withMeta
         return withMeta
 
-
     def newStorable(self, categories, factory):
         provider = factory.get("provider", None)
         def getDbId():
@@ -112,10 +101,8 @@ class MemStore(IStore):
         factory["provider"] = getDbId
         return StorableDocument(categories, factory)
 
-
     def newQueryBuilder(self):
         return QueryBuilder()
-
 
     def fetchOne (self, query):
         predicate = query.predicate()
@@ -124,11 +111,8 @@ class MemStore(IStore):
                 return doc
         return None
 
-
     def fetchUnique (self, dbId):
         return self.documents.get(dbId, None)
-
-
 
     def fetchMany(self, query):
         # iter all docs
@@ -146,14 +130,12 @@ class MemStore(IStore):
         # done
         return StorableDocumentIterator(docs, totalCount)
 
-
     def filterDocs(self, docs, predicate):
         res = []
         for doc in docs:
             if doc.matches(predicate):
                 res.append(doc)
         return res
-
 
     def sortDocs(self, docs, orderBys):
         # need a closure builder on a per clause basis
@@ -172,7 +154,6 @@ class MemStore(IStore):
             docs = sorted(docs, key=valueExtractor(clause), reverse = clause.descending)
         return docs
 
-
     def sliceDocs(self, docs, first, last):
         if first is None or first < 1:
             first = 1
@@ -180,18 +161,15 @@ class MemStore(IStore):
             last = len(docs)
         return docs[first-1:last]
 
-
     def fetchLatestAuditMetadataId(self, dbId: object) -> object:
         audits = filter(lambda a: a.instanceDbId == dbId, self.auditRecords.values())
         audits = sorted(audits, key = lambda a: a.UTCTimestamp, reverse = True)
         return None if len(audits) == 0 else audits[0].auditMetadataId
 
-
     def fetchAllAuditMetadataIds(self, dbId: object) -> object:
         audits = filter(lambda a: a.instanceDbId == dbId, self.auditRecords.values())
         audits = sorted(audits, key = lambda a: a.UTCTimestamp, reverse = True)
         return [ a.auditMetadataId for a in audits ]
-
 
     def fetchAuditMetadata(self, dbId: object) -> AuditMetadata:
         return self.auditMetadatas.get(dbId, None)

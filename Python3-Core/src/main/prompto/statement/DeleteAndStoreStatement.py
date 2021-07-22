@@ -8,7 +8,6 @@ from prompto.parser.Dialect import Dialect
 from prompto.value.NullValue import NullValue
 
 
-
 class DeleteAndStoreStatement(BaseStatement):
 
     def __init__(self, to_del, to_add, with_meta, andThen):
@@ -30,7 +29,7 @@ class DeleteAndStoreStatement(BaseStatement):
             if self.to_add is not None:
                 writer.append(" and ")
         if self.to_add is not None:
-            writer.append("store ")
+            writer.append ("store ")
             self.itemsToDialect(self.to_add, writer)
         if self.with_meta is not None:
             if writer.dialect is Dialect.E:
@@ -52,7 +51,7 @@ class DeleteAndStoreStatement(BaseStatement):
                 writer.dedent()
 
 
-    def itemsToDialect(self, items, writer):
+    def itemsToDialect (self, items, writer):
         if writer.dialect is not Dialect.E:
             writer.append('(')
         for item in items:

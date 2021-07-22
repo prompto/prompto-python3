@@ -1,13 +1,11 @@
 from prompto.store.Store import IStorable, IStored
 
-
 class StorableDocument(IStorable, IStored):
 
     def __init__(self, categories, dbIdFactory):
         self.document = None
         self.categories = categories
         self.dbIdFactory = dbIdFactory
-
 
     def __getattribute__(self, key):
         if key=="dirty":
@@ -24,15 +22,12 @@ class StorableDocument(IStorable, IStored):
         else:
             self.__dict__[key] = value
 
-
     def getOrCreateDbId(self):
         dbId = self.getData("dbId")
         if dbId is None:
             dbId = self.dbIdFactory["provider"]()
             self.setData("dbId", dbId)
         return dbId
-
-
 
     def getData(self, name):
         if self.document is None:
@@ -44,7 +39,6 @@ class StorableDocument(IStorable, IStored):
         if self.document is None:
             self.document = self.newDocument(None)
         self.document[name] = data
-
 
     def newDocument(self, dbId):
         doc = dict()
