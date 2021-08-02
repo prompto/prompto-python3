@@ -71,28 +71,6 @@ class MemStore(IStore):
         audit.instance = storable
         self.auditRecords[audit.auditRecordId] =  audit
 
-    def newAuditRecord(self, auditMetadata):
-        audit = AuditRecord()
-        self.lastAuditRecordId += 1
-        audit.auditRecordId = self.lastAuditRecordId
-        audit.auditMetadataId = auditMetadata.auditMetadataId
-        audit.UTCTimestamp = auditMetadata.UTCTimestamp
-        return audit
-
-    def newAuditMetadata(self):
-        meta = AuditMetadata()
-        self.lastAuditMetadataId += 1
-        meta.auditMetadataId = self.lastAuditMetadataId
-        meta.UTCTimestamp = datetime.utcnow()
-        return meta
-
-
-    def storeMetadata(self, withMeta):
-        if withMeta is None:
-            withMeta = self.newAuditMetadata()
-        self.auditMetadatas[withMeta.auditMetadataId] = withMeta
-        return withMeta
-
     def newStorableDocument(self, categories, factory):
         provider = factory.get("provider", None)
         def getDbId():
@@ -160,6 +138,30 @@ class MemStore(IStore):
         if last is None:
             last = len(docs)
         return docs[first-1:last]
+
+    def isAuditEnabled(self) -> bool:
+        return True
+
+    def newAuditMetadata(self):
+        meta = AuditMetadata()
+        self.lastAuditMetadataId += 1
+        meta.auditMetadataId = self.lastAuditMetadataId
+        meta.UTCTimestamp = datetime.utcnow()
+        return meta
+
+    def storeMetadata(self, withMeta):
+        if withMeta is None:
+            withMeta = self.newAuditMetadata()
+        self.auditMetadatas[withMeta.auditMetadataId] = withMeta
+        return withMeta
+
+    def newAuditRecord(self, auditMetadata):
+        audit = AuditRecord()
+        self.lastAuditRecordId += 1
+        audit.auditRecordId = self.lastAuditRecordId
+        audit.auditMetadataId = auditMetadata.auditMetadataId
+        audit.UTCTimestamp = auditMetadata.UTCTimestamp
+        return audit
 
     def fetchLatestAuditMetadataId(self, dbId: object) -> object:
         audits = filter(lambda a: a.instanceDbId == dbId, self.auditRecords.values())

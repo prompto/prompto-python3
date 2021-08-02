@@ -20,9 +20,6 @@ class IStore(object):
     def newStorableDocument(self, categories, dbIdFactory):
         raise Exception("newStorableDocument must be implemented by Store instance!")
 
-    def newAuditMetadata(self):
-        raise Exception("newAuditMetadata must be implemented by Store instance!")
-
     def deleteAndStore (self, dbIdsToDel, docsToStore, withMeta):
         raise Exception("deleteAndStore must be implemented by Store instance!")
 
@@ -43,6 +40,12 @@ class IStore(object):
 
     def nextSequenceValue(self, name:str):
         raise Exception("nextSequenceValue must be implemented by Store instance!")
+
+    def isAuditEnabled(self) -> bool:
+        raise Exception("isAuditEnabled must be implemented by Store instance!")
+
+    def newAuditMetadata(self) -> IAuditMetadata:
+        raise Exception("newAuditMetadata must be implemented by Store instance!")
 
     def fetchLatestAuditMetadataId(self, dbId: object) -> object:
         raise Exception("fetchLatestAuditMetadataId must be implemented by Store instance!")
