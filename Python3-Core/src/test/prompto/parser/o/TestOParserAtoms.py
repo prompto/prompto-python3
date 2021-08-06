@@ -417,6 +417,18 @@ class TestParserAtoms(unittest.TestCase):
         exp = self.parse(statement, OParser.expression)
         self.assertIsInstance(exp, InstanceExpression)
 
+    def testVersionLiterals(self):
+        for literal in [ "'v1.3'", "'v1.3.15'", "'v1.3-alpha'", "'v1.3-beta'", "'v1.3-candidate'",
+        "'v1.3.15-alpha'", "'v1.3.15-beta'", "'v1.3.15-candidate'",
+        "'latest'", "'development'" ]:
+           self.checkVersionLiteral(literal)
+
+    def checkVersionLiteral(self, literal):
+        from prompto.literal.VersionLiteral import VersionLiteral
+        exp = self.parse(literal, OParser.expression)
+        self.assertIsInstance(exp, VersionLiteral)
+        self.assertEquals(literal, "'" + str(exp.value) + "'")
+
     def parse(self, statement, method):
         parser = OCleverParser(text=statement)
         tree = method(parser)
