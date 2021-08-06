@@ -75,7 +75,7 @@ class VersionValue (BaseValue):
             raise SyntaxError("Illegal comparison: Version - " + type(value).__name__)
 
     def asInt(self):
-        return (self.major << 24) | (self.minor << 16) | self.fix
+        return (self.major << 24) | (self.minor << 16) | (self.fix << 8) | self.qualifier
 
 
     def __eq__(self, obj):
