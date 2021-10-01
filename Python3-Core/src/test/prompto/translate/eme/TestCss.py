@@ -8,6 +8,9 @@ class TestCss(BaseEParserTest):
     def testCodeValue(self):
         self.compareResourceEME("css/codeValue.pec")
 
+    def testCompositeValue(self):
+        self.compareResourceEME("css/compositeValue.pec")
+
     def testHyphenName(self):
         self.compareResourceEME("css/hyphenName.pec")
 

@@ -24,6 +24,9 @@ class TestCore(BaseEParserTest):
     def testAttributes(self):
         self.runTests("core/attributes.pec")
 
+    def testAudit(self):
+        self.runTests("core/audit.pec")
+
     def testCategory(self):
         self.runTests("core/category.pec")
 

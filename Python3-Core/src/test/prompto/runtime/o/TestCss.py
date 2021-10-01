@@ -13,6 +13,9 @@ class TestCss(BaseOParserTest):
     def testCodeValue(self):
         self.checkOutput("css/codeValue.poc")
 
+    def testCompositeValue(self):
+        self.checkOutput("css/compositeValue.poc")
+
     def testHyphenName(self):
         self.checkOutput("css/hyphenName.poc")
 

@@ -8,7 +8,6 @@ class TestSystem(BaseEParserTest):
         Out.init()
         self.coreContext = None
         self.loadDependency("system")
-        self.loadDependency("core")
     
     def tearDown(self):
         Out.restore()

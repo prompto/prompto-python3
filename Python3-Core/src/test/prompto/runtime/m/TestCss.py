@@ -13,6 +13,9 @@ class TestCss(BaseMParserTest):
     def testCodeValue(self):
         self.checkOutput("css/codeValue.pmc")
 
+    def testCompositeValue(self):
+        self.checkOutput("css/compositeValue.pmc")
+
     def testHyphenName(self):
         self.checkOutput("css/hyphenName.pmc")
 

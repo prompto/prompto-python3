@@ -8,6 +8,9 @@ class TestCss(BaseOParserTest):
     def testCodeValue(self):
         self.compareResourceOMO("css/codeValue.poc")
 
+    def testCompositeValue(self):
+        self.compareResourceOMO("css/compositeValue.poc")
+
     def testHyphenName(self):
         self.compareResourceOMO("css/hyphenName.poc")
 

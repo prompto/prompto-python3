@@ -13,6 +13,9 @@ class TestCss(BaseEParserTest):
     def testCodeValue(self):
         self.checkOutput("css/codeValue.pec")
 
+    def testCompositeValue(self):
+        self.checkOutput("css/compositeValue.pec")
+
     def testHyphenName(self):
         self.checkOutput("css/hyphenName.pec")
 
