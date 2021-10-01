@@ -272,4 +272,7 @@ class TestBuiltins(BaseEParserTest):
     def testUuidText(self):
         self.compareResourceEOE("builtins/uuidText.pec")
 
+    def testVersionMembers(self):
+        self.compareResourceEOE("builtins/versionMembers.pec")
+
 

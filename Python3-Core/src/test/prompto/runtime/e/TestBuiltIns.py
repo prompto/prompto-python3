@@ -271,4 +271,7 @@ class TestBuiltins(BaseEParserTest):
     def testUuidText(self):
         self.checkOutput("builtins/uuidText.pec")
 
+    def testVersionMembers(self):
+        self.checkOutput("builtins/versionMembers.pec")
+
 
