@@ -120,5 +120,5 @@ class VersionValue (BaseValue):
         return hash(self.asInt())
 
 VersionValue.LATEST = VersionValue.ParseInt(0xFFFFFFFF)
-VersionValue.DEVELOPMENT = VersionValue.ParseInt(0xEFEFEFEF)
+VersionValue.DEVELOPMENT = VersionValue.ParseInt(0xFEFEFEFE)
 

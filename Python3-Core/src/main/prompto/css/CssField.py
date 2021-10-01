@@ -1,15 +1,19 @@
 class CssField(object):
 
-    def __init__(self, name, value):
+    def __init__(self, name, values):
         self.name = name
-        self.value = value
+        self.values = values
 
 
     def toDialect(self, writer):
         writer.append(self.name).append(":")
-        self.value.toDialect(writer)
+        [val.toDialect(writer) for val in self.values]
         writer.append(";")
 
 
     def __str__(self):
-        return self.name + ": " + str(self.value)
+        return self.name + ": " + self.valuesToString()
+
+
+    def valuesToString(self):
+        return "".join([str(val) for val in self.values])
