@@ -31,7 +31,9 @@ class VersionValue (BaseValue):
 
     @staticmethod
     def ParseVersionQualifier(literal: str):
-        if "alpha" == literal:
+        if "" == literal:
+            return 0
+        elif "alpha" == literal:
             return -3
         elif "beta" == literal:
             return -2
@@ -109,7 +111,9 @@ class VersionValue (BaseValue):
                 return sb.getvalue()
 
     def qualifierString(self):
-        if self.qualifier == -3:
+        if self.qualifier == 0:
+            return ""
+        elif self.qualifier == -3:
             return "alpha"
         elif self.qualifier == -2:
             return "beta"
