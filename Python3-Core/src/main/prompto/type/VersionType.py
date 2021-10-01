@@ -1,7 +1,5 @@
-from prompto.type.IType import IType
-from prompto.type.TimeType import *
-from prompto.value.DateValue import *
-from prompto.value.DateRange import *
+from prompto.store.TypeFamily import TypeFamily
+from prompto.type.NativeType import NativeType
 
 
 class VersionType(NativeType):
@@ -13,10 +11,21 @@ class VersionType(NativeType):
 
     def checkCompare(self, context, other):
         if isinstance(other, VersionType):
+            from prompto.type.BooleanType import BooleanType
             return BooleanType.instance
         else:
             return super(VersionType, self).checkCompare(context, other)
 
+
+    def checkMember(self, context, name):
+        from prompto.type.IntegerType import IntegerType
+        from prompto.type.TextType import TextType
+        if "major" == name or "minor" == name or "fix" == name:
+            return IntegerType.instance
+        elif "qualifier" == name:
+            return TextType.instance
+        else:
+            return super(VersionType, self).checkMember(context, name)
 
     def toString(self, value):
         return "'" + value.toString() + "'"
