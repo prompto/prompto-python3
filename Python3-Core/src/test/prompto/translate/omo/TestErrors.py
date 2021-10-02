@@ -20,6 +20,9 @@ class TestErrors(BaseOParserTest):
     def testIndexOutOfRange_sliceText(self):
         self.compareResourceOMO("errors/indexOutOfRange-sliceText.poc")
 
+    def testMemberInCatch(self):
+        self.compareResourceOMO("errors/memberInCatch.poc")
+
     def testNullDict(self):
         self.compareResourceOMO("errors/nullDict.poc")
 

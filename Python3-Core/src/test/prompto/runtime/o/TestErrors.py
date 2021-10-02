@@ -25,6 +25,9 @@ class TestErrors(BaseOParserTest):
     def testIndexOutOfRange_sliceText(self):
         self.checkOutput("errors/indexOutOfRange-sliceText.poc")
 
+    def testMemberInCatch(self):
+        self.checkOutput("errors/memberInCatch.poc")
+
     def testNullDict(self):
         self.checkOutput("errors/nullDict.poc")
 
