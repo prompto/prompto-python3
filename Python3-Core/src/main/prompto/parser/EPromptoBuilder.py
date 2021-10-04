@@ -245,6 +245,7 @@ from prompto.type.PeriodType import PeriodType
 from prompto.type.SetType import SetType
 from prompto.type.TextType import TextType
 from prompto.type.TimeType import TimeType
+from prompto.type.TypeType import TypeType
 from prompto.type.UUIDType import UUIDType
 
 # need forward declaration
@@ -797,6 +798,11 @@ class EPromptoBuilder(EParserListener):
     def exitType_literal(self, ctx: EParser.Type_literalContext):
         typ = self.getNodeValue(ctx.category_or_any_type())
         self.setNodeValue(ctx, TypeLiteral(typ))
+
+
+    def exitTypeType(self, ctx:EParser.TypeTypeContext):
+        typ = self.getNodeValue(ctx.t)
+        self.setNodeValue(ctx, TypeType(typ))
 
 
     def exitDerivedList(self, ctx: EParser.DerivedListContext):

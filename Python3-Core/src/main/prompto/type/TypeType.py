@@ -10,6 +10,16 @@ class TypeType(BaseType):
         self.typ = typ
 
 
+    def __str__(self):
+        return "Type<" + str(self.typ) + ">"
+
+
+    def toDialect(self, writer, skipMutable = False):
+        writer.append("Type<")
+        self.typ.toDialect(writer, skipMutable)
+        writer.append(">")
+
+
     def isMoreSpecificThan(self, context, other):
         return False
 

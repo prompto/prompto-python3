@@ -245,6 +245,7 @@ from prompto.type.TextType import TextType
 from prompto.type.TimeType import TimeType
 
 # need forward declaration
+from prompto.type.TypeType import TypeType
 from prompto.type.UUIDType import UUIDType
 from prompto.type.VersionType import VersionType
 
@@ -741,6 +742,11 @@ class OPromptoBuilder(OParserListener):
     def exitType_literal(self, ctx: OParser.Type_literalContext):
         typ = self.getNodeValue(ctx.category_or_any_type())
         self.setNodeValue(ctx, TypeLiteral(typ))
+
+
+    def exitTypeType(self, ctx:OParser.TypeTypeContext):
+        typ = self.getNodeValue(ctx.t)
+        self.setNodeValue(ctx, TypeType(typ))
 
 
     def exitInstanceExpression(self, ctx: OParser.InstanceExpressionContext):
