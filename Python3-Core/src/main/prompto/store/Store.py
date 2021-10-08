@@ -78,6 +78,11 @@ class IStore(object):
     def fetchLatestAuditRecordAsDocument(self, dbId: object) -> dict:
         raise Exception("fetchLatestAuditRecord must be implemented by Store instance!")
 
+    def fetchAuditRecordsMatching(self, auditPredicates: dict, instancePredicates: dict) -> list:
+        raise Exception("fetchAuditRecordsMatching must be implemented by Store instance!")
+
+    def fetchAuditRecordsMatchingAsDocuments(self, auditPredicates: dict, instancePredicates: dict) -> list:
+        raise Exception("fetchAuditRecordsMatchingAsDocuments must be implemented by Store instance!")
 
 class IQueryBuilder(object):
 
