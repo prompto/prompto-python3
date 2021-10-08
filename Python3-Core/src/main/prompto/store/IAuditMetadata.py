@@ -1,3 +1,0 @@
-class IAuditMetadata(object):
-
-    pass

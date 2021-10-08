@@ -88,7 +88,7 @@ class MemberSelector (SelectorExpression):
         if instance is None or instance is NullValue.instance:
             raise NullReferenceError()
         else:
-            return instance.getMemberValue(context, self.name, True)
+            return instance.getMemberValue(context, self.name, False)
 
 
     def resolveParent(self, context):

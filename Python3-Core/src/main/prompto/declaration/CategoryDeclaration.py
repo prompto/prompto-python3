@@ -83,9 +83,7 @@ class CategoryDeclaration(BaseDeclaration):
 
 
     def populateInstance(self, context, stored, instance):
-        dbId = stored.getData("dbId")
-        value = fieldToValue(context, "dbId", dbId)
-        instance.setMember(context, "dbId", value)
+        instance.setDbId(stored.getData("dbId"))
         for name in self.getAllAttributes(context):
             self.populateMember(context, stored, instance, name)
         if instance.storable is not None:

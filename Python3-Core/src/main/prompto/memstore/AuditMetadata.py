@@ -1,4 +1,4 @@
-from prompto.store.IAuditMetadata import IAuditMetadata
+from prompto.store.Store import IAuditMetadata
 
 
 class AuditMetadata(dict, IAuditMetadata):

@@ -234,6 +234,7 @@ from prompto.type.CodeType import CodeType
 from prompto.type.CssType import CssType
 from prompto.type.DateTimeType import DateTimeType
 from prompto.type.DateType import DateType
+from prompto.type.DbIdType import DbIdType
 from prompto.type.DecimalType import DecimalType
 from prompto.type.DictType import DictType
 from prompto.type.DocumentType import DocumentType
@@ -449,6 +450,10 @@ class EPromptoBuilder(EParserListener):
 
     def exitDateTimeLiteral(self, ctx: EParser.DateTimeLiteralContext):
         self.setNodeValue(ctx, DateTimeLiteral(ctx.getText()))
+
+
+    def exitDbIdType(self, ctx: EParser.DbIdTypeContext):
+        self.setNodeValue(ctx, DbIdType.instance)
 
 
     def exitTernaryExpression(self, ctx: EParser.TernaryExpressionContext):

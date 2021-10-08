@@ -5,8 +5,7 @@ from prompto.memstore.AuditRecord import AuditRecord
 from prompto.memstore.QueryBuilder import QueryBuilder
 from prompto.memstore.StorableDocument import StorableDocument
 from prompto.memstore.StorableDocumentIterator import StorableDocumentIterator
-from prompto.store.AuditOperation import AuditOperation
-from prompto.store.IAuditMetadata import IAuditMetadata
+from prompto.store.Store import AuditOperation
 from prompto.store.Store import IStore
 
 
@@ -17,9 +16,9 @@ class MemStore(IStore):
         self.lastDbId = 0
         self.sequences = dict()
         self.documents = dict()
-        self.lastAuditRecordId = 0
+        self.lastAuditRecordDbId = 0
         self.auditRecords = dict()
-        self.lastAuditMetadataId = 0
+        self.lastAuditMetadataDbId = 0
         self.auditMetadatas = dict()
 
     def nextDbId(self):
@@ -54,7 +53,7 @@ class MemStore(IStore):
         audit = self.newAuditRecord(withMeta)
         audit.instanceDbId = dbId
         audit.operation = AuditOperation.DELETE
-        self.auditRecords[audit.auditRecordId] = audit
+        self.auditRecords[audit.dbId] = audit
 
     def doStore(self, storable, withMeta):
         operation = AuditOperation.UPDATE
@@ -63,13 +62,14 @@ class MemStore(IStore):
         if not isinstance(dbId, int):
             dbId = ++self.lastDbId
             storable.setData("dbId", dbId)
+        if self.auditRecords.get(dbId, None) is None:
             operation = AuditOperation.INSERT
         self.documents[dbId] = storable
         audit = self.newAuditRecord(withMeta)
         audit.instanceDbId = dbId
         audit.operation = operation
         audit.instance = storable
-        self.auditRecords[audit.auditRecordId] =  audit
+        self.auditRecords[audit.dbId] =  audit
 
     def newStorableDocument(self, categories, factory):
         provider = factory.get("provider", None)
@@ -144,37 +144,73 @@ class MemStore(IStore):
 
     def newAuditMetadata(self):
         meta = AuditMetadata()
-        self.lastAuditMetadataId += 1
-        meta.auditMetadataId = self.lastAuditMetadataId
-        meta.UTCTimestamp = datetime.utcnow()
+        self.lastAuditMetadataDbId += 1
+        meta.dbId = self.lastAuditMetadataDbId
+        meta.utcTimestamp = datetime.utcnow()
         return meta
 
     def storeMetadata(self, withMeta):
         if withMeta is None:
             withMeta = self.newAuditMetadata()
-        self.auditMetadatas[withMeta.auditMetadataId] = withMeta
+        self.auditMetadatas[withMeta.dbId] = withMeta
         return withMeta
 
     def newAuditRecord(self, auditMetadata):
         audit = AuditRecord()
-        self.lastAuditRecordId += 1
-        audit.auditRecordId = self.lastAuditRecordId
-        audit.auditMetadataId = auditMetadata.auditMetadataId
-        audit.UTCTimestamp = auditMetadata.UTCTimestamp
+        self.lastAuditRecordDbId += 1
+        audit.dbId = self.lastAuditRecordDbId
+        audit.metadataDbId = auditMetadata.dbId
+        audit.utcTimestamp = auditMetadata.utcTimestamp
         return audit
 
     def fetchLatestAuditMetadataId(self, dbId: object) -> object:
         audits = filter(lambda a: a.instanceDbId == dbId, self.auditRecords.values())
-        audits = sorted(audits, key = lambda a: a.UTCTimestamp, reverse = True)
-        return None if len(audits) == 0 else audits[0].auditMetadataId
+        audits = sorted(audits, key = lambda a: a.utcTimestamp, reverse = True)
+        return None if len(audits) == 0 else audits[0].metadataDbId
 
     def fetchAllAuditMetadataIds(self, dbId: object) -> object:
         audits = filter(lambda a: a.instanceDbId == dbId, self.auditRecords.values())
-        audits = sorted(audits, key = lambda a: a.UTCTimestamp, reverse = True)
-        return [ a.auditMetadataId for a in audits ]
+        audits = sorted(audits, key = lambda a: a.utcTimestamp, reverse = True)
+        return [a.metadataDbId for a in audits]
 
     def fetchAuditMetadata(self, dbId: object) -> AuditMetadata:
         return self.auditMetadatas.get(dbId, None)
 
+    def fetchAuditMetadataAsDocument(self, dbId: object) -> dict:
+        return self.auditMetadatas.get(dbId, None)
 
+    def fetchLatestAuditRecord(self, dbId: object) -> AuditRecord:
+        audits = self.fetchAllAuditRecordsStream(dbId)
+        return audits[0] if len(audits) > 0 else None
 
+    def fetchLatestAuditRecordAsDocument(self, dbId: object) -> dict:
+        audit = self.fetchLatestAuditRecord(dbId)
+        return None if audit is None else audit.asDocument()
+
+    def fetchAllAuditRecords(self, dbId: object) -> list:
+        audits = self.fetchAllAuditRecordsStream(dbId)
+        return list(audits)
+
+    def fetchAllAuditRecordsAsDocuments(self, dbId: object) -> list:
+        audits = self.fetchAllAuditRecordsStream(dbId)
+        return list([a.asDocument() for a in audits])
+
+    def fetchAllAuditRecordsStream(self, dbId: object) -> iter:
+        audits = filter(lambda a: a.instanceDbId == dbId, self.auditRecords.values())
+        return sorted(audits, key=lambda a: a.utcTimestamp, reverse=True)
+
+    def fetchDbIdsAffectedByAuditMetadataId(self, dbId: object) -> list:
+        audits = filter(lambda a: a.metadataDbId == dbId, self.auditRecords.values())
+        audits = sorted(audits, key=lambda a: a.utcTimestamp, reverse=True)
+        return list([a.instanceDbId for a in audits])
+
+    def fetchAuditRecordsMatching(self, auditPredicates: dict, instancePredicates: dict) -> list:
+        return list(self.fetchAuditRecordsMatchingStream(auditPredicates, instancePredicates))
+
+    def fetchAuditRecordsMatchingAsDocuments(self, auditPredicates: dict, instancePredicates: dict) -> list:
+        audits = self.fetchAuditRecordsMatchingStream(auditPredicates, instancePredicates)
+        return list([a.asDocument() for a in audits])
+
+    def fetchAuditRecordsMatchingStream(self, auditPredicates: dict, instancePredicates: dict) -> iter:
+        audits = filter(lambda a: a.matches(auditPredicates, instancePredicates), self.auditRecords.values())
+        return sorted(audits, key=lambda a: a.utcTimestamp, reverse=True)

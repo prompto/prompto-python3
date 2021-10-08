@@ -1,5 +1,4 @@
-from prompto.store.IAuditMetadata import IAuditMetadata
-
+from enum import IntEnum
 
 class IStorable(object):
     pass
@@ -7,6 +6,20 @@ class IStorable(object):
 
 class IStored(object):
     pass
+
+
+class IAuditRecord(object):
+    pass
+
+
+class IAuditMetadata(object):
+    pass
+
+
+class AuditOperation(IntEnum):
+    INSERT = 1
+    UPDATE = 2
+    DELETE = 3
 
 
 class IStore(object):
@@ -57,7 +70,13 @@ class IStore(object):
         raise Exception("fetchAuditMetadata must be implemented by Store instance!")
 
     def fetchAuditMetadataAsDocument (self, dbId: object) -> dict:
-        return self.fetchAuditMetadata(dbId)
+        raise Exception("fetchAuditMetadataAsDocument must be implemented by Store instance!")
+
+    def fetchLatestAuditRecord (self, dbId: object) -> IAuditRecord:
+        raise Exception("fetchLatestAuditRecord must be implemented by Store instance!")
+
+    def fetchLatestAuditRecordAsDocument(self, dbId: object) -> dict:
+        raise Exception("fetchLatestAuditRecord must be implemented by Store instance!")
 
 
 class IQueryBuilder(object):

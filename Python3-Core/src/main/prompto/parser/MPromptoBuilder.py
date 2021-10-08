@@ -237,6 +237,7 @@ from prompto.type.CodeType import CodeType
 from prompto.type.CssType import CssType
 from prompto.type.DateTimeType import DateTimeType
 from prompto.type.DateType import DateType
+from prompto.type.DbIdType import DbIdType
 from prompto.type.DecimalType import DecimalType
 from prompto.type.DictType import DictType
 from prompto.type.DocumentType import DocumentType
@@ -919,6 +920,10 @@ class MPromptoBuilder(MParserListener):
 
     def exitDateType(self, ctx: MParser.DateTypeContext):
         self.setNodeValue(ctx, DateType.instance)
+
+
+    def exitDbIdType(self, ctx: MParser.DbIdTypeContext):
+        self.setNodeValue(ctx, DbIdType.instance)
 
 
     def exitDecimalLiteral(self, ctx: MParser.DecimalLiteralContext):

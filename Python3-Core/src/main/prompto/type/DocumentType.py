@@ -98,6 +98,12 @@ class DocumentType ( NativeType ):
         return self
 
 
+    def convertPythonValueToPromptoValue(self, context, value, returnType):
+        from prompto.python.PythonClassType import PythonClassType
+        klass = PythonClassType(type(value))
+        return klass.convertDocument(context, value, type(value), self)
+
+
     def getSortKeyReader(self, context, key):
         if key is None:
             key = TextLiteral('"key"')

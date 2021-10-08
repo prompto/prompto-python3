@@ -28,6 +28,7 @@ class TypeFamily(Enum):
     # non storable
     VOID = "VOID"
     NULL = "NULL"
+    DBID = "DBID"
     ANY = "ANY"
     METHOD = "METHOD"
     CURSOR = "CURSOR"

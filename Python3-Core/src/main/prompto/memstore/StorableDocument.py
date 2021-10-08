@@ -52,3 +52,6 @@ class StorableDocument(IStorable, IStored):
             return True
         else:
             return predicate.matches(self.document)
+
+    def names(self):
+        return self.document.keys()
