@@ -1781,6 +1781,15 @@ class OParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by OParser#DbIdType.
+    def enterDbIdType(self, ctx:OParser.DbIdTypeContext):
+        pass
+
+    # Exit a parse tree produced by OParser#DbIdType.
+    def exitDbIdType(self, ctx:OParser.DbIdTypeContext):
+        pass
+
+
     # Enter a parse tree produced by OParser#HtmlType.
     def enterHtmlType(self, ctx:OParser.HtmlTypeContext):
         pass
