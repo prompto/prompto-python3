@@ -19,8 +19,20 @@ class TestStore(BaseEParserTest):
     def testAsyncStore(self):
         self.checkOutput("store/asyncStore.pec")
 
-    def testAuditRecord(self):
-        self.checkOutput("store/auditRecord.pec")
+    def testAuditDelete(self):
+        self.checkOutput("store/auditDelete.pec")
+
+    def testAuditInsert(self):
+        self.checkOutput("store/auditInsert.pec")
+
+    def testAuditMany(self):
+        self.checkOutput("store/auditMany.pec")
+
+    def testAuditMatching(self):
+        self.checkOutput("store/auditMatching.pec")
+
+    def testAuditUpdate(self):
+        self.checkOutput("store/auditUpdate.pec")
 
     def testDeleteRecords(self):
         self.checkOutput("store/deleteRecords.pec")

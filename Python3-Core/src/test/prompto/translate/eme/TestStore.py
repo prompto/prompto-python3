@@ -14,8 +14,20 @@ class TestStore(BaseEParserTest):
     def testAsyncStore(self):
         self.compareResourceEME("store/asyncStore.pec")
 
-    def testAuditRecord(self):
-        self.compareResourceEME("store/auditRecord.pec")
+    def testAuditDelete(self):
+        self.compareResourceEME("store/auditDelete.pec")
+
+    def testAuditInsert(self):
+        self.compareResourceEME("store/auditInsert.pec")
+
+    def testAuditMany(self):
+        self.compareResourceEME("store/auditMany.pec")
+
+    def testAuditMatching(self):
+        self.compareResourceEME("store/auditMatching.pec")
+
+    def testAuditUpdate(self):
+        self.compareResourceEME("store/auditUpdate.pec")
 
     def testDeleteRecords(self):
         self.compareResourceEME("store/deleteRecords.pec")
