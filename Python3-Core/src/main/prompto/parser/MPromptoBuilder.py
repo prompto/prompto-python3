@@ -824,7 +824,7 @@ class MPromptoBuilder(MParserListener):
     def exitCSharpArgumentListItem(self, ctx: MParser.CSharpArgumentListItemContext):
         item = self.getNodeValue(ctx.item)
         items = self.getNodeValue(ctx.items)
-        items.add(item)
+        items.append(item)
         self.setNodeValue(ctx, items)
 
 
