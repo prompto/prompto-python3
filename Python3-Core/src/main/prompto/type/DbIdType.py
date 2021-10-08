@@ -7,7 +7,7 @@ class DbIdType ( NativeType ):
     instance = None
 
     def __init__(self):
-        super(DbIdType, self).__init__(TypeFamily.ANY)
+        super(DbIdType, self).__init__(TypeFamily.DBID)
         self.typeName = "DbId"
 
     def isAssignableFrom(self, context, other):
