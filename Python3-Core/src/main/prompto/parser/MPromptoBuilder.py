@@ -1551,7 +1551,7 @@ class MPromptoBuilder(MParserListener):
     def exitJavascriptArgumentListItem(self, ctx: MParser.JavascriptArgumentListItemContext):
         exp = self.getNodeValue(ctx.item)
         xlist = self.getNodeValue(ctx.items)
-        xlist.add(exp)
+        xlist.append(exp)
         self.setNodeValue(ctx, xlist)
 
 
