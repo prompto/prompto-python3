@@ -29,6 +29,12 @@ class TestStore(BaseEParserTest):
     def testAuditUpdate(self):
         self.compareResourceEME("store/auditUpdate.pec")
 
+    def testDeleteAudit(self):
+        self.compareResourceEME("store/deleteAudit.pec")
+
+    def testDeleteMeta(self):
+        self.compareResourceEME("store/deleteMeta.pec")
+
     def testDeleteRecords(self):
         self.compareResourceEME("store/deleteRecords.pec")
 

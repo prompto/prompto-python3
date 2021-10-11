@@ -34,6 +34,12 @@ class TestStore(BaseEParserTest):
     def testAuditUpdate(self):
         self.checkOutput("store/auditUpdate.pec")
 
+    def testDeleteAudit(self):
+        self.checkOutput("store/deleteAudit.pec")
+
+    def testDeleteMeta(self):
+        self.checkOutput("store/deleteMeta.pec")
+
     def testDeleteRecords(self):
         self.checkOutput("store/deleteRecords.pec")
 

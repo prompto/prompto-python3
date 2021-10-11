@@ -29,6 +29,12 @@ class TestStore(BaseEParserTest):
     def testAuditUpdate(self):
         self.compareResourceEOE("store/auditUpdate.pec")
 
+    def testDeleteAudit(self):
+        self.compareResourceEOE("store/deleteAudit.pec")
+
+    def testDeleteMeta(self):
+        self.compareResourceEOE("store/deleteMeta.pec")
+
     def testDeleteRecords(self):
         self.compareResourceEOE("store/deleteRecords.pec")
 
