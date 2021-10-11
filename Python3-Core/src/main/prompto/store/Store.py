@@ -72,6 +72,9 @@ class IStore(object):
     def fetchAuditMetadataAsDocument (self, dbId: object) -> dict:
         raise Exception("fetchAuditMetadataAsDocument must be implemented by Store instance!")
 
+    def deleteAuditMetadata (self, dbId: object) -> bool:
+        raise Exception("deleteAuditMetadata must be implemented by Store instance!")
+
     def fetchLatestAuditRecord (self, dbId: object) -> IAuditRecord:
         raise Exception("fetchLatestAuditRecord must be implemented by Store instance!")
 
@@ -83,6 +86,10 @@ class IStore(object):
 
     def fetchAuditRecordsMatchingAsDocuments(self, auditPredicates: dict, instancePredicates: dict) -> list:
         raise Exception("fetchAuditRecordsMatchingAsDocuments must be implemented by Store instance!")
+
+    def deleteAuditRecord (self, dbId: object) -> bool:
+        raise Exception("deleteAuditRecord must be implemented by Store instance!")
+
 
 class IQueryBuilder(object):
 
