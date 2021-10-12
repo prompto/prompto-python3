@@ -90,6 +90,8 @@ class IStore(object):
     def deleteAuditRecord (self, dbId: object) -> bool:
         raise Exception("deleteAuditRecord must be implemented by Store instance!")
 
+    def deleteAuditMetadata (self, dbId: object) -> bool:
+        raise Exception("deleteAuditMetadata must be implemented by Store instance!")
 
 class IQueryBuilder(object):
 
