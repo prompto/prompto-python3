@@ -111,7 +111,7 @@ class IntegerType(NativeType):
         if isinstance(value, Number):
             return IntegerValue(int(value))
         else:
-            return value  # TODO for now
+            return super(IntegerType, self).convertPythonValueToPromptoValue(context, value, returnType)  # TODO for now
 
 
     def getMemberMethods(self, context, name):

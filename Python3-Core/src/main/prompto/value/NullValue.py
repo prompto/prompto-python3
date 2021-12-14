@@ -21,4 +21,8 @@ class NullValue (BaseValue):
     def toJsonNode(self):
         return None
 
+
+    def __str__(self):
+        return "null"
+
 NullValue.instance = NullValue()

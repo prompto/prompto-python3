@@ -113,6 +113,9 @@ class IQueryBuilder(object):
     def Not(self):
         raise Exception("Must be implemented by QueryBuilder instance!")
 
+    def project(self, projection):
+        raise Exception("Must be implemented by QueryBuilder instance!")
+
     def addOrderByClause(self, info, descending):
         raise Exception("Must be implemented by QueryBuilder instance!")
 

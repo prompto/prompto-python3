@@ -86,7 +86,7 @@ class MemStore(IStore):
         predicate = query.predicate()
         for doc in self.documents.values():
             if doc.matches(predicate):
-                return doc
+                return doc if query.projection is None else doc.project(query.projection)
         return None
 
     def fetchUnique (self, dbId):
@@ -105,6 +105,9 @@ class MemStore(IStore):
         # slice it if required
         if query.first is not None or query.last is not None:
             docs = self.sliceDocs(docs, query.first, query.last)
+        # project if required
+        if query.projection is not None:
+            docs = [ doc.project(query.projection) for doc in docs ]
         # done
         return StorableDocumentIterator(docs, totalCount)
 

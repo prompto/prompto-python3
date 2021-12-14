@@ -8,6 +8,7 @@ class Query(object):
         self.predicates = []
         self.first = None
         self.last = None
+        self.projection = None
         self.orderBys = None
 
     def predicate(self):
@@ -33,6 +34,11 @@ class Query(object):
         right = self.predicates.pop()
         left = self.predicates.pop()
         self.predicates.append(OrPredicate(left, right))
+
+
+    def project(self, projection):
+        self.projection = projection
+
 
     def addOrderByClause(self, info, descending):
         if self.orderBys is None:

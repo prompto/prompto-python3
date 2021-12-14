@@ -95,9 +95,10 @@ class CategoryDeclaration(BaseDeclaration):
         decl = context.getRegisteredDeclaration(AttributeDeclaration, name)
         if not decl.storable:
             return
-        data = stored.getData(name)
-        value = NullValue.instance if data is None else decl.itype.convertPythonValueToPromptoValue(context, data, None)
-        instance.setMember(context, name, value)
+        if stored.hasData(name):
+            data = stored.getData(name)
+            value = decl.itype.convertPythonValueToPromptoValue(context, data, None)
+            instance.setMember(context, name, value)
 
 
     def toDialect(self, writer):

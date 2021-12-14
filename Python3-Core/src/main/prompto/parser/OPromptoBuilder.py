@@ -374,6 +374,11 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, MaxIntegerLiteral())
 
 
+    def exitInclude_list(self, ctx:OParser.Include_listContext):
+        include = [ self.getNodeValue(c) for c in ctx.variable_identifier()]
+        self.setNodeValue(ctx, include)
+
+
     def exitIntegerLiteral(self, ctx: OParser.IntegerLiteralContext):
         self.setNodeValue(ctx, IntegerLiteral(ctx.getText()))
 
@@ -2200,8 +2205,9 @@ class OPromptoBuilder(OParserListener):
         predicate = self.getNodeValue(ctx.predicate)
         start = self.getNodeValue(ctx.xstart)
         stop = self.getNodeValue(ctx.xstop)
+        include = self.getNodeValue(ctx.include)
         orderBy = self.getNodeValue(ctx.orderby)
-        self.setNodeValue(ctx, FetchManyExpression(category, predicate, start, stop, orderBy))
+        self.setNodeValue(ctx, FetchManyExpression(category, predicate, start, stop, include, orderBy))
 
 
     def exitFetchManyAsync(self, ctx: OParser.FetchManyAsyncContext):
@@ -2209,9 +2215,10 @@ class OPromptoBuilder(OParserListener):
         predicate = self.getNodeValue(ctx.predicate)
         start = self.getNodeValue(ctx.xstart)
         stop = self.getNodeValue(ctx.xstop)
+        include = self.getNodeValue(ctx.include)
         orderBy = self.getNodeValue(ctx.orderby)
         thenWith = ThenWith.OrEmpty(self.getNodeValue(ctx.then()))
-        self.setNodeValue(ctx, FetchManyStatement(category, predicate, start, stop, orderBy, thenWith))
+        self.setNodeValue(ctx, FetchManyStatement(category, predicate, start, stop, include, orderBy, thenWith))
 
 
     def exitThen(self, ctx:OParser.ThenContext):
@@ -2223,14 +2230,16 @@ class OPromptoBuilder(OParserListener):
     def exitFetchOne(self, ctx: OParser.FetchOneContext):
         category = self.getNodeValue(ctx.typ)
         predicate = self.getNodeValue(ctx.predicate)
-        self.setNodeValue(ctx, FetchOneExpression(category, predicate))
+        include = self.getNodeValue(ctx.include)
+        self.setNodeValue(ctx, FetchOneExpression(category, predicate, include))
 
 
     def exitFetchOneAsync(self, ctx: OParser.FetchOneAsyncContext):
         category = self.getNodeValue(ctx.typ)
         predicate = self.getNodeValue(ctx.predicate)
+        include = self.getNodeValue(ctx.include)
         thenWith = ThenWith.OrEmpty(self.getNodeValue(ctx.then()))
-        self.setNodeValue(ctx, FetchOneStatement(category, predicate, thenWith))
+        self.setNodeValue(ctx, FetchOneStatement(category, predicate, include, thenWith))
 
 
     def exitFiltered_list_expression(self, ctx: OParser.Filtered_list_expressionContext):

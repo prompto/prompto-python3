@@ -158,7 +158,11 @@ class BaseType(IType):
 
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
-        raise Exception("Unsupported!")
+        if value is None:
+            from prompto.value.NullValue import NullValue
+            return NullValue.instance
+        else:
+            raise Exception("Unsupported!")
 
 
     def readJSONValue(self, context, node, parts):

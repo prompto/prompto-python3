@@ -2286,8 +2286,9 @@ class EPromptoBuilder(EParserListener):
         predicate = self.getNodeValue(ctx.predicate)
         start = self.getNodeValue(ctx.xstart)
         stop = self.getNodeValue(ctx.xstop)
+        include = self.getNodeValue(ctx.include)
         orderBy = self.getNodeValue(ctx.orderby)
-        self.setNodeValue(ctx, FetchManyExpression(category, predicate, start, stop, orderBy))
+        self.setNodeValue(ctx, FetchManyExpression(category, predicate, start, stop, include, orderBy))
 
 
     def exitFetchManyAsync(self, ctx: EParser.FetchManyAsyncContext):
@@ -2295,9 +2296,10 @@ class EPromptoBuilder(EParserListener):
         predicate = self.getNodeValue(ctx.predicate)
         start = self.getNodeValue(ctx.xstart)
         stop = self.getNodeValue(ctx.xstop)
+        include = self.getNodeValue(ctx.include)
         orderBy = self.getNodeValue(ctx.orderby)
         thenWith = ThenWith.OrEmpty(self.getNodeValue(ctx.then()))
-        self.setNodeValue(ctx, FetchManyStatement(category, predicate, start, stop, orderBy, thenWith))
+        self.setNodeValue(ctx, FetchManyStatement(category, predicate, start, stop, include, orderBy, thenWith))
 
 
     def exitThen(self, ctx:EParser.ThenContext):
@@ -2308,15 +2310,17 @@ class EPromptoBuilder(EParserListener):
 
     def exitFetchOne(self, ctx: EParser.FetchOneContext):
         category = self.getNodeValue(ctx.typ)
+        include = self.getNodeValue(ctx.include)
         predicate = self.getNodeValue(ctx.predicate)
-        self.setNodeValue(ctx, FetchOneExpression(category, predicate))
+        self.setNodeValue(ctx, FetchOneExpression(category, predicate, include))
 
 
     def exitFetchOneAsync(self, ctx: EParser.FetchOneAsyncContext):
         category = self.getNodeValue(ctx.typ)
+        include = self.getNodeValue(ctx.include)
         predicate = self.getNodeValue(ctx.predicate)
         thenWith = ThenWith.OrEmpty(self.getNodeValue(ctx.then()))
-        self.setNodeValue(ctx, FetchOneStatement(category, predicate, thenWith))
+        self.setNodeValue(ctx, FetchOneStatement(category, predicate, include, thenWith))
 
 
     def exitFilteredListExpression(self, ctx: EParser.FilteredListExpressionContext):
@@ -2572,6 +2576,11 @@ class EPromptoBuilder(EParserListener):
 
     def exitMatchingPattern(self, ctx: EParser.MatchingPatternContext):
         self.setNodeValue(ctx, MatchingPatternConstraint(TextLiteral(ctx.text.text)))
+
+
+    def exitInclude_list(self, ctx:EParser.Include_listContext):
+        include = [ self.getNodeValue(c) for c in ctx.variable_identifier()]
+        self.setNodeValue(ctx, include)
 
 
     def exitInvocation_expression(self, ctx: EParser.Invocation_expressionContext):

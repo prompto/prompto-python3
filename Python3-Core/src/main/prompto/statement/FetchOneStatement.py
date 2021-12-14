@@ -3,8 +3,8 @@ from prompto.expression.FetchOneExpression import FetchOneExpression
 
 class FetchOneStatement(FetchOneExpression):
 
-    def __init__(self, typ, predicate, thenWith):
-        super().__init__(typ, predicate)
+    def __init__(self, typ, predicate, include, thenWith):
+        super().__init__(typ, predicate, include)
         self.thenWith = thenWith
 
 

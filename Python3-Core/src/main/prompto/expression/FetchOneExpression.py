@@ -12,10 +12,11 @@ from prompto.value.NullValue import NullValue
 
 class FetchOneExpression(Section, IExpression):
 
-    def __init__(self, typ, predicate):
+    def __init__(self, typ, predicate, include):
         super()
         self.typ = typ
         self.predicate = predicate
+        self.include = include
 
 
     def toEDialect (self, writer):
@@ -27,7 +28,16 @@ class FetchOneExpression(Section, IExpression):
             writer.append(" ")
         writer.append ("where ")
         self.predicate.toDialect (writer)
-
+        if self.include is not None:
+            writer.append(" include ")
+            if len(self.include) == 1:
+                writer.append(self.include[0])
+            else:
+                for i in range(0, len(self.include) - 1):
+                    writer.append(self.include[i]).append(", ")
+                writer.trimLast(len(", "))
+                writer.append(" and ")
+                writer.append(self.include[-1])
 
     def toODialect (self, writer):
         writer.append ("fetch one ")
@@ -40,7 +50,12 @@ class FetchOneExpression(Section, IExpression):
         writer.append ("where (")
         self.predicate.toDialect (writer)
         writer.append (")")
-
+        if self.include is not None:
+            writer.append(" include (")
+            for name in self.include:
+                writer.append(name).append(", ")
+            writer.trimLast(len(", "))
+            writer.append(")")
 
     def toMDialect (self, writer):
         writer.append ("fetch one ")
@@ -51,7 +66,11 @@ class FetchOneExpression(Section, IExpression):
             writer.append(" ")
         writer.append ("where ")
         self.predicate.toDialect (writer)
-
+        if self.include is not None:
+            writer.append(" include ")
+            for name in self.include:
+                writer.append(name).append(", ")
+            writer.trimLast(len(", "))
 
     def check (self, context):
         if self.typ is not None:
@@ -89,4 +108,6 @@ class FetchOneExpression(Section, IExpression):
             self.predicate.interpretQuery(context, builder)
         if self.typ is not None and self.predicate is not None:
             builder.And()
+        if self.include is not None:
+            builder.project(self.include)
         return builder.build()

@@ -28,5 +28,8 @@ class QueryBuilder(IQueryBuilder):
     def Not(self):
         self.query.Not()
 
+    def project(self, projection):
+        self.query.project(projection)
+
     def addOrderByClause(self, info, descending):
         self.query.addOrderByClause(info, descending)

@@ -73,7 +73,7 @@ class TextType(NativeType):
         if isinstance(value, str):
             return TextValue(value)
         else:
-            return value  # TODO for now
+            return super(TextType, self).convertPythonValueToPromptoValue(context, value, returnType)
 
     def getMemberMethods(self, context, name):
         if name == "startsWith":

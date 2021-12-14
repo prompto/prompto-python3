@@ -29,6 +29,9 @@ class StorableDocument(IStorable, IStored):
             self.setData("dbId", dbId)
         return dbId
 
+    def hasData(self, name):
+        return self.document is not None and name in self.document
+
     def getData(self, name):
         if self.document is None:
             return None
@@ -52,6 +55,16 @@ class StorableDocument(IStorable, IStored):
             return True
         else:
             return predicate.matches(self.document)
+
+    def project(self, projection):
+        remaining = dict()
+        for name in projection:
+            remaining[name] = self.getData(name)
+        remaining["category"] = self.getData("category")
+        remaining["dbId"] = self.getData("dbId")
+        doc = StorableDocument(self.categories, self.dbIdFactory)
+        doc.document = remaining
+        return doc
 
     def names(self):
         return self.document.keys()
