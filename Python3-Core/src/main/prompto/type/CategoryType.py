@@ -29,7 +29,7 @@ from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 class CategoryType(BaseType):
 
     def __init__(self, typeName, family = TypeFamily.CATEGORY, mutable = False):
-        super(CategoryType, self).__init__(family)
+        super().__init__(family)
         self.typeName = typeName
         self.mutable = mutable
         self.resolved = None
@@ -441,7 +441,7 @@ class CategoryType(BaseType):
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         decl = self.getDeclaration(context)
         if decl is None:
-            return super(CategoryType, self).convertPythonValueToPromptoValue(context, value, returnType)
+            return super().convertPythonValueToPromptoValue(context, value, returnType)
         if isinstance(decl, IEnumeratedDeclaration):
             return self.loadEnumValue(context, decl, value)
         if DataStore.instance.isDbIdType(type(value)):
@@ -449,7 +449,7 @@ class CategoryType(BaseType):
         if isinstance(value, IStored):
             return decl.newInstanceFromStored(context, value)
         else:
-            return super(CategoryType, self).convertPythonValueToPromptoValue(context, value, returnType)
+            return super().convertPythonValueToPromptoValue(context, value, returnType)
 
 
     def loadEnumValue(self, context, decl, name):

@@ -24,14 +24,14 @@ class TextType(NativeType):
         if isinstance(other, IntegerType):
             return self
         else:
-            return super(TextType, self).checkMultiply(context, other, tryReverse)
+            return super().checkMultiply(context, other, tryReverse)
 
     def checkCompare(self, context, other):
         from prompto.type.BooleanType import BooleanType
         from prompto.type.CharacterType import CharacterType
         if isinstance(other, TextType) or isinstance(other, CharacterType):
             return BooleanType.instance
-        return super(TextType, self).checkCompare(context, other)
+        return super().checkCompare(context, other)
 
 
     def checkItem(self, context, other):
@@ -40,7 +40,7 @@ class TextType(NativeType):
         if other == IntegerType.instance:
             return CharacterType.instance
         else:
-            return super(TextType, self).checkItem(context, other)
+            return super().checkItem(context, other)
 
 
     def checkMember(self, context, name):
@@ -48,7 +48,7 @@ class TextType(NativeType):
         if "count" == name:
             return IntegerType.instance
         else:
-            return super(TextType, self).checkMember(context, name)
+            return super().checkMember(context, name)
 
 
     def checkContains(self, context, other):
@@ -56,7 +56,7 @@ class TextType(NativeType):
         from prompto.type.CharacterType import CharacterType
         if isinstance(other, TextType) or isinstance(other, CharacterType):
             return BooleanType.instance
-        return super(TextType, self).checkContains(context, other)
+        return super().checkContains(context, other)
 
 
     def checkContainsAllOrAny(self, context, other):
@@ -73,7 +73,7 @@ class TextType(NativeType):
         if isinstance(value, str):
             return TextValue(value)
         else:
-            return super(TextType, self).convertPythonValueToPromptoValue(context, value, returnType)
+            return super().convertPythonValueToPromptoValue(context, value, returnType)
 
     def getMemberMethods(self, context, name):
         if name == "startsWith":

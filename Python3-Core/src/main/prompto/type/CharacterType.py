@@ -61,7 +61,7 @@ class CharacterType(NativeType):
         if isinstance(value, str):
             return CharacterValue(value)
         else:
-            return value  # TODO for now
+            return super().convertPythonValueToPromptoValue(context, value, returnType)  # TODO for now
 
 
     def nativeCast(self, context, value):

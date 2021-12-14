@@ -35,7 +35,7 @@ class ListType(ContainerType):
         if isinstance(other, (ListType, SetType)) and self.itemType.isAssignableFrom(context, other.itemType):
             return self
         else:
-            return super(ListType, self).checkAdd(context, other, tryReverse)
+            return super().checkAdd(context, other, tryReverse)
 
 
     def checkSubstract(self, context, other):
@@ -43,7 +43,7 @@ class ListType(ContainerType):
         if isinstance(other, (ListType, SetType)) and self.itemType == other.itemType:
             return self
         else:
-            return super(ListType, self).checkSubstract(context, other)
+            return super().checkSubstract(context, other)
 
 
     def checkItem(self, context, other):
@@ -51,7 +51,7 @@ class ListType(ContainerType):
         if other == IntegerType.instance:
             return self.itemType
         else:
-            return super(ListType, self).checkItem(context, other)
+            return super().checkItem(context, other)
 
 
     def checkSlice(self, context):
@@ -62,7 +62,7 @@ class ListType(ContainerType):
         from prompto.type.IntegerType import IntegerType
         if isinstance(other, IntegerType):
             return self
-        return super(ListType, self).checkMultiply(context, other, tryReverse)
+        return super().checkMultiply(context, other, tryReverse)
 
 
     def checkContainsAllOrAny(self, context, other):
@@ -78,7 +78,7 @@ class ListType(ContainerType):
         if "count" == name:
             return IntegerType.instance
         else:
-            return super(ListType, self).checkMember(context, name)
+            return super().checkMember(context, name)
 
 
     def getMemberMethods(self, context, name):
@@ -100,7 +100,7 @@ class ListType(ContainerType):
             from prompto.value.ListValue import ListValue
             return ListValue(self.itemType, items=items)
         else:
-            return super(ListType, self).convertPythonValueToPromptoValue(context, value, returnType)
+            return super().convertPythonValueToPromptoValue(context, value, returnType)
 
 
     def withItemType(self, itemType:IType):

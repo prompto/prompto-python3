@@ -19,7 +19,7 @@ class IntegerType(NativeType):
     instance = None
 
     def __init__(self):
-        super(IntegerType, self).__init__(TypeFamily.INTEGER)
+        super().__init__(TypeFamily.INTEGER)
 
 
     def isAssignableFrom(self, context, other:IType):
@@ -34,7 +34,7 @@ class IntegerType(NativeType):
             return self
         if isinstance(other, DecimalType):
             return other
-        return super(IntegerType, self).checkAdd(context, other, tryReverse)
+        return super().checkAdd(context, other, tryReverse)
 
 
 
@@ -44,7 +44,7 @@ class IntegerType(NativeType):
             return self
         if isinstance(other, DecimalType):
             return other
-        return super(IntegerType, self).checkSubstract(context, other)
+        return super().checkSubstract(context, other)
 
 
 
@@ -62,7 +62,7 @@ class IntegerType(NativeType):
             return other
         if isinstance(other, ListType):
             return other
-        return super(IntegerType, self).checkMultiply(context, other, tryReverse)
+        return super().checkMultiply(context, other, tryReverse)
 
 
     def checkDivide(self, context, other):
@@ -71,19 +71,19 @@ class IntegerType(NativeType):
             return DecimalType.instance
         if isinstance(other, DecimalType):
             return other
-        return super(IntegerType, self).checkDivide(context, other)
+        return super().checkDivide(context, other)
 
 
     def checkIntDivide(self, context, other):
         if isinstance(other, IntegerType):
             return IntegerType.instance
-        return super(IntegerType, self).checkIntDivide(context, other)
+        return super().checkIntDivide(context, other)
 
 
     def checkModulo(self, context, other):
         if isinstance(other, IntegerType):
             return IntegerType.instance
-        return super(IntegerType, self).checkModulo(context, other)
+        return super().checkModulo(context, other)
 
 
     def checkCompare(self, context, other):
@@ -92,33 +92,33 @@ class IntegerType(NativeType):
             return BooleanType.instance
         if isinstance(other, DecimalType):
             return BooleanType.instance
-        return super(IntegerType, self).checkCompare(context, other)
+        return super().checkCompare(context, other)
 
 
     def checkRange(self, context, other):
         if isinstance(other, IntegerType):
             return RangeType(self)
-        return super(IntegerType, self).checkRange(context, other)
+        return super().checkRange(context, other)
 
 
     def newRange(self, left, right):
         if isinstance(left, IntegerValue) and isinstance(right, IntegerValue):
             return IntegerRange(left, right)
-        return super(IntegerType, self).newRange(left, right)
+        return super().newRange(left, right)
 
 
     def convertPythonValueToPromptoValue(self, context, value, returnType):
         if isinstance(value, Number):
             return IntegerValue(int(value))
         else:
-            return super(IntegerType, self).convertPythonValueToPromptoValue(context, value, returnType)  # TODO for now
+            return super().convertPythonValueToPromptoValue(context, value, returnType)  # TODO for now
 
 
     def getMemberMethods(self, context, name):
         if name == "format":
             return [FormatMethodDeclaration()]
         else:
-            return super(IntegerType, self).getMemberMethods(context, name)
+            return super().getMemberMethods(context, name)
 
 IntegerType.instance = IntegerType()
 
