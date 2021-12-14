@@ -59,6 +59,9 @@ class TestStore(BaseEParserTest):
     def testFetchIn(self):
         self.compareResourceEME("store/fetchIn.pec")
 
+    def testFetchInclude(self):
+        self.compareResourceEME("store/fetchInclude.pec")
+
     def testFetchLesser(self):
         self.compareResourceEME("store/fetchLesser.pec")
 

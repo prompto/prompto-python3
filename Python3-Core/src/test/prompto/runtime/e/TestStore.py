@@ -64,6 +64,9 @@ class TestStore(BaseEParserTest):
     def testFetchIn(self):
         self.checkOutput("store/fetchIn.pec")
 
+    def testFetchInclude(self):
+        self.checkOutput("store/fetchInclude.pec")
+
     def testFetchLesser(self):
         self.checkOutput("store/fetchLesser.pec")
 
