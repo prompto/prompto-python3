@@ -8,8 +8,14 @@ class TestStore(BaseEParserTest):
     def testAsyncFetchMany(self):
         self.compareResourceEOE("store/asyncFetchMany.pec")
 
+    def testAsyncFetchManyInclude(self):
+        self.compareResourceEOE("store/asyncFetchManyInclude.pec")
+
     def testAsyncFetchOne(self):
         self.compareResourceEOE("store/asyncFetchOne.pec")
+
+    def testAsyncFetchOneInclude(self):
+        self.compareResourceEOE("store/asyncFetchOneInclude.pec")
 
     def testAsyncStore(self):
         self.compareResourceEOE("store/asyncStore.pec")
@@ -59,14 +65,14 @@ class TestStore(BaseEParserTest):
     def testFetchIn(self):
         self.compareResourceEOE("store/fetchIn.pec")
 
-    def testFetchInclude(self):
-        self.compareResourceEOE("store/fetchInclude.pec")
-
     def testFetchLesser(self):
         self.compareResourceEOE("store/fetchLesser.pec")
 
     def testFetchLesserEqual(self):
         self.compareResourceEOE("store/fetchLesserEqual.pec")
+
+    def testFetchManyInclude(self):
+        self.compareResourceEOE("store/fetchManyInclude.pec")
 
     def testFetchNotBoolean(self):
         self.compareResourceEOE("store/fetchNotBoolean.pec")
@@ -79,6 +85,9 @@ class TestStore(BaseEParserTest):
 
     def testFetchNotIn(self):
         self.compareResourceEOE("store/fetchNotIn.pec")
+
+    def testFetchOneInclude(self):
+        self.compareResourceEOE("store/fetchOneInclude.pec")
 
     def testFetchOr(self):
         self.compareResourceEOE("store/fetchOr.pec")

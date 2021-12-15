@@ -13,8 +13,14 @@ class TestStore(BaseEParserTest):
     def testAsyncFetchMany(self):
         self.checkOutput("store/asyncFetchMany.pec")
 
+    def testAsyncFetchManyInclude(self):
+        self.checkOutput("store/asyncFetchManyInclude.pec")
+
     def testAsyncFetchOne(self):
         self.checkOutput("store/asyncFetchOne.pec")
+
+    def testAsyncFetchOneInclude(self):
+        self.checkOutput("store/asyncFetchOneInclude.pec")
 
     def testAsyncStore(self):
         self.checkOutput("store/asyncStore.pec")
@@ -64,14 +70,14 @@ class TestStore(BaseEParserTest):
     def testFetchIn(self):
         self.checkOutput("store/fetchIn.pec")
 
-    def testFetchInclude(self):
-        self.checkOutput("store/fetchInclude.pec")
-
     def testFetchLesser(self):
         self.checkOutput("store/fetchLesser.pec")
 
     def testFetchLesserEqual(self):
         self.checkOutput("store/fetchLesserEqual.pec")
+
+    def testFetchManyInclude(self):
+        self.checkOutput("store/fetchManyInclude.pec")
 
     def testFetchNotBoolean(self):
         self.checkOutput("store/fetchNotBoolean.pec")
@@ -84,6 +90,9 @@ class TestStore(BaseEParserTest):
 
     def testFetchNotIn(self):
         self.checkOutput("store/fetchNotIn.pec")
+
+    def testFetchOneInclude(self):
+        self.checkOutput("store/fetchOneInclude.pec")
 
     def testFetchOr(self):
         self.checkOutput("store/fetchOr.pec")
