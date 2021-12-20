@@ -55,6 +55,9 @@ class TestEquals(BaseOParserTest):
     def testIsABoolean(self):
         self.checkOutput("equals/isABoolean.poc")
 
+    def testIsADictionary(self):
+        self.checkOutput("equals/isADictionary.poc")
+
     def testIsBoolean(self):
         self.checkOutput("equals/isBoolean.poc")
 
