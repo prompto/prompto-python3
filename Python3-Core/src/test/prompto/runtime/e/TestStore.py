@@ -22,6 +22,9 @@ class TestStore(BaseEParserTest):
     def testAsyncFetchOneInclude(self):
         self.checkOutput("store/asyncFetchOneInclude.pec")
 
+    def testAsyncFetchOneNull(self):
+        self.checkOutput("store/asyncFetchOneNull.pec")
+
     def testAsyncStore(self):
         self.checkOutput("store/asyncStore.pec")
 

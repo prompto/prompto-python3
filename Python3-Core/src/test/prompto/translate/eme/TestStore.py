@@ -17,6 +17,9 @@ class TestStore(BaseEParserTest):
     def testAsyncFetchOneInclude(self):
         self.compareResourceEME("store/asyncFetchOneInclude.pec")
 
+    def testAsyncFetchOneNull(self):
+        self.compareResourceEME("store/asyncFetchOneNull.pec")
+
     def testAsyncStore(self):
         self.compareResourceEME("store/asyncStore.pec")
 
