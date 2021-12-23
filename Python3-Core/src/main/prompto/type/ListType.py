@@ -86,6 +86,8 @@ class ListType(ContainerType):
             return [ToSetMethodDeclaration(self.itemType)]
         elif name == "join":
             return [JoinListMethodDeclaration.getInstance()]
+        elif name == "indexOf":
+            return [IndexOfMethodDeclaration.getInstance()]
         elif name == "removeItem":
             return [RemoveItemMethodDeclaration.getInstance()]
         elif name == "removeValue":
@@ -120,6 +122,33 @@ class JoinListMethodDeclaration(BaseJoinMethodDeclaration):
 
     def getItems(self, context):
         return self.getValue(context).items
+
+
+class IndexOfMethodDeclaration(BuiltInMethodDeclaration):
+
+    instance = None
+
+    @classmethod
+    def getInstance(cls):
+        if cls.instance is None:
+            cls.instance = IndexOfMethodDeclaration()
+        return cls.instance
+
+
+    def __init__(self):
+        from prompto.param.CategoryParameter import CategoryParameter
+        VALUE_ARGUMENT = CategoryParameter(AnyType.instance, "value")
+        super().__init__("indexOf", VALUE_ARGUMENT)
+
+
+    def interpret(self, context):
+        list = self.getValue(context)
+        value = context.getValue("value")
+        return list.indexOfValue(value)
+
+
+    def check(self, context, isStart:bool):
+        return VoidType.instance
 
 
 class RemoveItemMethodDeclaration(BuiltInMethodDeclaration):

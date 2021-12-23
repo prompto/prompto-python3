@@ -4,6 +4,8 @@ from prompto.value.BaseValueList import BaseValueList
 from prompto.value.IFilterable import IFilterable
 from prompto.value.IntegerValue import IntegerValue
 from prompto.error.SyntaxError import SyntaxError
+from prompto.value.NullValue import NullValue
+
 
 class ListValue(BaseValueList, IFilterable):
 
@@ -56,6 +58,11 @@ class ListValue(BaseValueList, IFilterable):
         idx = self.items.index(value)
         if idx > -1:
             del self.items[idx]
+
+
+    def indexOfValue(self, value):
+        idx = self.items.index(value)
+        return NullValue.instance if idx < 0 else IntegerValue(idx + 1)
 
 
     def Multiply(self, context, value):
