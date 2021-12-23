@@ -5,7 +5,6 @@ from prompto.type.BooleanType import BooleanType
 from prompto.type.ContainerType import ContainerType, BaseJoinMethodDeclaration
 from prompto.store.TypeFamily import TypeFamily
 from prompto.type.IType import IType
-from prompto.type.IntegerType import IntegerType
 from prompto.type.VoidType import VoidType
 
 
@@ -149,6 +148,7 @@ class IndexOfMethodDeclaration(BuiltInMethodDeclaration):
 
 
     def check(self, context, isStart:bool):
+        from prompto.type.IntegerType import IntegerType
         return IntegerType.instance
 
 
