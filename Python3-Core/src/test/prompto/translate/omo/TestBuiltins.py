@@ -68,6 +68,9 @@ class TestBuiltins(BaseOParserTest):
     def testListCount(self):
         self.compareResourceOMO("builtins/listCount.poc")
 
+    def testListIndexOf(self):
+        self.compareResourceOMO("builtins/listIndexOf.poc")
+
     def testListJoin(self):
         self.compareResourceOMO("builtins/listJoin.poc")
 

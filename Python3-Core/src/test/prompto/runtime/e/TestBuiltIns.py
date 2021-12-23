@@ -154,6 +154,9 @@ class TestBuiltins(BaseEParserTest):
     def testListCount(self):
         self.checkOutput("builtins/listCount.pec")
 
+    def testListIndexOf(self):
+        self.checkOutput("builtins/listIndexOf.pec")
+
     def testListJson(self):
         self.checkOutput("builtins/listJson.pec")
 

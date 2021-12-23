@@ -155,6 +155,9 @@ class TestBuiltins(BaseEParserTest):
     def testListCount(self):
         self.compareResourceEOE("builtins/listCount.pec")
 
+    def testListIndexOf(self):
+        self.compareResourceEOE("builtins/listIndexOf.pec")
+
     def testListJson(self):
         self.compareResourceEOE("builtins/listJson.pec")
 

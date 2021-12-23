@@ -155,6 +155,9 @@ class TestBuiltins(BaseEParserTest):
     def testListCount(self):
         self.compareResourceEME("builtins/listCount.pec")
 
+    def testListIndexOf(self):
+        self.compareResourceEME("builtins/listIndexOf.pec")
+
     def testListJson(self):
         self.compareResourceEME("builtins/listJson.pec")
 

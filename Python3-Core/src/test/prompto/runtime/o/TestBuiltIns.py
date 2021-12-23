@@ -67,6 +67,9 @@ class TestBuiltins(BaseOParserTest):
     def testListCount(self):
         self.checkOutput("builtins/listCount.poc")
 
+    def testListIndexOf(self):
+        self.checkOutput("builtins/listIndexOf.poc")
+
     def testListJoin(self):
         self.checkOutput("builtins/listJoin.poc")
 
