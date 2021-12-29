@@ -11,6 +11,6 @@ class DbIdType ( NativeType ):
         self.typeName = "DbId"
 
     def isAssignableFrom(self, context, other):
-        return isinstance(other, NativeType)
+        return super().isAssignableFrom(context, other) or isinstance(other, NativeType)
 
 DbIdType.instance = DbIdType()
