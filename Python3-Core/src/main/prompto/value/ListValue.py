@@ -49,21 +49,23 @@ class ListValue(BaseValueList, IFilterable):
         else:
             return super().Add(context, value)
 
-
     def removeItem(self, item):
         del self.items[item.value - 1]
-
 
     def removeValue(self, value):
         idx = self.items.index(value)
         if idx > -1:
             del self.items[idx]
 
+    def addValue(self, value):
+        self.items.append(value)
+
+    def insertValue(self, value, atIndex):
+        self.items.insert(atIndex.value - 1, value)
 
     def indexOfValue(self, value):
         idx = self.items.index(value)
         return NullValue.instance if idx < 0 else IntegerValue(idx + 1)
-
 
     def Multiply(self, context, value):
         if isinstance(value, IntegerValue):

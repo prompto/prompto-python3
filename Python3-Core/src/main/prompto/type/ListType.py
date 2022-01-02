@@ -92,6 +92,10 @@ class ListType(ContainerType):
             return [RemoveItemMethodDeclaration.getInstance()]
         elif name == "removeValue":
             return [RemoveValueMethodDeclaration.getInstance()]
+        elif name == "addValue":
+            return [AddValueMethodDeclaration.getInstance()]
+        elif name == "insertValue":
+            return [InsertValueMethodDeclaration.getInstance()]
         else:
             return super().getMemberMethods(context, name)
 
@@ -192,12 +196,10 @@ class RemoveValueMethodDeclaration(BuiltInMethodDeclaration):
             cls.instance = RemoveValueMethodDeclaration()
         return cls.instance
 
-
     def __init__(self):
         from prompto.param.CategoryParameter import CategoryParameter
         VALUE_ARGUMENT = CategoryParameter(AnyType.instance, "value")
         super().__init__("removeValue", VALUE_ARGUMENT)
-
 
     def interpret(self, context):
         list = self.getValue(context)
@@ -205,6 +207,62 @@ class RemoveValueMethodDeclaration(BuiltInMethodDeclaration):
             raise NotMutableError()
         value = context.getValue("value")
         list.removeValue(value)
+
+    def check(self, context, isStart:bool):
+        return VoidType.instance
+
+
+class AddValueMethodDeclaration(BuiltInMethodDeclaration):
+
+    instance = None
+
+    @classmethod
+    def getInstance(cls):
+        if cls.instance is None:
+            cls.instance = AddValueMethodDeclaration()
+        return cls.instance
+
+    def __init__(self):
+        from prompto.param.CategoryParameter import CategoryParameter
+        VALUE_ARGUMENT = CategoryParameter(AnyType.instance, "value")
+        super().__init__("addValue", VALUE_ARGUMENT)
+
+    def interpret(self, context):
+        list = self.getValue(context)
+        if not list.mutable:
+            raise NotMutableError()
+        value = context.getValue("value")
+        list.addValue(value)
+
+    def check(self, context, isStart:bool):
+        return VoidType.instance
+
+class InsertValueMethodDeclaration(BuiltInMethodDeclaration):
+
+    instance = None
+
+    @classmethod
+    def getInstance(cls):
+        if cls.instance is None:
+            cls.instance = InsertValueMethodDeclaration()
+        return cls.instance
+
+
+    def __init__(self):
+        from prompto.type.IntegerType import IntegerType
+        from prompto.param.CategoryParameter import CategoryParameter
+        VALUE_ARGUMENT = CategoryParameter(AnyType.instance, "value")
+        AT_INDEX_ARGUMENT = CategoryParameter(IntegerType.instance, "atIndex")
+        super().__init__("addValue", VALUE_ARGUMENT, AT_INDEX_ARGUMENT)
+
+
+    def interpret(self, context):
+        list = self.getValue(context)
+        if not list.mutable:
+            raise NotMutableError()
+        value = context.getValue("value")
+        atIndex = context.getValue("atIndex")
+        list.insertValue(value, atIndex)
 
 
     def check(self, context, isStart:bool):
@@ -217,11 +275,9 @@ class ToSetMethodDeclaration(BuiltInMethodDeclaration):
         super().__init__("toSet")
         self.itemType = itemType
 
-
     def interpret(self, context):
         value = self.getValue(context)
         return value.toSetValue(context)
-
 
     def check(self, context, isStart: bool):
         from prompto.type.SetType import SetType
