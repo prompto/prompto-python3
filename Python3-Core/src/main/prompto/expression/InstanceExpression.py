@@ -68,7 +68,7 @@ class InstanceExpression(IExpression):
     def checkAttribute(self, context):
         decl = context.findAttribute(self.name)
         if decl is None:
-            raise SyntaxError("Expected an attribute, got: " + self.name)
+            raise SyntaxError("Expected an attribute, found: " + self.name)
         if not decl.storable:
             raise SyntaxError(self.name + " is not storable")
         return decl
@@ -99,7 +99,7 @@ class InstanceExpression(IExpression):
         if decl is None:
             raise SyntaxError("Unknown identifier:" + self.name)
         elif decl.getType(context)!=BooleanType.instance:
-            raise SyntaxError("Expected a Boolean, got: " + decl.getType(context).typeName)
+            raise SyntaxError("Expected a Boolean, found: " + decl.getType(context).typeName)
         else:
             from prompto.expression.EqualsExpression import EqualsExpression
             from prompto.grammar.EqOp import EqOp

@@ -14,7 +14,7 @@ class MutableExpression(IExpression):
     def check(self, context):
         sourceType = self.source.check(context)
         if not isinstance(sourceType, CategoryType):
-            raise SyntaxError("Expected a category instance, got:" + str(sourceType))
+            raise SyntaxError("Expected a category instance, found:" + str(sourceType))
         return CategoryType(sourceType.typeName, mutable=True)
 
 
@@ -25,7 +25,7 @@ class MutableExpression(IExpression):
         elif isinstance(value, IInstance):
             return value.toMutable()
         else:
-            raise SyntaxError("Expected a category instance, got:" + str(value))
+            raise SyntaxError("Expected a category instance, found:" + str(value))
 
 
     def toDialect(self, writer):

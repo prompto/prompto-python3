@@ -21,6 +21,6 @@ class IExpression(IDialectElement):
 
 
     def checkAttribute(self, context):
-        raise SyntaxError("Expected an attribute, got: " + str(self))
+        raise SyntaxError("Expected an attribute, found: " + str(self))
 
 

@@ -34,7 +34,7 @@ class DoWhileStatement ( BaseStatement ):
     def interpretCondition(self, context):
         value = self.condition.interpret(context)
         if not isinstance(value, BooleanValue):
-            raise InvalidValueError("Expected a Boolean, got:" + type(value).__name__)
+            raise InvalidValueError("Expected a Boolean, found:" + type(value).__name__)
         return value.value
 
     def toEDialect(self, writer):
