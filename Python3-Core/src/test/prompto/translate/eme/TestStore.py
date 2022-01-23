@@ -110,6 +110,9 @@ class TestStore(BaseEParserTest):
     def testSimpleRecord(self):
         self.compareResourceEME("store/simpleRecord.pec")
 
+    def testSimpleUpdate(self):
+        self.compareResourceEME("store/simpleUpdate.pec")
+
     def testSlicedRecords(self):
         self.compareResourceEME("store/slicedRecords.pec")
 

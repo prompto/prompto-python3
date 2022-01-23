@@ -115,6 +115,9 @@ class TestStore(BaseEParserTest):
     def testSimpleRecord(self):
         self.checkOutput("store/simpleRecord.pec")
 
+    def testSimpleUpdate(self):
+        self.checkOutput("store/simpleUpdate.pec")
+
     def testSlicedRecords(self):
         self.checkOutput("store/slicedRecords.pec")
 
