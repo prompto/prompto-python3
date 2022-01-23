@@ -2,8 +2,8 @@ from prompto.store.Store import IStorable, IStored
 
 class StorableDocument(IStorable, IStored):
 
-    def __init__(self, categories, dbIdFactory):
-        self.document = None
+    def __init__(self, categories, dbIdFactory, document = None):
+        self.document = document
         self.categories = categories
         self.dbIdFactory = dbIdFactory
 

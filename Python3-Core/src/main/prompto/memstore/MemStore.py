@@ -62,8 +62,13 @@ class MemStore(IStore):
         if not isinstance(dbId, int):
             dbId = ++self.lastDbId
             storable.setData("dbId", dbId)
-        if self.auditRecords.get(dbId, None) is None:
+        previous = self.documents.get(dbId, None)
+        if previous is None:
             operation = AuditOperation.INSERT
+            document = { **storable.document }
+        else:
+            document = { **previous.document, **storable.document }
+        storable = StorableDocument(storable.categories, None, document)
         self.documents[dbId] = storable
         audit = self.newAuditRecord(withMeta)
         audit.instanceDbId = dbId
