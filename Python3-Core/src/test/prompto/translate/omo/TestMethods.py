@@ -8,6 +8,9 @@ class TestMethods(BaseOParserTest):
     def testAbstractMember(self):
         self.compareResourceOMO("methods/abstractMember.poc")
 
+    def testAbstractMemberItem(self):
+        self.compareResourceOMO("methods/abstractMemberItem.poc")
+
     def testAnonymous(self):
         self.compareResourceOMO("methods/anonymous.poc")
 

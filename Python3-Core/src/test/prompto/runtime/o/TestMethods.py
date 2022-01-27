@@ -13,6 +13,9 @@ class TestMethods(BaseOParserTest):
     def testAbstractMember(self):
         self.checkOutput("methods/abstractMember.poc")
 
+    def testAbstractMemberItem(self):
+        self.checkOutput("methods/abstractMemberItem.poc")
+
     def testAnonymous(self):
         self.checkOutput("methods/anonymous.poc")
 
