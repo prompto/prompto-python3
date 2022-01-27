@@ -123,7 +123,7 @@ class IntegerValue(BaseValue, INumber, IMultiplyable):
 
 
     def __eq__(self, obj):
-        return self.value==obj.value
+        return isinstance(obj, IntegerValue) and self.value == obj.value
 
 
     def __hash__(self):
