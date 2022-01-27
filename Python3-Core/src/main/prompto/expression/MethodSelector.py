@@ -1,8 +1,7 @@
 from prompto.declaration.IMethodDeclaration import IMethodDeclaration
+from prompto.error.NullReferenceError import NullReferenceError
 from prompto.error.SyntaxError import SyntaxError
-from prompto.expression.InstanceExpression import InstanceExpression
 from prompto.expression.MemberSelector import MemberSelector
-from prompto.expression.UnresolvedIdentifier import UnresolvedIdentifier
 from prompto.grammar.INamedInstance import INamedInstance
 from prompto.runtime.Context import Context, InstanceContext
 from prompto.type.MethodType import MethodType
@@ -78,25 +77,20 @@ class MethodSelector(MemberSelector):
 
     def checkParentType(self, context:Context, checkInstance:bool):
         if checkInstance:
-            return self.checkParentInstance(context)
+            return self.interpretParentInstance(context)
         else:
             return self.checkParent(context)
 
 
-    def checkParentInstance(self, context:Context):
-        name = None
-        if isinstance(self.parent, InstanceExpression):
-            name = self.parent.name
-        elif isinstance(self.parent, UnresolvedIdentifier):
-            name = self.parent.name
-        if name is not None:
-            # don't get Singleton values
-            if name[0:1].islower():
-                value = context.getValue(name)
-                if value is not None and value is not NullValue.instance:
-                    return value.itype
-        # TODO check result instance
-        return self.checkParent(context)
+    def interpretParentInstance(self, context:Context):
+        value = self.parent.interpret(context)
+        if value is None or value == NullValue.instance:
+            raise NullReferenceError()
+        from prompto.expression.SuperExpression import SuperExpression
+        if isinstance(self.parent, SuperExpression):
+            return value.itype.getSuperType(context)
+        else:
+            return value.itype
 
 
     def getCategoryCandidates(self, context:Context):
