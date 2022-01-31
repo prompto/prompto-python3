@@ -215,12 +215,21 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#abstract_method_declaration.
-    def enterAbstract_method_declaration(self, ctx:OParser.Abstract_method_declarationContext):
+    # Enter a parse tree produced by OParser#abstract_global_method_declaration.
+    def enterAbstract_global_method_declaration(self, ctx:OParser.Abstract_global_method_declarationContext):
         pass
 
-    # Exit a parse tree produced by OParser#abstract_method_declaration.
-    def exitAbstract_method_declaration(self, ctx:OParser.Abstract_method_declarationContext):
+    # Exit a parse tree produced by OParser#abstract_global_method_declaration.
+    def exitAbstract_global_method_declaration(self, ctx:OParser.Abstract_global_method_declarationContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#abstract_member_method_declaration.
+    def enterAbstract_member_method_declaration(self, ctx:OParser.Abstract_member_method_declarationContext):
+        pass
+
+    # Exit a parse tree produced by OParser#abstract_member_method_declaration.
+    def exitAbstract_member_method_declaration(self, ctx:OParser.Abstract_member_method_declarationContext):
         pass
 
 
