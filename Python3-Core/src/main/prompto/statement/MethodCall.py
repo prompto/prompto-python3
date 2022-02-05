@@ -188,5 +188,3 @@ class MethodCall(SimpleStatement):
             pass
             # ok
         return False
-
-

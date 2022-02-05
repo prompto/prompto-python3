@@ -14,7 +14,6 @@ class DeclarationList(list):
         if item is not None:
             self.append(item)
 
-
     def register(self, context):
         self.registerAttributes(context)
         self.registerCategories(context)
@@ -54,7 +53,6 @@ class DeclarationList(list):
                 declaration.checkStart(context)
             else:
                 declaration.check(context)
-
 
     def findMain(self):
         for declaration in self:

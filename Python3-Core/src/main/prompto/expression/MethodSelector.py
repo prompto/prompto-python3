@@ -1,10 +1,6 @@
-from prompto.declaration.IMethodDeclaration import IMethodDeclaration
 from prompto.error.NullReferenceError import NullReferenceError
 from prompto.error.SyntaxError import SyntaxError
 from prompto.expression.MemberSelector import MemberSelector
-from prompto.grammar.INamedInstance import INamedInstance
-from prompto.runtime.Context import Context, InstanceContext
-from prompto.type.MethodType import MethodType
 from prompto.value.NullValue import NullValue
 from prompto.value.TypeValue import TypeValue
 

@@ -463,4 +463,3 @@ class CategoryType(BaseType):
             raise SyntaxError("Unknown category:" + self.typeName)
         else:
             return cd.getMemberMethodsMap(context, name).values()
-

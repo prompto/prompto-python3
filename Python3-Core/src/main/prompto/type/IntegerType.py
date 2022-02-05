@@ -122,7 +122,6 @@ class IntegerType(NativeType):
 
 IntegerType.instance = IntegerType()
 
-
 class FormatMethodDeclaration(BuiltInMethodDeclaration):
 
     def __init__(self):

@@ -223,7 +223,6 @@ class ToLowerCaseMethodDeclaration(BuiltInMethodDeclaration):
         value = self.getValue(context).getStorableData()
         return TextValue(value.lower())
 
-
     def check(self, context):
         return TextType.instance
 

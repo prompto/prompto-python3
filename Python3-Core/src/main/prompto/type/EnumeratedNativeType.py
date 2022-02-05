@@ -51,7 +51,6 @@ class EnumeratedNativeType ( BaseType ):
             raise SyntaxError("Unknown member:" + name)
 
 
-
     def getStaticMemberMethods(self, context, name):
         if name == "symbolOf":
             return [SymbolOfMethodDeclaration(self)]

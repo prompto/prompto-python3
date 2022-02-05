@@ -211,7 +211,6 @@ class RemoveValueMethodDeclaration(BuiltInMethodDeclaration):
     def check(self, context):
         return VoidType.instance
 
-
 class AddValueMethodDeclaration(BuiltInMethodDeclaration):
 
     instance = None
@@ -267,7 +266,6 @@ class InsertValueMethodDeclaration(BuiltInMethodDeclaration):
 
     def check(self, context):
         return VoidType.instance
-
 
 class ToSetMethodDeclaration(BuiltInMethodDeclaration):
 
