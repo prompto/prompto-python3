@@ -1097,8 +1097,7 @@ class EPromptoBuilder(EParserListener):
             items.append(item)
         self.setNodeValue(ctx, items)
 
-
-    def exitAbstract_method_declaration(self, ctx: EParser.Abstract_method_declarationContext):
+    def exitAbstract_global_method_declaration(self, ctx: EParser.Abstract_global_method_declarationContext):
         typ = self.getNodeValue(ctx.typ)
         if isinstance(typ, CategoryType):
             typ.mutable = ctx.MUTABLE() is not None
@@ -1106,6 +1105,13 @@ class EPromptoBuilder(EParserListener):
         args = self.getNodeValue(ctx.args)
         self.setNodeValue(ctx, AbstractMethodDeclaration(name, args, typ))
 
+    def exitAbstract_member_method_declaration(self, ctx: EParser.Abstract_member_method_declarationContext):
+        typ = self.getNodeValue(ctx.typ)
+        if isinstance(typ, CategoryType):
+            typ.mutable = ctx.MUTABLE() is not None
+        name = self.getNodeValue(ctx.name)
+        args = self.getNodeValue(ctx.args)
+        self.setNodeValue(ctx, AbstractMethodDeclaration(name, args, typ))
 
     def exitConcrete_method_declaration(self, ctx: EParser.Concrete_method_declarationContext):
         typ = self.getNodeValue(ctx.typ)
@@ -1115,7 +1121,6 @@ class EPromptoBuilder(EParserListener):
         args = self.getNodeValue(ctx.args)
         stmts = self.getNodeValue(ctx.stmts)
         self.setNodeValue(ctx, ConcreteMethodDeclaration(name, args, typ, stmts))
-
 
     def exitMethod_declaration(self, ctx: EParser.Method_declarationContext):
         value = self.getNodeValue(ctx.getChild(0))

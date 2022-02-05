@@ -59,14 +59,14 @@ class TestMethods(BaseOParserTest):
     def testParameter(self):
         self.compareResourceOMO("methods/parameter.poc")
 
-    def testPolymorphic_abstract(self):
-        self.compareResourceOMO("methods/polymorphic_abstract.poc")
+    def testPolymorphicAbstract(self):
+        self.compareResourceOMO("methods/polymorphicAbstract.poc")
 
-    def testPolymorphic_named(self):
-        self.compareResourceOMO("methods/polymorphic_named.poc")
+    def testPolymorphicNamed(self):
+        self.compareResourceOMO("methods/polymorphicNamed.poc")
 
-    def testPolymorphic_runtime(self):
-        self.compareResourceOMO("methods/polymorphic_runtime.poc")
+    def testPolymorphicRuntime(self):
+        self.compareResourceOMO("methods/polymorphicRuntime.poc")
 
     def testReturn(self):
         self.compareResourceOMO("methods/return.poc")

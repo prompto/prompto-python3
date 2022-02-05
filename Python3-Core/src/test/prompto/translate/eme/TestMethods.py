@@ -65,14 +65,14 @@ class TestMethods(BaseEParserTest):
     def testParameter(self):
         self.compareResourceEME("methods/parameter.pec")
 
-    def testPolymorphic_abstract(self):
-        self.compareResourceEME("methods/polymorphic_abstract.pec")
+    def testPolymorphicAbstract(self):
+        self.compareResourceEME("methods/polymorphicAbstract.pec")
 
-    def testPolymorphic_named(self):
-        self.compareResourceEME("methods/polymorphic_named.pec")
+    def testPolymorphicNamed(self):
+        self.compareResourceEME("methods/polymorphicNamed.pec")
 
-    def testPolymorphic_runtime(self):
-        self.compareResourceEME("methods/polymorphic_runtime.pec")
+    def testPolymorphicRuntime(self):
+        self.compareResourceEME("methods/polymorphicRuntime.pec")
 
     def testReturn(self):
         self.compareResourceEME("methods/return.pec")

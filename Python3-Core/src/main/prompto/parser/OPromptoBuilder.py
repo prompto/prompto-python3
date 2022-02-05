@@ -1007,7 +1007,6 @@ class OPromptoBuilder(OParserListener):
             decl.annotations = annotations
             self.setNodeValue(ctx, decl)
 
-
     def exitStatement_list(self, ctx: OParser.Statement_listContext):
         items = StatementList()
         for rule in ctx.statement():
@@ -1015,8 +1014,7 @@ class OPromptoBuilder(OParserListener):
             items.append(item)
         self.setNodeValue(ctx, items)
 
-
-    def exitAbstract_method_declaration(self, ctx: OParser.Abstract_method_declarationContext):
+    def exitAbstract_global_method_declaration(self, ctx: OParser.Abstract_global_method_declarationContext):
         typ = self.getNodeValue(ctx.typ)
         if isinstance(typ, CategoryType):
             typ.mutable = ctx.MUTABLE() is not None
@@ -1024,6 +1022,13 @@ class OPromptoBuilder(OParserListener):
         args = self.getNodeValue(ctx.args)
         self.setNodeValue(ctx, AbstractMethodDeclaration(name, args, typ))
 
+    def exitAbstract_member_method_declaration(self, ctx: OParser.Abstract_member_method_declarationContext):
+        typ = self.getNodeValue(ctx.typ)
+        if isinstance(typ, CategoryType):
+            typ.mutable = ctx.MUTABLE() is not None
+        name = self.getNodeValue(ctx.name)
+        args = self.getNodeValue(ctx.args)
+        self.setNodeValue(ctx, AbstractMethodDeclaration(name, args, typ))
 
     def exitConcrete_method_declaration(self, ctx: OParser.Concrete_method_declarationContext):
         typ = self.getNodeValue(ctx.typ)

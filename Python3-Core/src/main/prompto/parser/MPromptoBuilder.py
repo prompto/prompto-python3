@@ -347,16 +347,13 @@ class MPromptoBuilder(MParserListener):
     def isNotIndent(self, tree):
         return (not isinstance(tree, TerminalNode)) or tree.symbol.type != MLexer.INDENT
 
-
     def readAnnotations(self, contexts):
         return [self.getNodeValue(ctx_) for ctx_ in contexts]
-
 
     def readComments(self, contexts):
         return [self.getNodeValue(ctx_) for ctx_ in contexts]
 
-
-    def exitAbstract_method_declaration(self, ctx: MParser.Abstract_method_declarationContext):
+    def exitAbstract_global_method_declaration(self, ctx: MParser.Abstract_global_method_declarationContext):
         typ = self.getNodeValue(ctx.typ)
         if isinstance(typ, CategoryType):
             typ.mutable = ctx.MUTABLE() is not None
@@ -364,13 +361,19 @@ class MPromptoBuilder(MParserListener):
         args = self.getNodeValue(ctx.args)
         self.setNodeValue(ctx, AbstractMethodDeclaration(name, args, typ))
 
+    def exitAbstract_member_method_declaration(self, ctx: MParser.Abstract_member_method_declarationContext):
+        typ = self.getNodeValue(ctx.typ)
+        if isinstance(typ, CategoryType):
+            typ.mutable = ctx.MUTABLE() is not None
+        name = self.getNodeValue(ctx.name)
+        args = self.getNodeValue(ctx.args)
+        self.setNodeValue(ctx, AbstractMethodDeclaration(name, args, typ))
 
     def exitArrow_prefix(self, ctx: MParser.Arrow_prefixContext):
         args = self.getNodeValue(ctx.arrow_args())
         argsSuite = self.getHiddenTokensBefore(ctx.EGT())
         arrowSuite = self.getHiddenTokensAfter(ctx.EGT())
         self.setNodeValue(ctx, ArrowExpression(args, argsSuite, arrowSuite))
-
 
     def exitArrowExpression(self, ctx: MParser.ArrowExpressionContext):
         self.setNodeValue(ctx, self.getNodeValue(ctx.exp))

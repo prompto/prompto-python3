@@ -64,14 +64,14 @@ class TestMethods(BaseEParserTest):
     def testParameter(self):
         self.checkOutput("methods/parameter.pec")
 
-    def testPolymorphic_abstract(self):
-        self.checkOutput("methods/polymorphic_abstract.pec")
+    def testPolymorphicAbstract(self):
+        self.checkOutput("methods/polymorphicAbstract.pec")
 
-    def testPolymorphic_named(self):
-        self.checkOutput("methods/polymorphic_named.pec")
+    def testPolymorphicNamed(self):
+        self.checkOutput("methods/polymorphicNamed.pec")
 
-    def testPolymorphic_runtime(self):
-        self.checkOutput("methods/polymorphic_runtime.pec")
+    def testPolymorphicRuntime(self):
+        self.checkOutput("methods/polymorphicRuntime.pec")
 
     def testSpecified(self):
         self.checkOutput("methods/specified.pec")

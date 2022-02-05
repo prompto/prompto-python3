@@ -59,14 +59,14 @@ class TestMethods(BaseOParserTest):
     def testParameter(self):
         self.compareResourceOEO("methods/parameter.poc")
 
-    def testPolymorphic_abstract(self):
-        self.compareResourceOEO("methods/polymorphic_abstract.poc")
+    def testPolymorphicAbstract(self):
+        self.compareResourceOEO("methods/polymorphicAbstract.poc")
 
-    def testPolymorphic_named(self):
-        self.compareResourceOEO("methods/polymorphic_named.poc")
+    def testPolymorphicNamed(self):
+        self.compareResourceOEO("methods/polymorphicNamed.poc")
 
-    def testPolymorphic_runtime(self):
-        self.compareResourceOEO("methods/polymorphic_runtime.poc")
+    def testPolymorphicRuntime(self):
+        self.compareResourceOEO("methods/polymorphicRuntime.poc")
 
     def testReturn(self):
         self.compareResourceOEO("methods/return.poc")
