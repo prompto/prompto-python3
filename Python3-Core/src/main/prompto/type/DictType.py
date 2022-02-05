@@ -101,7 +101,7 @@ class SwapMethodDeclaration(BuiltInMethodDeclaration):
         return value.swap(context)
 
 
-    def check(self, context, isStart:bool):
+    def check(self, context):
         return DictType(TextType.instance)
 
 
@@ -121,7 +121,7 @@ class RemoveKeyMethodDeclaration(BuiltInMethodDeclaration):
         dict.removeKey(key)
 
 
-    def check(self, context, isStart:bool):
+    def check(self, context):
         return VoidType.instance
 
 
@@ -141,5 +141,5 @@ class RemoveValueMethodDeclaration(BuiltInMethodDeclaration):
         dict.removeValue(value)
 
 
-    def check(self, context, isStart:bool):
+    def check(self, context):
         return VoidType.instance

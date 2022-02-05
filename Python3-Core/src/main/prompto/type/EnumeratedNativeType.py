@@ -2,7 +2,6 @@ from prompto.declaration.BuiltInMethodDeclaration import BuiltInMethodDeclaratio
 from prompto.declaration.IDeclaration import IDeclaration
 from prompto.runtime.Context import Context
 from prompto.type.BaseType import BaseType
-from prompto.type.IType import IType
 from prompto.type.ListType import ListType
 from prompto.type.TextType import TextType
 from prompto.store.TypeFamily import TypeFamily
@@ -78,6 +77,6 @@ class SymbolOfMethodDeclaration(BuiltInMethodDeclaration):
         return decl.getSymbol(symbolName)
 
 
-    def check(self, context, isStart:bool):
+    def check(self, context):
         from prompto.type.BooleanType import BooleanType
         return BooleanType.instance

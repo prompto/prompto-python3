@@ -49,8 +49,8 @@ class Interpreter(object):
     @staticmethod
     def buildArguments(method, cmdLineArgs):
         arguments = ArgumentList()
-        if len(method.getArguments()) == 1:
-            name = method.getArguments()[0].getName()
+        if len(method.parameters) == 1:
+            name = method.parameters[0].getName()
             value = Interpreter.parseCmdLineArgs(cmdLineArgs)
             arguments.append(Argument(UnresolvedParameter(name), value))
         return arguments
@@ -92,16 +92,16 @@ class Interpreter(object):
             argTypes = []
         # try exact match first
         for method in methodMap.values():
-            if Interpreter.identicalArguments(method.getArguments(), argTypes):
+            if Interpreter.identicalArguments(method.parameters, argTypes):
                 return method
         # match Text{} argument, will pass None
         if len(argTypes) == 0:
             for method in methodMap.values():
-                if Interpreter.isSingleTextDictArgument(method.getArguments()):
+                if Interpreter.isSingleTextDictArgument(method.parameters):
                     return method
         # match no argument, will ignore options
         for method in methodMap.values():
-            if len(method.getArguments()) == 0:
+            if len(method.parameters) == 0:
                 return method
         raise SyntaxError("Could not find a compatible \"" + methodMap.getName() + "\" method.")
 

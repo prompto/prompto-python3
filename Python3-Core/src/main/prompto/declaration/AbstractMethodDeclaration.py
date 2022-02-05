@@ -13,12 +13,17 @@ class AbstractMethodDeclaration(BaseMethodDeclaration):
         pass  # TODO
 
 
-    def check(self, context, isStart:bool):
+    def checkStart(self, context):
         if self.parameters is not None:
             self.parameters.check(context)
-        if isStart:
-            local = context.newLocalContext()
-            self.registerArguments(local)
+        local = context.newLocalContext()
+        self.registerParameters(local)
+        return self.returnType
+
+
+    def check(self, context):
+        if self.parameters is not None:
+            self.parameters.check(context)
         return self.returnType
 
 
@@ -64,3 +69,5 @@ class AbstractMethodDeclaration(BaseMethodDeclaration):
             writer.append("returning ")
             self.returnType.toDialect(writer)
 
+    def isAbstract(self):
+        return True

@@ -183,8 +183,8 @@ class CategoryType(BaseType):
                     return None
                 context = context.newInstanceContext(None, self)
                 local = context.newChildContext()
-                method.registerArguments(local)
-                return method.check(local, False)
+                method.registerParameters(local)
+                return method.check(local)
             except SyntaxError as e:
                 # ok to pass, will try reverse
                 pass
@@ -433,7 +433,7 @@ class CategoryType(BaseType):
             args = ArgumentList(items=[arg])
             proto = MethodCall(MethodSelector(name), args)
             finder = MethodFinder(context, proto)
-            return finder.findMethod(True) is not None
+            return finder.findBest(True) is not None
         except PromptoError:
             return False
 

@@ -5,9 +5,6 @@ from prompto.declaration.BaseDeclaration import *
 from prompto.declaration.IMethodDeclaration import IMethodDeclaration
 from prompto.error.SyntaxError import SyntaxError
 from prompto.grammar.Argument import Argument
-from prompto.type.MethodType import MethodType
-from prompto.value.ContextualExpression import ContextualExpression
-
 
 class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
 
@@ -51,19 +48,11 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
         return val
 
 
-    def getArguments(self):
-        return self.parameters
-
-
-    def getReturnType(self):
-        return self.returnType
-
-
     def register(self, context):
         context.registerMethodDeclaration(self)
 
 
-    def registerArguments(self, context):
+    def registerParameters(self, context):
         self.parameters.register(context)
 
 
@@ -78,7 +67,7 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
         from prompto.grammar.ArgumentList import ArgumentList
         try:
             local = context.newLocalContext()
-            self.registerArguments(local)
+            self.registerParameters(local)
             argumentsList = ArgumentList(items=arguments)
             for argument in self.parameters:
                 found = argumentsList.find(argument.getName())
@@ -117,13 +106,19 @@ class BaseMethodDeclaration(BaseDeclaration, IMethodDeclaration):
             pass
         return Specificity.INCOMPATIBLE
 
-
     def interpret(self, context):
         from prompto.error.InternalError import InternalError
-
         raise InternalError("Should never get there!")
-
 
     def isEligibleAsMain(self):
         return False
 
+    def isAbstract(self):
+        return False
+
+    def isReference(self):
+        return False
+
+    def asReference(self):
+        from prompto.declaration.MethodDeclarationReference import MethodDeclarationReference
+        return MethodDeclarationReference(self)

@@ -255,7 +255,7 @@ class ConcreteInstance(BaseValue, IInstance, IMultiplyable):
         decl = self.declaration.getOperatorMethod(context, operator, value.itype)
         context = context.newInstanceContext(self, None)
         local = context.newChildContext()
-        decl.registerArguments(local)
+        decl.registerParameters(local)
         arg = decl.parameters[0]
         local.setValue(arg.name, value)
         return decl.interpret(local)

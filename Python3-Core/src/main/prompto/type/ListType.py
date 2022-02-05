@@ -151,7 +151,7 @@ class IndexOfMethodDeclaration(BuiltInMethodDeclaration):
         return list.indexOfValue(value)
 
 
-    def check(self, context, isStart:bool):
+    def check(self, context):
         from prompto.type.IntegerType import IntegerType
         return IntegerType.instance
 
@@ -182,7 +182,7 @@ class RemoveItemMethodDeclaration(BuiltInMethodDeclaration):
         list.removeItem(item)
 
 
-    def check(self, context, isStart:bool):
+    def check(self, context):
         return VoidType.instance
 
 
@@ -208,7 +208,7 @@ class RemoveValueMethodDeclaration(BuiltInMethodDeclaration):
         value = context.getValue("value")
         list.removeValue(value)
 
-    def check(self, context, isStart:bool):
+    def check(self, context):
         return VoidType.instance
 
 
@@ -234,7 +234,7 @@ class AddValueMethodDeclaration(BuiltInMethodDeclaration):
         value = context.getValue("value")
         list.addValue(value)
 
-    def check(self, context, isStart:bool):
+    def check(self, context):
         return VoidType.instance
 
 class InsertValueMethodDeclaration(BuiltInMethodDeclaration):
@@ -265,7 +265,7 @@ class InsertValueMethodDeclaration(BuiltInMethodDeclaration):
         list.insertValue(value, atIndex)
 
 
-    def check(self, context, isStart:bool):
+    def check(self, context):
         return VoidType.instance
 
 
@@ -279,6 +279,6 @@ class ToSetMethodDeclaration(BuiltInMethodDeclaration):
         value = self.getValue(context)
         return value.toSetValue(context)
 
-    def check(self, context, isStart: bool):
+    def check(self, context):
         from prompto.type.SetType import SetType
         return SetType(self.itemType)

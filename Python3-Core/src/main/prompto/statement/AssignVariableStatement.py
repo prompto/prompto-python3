@@ -71,7 +71,7 @@ class AssignVariableStatement ( SimpleStatement ):
     def resolve(self, context, methodDeclaration,checkInstance):
         # since we support implicit members, it's time to resolve them
         expression = self.getExpression()
-        argument = methodDeclaration.getArguments().find(self.name)
+        argument = methodDeclaration.parameters.find(self.name)
         required = argument.getType(context)
         actual = expression.check(context.getCallingContext())
         if checkInstance and isinstance(actual, CategoryType):

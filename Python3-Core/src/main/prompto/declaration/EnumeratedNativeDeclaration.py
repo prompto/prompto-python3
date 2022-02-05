@@ -1,6 +1,6 @@
-from prompto.declaration.BaseDeclaration import *
-from prompto.declaration.IEnumeratedDeclaration import *
-from prompto.type.EnumeratedNativeType import *
+from prompto.declaration.BaseDeclaration import BaseDeclaration
+from prompto.declaration.IEnumeratedDeclaration import IEnumeratedDeclaration
+from prompto.type.EnumeratedNativeType import EnumeratedNativeType
 
 
 class EnumeratedNativeDeclaration ( BaseDeclaration, IEnumeratedDeclaration ):

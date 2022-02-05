@@ -141,7 +141,7 @@ class FormatMethodDeclaration(BuiltInMethodDeclaration):
         return TextValue(text)
 
 
-    def check(self, context, isStart:bool):
+    def check(self, context):
         from prompto.type.ListType import ListType
         return ListType(TextType.instance)
 

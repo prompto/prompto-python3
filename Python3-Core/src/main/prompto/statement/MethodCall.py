@@ -2,6 +2,7 @@ from prompto.declaration.IDeclaration import IDeclaration
 from prompto.declaration.AbstractMethodDeclaration import AbstractMethodDeclaration
 from prompto.declaration.ArrowDeclaration import ArrowDeclaration
 from prompto.error.PromptoError import PromptoError
+from prompto.error.SyntaxError import SyntaxError
 from prompto.grammar.ArgumentList import ArgumentList
 from prompto.statement.SimpleStatement import SimpleStatement
 from prompto.declaration.ConcreteMethodDeclaration import ConcreteMethodDeclaration
@@ -9,6 +10,7 @@ from prompto.runtime.Context import MethodDeclarationMap
 from prompto.runtime.MethodFinder import MethodFinder
 from prompto.declaration.ClosureDeclaration import ClosureDeclaration
 from prompto.type.MethodType import MethodType
+from prompto.type.VoidType import VoidType
 from prompto.value.ArrowValue import ArrowValue
 from prompto.value.ClosureValue import ClosureValue
 from prompto.value.BooleanValue import BooleanValue
@@ -27,22 +29,36 @@ class MethodCall(SimpleStatement):
         suffix = str(self.arguments) if self.arguments is not None else ""
         return str(self.selector) + suffix
 
-
     def check(self, context):
         finder = MethodFinder(context, self)
-        declaration = finder.findMethod(False)
-        local = context if self.isLocalClosure(context) else self.selector.newLocalCheckContext(context, declaration)
-        return self.doCheck(declaration, context, local)
+        declaration = finder.findBest(False)
+        if declaration is None:
+            return VoidType.instance
+        if declaration.isAbstract():
+            self.checkAbstractOnly(context, declaration)
+            return VoidType.instance if declaration.returnType is None else declaration.returnType
+        else:
+            local = context if self.isLocalClosure(context) else self.selector.newLocalCheckContext(context, declaration)
+            return self.checkDeclaration(declaration, context, local)
 
+    def checkAbstractOnly(self, context, declaration):
+        if declaration.isReference: # parameter or variable populated from a method call
+            return
+        if declaration.memberOf is not None: # the category could be subclassed (if constructor called on abstract, that would raise an error anyway)
+                return
+        # if a global method, need to check for runtime dispatch
+        finder = MethodFinder(context, self)
+        potential = finder.findPotential()
+        if potential.all(lambda decl: decl.isAbstract()):
+            raise SyntaxError("Cannot call abstract method")
 
     def checkReference(self, context):
         finder = MethodFinder(context, self)
-        method = finder.findMethod(False)
+        method = finder.findBest(False)
         if method is not None:
             return MethodType(method)
         else:
             return None
-
 
     def isLocalClosure(self, context):
         if self.selector.parent is not None:
@@ -50,31 +66,27 @@ class MethodCall(SimpleStatement):
         decl = context.getLocalDeclaration(IDeclaration, self.selector.name)
         return isinstance(decl, MethodDeclarationMap)
 
-
-    def doCheck(self, declaration, parent, local):
+    def checkDeclaration(self, declaration, parent, local):
         if isinstance(declaration, ConcreteMethodDeclaration) and declaration.mustBeBeCheckedInCallContext(parent):
             return self.fullCheck(declaration, parent, local)
         else:
             return self.lightCheck(declaration, local)
 
-
     def lightCheck(self, declaration, local):
-        declaration.registerArguments(local)
-        return declaration.check(local, False)
-
+        declaration.registerParameters(local)
+        return declaration.check(local)
 
     def fullCheck(self, declaration, parent, local):
         try:
             arguments = self.makeArguments(parent, declaration)
-            declaration.registerArguments(local)
+            declaration.registerParameters(local)
             for argument in arguments:
                 expression = argument.resolve(local, declaration, True)
                 value = argument.getParameter().checkValue(parent, expression)
                 local.setValue(argument.getName(), value)
-            return declaration.check(local, False)
+            return declaration.check(local)
         except PromptoError as e:
             raise SyntaxError(e.message)
-
 
     def makeArguments(self, context, declaration):
         if self.arguments is None:
@@ -82,11 +94,17 @@ class MethodCall(SimpleStatement):
         else:
             return self.arguments.makeArguments(context, declaration)
 
-
     def interpret(self, context):
-        declaration = self.findDeclaration(context)
+        finder = MethodFinder(context, self)
+        declaration = finder.findBest(True)
+        if declaration is None:
+            raise SyntaxError("No such method: " + str(self))
         local = self.selector.newLocalContext(context, declaration)
-        declaration.registerArguments(local)
+        declaration.registerParameters(local)
+        self.assignArguments(context, local, declaration)
+        return declaration.interpret(local)
+
+    def assignArguments(self, context, local, declaration):
         arguments = self.makeArguments(context, declaration)
         for argument in arguments:
             expression = argument.resolve(local, declaration, True)
@@ -96,8 +114,6 @@ class MethodCall(SimpleStatement):
                 from prompto.error.NotMutableError import NotMutableError
                 raise NotMutableError()
             local.setValue(argument.getName(), value)
-        return declaration.interpret(local)
-
 
     def interpretReference(self, context):
         declaration = self.findDeclaration(context)
@@ -120,7 +136,7 @@ class MethodCall(SimpleStatement):
             return method
         else:
             finder = MethodFinder(context, self)
-            return finder.findMethod(True)
+            return finder.findBest(True)
 
 
     def findRegistered(self, context):
@@ -165,10 +181,12 @@ class MethodCall(SimpleStatement):
             return False
         try:
             finder = MethodFinder(writer.context, self)
-            declaration = finder.findMethod(False)
+            declaration = finder.findBest(False)
             # if method is a reference, need to prefix with invoke
-            return isinstance(declaration, AbstractMethodDeclaration) or declaration.closureOf is not None
+            return declaration.isAbstract() or declaration.closureOf is not None
         except:
             pass
             # ok
         return False
+
+

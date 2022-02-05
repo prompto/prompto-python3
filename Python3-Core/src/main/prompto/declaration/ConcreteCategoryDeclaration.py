@@ -39,6 +39,15 @@ class ConcreteCategoryDeclaration ( CategoryDeclaration ):
     def getMethods(self):
         return self.methods
 
+    def getMemberMethods(self, context, name):
+        self.registerMethods(context)
+        result = MethodDeclarationMap(name)
+        self.registerMemberMethods(context, result)
+        return result
+
+    def registerMemberMethods(self, context, result):
+        self.registerSelfMemberMethods(context, result)
+        self.registerDerivedMemberMethods(context, result)
 
     def __str__(self):
         sb = StringIO(self.getName())

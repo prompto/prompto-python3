@@ -51,7 +51,7 @@ class DeclarationList(list):
     def check(self, context):
         for declaration in self:
             if isinstance(declaration, IMethodDeclaration):
-                declaration.check(context, True)
+                declaration.checkStart(context)
             else:
                 declaration.check(context)
 

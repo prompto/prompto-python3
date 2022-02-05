@@ -43,6 +43,13 @@ class ArrowExpression ( IExpression, PredicateExpression ):
         context.registerValue(Variable(self.args[0], itemType))
         return self.statements.check(context, None)
 
+    def check(self, context):
+        return self.checkReturnType(context, None)
+
+
+    def checkReturnType(self, context, returnType):
+        return self.statements.check(context, returnType)
+
 
     def interpret(self, context):
         return self.statements.interpret(context)

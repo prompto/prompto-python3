@@ -28,59 +28,11 @@ class MethodSelector(MemberSelector):
         else:
             super(MethodSelector, self).parentAndMemberToDialect(writer)
 
-
-    def getCandidates(self, context:Context, checkInstance:bool):
-        method = self.getMethodInstance(context)
-        if method is not None:
-            return {method}
-        elif self.parent is None:
-            return self.getGlobalCandidates(context)
-        else:
-            return self.getMemberCandidates(context, checkInstance)
-
-
-    def getMethodInstance(self, context):
-        named = context.getRegistered(self.name)
-        if isinstance(named, INamedInstance):
-            typ = named.getType(context)
-            if typ is not None:
-                typ = typ.resolve(context)
-                if isinstance(typ, MethodType):
-                    return typ.method
-        return None
-
-
-    def getGlobalCandidates(self, context:Context):
-        from prompto.runtime.Context import MethodDeclarationMap
-        methods = set()
-        # if called from a member method, could be a member method called without this/self
-        parentContext = context.getParentContext()
-        if isinstance(parentContext, InstanceContext):
-            from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
-            typ = parentContext.instanceType
-            cd = context.getRegisteredDeclaration(ConcreteCategoryDeclaration, typ.typeName)
-            if cd is not None:
-                members = cd.getMemberMethodsMap(context, self.name)
-                if members is not None:
-                    methods.update(members.values())
-        globals = context.getRegisteredDeclaration(MethodDeclarationMap, self.name)
-        if globals is not None:
-            methods.update(globals.values())
-        return methods
-
-
-    def getMemberCandidates(self, context:Context, checkInstance:bool):
-        parentType = self.checkParentType(context, checkInstance)
-        methods = parentType.getMemberMethods(context, self.name)
-        return set(methods)
-
-
     def checkParentType(self, context:Context, checkInstance:bool):
         if checkInstance:
             return self.interpretParentInstance(context)
         else:
             return self.checkParent(context)
-
 
     def interpretParentInstance(self, context:Context):
         value = self.parent.interpret(context)
@@ -91,7 +43,6 @@ class MethodSelector(MemberSelector):
             return value.itype.getSuperType(context)
         else:
             return value.itype
-
 
     def getCategoryCandidates(self, context:Context):
         from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration

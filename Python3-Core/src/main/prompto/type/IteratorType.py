@@ -54,7 +54,7 @@ class ToListMethodDeclaration(BuiltInMethodDeclaration):
         return value.toListValue(context)
 
 
-    def check(self, context, isStart: bool):
+    def check(self, context):
         from prompto.type.ListType import ListType
         return ListType(self.itemType)
 
@@ -71,6 +71,6 @@ class ToSetMethodDeclaration(BuiltInMethodDeclaration):
         return value.toSetValue(context)
 
 
-    def check(self, context, isStart: bool):
+    def check(self, context):
         from prompto.type.SetType import SetType
         return SetType(self.itemType)

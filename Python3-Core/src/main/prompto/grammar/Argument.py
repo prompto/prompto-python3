@@ -97,7 +97,10 @@ class Argument(IDialectElement):
         actualType = None
         isArrow = self.isArrowExpression(requiredType, expression)
         if isArrow:
-            actualType = self.checkArrowExpression(context, requiredType, expression)
+            if isinstance(requiredType, MethodType):
+                actualType = self.checkArrowExpression(context, requiredType, expression)
+            else:
+                actualType = VoidType.instance
         elif isinstance(requiredType, MethodType):
             actualType = expression.checkReference(context.calling)
         else:
@@ -119,8 +122,6 @@ class Argument(IDialectElement):
 
     def isArrowExpression(self, requiredType, expression):
         from prompto.expression.ArrowExpression import ArrowExpression
-        if not isinstance(requiredType, MethodType):
-            return False
         if isinstance(expression, ContextualExpression):
             expression = expression.expression
         return isinstance(expression, ArrowExpression)
@@ -134,35 +135,35 @@ class Argument(IDialectElement):
 
 
     def resolve(self, context, methodDeclaration, checkInstance):
-        from prompto.type.CategoryType import CategoryType
-        from prompto.expression.ArrowExpression import ArrowExpression
-        # since we support implicit members, it's time to resolve them
-        name = self.parameter.getName()
-        expression = self.getExpression()
-        argument = methodDeclaration.getArguments().find(name)
-        requiredType = argument.getType(context)
-        checkArrow = isinstance(requiredType, MethodType) and isinstance(expression, ContextualExpression) and isinstance(expression.expression, ArrowExpression)
-        actualType = requiredType.checkArrowExpression(context, expression) if checkArrow else expression.check(context.getCallingContext())
-        if checkInstance and isinstance(actualType, CategoryType):
-            value = expression.interpret(context.getCallingContext())
-            if isinstance(value, IInstance):
-                actualType = value.getType()
-        if not requiredType.isAssignableFrom(context, actualType) and isinstance(actualType, CategoryType):
-            from prompto.expression.MemberSelector import MemberSelector
-            expression = MemberSelector(name, expression)
-        return expression
+        parameter = self.findParameter(methodDeclaration)
+        return self.doResolve(context, parameter, checkInstance)
 
+    def findParameter(self, methodDeclaration):
+        return methodDeclaration.parameters.find(self.parameter.name)
+
+    def doResolve(self, context, parameter, checkInstance):
+        # since we support implicit members, it's time to resolve them
+        expression = self.getExpression()
+        requiredType = parameter.getType(context)
+        actualType = self.checkActualType(context, requiredType, expression, checkInstance)
+        assignable = requiredType.isAssignableFrom(context, actualType)
+        # try passing category member
+        from prompto.type.CategoryType import CategoryType
+        if not assignable and isinstance(actualType, CategoryType):
+            from prompto.expression.MemberSelector import MemberSelector
+            expression = MemberSelector(expression, parameter.name)
+        return expression
 
     def makeArgument(self, context, declaration):
         parameter = self.parameter
         # when 1st argument, can be unnamed
         if parameter is None:
-            if len(declaration.getArguments()) == 0:
-                raise SyntaxError("Method has no argument")
-            parameter = declaration.getArguments()[0]
+            if len(declaration.parameters) == 0:
+                raise SyntaxError("Method has no parameter")
+            parameter = declaration.parameters[0]
         else:
-            parameter = declaration.getArguments().find(self.getName())
+            parameter = declaration.parameters.find(self.getName())
         if parameter is None:
-            raise SyntaxError("Method has no argument:" + self.getName())
+            raise SyntaxError("Method has no such parameter:" + self.getName())
         expression = ContextualExpression(context, self.getExpression())
         return Argument(parameter, expression)
