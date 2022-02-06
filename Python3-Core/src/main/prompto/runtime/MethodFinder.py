@@ -52,7 +52,7 @@ class MethodFinder(object):
                 elif isinstance(value, ArrowValue):
                     return self.getArrowDeclaration(value)
         else:
-            named = self.context.getInstance(selector.name, False)
+            named = self.context.getInstance(selector.name, True)
             if named is None:
                 return None
             type = named.getType(self.context)
