@@ -55,7 +55,7 @@ class MethodFinder(object):
             named = self.context.getInstance(selector.name, True)
             if named is None:
                 return None
-            type = named.getType(self.context)
+            type = named.getType(self.context).resolve(self.context)
             if isinstance(type, MethodType):
                 return type.method.asReference()
         return None
