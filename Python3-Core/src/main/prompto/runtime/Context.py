@@ -285,7 +285,7 @@ class Context(IContext):
 
     def getInstance(self, name, includeParent):
         named = self.instances.get(name, None)
-        return named if named is not None else self.parent.getInstance(name, True) if (self.parent is None or not includeParent) else None
+        return named if named is not None else None if (self.parent is None or not includeParent) else self.parent.getInstance(name, True)
 
     def hasValue(self, name):
         return self.contextForValue(name) is not None
