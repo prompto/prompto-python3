@@ -68,6 +68,9 @@ class TestMethods(BaseEParserTest):
     def testPolymorphicAbstract(self):
         self.compareResourceEOE("methods/polymorphicAbstract.pec")
 
+    def testPolymorphicMember(self):
+        self.compareResourceEOE("methods/polymorphicMember.pec")
+
     def testPolymorphicNamed(self):
         self.compareResourceEOE("methods/polymorphicNamed.pec")
 

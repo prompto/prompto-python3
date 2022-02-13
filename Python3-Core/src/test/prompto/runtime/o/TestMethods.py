@@ -46,6 +46,9 @@ class TestMethods(BaseOParserTest):
     def testHomonym2(self):
         self.checkOutput("methods/homonym2.poc")
 
+    def testLocalMember(self):
+        self.checkOutput("methods/localMember.poc")
+
     def testMember(self):
         self.checkOutput("methods/member.poc")
 
@@ -60,6 +63,9 @@ class TestMethods(BaseOParserTest):
 
     def testPolymorphicAbstract(self):
         self.checkOutput("methods/polymorphicAbstract.poc")
+
+    def testPolymorphicMember(self):
+        self.checkOutput("methods/polymorphicMember.poc")
 
     def testPolymorphicNamed(self):
         self.checkOutput("methods/polymorphicNamed.poc")

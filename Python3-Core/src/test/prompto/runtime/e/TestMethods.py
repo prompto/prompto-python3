@@ -67,6 +67,9 @@ class TestMethods(BaseEParserTest):
     def testPolymorphicAbstract(self):
         self.checkOutput("methods/polymorphicAbstract.pec")
 
+    def testPolymorphicMember(self):
+        self.checkOutput("methods/polymorphicMember.pec")
+
     def testPolymorphicNamed(self):
         self.checkOutput("methods/polymorphicNamed.pec")
 

@@ -68,6 +68,9 @@ class TestMethods(BaseEParserTest):
     def testPolymorphicAbstract(self):
         self.compareResourceEME("methods/polymorphicAbstract.pec")
 
+    def testPolymorphicMember(self):
+        self.compareResourceEME("methods/polymorphicMember.pec")
+
     def testPolymorphicNamed(self):
         self.compareResourceEME("methods/polymorphicNamed.pec")
 

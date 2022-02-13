@@ -47,6 +47,9 @@ class TestMethods(BaseOParserTest):
     def testHomonym2(self):
         self.compareResourceOMO("methods/homonym2.poc")
 
+    def testLocalMember(self):
+        self.compareResourceOMO("methods/localMember.poc")
+
     def testMember(self):
         self.compareResourceOMO("methods/member.poc")
 
@@ -61,6 +64,9 @@ class TestMethods(BaseOParserTest):
 
     def testPolymorphicAbstract(self):
         self.compareResourceOMO("methods/polymorphicAbstract.poc")
+
+    def testPolymorphicMember(self):
+        self.compareResourceOMO("methods/polymorphicMember.poc")
 
     def testPolymorphicNamed(self):
         self.compareResourceOMO("methods/polymorphicNamed.poc")

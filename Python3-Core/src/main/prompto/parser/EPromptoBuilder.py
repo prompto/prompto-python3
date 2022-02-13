@@ -2589,9 +2589,15 @@ class EPromptoBuilder(EParserListener):
 
 
     def exitInvocation_expression(self, ctx: EParser.Invocation_expressionContext):
-        name = self.getNodeValue(ctx.name)
-        select = MethodSelector(name)
-        self.setNodeValue(ctx, MethodCall(select))
+        select = None
+        exp = self.getNodeValue(ctx.exp)
+        if isinstance(exp, UnresolvedIdentifier):
+            select = MethodSelector(exp.getName())
+        elif isinstance(exp, MemberSelector):
+            select = MethodSelector(exp.getName())
+            select.setParent(exp.getParent())
+        if select is not None:
+            self.setNodeValue(ctx, MethodCall(select))
 
 
     def exitInvocationExpression(self, ctx: EParser.InvocationExpressionContext):
