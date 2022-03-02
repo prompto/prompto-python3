@@ -31,6 +31,9 @@ class TestCast(BaseOParserTest):
     def testCastNull(self):
         self.checkOutput("cast/castNull.poc")
 
+    def testCastParent(self):
+        self.checkOutput("cast/castParent.poc")
+
     def testIsAChild(self):
         self.checkOutput("cast/isAChild.poc")
 
