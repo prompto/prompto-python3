@@ -71,9 +71,9 @@ class CastExpression (IExpression):
                     value = DecimalValue(value.DecimalValue())
                 elif isinstance(value, DecimalValue) and target == IntegerType.instance:
                     return IntegerValue(value.IntegerValue())
-                elif value.itype.isMoreSpecificThan(context, target):
+                elif value.itype.isAssignableFrom(context, target):
                     pass
-                elif target.isMoreSpecificThan(context, value.itype):
+                elif target.isAssignableFrom(context, value.itype):
                     value.itype = self.itype
                 else:
                     raise SyntaxError("Cannot cast " + str(value.itype) + " to " + str(self.itype))
