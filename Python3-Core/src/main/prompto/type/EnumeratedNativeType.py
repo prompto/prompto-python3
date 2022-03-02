@@ -58,6 +58,9 @@ class EnumeratedNativeType ( BaseType ):
             return super(EnumeratedNativeType, self).getStaticMemberMethods(context, name)
 
 
+    def isMoreSpecificThan(self, context, itype):
+        return False
+
 class SymbolOfMethodDeclaration(BuiltInMethodDeclaration):
 
     def __init__(self, enumType):
