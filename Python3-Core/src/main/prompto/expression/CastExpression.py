@@ -71,6 +71,8 @@ class CastExpression (IExpression):
                     return IntegerValue(value.IntegerValue())
                 elif target.isMoreSpecificThan(context, value.itype):
                     value.itype = self.itype
+                else:
+                    raise SyntaxError("Cannot cast " + str(value.itype) + " to " + str(self.itype))
         return value
 
 
