@@ -1,4 +1,6 @@
+from prompto.type.AnyType import AnyType
 from prompto.type.BaseType import BaseType
+from prompto.type.MissingType import MissingType
 
 
 class NativeType ( BaseType ):
@@ -52,7 +54,7 @@ class NativeType ( BaseType ):
 
 
     def isMoreSpecificThan(self, context, other):
-        return False
+        return other == MissingType.instance or other == AnyType.instance
 
 
     def getSortKeyReader(self, context, expression):
