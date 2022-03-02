@@ -14,6 +14,9 @@ class TestCast(BaseOParserTest):
     def testCastChild(self):
         self.compareResourceOMO("cast/castChild.poc")
 
+    def testCastEnum(self):
+        self.compareResourceOMO("cast/castEnum.poc")
+
     def testCastMethod(self):
         self.compareResourceOMO("cast/castMethod.poc")
 

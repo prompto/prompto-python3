@@ -19,6 +19,9 @@ class TestCast(BaseOParserTest):
     def testCastChild(self):
         self.checkOutput("cast/castChild.poc")
 
+    def testCastEnum(self):
+        self.checkOutput("cast/castEnum.poc")
+
     def testCastMethod(self):
         self.checkOutput("cast/castMethod.poc")
 
