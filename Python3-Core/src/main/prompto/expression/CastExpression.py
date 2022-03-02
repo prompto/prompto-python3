@@ -71,6 +71,8 @@ class CastExpression (IExpression):
                     value = DecimalValue(value.DecimalValue())
                 elif isinstance(value, DecimalValue) and target == IntegerType.instance:
                     return IntegerValue(value.IntegerValue())
+                elif value.itype.isMoreSpecificThan(context, target):
+                    pass
                 elif target.isMoreSpecificThan(context, value.itype):
                     value.itype = self.itype
                 else:
