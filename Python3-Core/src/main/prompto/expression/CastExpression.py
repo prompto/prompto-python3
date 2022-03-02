@@ -10,6 +10,7 @@ from prompto.type.MethodType import MethodType
 from prompto.type.NativeType import NativeType
 from prompto.value.DecimalValue import DecimalValue
 from prompto.value.IntegerValue import IntegerValue
+from prompto.value.NullValue import NullValue
 
 
 def getTargetType(context, itype, mutable):
@@ -64,7 +65,7 @@ class CastExpression (IExpression):
 
     def interpret(self, context):
         value = self.expression.interpret(context)
-        if value is not None:
+        if value is not None and value != NullValue.instance:
             target = getTargetType(context, self.itype, self.mutable)
             if target != value.itype:
                 if isinstance(value, IntegerValue) and target == DecimalType.instance:
@@ -72,10 +73,8 @@ class CastExpression (IExpression):
                 elif isinstance(value, DecimalValue) and target == IntegerType.instance:
                     return IntegerValue(value.IntegerValue())
                 elif value.itype.isAssignableFrom(context, target):
-                    pass
-                elif target.isAssignableFrom(context, value.itype):
                     value.itype = self.itype
-                else:
+                elif not target.isAssignableFrom(context, value.itype):
                     raise SyntaxError("Cannot cast " + str(value.itype) + " to " + str(self.itype))
         return value
 
