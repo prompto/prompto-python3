@@ -47,6 +47,8 @@ class CastExpression (IExpression):
     def check(self, context):
         actual = self.expression.check(context).anyfy()
         target = getTargetType(context, self.itype, self.mutable)
+        if actual == target:
+            return target
         # check any
         if actual == AnyType.instance:
             return target
