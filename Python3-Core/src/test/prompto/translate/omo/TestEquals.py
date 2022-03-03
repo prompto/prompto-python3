@@ -53,6 +53,12 @@ class TestEquals(BaseOParserTest):
     def testIsADictionary(self):
         self.compareResourceOMO("equals/isADictionary.poc")
 
+    def testIsAParentInstance(self):
+        self.compareResourceOMO("equals/isAParentInstance.poc")
+
+    def testIsAnInstance(self):
+        self.compareResourceOMO("equals/isAnInstance.poc")
+
     def testIsBoolean(self):
         self.compareResourceOMO("equals/isBoolean.poc")
 
