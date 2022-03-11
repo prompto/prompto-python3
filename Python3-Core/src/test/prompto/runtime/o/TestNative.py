@@ -58,6 +58,9 @@ class TestNative(BaseOParserTest):
     def testReturnLongValue(self):
         self.checkOutput("native/returnLongValue.poc")
 
+    def testReturnNullValue(self):
+        self.checkOutput("native/returnNullValue.poc")
+
     def testReturnStringLiteral(self):
         self.checkOutput("native/returnStringLiteral.poc")
 

@@ -56,6 +56,9 @@ class TestNative(BaseOParserTest):
     def testReturnLongValue(self):
         self.compareResourceOMO("native/returnLongValue.poc")
 
+    def testReturnNullValue(self):
+        self.compareResourceOMO("native/returnNullValue.poc")
+
     def testReturnStringLiteral(self):
         self.compareResourceOMO("native/returnStringLiteral.poc")
 
