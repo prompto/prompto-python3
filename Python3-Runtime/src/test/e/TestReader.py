@@ -19,6 +19,9 @@ class TestReader(BaseEParserTest):
     def testJson(self):
         self.runTests("reader/json.pec")
 
+    def testXml(self):
+        self.runTests("reader/xml.pec")
+
     def testYaml(self):
         self.runTests("reader/yaml.pec")
 

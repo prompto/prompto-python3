@@ -13,30 +13,23 @@ class TextValue(BaseValue, ISliceable, IMultiplyable):
         super(TextValue, self).__init__(TextType.instance)
         self.value = value
 
-
     def convertToPython(self):
         return self.value
-
 
     def getStorableData(self):
         return self.value
 
-
     def getValue(self):
         return self.value
-
 
     def size(self):
         return len(self.value)
 
-
     def isEmpty(self):
         return len(self.value) == 0
 
-
     def Add(self, context, value):
         return TextValue(self.value + str(value))
-
 
     def Multiply(self, context, value):
         if isinstance(value, IntegerValue):
@@ -51,7 +44,6 @@ class TextValue(BaseValue, ISliceable, IMultiplyable):
         else:
             super(TextValue, self).Multiply(context, value)
 
-
     def compareTo(self, context, value):
         if isinstance(value, TextValue):
             if self.value < value.value:
@@ -62,7 +54,6 @@ class TextValue(BaseValue, ISliceable, IMultiplyable):
                 return 1
         else:
             super(TextValue, self).CompareTo(context, value)
-
 
     def hasItem(self, context, value):
         from prompto.value.CharacterValue import CharacterValue
