@@ -3,6 +3,7 @@ from prompto.expression.IExpression import IExpression
 from prompto.type.BooleanType import BooleanType
 from prompto.value.BooleanValue import BooleanValue
 from prompto.parser.Dialect import Dialect
+from prompto.error.SyntaxError import SyntaxError
 
 class TernaryExpression ( IExpression ):
 
