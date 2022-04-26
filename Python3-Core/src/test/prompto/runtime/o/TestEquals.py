@@ -64,6 +64,9 @@ class TestEquals(BaseOParserTest):
     def testIsAnInstance(self):
         self.checkOutput("equals/isAnInstance.poc")
 
+    def testIsAnInstanceTernary(self):
+        self.checkOutput("equals/isAnInstanceTernary.poc")
+
     def testIsBoolean(self):
         self.checkOutput("equals/isBoolean.poc")
 

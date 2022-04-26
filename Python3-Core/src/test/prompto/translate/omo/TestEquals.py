@@ -59,6 +59,9 @@ class TestEquals(BaseOParserTest):
     def testIsAnInstance(self):
         self.compareResourceOMO("equals/isAnInstance.poc")
 
+    def testIsAnInstanceTernary(self):
+        self.compareResourceOMO("equals/isAnInstanceTernary.poc")
+
     def testIsBoolean(self):
         self.compareResourceOMO("equals/isBoolean.poc")
 
