@@ -1,3 +1,4 @@
+from prompto.expression.EqualsExpression import EqualsExpression
 from prompto.expression.IExpression import IExpression
 from prompto.type.BooleanType import BooleanType
 from prompto.value.BooleanValue import BooleanValue
@@ -32,6 +33,8 @@ class TernaryExpression ( IExpression ):
         itype = self.condition.check(context)
         if not isinstance(itype, BooleanType):
             raise SyntaxError("Cannot test condition on " +  itype.getName() )
+        if isinstance(self.condition, EqualsExpression):
+            context = self.condition.downcast(context, False)
         trueType = self.ifTrue.check(context)
         # Type falseType = ifFalse.check(context)
         # TODO check compatibility
@@ -39,6 +42,8 @@ class TernaryExpression ( IExpression ):
 
     def interpret(self, context):
         test = self.condition.interpret(context)
+        if isinstance(self.condition, EqualsExpression):
+            context = self.condition.downcast(context, True)
         if test is BooleanValue.TRUE:
             return self.ifTrue.interpret(context)
         else:
