@@ -13,17 +13,12 @@ class AbstractMethodDeclaration(BaseMethodDeclaration):
         pass  # TODO
 
 
-    def checkStart(self, context):
+    def check(self, context, isStart:bool = False):
         if self.parameters is not None:
             self.parameters.check(context)
-        local = context.newLocalContext()
-        self.registerParameters(local)
-        return self.returnType
-
-
-    def check(self, context):
-        if self.parameters is not None:
-            self.parameters.check(context)
+        if isStart:
+            local = context.newLocalContext()
+            self.registerParameters(local)
         return self.returnType
 
 

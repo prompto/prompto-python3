@@ -25,15 +25,9 @@ class ConcreteMethodDeclaration ( BaseMethodDeclaration ):
     def getStatements(self):
         return self.statements
 
-    def checkStart(self, context):
+    def check(self, context, isStart:bool = False):
         if self.canBeChecked(context):
-            return self.recursiveCheck(context, True)
-        else:
-            return VoidType.instance
-
-    def check(self, context):
-        if self.canBeChecked(context):
-            return self.recursiveCheck(context, False)
+            return self.recursiveCheck(context, isStart)
         else:
             return VoidType.instance
 
