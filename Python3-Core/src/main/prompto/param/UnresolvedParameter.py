@@ -16,22 +16,17 @@ class UnresolvedParameter (IParameter):
         self.resolved = None
         self.mutable = False
 
-
     def getSignature(self, dialect):
         return self.getName()
-
 
     def getName(self):
         return self.name
 
-
     def __str__(self):
         return self.name
 
-
     def setMutable(self, mutable):
         self.mutable = mutable
-
 
     def toDialect(self, writer):
         writer.append(self.name)
@@ -39,31 +34,29 @@ class UnresolvedParameter (IParameter):
             writer.append(" = ")
             self.defaultValue.toDialect(writer)
 
-
     def check(self, context):
-        self.resolveAndCheck(context)
-
+        return self.resolveAndCheck(context)
 
     def getProto(self):
         return self.name
-
 
     def getType(self, context):
         self.resolveAndCheck(context)
         return self.resolved.getType(context)
 
-
     def register(self, context):
         self.resolveAndCheck(context)
         self.resolved.register(context)
-
 
     def checkValue(self, context, value):
         self.resolveAndCheck(context)
         return self.resolved.checkValue(context, value)
 
-
     def resolveAndCheck(self, context):
+        self.resolve(context)
+        return self.resolved.check(context)
+
+    def resolve(self, context):
         if self.resolved is not None:
             return
         named = context.getRegisteredDeclaration(IDeclaration, self.name)

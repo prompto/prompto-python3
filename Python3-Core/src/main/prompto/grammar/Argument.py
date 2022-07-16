@@ -80,17 +80,23 @@ class Argument(IDialectElement):
 
 
     def check(self, context):
-        actual = context.getRegisteredValue(INamedInstance, self.parameter.getName())
-        if actual is None:
-            actualType = self.getExpression().check(context)
-            context.registerValue(Variable(self.parameter.getName(), actualType))
+        if self.expression is None:
+            self.checkParameterOnly(context)
         else:
-            # need to check type compatibility
-            actualType = actual.getType(context)
-            newType = self.getExpression().check(context)
-            actualType.checkAssignableFrom(context, newType)
-        return VoidType.instance
+            self.checkParameterAndExpression(context)
 
+    def checkParameterOnly(self, context):
+        registered = context.getRegisteredValue(INamedInstance, self.parameter.getName())
+        if registered is None:
+            raise SyntaxError("Unknown attribute: " + self.parameter.getName())
+        requiredType = self.parameter.check(context)
+        actualType = registered.getType(context)
+        requiredType.checkAssignableFrom(context, actualType)
+
+    def checkParameterAndExpression(self, context):
+        requiredType = self.parameter.check(context)
+        actualType = self.getExpression().check(context)
+        requiredType.checkAssignableFrom(context, actualType)
 
     def checkActualType(self, context, requiredType, expression, checkInstance):
         from prompto.type.CategoryType import CategoryType

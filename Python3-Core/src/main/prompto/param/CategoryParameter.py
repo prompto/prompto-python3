@@ -59,6 +59,7 @@ class CategoryParameter(BaseParameter, ITypedParameter):
     def check(self, context):
         self.resolve(context)
         self.resolved.checkExists(context)
+        return self.itype
 
     def checkValue(self, context, expression):
         from prompto.value.ContextualExpression import ContextualExpression

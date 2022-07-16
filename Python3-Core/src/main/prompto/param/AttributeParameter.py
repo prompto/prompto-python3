@@ -1,6 +1,7 @@
 from prompto.param.BaseParameter import BaseParameter
 from prompto.declaration.AttributeDeclaration import AttributeDeclaration
 from prompto.declaration.IDeclaration import IDeclaration
+from prompto.error.SyntaxError import SyntaxError
 
 
 class AttributeParameter (BaseParameter):
@@ -36,6 +37,7 @@ class AttributeParameter (BaseParameter):
         actual = context.getRegisteredDeclaration(AttributeDeclaration,self.name)
         if actual is None:
             raise SyntaxError("Unknown attribute: \"" + self.name + "\"")
+        return actual.getType(context)
 
     def getType(self, context):
         named = context.getRegisteredDeclaration(IDeclaration,self.name)
