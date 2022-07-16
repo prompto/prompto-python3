@@ -5,9 +5,6 @@ class TestAnnotations(BaseOParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
-    def testReactState1(self):
-        self.compareResourceOMO("annotations/ReactState1.poc")
-
     def testReactWidgetProps1(self):
         self.compareResourceOMO("annotations/ReactWidgetProps1.poc")
 

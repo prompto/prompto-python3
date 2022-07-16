@@ -5,6 +5,9 @@ class TestCategories(BaseOParserTest):
     def setUp(self):
         super(type(self), self).setUp()
     
+    def testAttributeConstructor(self):
+        self.compareResourceOEO("categories/attributeConstructor.poc")
+
     def testCopyFromAscendant(self):
         self.compareResourceOEO("categories/copyFromAscendant.poc")
 
@@ -23,13 +26,25 @@ class TestCategories(BaseOParserTest):
     def testCopyFromStored(self):
         self.compareResourceOEO("categories/copyFromStored.poc")
 
+    def testEmptyConstructor(self):
+        self.compareResourceOEO("categories/emptyConstructor.poc")
+
     def testEquals(self):
         self.compareResourceOEO("categories/equals.poc")
+
+    def testLiteralConstructor(self):
+        self.compareResourceOEO("categories/literalConstructor.poc")
 
     def testPopulateFalse(self):
         self.compareResourceOEO("categories/populateFalse.poc")
 
     def testResourceAttribute(self):
         self.compareResourceOEO("categories/resourceAttribute.poc")
+
+    def testSynonymConstructor(self):
+        self.compareResourceOEO("categories/synonymConstructor.poc")
+
+    def testValueConstructor(self):
+        self.compareResourceOEO("categories/valueConstructor.poc")
 
 
