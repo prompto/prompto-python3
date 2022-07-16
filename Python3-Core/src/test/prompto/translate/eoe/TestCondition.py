@@ -11,8 +11,11 @@ class TestCondition(BaseEParserTest):
     def testEmbeddedIf(self):
         self.compareResourceEOE("condition/embeddedIf.pec")
 
-    def testReturnIf(self):
-        self.compareResourceEOE("condition/returnIf.pec")
+    def testReturnTextIf(self):
+        self.compareResourceEOE("condition/returnTextIf.pec")
+
+    def testReturnVoidIf(self):
+        self.compareResourceEOE("condition/returnVoidIf.pec")
 
     def testSimpleIf(self):
         self.compareResourceEOE("condition/simpleIf.pec")

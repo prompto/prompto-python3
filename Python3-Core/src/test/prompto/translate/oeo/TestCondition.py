@@ -14,8 +14,11 @@ class TestCondition(BaseOParserTest):
     def testLocalScope(self):
         self.compareResourceOEO("condition/localScope.poc")
 
-    def testReturnIf(self):
-        self.compareResourceOEO("condition/returnIf.poc")
+    def testReturnTextIf(self):
+        self.compareResourceOEO("condition/returnTextIf.poc")
+
+    def testReturnVoidIf(self):
+        self.compareResourceOEO("condition/returnVoidIf.poc")
 
     def testSimpleIf(self):
         self.compareResourceOEO("condition/simpleIf.poc")

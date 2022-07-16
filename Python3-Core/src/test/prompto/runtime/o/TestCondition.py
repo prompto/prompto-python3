@@ -19,8 +19,11 @@ class TestCondition(BaseOParserTest):
     def testLocalScope(self):
         self.checkOutput("condition/localScope.poc")
 
-    def testReturnIf(self):
-        self.checkOutput("condition/returnIf.poc")
+    def testReturnTextIf(self):
+        self.checkOutput("condition/returnTextIf.poc")
+
+    def testReturnVoidIf(self):
+        self.checkOutput("condition/returnVoidIf.poc")
 
     def testSimpleIf(self):
         self.checkOutput("condition/simpleIf.poc")

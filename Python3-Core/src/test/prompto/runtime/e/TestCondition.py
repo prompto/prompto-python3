@@ -16,8 +16,11 @@ class TestCondition(BaseEParserTest):
     def testEmbeddedIf(self):
         self.checkOutput("condition/embeddedIf.pec")
 
-    def testReturnIf(self):
-        self.checkOutput("condition/returnIf.pec")
+    def testReturnTextIf(self):
+        self.checkOutput("condition/returnTextIf.pec")
+
+    def testReturnVoidIf(self):
+        self.checkOutput("condition/returnVoidIf.pec")
 
     def testSimpleIf(self):
         self.checkOutput("condition/simpleIf.pec")
