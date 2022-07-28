@@ -1,6 +1,5 @@
 from prompto.store.InvalidValueError import InvalidValueError
 from prompto.store.TypeFamily import TypeFamily
-from prompto.type.AnyType import AnyType
 from prompto.type.BooleanType import BooleanType
 from prompto.type.NativeType import NativeType
 from prompto.type.RangeType import RangeType
