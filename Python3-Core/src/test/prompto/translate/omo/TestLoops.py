@@ -77,6 +77,9 @@ class TestLoops(BaseOParserTest):
     def testForEachIntegerSetWithIndex(self):
         self.compareResourceOMO("loops/forEachIntegerSetWithIndex.poc")
 
+    def testForEachTextCharacter(self):
+        self.compareResourceOMO("loops/forEachTextCharacter.poc")
+
     def testForEachTimeRange(self):
         self.compareResourceOMO("loops/forEachTimeRange.poc")
 

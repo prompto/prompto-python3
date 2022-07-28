@@ -82,6 +82,9 @@ class TestLoops(BaseOParserTest):
     def testForEachIntegerSetWithIndex(self):
         self.checkOutput("loops/forEachIntegerSetWithIndex.poc")
 
+    def testForEachTextCharacter(self):
+        self.checkOutput("loops/forEachTextCharacter.poc")
+
     def testForEachTimeRange(self):
         self.checkOutput("loops/forEachTimeRange.poc")
 
