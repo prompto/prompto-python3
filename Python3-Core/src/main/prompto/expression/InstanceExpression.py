@@ -46,9 +46,7 @@ class InstanceExpression(IExpression):
         named = context.getRegistered(self.name)
         if named is None:
             named = context.getRegisteredDeclaration(IDeclaration, self.name)
-        if named is None:
-            raise SyntaxError("Unknown identifier:" + self.name)
-        elif isinstance(named, Variable):  # local variable
+        if isinstance(named, Variable):  # local variable
             return named.getType(context)
         elif isinstance(named, LinkedVariable):  # linked variable
             return named.getType(context)
