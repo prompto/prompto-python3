@@ -35,7 +35,7 @@ class EnumeratedNativeType ( BaseType ):
 
     def checkStaticMember(self, context, name):
         if name=="symbols":
-            return ListType(self)
+            return ListType(self, False)
         else:
             return super(EnumeratedNativeType, self).checkMember(context, name)
 

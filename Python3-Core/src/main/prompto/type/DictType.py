@@ -70,7 +70,7 @@ class DictType ( ContainerType ):
         elif "keys"==name:
             return SetType(TextType.instance)
         elif "values"==name:
-            return ListType(self.itemType)
+            return ListType(self.itemType, False)
         else:
             return super(DictType, self).checkMember(context, name)
 

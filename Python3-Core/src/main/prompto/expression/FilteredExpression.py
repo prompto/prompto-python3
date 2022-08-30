@@ -34,7 +34,7 @@ class FilteredExpression(Section, IExpression):
         filterType = arrow.checkFilter(context, itemType)
         if filterType is not BooleanType.instance:
             raise SyntaxError("Filtering expression must return a boolean!")
-        return ListType(itemType)
+        return ListType(itemType, False)
 
 
     def interpret(self, context):

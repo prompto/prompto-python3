@@ -10,15 +10,17 @@ from prompto.type.VoidType import VoidType
 
 class ListType(ContainerType):
 
-    def __init__(self, itemType):
+    def __init__(self, itemType, mutable):
         super().__init__(TypeFamily.LIST, itemType)
         self.typeName = itemType.typeName + "[]"
+        self.mutable = mutable
 
+    def isMutable(self, context):
+        return self.mutable
 
     def isAssignableFrom(self, context, other):
         return super().isAssignableFrom(context, other) or \
                (isinstance(other, ListType) and self.itemType.isAssignableFrom(context, other.itemType))
-
 
     def __eq__(self, obj):
         if id(obj) == id(self):
@@ -110,7 +112,14 @@ class ListType(ContainerType):
 
 
     def withItemType(self, itemType:IType):
-        return ListType(itemType)
+        return ListType(itemType, self.mutable)
+
+
+    def asMutable(self, context, mutable:bool):
+        if mutable == self.mutable:
+            return self
+        else:
+            return ListType(self.itemType, mutable)
 
 
 

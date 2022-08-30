@@ -14,9 +14,9 @@ from prompto.value.TextValue import TextValue
 # noinspection PyDefaultArgument
 class ListLiteral(Literal):
 
-    def __init__(self, expressions=[], mutable=False):
+    def __init__(self, expressions=[], mutable = False):
         strs = [ str(e) for e in expressions]
-        super().__init__("[" + ", ".join(strs) + "]", ListValue(MissingType.instance))
+        super().__init__("[" + ", ".join(strs) + "]", ListValue(MissingType.instance, mutable = mutable))
         self.itemType = None
         self.expressions = expressions
         self.mutable = mutable
@@ -25,7 +25,7 @@ class ListLiteral(Literal):
     def check(self, context):
         if self.itemType is None:
             self.itemType = self.inferElementType(context)
-        return ListType(self.itemType)
+        return ListType(self.itemType, self.mutable)
 
 
     def inferElementType(self, context):

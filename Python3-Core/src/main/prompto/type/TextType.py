@@ -171,7 +171,7 @@ class SplitMethodDeclaration(BuiltInMethodDeclaration):
 
     def check(self, context):
         from prompto.type.ListType import ListType
-        return ListType(TextType.instance)
+        return ListType(TextType.instance, False)
 
 
 class ReplaceMethodDeclaration(BuiltInMethodDeclaration):

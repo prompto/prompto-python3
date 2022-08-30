@@ -11,14 +11,14 @@ class ListValue(BaseValueList, IFilterable):
 
     def __init__(self, itemType, items = None, item = None, mutable = False):
         from prompto.type.ListType import ListType
-        super().__init__( ListType(itemType), items, mutable)
+        super().__init__( ListType(itemType, mutable), items, mutable)
         self.storables = None
         if item is not None:
             self.items.append(item)
 
 
     def newInstance(self, items):
-        return ListValue(self.itype.itemType, items=items)
+        return ListValue(self.itype.itemType, items=items, mutable=self.mutable)
 
 
     def getStorableData(self):
