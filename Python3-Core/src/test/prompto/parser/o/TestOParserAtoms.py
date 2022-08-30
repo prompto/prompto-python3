@@ -182,7 +182,7 @@ class TestParserAtoms(unittest.TestCase):
         self.assertIsNotNone(ad)
         self.assertEquals("printName", ad.getName())
         self.assertIsNotNone(ad.parameters)
-        expected = CategoryParameter(ListType(CategoryType("Option")), "options")
+        expected = CategoryParameter(ListType(CategoryType("Option"), False), "options")
         self.assertTrue(expected in ad.parameters)
         self.assertIsNotNone(ad.getStatements())
         writer = CodeWriter(Dialect.O, Context.newGlobalContext())
