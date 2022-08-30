@@ -40,6 +40,12 @@ class TestCast(BaseOParserTest):
     def testIsAText(self):
         self.checkOutput("cast/isAText.poc")
 
+    def testMutableEntity(self):
+        self.checkOutput("cast/mutableEntity.poc")
+
+    def testMutableList(self):
+        self.checkOutput("cast/mutableList.poc")
+
     def testNullIsNotAText(self):
         self.checkOutput("cast/nullIsNotAText.poc")
 

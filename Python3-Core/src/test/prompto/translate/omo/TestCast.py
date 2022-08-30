@@ -35,6 +35,12 @@ class TestCast(BaseOParserTest):
     def testIsAText(self):
         self.compareResourceOMO("cast/isAText.poc")
 
+    def testMutableEntity(self):
+        self.compareResourceOMO("cast/mutableEntity.poc")
+
+    def testMutableList(self):
+        self.compareResourceOMO("cast/mutableList.poc")
+
     def testNullIsNotAText(self):
         self.compareResourceOMO("cast/nullIsNotAText.poc")
 
