@@ -1664,7 +1664,7 @@ class MPromptoBuilder(MParserListener):
 
     def exitListType(self, ctx: MParser.ListTypeContext):
         typ = self.getNodeValue(ctx.l)
-        self.setNodeValue(ctx, ListType(typ))
+        self.setNodeValue(ctx, ListType(typ, False))
 
 
     def exitLiteral_expression(self, ctx: MParser.Literal_expressionContext):

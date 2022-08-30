@@ -10,7 +10,7 @@ from prompto.type.VoidType import VoidType
 
 class ListType(ContainerType):
 
-    def __init__(self, itemType, mutable):
+    def __init__(self, itemType, mutable: bool):
         super().__init__(TypeFamily.LIST, itemType)
         self.typeName = itemType.typeName + "[]"
         self.mutable = mutable

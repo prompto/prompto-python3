@@ -33,7 +33,7 @@ class DocumentType ( NativeType ):
         elif "keys" == name:
             return SetType(TextType.instance)
         elif "values" == name:
-            return ListType(AnyType.instance)
+            return ListType(AnyType.instance, False)
         elif name == "text":
             return TextType.instance
         else:

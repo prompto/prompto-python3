@@ -63,4 +63,4 @@ class ToListMethodDeclaration(BuiltInMethodDeclaration):
 
 
     def check(self, context):
-        return ListType(self.itemType)
+        return ListType(self.itemType, False)
