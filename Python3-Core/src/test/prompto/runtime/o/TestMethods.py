@@ -46,6 +46,9 @@ class TestMethods(BaseOParserTest):
     def testHomonym2(self):
         self.checkOutput("methods/homonym2.poc")
 
+    def testInheritedMember(self):
+        self.checkOutput("methods/inheritedMember.poc")
+
     def testLocalMember(self):
         self.checkOutput("methods/localMember.poc")
 

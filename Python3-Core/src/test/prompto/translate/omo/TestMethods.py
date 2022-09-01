@@ -47,6 +47,9 @@ class TestMethods(BaseOParserTest):
     def testHomonym2(self):
         self.compareResourceOMO("methods/homonym2.poc")
 
+    def testInheritedMember(self):
+        self.compareResourceOMO("methods/inheritedMember.poc")
+
     def testLocalMember(self):
         self.compareResourceOMO("methods/localMember.poc")
 
