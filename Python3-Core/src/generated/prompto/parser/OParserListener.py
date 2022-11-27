@@ -1196,12 +1196,21 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#MethodSelector.
-    def enterMethodSelector(self, ctx:OParser.MethodSelectorContext):
+    # Enter a parse tree produced by OParser#MethodRefSelector.
+    def enterMethodRefSelector(self, ctx:OParser.MethodRefSelectorContext):
         pass
 
-    # Exit a parse tree produced by OParser#MethodSelector.
-    def exitMethodSelector(self, ctx:OParser.MethodSelectorContext):
+    # Exit a parse tree produced by OParser#MethodRefSelector.
+    def exitMethodRefSelector(self, ctx:OParser.MethodRefSelectorContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#MethodCallSelector.
+    def enterMethodCallSelector(self, ctx:OParser.MethodCallSelectorContext):
+        pass
+
+    # Exit a parse tree produced by OParser#MethodCallSelector.
+    def exitMethodCallSelector(self, ctx:OParser.MethodCallSelectorContext):
         pass
 
 
@@ -1889,15 +1898,6 @@ class OParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by OParser#method_identifier.
-    def enterMethod_identifier(self, ctx:OParser.Method_identifierContext):
-        pass
-
-    # Exit a parse tree produced by OParser#method_identifier.
-    def exitMethod_identifier(self, ctx:OParser.Method_identifierContext):
-        pass
-
-
     # Enter a parse tree produced by OParser#identifier_or_keyword.
     def enterIdentifier_or_keyword(self, ctx:OParser.Identifier_or_keywordContext):
         pass
@@ -1958,6 +1958,15 @@ class OParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by OParser#member_identifier.
     def exitMember_identifier(self, ctx:OParser.Member_identifierContext):
+        pass
+
+
+    # Enter a parse tree produced by OParser#method_identifier.
+    def enterMethod_identifier(self, ctx:OParser.Method_identifierContext):
+        pass
+
+    # Exit a parse tree produced by OParser#method_identifier.
+    def exitMethod_identifier(self, ctx:OParser.Method_identifierContext):
         pass
 
 
