@@ -6,6 +6,7 @@ from prompto.error.InternalError import InternalError
 from prompto.runtime.IContext import IContext
 from prompto.runtime.LinkedValue import LinkedValue
 from prompto.runtime.Variable import Variable
+from prompto.runtime.WidgetField import WidgetField
 from prompto.type.DecimalType import DecimalType
 from prompto.type.MethodType import MethodType
 from prompto.value.ClosureValue import ClosureValue
@@ -196,10 +197,11 @@ class Context(IContext):
     def getRegisteredDeclaration(self, klass, name):
         # resolve upwards, since local names override global ones
         actual = self.declarations.get(name, None)
-        if actual is None and self.parent is not None:
-            actual = self.parent.getRegisteredDeclaration(klass, name)
-        if actual is None and id(self) != id(self.globals):
-            actual = self.globals.getRegisteredDeclaration(klass, name)
+        if actual is None:
+            if self.parent is not None:
+                return self.parent.getRegisteredDeclaration(klass, name)
+            if id(self) != id(self.globals):
+                actual = self.globals.getRegisteredDeclaration(klass, name)
         if isinstance(actual, klass):
             return actual
         else:
@@ -444,13 +446,17 @@ class InstanceContext(Context):
         super().__init__()
         self.instance = instance
         self.instanceType = itype if itype is not None else instance.itype
-
+        self.widgetFields: dict = None
 
     def getClosestInstanceContext(self):
         return self
 
 
     def getRegistered(self, name):
+        if self.widgetFields is not None:
+            field = self.widgetFields.get(name, None)
+            if field is not None:
+                return field
         actual = super().getRegistered(name)
         if actual is not None:
             return actual
@@ -486,6 +492,10 @@ class InstanceContext(Context):
 
 
     def contextForValue(self, name):
+        if "this" == name:
+            return self
+        elif self.widgetFields is not None and self.widgetFields.get(name, None) is not None:
+            return self
         # params and variables have precedence over members
         # so first look in context values
         context = super(InstanceContext, self).contextForValue(name)
@@ -505,7 +515,6 @@ class InstanceContext(Context):
             from prompto.declaration.ConcreteCategoryDeclaration import ConcreteCategoryDeclaration
             return self.getRegisteredDeclaration(ConcreteCategoryDeclaration, self.instanceType.typeName)
 
-
     def readValue(self, name):
         decl = self.getDeclaration()
         if decl.hasAttribute(self, name):
@@ -516,12 +525,17 @@ class InstanceContext(Context):
         else:
             return None
 
-
-    def writeValue(self, name, value):
+    def writeValue(self, name: str, value):
         self.instance.setMember(self.calling, name, value)
 
+    def registerWidgetField(self, name: str, itype):
+        if self.widgetFields is None:
+            self.widgetFields = dict()
+        self.widgetFields[name] = WidgetField(name, itype)
 
-
+    def overrideWidgetFieldType(self, name: str, itype):
+        widgetField = self.widgetFields[name]
+        widgetField.itype = itype
 
 class MethodDeclarationMap(dict, IDeclaration):
 

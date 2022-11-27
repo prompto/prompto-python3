@@ -7,3 +7,4 @@ class IDeclaration (INamed, ISection, IDialectElement):
 
 	def check(self, context):
 		pass
+

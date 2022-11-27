@@ -39,5 +39,6 @@ class TypeFamily(Enum):
     JSX = "JSX"
     CSS = "CSS"
     HTML = "HTML"
+    PROPERTIES = "PROPERTIES"
     # volatile
     MISSING = "MISSING"

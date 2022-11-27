@@ -75,4 +75,7 @@ class MethodExpression(IExpression):
     def toDialect(self, writer):
         if writer.dialect is Dialect.E:
             writer.append("Method: ")
-        writer.append(str(self.expression))
+        if isinstance(self.expression, UnresolvedSelector):
+            self.expression.toDialect(writer, True)
+        else:
+            writer.append(str(self.expression))

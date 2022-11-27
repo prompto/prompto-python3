@@ -21,12 +21,16 @@ class UnresolvedSelector(SelectorExpression):
         return self.name if self.parent is None else str(self.parent) + '.' + self.name
 
 
-    def toDialect(self, writer):
+    def toDialect(self, writer, asRef = False):
         try:
             self.resolve(writer.context, False)
         except:
             pass
-        if self.resolved is not None:
+        if asRef and isinstance(self.resolved, UnresolvedCall):
+            self.resolved = self.resolved.caller
+        if isinstance(self.resolved, MethodSelector):
+            self.resolved.toDialect(writer, asRef)
+        elif self.resolved is not None:
             self.resolved.toDialect(writer)
         else:
             if self.parent is not None:

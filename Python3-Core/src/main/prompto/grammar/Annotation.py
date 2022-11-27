@@ -35,3 +35,9 @@ class Annotation(object):
                 if entry.key == name:
                     return entry.value
         return None
+
+    def getDefaultArgument(self):
+        if self.entries is not None and len(self.entries) == 1:
+            return self.entries[0].value
+        else:
+            return None

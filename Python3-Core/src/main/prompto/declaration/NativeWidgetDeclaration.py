@@ -5,7 +5,13 @@ class NativeWidgetDeclaration(NativeCategoryDeclaration):
 
     def __init__(self,name, categoryBindings, methods):
         super().__init__(name, None, categoryBindings, None, methods)
+        self.properties = None
 
+    def isAWidget(self, context):
+        return True
+
+    def asWidget(self, context):
+        return self
 
     def categoryTypeToEDialect(self, writer):
         writer.append("native widget")

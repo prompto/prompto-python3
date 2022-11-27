@@ -169,7 +169,7 @@ class MethodCall(SimpleStatement):
     def toDialect(self, writer):
         if self.requiresInvoke(writer):
             writer.append("invoke: ")
-        self.selector.toDialect(writer)
+        self.selector.toDialect(writer, False)
         if self.arguments is not None:
             self.arguments.toDialect(writer)
         elif writer.dialect is not Dialect.E:
