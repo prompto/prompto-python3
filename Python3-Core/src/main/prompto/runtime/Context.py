@@ -200,8 +200,8 @@ class Context(IContext):
         if actual is None:
             if self.parent is not None:
                 return self.parent.getRegisteredDeclaration(klass, name)
-            if id(self) != id(self.globals):
-                actual = self.globals.getRegisteredDeclaration(klass, name)
+            elif id(self) != id(self.globals):
+                return self.globals.getRegisteredDeclaration(klass, name)
         if isinstance(actual, klass):
             return actual
         else:
