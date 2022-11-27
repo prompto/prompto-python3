@@ -32,6 +32,12 @@ class TestJsx(BaseOParserTest):
     def testLiteralAttribute(self):
         self.compareResourceOMO("jsx/literalAttribute.poc")
 
+    def testMethodCall(self):
+        self.compareResourceOMO("jsx/methodCall.poc")
+
+    def testMethodRef(self):
+        self.compareResourceOMO("jsx/methodRef.poc")
+
     def testNonAsciiTextElement(self):
         self.compareResourceOMO("jsx/nonAsciiTextElement.poc")
 
@@ -43,5 +49,14 @@ class TestJsx(BaseOParserTest):
 
     def testTextElement(self):
         self.compareResourceOMO("jsx/textElement.poc")
+
+    def testThisLowerMethodRef(self):
+        self.compareResourceOMO("jsx/thisLowerMethodRef.poc")
+
+    def testThisMethodCall(self):
+        self.compareResourceOMO("jsx/thisMethodCall.poc")
+
+    def testThisUpperMethodRef(self):
+        self.compareResourceOMO("jsx/thisUpperMethodRef.poc")
 
 

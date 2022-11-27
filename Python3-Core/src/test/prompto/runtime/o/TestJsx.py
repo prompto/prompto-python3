@@ -34,6 +34,12 @@ class TestJsx(BaseOParserTest):
     def testLiteralAttribute(self):
         self.checkOutput("jsx/literalAttribute.poc")
 
+    def testMethodCall(self):
+        self.checkOutput("jsx/methodCall.poc")
+
+    def testMethodRef(self):
+        self.checkOutput("jsx/methodRef.poc")
+
     def testNonAsciiTextElement(self):
         self.checkOutput("jsx/nonAsciiTextElement.poc")
 
@@ -45,5 +51,14 @@ class TestJsx(BaseOParserTest):
 
     def testTextElement(self):
         self.checkOutput("jsx/textElement.poc")
+
+    def testThisLowerMethodRef(self):
+        self.checkOutput("jsx/thisLowerMethodRef.poc")
+
+    def testThisMethodCall(self):
+        self.checkOutput("jsx/thisMethodCall.poc")
+
+    def testThisUpperMethodRef(self):
+        self.checkOutput("jsx/thisUpperMethodRef.poc")
 
 
