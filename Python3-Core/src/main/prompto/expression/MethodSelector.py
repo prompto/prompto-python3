@@ -21,7 +21,7 @@ class MethodSelector(MemberSelector):
             return str(self.parent) + '.' + self.name
 
 
-    def toDialect(self, writer, asRef = None):
+    def toDialect(self, writer, asRef = True):
         if asRef and writer.dialect is Dialect.E:
             writer.append("Method: ")
         if self.parent is None:
