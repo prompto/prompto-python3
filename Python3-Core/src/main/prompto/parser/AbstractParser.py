@@ -18,13 +18,20 @@ class AbstractParser(Parser):
     def wasNotWhiteSpace(self):
         return self.wasNot(getattr(self, "WS"))
 
-    def willBe(self, type:int):
+    def willBe(self, type: int):
         return self._input.LA(1)==type
 
     def willBeIn(self, *types):
         return self._input.LA(1) in types
 
-    def willNotBe(self, type:int):
+    def afterWillBeIn(self, skipType: int, *types):
+        idx = 1
+        next = self._input.LA(idx)
+        while next == skipType:
+            next = self._input.LA(idx)
+        return next in types
+
+    def willNotBe(self, type: int):
         return self._input.LA(1)!=type
 
     def nextHiddenTokenType(self):

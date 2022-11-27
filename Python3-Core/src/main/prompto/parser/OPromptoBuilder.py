@@ -3,6 +3,7 @@ from antlr4.ParserRuleContext import ParserRuleContext
 from antlr4.tree.Tree import ParseTree
 
 from prompto.expression.ExplicitPredicateExpression import ExplicitPredicateExpression
+from prompto.expression.MethodSelector import MethodSelector
 from prompto.expression.PredicateExpression import PredicateExpression
 from prompto.expression.ReadBlobExpression import ReadBlobExpression
 from prompto.expression.SuperExpression import SuperExpression
@@ -858,8 +859,7 @@ class OPromptoBuilder(OParserListener):
 
 
     def exitMethod_identifier(self, ctx: OParser.Method_identifierContext):
-        stmt = self.getNodeValue(ctx.getChild(0))
-        self.setNodeValue(ctx, stmt)
+        self.setNodeValue(ctx, ctx.getText())
 
 
     def exitArgument_assignment(self, ctx: OParser.Argument_assignmentContext):
@@ -1132,7 +1132,11 @@ class OPromptoBuilder(OParserListener):
         self.setNodeValue(ctx, exp)
 
 
-    def exitMethodSelector(self, ctx: OParser.MethodSelectorContext):
+    def exitMethodRefSelector(self, ctx: OParser.MethodRefSelectorContext):
+        name = self.getNodeValue(ctx.name)
+        self.setNodeValue(ctx, MethodSelector(name))
+
+    def exitMethodCallSelector(self, ctx: OParser.MethodCallSelectorContext):
         call = self.getNodeValue(ctx.method)
         if isinstance(call.caller, UnresolvedIdentifier):
             name = call.caller.name
