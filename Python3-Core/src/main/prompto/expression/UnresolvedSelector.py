@@ -7,14 +7,12 @@ from prompto.statement.UnresolvedCall import UnresolvedCall
 from prompto.type.AnyType import AnyType
 
 
-
 class UnresolvedSelector(SelectorExpression):
 
     def __init__(self, name):
         super().__init__()
         self.name = name
         self.resolved = None
-
 
 
     def __str__(self):
@@ -39,10 +37,8 @@ class UnresolvedSelector(SelectorExpression):
             writer.append(self.name)
 
 
-
     def check(self, context):
         return self.resolveAndCheck(context, False)
-
 
 
     def checkMember(self, context):
